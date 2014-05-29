@@ -65,7 +65,7 @@ App::error(function(Exception $exception, $code)
 App::down(function()
 {
 	if (App::environment('local')) {
-		//local mode 
+		//local mode
 		return NULL;
 	}
 	return Response::view("comingsoon.index", array(), 200);
