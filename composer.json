@@ -4,7 +4,8 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.1.*"
+		"laravel/framework": "4.1.28",
+		"andy199310/facebook-php-sdk-v4" : "dev-master"
 	},
 	"require-dev": {
 		"barryvdh/laravel-ide-helper": "1.*",
@@ -36,5 +37,11 @@
 	"config": {
 		"preferred-install": "dist"
 	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/andy199310/facebook-php-sdk-v4"
+		}
+	],
 	"minimum-stability": "stable"
 }

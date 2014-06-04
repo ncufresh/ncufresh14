@@ -3,7 +3,18 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+/**
+ * User
+ *
+ * @property integer $id
+ * @property string $email
+ * @property string $name
+ * @property string $nick_name
+ * @property string $password
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ */
+class User extends Eloquent implements UserInterface{
 
 	/**
 	 * The database table used by the model.
@@ -78,6 +89,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function getReminderEmail()
 	{
 		return $this->email;
+	}
+
+	/**
+	 * Get the facebook's data
+	 *
+	 * @return FacebookData
+	 */
+	public function getFacebookData(){
+		return $this->hasMany('FacebookData', 'uid', 'id');
 	}
 
 }
