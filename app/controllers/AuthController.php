@@ -17,11 +17,29 @@ class AuthController extends BaseController {
 	 * with: email, password
 	 */
 	public function login(){
-		if (Auth::check())
-		{
-			echo "LOGIN";
-		}else{
-			echo "NO";
+		if(Input::has('email', 'password')){
+			$email = Input::get('email');
+			$password = Hash::make(Input::get('password'));
+			echo $hashedPassword = Hash::make('1').'<br>';
+			//TODO 修正登入問題>_<
+			echo Hash::make('1').'<br>';
+			echo Hash::make('1').'<br>';
+			echo Hash::make('1').'<br>';
+			if (Hash::check('1', $hashedPassword))
+			{
+				// The passwords match...
+				echo "in";
+			}
+			echo $password;
+			if (Auth::attempt(array('email' => $email, 'password' => $password))){
+				// Success login
+				echo 'hihi';
+				return Redirect::intended();
+			}else{
+				// Fail login
+				echo 'hi';
+			}
+
 		}
 	}
 
@@ -111,6 +129,37 @@ class AuthController extends BaseController {
 	public function logout(){
 		Auth::logout();
 		return Redirect::to('/');
+	}
+
+	public function register(){
+		return View::make('auth.register');
+	}
+
+	public function registerStore(){
+
+		$rules = array(
+			'email' => 'required|unique:users|max:255|email',
+			'name' => 'required|max:10',
+			'nick_name' => 'required|max:10',
+			'password' => 'required|min:6',
+			're_password' => 'required|same:password'
+		);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if($validator->fails()){
+			return Redirect::to('register')->withErrors($validator)->withInput();
+		}else{
+			//success! save user to database~~
+			$newUser = new User;
+			$newUser->name = Input::get('name');
+			$newUser->nick_name = Input::get('nick_name');
+			$newUser->email = Input::get('email');
+			$newUser->password = Hash::make(Input::get('password'));
+			$newUser->save();
+			return Redirect::to('/');
+		}
+
 	}
 
 }

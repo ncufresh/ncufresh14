@@ -15,9 +15,13 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
-	{
-		return View::make('hello');
+	public function showWelcome(){
+		return View::make('index');
+	}
+
+	public function errorPage(){
+		$message = Input::get('message', 'Unknow error');
+		return View::make('error.index', array('message' => $message));
 	}
 
 }
