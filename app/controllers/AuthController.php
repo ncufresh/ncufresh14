@@ -19,27 +19,17 @@ class AuthController extends BaseController {
 	public function login(){
 		if(Input::has('email', 'password')){
 			$email = Input::get('email');
-			$password = Hash::make(Input::get('password'));
-			echo $hashedPassword = Hash::make('1').'<br>';
-			//TODO 修正登入問題>_<
-			echo Hash::make('1').'<br>';
-			echo Hash::make('1').'<br>';
-			echo Hash::make('1').'<br>';
-			if (Hash::check('1', $hashedPassword))
-			{
-				// The passwords match...
-				echo "in";
-			}
-			echo $password;
+			$password = Input::get('password');
+
 			if (Auth::attempt(array('email' => $email, 'password' => $password))){
 				// Success login
-				echo 'hihi';
 				return Redirect::intended();
 			}else{
 				// Fail login
-				echo 'hi';
+				return Redirect::home()->with('message', '帳號或密碼錯誤');
 			}
-
+		}else{
+			return Redirect::home()->with('message', '帳號或密碼錯誤');
 		}
 	}
 
