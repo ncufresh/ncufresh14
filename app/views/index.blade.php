@@ -1,13 +1,11 @@
 @extends('layouts.layout')
 
 @section('content')
-<?php
- if(Auth::check()){
-	 echo "IN";
- }else{
-	 echo "OUT";
- }
-?>
+@if(Auth::check())
+	Hello! {{ Auth::user()->name}}
+@else
+	No login!QQ
+@endif
 <br>
 HIHI;
 

@@ -1,0 +1,83 @@
+#globalContainer{
+	width: 1024px;
+	margin: 0 auto;
+}
+
+#topContainer{
+	width: 100%;
+	height: 175px;
+}
+#topContainer>div{
+	float: left;
+}
+
+#topLeft{
+	width: 200px;
+	height: 100%;
+}
+
+#topMiddle{
+	width: 594px;
+	height: 100%;
+	padding: 10px;
+}
+
+#topRight{
+	width: 200px;
+	height: 100%;
+}
+
+#topLogo{
+	position: relative;
+	width: 150px;
+	height: 150px;
+	top: 10px;
+	left: 21px;
+}
+
+#topSearchBar{
+	width: 90%;
+	height: 30px;
+	margin: 0 auto;
+}
+
+#topNavBar{
+	width: 90%;
+	height: 125px;
+	margin: 0 auto;
+}
+
+#topLoginBar{
+	width: 175px;
+	height: 175px;
+	padding: 10px;
+}
+
+#container{
+	width: 100%;
+	min-height: 400px;
+}
+
+
+#bottomContainer{
+	width: 100%;
+}
+
+
+
+
+
+
+/** testing */
+.testR{
+	background-color: rgba(255, 0, 0, 0.4);
+}
+.testG{
+	background-color: rgba(0, 255, 0, 0.4);
+}
+.testB{
+	background-color: rgba(0, 0, 255, 0.4);
+}
+.testY{
+	background-color: rgba(255, 255, 0, 0.4);
+}

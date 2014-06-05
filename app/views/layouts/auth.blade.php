@@ -12,5 +12,6 @@
 	{{ Form::password('password') }}
 	{{ Form::submit('Login') }}
 	{{ Form::close() }}
+	<a href="{{ route('loginFB') }}"><button type="button" class="btn btn-default btn-sm">Login with FB</button></a>
 @endif
 </div>

@@ -114,6 +114,7 @@ class AuthController extends BaseController {
 			//echo "ERROR4";
 		}
 		echo '<a href="/login/FB">login</a>';
+		return Redirect::to('/');
 	}
 
 	public function logout(){
