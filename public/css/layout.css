@@ -1,6 +1,7 @@
 #globalContainer{
 	width: 1024px;
 	margin: 0 auto;
+	padding: 0px;
 }
 
 #topContainer{
@@ -12,29 +13,29 @@
 }
 
 #topLeft{
-	width: 200px;
+	width: 250px;
 	height: 100%;
 }
 
 #topMiddle{
-	width: 494px;
+	width: 574px;
 	height: 100%;
 	padding: 10px;
 }
 
 #topRight{
-	width: 300px;
+	width: 200px;
 	height: 250px;
-	padding: 25px 10px;	
+	padding: 25px 10px;
+	float: right;
 }
 
 #topLogo{
 	position: relative;
-	width: 200px;
-	height: 200px;
-	top: 25px;
+	width: 250px;
+	height: 250px;
 	background-image: url("../images/logo.jpg");
-	background-size:200px 200px;
+	background-size:250px 250px;
 	background-repeat:no-repeat;
 }
 
@@ -60,6 +61,7 @@
 #container{
 	width: 100%;
 	min-height: 400px;
+	padding: 0px;
 }
 
 
@@ -67,9 +69,13 @@
 	width: 100%;
 }
 
+#auth_box {
+	position: relative;
+}
 
-
-
+#auth_box input {
+	width:100%;
+}
 
 /** testing */
 .testR{
