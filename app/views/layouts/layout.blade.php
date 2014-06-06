@@ -15,7 +15,7 @@
 				@yield('content')
 			</div>
 			<div id="bottomContainer" class="container testG">
-				Bottom!
+				<p>Bottom!</p>
 			</div>
 		</div>
 	</body>

@@ -6,12 +6,15 @@
 {{-- User not logined. show login form --}}
 	{{-- Login form --}}
 	{{ Form::open(array('route' => 'login')) }}
-	{{ Form::label('email', 'email') }}
+	{{ Form::label('email', '帳號') }}
 	{{ Form::text('email') }}
-	{{ Form::label('password') }}
+	<br>
+	{{ Form::label('密碼') }}
 	{{ Form::password('password') }}
+	<br>
 	{{ Form::submit('Login') }}
-	{{ Form::close() }}
 	<a href="{{ route('loginFB') }}"><button type="button" class="btn btn-default btn-sm">Login with FB</button></a>
+	{{ Form::close() }}
+	
 @endif
 </div>
