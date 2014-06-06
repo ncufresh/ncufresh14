@@ -26,6 +26,10 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'AuthController@logout'))
 Route::get('register', array('as' => 'register', 'uses' => 'AuthController@register'));
 Route::post('register', array('as' => 'register.store', 'uses' => 'AuthController@registerStore'));
 
+//==========================================================================================
+//global function
+//announcement
+Route::resource('announcement', 'AnnouncementController');
 
 //==========================================================================================
 //error

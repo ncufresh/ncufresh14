@@ -186,13 +186,22 @@ class AuthController extends BaseController {
 		$edit_user->display_name = '編輯使用者';
 		$edit_user->save();
 
+		$announcement_admin = new Permission;
+		$announcement_admin->name = 'announcement_admin';
+		$announcement_admin->display_name = '管理公告';
+		$announcement_admin->save();
+
+
+		//sync permission to Role
 		$developer->perms()->sync(array(
 			$global_admin->id,
 			$edit_user->id,
+			$announcement_admin->id,
 		));
 
 		$admin->perms()->sync(array(
 			$edit_user->id,
+			$announcement_admin->id,
 		));
 
 	}
