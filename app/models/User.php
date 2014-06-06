@@ -2,6 +2,7 @@
 
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use Zizaco\Entrust\HasRole;
 
 /**
  * User
@@ -13,8 +14,10 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property string $password
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Config::get('entrust::role[] $roles
  */
 class User extends Eloquent implements UserInterface{
+	use HasRole;
 
 	/**
 	 * The database table used by the model.

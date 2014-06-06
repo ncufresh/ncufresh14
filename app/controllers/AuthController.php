@@ -76,7 +76,7 @@ class AuthController extends BaseController {
 
 				//Find the uid is in the database or not
 				$facebookData = FacebookData::whereUid($uid)->first();
-
+//TODO 如果使用者的email已經在系統了怎麼辦XD
 				if(empty($facebookData)){
 					//New user to the system, create user!
 					$user = new User();
@@ -149,6 +149,51 @@ class AuthController extends BaseController {
 			$newUser->save();
 			return Redirect::to('/');
 		}
+	}
+
+
+	//$user->attachRole( $admin ); // Parameter can be an Role object, array or id.
+	//$owner->perms()->sync(array($managePosts->id,$manageUsers->id));
+	public function makePermissionAndRole(){
+		//Can do only once~~
+
+		//Role
+		$developer = new Role;
+		$developer->name = '開發者';
+		$developer->save();
+
+		$admin = new Role;
+		$admin->name = '系統管理者';
+		$admin->save();
+
+		$unit = new Role;
+		$unit->name = '社團/系所帳號';
+		$unit->save();
+
+		$user = new Role;
+		$user->name = '使用者';
+		$user->save();
+
+
+		//Permission
+		$global_admin = new Permission;
+		$global_admin->name = 'global_admin';
+		$global_admin->display_name = '全域管理';
+		$global_admin->save();
+
+		$edit_user = new Permission;
+		$edit_user->name = 'edit_user';
+		$edit_user->display_name = '編輯使用者';
+		$edit_user->save();
+
+		$developer->perms()->sync(array(
+			$global_admin->id,
+			$edit_user->id,
+		));
+
+		$admin->perms()->sync(array(
+			$edit_user->id,
+		));
 
 	}
 

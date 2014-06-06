@@ -5,7 +5,9 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.28",
-		"andy199310/facebook-php-sdk-v4" : "dev-master"
+		"andy199310/facebook-php-sdk-v4" : "dev-master",
+		"zizaco/entrust": "dev-master",
+		"laravelbook/ardent": "dev-master"
 	},
 	"require-dev": {
 		"barryvdh/laravel-ide-helper": "1.*",
