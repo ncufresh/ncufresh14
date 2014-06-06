@@ -1,0 +1,50 @@
+#contentContainer {
+	width: 100%;
+
+}
+
+#contentLeft {
+	width: 23%;
+	height: 720px;
+	padding: 10px;
+	float: left;
+}
+
+#contentRight {
+	width: 77%;
+	height: 720px;
+	padding: 10px 10px 10px 0px;
+	float: left;
+}
+
+#calender {
+	width: 200px;
+	height: 350px;
+	padding: 10px;
+}
+
+#links {
+	width: 200px;
+	height: 350px;
+	padding: 10px;
+}
+
+#board {
+	width: 100%;
+	height: 300px;
+	padding: 10px;
+}
+
+#forum {
+	width: 70%;
+	height: 400px;
+	float: left;
+	padding: 10px;
+}
+
+#vedio {
+	width: 30%;
+	height: 400px;
+	float: left;
+	padding: 10px;
+}
