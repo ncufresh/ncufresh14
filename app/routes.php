@@ -30,6 +30,7 @@ Route::post('register', array('as' => 'register.store', 'uses' => 'AuthControlle
 //global function
 //announcement
 Route::resource('announcement', 'AnnouncementController');
+Route::resource('links', 'LinksController');
 
 //==========================================================================================
 //error
