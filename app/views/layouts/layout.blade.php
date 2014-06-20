@@ -2,9 +2,12 @@
 	<head>
 		{{ HTML::script('js/jquery.min.js') }}
 		{{ HTML::script('js/bootstrap.min.js') }}
+		{{ HTML::script('js/jquery.rest.min.js') }}
 		{{ HTML::style('css/bootstrap.min.css') }}
 
 		{{ HTML::style('css/layout.css') }}
+
+		@yield('css_js')
 	</head>
 	<body>
 		<div id="globalContainer" class="container">

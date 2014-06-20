@@ -34,3 +34,14 @@ Route::resource('announcement', 'AnnouncementController');
 //==========================================================================================
 //error
 Route::get('error', array('as' => 'error', 'uses' => 'HomeController@errorPage'));
+
+
+Route::get('admin', array('as' => 'dashboard', 'uses' => 'HomeController@dashboard'));
+
+
+//==========================================================================================
+//API
+Route::group(array('prefix' => 'api/v1'), function()
+{
+	Route::resource('announcement', 'APIAnnouncementController');
+});

@@ -24,4 +24,20 @@ class HomeController extends BaseController {
 		return View::make('error.index', array('message' => $message));
 	}
 
+
+	//Admin only ><
+	public function dashboard(){
+		$function = array(
+			'announcement' => array(
+				'name' => '公告',
+				'param' => array(
+					'title' => array('name' => '標題', 'type' => 'text'),
+					'content' => array('name' => '內容', 'type' => 'textarea'),
+					'pinned' => array('name' => '置頂', 'type' => 'radio', 'data' => array('0' => '否', '1' => '是')),
+				),
+			),
+		);
+		return View::make('admin.index', array('function' => $function));
+	}
+
 }
