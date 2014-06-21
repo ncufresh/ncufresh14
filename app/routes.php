@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showWelcome'));
+Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 
 //==========================================================================================
 //auth
@@ -32,6 +32,20 @@ Route::post('register', array('as' => 'register.store', 'uses' => 'AuthControlle
 Route::resource('announcement', 'AnnouncementController');
 Route::resource('links', 'LinksController');
 
+Route::resource('link', 'LinkController');
 //==========================================================================================
 //error
 Route::get('error', array('as' => 'error', 'uses' => 'HomeController@errorPage'));
+
+
+Route::get('admin', array('as' => 'dashboard', 'uses' => 'HomeController@dashboard'));
+
+
+//==========================================================================================
+//API
+Route::group(array('prefix' => 'api/v1'), function()
+{
+	Route::get('/', function(){return Response::json('Hello API');});
+	Route::resource('announcement', 'APIAnnouncementController');
+	Route::resource('link', 'APILinkController');
+});
