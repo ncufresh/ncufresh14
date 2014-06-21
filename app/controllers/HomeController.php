@@ -15,8 +15,9 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome(){
-		return View::make('index');
+	public function index(){
+		$links = Link::orderBy('order', 'ASC')->get();
+		return View::make('index', array('links' => $links));
 	}
 
 	public function errorPage(){
