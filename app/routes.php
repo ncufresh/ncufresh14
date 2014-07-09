@@ -49,3 +49,8 @@ Route::group(array('prefix' => 'api/v1'), function()
 	Route::resource('announcement', 'APIAnnouncementController');
 	Route::resource('link', 'APILinkController');
 });
+
+
+//==========================================================================================
+//video
+Route::get('video', array('as' => 'video', 'uses' => 'VideoController@index'));

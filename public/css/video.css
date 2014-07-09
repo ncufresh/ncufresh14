@@ -1,0 +1,88 @@
+#main {
+	position:relative;
+	top:20;
+	left:-400;
+}
+
+#attached1 {
+	position:relative;
+	top:-610px;
+	right:-800px
+	}
+
+#attached2 {
+	position:relative;
+	top:-600px;
+	right:-800px;
+}
+
+#attached3 {
+	position:relative;
+	top:-590px;
+	right:-800px;
+}
+
+#attached4 {
+	position:relative;
+	top:-580px;
+	right:-800px;
+}
+
+#attached5 {
+	position:relative;
+	top:-570px;
+	right:-800px;
+}
+
+#attached6 {
+	position:relative;
+	top:-560px;
+	right:-800px;
+}
+
+#attached7 {
+	position:relative;
+	top:-550px;
+	right:-800px;
+}
+
+#attached8 {
+	position:relative;
+	top:-540px;
+	right:-800px;
+}
+
+#attached9 {
+	position:relative;
+	top:-530px;
+	right:-800px;
+}
+
+#attached10 {
+	position:relative;
+	top:-520px;
+	right:-800px;
+}
+
+/*////////////////////////////////////////////////////////////////////////////////*/
+
+#like {
+	position:relative;
+	top:-1200px;
+	left:-450px;
+}
+#love {
+	position:relative;
+	top:-1200px;
+	left:-430px;
+}
+#message {
+	position:relative;
+	top:-1200px;
+	left:-410px;
+}
+#div1 {
+	position:relative;
+	top:-1180px;
+	left:-300px;
+}
