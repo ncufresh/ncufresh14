@@ -49,3 +49,7 @@ Route::group(array('prefix' => 'api/v1'), function()
 	Route::resource('announcement', 'APIAnnouncementController');
 	Route::resource('link', 'APILinkController');
 });
+
+Route::get('SchoolGuide', array('as' => 'SchoolGuide', 'uses' => 'SchoolGuideController@show') );
+
+Route::post('Guide', array('as' => 'Guide', 'uses' => 'SchoolGuideController@get') );
