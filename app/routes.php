@@ -50,6 +50,13 @@ Route::group(array('prefix' => 'api/v1'), function()
 	Route::resource('link', 'APILinkController');
 });
 
+
 //============================================================================
 //game
 Route::get('game/snake', array('as' => 'game.snake', 'uses' => 'GameSnakeController@index'));
+
+//==========================================================================================
+//Forum articles
+Route::get('articles',function(){
+	return View::make('articles');
+});

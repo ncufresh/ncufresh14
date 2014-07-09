@@ -21,7 +21,7 @@ class CreateArticlesTable extends Migration {
 			$table->timestamps();
 		});
 		Schema::create('forum_comments',function($table){
-			$table->increment('id');
+			$table->increments('id');
 			$table->integer('article_id');
 			$table->integer('author_id')->unsigned();
 			$table->text('content');
