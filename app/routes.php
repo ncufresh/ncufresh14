@@ -57,6 +57,9 @@ Route::get('game/snake', array('as' => 'game.snake', 'uses' => 'GameSnakeControl
 
 //==========================================================================================
 //Forum articles
-Route::get('articles',function(){
-	return View::make('forum/articles');
-});
+Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@get_articles'));
+
+Route::post('/new',array('uses' => 'ArticlesController@post_articles'));
+
+
+
