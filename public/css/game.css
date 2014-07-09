@@ -69,26 +69,37 @@
 	width: 487px;
 	height: 100%;
 	background-color: white;
-
+	position: relative;
 }
 
 #rotate_table {
-	top: 50px;
-	left: 50px;
-	width: 50px;
-	height: 50px;
+	top: 35px;
+	left: 168px;
+	width: 150px;
+	height: 150px;
 	position: absolute;
 	background-color: blue;
 }
 
-#foot {
-	width: 50px;
-	height: 50px;
+#rotate_foot {
+	width: 100px;
+	height: 200px;
+	top: 110px;
+	left: 192px;
 	position: absolute ;
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
 #destinyStart {
+	top: 100px;
+	left: 100px;
 	width: 75px;
 	height: 50px;
+	padding: 10px;
+	background-color: blue;
+	position: absolute;
+}
+
+#bounsPage {
+	display: none;
 }

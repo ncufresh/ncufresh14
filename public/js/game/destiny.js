@@ -1,7 +1,7 @@
 (function($)
 {
 	
-	var rotation = 0;
+	
 	jQuery.fn.rotate = function(degrees) {
 	    $(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
 	                 '-moz-transform' : 'rotate('+ degrees +'deg)',
@@ -10,18 +10,59 @@
 	    return $(this);
 	};
 
-	var timer = $.timer(function() {
-            alert('This message was sent by a timer.');
-    });
-
-   
+	
 
     $(document).ready(function()
     {
+    	var running = false;
     	$('#destinyStart').click(function() {
-		    rotation += 5;
-		    $('#rotate_table').rotate(rotation);
+    		if ( !running ) {
+    			$(this).hide();
+	    		var postData = $(this).serializeArray();
+				var formURL = $(this).attr("action");
+				$.ajax(
+					{
+						url : formURL,
+						type: "POST",
+						data : postData,
+						success:function(data, textStatus, jqXHR)
+						{
+							if ( data["play"] ){
+								
+					    		var rotation = 0;
+					    		var decrease = 20;
+					    		var timer = $.timer(function() {
+							        rotation += decrease;
+							        decrease -= 0.1;
+								    $('#rotate_table').rotate(rotation + decrease);
+								    if ( decrease <= 0 ) {
+								    	timer.stop();
+								    	running = false;
+								    	$('#userPower').text('電量: ' + data["power"]);
+							    		$('#userGP').text('GP: ' + data["gp"]);
+							    		$('#destinyStart').show();
+							    		$('#startPage').hide();
+							    		$('#bounsPage').show();
+								    }
+							    });
+								timer.set({ time : 10, autostart : false });
+							    	running = true;
+							    	timer.play();
+							}
+							
+						},
+						error: function(jqXHR, textStatus, errorThrown)
+						{
+							alert("foo");
+						}
+					});
+				return false;
+			}
 		});
-    	 timer.set({ time : 5000, autostart : true });
+    	$('#bounsPage').click(function(){
+    		$(this).hide();
+    		$('#startPage').show();
+    	});
+    	
     });
 })(jQuery);

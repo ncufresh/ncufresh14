@@ -14,8 +14,8 @@
 				</div>
 			</a>
 			<div class="gameInfoText">使用者: {{ $name["nick_name"] }}</div>
-			<div class="gameInfoText">電量: {{ $user["power"] }}</div>
-			<div class="gameInfoText">GP: {{ $user["gp"] }}</div>
+			<div class="gameInfoText" id="userPower" >電量: {{ $user["power"] }}</div>
+			<div class="gameInfoText" id="userGP" >GP: {{ $user["gp"] }}</div>
 		</div>
 		<div id="gameMain">
 			@yield('game_content')

@@ -58,6 +58,7 @@ Route::get('game/snake', array('as' => 'game.snake', 'uses' => 'GameSnakeControl
 Route::get('game/campus', array('as' => 'game.campus', 'uses' => 'GamecampusController@index'));
 Route::get('game/destiny', array('as' => 'game.destiny', 'uses' => 'GamedestinyController@index'));
 
+Route::post('game/destiny/start', array('as' => 'game.destiny.start', 'uses' => 'GamedestinyController@start'));
 Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameController@index'));
 
 //==========================================================================================
