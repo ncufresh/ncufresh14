@@ -1,0 +1,30 @@
+#flipup {
+	height: 300px;
+	width: 1000px;
+}
+
+.item1 {
+	position: relative;
+	top: 20px;
+	display: inline-block;
+	height: 180px;
+	width: 300px;
+}
+
+#robot {
+	position: relative;
+	left: 50px;
+}
+
+.item2 {
+	position: relative;
+	left: 60px;
+	display: inline-block;
+	height: 180px;
+	width: 300px;
+}
+
+#flipdown {
+	height: 450px;
+	width: 1000px;
+}

@@ -49,3 +49,19 @@ Route::group(array('prefix' => 'api/v1'), function()
 	Route::resource('announcement', 'APIAnnouncementController');
 	Route::resource('link', 'APILinkController');
 });
+
+//==========================================================================================
+//NcuLife
+Route::get('nculife', function(){
+	return View::make('nculife.nculife');
+});
+
+Route::get('nculife/food', array('as' => 'nculife.food', 'uses'=>'NcuLifeController@food'));
+
+Route::get('nculife/live', array('as' => 'nculife.live', 'uses'=>'NcuLifeController@live'));
+
+Route::get('nculife/go', array('as' => 'nculife.go', 'uses'=>'NcuLifeController@go'));
+
+Route::get('nculife/inschool', array('as' => 'nculife.inschool', 'uses'=>'NcuLifeController@inschool'));
+
+Route::get('nculife/outschool', array('as' => 'nculife.outschool', 'uses'=>'NcuLifeController@outschool'));
