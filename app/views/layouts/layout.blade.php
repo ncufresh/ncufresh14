@@ -22,5 +22,10 @@
 				<p>Bottom!</p>
 			</div>
 		</div>
+		<script>
+		// var children = document.createElement("li");
+		// var element = document.getElementById("leftlist");
+		// element.appendChild(children);
+		</script>
 	</body>
 </html>

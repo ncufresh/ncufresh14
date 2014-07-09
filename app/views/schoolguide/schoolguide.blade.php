@@ -21,7 +21,26 @@
 				<option value="6">住宿</option>
 			</select>
 
+			
+			<ol id="leftlist">
+			@foreach($Schoolguides as $Schoolguide)
+			<li>
+			{{$Schoolguide->name}}
+			</li>
+			@endforeach
+			</ol>
+			</div>
+		</div>
+			<div id="contentRight" class="testB">
+				<div id="map" class="testG">map
+				</div>
+			</div>
+	
+
+			</div>
+	
 			<script>
+
 			
 			$("#select").change(function(){
 				
@@ -36,16 +55,12 @@
 						success:function(data){
 							var count = data.length;
 							//for(var key in data)
-							$("#leftlist").remove();
-							
+							$("#leftlist").children().remove();
 							for(var i=0; i<count; i++){
-						
-							$("data[i]['name']").appendTo($("#select"));
-							
+							var name =data[i]['name'];
+							$("<li>"+name+"</li>").appendTo("#leftlist");
+							console.log(name);
 							}
-							
-
-							
 
 						}
 					});
@@ -54,24 +69,6 @@
 
 			</script>
 
-			<ol id="leftlist">
-			@foreach($Schoolguides as $Schoolguide)
-			<li>
-			{{$Schoolguide->name}}
-			</li>
-			@endforeach
-			</ol>
-		</div>
-	</div>
-	<div id="contentRight" class="testB">
-		<div id="map" class="testG">map
-		</div>
-	</div>
-</div>
-
-			</div>
-	
-			
 
 	
 
