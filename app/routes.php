@@ -49,3 +49,9 @@ Route::group(array('prefix' => 'api/v1'), function()
 	Route::resource('announcement', 'APIAnnouncementController');
 	Route::resource('link', 'APILinkController');
 });
+
+//==========================================================================================
+//Forum articles
+Route::get('articles',function(){
+	return View::make('articles');
+});
