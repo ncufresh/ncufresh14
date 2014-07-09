@@ -58,5 +58,5 @@ Route::get('game/snake', array('as' => 'game.snake', 'uses' => 'GameSnakeControl
 //==========================================================================================
 //Forum articles
 Route::get('articles',function(){
-	return View::make('articles');
+	return View::make('forum/articles');
 });
