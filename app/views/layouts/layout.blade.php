@@ -4,6 +4,9 @@
 		{{ HTML::script('js/bootstrap.min.js') }}
 		{{ HTML::script('js/jquery.rest.min.js') }}
 		{{ HTML::script('js/jquery/jquery-ui-1.10.4.min.js') }}
+		<!-- jquery timer plugin-->
+		{{ HTML::script('js/jquery/jquery.timer.js') }}
+
 		{{ HTML::style('css/bootstrap.min.css') }}
 
 		{{ HTML::style('css/layout.css') }}
