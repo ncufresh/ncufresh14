@@ -13,7 +13,7 @@ class CreateArticlesTable extends Migration {
 	public function up()
 	{
 		Schema::create('forum_articles',function($table){
-			$table->increment('id');
+			$table->increments('id');
 			$table->string('title');
 			$table->integer('author_id')->unsigned();
 			$table->string('article_type');
