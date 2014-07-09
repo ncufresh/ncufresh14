@@ -53,7 +53,12 @@ Route::group(array('prefix' => 'api/v1'), function()
 
 //============================================================================
 //game
+Route::get('game', array('as' => 'game', 'uses' => 'GameController@index'));
 Route::get('game/snake', array('as' => 'game.snake', 'uses' => 'GameSnakeController@index'));
+Route::get('game/campus', array('as' => 'game.campus', 'uses' => 'GamecampusController@index'));
+Route::get('game/destiny', array('as' => 'game.destiny', 'uses' => 'GamedestinyController@index'));
+
+Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameController@index'));
 
 //==========================================================================================
 //Forum articles
