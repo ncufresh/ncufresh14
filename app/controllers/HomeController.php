@@ -21,7 +21,7 @@ class HomeController extends BaseController {
 	}
 
 	public function errorPage(){
-		$message = Input::get('message', 'Unknow error');
+		$message = Session::get('message', 'Unknown error');
 		return View::make('error.index', array('message' => $message));
 	}
 

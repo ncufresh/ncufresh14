@@ -18,7 +18,6 @@
 			ga('send', 'pageview');
 
 		</script>
-		
 		@yield('js_css')
 	</head>
 	<body>
