@@ -69,5 +69,5 @@ Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameController@ind
 //==========================================================================================
 //Forum articles
 Route::get('articles',function(){
-	return View::make('articles');
+	return View::make('forum/articles');
 });
