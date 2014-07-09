@@ -49,3 +49,7 @@ Route::group(array('prefix' => 'api/v1'), function()
 	Route::resource('announcement', 'APIAnnouncementController');
 	Route::resource('link', 'APILinkController');
 });
+
+//============================================================================
+//game
+Route::get('game/snake', array('as' => 'game.snake', 'uses' => 'GameSnakeController@index'));
