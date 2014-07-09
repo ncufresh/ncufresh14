@@ -1,0 +1,105 @@
+#gameContainer {
+	width: 100%;
+	height: 400px;
+	background: blue;
+	padding: 10px;
+}
+
+#userInfo {
+	width: 100%;
+	height: 50px;
+	margin: 0 auto;
+	padding: 10px;
+	background-color: green;
+}
+
+#gameMain {
+	width: 100%;
+	height: 330px;
+	padding: 10px;
+	background-color: black;
+}
+
+#gameMenu {
+	width: 100%;
+	height: 100%;
+	background-color: yellow;
+}
+
+.gameChoose {
+	width: 482px;
+	height: 145px;
+	margin: 5px;
+	background-color: white;
+	float: left;
+}
+
+#gameShop {
+	float: left;
+	width: 100px;
+	hegiht: 100%;
+	background-color: red;
+	margin: 0px 10px 0px 0px;
+}
+
+#gameRoom {
+	float: left;
+	width: 100px;
+	hegiht: 100%;
+	background-color: lightblue;
+	margin: 0px 10px 0px 0px;
+}
+
+.gameInfoText {
+	float: left;
+	margin: 0px 10px 0px 0px;
+}
+
+#gameDestiny_left {
+	float: left;
+	width: 487px;
+	height: 100%;
+	margin: 0px 10px 0px 0px;
+	background-color: white;
+	position: relative;
+}
+
+#gameDestiny_right {
+	float: left;
+	width: 487px;
+	height: 100%;
+	background-color: white;
+	position: relative;
+}
+
+#rotate_table {
+	top: 35px;
+	left: 168px;
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	background-color: blue;
+}
+
+#rotate_foot {
+	width: 100px;
+	height: 200px;
+	top: 110px;
+	left: 192px;
+	position: absolute ;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+#destinyStart {
+	top: 100px;
+	left: 100px;
+	width: 75px;
+	height: 50px;
+	padding: 10px;
+	background-color: blue;
+	position: absolute;
+}
+
+#bounsPage {
+	display: none;
+}
