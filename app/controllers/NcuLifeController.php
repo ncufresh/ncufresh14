@@ -41,4 +41,10 @@ class NcuLifeController extends BaseController
 			'nculife'=>$results
 		));
 	}
+
+	public function select()
+	{
+		$id = Input::get('num');
+		echo $id;
+	}
 }
