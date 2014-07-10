@@ -14,4 +14,9 @@
 	{{ Form::label('pinned', '要') }}
 	{{ Form::submit('送出') }}
 	{{ Form::close() }}
+
+	<script>
+		CKEDITOR.replace('content', {filebrowserImageUploadUrl : '{{ route("imageUpload") }}'});
+	</script>
+
 @stop

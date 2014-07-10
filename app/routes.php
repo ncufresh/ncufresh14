@@ -30,9 +30,11 @@ Route::post('register', array('as' => 'register.store', 'uses' => 'AuthControlle
 //global function
 //announcement
 Route::resource('announcement', 'AnnouncementController');
-Route::resource('links', 'LinksController');
 
 Route::resource('link', 'LinkController');
+
+Route::post('imageUpload', array('as' => 'imageUpload', 'uses' => 'HomeController@imageUpload'));
+
 //==========================================================================================
 //error
 Route::get('error', array('as' => 'error', 'uses' => 'HomeController@errorPage'));

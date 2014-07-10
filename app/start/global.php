@@ -82,4 +82,6 @@ App::down(function()
 |
 */
 
+App::instance('TransferData', new TransferData);
+
 require app_path().'/filters.php';

@@ -12,11 +12,7 @@ class CreateLinksTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('links', function($table){
-			$table->increments('id');
-			$table->string('title', 30);
-			$table->text('content');
-		});
+
 	}
 
 	/**
@@ -26,7 +22,7 @@ class CreateLinksTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('links');
+
 	}
 
 }

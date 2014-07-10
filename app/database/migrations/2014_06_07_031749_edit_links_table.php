@@ -12,9 +12,7 @@ class EditLinksTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('links', function($table) {
-		    $table->timestamps();
-		});
+
 	}
 
 	/**
@@ -24,9 +22,7 @@ class EditLinksTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('links', function($table) {
-		    $table->dropColumn('created_at', 'updated_at');
-		});
+
 	}
 
 }

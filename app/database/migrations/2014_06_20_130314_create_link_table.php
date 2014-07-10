@@ -12,7 +12,6 @@ class CreateLinkTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::drop('links');
 		Schema::create('links', function($table){
 			$table->increments('id');
 			$table->string('display_name', 30);

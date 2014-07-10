@@ -107,7 +107,6 @@ class AuthController extends BaseController {
 				echo " with message: " . $e->getMessage();
 
 			}
-			echo "HI";
 		}else{
 			//Error no facebook session
 			return Redirect::route('error')->with('message', 'There was an error communicating with Facebook');

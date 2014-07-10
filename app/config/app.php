@@ -120,6 +120,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Zizaco\Entrust\EntrustServiceProvider',
+		'BrainSocket\BrainSocketServiceProvider',
 
 
 	),
@@ -188,7 +189,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Entrust'		  => 'Zizaco\Entrust\EntrustFacade',
-
+		'BrainSocket'     => 'BrainSocket\BrainSocketFacade',
 	),
 
 );
