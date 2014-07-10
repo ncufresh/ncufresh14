@@ -73,37 +73,45 @@
 }
 
 /*////////////////////////////////////////////////////////////////////////////////*/
+#frame2 {
+	position:relative;
+	top:20px;
+	right:0px;
+	width:1100px;
+	height:3000px
+}
+
 
 #like {
-	position:relative;
+	position:absolute;
 	top:-1230px;
 	left:-335px;
 }
 #love {
-	position:relative;
+	position:absolute;
 	top:-1230px;
 	left:-325px;
 }
 #message {
-	position:relative;
+	position:absolute;
 	top:-1230px;
 	left:-315px;
 }
 #div1 {
-	position:relative;
+	position:absolute;
 	top:-1220px;
 	left:-335px;
 }
 /*////////////////////////////////////////////////////////////////////////////////*/
 #div_message {
-	position:relative;
+	position:absolute;
 	top:-1190px;
-	left:-200;
+	left:-200px;
 }
 #video_name {
-	position:relative;
-	top:-1240;
-	left:-330
+	position:absolute;
+	top:-1240px;
+	left:-330px;
 	
 }
 

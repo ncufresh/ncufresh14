@@ -21,8 +21,29 @@ class HomeController extends BaseController {
 	}
 
 	public function errorPage(){
-		$message = Input::get('message', 'Unknow error');
+		$message = Session::get('message', 'Unknown error');
 		return View::make('error.index', array('message' => $message));
+	}
+
+	public function imageUpload(){
+		if(Input::hasFile('upload') == true){
+			$file = Input::file('upload');
+			do{
+				$fileName = str_random(128);
+			}while(AdminImage::where('file_name', '=', $fileName)->exists() == true);
+			$extension = $file->getClientOriginalExtension();
+			$fileName = $fileName.'.'.$extension;
+			$image = new AdminImage;
+			$image->original_file_name = $file->getClientOriginalName();
+			$image->file_name = $fileName;
+			$image->save();
+
+			$file->move(public_path('img/uploadImage'), $fileName);
+
+			$CKEditorFuncNum = Input::get('CKEditorFuncNum', 2);
+			$fileUrl = url('img/uploadImage/').'/'.$fileName;
+			echo "<script>window.parent.CKEDITOR.tools.callFunction(". $CKEditorFuncNum .",'" . $fileUrl . "','');</script>";
+		}
 	}
 
 
