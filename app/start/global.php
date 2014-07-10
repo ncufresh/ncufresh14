@@ -83,5 +83,6 @@ App::down(function()
 */
 
 App::instance('TransferData', new TransferData);
+App::instance('SiteMap', new SiteMap);
 
 require app_path().'/filters.php';
