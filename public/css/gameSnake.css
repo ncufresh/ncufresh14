@@ -17,18 +17,15 @@ td
 	border: 1px gray solid;
 	width: 27px;
 	height: 25px;
+	overflow: hidden;
 }
 
 #snake 
 {
-	width: 27px;
-	height: 25px;
 	background-color: white;
 }
 
 #nothing
 {
-	width: 27px;
-	height: 25px;
 	background-color: lightblue;
 }
