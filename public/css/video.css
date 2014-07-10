@@ -1,0 +1,113 @@
+#frame {
+	position:relative;
+	top:20px;
+	right:0px;
+	width:1100px;
+	height:3000px
+}
+
+#main {
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+#attached1 {
+	position:absolute;
+	top:0px;
+	right:0px
+	}
+
+#attached2 {
+	position:absolute;
+	top:325px;
+	right:0px;
+}
+
+#attached3 {
+	position:absolute;
+	top:650px;
+	right:0px;
+}
+
+#attached4 {
+	position:absolute;
+	top:975px;
+	right:0px;
+}
+
+#attached5 {
+	position:absolute;
+	top:1300px;
+	right:0px;
+}
+
+#attached6 {
+	position:absolute;
+	top:1625px;
+	right:0px;
+}
+
+#attached7 {
+	position:absolute;
+	top:1950px;
+	right:0px;
+}
+
+#attached8 {
+	position:absolute;
+	top:2275px;
+	right:0px;
+}
+
+#attached9 {
+	position:absolute;
+	top:2600px;
+	right:0px;
+}
+
+#attached10 {
+	position:absolute;
+	top:2925px;
+	right:0px;
+}
+
+/*////////////////////////////////////////////////////////////////////////////////*/
+
+#like {
+	position:relative;
+	top:-1230px;
+	left:-335px;
+}
+#love {
+	position:relative;
+	top:-1230px;
+	left:-325px;
+}
+#message {
+	position:relative;
+	top:-1230px;
+	left:-315px;
+}
+#div1 {
+	position:relative;
+	top:-1220px;
+	left:-335px;
+}
+/*////////////////////////////////////////////////////////////////////////////////*/
+#div_message {
+	position:relative;
+	top:-1190px;
+	left:-200;
+}
+#video_name {
+	position:relative;
+	top:-1240;
+	left:-330
+	
+}
+
+#textarea {
+	width: 1000px;
+	height: 150px;
+}

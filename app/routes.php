@@ -52,6 +52,7 @@ Route::group(array('prefix' => 'api/v1'), function()
 	Route::resource('link', 'APILinkController');
 });
 
+
 //============================================================================
 //game
 Route::get('game', array('as' => 'game', 'uses' => 'GameController@index'));
@@ -90,3 +91,10 @@ Route::get('nculife/inschool', array('as' => 'nculife.inschool', 'uses'=>'NcuLif
 Route::get('nculife/outschool', array('as' => 'nculife.outschool', 'uses'=>'NcuLifeController@outschool'));
 
 Route::post('nculife/select', array('as' => 'nculife.select', 'uses'=>'NcuLifeController@select'));
+
+
+//==========================================================================================
+//video
+Route::get('video', array('as' => 'video', 'uses' => 'VideoController@index'));
+
+Route::post('video', array('as' => 'video.message','uses' => 'VideoController@post_index'));
