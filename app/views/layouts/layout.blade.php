@@ -7,7 +7,10 @@
 		{{ HTML::script('js/jquery/jquery.jscrollpane.min.js') }}
 		{{ HTML::script('js/jquery/jquery.mousewheel.min.js') }}
 		{{ HTML::script('js/jquery/mwheelIntent.js') }}
+		{{ HTML::script('js/jquery/brain-socket.min.js') }}
 		{{ HTML::script('ckeditor/ckeditor.js') }}
+		{{ HTML::script('js/main.js') }}
+		{{ HTML::script('js/layout/chatroom.js') }}
 		{{ HTML::style('css/bootstrap.min.css') }}
 		{{ HTML::style('css/jquery.jscrollpane.css') }}
 
@@ -25,7 +28,16 @@
 		</script>
 		@yield('js_css')
 	</head>
-	<body>
+	<body data-user_id="@if(Auth::check()){{Auth::user()->id}}@else0@endif">
+		@if(Auth::check())
+			<div class="hidden" id="data_section"
+				 data-login="1"
+				 data-user-id="{{ Auth::user()->id }}"
+				 data-user-name="{{ Auth::user()->name }}"></div>
+		@else
+			<div class="hidden" id="data_section"
+				 data-login="0"></div>
+		@endif
 		<div id="globalContainer" class="container">
 			<div id="topContainer" class="testY">
 				@include('layouts.top')
@@ -37,5 +49,6 @@
 				<p>Bottom!</p>
 			</div>
 		</div>
+		@include('layouts.chatroom')
 	</body>
 </html>
