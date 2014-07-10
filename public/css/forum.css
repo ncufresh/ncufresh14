@@ -1,0 +1,88 @@
+/* Defined CSS Style for Forum */
+#createBtn{
+	position:relative;
+	left: 88%;
+	top: -10px;
+}
+#createForm{
+	padding: 10px 20px 0px 20px;
+}
+#inputTitle{
+	width: 55%;
+}
+#inputAuthor_id{
+	width: 55%;
+}
+#selectType{
+	width: 55%;
+}
+#formTitleContainer,#formAuthorIDContainer,#formArticleTypeContainer {
+	margin-bottom: 5px;
+}
+.articlePostTime{
+	position:absolute;
+	display: table;
+	right: 13%;
+	margin-top: 2%;
+}
+.panel-title{
+	font-size: 25px;
+	color: #458FFF;
+}
+.author{
+	color: #458FFF;
+	font-size: 17px;
+}
+.articleType{
+	display: table;
+	font-size: 15px;
+	position: relative;
+	left: 99%;
+}
+#orderBox{
+	display:table;
+	position:relative;
+	left: 71%;
+	top: 17px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
