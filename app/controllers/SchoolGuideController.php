@@ -2,7 +2,6 @@
 
 class SchoolGuideController extends BaseController {
 
-	//protected $layout='Schoolguide';
 
 	public function show(){
 
@@ -18,50 +17,55 @@ class SchoolGuideController extends BaseController {
 
 	}
 
-	// public function edit(){
-
-	// $id = Input::get('value', 1);
-	// $data = Schoolguide::where('id', '=', $id)->get();
-	// return Response::json($data);
-
-
-	// }
-
 	public function toedit($id){
 
-	return View::make('schoolguide.edit');
+    $user = Schoolguide::find($id);
+	
+
+	return View::make('schoolguide.edit',array('users'=>$user));
 	}
 
 	public function add(){
 
+			$user = new Schoolguide;
+			
+			$user->name = Input::get('name');
+		    $user->categories= Input::get('categories');
+		    $user->introduction= Input::get('introduction');
+
+			$user->save();
+
+		   return Redirect::to('SchoolGuide/list');
+
+	}
+
+	public function toadd(){
+
+		return View::make('schoolguide.add');
 
 	}
 
 	public function delete(){
+
+		 $id=  Input::get('id');
+		if(Input::has('id')){
+		 $user = Schoolguide::where('id', '=', $id)->delete();
+		 }
+		 return Redirect::to('SchoolGuide/list');
 		
 	}
 
 	public function sure(){
 
-		// $inputs=Input::get('class');
-		// if($inputs =="categories")
-		// 	$categories= 
-		// if($inputs =="name")
-		// 	$name= 
-		// if($inputs =="introduction")
-		// 	$introduction= 
-		
-
-
-		// 	$user = new Schoolguide;
-
-		// 	$user->name = $input;
-		// 	$user->categories= $categories;
-		// 	$user->introduction= $introduction;
-
-		// 	$user->save();
-
-		// return Redirect::to('SchoolGuide/list');
+		$id=  Input::get('id');
+		if(Input::has('id')){
+		$data = Schoolguide::where('id', '=', $id)->first();
+		$data->categories= Input::get('categories');
+		$data->name= Input::get('name');;
+		$data->introduction= Input::get('introduction');
+		 $data->save();
+	}
+		return Redirect::to('SchoolGuide/list');
 	}
 
 	public function showlist(){

@@ -61,14 +61,17 @@ Route::get('SchoolGuide', array('as' => 'SchoolGuide', 'uses' => 'SchoolGuideCon
 
 Route::post('Guide', array('as' => 'Guide', 'uses' => 'SchoolGuideController@get') );
 
-//Route::post('Edit', array('as' => 'Edit', 'uses' => 'SchoolGuideController@edit') );
+Route::post('sure', array('as' => 'sure', 'uses' => 'SchoolGuideController@sure') );
+
+Route::post('add', array('as' => 'add', 'uses' => 'SchoolGuideController@add') );
+
+Route::post('delete', array('as' => 'delete', 'uses' => 'SchoolGuideController@delete') );
 
 Route::get('SchoolGuide/list',array('as'=>'SchoolGuide.list','uses'=>'SchoolGuideController@showlist'));
 
-//Route::post('sure',array('as'=>'sure','uses'=>'SchoolGuideController@sure'));
-
 Route::get('SchoolGuide/edit/{id}',array('as'=>'SchoolGuide.edit','uses'=>'SchoolGuideController@toedit'));
 
+Route::get('SchoolGuide/add/{id}',array('as'=>'SchoolGuide.add','uses'=>'SchoolGuideController@toadd'));
 
 //============================================================================
 //game
