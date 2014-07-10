@@ -80,18 +80,9 @@ Route::get('nculife', function(){
 	return View::make('nculife.nculife_index');
 });
 
-Route::get('nculife/food', array('as' => 'nculife.food', 'uses'=>'NcuLifeController@food'));
+Route::get('nculife/select', array('as' => 'nculife.select', 'uses'=>'NcuLifeController@select'));
 
-Route::get('nculife/live', array('as' => 'nculife.live', 'uses'=>'NcuLifeController@live'));
-
-Route::get('nculife/go', array('as' => 'nculife.go', 'uses'=>'NcuLifeController@go'));
-
-Route::get('nculife/inschool', array('as' => 'nculife.inschool', 'uses'=>'NcuLifeController@inschool'));
-
-Route::get('nculife/outschool', array('as' => 'nculife.outschool', 'uses'=>'NcuLifeController@outschool'));
-
-Route::post('nculife/select', array('as' => 'nculife.select', 'uses'=>'NcuLifeController@select'));
-
+Route::get('nculife/{name}', array('as' => 'nculife.item', 'uses'=>'NcuLifeController@item'));
 
 //==========================================================================================
 //video

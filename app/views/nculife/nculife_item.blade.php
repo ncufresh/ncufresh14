@@ -8,14 +8,13 @@
 @section('content')
 	<div id="all">
 		<div id="left">
-			<?php $num=0 ?>
-		@foreach ($nculife as $anculife)
-			<p class="place" num="{{$num++}}">{{$anculife->place}}</p>
+		@foreach ($nculifes as $nculife)
+			<p class="place" data-num="{{$nculife->id}}">{{$nculife->place}}</p>
 		@endforeach
 		</div>
 		<div id="right">
 			<div id="introduction">
-				{{$nculife[0]->introduction}}
+				{{$nculifes[0]->introduction}}
 			</div>
 			<div id="picture">
 			</div>
