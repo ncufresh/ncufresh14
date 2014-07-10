@@ -4,8 +4,8 @@ $(function(){
 
 	dataSection = $('#data_section');
 
-	var userId = dataSection.data('user-id');
-	var userName = dataSection.data('user-name');
+	var userId = getTransferData('user-id');
+	var userName = getTransferData('user-name');
 
 	if(userId == undefined){
 		userId = 0;
