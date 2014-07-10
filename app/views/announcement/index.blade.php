@@ -28,4 +28,9 @@
 	</tbody>
 </table>
 
+@if(Auth::check())
+	{{-- @if(Auth::user->can('announcement_admin')) --}}
+		<button id="announcement_create">發公告</button>
+	{{-- @endif --}}
+@endif
 @stop

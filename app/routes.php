@@ -30,9 +30,11 @@ Route::post('register', array('as' => 'register.store', 'uses' => 'AuthControlle
 //global function
 //announcement
 Route::resource('announcement', 'AnnouncementController');
-Route::resource('links', 'LinksController');
 
 Route::resource('link', 'LinkController');
+
+Route::post('imageUpload', array('as' => 'imageUpload', 'uses' => 'HomeController@imageUpload'));
+
 //==========================================================================================
 //error
 Route::get('error', array('as' => 'error', 'uses' => 'HomeController@errorPage'));
@@ -51,6 +53,7 @@ Route::group(array('prefix' => 'api/v1'), function()
 });
 
 
+
 //==========================================================================================
 //SchoolGuide
 Route::get('SchoolGuide', array('as' => 'SchoolGuide', 'uses' => 'SchoolGuideController@show') );
@@ -64,3 +67,44 @@ Route::get('SchoolGuide/list',array('as'=>'SchoolGuide.list','uses'=>'SchoolGuid
 //Route::post('sure',array('as'=>'sure','uses'=>'SchoolGuideController@sure'));
 
 Route::get('SchoolGuide/edit/{id}',array('as'=>'SchoolGuide.edit','uses'=>'SchoolGuideController@toedit'));
+
+
+//============================================================================
+//game
+Route::get('game', array('as' => 'game', 'uses' => 'GameController@index'));
+Route::get('game/snake', array('as' => 'game.snake', 'uses' => 'GameSnakeController@index'));
+Route::get('game/campus', array('as' => 'game.campus', 'uses' => 'GamecampusController@index'));
+Route::get('game/destiny', array('as' => 'game.destiny', 'uses' => 'GamedestinyController@index'));
+
+Route::post('game/destiny/start', array('as' => 'game.destiny.start', 'uses' => 'GamedestinyController@start'));
+Route::post('game/campus/start', array('as' => 'game.campus.start', 'uses' => 'GamecampusController@start'));
+//Route::post('game/campus/next', array('as' => 'game.campus.next', 'uses' => 'GamecampusController@next'));
+
+Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameController@index'));
+
+
+//==========================================================================================
+//Forum articles
+Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@get_articles'));
+
+Route::post('/new',array('uses' => 'ArticlesController@post_articles'));
+
+
+
+//==========================================================================================
+//NcuLife
+Route::get('nculife', function(){
+	return View::make('nculife.nculife_index');
+});
+
+Route::get('nculife/food', array('as' => 'nculife.food', 'uses'=>'NcuLifeController@food'));
+
+Route::get('nculife/live', array('as' => 'nculife.live', 'uses'=>'NcuLifeController@live'));
+
+Route::get('nculife/go', array('as' => 'nculife.go', 'uses'=>'NcuLifeController@go'));
+
+Route::get('nculife/inschool', array('as' => 'nculife.inschool', 'uses'=>'NcuLifeController@inschool'));
+
+Route::get('nculife/outschool', array('as' => 'nculife.outschool', 'uses'=>'NcuLifeController@outschool'));
+
+Route::post('nculife/select', array('as' => 'nculife.select', 'uses'=>'NcuLifeController@select'));
