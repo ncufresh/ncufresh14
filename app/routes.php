@@ -62,3 +62,9 @@ Route::get('game/snake', array('as' => 'game.snake', 'uses' => 'GameSnakeControl
 Route::get('articles',function(){
 	return View::make('articles');
 });
+
+//=============================================================================
+
+// Necessity
+Route::get('necessity',array('as' => 'necessity.necessity_index', 'uses' => 'necessityController@index'));
+Route::get('necessity_backstage_freshman',array('as' => 'necessity.necessity_backstage_freshman', 'uses' => 'necessityController@index_backstage_freshman'));
