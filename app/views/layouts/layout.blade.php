@@ -52,6 +52,7 @@
 				<p>Bottom!</p>
 			</div>
 		</div>
+
 		@include('layouts.chatroom')
 	</body>
 </html>

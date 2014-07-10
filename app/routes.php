@@ -53,6 +53,26 @@ Route::group(array('prefix' => 'api/v1'), function()
 });
 
 
+
+
+//==========================================================================================
+//SchoolGuide
+Route::get('SchoolGuide', array('as' => 'SchoolGuide', 'uses' => 'SchoolGuideController@show') );
+
+Route::post('Guide', array('as' => 'Guide', 'uses' => 'SchoolGuideController@get') );
+
+Route::post('sure', array('as' => 'sure', 'uses' => 'SchoolGuideController@sure') );
+
+Route::post('add', array('as' => 'add', 'uses' => 'SchoolGuideController@add') );
+
+Route::post('delete', array('as' => 'delete', 'uses' => 'SchoolGuideController@delete') );
+
+Route::get('SchoolGuide/list',array('as'=>'SchoolGuide.list','uses'=>'SchoolGuideController@showlist'));
+
+Route::get('SchoolGuide/edit/{id}',array('as'=>'SchoolGuide.edit','uses'=>'SchoolGuideController@toedit'));
+
+Route::get('SchoolGuide/add/{id}',array('as'=>'SchoolGuide.add','uses'=>'SchoolGuideController@toadd'));
+
 //============================================================================
 //game
 Route::get('game', array('as' => 'game', 'uses' => 'GameController@index'));
@@ -64,6 +84,7 @@ Route::post('game/destiny/start', array('as' => 'game.destiny.start', 'uses' => 
 Route::post('game/campus/start', array('as' => 'game.campus.start', 'uses' => 'GamecampusController@start'));
 
 Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameshopController@index'));
+
 
 //==========================================================================================
 //Forum articles
