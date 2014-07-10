@@ -5,7 +5,8 @@ td
 	border-bottom:1px solid #000000; 
 }
 
-#snakeContent {
+#snakeContent 
+{
 	width: 100%;
 	height: 1000px;
 	background-color: lightblue;
@@ -15,17 +16,6 @@ td
 .block
 {
 	border: 1px gray solid;
-	width: 27px;
-	height: 25px;
-	overflow: hidden;
-}
-
-#snake 
-{
-	background-color: white;
-}
-
-#nothing
-{
-	background-color: lightblue;
+	width: 35px;
+	height: 32px;
 }
