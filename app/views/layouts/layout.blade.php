@@ -2,7 +2,7 @@
 	<head>
 		{{ HTML::script('js/jquery/jquery.min.js') }}
 		{{ HTML::script('js/bootstrap.min.js') }}
-		{{ HTML::script('js/jquery.rest.min.js') }}
+		{{-- HTML::script('js/jquery.rest.min.js') --}}
 		{{ HTML::script('js/jquery/jquery-ui-1.10.4.min.js') }}
 		{{ HTML::script('js/jquery/jquery.jscrollpane.min.js') }}
 		{{ HTML::script('js/jquery/jquery.mousewheel.min.js') }}
@@ -29,15 +29,12 @@
 		@yield('js_css')
 	</head>
 	<body data-user_id="@if(Auth::check()){{Auth::user()->id}}@else0@endif">
-		@if(Auth::check())
+
 			<div class="hidden" id="data_section"
-				 data-login="1"
-				 data-user-id="{{ Auth::user()->id }}"
-				 data-user-name="{{ Auth::user()->name }}"></div>
-		@else
-			<div class="hidden" id="data_section"
-				 data-login="0"></div>
-		@endif
+				@foreach(App::make('TransferData')->getData() as $key=>$item)
+					data-{{ $key }}="{{ $item }}"
+				@endforeach
+				 ></div>
 		<div id="globalContainer" class="container">
 			<div id="topContainer" class="testY">
 				@include('layouts.top')
