@@ -1,11 +1,12 @@
-@extends('layouts.layout')
+@extends('game.layout')
 
 @section('js_css')
+	{{ HTML::style('css/game.css') }}
 	{{ HTML::style('css/gameSnake.css') }}
 	{{ HTML::script('js/game/gameSnake.js') }}
 @stop
 
-@section('content')
+@section('game_content')
 	<div id="cover" data-role="fieldcontain">
 		<div class="choice" align="center">
 

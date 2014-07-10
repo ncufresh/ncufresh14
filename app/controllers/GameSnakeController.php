@@ -5,8 +5,9 @@ class GameSnakeController extends BaseController
 
 	public function index()
 	{
-		
-		return View::make('game.snake');
+		$user = Game::find(1);
+		$name = User::where('id', '=', 1)->firstOrFail();
+		return View::make('game.snake', array('user' => $user, 'name' => $name));
 	}
 
 
