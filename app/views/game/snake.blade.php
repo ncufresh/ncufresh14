@@ -6,30 +6,30 @@
 @stop
 
 @section('content')
-	<div id="snakeContent">
-		<div id="snakehead">
-			<img src="..\images\gameSnake\head.jpg" width="24px" height="23px">
+	<div id="cover" data-role="fieldcontain">
+		<div class="choice" align="center">
+
+
+				<div id="difficulty1"> Difficulty1 </div>
+				<div id="mode1"> Mode1 </div>
+
+				<div id="difficulty2"> Difficulty2 </div>
+				<div id="mode2"> Mode2 </div>
+
+				<div id="difficulty3"> Difficulty3 </div>
+				<div id="mode3"> Mode3 </div>
+		</div>
+
+		<div id="start"> Start </div>
+
+	</div>
+
+	<div id="content">
+		<div id="snakeContent">
+			<div id="snakehead">
+				<img src="..\images\gameSnake\head.jpg" width="24px" height="23px">
+			</div>
 		</div>
 	</div>
 
-	<!--
-	<table border="1">
-		<tr>
-			<td>
-					dsds
-			</td>
-			<td>
-					a
-			</td>
-		</tr>
-		<tr>
-			<td>
-				dsd
-			</td>
-			<td>
-					a
-			</td>
-		</tr>
-	</table>
-	-->
 @stop

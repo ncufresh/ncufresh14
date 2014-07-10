@@ -1,20 +1,51 @@
 $(document).ready(function(){
+
+	var difficult, mode;
+	$('#difficulty1').click(function(){$('#cover').hide();
+			$('#content').show();});
+	$('#difficulty2').click(function(){difficult=2;});
+	$('#difficulty3').click(function(){difficult=3;});
+	$('#mode1').click(function(){mode=1;});
+	$('#mode2').click(function(){mode=2;});
+	$('#mode3').click(function(){mode=3;});
+
+	/*$('#start').click(function() {
+		if(difficult==1&&mode==1)
+		{
+			$('#cover').hide();
+			$('#content').show();
+		}
+		
+	});*/
 	
+
+
+
+///////////////////////////////////////////////////////
 	var coordx, coordy;
 	var blocknum = 30;
 	var Box = new Array(blocknum);
 	var snakes = new Array(2);
 		snakes[0] = $('#snakehead');
 	var snakespath = new Array(blocknum);
-		for (i=0 ; i<blocknum ; i++) 
+		for(var i=0 ; i<blocknum ; i++) 
 			snakespath[i] = new Array(2);
-	var echinacea = new Array(7);
-	var echinaceapath = new Array(2);
 	var snakespathnum = 0;
 	var length = 5;
 	var key = 37;
-	var time;
+	var speed=100;;
 	
+////////////////////////////////////////////////////////////////////////////
+	var echinacea = new Array(7);
+	var bomb = new Array(5);
+		for(var i=0 ; i<5 ; i++) 
+			bombEchinacea[i] = new Array(2);
+	var point = new Array(2);
+	var bombcount=0, pointcount=0;
+	var echina;
+	var rx,ry;
+	var x,y;
+
 	iniblock();
 
 ////////////////////////////////////basic-architecture/////////////////////////////////////////////
@@ -50,7 +81,8 @@ $(document).ready(function(){
 			snakespath[snakespathnum][1] = coordy+i;
 			snakespathnum++;
 		}
-
+		bombEchinacea();
+		pointEchinacea();
 		timeMove();
 	}
 
@@ -73,10 +105,9 @@ $(document).ready(function(){
 			if( (snakespath[0][1]==0&&key==37) || snakespath[0][0]==0 && key==38 || 
 							snakespath[0][1]==29 && key==39 || snakespath[0][0]==29 && key==40)
 			{
-				alert("Oh,Oh, You lose!");
-				corrcet = 1;
+				//alert("Oh,Oh, You lose!");
+				correct = 1;
 				timer.stop();
-				
 			}
 
 			if(correct==0)
@@ -84,9 +115,8 @@ $(document).ready(function(){
 				setRecent(); // set correct position
 				presskey(); // keypressed and change direction
 			}
-
 		});
-		timer.set({ time:100, autostart:true });
+		timer.set({ time:speed, autostart:true });
 	}
 
 	function coordRandom(coord)
@@ -123,9 +153,13 @@ $(document).ready(function(){
 			}
 		}
 
-		//if(snakespath[0][0]==echinaceapath[0] && snakespath[0][1]==echinaceapath[1])
-		//	putechinacea();
-
+		if(snakespath[0][0]==point[0] && snakespath[0][1]==point[1])
+		{
+			Box[ snakespath[0][0] ][ snakespath[0][1] ].empty();
+			bombEchinacea();
+			pointEchinacea();
+		}
+			
 	}
 
 	function presskey()
@@ -146,71 +180,84 @@ $(document).ready(function(){
 
 
 ////////////////////////////////////echinacea/////////////////////////////////////////////
-	function putechinacea()
-	{
-		var rx,ry;
-		var x,y;
-		rx = coordRandom(x);
-		ry = coordRandom(y);
-		x = coordRandom(x);
-		y = coordRandom(y);
 
-		var put=1; 
-		for(var i=0; i<snakespathnum; i++)
+	function bombEchinacea()
+	{
+		var correct = 1;
+		rx = coordRandom(rx);
+		ry = coordRandom(ry);
+		
+		echina = Math.random()*100;
+
+		if(echina<30) // red
 		{
-			if( rx==snakespath[i][0] && ry==snakespath[i][1] )
+			for(var i=0; i<snakespathnum; i++)
 			{
-				putechinacea();
-				put=0;
+				if( rx==snakespath[i][0] && ry==snakespath[i][1] )
+				{
+					bombEchinacea();
+					correct=0;
+				}
+			}
+			if(correct==1)
+			{
+				echinacea[0] = $('<div id="red"><img src="..\\images\\gameSnake\\red.jpg" "></div>');
+				echinacea[0].appendTo(Box[rx][ry]);
+				bombcount++;
 			}
 		}
+	}
+
+	function pointEchinacea()
+	{
+		var correct = 1;
+		x = coordRandom(x);
+		y = coordRandom(y);
 
 		for(var i=0; i<snakespathnum; i++)
 		{
 			if( (x==snakespath[i][0]&&y==snakespath[i][1]) || (x==rx&&y==ry) )
 			{
-				putechinacea();
-				put=0;
+				pointEchinacea();
+				correct=0;
 			}
 		}
 
-		if(put==1)
-		{
-			if(echina<3000) // red
-			{
-				echinacea[0] = $('<div id="red"><img src="..\\images\\gameSnake\\red.jpg" "></div>');
-				echinacea[0].appendTo(Box[x][y]);
-			}
-			if(echina<7000) // yellow
+		echina = Math.random()*100;
+		if(correct==1)
+		{	// 0.60, 0.20, 0.12, 0.05, 0.02, 0.01
+			if(0<=echina<60) // yellow
 			{
 				echinacea[1] = $('<div id="yellow"><img src="..\\images\\gameSnake\\yellow.jpg" "></div>');
 				echinacea[1].appendTo(Box[x][y]);
 			}
-			else if(echina<2100) // green
+			else if(60<=echina<80) // green
 			{
 				echinacea[2] = $('<div id="green"><img src="..\\images\\gameSnake\\green.jpg" "></div>');
 				echinacea[2].appendTo(Box[x][y]);
 			}
-			else if(echina<1680) // brown
+			else if(80<=echina<92) // brown
 			{
 				echinacea[3] = $('<div id="brown"><img src="..\\images\\gameSnake\\brown.jpg" "></div>');
 				echinacea[3].appendTo(Box[x][y]);
 			}
-			else if(echina<560) // purple
+			else if(92<=echina<97) // purple
 			{
 				echinacea[4] = $('<div id="purple"><img src="..\\images\\gameSnake\\purple.jpg" "></div>');
 				echinacea[4].appendTo(Box[x][y]);
 			}
-			else if(echina<420) // blue
+			else if(97<=echina<99) // blue
 			{
 				echinacea[5] = $('<div id="blue"><img src="..\\images\\gameSnake\\blue.jpg" "></div>');
 				echinacea[5].appendTo(Box[x][y]);
 			}
-			else if(echina<168) // muliticolor
+			else // muliticolor
 			{
 				echinacea[6] = $('<div id="muliticolor"><img src="..\\images\\gameSnake\\muliticolor.jpg" "></div>');
 				echinacea[6].appendTo(Box[x][y]);
 			}
+			point[0] = x;
+			point[1] = y;
 		}
 	}
 
