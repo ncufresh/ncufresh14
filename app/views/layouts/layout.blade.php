@@ -4,8 +4,12 @@
 		{{ HTML::script('js/bootstrap.min.js') }}
 		{{ HTML::script('js/jquery.rest.min.js') }}
 		{{ HTML::script('js/jquery/jquery-ui-1.10.4.min.js') }}
+		{{ HTML::script('js/jquery/jquery.jscrollpane.min.js') }}
+		{{ HTML::script('js/jquery/jquery.mousewheel.min.js') }}
+		{{ HTML::script('js/jquery/mwheelIntent.js') }}
 		{{ HTML::script('ckeditor/ckeditor.js') }}
 		{{ HTML::style('css/bootstrap.min.css') }}
+		{{ HTML::style('css/jquery.jscrollpane.css') }}
 
 		{{ HTML::style('css/layout.css') }}
 

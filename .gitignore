@@ -9,6 +9,8 @@ Thumbs.db
 
 /public/img/uploadImage/*
 
+*.swp
+
 .idea/
 
 _ide_helper.php
