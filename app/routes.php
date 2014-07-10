@@ -32,6 +32,9 @@ Route::post('register', array('as' => 'register.store', 'uses' => 'AuthControlle
 Route::resource('announcement', 'AnnouncementController');
 
 Route::resource('link', 'LinkController');
+
+Route::post('imageUpload', array('as' => 'imageUpload', 'uses' => 'HomeController@imageUpload'));
+
 //==========================================================================================
 //error
 Route::get('error', array('as' => 'error', 'uses' => 'HomeController@errorPage'));

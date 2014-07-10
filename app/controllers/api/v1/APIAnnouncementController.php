@@ -31,6 +31,7 @@ class APIAnnouncementController extends APIController {
 			$announcement->title = Input::get('title');
 			$announcement->content = Input::get('content');
 			$announcement->pinned = Input::get('pinned');
+			$announcement->user_id = Auth::user()->id;
 			$announcement->save();
 
 			return Response::json($announcement->id);

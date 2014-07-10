@@ -30,6 +30,7 @@ class AnnouncementController extends BaseController {
 			$announcement->title = Input::get('title');
 			$announcement->content = Input::get('content');
 			$announcement->pinned = Input::get('pinned');
+			$announcement->user_id = Auth::user()->id;
 			$announcement->save();
 
 			return Redirect::route('announcement.show', array('id' => $announcement->id));
