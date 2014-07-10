@@ -31,7 +31,7 @@ class VideoController extends BaseController {
 	public function post_like(){
 		//if(Auth::check()){
 		$user = Auth::user();
-		$like = new like;
+		$like = new VideoLike;
 		$like->user_id = '0'; //TODO
 
 		$like->video_rate = Input::get('video_rate');
