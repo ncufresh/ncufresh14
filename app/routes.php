@@ -54,3 +54,5 @@ Route::group(array('prefix' => 'api/v1'), function()
 //==========================================================================================
 //video
 Route::get('video', array('as' => 'video', 'uses' => 'VideoController@index'));
+
+Route::post('video', array('as' => 'video.message','uses' => 'VideoController@post_index'));
