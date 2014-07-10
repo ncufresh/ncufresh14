@@ -50,6 +50,17 @@ Route::group(array('prefix' => 'api/v1'), function()
 	Route::resource('link', 'APILinkController');
 });
 
+
+//==========================================================================================
+//SchoolGuide
 Route::get('SchoolGuide', array('as' => 'SchoolGuide', 'uses' => 'SchoolGuideController@show') );
 
 Route::post('Guide', array('as' => 'Guide', 'uses' => 'SchoolGuideController@get') );
+
+//Route::post('Edit', array('as' => 'Edit', 'uses' => 'SchoolGuideController@edit') );
+
+Route::get('SchoolGuide/list',array('as'=>'SchoolGuide.list','uses'=>'SchoolGuideController@showlist'));
+
+//Route::post('sure',array('as'=>'sure','uses'=>'SchoolGuideController@sure'));
+
+Route::get('SchoolGuide/edit/{id}',array('as'=>'SchoolGuide.edit','uses'=>'SchoolGuideController@toedit'));

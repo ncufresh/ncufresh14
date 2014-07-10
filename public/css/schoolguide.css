@@ -30,3 +30,21 @@
 	padding: 10px;
 }
 
+li{
+    list-style-type: none;
+    
+}
+
+.introduction{
+	display:none;
+
+}
+
+.categories{
+	display:none;
+	width:20px;
+}
+
+.name{
+	display:none;
+}

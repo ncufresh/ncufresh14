@@ -11,6 +11,7 @@
 				<div id="contentContainer" class="testR">
 	<div id="contentLeft" class="testB">
 		<div id="option" class="testG">
+			</br>
 
 			<select style="width:180px; height:30px;" id="select" data-url="{{ route('Guide') }}">
 				<option value="1">系館</option>
@@ -22,7 +23,8 @@
 			</select>
 
 			
-			<ol id="leftlist">
+			<ol id="leftlist" style="font-size:20;">
+				</br>
 			@foreach($Schoolguides as $Schoolguide)
 			<li>
 			{{$Schoolguide->name}}
@@ -56,10 +58,10 @@
 							var count = data.length;
 							//for(var key in data)
 							$("#leftlist").children().remove();
+
 							for(var i=0; i<count; i++){
 							var name =data[i]['name'];
 							$("<li>"+name+"</li>").appendTo("#leftlist");
-							console.log(name);
 							}
 
 						}
