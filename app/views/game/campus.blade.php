@@ -12,6 +12,9 @@
 			<div id="gameCampusInfoButton">遊戲說明</div>
 		</div>
 
+		<div id="gameCampusInfo">我是說明!
+		</div>
+
 		<div id="gameCampusMap">背景地圖
 			<div class="gameCampusType" id="gameCampusType0">TYPE
 				<div class="gameCampusBuilding" style="top: 0px;left: 0px;">building</div>
@@ -45,5 +48,10 @@
 				<div class="gameCampusBuilding" style="top: 0px;left: 0px;">building</div>
 			</div>
 			<div id="gameCampusQuestion"></div>
+		</div>
+
+		<div id="gameCampusEnd">我是結算畫面
+			<div id="gameCampusAgain">再來一次
+			</div>
 		</div>
 @stop
