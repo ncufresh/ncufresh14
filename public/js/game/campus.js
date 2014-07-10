@@ -9,19 +9,20 @@
 			error: error_function
 		});
 	}
-	var mapType = new Array(6);
-	$('.gameCampusType').each(function(index) {
-		mapType[index] = $(this);
-	});
-
+	
     $(document).ready(function()
     {
-
+    	var mapType = new Array(6);
+		$('.gameCampusType').each(function(index) {
+			mapType[index] = $(this);
+		});
     	$("#gameCampusStartButton").click(function() {
     		ajax($(this).attr("action"), $(this).serializeArray(), function(data, textStatus, jqXHR) {
+
+
     			function nextQuestion() {
     				$('#gameCampusQuestion').text('Q' + (question_number+1) + ': ' + data['question' + question_number]['question']);
-					mapType[data['question0']['type']].show();
+					mapType[data['question' + question_number]['type']].show();
     			}
     			var life = 3;
     			var combo = 0;
@@ -33,7 +34,14 @@
 				$('.gameCampusBuilding').click(function(){
 					mapType[data['question' + question_number]['type']].hide();
 					question_number++;
-					nextQuestion();
+					if ( question_number < 10 ) {
+						nextQuestion();	
+					}
+					else {
+						$('#gameCampusMap').hide();
+						$('#gameCampusEnd').show();
+					}
+					
 				});
     		}, function() {
 
