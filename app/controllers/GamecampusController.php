@@ -40,16 +40,4 @@ class GamecampusController extends BaseController {
 		return Response::json(array('user' => $user, 'data' => $data));
 	}
 
-	public function next() {
-		if ( !Input::has("answer") && !Input::has("question_id") ) {
-			return false;
-		}
-		$question_id = Input::get("question_id");
-		$answer_id = Input::get("answer");
-		$check = GameCampus::whereRaw('id = ? and answer_id = ?', array($question_id, $answer_id))->count();
-		$data["iscorrect"] = false;
-		if ( $check != 0 ) {
-			$data["iscorrect"] = true;
-		}
-	}
 }

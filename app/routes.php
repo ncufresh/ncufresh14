@@ -62,9 +62,8 @@ Route::get('game/destiny', array('as' => 'game.destiny', 'uses' => 'GamedestinyC
 
 Route::post('game/destiny/start', array('as' => 'game.destiny.start', 'uses' => 'GamedestinyController@start'));
 Route::post('game/campus/start', array('as' => 'game.campus.start', 'uses' => 'GamecampusController@start'));
-//Route::post('game/campus/next', array('as' => 'game.campus.next', 'uses' => 'GamecampusController@next'));
 
-Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameController@index'));
+Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameshopController@index'));
 
 //==========================================================================================
 //Forum articles

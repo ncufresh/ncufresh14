@@ -51,5 +51,7 @@
 		</div>
 
 		<div id="gameCampusEnd">我是結算畫面
+			<div id="gameCampusAgain">再來一次
+			</div>
 		</div>
 @stop
