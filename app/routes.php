@@ -89,7 +89,12 @@ Route::get('video', array('as' => 'video', 'uses' => 'VideoController@index'));
 
 Route::post('video', array('as' => 'video.message','uses' => 'VideoController@post_index'));
 
+Route::post('video/message', array('as' => 'video.message','uses' => 'VideoController@post_index'));
+
+Route::post('video/like', array('as' => 'video.rate','uses' =>'VideoController@post_like'));
+
 //=============================================================================
 // Necessity
 Route::get('necessity',array('as' => 'necessity.necessity_index', 'uses' => 'necessityController@index'));
 Route::get('necessity_backstage_freshman',array('as' => 'necessity.necessity_backstage_freshman', 'uses' => 'necessityController@index_backstage_freshman'));
+
