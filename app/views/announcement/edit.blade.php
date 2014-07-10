@@ -11,7 +11,12 @@
 	{{ Form::radio('pinned', '0', true) }}
 	{{ Form::label('pinned', '不') }}
 	{{ Form::radio('pinned', '1', false) }}
-	{{ Form::label('pinned', '要') }}ß
+	{{ Form::label('pinned', '要') }}
 	{{ Form::submit('送出') }}
 	{{ Form::close() }}
+
+	<script>
+		CKEDITOR.replace('content', {filebrowserImageUploadUrl : '{{ route("imageUpload") }}'});
+	</script>
+
 @stop

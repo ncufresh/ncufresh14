@@ -7,6 +7,8 @@ composer.lock
 .DS_Store
 Thumbs.db
 
+/public/img/uploadImage/*
+
 .idea/
 
 _ide_helper.php
