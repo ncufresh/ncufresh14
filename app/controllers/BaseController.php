@@ -16,6 +16,9 @@ class BaseController extends Controller {
 			$transferData->addData('user-name', Auth::user()->name);
 		}
 
+
+		App::make('SiteMap')->pushLocation('首頁', route('home'));
+
 		if ( ! is_null($this->layout))
 		{
 			$this->layout = View::make($this->layout);

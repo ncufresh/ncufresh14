@@ -12,7 +12,8 @@
 	},
 	"require-dev": {
 		"barryvdh/laravel-ide-helper": "1.*",
-		"barryvdh/laravel-debugbar": "1.*"
+		"barryvdh/laravel-debugbar": "1.*",
+		"doctrine/dbal": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

@@ -45,7 +45,13 @@
 	left: 71%;
 	top: 17px;
 }
-
+.responseContainer{
+	display:none;
+}
+.moreBox{
+	position: relative;
+	top: 22px;
+}
 
 
 

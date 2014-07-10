@@ -2,49 +2,43 @@
 
 class NcuLifeController extends BaseController
 {
-	public function food()
+	public function item($item)
 	{
-		$results = NcuLifeModel::where('item', '=', 'food')->get();
-		return View::make('nculife.nculife_food',array(
-			'nculife'=>$results
-		));
-	}
+		if($item == 'food')
+		{
+			$results = NcuLifeModel::where('item', '=', 'food')->get();
+			App::make('TransferData')->addData('ncu_life_select_url', route('nculife.select'));	
+		}
+		else if($item == 'live')
+		{
+			$results = NcuLifeModel::where('item', '=', 'live')->get();
+			App::make('TransferData')->addData('ncu_life_select_url', route('nculife.select'));
+		}
+		else if($item == 'go')
+		{
+			$results = NcuLifeModel::where('item', '=', 'go')->get();
+			App::make('TransferData')->addData('ncu_life_select_url', route('nculife.select'));
+		}
+		else if($item == 'inschool')
+		{
+			$results = NcuLifeModel::where('item', '=', 'inschool')->get();
+			App::make('TransferData')->addData('ncu_life_select_url', route('nculife.select'));
+		}
+		else if($item == 'outschool')
+		{
+			$results = NcuLifeModel::where('item', '=', 'outschool')->get();
+			App::make('TransferData')->addData('ncu_life_select_url', route('nculife.select'));
+		}
 
-	public function live()
-	{
-		$results = NcuLifeModel::where('item', '=', 'live')->get();
-		return View::make('nculife.nculife_live',array(
-			'nculife'=>$results
-		));
+		return View::make('nculife.nculife_item',array(
+				'nculifes'=>$results
+				));
 	}
-
-	public function go()
-	{
-		$results = NcuLifeModel::where('item', '=', 'go')->get();
-		return View::make('nculife.nculife_go',array(
-			'nculife'=>$results
-		));
-	}
-
-	public function inschool()
-	{
-		$results = NcuLifeModel::where('item', '=', 'inschool')->get();
-		return View::make('nculife.nculife_inschool',array(
-			'nculife'=>$results
-		));
-	}
-
-	public function outschool()
-	{
-		$results = NcuLifeModel::where('item', '=', 'outschool')->get();
-		return View::make('nculife.nculife_outschool',array(
-			'nculife'=>$results
-		));
-	}
-
+	
 	public function select()
 	{
-		$id = Input::get('num');
-		echo $id;
+		$id = Input::get('num', 1);
+		$result = NcuLifeModel::where('id', '=', $id)->first();
+		return Response::json($result);
 	}
 }

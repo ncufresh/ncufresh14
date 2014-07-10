@@ -53,6 +53,26 @@ Route::group(array('prefix' => 'api/v1'), function()
 });
 
 
+
+
+//==========================================================================================
+//SchoolGuide
+Route::get('SchoolGuide', array('as' => 'SchoolGuide', 'uses' => 'SchoolGuideController@show') );
+
+Route::post('Guide', array('as' => 'Guide', 'uses' => 'SchoolGuideController@get') );
+
+Route::post('sure', array('as' => 'sure', 'uses' => 'SchoolGuideController@sure') );
+
+Route::post('add', array('as' => 'add', 'uses' => 'SchoolGuideController@add') );
+
+Route::post('delete', array('as' => 'delete', 'uses' => 'SchoolGuideController@delete') );
+
+Route::get('SchoolGuide/list',array('as'=>'SchoolGuide.list','uses'=>'SchoolGuideController@showlist'));
+
+Route::get('SchoolGuide/edit/{id}',array('as'=>'SchoolGuide.edit','uses'=>'SchoolGuideController@toedit'));
+
+Route::get('SchoolGuide/add/{id}',array('as'=>'SchoolGuide.add','uses'=>'SchoolGuideController@toadd'));
+
 //============================================================================
 //game
 Route::get('game', array('as' => 'game', 'uses' => 'GameController@index'));
@@ -64,6 +84,7 @@ Route::post('game/destiny/start', array('as' => 'game.destiny.start', 'uses' => 
 Route::post('game/campus/start', array('as' => 'game.campus.start', 'uses' => 'GamecampusController@start'));
 
 Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameshopController@index'));
+
 
 //==========================================================================================
 //Forum articles
@@ -79,21 +100,22 @@ Route::get('nculife', function(){
 	return View::make('nculife.nculife_index');
 });
 
-Route::get('nculife/food', array('as' => 'nculife.food', 'uses'=>'NcuLifeController@food'));
+Route::get('nculife/select', array('as' => 'nculife.select', 'uses'=>'NcuLifeController@select'));
 
-Route::get('nculife/live', array('as' => 'nculife.live', 'uses'=>'NcuLifeController@live'));
-
-Route::get('nculife/go', array('as' => 'nculife.go', 'uses'=>'NcuLifeController@go'));
-
-Route::get('nculife/inschool', array('as' => 'nculife.inschool', 'uses'=>'NcuLifeController@inschool'));
-
-Route::get('nculife/outschool', array('as' => 'nculife.outschool', 'uses'=>'NcuLifeController@outschool'));
-
-Route::post('nculife/select', array('as' => 'nculife.select', 'uses'=>'NcuLifeController@select'));
-
+Route::get('nculife/{name}', array('as' => 'nculife.item', 'uses'=>'NcuLifeController@item'));
 
 //==========================================================================================
 //video
 Route::get('video', array('as' => 'video', 'uses' => 'VideoController@index'));
 
 Route::post('video', array('as' => 'video.message','uses' => 'VideoController@post_index'));
+
+Route::post('video/message', array('as' => 'video.message','uses' => 'VideoController@post_index'));
+
+Route::post('video/like', array('as' => 'video.rate','uses' =>'VideoController@post_like'));
+
+//=============================================================================
+// Necessity
+Route::get('necessity',array('as' => 'necessity.necessity_index', 'uses' => 'necessityController@index'));
+Route::get('necessity_backstage_freshman',array('as' => 'necessity.necessity_backstage_freshman', 'uses' => 'necessityController@index_backstage_freshman'));
+
