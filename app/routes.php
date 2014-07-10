@@ -67,6 +67,33 @@ Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameshopController
 
 //==========================================================================================
 //Forum articles
-Route::get('articles',function(){
-	return View::make('articles');
+Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@get_articles'));
+
+Route::post('/new',array('uses' => 'ArticlesController@post_articles'));
+
+
+
+//==========================================================================================
+//NcuLife
+Route::get('nculife', function(){
+	return View::make('nculife.nculife_index');
 });
+
+Route::get('nculife/food', array('as' => 'nculife.food', 'uses'=>'NcuLifeController@food'));
+
+Route::get('nculife/live', array('as' => 'nculife.live', 'uses'=>'NcuLifeController@live'));
+
+Route::get('nculife/go', array('as' => 'nculife.go', 'uses'=>'NcuLifeController@go'));
+
+Route::get('nculife/inschool', array('as' => 'nculife.inschool', 'uses'=>'NcuLifeController@inschool'));
+
+Route::get('nculife/outschool', array('as' => 'nculife.outschool', 'uses'=>'NcuLifeController@outschool'));
+
+Route::post('nculife/select', array('as' => 'nculife.select', 'uses'=>'NcuLifeController@select'));
+
+
+//==========================================================================================
+//video
+Route::get('video', array('as' => 'video', 'uses' => 'VideoController@index'));
+
+Route::post('video', array('as' => 'video.message','uses' => 'VideoController@post_index'));
