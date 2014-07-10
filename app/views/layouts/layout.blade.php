@@ -8,6 +8,7 @@
 		{{ HTML::script('js/jquery/jquery.mousewheel.min.js') }}
 		{{ HTML::script('js/jquery/mwheelIntent.js') }}
 		{{ HTML::script('js/jquery/brain-socket.min.js') }}
+		{{ HTML::script('js/jquery/jquery.timer.js') }}
 		{{ HTML::script('ckeditor/ckeditor.js') }}
 		{{ HTML::script('js/main.js') }}
 		{{ HTML::script('js/layout/chatroom.js') }}
