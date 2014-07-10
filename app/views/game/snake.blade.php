@@ -8,7 +8,7 @@
 @section('content')
 	<div id="snakeContent">
 		<div id="snakehead">
-			<img src="..\images\head.jpg" width="27px" height="23px">
+			<img src="..\images\gameSnake\head.jpg" width="24px" height="23px">
 		</div>
 	</div>
 
