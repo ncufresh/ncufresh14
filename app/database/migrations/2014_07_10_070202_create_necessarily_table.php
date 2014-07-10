@@ -12,6 +12,13 @@ class CreateNecessarilyTable extends Migration {
 	 */
 	public function up()
 	{
+		Schema::create('necessarily_research',function($table){
+			$table->increments('id');
+			$table->string('item');
+			$table->string('explanation');
+			$table->string('organizer');
+		});
+
 		Schema::create('necessarily_freshman',function($table){
 			$table->increments('id');
 			$table->string('item');
@@ -33,7 +40,8 @@ class CreateNecessarilyTable extends Migration {
 	 */
 	public function down()
 	{
-
+		Schema::drop('necessarily_research');
+		
 		Schema::drop('necessarily_freshman');
 
 		Schema::drop('necessarily_download');
