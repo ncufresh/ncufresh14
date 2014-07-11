@@ -84,6 +84,8 @@ Route::post('game/destiny/start', array('as' => 'game.destiny.start', 'uses' => 
 Route::post('game/campus/start', array('as' => 'game.campus.start', 'uses' => 'GamecampusController@start'));
 
 Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameshopController@index'));
+Route::post('game/shop/type', array('as' => 'game.shop.type', 'uses' => 'GameshopController@changeType'));
+Route::post('game/shop/buy', array('as' => 'game.shop.buy', 'uses' => 'GameshopController@buy'));
 
 
 //==========================================================================================
