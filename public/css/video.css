@@ -94,11 +94,54 @@
 	top:200px;
 	left:200px;
 }
+#rating {
+	position: absolute;
+	top:370px;
+	left:350px;
+	height:30px;
+	width:100px;
+}
+
+#rating2 {
+	position: absolute;
+	top:370px;
+	left:460px;
+	height:30px;
+	width:100px;
+}
+
+#rating_number1 {
+	position: absolute;
+	top: 410px;
+	left:350px;
+	height:30px;
+	width:100px;
+}
+
+#rating_number2 {
+	position: absolute;
+	top: 410px;
+	left:460px;
+	height:30px;
+	width:100px;
+}
 /*////////////////////////////////////////////////////////////////////////////////*/
-#div_message {
+#user_message {
+	position:relative;	
+	top:480px;
+	width: 600px;
+	height: 190px;
+}
+#portrait{
+	position:absolute;
+
+	height:150px;
+}
+
+#div_message {  
 	position:relative;
-	top:470px;
-	left:100px;
+	top:20px;
+	left:184px;
 }
 #video_name {
 	position:absolute;

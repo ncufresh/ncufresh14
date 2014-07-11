@@ -114,6 +114,8 @@ Route::post('video/message', array('as' => 'video.message','uses' => 'VideoContr
 
 Route::post('video/like', array('as' => 'video.rate','uses' =>'VideoController@post_like'));
 
+Route::post('about_rate_url', array('as' => 'video.aboutrate','uses' =>'VideoController@AboutRate'));
+
 //=============================================================================
 // Necessity
 Route::get('necessity',array('as' => 'necessity.necessity_index', 'uses' => 'necessityController@index'));
