@@ -1,56 +1,120 @@
 $(document).ready(function(){
 
-	var difficult, mode;
-	$('#difficulty2').click(function(){difficult=1;});
-	$('#difficulty2').click(function(){difficult=2;});
-	$('#difficulty3').click(function(){difficult=3;});
-	$('#mode1').click(function(){mode=1;});
-	$('#mode2').click(function(){mode=2;});
-	$('#mode3').click(function(){mode=3;});
+	var difficult=3, mode=2;
+	$('#difficulty1').click(function(){
+		difficult=1;
+		$('#difficulty1').children().attr('src','..\\images\\gameSnake\\cd1.jpg');
+	});
+	$('#difficulty2').click(function(){
+		difficult=2;
+		$('#difficulty2').children().attr('src','..\\images\\gameSnake\\cd2.jpg');
+	});
+	$('#difficulty3').click(function(){
+		difficult=3;
+		$('#difficulty3').children().attr('src','..\\images\\gameSnake\\cd3.jpg');
+	});
+	$('#mode1').click(function(){
+		mode=1;
+		$('#mode1').children().attr('src','..\\images\\gameSnake\\cm1.jpg');
+	});
+	$('#mode2').click(function(){
+		mode=2;
+		$('#mode2').children().attr('src','..\\images\\gameSnake\\cm2.jpg');
+	});
+	$('#mode3').click(function(){
+		mode=3;
+		$('#mode3').children().attr('src','..\\images\\gameSnake\\cm3.jpg');
+	});
 
-	/*
+	
 	$('#start').click(function() {
-		if(difficult==1&&mode==1)
+		//if(difficult==1&&mode==1)
 		{
 			$('#cover').hide();
 			$('#content').show();
+			initial();
+			startGame();
 		}
-		
-	});*/
+	});
 	
 
-
-
+	var lose=0;
+	var score=0;
+	var scorecount = new Array(6);
+		for(var i=0; i<6; i++)
+			scorecount[i]=0;
+	var timer = $.timer(tick);
+	var round;
+	var timeCount=0;
+	
 ///////////////////////////////////////////////////////
 	var coordx, coordy;
 	var blocknum = 30;
 	var Box = new Array(blocknum);
 	var snakes = new Array(2);
 		snakes[0] = $('#snakehead');
-	var snakespath = new Array(100);
-		for(var i=0 ; i<100 ; i++) 
+	var snakespath = new Array(500);
+		for(var i=0 ; i<500 ; i++) 
 			snakespath[i] = new Array(2);
 	var snakespathnum = 0;
 	var length = 5;
 	var key = 37;
-	var speed=100;;
+	var snakeDirection = 37;
 	
 ////////////////////////////////////////////////////////////////////////////
 	var echinacea = new Array(7);
-	var bomb = new Array(5);
-		for(var i=0 ; i<5 ; i++) 
-			bombEchinacea[i] = new Array(2);
+	var bomb = new Array(50);
+		for(var i=0 ; i<50 ; i++) 
+			bomb[i] = new Array(2);
+		for(var i=0 ; i<50 ; i++) 
+			for(var j=0; j<2; j++)
+				bomb[i][j]=0;
+	var bombcount=0;
+	var bombpicture = new Array(4);
 	var point = new Array(2);
-	var bombcount=0, pointcount=0;
+	
 	var echina;
 	var rx,ry;
 	var x,y;
 
-	iniblock();
 
-////////////////////////////////////basic-architecture/////////////////////////////////////////////
-	function iniblock()
+	$(document).keydown(function(event)
 	{
+		event.preventDefault();
+		if(event.keyCode==37) // press left
+			key=37;
+		else if (event.keyCode==38) // press up
+			key=38;	
+		else if (event.keyCode==39) // press right
+			key=39;	
+		else if (event.keyCode==40) // press down
+			key=40;
+	});
+
+
+	function gameStyle()
+	{
+		if(mode==1)
+		{
+
+		}
+
+		if(mode==2)
+		{
+
+		}
+
+		if(mode==3)
+		{
+
+		}	
+	}
+	
+
+////////////////////////////////////initial-architecture/////////////////////////////////////////////
+	function initial()
+	{
+		gameStyle();
 		for(var i=0; i<blocknum; i++)
 			Box[i] = new Array(blocknum);
 
@@ -81,9 +145,12 @@ $(document).ready(function(){
 			snakespath[snakespathnum][1] = coordy+i;
 			snakespathnum++;
 		}
+
+		if(mode==3)
+			for(var i=0; i<4; i++)
+				bombEchinacea();
 		bombEchinacea();
 		pointEchinacea();
-		timeMove();
 	}
 
 	function coordRandom(coord)
@@ -94,49 +161,100 @@ $(document).ready(function(){
 	}
 
 ////////////////////////////////////snake/////////////////////////////////////////////
-	function timeMove()
-	{
-		var correct = 0;
-		var timer = $.timer(function(){
-
-			if(key==37) // move left
-				coordy--;
-			else if (key==38) // move up
-				coordx--;	
-			else if (key==39) // move right
-				coordy++;
-			else if (key==40) // move down
-				coordx++;
 	
-			// Hit in edge -> lose
-			if( (snakespath[0][1]==0&&key==37) || snakespath[0][0]==0 && key==38 || 
-							snakespath[0][1]==29 && key==39 || snakespath[0][0]==29 && key==40)
-			{
-				//alert("Oh,Oh, You lose!");
-				correct = 1;
-				timer.stop();
-			}
+	function startGame()
+	{
+		round= (4-difficult)*2;
+		timer.set({ time:50, autostart:true });
+	}
+	
+	function tick()
+	{
+		timeCount++;
+		if( timeCount%round != 0 )
+			return;
 
-			if(correct==0)
-			{
-				setRecent(); // set correct position
-				presskey(); // keypressed and change direction
-			}
-		});
-		timer.set({ time:speed, autostart:true });
+		if(Math.abs(key-snakeDirection)!=2)
+			snakeDirection = key;
+		if(snakeDirection==37) // move left
+			coordy--;
+		else if (snakeDirection==38) // move up
+			coordx--;	
+		else if (snakeDirection==39) // move right
+			coordy++;
+		else if (snakeDirection==40) // move down
+			coordx++;
+		
+		loseOthers();
+		if(lose==0)
+		{
+			loseItself();
+			tickMove();
+			loseItself();
+			refresh();
+		}
+		else
+		{
+			timer.stop();
+			totalScore();
+			if(lose==1){}
+				//alert("Oh,Oh, You lose! \n You get " + score + " points.");
+		}
+		levelUp();
 	}
 
-	function setRecent()
+	function tickMove()
 	{
+		// eat a point echinacea 
+		if(snakespath[0][0]==point[0] && snakespath[0][1]==point[1])
+		{
+			snakes[0].appendTo(Box[ snakespath[0][0] ][ snakespath[0][1] ]);
+			snakespathnum++;
+
+			if( mode!=3 || bombcount<=5 )
+				bombEchinacea();
+			pointEchinacea();
+		}
+
 		// store new value of recent position of snack in snakespath[][] 
 		for(var i=0; i<snakespathnum; i++)
 			for(var j=0; j<2; j++)
 				snakespath[snakespathnum-i][j] = snakespath[snakespathnum-i-1][j];
 		snakespath[0][0] = coordx;
 		snakespath[0][1] = coordy;
+	}
 
+	function loseOthers()
+	{
+		// Hit the wall -> lose
+		if( (snakespath[0][1]==0&&snakeDirection==37) || snakespath[0][0]==0 && snakeDirection==38 || 
+					snakespath[0][1]==29 && snakeDirection==39 || snakespath[0][0]==29 && snakeDirection==40)
+			lose = 1;
+		// Hit the bomb
+		for(var i=0; i<bombcount; i++)
+			if( (snakespath[0][0]==bomb[i][0]) && (snakespath[0][1]==bomb[i][1]) )
+			{
+				lose = 1;
+				Box[ snakespath[0][0] ][ snakespath[0][1] ].empty();
+				bombpicture[0] = $('<div id="bomb"><img src="..\\images\\gameSnake\\bomb.jpg"  width="30px" height="23px" "></div>');
+				bombpicture[0].appendTo( Box[ bomb[i][0] ][ bomb[i][1] ] );
+			}
+
+	}
+
+	function loseItself()
+	{
+		// Hit itself
+		for(var i=1; i<snakespathnum; i++)
+			if( (snakespath[0][0]==snakespath[i][0]) && (snakespath[0][1]==snakespath[i][1]) )
+				lose = 1;
+
+	}
+
+	function refresh()
+	{
 		// draw picture on screen
-		for(var i=0; i<=snakespathnum; i++)
+		for(var i=snakespathnum; i>=0; i--)
 		{
 			for(var j=0; j<2; j++)
 			{
@@ -145,44 +263,28 @@ $(document).ready(function(){
 				else if(i!=snakespathnum)
 				{
 					Box[ snakespath[i][0] ][ snakespath[i][1] ].empty();
-					snakes[1] = $('<div id="snakebody"><img src="..\\images\\gameSnake\\body.jpg" width="27px" height="23px"></div>');
+					snakes[1] = $('<div id="snakebody"><img src="..\\images\\gameSnake\\body.jpg" width="30px" height="23px"></div>');
 					snakes[1].appendTo(Box[ snakespath[i][0] ][ snakespath[i][1] ]);
 				}
 				else
 					Box[ snakespath[i][0] ][ snakespath[i][1] ].empty();
 			}
 		}
+	}
 
-		if(snakespath[0][0]==point[0] && snakespath[0][1]==point[1])
+	function levelUp()
+	{
+		if(mode==2&&round!=1)
 		{
-			Box[ snakespath[0][0] ][ snakespath[0][1] ].empty();
-			snakespathnum++;
-			bombEchinacea();
-			pointEchinacea();
+			if(difficult==1 && timeCount%200==0)
+				round -= 1;
+			if(difficult==2 && timeCount%160==0)
+				round -= 1; 
+			if(difficult==3 && timeCount%120==0)
+				round -= 1; 
 		}
-			
 	}
-
-	function presskey()
-	{
-		$(document).keydown(function(event)
-		{
-			if(event.keyCode==37 && key!=37 && key!=39) // press left
-				key=37;
-			else if (event.keyCode==38 && key!=38 && key!=40) // press up
-				key=38;
-			else if (event.keyCode==39 && key!=39 && key!=37) // press right
-				key=39;	
-			else if (event.keyCode==40 && key!=40 && key!=38) // press down
-				key=40;
-		});
-	}
-
-	function lose()
-	{
-
-	}
-
+	
 	function coordEchinaceaRandom(coord)
 	{
 		coord = Math.random()*blocknum;
@@ -213,8 +315,10 @@ $(document).ready(function(){
 			}
 			if(correct==1)
 			{
-				echinacea[0] = $('<div id="red"><img src="..\\images\\gameSnake\\red.jpg" "></div>');
+				echinacea[0] = $('<div id="red"><img src="..\\images\\gameSnake\\red.jpg"  width="30px" height="23px" "></div>');
 				echinacea[0].appendTo(Box[rx][ry]);
+				bomb[bombcount][0]=rx;
+				bomb[bombcount][1]=ry;
 				bombcount++;
 			}
 		}
@@ -238,40 +342,87 @@ $(document).ready(function(){
 		echina = Math.random()*100;
 		if(correct==1)
 		{	// 0.60, 0.20, 0.12, 0.05, 0.02, 0.01
-			if(0<=echina<60) // yellow
+			if(0<=echina && echina<100) // yellow
 			{
-				echinacea[1] = $('<div id="yellow"><img src="..\\images\\gameSnake\\yellow.jpg" "></div>');
+				echinacea[1] = $('<div id="yellow"><img src="..\\images\\gameSnake\\yellow.jpg" width="30px" height="23px" "></div>');
 				echinacea[1].appendTo(Box[x][y]);
+				scorecount[0]++;
 			}
-			else if(60<=echina<80) // green
+			else if(60<=echina && echina<80) // green
 			{
-				echinacea[2] = $('<div id="green"><img src="..\\images\\gameSnake\\green.jpg" "></div>');
+				echinacea[2] = $('<div id="green"><img src="..\\images\\gameSnake\\green.jpg" width="30px" height="23px" "></div>');
 				echinacea[2].appendTo(Box[x][y]);
+				scorecount[1]++;
 			}
-			else if(80<=echina<92) // brown
+			else if(80<=echina && echina<92) // brown
 			{
-				echinacea[3] = $('<div id="brown"><img src="..\\images\\gameSnake\\brown.jpg" "></div>');
+				echinacea[3] = $('<div id="brown"><img src="..\\images\\gameSnake\\brown.jpg" width="30px" height="23px" "></div>');
 				echinacea[3].appendTo(Box[x][y]);
+				scorecount[2]++;
 			}
-			else if(92<=echina<97) // purple
+			else if(92<=echina && echina<97) // purple
 			{
-				echinacea[4] = $('<div id="purple"><img src="..\\images\\gameSnake\\purple.jpg" "></div>');
+				echinacea[4] = $('<div id="purple"><img src="..\\images\\gameSnake\\purple.jpg" width="30px" height="23px" "></div>');
 				echinacea[4].appendTo(Box[x][y]);
+				scorecount[3]++;
 			}
-			else if(97<=echina<99) // blue
+			else if(97<=echina && echina<99) // blue
 			{
-				echinacea[5] = $('<div id="blue"><img src="..\\images\\gameSnake\\blue.jpg" "></div>');
+				echinacea[5] = $('<div id="blue"><img src="..\\images\\gameSnake\\blue.jpg" width="30px" height="23px" "></div>');
 				echinacea[5].appendTo(Box[x][y]);
+				scorecount[4]++;
 			}
 			else // muliticolor
 			{
-				echinacea[6] = $('<div id="muliticolor"><img src="..\\images\\gameSnake\\muliticolor.jpg" "></div>');
+				echinacea[6] = $('<div id="muliticolor"><img src="..\\images\\gameSnake\\muliticolor.jpg" width="30px" height="23px" "></div>');
 				echinacea[6].appendTo(Box[x][y]);
+				scorecount[5]++;
 			}
+			console.log(scorecount[0]);
+			// console.log(scorecount[1]);
+			// console.log(scorecount[2]);
+			// console.log(scorecount[3]);
+			// console.log(scorecount[4]);
+			// console.log(scorecount[5]);
 			point[0] = x;
 			point[1] = y;
 		}
 	}
 
-
+////////////////////////////////////score/////////////////////////////////////////////
+	function totalScore()
+	{
+		if(difficult==1)
+		{
+			score += (scorecount[0]*3);
+			score += (scorecount[1]*9);
+			score += (scorecount[2]*15);
+			score += (scorecount[3]*45);
+			score += (scorecount[4]*60);
+			score += (scorecount[5]*150);
+		}
+		if(difficult==2)
+		{
+			score += (scorecount[0]*5);
+			score += (scorecount[1]*15);
+			score += (scorecount[2]*25);
+			score += (scorecount[3]*75);
+			score += (scorecount[4]*100);
+			score += (scorecount[5]*250);
+		}
+		if(difficult==3)
+		{
+			score += (scorecount[0]*8);
+			score += (scorecount[1]*24);
+			score += (scorecount[2]*40);
+			score += (scorecount[3]*120);
+			score += (scorecount[4]*160);
+			score += (scorecount[5]*400);
+		}
+		if(mode!=1)
+			score = ((100+timeCount*0.05)/100)*score;
+		
+		score = score-(score%1);
+		alert(score);
+	} 
 });

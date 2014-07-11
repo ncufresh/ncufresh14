@@ -1,112 +1,108 @@
-#cover
-{
+#cover {
 	width: 100%;
-	height: 900px;
-	background-color:lightblue;
+	height: 800px;
+	background-color: lightblue;
+	
 }
 
-#title
-{
-	width:50%;
-	height:15%;
-	margin-left:25%;
-	margin-bottom:10%;
-	background-color:lightgreen;
+.title {
+	width: 75%;
+	height: 20%;
+	margin: 0px auto;
+	top: 5%;
+	background-color: lightgreen;
+	text-align: center;
+	position:  relative;
 }
 
-.choice
-{
-	width:100%;
-	height:700px;
-	margin-top:10%;
+.choice {
+	width: 100%;
+	height: 45%;
+	margin-top: 10%;
+}
+
+#start {
+	width: 35%;
+	height: 15%;
+	margin: 0px auto;
+	text-align: center;
+	background-color: #00DDDD;
 }
 
 /*//////////////////////////////////////////////////////////////////////*/
-.Difficult
-{
-	float:left;
-	width:50%;
-	background-color:white;
+.Difficult {
+	float: left;
+	width: 50%;
+}
+#difficulty1 {
+	width: 45%;
+	height: 15%;
+	margin-top: 10%;
+	
+}
+#difficulty2 {
+	width: 45%;
+	height: 15%;
+	margin-top: 10%;
+	
+}
+#difficulty3 {
+	width: 45%;
+	height: 15%;
+	margin-top: 10%;
+	margin-bottom: 10%;
+	
 }
 
-#difficulty1
-{
-	width:45%;
-	height:10%;
-	margin-top:10%;
-	background-color:yellow;
+/*////////////////////////	float: left; //////////////////////////////////////////////*/
+.Mode {
+	float: left;
+	width: 50%;
 }
-#difficulty2
-{
-	width:45%;
-	height:10%;
-	margin-top:20%;
-	background-color:orange;
+#mode1 {
+	width: 45%;
+	height: 15%;
+	margin-top: 10%;
 }
-#difficulty3
-{
-	width:45%;
-	height:10%;
-	margin-top:20%;
-	margin-bottom:10%;
-	background-color:red;
+#mode2 {
+	width: 45%;
+	height: 15%;
+	margin-top: 10%;
 }
-
-/*////////////////////////	float:left; //////////////////////////////////////////////*/
-.Mode
-{
-	float:left;
-	width:50%;
-	background-color:blue;
-}
-#mode1
-{
-	width:45%;
-	height:10%;
-	margin-top:10%;
-	background-color:yellow;
-}
-#mode2
-{
-	width:45%;
-	height:10%;
-	margin-top:20%;
-	background-color:orange;
-}
-#mode3
-{
-	width:45%;
-	height:10%;
-	margin-top:20%;
-	margin-bottom:10%;
-	background-color:red;
-}
-/*////////////////////////	float:left; //////////////////////////////////////////////*/
-#start
-{
-	width:40%;
-	height:10%;
-	margin-bottom:10%;
-	background-color:yellow;
+#mode3 {
+	width: 45%;
+	height: 15%;
+	margin-top: 10%;
+	margin-bottom: 10%;
 }
 
-/*////////////////////////	float:left; //////////////////////////////////////////////*/
-#content 
-{
+/*////////////////////////	float: left; //////////////////////////////////////////////*/
+#content {
 	display: none;
 }
-#snakeContent 
-{
+#snakeContent {
 	width: 100%;
-	height: 900px;
+	height: 800px;
 	background-color: lightblue;
 	position: relative;
 }
 
-.block
-{
-	border: 1px gray solid;
-	width: 35px;
-	height: 28px;
+.block {
+	border: 1px gray solid; /*gray solid*/
+	width: 34px;
+	height: 26px;
 }
 
+#bomb {
+	position: absolute;
+}
+
+#snakehead { position: absolute; }
+#snakebody { position: absolute; }
+#red { position: absolute;	 }
+#yellow { position: absolute;	 }
+#green { position: absolute;	 }
+#brown { position: absolute;	 }
+#purple { position: absolute;	 }
+#blue { position: absolute;	 }
+#muliticolor { position: absolute;	}
