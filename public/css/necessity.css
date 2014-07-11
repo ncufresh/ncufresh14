@@ -20,7 +20,7 @@
 	font-size:100%;
 }
 
-.backstage_organizer{
+.backstage_organizer_add{
 	width: 650px;
 	height: 50px;
 	border-style:ridge;
@@ -30,16 +30,33 @@
 
 .backstage_item{
 	width: 650px;
-	height: 50px;
+	height: auto;
 	border-style:ridge;
 	border-width:2px;
 	font-size:100%;
+	text-align:left;
+	text-indent:20px; 
+    word-wrap: break-word; 
 }
 
 .backstage_explanation{
 	width: 650px;
-	height: 100px;
+	height: auto;
 	border-style:ridge;
 	border-width:2px;
 	font-size:100%;
+	text-align:left;
+	text-indent:20px; 
+	word-wrap: break-word;
+}
+
+.backstage_organizer{
+	width: 650px;
+	height: auto;
+	border-style:ridge;
+	border-width:2px;
+	font-size:100%;
+	text-align:left; 
+	text-indent:20px;
+	word-wrap: break-word;
 }
