@@ -59,7 +59,13 @@ Route::group(array('prefix' => 'api/v1'), function()
 //SchoolGuide
 Route::get('SchoolGuide', array('as' => 'SchoolGuide', 'uses' => 'SchoolGuideController@show') );
 
-Route::post('Guide', array('as' => 'Guide', 'uses' => 'SchoolGuideController@get') );
+//Route::get('SchoolGuide/photo/{id}', array('as' => 'SchoolGuide.photo', 'uses' => 'SchoolGuideController@fakeshow') );
+
+Route::get('Guide', array('as' => 'Guide', 'uses' => 'SchoolGuideController@get') );
+
+Route::get('SchoolGuide/getItem', array('as' => 'Guide.one', 'uses' => 'SchoolGuideController@getItem') );
+
+Route::get('SchoolGuide/clickImg', array('as' => 'Guide.map', 'uses' => 'SchoolGuideController@clickImg') );
 
 Route::post('sure', array('as' => 'sure', 'uses' => 'SchoolGuideController@sure') );
 
@@ -72,6 +78,9 @@ Route::get('SchoolGuide/list',array('as'=>'SchoolGuide.list','uses'=>'SchoolGuid
 Route::get('SchoolGuide/edit/{id}',array('as'=>'SchoolGuide.edit','uses'=>'SchoolGuideController@toedit'));
 
 Route::get('SchoolGuide/add/{id}',array('as'=>'SchoolGuide.add','uses'=>'SchoolGuideController@toadd'));
+
+Route::get('SchoolGuide/{id}',array('as'=>'SchoolGuide.photo','uses'=>'SchoolGuideController@tophoto'));
+
 
 //============================================================================
 //game
