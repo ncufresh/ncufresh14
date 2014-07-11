@@ -88,9 +88,9 @@ Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameshopController
 
 //==========================================================================================
 //Forum articles
-Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@get_articles'));
+Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@getArticles'));
 
-Route::post('/new',array('uses' => 'ArticlesController@post_articles'));
+Route::post('/new',array('uses' => 'ArticlesController@postArticles'));
 
 
 

@@ -4,7 +4,7 @@ class ArticlesController extends BaseController{
 
 	public $restful = true;
 
-	public function get_articles(){
+	public function getArticles(){
 		$articles = Forum::orderBy('created_at','desc')->paginate();
 		//$postArticles = DB::table('forum_articles')->where('article_type','P');
 		$postArticles = Forum::where('article_type','P')->paginate();
@@ -19,7 +19,7 @@ class ArticlesController extends BaseController{
 		));
 	}
 
-	public function post_articles(){
+	public function postArticles(){
 		$input = Input::all();
 
 		Forum::create(array(
