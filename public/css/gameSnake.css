@@ -1,79 +1,108 @@
-#cover
-{
+#cover {
 	width: 100%;
-	height: 900px;
+	height: 800px;
+	background-color: lightblue;
+	
 }
 
-.choice
-{
-	width:100%;
-	height:900px;
-	background-color:#FFFFCC;
-	margin-top:33px;
+.title {
+	width: 75%;
+	height: 20%;
+	margin: 0px auto;
+	top: 5%;
+	background-color: lightgreen;
+	text-align: center;
+	position:  relative;
 }
 
-
-#difficulty1
-{
-	width :20%;
-	margin-top:33px;
-	background-color:#00FF00;
-	float:left;
-
-}
-#difficulty2
-{
-	width :20%;
-	margin-top:133px;
-	background-color:#00FF00;
-	float:left;
-}
-#difficulty3
-{
-	width :20%;
-	margin-top:233px;
-	background-color:#00FF00;
-	float:left;
+.choice {
+	width: 100%;
+	height: 45%;
+	margin-top: 10%;
 }
 
-#mode1
-{
-	width :20%;
-	margin-top:33px;
-	background-color:#00FFCC;
-	float:left;
-}
-#mode2
-{
-	width :20%;
-	margin-top:133px;
-	background-color:#00FFCC;
-	float:left;
-}
-#mode3
-{
-	width :20%;
-	margin-top:233px;
-	background-color:#00FFCC;
-	float:left;
+#start {
+	width: 35%;
+	height: 15%;
+	margin: 0px auto;
+	text-align: center;
+	background-color: #00DDDD;
 }
 
-#content 
-{
+/*//////////////////////////////////////////////////////////////////////*/
+.Difficult {
+	float: left;
+	width: 50%;
+}
+#difficulty1 {
+	width: 45%;
+	height: 15%;
+	margin-top: 10%;
+	
+}
+#difficulty2 {
+	width: 45%;
+	height: 15%;
+	margin-top: 10%;
+	
+}
+#difficulty3 {
+	width: 45%;
+	height: 15%;
+	margin-top: 10%;
+	margin-bottom: 10%;
+	
+}
+
+/*////////////////////////	float: left; //////////////////////////////////////////////*/
+.Mode {
+	float: left;
+	width: 50%;
+}
+#mode1 {
+	width: 45%;
+	height: 15%;
+	margin-top: 10%;
+}
+#mode2 {
+	width: 45%;
+	height: 15%;
+	margin-top: 10%;
+}
+#mode3 {
+	width: 45%;
+	height: 15%;
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+
+/*////////////////////////	float: left; //////////////////////////////////////////////*/
+#content {
 	display: none;
 }
-#snakeContent 
-{
+#snakeContent {
 	width: 100%;
-	height: 900px;
+	height: 800px;
 	background-color: lightblue;
 	position: relative;
 }
 
-.block
-{
-	border: 1px gray solid;
-	width: 35px;
-	height: 32px;
+.block {
+	border: 1px gray solid; /*gray solid*/
+	width: 34px;
+	height: 26px;
 }
 
+#bomb {
+	position: absolute;
+}
+
+#snakehead { position: absolute; }
+#snakebody { position: absolute; }
+#red { position: absolute;	 }
+#yellow { position: absolute;	 }
+#green { position: absolute;	 }
+#brown { position: absolute;	 }
+#purple { position: absolute;	 }
+#blue { position: absolute;	 }
+#muliticolor { position: absolute;	}

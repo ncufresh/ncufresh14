@@ -61,7 +61,13 @@ Route::group(array('prefix' => 'api/v1'), function()
 //SchoolGuide
 Route::get('SchoolGuide', array('as' => 'SchoolGuide', 'uses' => 'SchoolGuideController@show') );
 
-Route::post('Guide', array('as' => 'Guide', 'uses' => 'SchoolGuideController@get') );
+//Route::get('SchoolGuide/photo/{id}', array('as' => 'SchoolGuide.photo', 'uses' => 'SchoolGuideController@fakeshow') );
+
+Route::get('Guide', array('as' => 'Guide', 'uses' => 'SchoolGuideController@get') );
+
+Route::get('SchoolGuide/getItem', array('as' => 'Guide.one', 'uses' => 'SchoolGuideController@getItem') );
+
+Route::get('SchoolGuide/clickImg', array('as' => 'Guide.map', 'uses' => 'SchoolGuideController@clickImg') );
 
 Route::post('sure', array('as' => 'sure', 'uses' => 'SchoolGuideController@sure') );
 
@@ -75,6 +81,9 @@ Route::get('SchoolGuide/edit/{id}',array('as'=>'SchoolGuide.edit','uses'=>'Schoo
 
 Route::get('SchoolGuide/add/{id}',array('as'=>'SchoolGuide.add','uses'=>'SchoolGuideController@toadd'));
 
+Route::get('SchoolGuide/{id}',array('as'=>'SchoolGuide.photo','uses'=>'SchoolGuideController@tophoto'));
+
+
 //============================================================================
 //game
 Route::get('game', array('as' => 'game', 'uses' => 'GameController@index'));
@@ -86,6 +95,8 @@ Route::post('game/destiny/start', array('as' => 'game.destiny.start', 'uses' => 
 Route::post('game/campus/start', array('as' => 'game.campus.start', 'uses' => 'GamecampusController@start'));
 
 Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameshopController@index'));
+Route::post('game/shop/type', array('as' => 'game.shop.type', 'uses' => 'GameshopController@changeType'));
+Route::post('game/shop/buy', array('as' => 'game.shop.buy', 'uses' => 'GameshopController@buy'));
 
 
 //==========================================================================================
@@ -122,6 +133,18 @@ Route::post('about_rate_url', array('as' => 'video.aboutrate','uses' =>'VideoCon
 
 //=============================================================================
 // Necessity
-Route::get('necessity',array('as' => 'necessity.necessity_index', 'uses' => 'necessityController@index'));
+Route::get('necessity_index',array('as' => 'necessity.necessity_index', 'uses' => 'necessityController@index'));
+
+
 Route::get('necessity_backstage_freshman',array('as' => 'necessity.necessity_backstage_freshman', 'uses' => 'necessityController@index_backstage_freshman'));
 
+Route::post('freshman_add',array('as' => 'freshman_add', 'uses' => 'necessityController@freshman_add'));
+
+Route::post('freshman_delete',array('as' => 'freshman_delete', 'uses' => 'necessityController@freshman_delete'));
+
+
+Route::get('necessity_backstage_research',array('as' => 'necessity.necessity_backstage_research', 'uses' => 'necessityController@index_backstage_research'));
+
+Route::post('research_add',array('as' => 'research_add', 'uses' => 'necessityController@research_add'));
+
+Route::post('research_delete',array('as' => 'research_delete', 'uses' => 'necessityController@research_delete'));
