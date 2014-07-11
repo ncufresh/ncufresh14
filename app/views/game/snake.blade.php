@@ -7,7 +7,10 @@
 @stop
 
 @section('game_content')
-	<div id="cover" data-role="fieldcontain">
+	<div id="cover">
+		<div id="title">
+			Title
+		</div>
 		<div class="choice" align="center">
 			<div class="Difficult">
 				<div id="difficulty1"> Difficulty1 </div>
@@ -21,9 +24,6 @@
 			</div>
 		</div>
 		<div id="start"> Start </div>
-
-		
-
 	</div>
 
 	<div id="content">
@@ -33,5 +33,6 @@
 			</div>
 		</div>
 	</div>
+
 
 @stop
