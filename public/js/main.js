@@ -24,12 +24,35 @@ function ajaxGet(url, data, success_callback){
 }
 
 function pushLocation(name, url){
+	var siteMap = $('#site_map');
 	var aTag = $('<a></a>').text(name).attr('href', url);
-	var span = $('<span></span>').append(aTag).appendText('/');
-	$('#site_map').append(span)
+	var span = $('<span></span>').append(aTag).append('/');
+	siteMap.append(span)
+	changeURL(url);
 }
 
-
-function changeURL(url){
-	window.history.pushState("大一生活知訊網", "NCUFresh", url);
+function popLocation(){
+	$('#site_map').children().last().remove();
+	window.history.back();
 }
+
+function changeURL(url, stateObject1){
+	console.log(stateObject1);
+	history.pushState(stateObject1, "NCUFresh", url);
+}
+
+function test(){
+	ajaxGet('/api/v1/link', '', function(data){
+		data = {testData: $('#calender').text()};
+		$('#calender').text(data);
+		pushLocation('換地方嚕', '/link', data, "iNeedGoBack");
+	})
+}
+
+//Refresh page if user back.XD
+$(window).on('popstate', function(event) {
+	var state = event.originalEvent.state;
+	if ( !state ) { return; }
+	location.reload();
+});
+
