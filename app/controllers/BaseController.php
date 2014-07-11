@@ -15,6 +15,7 @@ class BaseController extends Controller {
 			$transferData->addData('user-id', Auth::user()->id);
 			$transferData->addData('user-name', Auth::user()->name);
 		}
+		$transferData->addData('bURL', URL::to('/'));
 
 
 		App::make('SiteMap')->pushLocation('首頁', route('home'));

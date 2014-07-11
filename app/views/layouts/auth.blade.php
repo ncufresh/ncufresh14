@@ -13,7 +13,8 @@
 	{{ Form::password('password') }}
 	<br>
 	{{ Form::submit('Login') }}
-	<a href="{{ route('loginFB') }}"><button type="button" class="btn btn-default btn-sm">Login with FB</button></a>
+	<a href="{{ route('login.FB') }}"><button type="button" class="btn btn-default btn-sm">Login with FB</button></a>
+	<a href="{{ route('register') }}"><button type="button" class="btn btn-default btn-sm">Register</button></a>
 	{{ Form::close() }}
 	
 @endif

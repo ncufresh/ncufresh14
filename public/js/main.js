@@ -23,9 +23,11 @@ function ajaxGet(url, data, success_callback){
 	$.get(url, data, success_callback);
 }
 
+
 function pushLocation(name, url){
+	var bURL = getTransferData('burl');
 	var siteMap = $('#site_map');
-	var aTag = $('<a></a>').text(name).attr('href', url);
+	var aTag = $('<a></a>').text(name).attr('href', bURL + url);
 	var span = $('<span></span>').append(aTag).append('/');
 	siteMap.append(span)
 	changeURL(url);

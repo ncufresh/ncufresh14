@@ -17,13 +17,15 @@ Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 //auth
 Route::post('login', array('as' => 'login', 'uses' => 'AuthController@login'));
 //login with fb
-Route::get('login/FB', array('as' => 'loginFB', 'uses' => 'AuthController@loginFB'));
+Route::get('login/FB', array('as' => 'login.FB', 'uses' => 'AuthController@loginFB'));
 //login with fb callback
 Route::get('login/FB/callback', array('as' => 'fb_login_callback', 'uses' => 'AuthController@loginFBCallback'));
 //logout
 Route::get('logout', array('as' => 'logout', 'uses' => 'AuthController@logout'));
 //Register
 Route::get('register', array('as' => 'register', 'uses' => 'AuthController@register'));
+Route::get('register/email', array('as' => 'register.email', 'uses' => 'AuthController@register'));
+Route::get('register/FB', array('as' => 'register.FB', 'uses' => 'AuthController@register'));
 Route::post('register', array('as' => 'register.store', 'uses' => 'AuthController@registerStore'));
 
 //==========================================================================================
