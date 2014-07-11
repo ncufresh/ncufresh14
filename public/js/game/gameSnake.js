@@ -1,15 +1,15 @@
 $(document).ready(function(){
 
 	var difficult, mode;
-	$('#difficulty1').click(function(){$('#cover').hide();
-			$('#content').show();});
+	$('#difficulty2').click(function(){difficult=1;});
 	$('#difficulty2').click(function(){difficult=2;});
 	$('#difficulty3').click(function(){difficult=3;});
 	$('#mode1').click(function(){mode=1;});
 	$('#mode2').click(function(){mode=2;});
 	$('#mode3').click(function(){mode=3;});
 
-	/*$('#start').click(function() {
+	/*
+	$('#start').click(function() {
 		if(difficult==1&&mode==1)
 		{
 			$('#cover').hide();
@@ -27,8 +27,8 @@ $(document).ready(function(){
 	var Box = new Array(blocknum);
 	var snakes = new Array(2);
 		snakes[0] = $('#snakehead');
-	var snakespath = new Array(blocknum);
-		for(var i=0 ; i<blocknum ; i++) 
+	var snakespath = new Array(100);
+		for(var i=0 ; i<100 ; i++) 
 			snakespath[i] = new Array(2);
 	var snakespathnum = 0;
 	var length = 5;
@@ -86,6 +86,13 @@ $(document).ready(function(){
 		timeMove();
 	}
 
+	function coordRandom(coord)
+	{
+		coord = Math.random()*10+15;
+		coord = coord - coord%1;
+		return coord;
+	}
+
 ////////////////////////////////////snake/////////////////////////////////////////////
 	function timeMove()
 	{
@@ -119,13 +126,6 @@ $(document).ready(function(){
 		timer.set({ time:speed, autostart:true });
 	}
 
-	function coordRandom(coord)
-	{
-		coord = Math.random()*20+5;
-		coord = coord - coord%1;
-		return coord;
-	}
-
 	function setRecent()
 	{
 		// store new value of recent position of snack in snakespath[][] 
@@ -156,6 +156,7 @@ $(document).ready(function(){
 		if(snakespath[0][0]==point[0] && snakespath[0][1]==point[1])
 		{
 			Box[ snakespath[0][0] ][ snakespath[0][1] ].empty();
+			snakespathnum++;
 			bombEchinacea();
 			pointEchinacea();
 		}
@@ -177,6 +178,17 @@ $(document).ready(function(){
 		});
 	}
 
+	function lose()
+	{
+
+	}
+
+	function coordEchinaceaRandom(coord)
+	{
+		coord = Math.random()*blocknum;
+		coord = coord - coord%1;
+		return coord;
+	}
 
 
 ////////////////////////////////////echinacea/////////////////////////////////////////////
@@ -184,8 +196,8 @@ $(document).ready(function(){
 	function bombEchinacea()
 	{
 		var correct = 1;
-		rx = coordRandom(rx);
-		ry = coordRandom(ry);
+		rx = coordEchinaceaRandom(rx);
+		ry = coordEchinaceaRandom(ry);
 		
 		echina = Math.random()*100;
 
@@ -211,8 +223,8 @@ $(document).ready(function(){
 	function pointEchinacea()
 	{
 		var correct = 1;
-		x = coordRandom(x);
-		y = coordRandom(y);
+		x = coordEchinaceaRandom(x);
+		y = coordEchinaceaRandom(y);
 
 		for(var i=0; i<snakespathnum; i++)
 		{

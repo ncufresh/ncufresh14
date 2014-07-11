@@ -8,19 +8,20 @@
 @section('content')
 	<div id="cover" data-role="fieldcontain">
 		<div class="choice" align="center">
-
-
+			<div class="Difficult">
 				<div id="difficulty1"> Difficulty1 </div>
-				<div id="mode1"> Mode1 </div>
-
 				<div id="difficulty2"> Difficulty2 </div>
-				<div id="mode2"> Mode2 </div>
-
 				<div id="difficulty3"> Difficulty3 </div>
+			</div>
+			<div class="Mode">
+				<div id="mode1"> Mode1 </div>
+				<div id="mode2"> Mode2 </div>	
 				<div id="mode3"> Mode3 </div>
+			</div>
 		</div>
-
 		<div id="start"> Start </div>
+
+		
 
 	</div>
 
