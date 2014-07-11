@@ -1,19 +1,9 @@
 @extends('../layouts/layout');
 @section('js_css')
 	{{ HTML::style('css/forum.css') }}
+	{{ HTML::script('js/forum/forum.js') }}
 @stop
 @section('content')
-		<script type="text/javascript">
-			$(function(){
-				$("#myTab a").click(function(e){
-					e.preventDefault();
-					$(this).tab('show');
-				});
-				$("#createBtn").click(function(){
-					$('#myModal').modal('toggle')
-				});
-			});
- 		</script>
 		<div>
 			<ul class="nav nav-tabs" id="myTab">
 				<li><a href="#Test1">討論區</a></li>
@@ -30,7 +20,7 @@
 						<button class="btn btn-primary" id="createBtn">發表新文章</button>
 					</div>
 					<div>
-						@foreach($articles as $article)
+						@foreach($postArticles as $article)
 							<div class="postTimeContainer">
 								<div class="articlePostTime">
 									<span class="author">{{ $article -> author_id }}</span>
@@ -38,13 +28,20 @@
 									{{ $article -> created_at }} 
 								</div>
 							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h3 class="panel-title"> {{ $article -> title }} </h3>
+							<div class="articleContainer">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h3 class="panel-title"> {{ $article -> title }} </h3>
+									</div>
+									<div class="panel-body">
+										{{ $article -> content }}
+										<div class="articleType">{{ $article -> article_type }} </div>
+									</div>
+									<a class="moreBox"><div class="moreBtn"><div class="panel panel-default">More</div></div></a>
 								</div>
-								<div class="panel-body">
-									{{ $article -> content }}
-									<div class="articleType">{{ $article -> article_type }} </div>
+								<div class="responseContainer">
+									{{ Form::label('comment','留言') }}
+									{{ Form::textarea('comment','',array('class' => 'form-control' , 'id' => 'inputContent')) }}
 								</div>
 							</div>
 						@endforeach
@@ -52,7 +49,7 @@
 				</div>
 				<div class="tab-pane" id="Test2">
 					<div>
-						@foreach($articles as $article)
+						@foreach($departmentArticles as $article)
 							<div class="postTimeContainer">
 								<div class="articlePostTime">
 									<span class="author">{{ $article -> author_id }}</span>
@@ -74,7 +71,7 @@
 				</div>
 				<div class="tab-pane" id="Test3">
 					<div>
-						@foreach($articles as $article)
+						@foreach($clubArticles as $article)
 							<div class="postTimeContainer">
 								<div class="articlePostTime">
 									<span class="author">{{ $article -> author_id }}</span>

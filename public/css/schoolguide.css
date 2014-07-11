@@ -1,0 +1,50 @@
+#contentContainer {
+	width: 100%;
+
+}
+
+#contentLeft {
+	width: 23%;
+	height: 720px;
+	padding: 10px;
+	float: left;
+}
+
+#contentRight {
+	width: 77%;
+	height: 720px;
+	padding: 10px 10px 10px 0px;
+	float: left;
+}
+
+#option {
+	width: 200px;
+	height: 700px;
+	padding: 10px;
+}
+
+
+#map{
+	width: 100%;
+	height: 700px;
+	padding: 10px;
+}
+
+li{
+    list-style-type: none;
+    
+}
+
+.introduction{
+	display:none;
+
+}
+
+.categories{
+	display:none;
+	width:20px;
+}
+
+.name{
+	display:none;
+}

@@ -23,22 +23,30 @@
 				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+			@if(Request::server('SERVER_IP') == '140.115.184.136')
+
 			ga('create', 'UA-10121863-1', 'auto');
 			ga('send', 'pageview');
-
+			@endif
 		</script>
+
 		@yield('js_css')
 	</head>
 	<body data-user_id="@if(Auth::check()){{Auth::user()->id}}@else0@endif">
 
-			<div class="hidden" id="data_section"
-				@foreach(App::make('TransferData')->getData() as $key=>$item)
-					data-{{ $key }}="{{ $item }}"
-				@endforeach
-				 ></div>
+		<div class="hidden" id="data_section"
+			@foreach(App::make('TransferData')->getData() as $key=>$item)
+				data-{{ $key }}="{{ $item }}"
+			@endforeach
+		></div>
 		<div id="globalContainer" class="container">
 			<div id="topContainer" class="testY">
 				@include('layouts.top')
+			</div>
+			<div id="site_map">
+				@foreach(App::make('SiteMap')->getData() as $item)
+					<span class="site_map_item"><a href="{{ $item['url'] }}">{{ $item['name'] }}</a>/</span>
+				@endforeach
 			</div>
 			<div id="container" class="container">
 				@yield('content')
@@ -47,6 +55,7 @@
 				<p>Bottom!</p>
 			</div>
 		</div>
+
 		@include('layouts.chatroom')
 	</body>
 </html>

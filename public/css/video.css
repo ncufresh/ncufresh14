@@ -75,35 +75,35 @@
 /*////////////////////////////////////////////////////////////////////////////////*/
 
 #like {
-	position:relative;
-	top:-1230px;
-	left:-335px;
+	position:absolute;
+	top:410px;
+	left:0px;
 }
 #love {
-	position:relative;
-	top:-1230px;
-	left:-325px;
+	position:absolute;
+	top:410px;
+	left:110px;
 }
 #message {
-	position:relative;
-	top:-1230px;
-	left:-315px;
+	position:absolute;
+	top:410px;
+	left:220px;
 }
-#div1 {
-	position:relative;
-	top:-1220px;
-	left:-335px;
+#div1 {      /*浮動視窗的位子*/
+	position:absolute;
+	top:200px;
+	left:200px;
 }
 /*////////////////////////////////////////////////////////////////////////////////*/
 #div_message {
 	position:relative;
-	top:-1190px;
-	left:-200;
+	top:470px;
+	left:100px;
 }
 #video_name {
-	position:relative;
-	top:-1240;
-	left:-330
+	position:absolute;
+	top:300px;
+	left:0px;
 	
 }
 
