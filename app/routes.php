@@ -102,7 +102,7 @@ Route::get('nculife', function(){
 
 Route::get('nculife/select', array('as' => 'nculife.select', 'uses'=>'NcuLifeController@select'));
 
-Route::get('nculife/{name}', array('as' => 'nculife.item', 'uses'=>'NcuLifeController@item'));
+Route::get('nculife/{item}', array('as' => 'nculife.item', 'uses'=>'NcuLifeController@item'))->where('item', '(food|live|go|inschool|outschool)');
 
 //==========================================================================================
 //video
