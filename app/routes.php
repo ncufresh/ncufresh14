@@ -92,7 +92,9 @@ Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@getA
 
 Route::post('/new',array('uses' => 'ArticlesController@postArticles'));
 
+Route::post('/create',array('as' => 'createComment' , 'uses' => 'ArticlesController@postComment' ));
 
+Route::post('/getComments',array('uses' => 'ArticlesController@getComment'));
 
 //==========================================================================================
 //NcuLife
