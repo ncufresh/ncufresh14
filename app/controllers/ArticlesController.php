@@ -4,9 +4,8 @@ class ArticlesController extends BaseController{
 
 	public $restful = true;
 
-	public function get_articles(){
+	public function getArticles(){
 		$articles = Forum::orderBy('created_at','desc')->paginate();
-		//$postArticles = DB::table('forum_articles')->where('article_type','P');
 		$postArticles = Forum::where('article_type','P')->paginate();
 		$clubArticles = Forum::where('article_type','C')->paginate();
 		$departmentArticles = Forum::where('article_type','D')->paginate();
@@ -19,7 +18,7 @@ class ArticlesController extends BaseController{
 		));
 	}
 
-	public function post_articles(){
+	public function postArticles(){
 		$input = Input::all();
 
 		Forum::create(array(
@@ -32,6 +31,32 @@ class ArticlesController extends BaseController{
 		return Redirect::to('articles');
 	}
 
+	public function postComment(){
+			
+		$comment = Input::get('comment');
+		$author_id = Input::get('author_id');
+		$article_id = Input::get('article_id');
+
+		ForumComment::create(array(
+			'article_id' => $article_id,
+			'author_id' => $author_id,
+			'content' => $comment
+		));
+
+		$response = array(
+			'status' => 'success',
+			'msg' => 'successfully'
+		);
+
+		return Response::json($response);
+	}
+	public function getComment(){
+		$id = Input::get('articleID');
+
+		$comments = ForumComment::where('article_id',$id)->paginate();
+
+		return Response::json($comments);
+	}
 
 
 

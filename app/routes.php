@@ -90,11 +90,13 @@ Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameshopController
 
 //==========================================================================================
 //Forum articles
-Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@get_articles'));
+Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@getArticles'));
 
-Route::post('/new',array('uses' => 'ArticlesController@post_articles'));
+Route::post('/new',array('uses' => 'ArticlesController@postArticles'));
 
+Route::post('/create',array('as' => 'createComment' , 'uses' => 'ArticlesController@postComment' ));
 
+Route::post('/getComments',array('uses' => 'ArticlesController@getComment'));
 
 //==========================================================================================
 //NcuLife
@@ -115,6 +117,8 @@ Route::post('video', array('as' => 'video.message','uses' => 'VideoController@po
 Route::post('video/message', array('as' => 'video.message','uses' => 'VideoController@post_index'));
 
 Route::post('video/like', array('as' => 'video.rate','uses' =>'VideoController@post_like'));
+
+Route::post('about_rate_url', array('as' => 'video.aboutrate','uses' =>'VideoController@AboutRate'));
 
 //=============================================================================
 // Necessity

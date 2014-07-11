@@ -25,6 +25,12 @@
 	right: 13%;
 	margin-top: 2%;
 }
+.articleContainer{
+	border-radius: 5px;
+}
+.arrow{
+	text-align: center;
+}
 .panel-title{
 	font-size: 25px;
 	color: #458FFF;
@@ -32,12 +38,6 @@
 .author{
 	color: #458FFF;
 	font-size: 17px;
-}
-.articleType{
-	display: table;
-	font-size: 15px;
-	position: relative;
-	left: 99%;
 }
 #orderBox{
 	display:table;
@@ -52,12 +52,24 @@
 	position: relative;
 	top: 22px;
 }
-
-
-
-
-
-
+.articleBody{
+	margin-bottom: 10px;
+}
+textarea.commentTextArea{
+	height: 5em;
+}
+.createComment{
+	position: relative;
+	top: -2px;
+	left: 85%;
+}
+.articleContainer{
+	padding: 2px;
+}
+.commenterID{
+	margin-bottom: 5px;
+	width: 17%;
+}
 
 
 
