@@ -47,7 +47,7 @@ Route::get('admin', array('as' => 'dashboard', 'uses' => 'HomeController@dashboa
 
 //==========================================================================================
 //API
-Route::group(array('prefix' => 'api/v1'), function()
+Route::group(array('prefix' => 'api'), function()
 {
 	Route::get('/', function(){return Response::json('Hello API');});
 	Route::resource('announcement', 'APIAnnouncementController');

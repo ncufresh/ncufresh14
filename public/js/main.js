@@ -25,12 +25,7 @@ function ajaxGet(url, data, success_callback){
 
 
 function pushLocation(name, url){
-	var bURL = getTransferData('burl');
-	var siteMap = $('#site_map');
-	var aTag = $('<a></a>').text(name).attr('href', bURL + url);
-	var span = $('<span></span>').append(aTag).append('/');
-	siteMap.append(span)
-	changeURL(url);
+	$.pushLocation(name, url);
 }
 
 function popLocation(){
@@ -57,18 +52,26 @@ $(window).on('popstate', function(event) {
 	location.reload();
 });
 
+$(function(){
+	changeURL('');
+})
 
-function alertMessage(text){
-	console.log(text);
-	var div = $('<div class="alert alert-success" role="alert"></div>').text(text).css({display: 'block', opacity: 0}).appendTo($('#alert-messages'));
-	div.animate({opacity: 1}, null, function(){$(this).animate({opacity: 0}, null, function(){
-		$(this).remove();
-	})
-	});
-//	<div class="alert alert-success" role="alert">...</div>
-}
+$.pushLocation = function(name, url){
+	var bURL = getTransferData('burl');
 
+	var defaults = {
+		name: '頁面',
+		url: bURL
+	};
 
+	var options = $.extend({}, defaults, options);
+
+	var siteMap = $('#site_map');
+	var aTag = $('<a></a>').text(name).attr('href', bURL + url);
+	var span = $('<span></span>').append(aTag).append('/');
+	siteMap.append(span)
+	changeURL(url);
+};
 
 $.alertMessage = function(text, options){
 
@@ -84,17 +87,20 @@ $.alertMessage = function(text, options){
 	div.animate({opacity: 1}).delay(options.delay).animate({opacity: 0}, null, function(){$(this).remove()});
 };
 
-$.jumpWindow = function(head, body, options){
+$.jumpWindow = function(head, body, foot, options){
 
 	var defaults = {
-
-	}
+		head: '',
+		body: '',
+		foot: ''
+	};
 
 	options = $.extend({}, defaults, options);
 
 
 	$('#jump-window-head').html(head);
 	$('#jump-window-body').html(body);
+	$('#jump-window-footer').html(foot);
 	$('#jump-window').modal('show');
 
 };

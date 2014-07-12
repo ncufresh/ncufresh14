@@ -50,6 +50,7 @@
 
 						</div>
 						<div class="modal-footer">
+							<div id="jump-window-footer"></div>
 							<button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
 <!--							<button type="button" class="btn btn-primary">Save changes</button>-->
 						</div>
