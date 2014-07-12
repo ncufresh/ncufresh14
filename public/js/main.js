@@ -57,3 +57,47 @@ $(window).on('popstate', function(event) {
 	location.reload();
 });
 
+
+function alertMessage(text){
+	console.log(text);
+	var div = $('<div class="alert alert-success" role="alert"></div>').text(text).css({display: 'block', opacity: 0}).appendTo($('#alert-messages'));
+	div.animate({opacity: 1}, null, function(){$(this).animate({opacity: 0}, null, function(){
+		$(this).remove();
+	})
+	});
+//	<div class="alert alert-success" role="alert">...</div>
+}
+
+
+
+$.alertMessage = function(text, options){
+
+	var defaults = {
+		delay: 5000,
+		type: "alert-success"
+	};
+
+	options = $.extend({}, defaults, options);
+	var alertTarget = $('#alert-messages');
+	var div = $('<div class="alert" role="alert"></div>').addClass("alert " + options.type).text(text).appendTo(alertTarget);
+
+	div.animate({opacity: 1}).delay(options.delay).animate({opacity: 0}, null, function(){$(this).remove()});
+};
+
+$.jumpWindow = function(head, body, options){
+
+	var defaults = {
+
+	}
+
+	options = $.extend({}, defaults, options);
+
+
+	$('#jump-window-head').html(head);
+	$('#jump-window-body').html(body);
+	$('#jump-window').modal('show');
+
+};
+$(function(){
+//	$('body').jScrollPane();
+});
