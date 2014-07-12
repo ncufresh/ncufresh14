@@ -1,32 +1,44 @@
 $(document).ready(function(){
 
-	var difficult=3, mode=2;
-	$('#difficulty1').click(function(){
-		difficult=1;
-		$('#difficulty1').children().attr('src','..\\images\\gameSnake\\cd1.jpg');
+	var difficult=1, mode=2;
+	$('#difficulty1').click(function(){		clickDifficult();	difficult=1;
+		$('#difficulty1').children().attr('src','..\\images\\gameSnake\\d1Click.jpg');
 	});
-	$('#difficulty2').click(function(){
-		difficult=2;
-		$('#difficulty2').children().attr('src','..\\images\\gameSnake\\cd2.jpg');
+	$('#difficulty2').click(function(){		clickDifficult();	difficult=2;
+		$('#difficulty2').children().attr('src','..\\images\\gameSnake\\d2Click.jpg');
 	});
-	$('#difficulty3').click(function(){
-		difficult=3;
-		$('#difficulty3').children().attr('src','..\\images\\gameSnake\\cd3.jpg');
+	$('#difficulty3').click(function(){		clickDifficult();	difficult=3;
+		$('#difficulty3').children().attr('src','..\\images\\gameSnake\\d3Click.jpg');
 	});
-	$('#mode1').click(function(){
-		mode=1;
-		$('#mode1').children().attr('src','..\\images\\gameSnake\\cm1.jpg');
+	$('#mode1').click(function(){			clickMode();		mode=1;
+		$('#mode1').children().attr('src','..\\images\\gameSnake\\m1Click.jpg');
 	});
-	$('#mode2').click(function(){
-		mode=2;
-		$('#mode2').children().attr('src','..\\images\\gameSnake\\cm2.jpg');
+	$('#mode2').click(function(){			clickMode();		mode=2;
+		$('#mode2').children().attr('src','..\\images\\gameSnake\\m2Click.jpg');
 	});
-	$('#mode3').click(function(){
-		mode=3;
-		$('#mode3').children().attr('src','..\\images\\gameSnake\\cm3.jpg');
+	$('#mode3').click(function(){			clickMode();		mode=3;
+		$('#mode3').children().attr('src','..\\images\\gameSnake\\m3Click.jpg');
 	});
+	function clickDifficult()
+	{
+		if(difficult==1)
+			$('#difficulty1').children().attr('src','..\\images\\gameSnake\\d1.jpg');
+		if(difficult==2)
+			$('#difficulty2').children().attr('src','..\\images\\gameSnake\\d2.jpg');
+		if(difficult==3)
+			$('#difficulty3').children().attr('src','..\\images\\gameSnake\\d3.jpg');
+	}
+	function clickMode()
+	{
+		if(mode==1)
+			$('#mode1').children().attr('src','..\\images\\gameSnake\\m1.jpg');
+		if(mode==2)
+			$('#mode2').children().attr('src','..\\images\\gameSnake\\m2.jpg');
+		if(mode==3)
+			$('#mode3').children().attr('src','..\\images\\gameSnake\\m3.jpg');
+	}
 
-	
+	/*
 	$('#start').click(function() {
 		//if(difficult==1&&mode==1)
 		{
@@ -36,7 +48,7 @@ $(document).ready(function(){
 			startGame();
 		}
 	});
-	
+	*/
 
 	var lose=0;
 	var score=0;
@@ -53,8 +65,8 @@ $(document).ready(function(){
 	var Box = new Array(blocknum);
 	var snakes = new Array(2);
 		snakes[0] = $('#snakehead');
-	var snakespath = new Array(500);
-		for(var i=0 ; i<500 ; i++) 
+	var snakespath = new Array(900);
+		for(var i=0 ; i<900 ; i++) 
 			snakespath[i] = new Array(2);
 	var snakespathnum = 0;
 	var length = 5;
@@ -91,6 +103,8 @@ $(document).ready(function(){
 			key=40;
 	});
 
+	initial();
+	startGame();
 
 	function gameStyle()
 	{
@@ -164,7 +178,7 @@ $(document).ready(function(){
 	
 	function startGame()
 	{
-		round= (4-difficult)*2;
+		round= (4-difficult)*1;
 		timer.set({ time:50, autostart:true });
 	}
 	
@@ -210,7 +224,6 @@ $(document).ready(function(){
 		{
 			snakes[0].appendTo(Box[ snakespath[0][0] ][ snakespath[0][1] ]);
 			snakespathnum++;
-
 			if( mode!=3 || bombcount<=5 )
 				bombEchinacea();
 			pointEchinacea();
@@ -423,6 +436,6 @@ $(document).ready(function(){
 			score = ((100+timeCount*0.05)/100)*score;
 		
 		score = score-(score%1);
-		alert(score);
+		//alert(score);
 	} 
 });
