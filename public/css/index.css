@@ -1,3 +1,7 @@
+body {
+	overflow: hidden;
+}
+
 #contentContainer {
 	width: 100%;
 
@@ -47,4 +51,41 @@
 	height: 400px;
 	float: left;
 	padding: 10px;
+}
+
+#chat-room {
+	width: 200px;
+	position: absolute;
+	top: 100px;
+	right: -175px;
+}
+
+#chat-room .container {
+	width: 175px;
+	background-color: yellow;
+	padding: 10px;
+	float: left;
+}
+
+#chat-room-button {
+	background-color: red;
+	width: 25px;
+	height: 150px;
+	float: left;
+}
+
+#chat-log {
+	width: 100%;
+	min-height: 300px;
+	background-color: white;
+}
+
+.chat-row {
+	background-color: gray;
+}
+
+#chat-input {
+	top: 10px;
+	margin: 0px auto;
+	position: relative;
 }
