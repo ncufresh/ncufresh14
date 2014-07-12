@@ -1,3 +1,45 @@
+body {
+	overflow: hidden;
+	background-image: url('../images/layout/background.png');
+}
+
+#chat-room {
+	width: 200px;
+	position: absolute;
+	top: 100px;
+	right: -175px;
+}
+
+#chat-room .container {
+	width: 175px;
+	background-color: yellow;
+	padding: 10px;
+	float: left;
+}
+
+#chat-room-button {
+	background-color: red;
+	width: 25px;
+	height: 150px;
+	float: left;
+}
+
+#chat-log {
+	width: 100%;
+	min-height: 300px;
+	background-color: white;
+}
+
+.chat-row {
+	background-color: gray;
+}
+
+#chat-input {
+	top: 10px;
+	margin: 0px auto;
+	position: relative;
+}
+
 #globalContainer{
 	width: 1024px;
 	margin: 0 auto;
@@ -26,15 +68,15 @@
 #topRight{
 	width: 200px;
 	height: 250px;
-	padding: 25px 10px;
 	float: right;
+	padding-right: 10px;
 }
 
 #topLogo{
 	position: relative;
 	width: 250px;
 	height: 250px;
-	background-image: url("../images/logo.jpg");
+	background-image: url("../images/layout/logo.png");
 	background-size:250px 250px;
 	background-repeat:no-repeat;
 }
@@ -43,7 +85,40 @@
 	width: 300px;
 	height: 30px;
 	/*margin: 0 auto;*/
+	background-color: white;
 }
+
+.topNavBarButton {
+	width: 57px;
+	height: 157px;
+	float: left;
+	margin-left: 30px;
+}
+
+#topNavBarLife {
+	background-image: url("../images/layout/nculife.png");
+}
+
+#topNavBarFourm {
+	background-image: url("../images/layout/forum.png");
+}
+
+#topNavBarRead {
+	background-image: url("../images/layout/read.png");
+}
+
+#topNavBarCampus {
+	background-image: url("../images/layout/campus.png");
+}
+
+#topNavBarVideo {
+	background-image: url("../images/layout/video.png");
+}
+
+#topNavBarAbout {
+	background-image: url("../images/layout/about.png");
+}
+
 
 #topNavBar{
 	width: 100%;
@@ -52,10 +127,8 @@
 }
 
 #topLoginBar{
-	width: 90%;
+	width: 100%;
 	height: 100%;
-	margin: 0 auto;
-	padding: 10px;
 }
 
 #container{
@@ -70,11 +143,69 @@
 }
 
 #auth_box {
-	position: relative;
+	width: 100%;
+	height: 100%;
+	background: url("../images/layout/facebox.png") no-repeat;
+	background-size: 100%;
 }
 
 #auth_box input {
-	width:100%;
+	width:50%;
+}
+
+#auth_box #account {
+	width: 50%;
+	height: 8%;
+	left: 25%;
+	top: 47px;
+	position: relative;
+	background-color: #D6D6D6;
+	border: 0px;
+	border-radius: 5px;
+}
+
+#auth_box #password {
+	width: 50%;
+	height: 8%;
+	left: 25%;
+	top: 50px;
+	position: relative;
+	background-color: #D6D6D6;
+	border: 0px;
+	border-radius: 5px;
+}
+
+#auth_box #submit {
+	width: 26%;
+	height: 9%;
+	left: 29%;
+	top: 54px;
+	position: relative;
+	background: url("../images/layout/login1.png") no-repeat;
+	background-size: 100%;
+	border: 0px;
+	float: left;
+}
+
+#auth_box #register {
+	width: 26%;
+	height: 9%;
+	left: 19%;
+	top: 54px;
+	position: relative;
+	background: url("../images/layout/register.png") no-repeat;
+	background-size: 100%;
+	float: left;
+}
+
+#auth_box #fblogin {
+	width: 45%;
+	height: 6%;
+	left: 28%;
+	top: 73px;
+	position: relative;
+	background: url("../images/layout/fblogin1.png") no-repeat;
+	background-size: 100%;
 }
 
 /** testing */

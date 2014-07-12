@@ -1,12 +1,25 @@
-<div id="topLeft" class="testR">
-	<div id="topLogo" class="testB">LOGO</div>
+<div id="topLeft">
+	<div id="topLogo"></div>
 </div>
-<div id="topMiddle" class="testG">
-	<div id="topSearchBar" class="testG">Search bar</div>
-	<div id="topNavBar" class="testR">Nav bar</div>
+<div id="topMiddle" >
+	<div id="topSearchBar" >Search bar</div>
+	<div id="topNavBar" >
+		<div class="topNavBarButton" id="topNavBarLife">
+		</div>
+		<div class="topNavBarButton" id="topNavBarFourm">
+		</div>
+		<div class="topNavBarButton" id="topNavBarRead">
+		</div>
+		<div class="topNavBarButton" id="topNavBarCampus">
+		</div>
+		<div class="topNavBarButton" id="topNavBarVideo">
+		</div>
+		<div class="topNavBarButton" id="topNavBarAbout">
+		</div>
+	</div>
 </div>
 <div id="topRight">
-	<div id="topLoginBar" class="testB">
+	<div id="topLoginBar" >
 		@include('layouts.auth')
 	</div>
 </div>
