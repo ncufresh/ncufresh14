@@ -100,7 +100,7 @@ class User extends Eloquent implements UserInterface{
 	 * @return FacebookData
 	 */
 	public function getFacebookData(){
-		return $this->hasMany('FacebookData', 'uid', 'id');
+		return $this->hasOne('FacebookData', 'user_id', 'id');
 	}
 
 

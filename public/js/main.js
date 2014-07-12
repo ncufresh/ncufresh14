@@ -29,7 +29,7 @@ function pushLocation(name, url){
 	var siteMap = $('#site_map');
 	var aTag = $('<a></a>').text(name).attr('href', bURL + url);
 	var span = $('<span></span>').append(aTag).append('/');
-	siteMap.append(span)
+	siteMap.append(span);
 	changeURL(url);
 }
 
