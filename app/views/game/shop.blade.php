@@ -4,7 +4,7 @@
 	{{ HTML::style('css/game.css') }}
 	{{ HTML::script('js/game/shop.js') }}
 	<script>
-		var Burl = {{ json_encode(asset('')) }};
+		var bURL = {{ json_encode(asset('')) }};
 		var disply_item_data = {{ json_encode($shop) }};
 	</script>
 @stop
@@ -12,13 +12,13 @@
 @section('game_content')
 	<div id="gameShopContainer">
 		<div id="characterLook">
-			<img class="character" id="characterHead" alt="head"/>
-			<img class="character" id="characterFace" alt="face"/>
-			<img class="character" id="characterBody" alt="body"/>
-			<img class="character" id="characterFoot" alt="foot"/>
-			<img class="character" id="characterItem" alt="item"/>
-			<img class="character" id="characterMap" alt="map"/>
-			<div id="characterEquipButton">Equip</div>
+			<img class="character" src="{{asset("images/gameShop/" . $EquipItem[0]["picture"] )}}" id="characterHead" alt="head" itemId="{{$EquipItem[0]["id"]}}"/>
+			<img class="character" src="{{asset("images/gameShop/" . $EquipItem[1]["picture"] )}}" id="characterFace" alt="face" itemId="{{$EquipItem[1]["id"]}}"/>
+			<img class="character" src="{{asset("images/gameShop/" . $EquipItem[2]["picture"] )}}" id="characterBody" alt="body" itemId="{{$EquipItem[2]["id"]}}"/>
+			<img class="character" src="{{asset("images/gameShop/" . $EquipItem[3]["picture"] )}}" id="characterFoot" alt="foot" itemId="{{$EquipItem[3]["id"]}}"/>
+			<img class="character" src="{{asset("images/gameShop/" . $EquipItem[4]["picture"] )}}" id="characterItem" alt="item" itemId="{{$EquipItem[4]["id"]}}"/>
+			<img class="character" src="{{asset("images/gameShop/" . $EquipItem[5]["picture"] )}}" id="characterMap"  alt="map"  itemId="{{$EquipItem[5]["id"]}}"/>
+			<div id="characterEquipButton" action="{{ URL::to('game/shop/equip') }}">Equip</div>
 			<div id="characterReturnButton">Return</div>
 		</div>
 		<div id="gameShopBox">
@@ -33,7 +33,7 @@
 			<div id="gameShopItems" action="{{ URL::to('game/shop/buy') }}">
 				@foreach( $shop as $item )
 					<div class="gameShopItem">
-						<img class="gameShopItemImage" src="{{asset("images/gameShop/" . $item["small_picture"] )}}" look="{{asset("images/gameShop/" . $item["picture"] )}}">
+						<img class="gameShopItemImage" src="{{asset("images/gameShop/" . $item["small_picture"] )}}" look="{{asset("images/gameShop/" . $item["picture"] )}}" itemId="{{$item["id"]}}"/>
 						<div class="gameShopItemText">{{$item["id"] . " " . $item["name"]}}</div>
 						<?php
 							for ( $index = 0; $index < count($hadBuyItems); $index++ ) {
