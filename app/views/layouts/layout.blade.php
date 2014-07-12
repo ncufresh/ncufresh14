@@ -33,11 +33,13 @@
 		@yield('js_css')
 	</head>
 	<body data-user_id="@if(Auth::check()){{Auth::user()->id}}@else0@endif">
+		{{-- Transfer Data Section --}}
 		<div class="hidden" id="data_section"
 			@foreach(App::make('TransferData')->getData() as $key=>$item)
 				data-{{ $key }}="{{ $item }}"
 			@endforeach
 		></div>
+		{{-- Jump Window's Modal--}}
 		<div id="alert-messages"></div>
 			<div class="modal fade" id="jump-window" tabindex="-1" role="dialog" aria-labelledby="jump-window-modal" aria-hidden="true">
 				<div class="modal-dialog">
@@ -61,11 +63,14 @@
 			<div id="topContainer" class="testY">
 				@include('layouts.top')
 			</div>
-			<div id="site_map">
+			{{-- Site Map --}}
+
+			<ol class="breadcrumb">
 				@foreach(App::make('SiteMap')->getData() as $item)
-					<span class="site_map_item"><a href="{{ $item['url'] }}">{{ $item['name'] }}</a>/</span>
+				<li class="site_map_item"><a href="{{ $item['url'] }}">{{ $item['name'] }}</a></li>
 				@endforeach
-			</div>
+			</ol>
+
 			<div id="container" class="container">
 				@yield('content')
 			</div>
