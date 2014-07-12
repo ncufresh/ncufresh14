@@ -38,13 +38,12 @@ function popLocation(){
 	window.history.back();
 }
 
-function changeURL(url, stateObject1){
-	console.log(stateObject1);
-	history.pushState(stateObject1, "NCUFresh", url);
+function changeURL(url){
+	history.pushState({data: 'data'}, "NCUFresh", url);
 }
 
 function test(){
-	ajaxGet('/api/v1/link', '', function(data){
+		ajaxGet('/api/v1/link', '', function(data){
 		data = {testData: $('#calender').text()};
 		$('#calender').text(data);
 		pushLocation('換地方嚕', '/link', data, "iNeedGoBack");
