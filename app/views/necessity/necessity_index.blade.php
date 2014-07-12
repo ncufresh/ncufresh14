@@ -1,13 +1,45 @@
 @extends('layouts.layout')
 
-{{ HTML::style('css/necessity.css') }}
+{{ HTML::style('css/necessity_index.css') }}
 {{ HTML::script('js/necessity.js')  }}
 
 @section('content')
 		
-		<div class="background">
-			<font size='7' color='purple' face='標楷體'>安安~ 鳳梨是超級大白癡</font>
-		</div>
+		<div id="backgroundContent">
+			
+			<div id="contentUp">
+ 				<div id="contUpRead">
 
+ 				</div>
+			</div>
+
+			<div id="contentMid">
+				
+				<div id="contMidButton1">
+
+				</div>
+				
+				<div id="contMidButton2">
+
+				</div>
+				
+				<div id="contMidButton3">
+
+				</div>
+
+			</div>
+
+			<div id="contentDown">
+
+				<div id="contDownText">
+
+				</div>
+
+				<div id="contDownForm">
+
+				</div>
+
+			</div>
+		</div>
 
 @stop

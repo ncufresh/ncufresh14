@@ -13,7 +13,7 @@
 		<div id="option" class="testG">
 			</br>
 
-			<select style="width:180px; height:30px;" id="select" data-url="{{ route('Guide') }}">
+			<select style="width:180px; height:30px;" id="select">
 				<option value="1">系館</option>
 				<option value="2">行政</option>
 				<option value="3">中大十景</option>
@@ -26,8 +26,8 @@
 			<ol id="leftlist" style="font-size:20;">
 				</br>
 			@foreach($Schoolguides as $Schoolguide)
-			<li>
-			{{$Schoolguide->name}}
+			<li class="left_item" data-place_id="{{ $Schoolguide->id }}">
+				{{ $Schoolguide->name }}
 			</li>
 			@endforeach
 			</ol>
@@ -35,41 +35,46 @@
 		</div>
 			<div id="contentRight" class="testB">
 				<div id="map" class="testG">map
-				</div>
+					<a href="{{route('SchoolGuide.photo',array('id'=>'1'))}}">123</a>
+					<span class="Img" data-id="1">123</span>
+			</div>
 			</div>
 	
 
 			</div>
-	
-			<script>
+		
+		</div>
+		@if(isset($old) && $old == true)
+			<div class="photo">
+				<div class="photocontainer">
+					
+					<div class="modal2">
+					<div class="close2" aria-label="離開"></div>
+					
+				  		<div class="content">
+							{{ $users->introduction }}
+				  		</div>
+				  	</div>
+				  </div>
+			 </div>
+		 @else
+			 <div class="photo">
+				<div class="photocontainer">
+					
+					<div class="modal2">
+					<div class="close2" aria-label="離開"></div>
+					
+				  		<div class="content">
+					
+				  		</div>
+				  	</div>
+				  </div>
+			 </div>
+		 @endif
 
 			
-			$("#select").change(function(){
-				
-				var url = $(this).data('url');
-				var value = 'value='+$(this).val();
-				
-				$.ajax(
-					{
-						url: url,
-						type: "POST",
-						data: value,
-						success:function(data){
-							var count = data.length;
-							//for(var key in data)
-							$("#leftlist").children().remove();
 
-							for(var i=0; i<count; i++){
-							var name =data[i]['name'];
-							$("<li>"+name+"</li>").appendTo("#leftlist");
-							}
 
-						}
-					});
-				
-			});
-
-			</script>
 
 
 	

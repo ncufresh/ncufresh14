@@ -76,28 +76,44 @@ class AuthController extends BaseController {
 
 				//Find the uid is in the database or not
 				$facebookData = FacebookData::whereUid($uid)->first();
-//TODO 如果使用者的email已經在系統了怎麼辦XD
+
 				if(empty($facebookData)){
-					//New user to the system, create user!
-					$user = new User();
-					$user->name = $userProfile->getName();
-					$user->nick_name = $userProfile->getName();
-					$user->email = $userProfile->getProperty('email');
-					$user->password = 'facebook';
-					$user->save();
+					//Test if email is in database.
+					if(User::where('email', '=', $userProfile->getProperty('email'))->exists()){
+						//Connect
+						$user = User::where('email', '=', $userProfile->getProrerty('email'))->first();
 
-					$facebookData = new FacebookData;
-					$facebookData->uid = $uid;
-					$facebookData->user_id = $user->id;
+						$facebookData = new FacebookData;
+						$facebookData->uid = $uid;
+						$facebookData->user_id = $user->id;
+						$facebookData->save();
 
-					$facebookData->save();
+						Auth::login($user);
+						return Redirect::intended();
+					}else{
+						//New user to the system, create user!
+						$user = new User();
+						$user->name = $userProfile->getName();
+						$user->nick_name = $userProfile->getName();
+						$user->email = $userProfile->getProperty('email');
+						$user->high_school_id = 1;
+						$user->department_id = 1;
+						$user->grade = 1;
+						$user->password = 'facebook';
+						$user->save();
 
-					Auth::login($user);
+						$facebookData = new FacebookData;
+						$facebookData->uid = $uid;
+						$facebookData->user_id = $user->id;
 
+						$facebookData->save();
+
+						Auth::login($user);
+						return Redirect::route('register.FB');
+					}
 				}else{
 					//Exist user. go Login.
 					$user = $facebookData->user;
-
 					Auth::login($user);
 				}
 
@@ -122,7 +138,19 @@ class AuthController extends BaseController {
 	}
 
 	public function register(){
-		return View::make('auth.register');
+		$siteMap = App::make('SiteMap');
+		$siteMap->pushLocation('註冊', route('register'));
+		$departments = Department::all(array('department_name'))->toArray();
+		$type = 'choose';
+		if(Route::currentRouteName() == 'register.email'){
+			$type = 'email';
+			$siteMap->pushLocation('一般註冊', route('register.email'));
+		}else if(Route::currentRouteName() == 'register.FB'){
+			$type = 'FB';
+			$siteMap->pushLocation('臉書註冊', route('register.FB'));
+		}
+		App::make('TransferData')->addData('register-type', $type);
+		return View::make('auth.register', array('type' => $type, 'departments' => $departments));
 	}
 
 	public function registerStore(){

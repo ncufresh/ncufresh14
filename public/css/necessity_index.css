@@ -1,0 +1,108 @@
+#backgroundContent
+{
+	width:100%;
+	height: 600px;
+	background-color: FF9D37;
+	margin: 0 auto;
+}
+/*****************contentUp*********************/
+#contentUp
+{
+	width: 800px;
+	height: 100px;
+	background-color: FCFF19;
+	margin: 0 auto;
+}
+
+#contUpRead
+{
+	width: 150px;
+	height: 100px;
+	background-color: 19FF1C;
+	position:relative; 
+	left:600px; 
+	
+}
+
+/*****************contentMid*********************/
+#contentMid
+{
+	width: 800px;
+	height: 100px;
+	background-color: FDFF73;
+	margin: 0 auto;
+}
+
+#contMidButton1
+{
+ 	width: 200px;
+	height: 80px;
+	background-color: 73FFBB;
+	position:relative; 
+	margin-left: 50px;
+	top: 10px;
+	float: left;
+}
+
+#contMidButton2
+{
+	width: 200px;
+	height: 80px;
+	background-color: 73FFBB;
+	position:relative; 
+	margin-left: 50px;
+	top: 10px;
+	float: left;
+}
+
+#contMidButton3
+{
+	width: 200px;
+	height: 80px;
+	background-color: 73FFBB;
+	position:relative; 
+	margin-left: 50px;
+	top: 10px; 
+	float: left;
+}
+
+/*****************contentDown*********************/
+#contentDown
+{
+	width: 800px;
+	height: 400px;
+	background-color: FEFF91;
+	margin: 0 auto;
+}
+
+
+
+#contDownText
+{
+	width: 550px;
+	height: 150px;
+	background-color: 73B7FF;
+	position:relative; 
+	margin-left: 125px;
+	top: 10px; 
+}
+
+#contDownForm
+{
+	width: 550px;
+	height: 190px;
+	background-color: BB73FF;
+	position:relative; 
+	margin-left: 125px;
+	top: 50px; 
+}
+
+#contDownSlide
+{
+	width: 550px;
+	height: 190px;
+	background-color: BB73FF;
+	position:relative; 
+	margin-left: 125px;
+	top: 50px; 
+}

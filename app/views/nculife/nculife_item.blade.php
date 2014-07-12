@@ -17,11 +17,12 @@
 				{{$nculifes[0]->introduction}}
 			</div>
 			<div id="picture">
+				<img id="image" src="{{asset("images/nculife/" .  $nculifes[0]->picture)}}">
+				<div id="containment">
+				</div>
 			</div>
 			<div id="select">
-				<div id="left_buttom">
-				</div>
-				<div id="right_buttom">
+				<div id="buttom" data-num="{{$nculifes[0]->id}}">
 				</div>
 			</div>
 		</div>
