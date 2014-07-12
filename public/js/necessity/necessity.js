@@ -1,5 +1,15 @@
-#cover
-{
-	width: 100%;
-	height: 900px;
-}
+
+$(document).ready(function() {
+	
+	$("#buttonA").click(function(){
+		$('#contDownSlideFreshman').hide();
+		$('#contDownSlideResearch').show();
+	}); 
+
+	$("#buttonB").click(function(){
+		$('#contDownSlideFreshman').show();
+		$('#contDownSlideResearch').hide();
+	});
+
+});
+

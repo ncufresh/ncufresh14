@@ -33,7 +33,7 @@
 	margin: 0 auto;
 }
 
-#contMidButton1
+.contMidButton
 {
  	width: 200px;
 	height: 80px;
@@ -41,30 +41,9 @@
 	position:relative; 
 	margin-left: 50px;
 	top: 10px;
-	float: left;
+	float: left; 
 }
 
-#contMidButton2
-{
-	width: 200px;
-	height: 80px;
-	background-color: 73FFBB;
-	position:relative; 
-	margin-left: 50px;
-	top: 10px;
-	float: left;
-}
-
-#contMidButton3
-{
-	width: 200px;
-	height: 80px;
-	background-color: 73FFBB;
-	position:relative; 
-	margin-left: 50px;
-	top: 10px; 
-	float: left;
-}
 
 /*****************contentDown*********************/
 #contentDown
@@ -75,34 +54,134 @@
 	margin: 0 auto;
 }
 
+#contDownSlideFreshman
+{
+	width: 800px;
+	height: 400px;
+	background-color: CECDFF;
+	position:relative; 
+	margin-left: 0px;
+	float: left;
+	overflow: auto;
+	display: none;
+}
 
+#contDownSlideResearch
+{
+	width: 800px;
+	height: 400px;
+	background-color: CECDFF;
+	position:relative; 
+	margin-left: 0px;
+	float: left;
+	overflow: auto;
+	
+}
 
 #contDownText
 {
-	width: 550px;
+	width: 770px;
 	height: 150px;
 	background-color: 73B7FF;
 	position:relative; 
-	margin-left: 125px;
+	margin-left:15px;
 	top: 10px; 
+}
+
+#contDownLeft
+{
+
+	width: 50px;
+	height: 370px;
+	background-color: FF73FD;
+	position:relative; 
+	margin-left:25px;
+	top: 10px; 
+	float: left;
 }
 
 #contDownForm
 {
-	width: 550px;
-	height: 190px;
-	background-color: BB73FF;
+	width: 770px;
+	height: 220px;
 	position:relative; 
-	margin-left: 125px;
-	top: 50px; 
+	margin-left:15px;
+	top: 10px; 
+	float: left;
 }
 
-#contDownSlide
+/*****************FormStyle*********************/
+
+.formStyleIntroduction
 {
-	width: 550px;
-	height: 190px;
-	background-color: BB73FF;
-	position:relative; 
-	margin-left: 125px;
-	top: 50px; 
+	width:770px;
+	height:150px;
+	border-style:ridge;
+	border-width:2px;
+	word-wrap: break-word;
+	margin: 0 auto;
+	font-size:15px;
+	font-weight: 100;
 }
+
+.formStyleUpSide
+{
+	width:125px;
+	height:40px;
+	border-style:ridge;
+	border-width:2px;
+	font-size:100%;
+	word-wrap: break-word;
+	margin: 0 auto;
+	font-size:15px;
+	font-weight: 100;
+}
+
+.formStyleUpMid
+{
+	width:520px;
+	height:40;
+	border-style:ridge;
+	border-width:2px;
+	font-size:100%;
+	/*margin: 0 auto;*/
+	font-size:15px;
+	font-weight: 100;
+	line-height:35px;
+	word-wrap: break-word;
+}
+
+.formStyleSide
+{
+	max-width:125px;
+	height: auto;
+	border-style:ridge;
+	border-width:2px;
+	font-size:100%;
+	word-wrap: break-word;
+	/*margin: 0 auto;*/
+	font-size:15px;
+	font-weight: 100;
+
+}
+
+.formStyleMid
+{
+	max-width:300px;
+	height: auto;
+	border-style:ridge;
+	border-width:2px;
+	font-size:15px;
+	font-weight: 100;
+	white-space: pre;
+	word-wrap: break-word;
+}
+
+/*********************FontStyle**********************/
+
+
+
+
+
+
+

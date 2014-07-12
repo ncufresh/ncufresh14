@@ -2,11 +2,14 @@
 
 class necessityController extends BaseController
 {  
-
+	//取得資料庫資料
 	public function index()
 	{
-		return View::make('necessity.necessity_index');
+		return View::make('necessity.necessity_index',array(/*參數*/
+			'necessityResearchData'=>/*model*/NecessityResearchData::all(),
+			'necessityFreshmanData'=>/*model*/NecessityFreshmanData::all()));
 	}
+
 
 //*******************************************************************//
 //freshman後台的controller
@@ -26,7 +29,7 @@ class necessityController extends BaseController
 		$user->organizer= Input::get('organizer');
 		$user->save();
 
-		return Redirect::to('necessity_backstage_freshman');
+		return Redirect::to('necessity/backstage/freshman');
 	}
 
 	//從資料庫裏面刪除資料
@@ -34,7 +37,7 @@ class necessityController extends BaseController
 		
 		$user = NecessityFreshmanData::where('id', '=', Input::get('ID'))->delete();
 
-		return Redirect::to('necessity_backstage_freshman');
+		return Redirect::to('necessity/backstage/freshman');
 	}
 
 	
@@ -55,7 +58,7 @@ class necessityController extends BaseController
 		$user->organizer= Input::get('organizer');
 		$user->save();
 
-		return Redirect::to('necessity_backstage_research');
+		return Redirect::to('necessity/backstage/research');
 	}
 
 	//從資料庫裏面刪除資料
@@ -63,7 +66,7 @@ class necessityController extends BaseController
 		
 		$user = NecessityResearchData::where('id', '=', Input::get('ID'))->delete();
 
-		return Redirect::to('necessity_backstage_research');
+		return Redirect::to('necessity/backstage/research');
 	}
 
 //*******************************************************************//
