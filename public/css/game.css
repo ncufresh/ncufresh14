@@ -186,6 +186,7 @@ gameShop
 	height: 100%;
 	padding: 10px;
 	background-color: lightblue;
+	position: relative;
 }
 
 #gameShopBar {
@@ -201,13 +202,15 @@ gameShop
 	height: 100%;
 	margin: 0px 10px 0px 0px;
 	background-color: yellow;
+	text-align: center;
 }
 
 #gameShopItems {
-	width: 100%;
-	height: 230px;
+	width: 97.4%;
+	min-height: 230px;
 	padding-left: 10px;
 	background-color: blue;
+	position: absolute;
 }
 
 .gameShopItem {
@@ -216,6 +219,34 @@ gameShop
 	height: 100px;
 	margin: 10px 40px 0px 40px;
 	background-color: black;
+	position: relative;
+}
+
+.gameShopItemText {
+	position: absolute;
+	width: 100%;
+	height: 20px;
+	background-color: yellow;
+	text-align: center;
+}
+
+.gameShopItemImage {
+	width: 100%;
+	height: 100px;
+	position: absolute;
+}
+
+.gameShopItemBuyButton {
+	position: absolute;
+	background-color: green;
+	width: 100%;
+	height: 20px;
+	margin-top: 80px;
+	text-align: center;
+}
+
+#itemHadBuy {
+	background-color: lightblue;
 }
 
 #characterEquipButton {
@@ -235,3 +266,53 @@ gameShop
 .character {
 	position: absolute;
 }
+
+#characterHead {
+	background-color: rgba(255, 0, 0, 0.4);
+	width: 50px;
+	height: 50px;
+	top: 50px;
+	left: 50px;
+
+}
+
+#characterFace {
+	background-color: rgba(255, 255, 0, 0.4);
+	width: 30px;
+	height: 30px;
+	top: 60px;
+	left: 60px;
+}
+
+#characterBody {
+	background-color: rgba(255, 255, 255, 0.4);
+	width: 50px;
+	height: 50px;
+	top: 100px;
+	left: 50px;
+
+}
+
+#characterFoot {
+	background-color: rgba(0, 255, 0, 0.4);
+	width: 50px;
+	height: 50px;
+	top: 150px;
+	left: 50px;
+
+}
+
+#characterItem {
+	background-color: rgba(0, 255, 255, 0.4);
+	width: 50px;
+	height: 50px;
+	top: 150px;
+	left: 120px;
+}
+
+#characterMap {
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 180px;
+	height: 260px;
+}
+
