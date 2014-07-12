@@ -3,7 +3,7 @@
 	width: 100%;
 	height: 800px;
 	background-color: lightblue;
-	display: none;
+	
 	/* display: none; */
 	
 }
@@ -81,7 +81,7 @@
 
 /*/////////////////////////////content/////////////////////////////////////////*/
 #content {	
-
+	display: none;
 	/* display: none; */
 }
 #snakeContent {
@@ -114,6 +114,7 @@
 #bomb2 { position: absolute; }
 #bomb3 { position: absolute; }
 #exbomb { position: absolute; }
+#brokenBody { position: absolute; }
 
 /*/////////////////////////////endScreen/////////////////////////////////////////*/
 #endScreen {

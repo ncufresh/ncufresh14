@@ -38,7 +38,7 @@ $(document).ready(function(){
 			$('#mode3').children().attr('src','..\\images\\gameSnake\\m3.jpg');
 	}
 
-	/*
+	/**/
 	$('#start').click(function() {
 		//if(difficult==1&&mode==1)
 		{
@@ -48,7 +48,7 @@ $(document).ready(function(){
 			startGame();
 		}
 	});
-	*/
+	/**/
 
 	var lose=0;
 	var score=0;
@@ -92,7 +92,6 @@ $(document).ready(function(){
 	var rx,ry;
 	var x,y;
 
-
 	$(document).keydown(function(event)
 	{
 		event.preventDefault();
@@ -106,32 +105,9 @@ $(document).ready(function(){
 			key=40;
 	});
 
-	initial();
-	startGame();
-
-	function gameStyle()
-	{
-		if(mode==1)
-		{
-
-		}
-
-		if(mode==2)
-		{
-
-		}
-
-		if(mode==3)
-		{
-
-		}	
-	}
-	
-
 ////////////////////////////////////initial-architecture/////////////////////////////////////////////
 	function initial()
 	{
-		gameStyle();
 		for(var i=0; i<blocknum; i++)
 			Box[i] = new Array(blocknum);
 
@@ -202,6 +178,9 @@ $(document).ready(function(){
 		else if (snakeDirection==40) // move down
 			coordx++;
 
+		if( timeCount%20==0 && bombcount!=0 )
+			bombExplosion();
+		
 
 		loseOthers();
 		if(lose==0)
@@ -216,6 +195,8 @@ $(document).ready(function(){
 		{
 			timer.stop();
 			totalScore();
+			$('#content').hide();
+			$('#endScreen').show();
 		}
 		levelUp();
 	}
@@ -234,9 +215,6 @@ $(document).ready(function(){
 					bombEchinacea();
 			pointEchinacea();
 		}
-
-		if( timeCount%20==0 && bombcount!=0 )
-			bombExplosion();
 
 		// store new value of recent position of snack in snakespath[][] 
 		for(var i=0; i<snakespathnum; i++)
@@ -471,25 +449,90 @@ $(document).ready(function(){
 			else if(bombEx[i]==1)
 			{
 				bombEx[i]--;
-				bombpicture = $('<div id="exbomb"><img src="..\\images\\gameSnake\\exbomb.jpg"  width="30px" height="23px" "></div>');
-				bombpicture.appendTo(Box[bomb[i][0]][bomb[i][1]]);
+				nearExplosion(bomb[i][0],bomb[i][1]);
 			}
 			else if(bombEx[i]==0)
 			{
 				Box[bomb[i][0]][bomb[i][1]].empty();
 				count++;
-				bombEx[i] = 10;
-			}	
+				nearExplosionClear(bomb[i][0],bomb[i][1]);
+			}
 		}
 
-		for(var i=0; i<bombcount; i++)
+		for(var i=0; i<bombcount-count; i++)
 		{
-			bomb[i][0]=bomb[bombcount-i][0];
-			bomb[i][1]=bomb[bombcount-i][1];
+			bomb[i][0]=bomb[count+i][0];
+			bomb[i][1]=bomb[count+i][1];
+			bombEx[i] = bombEx[count+i] ;
 		}
+		for(var i=bombcount-count; i<bombcount; i++)
+			bombEx[i]=10;
 
 		bombcount = bombcount-count;
 
+	}
+
+	var explorRadius = 2;
+	var live = 1000;
+	var brokenBefore = new Array(800);
+		for(var i=0 ; i<800 ; i++) 
+			brokenBefore[i] = new Array(2);
+	var brokenBeforeCount=0;;
+
+	function nearExplosion(x,y)
+	{
+		live = 1000;
+		for(var i=-1; i<explorRadius; i++)
+			for(var j=-1; j<explorRadius; j++)
+			{
+				if((x+i)==point[0]&&(y+j)==point[1])
+					pointEchinacea();
+				bombpicture = $('<div id="exbomb"><img src="..\\images\\gameSnake\\exbomb.jpg"  width="30px" height="23px" "></div>');
+				bombpicture.appendTo(Box[x+i][y+j]);
+
+				// body of snake is explore
+				for(var k=0; k<snakespathnum; k++)
+					if( (x+i)==snakespath[k][0] && (y+j)==snakespath[k][1] )
+					{
+						var buffer = k;
+						if(live>buffer)
+							live = k;
+					}
+			}
+		brokenSnake();
+	}
+	function brokenSnake()
+	{
+		if(live!=0 && live!=1000)
+		{
+			alert(live);
+			for(var i=live; i<snakespathnum; i++)
+			{
+				bombpicture = $('<div id="brokenBody"><img src="..\\images\\gameSnake\\brokenBody.jpg"  width="30px" height="23px" "></div>');
+				bombpicture.appendTo(Box[snakespath[i][0]][snakespath[i][1]]);
+				brokenBefore[brokenBeforeCount][0] = snakespath[i][0];
+				brokenBefore[brokenBeforeCount][1] = snakespath[i][1];
+				brokenBeforeCount++;
+			}
+			snakespathnum = live;
+		}
+		else if(live==0)
+			lose=1;
+	}
+
+	function nearExplosionClear(x,y)
+	{
+		for(var i=-1; i<explorRadius; i++)
+			for(var j=-1; j<explorRadius; j++)
+				Box[x+i][y+j].empty();
+		if(brokenBeforeCount!=0)
+		{
+			for(var i=0; i<brokenBeforeCount; i++)
+				Box[ brokenBefore[i][0] ][ brokenBefore[i][1] ].empty();
+			brokenBeforeCount = 0;
+		}
+		
+		
 	}
 
 ////////////////////////////////////score/////////////////////////////////////////////
