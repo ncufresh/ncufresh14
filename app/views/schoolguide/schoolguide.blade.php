@@ -34,9 +34,11 @@
 			</div>
 		</div>
 			<div id="contentRight" class="testB">
-				<div id="map" class="testG">map
-					<a href="{{route('SchoolGuide.photo',array('id'=>'1'))}}">123</a>
-					<span class="Img" data-id="1">123</span>
+				<div id="map" class="testG">
+					<img id = "map" src="http://localhost/ncufresh14/public/images/SchoolGuide/底.png">
+					<img data-id = "1" id="Zhidao" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/志道樓.png">
+					<img data-id = "2" id="G-14" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/女十四舍.png">
+
 			</div>
 			</div>
 	

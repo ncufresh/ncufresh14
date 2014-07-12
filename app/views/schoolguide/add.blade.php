@@ -13,7 +13,7 @@
 
 		{{Form::open(array('url'=>'add','method'=>'post'))}}
 		
-		{{Form::text('categories')}}
+		{{Form::select('categories', array('1' => '系館', '2' => '行政','3'=>'中大十景','4'=>'運動','5'=>'飲食','6'=>'住宿'))}}
 
 		{{Form::text('name')}}
 
