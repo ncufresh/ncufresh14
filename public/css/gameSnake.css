@@ -1,8 +1,10 @@
+/*/////////////////////////////cover/////////////////////////////////////////*/
 #cover {
 	width: 100%;
 	height: 800px;
 	background-color: lightblue;
 	display: none;
+	/* display: none; */
 	
 }
 
@@ -30,7 +32,7 @@
 	background-color: #00DDDD;
 }
 
-/*//////////////////////////////////////////////////////////////////////*/
+/*/////////////Difficult//////////////////////*/
 .Difficult {
 	float: left;
 	width: 50%;
@@ -55,7 +57,7 @@
 	
 }
 
-/*////////////////////////	float: left; //////////////////////////////////////////////*/
+/*/////////////Mode//////////////////////*/
 .Mode {
 	float: left;
 	width: 50%;
@@ -77,9 +79,10 @@
 	margin-bottom: 10%;
 }
 
-/*////////////////////////	float: left; //////////////////////////////////////////////*/
-#content {
-	
+/*/////////////////////////////content/////////////////////////////////////////*/
+#content {	
+
+	/* display: none; */
 }
 #snakeContent {
 	width: 100%;
@@ -106,4 +109,41 @@
 #brown { position: absolute;	 }
 #purple { position: absolute;	 }
 #blue { position: absolute;	 }
-#muliticolor { position: absolute;	}
+#muliticolor { position: absolute; }
+#bomb1 { position: absolute; }
+#bomb2 { position: absolute; }
+#bomb3 { position: absolute; }
+#exbomb { position: absolute; }
+
+/*/////////////////////////////endScreen/////////////////////////////////////////*/
+#endScreen {
+	width: 100%;
+	height: 800px;
+	text-align: center;
+	background-color: lightblue;
+	display: none;
+	/* display: none; */
+}
+
+#squirrel {
+	margin: 0px auto;
+	top: 8%;
+	
+	position: relative;
+}
+
+#score {
+	text-align: left;
+	margin-top: 15%;
+	margin-left: 20%
+}
+
+#collect {
+	margin-top: 8%;
+	margin-left: 8%;
+	float: left;
+}
+
+#again {
+	margin-top: 8%;
+}
