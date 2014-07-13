@@ -80,5 +80,24 @@ $(document).ready(function(){
 	$(".Img").mouseover(function(){
 		$(this).css({"cursor":"pointer"});
 	});
+    //=============================================================================
+	$("#Zhidao")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/志道樓(按).png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/志道樓.png");
+	
+	});
+
+		$("#G-14")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/女十四舍(按).png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/女十四舍.png");
+	
+	});
+
 
 });

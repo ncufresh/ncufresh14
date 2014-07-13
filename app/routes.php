@@ -62,8 +62,6 @@ Route::group(array('prefix' => 'api'), function()
 //SchoolGuide
 Route::get('SchoolGuide', array('as' => 'SchoolGuide', 'uses' => 'SchoolGuideController@show') );
 
-//Route::get('SchoolGuide/photo/{id}', array('as' => 'SchoolGuide.photo', 'uses' => 'SchoolGuideController@fakeshow') );
-
 Route::get('Guide', array('as' => 'Guide', 'uses' => 'SchoolGuideController@get') );
 
 Route::get('SchoolGuide/getItem', array('as' => 'Guide.one', 'uses' => 'SchoolGuideController@getItem') );
@@ -80,7 +78,7 @@ Route::get('SchoolGuide/list',array('as'=>'SchoolGuide.list','uses'=>'SchoolGuid
 
 Route::get('SchoolGuide/edit/{id}',array('as'=>'SchoolGuide.edit','uses'=>'SchoolGuideController@toedit'));
 
-Route::get('SchoolGuide/add/{id}',array('as'=>'SchoolGuide.add','uses'=>'SchoolGuideController@toadd'));
+Route::get('SchoolGuide/add',array('as'=>'SchoolGuide.add','uses'=>'SchoolGuideController@toadd'));
 
 Route::get('SchoolGuide/{id}',array('as'=>'SchoolGuide.photo','uses'=>'SchoolGuideController@tophoto'));
 
@@ -159,3 +157,9 @@ Route::get('necessity_backstage_research',array('as' => 'necessity.necessity_bac
 Route::post('research_add',array('as' => 'research_add', 'uses' => 'necessityController@research_add'));
 
 Route::post('research_delete',array('as' => 'research_delete', 'uses' => 'necessityController@research_delete'));
+//=============================================================================
+// About us
+
+Route::get('About_us',array('as'=>'','uses'=>'AboutUsController@index'));
+
+Route::get('About_us/modal',array('as'=>'About_modal','uses'=>'AboutUsController@getModalId'));
