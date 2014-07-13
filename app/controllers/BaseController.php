@@ -16,6 +16,7 @@ class BaseController extends Controller {
 			$transferData->addData('user-name', Auth::user()->name);
 		}
 		$transferData->addData('bURL', URL::to('/'));
+		$transferData->addData('login-ajax-url', route('login.ajax'));
 
 
 		App::make('SiteMap')->pushLocation('首頁', route('home'));

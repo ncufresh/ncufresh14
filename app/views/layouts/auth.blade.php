@@ -3,18 +3,20 @@
 {{-- User has logined. show logout(?) --}}
 	<a href="{{ route('logout') }}">Logout</a>
 @else
+
+
 {{-- User not logined. show login form --}}
 	{{-- Login form --}}
-	{{ Form::open(array('route' => 'login')) }}
+	{{ Form::open(array('route' => 'login', 'id' => 'login-form')) }}
 	{{ Form::label('email', '帳號') }}
-	{{ Form::text('email') }}
+	{{ Form::text('email', '帳號', array('id' => 'account')) }}
 	<br>
-	{{ Form::label('密碼') }}
-	{{ Form::password('password') }}
+	{{-- Form::label('密碼') --}}
+	{{ Form::password('password', array('id' => 'password')) }}
 	<br>
-	{{ Form::submit('Login') }}
-	<a href="{{ route('login.FB') }}"><button type="button" class="btn btn-default btn-sm">Login with FB</button></a>
-	<a href="{{ route('register') }}"><button type="button" class="btn btn-default btn-sm">Register</button></a>
+	<a href="{{ route('register') }}"><div id="register"></div></a>
+	{{ Form::submit('', array('id' => 'submit')) }}
+	<a href="{{ route('login.FB') }}"><div id="fblogin"></div></a>
 	{{ Form::close() }}
 	
 @endif

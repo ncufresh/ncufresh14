@@ -1,0 +1,25 @@
+#content {
+	width: 100%;
+	height: 100%; 
+}
+
+#new {
+	font-size: 30px;
+}
+
+#allbox {
+	max-height: 93%;
+	overflow: auto;
+}
+
+#databox {
+	height: 30%;
+	border: 1px solid ;
+	border-color: #5555FF;
+	overflow: auto;
+}
+
+.data {
+	height: 30%;
+	word-wrap: break-word;
+}

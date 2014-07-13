@@ -33,6 +33,18 @@ class AuthController extends BaseController {
 		}
 	}
 
+	public function loginAjax(){
+		if(Request::ajax() && Input::has('email', 'password')){
+			$email = Input::get('email');
+			$password = Input::get('password');
+
+			if(Auth::attempt(array('email' => $email, 'password' => $password))){
+				return Response::json(Auth::user());
+			}
+		}
+			return Response::json('Error');
+	}
+
 	/*
 	 * Login with facebook
 	 * Redirect to fb login page.

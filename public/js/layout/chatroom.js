@@ -2,7 +2,7 @@ $(function(){
 
 	window.app = {};
 
-	dataSection = $('#data_section');
+	dataSection = $('#data-section');
 
 	var userId = getTransferData('user-id');
 	var userName = getTransferData('user-name');
@@ -48,14 +48,26 @@ $(function(){
 
 		return event.keyCode != 13;
 	});
-
+	var isChatroomOpen = false;
+	$('#chat-room-button').click(function() {
+		if ( !isChatroomOpen ) {
+			$('#chat-room').animate({
+				right: '0px'
+			});
+		}
+		else {
+			$('#chat-room').animate({
+				right: '-185px'
+			});
+		}
+		isChatroomOpen = !isChatroomOpen;
+	});
 	function displayMessage(name, message, type){
 		//0 default 1 success 2 error
-		var spanName = $('<span class="chat_name"></span>').text(name + '：');
-		var spanMessage = $('<span class="chat_message"></span>').text(message);
-		var divRow = $('<div class="chat_row"></div>').append(spanName).append(spanMessage);
+		var spanName = $('<span class="chat-name"></span>').text(name + '：');
+		var spanMessage = $('<span class="chat-message"></span>').text(message);
+		var divRow = $('<div class="chat-row"></div>').append(spanName).append(spanMessage);
 		$('#chat-log').append(divRow);
 
 	}
-
 });

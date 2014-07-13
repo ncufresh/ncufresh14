@@ -12,11 +12,7 @@ function getTransferData(index){
 }
 
 function ajaxPost(url, data, success_callback){
-	if($.isPlainObject(data) != true || typeof data == undefined){
-		throw "Data is not allow!";
-	}else{
-		$.post(url, data, success_callback);
-	}
+	$.post(url, data, success_callback);
 }
 
 function ajaxGet(url, data, success_callback){
@@ -25,12 +21,7 @@ function ajaxGet(url, data, success_callback){
 
 
 function pushLocation(name, url){
-	var bURL = getTransferData('burl');
-	var siteMap = $('#site_map');
-	var aTag = $('<a></a>').text(name).attr('href', bURL + url);
-	var span = $('<span></span>').append(aTag).append('/');
-	siteMap.append(span);
-	changeURL(url);
+	$.pushLocation(name, url);
 }
 
 function popLocation(){
@@ -38,13 +29,12 @@ function popLocation(){
 	window.history.back();
 }
 
-function changeURL(url, stateObject1){
-	console.log(stateObject1);
-	history.pushState(stateObject1, "NCUFresh", url);
+function changeURL(url){
+	history.pushState({data: 'data'}, "NCUFresh", url);
 }
 
 function test(){
-	ajaxGet('/api/v1/link', '', function(data){
+		ajaxGet('/api/v1/link', '', function(data){
 		data = {testData: $('#calender').text()};
 		$('#calender').text(data);
 		pushLocation('換地方嚕', '/link', data, "iNeedGoBack");
