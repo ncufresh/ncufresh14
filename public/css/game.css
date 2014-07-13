@@ -175,7 +175,7 @@ gameShop
 	width: 200px;
 	height: 100%;
 	padding: 10px;
-	background-color: white;
+	background-color: black;
 	margin: 0px 10px 0px 0px;
 	position: relative;
 }
@@ -254,6 +254,8 @@ gameShop
 	height: 20px;
 	margin: 220px auto 0px auto;
 	background-color: yellow;
+	position: relative;
+
 }
 
 #characterReturnButton {
@@ -261,58 +263,39 @@ gameShop
 	height: 20px;
 	margin: 0px auto 0px auto;
 	background-color: yellow;
+	position: relative;
+
 }
 
 .character {
 	position: absolute;
+	width: 180px;
+	height: 260px;
 }
 
 #characterHead {
 	background-color: rgba(255, 0, 0, 0.4);
-	width: 50px;
-	height: 50px;
-	top: 50px;
-	left: 50px;
+	
 
 }
 
 #characterFace {
 	background-color: rgba(255, 255, 0, 0.4);
-	width: 30px;
-	height: 30px;
-	top: 60px;
-	left: 60px;
 }
 
 #characterBody {
 	background-color: rgba(255, 255, 255, 0.4);
-	width: 50px;
-	height: 50px;
-	top: 100px;
-	left: 50px;
-
 }
 
 #characterFoot {
 	background-color: rgba(0, 255, 0, 0.4);
-	width: 50px;
-	height: 50px;
-	top: 150px;
-	left: 50px;
-
 }
 
 #characterItem {
 	background-color: rgba(0, 255, 255, 0.4);
-	width: 50px;
-	height: 50px;
-	top: 150px;
-	left: 120px;
 }
 
 #characterMap {
 	background-color: rgba(0, 0, 0, 0.4);
-	width: 180px;
-	height: 260px;
 }
 
