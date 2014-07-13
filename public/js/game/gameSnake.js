@@ -49,7 +49,7 @@ $(document).ready(function(){
 		}
 	});
 	/**/
-
+////////////////////////////////init////////////////////////////////////////////
 	var lose=0;
 	var score=0;
 	var scorecount = new Array(6);
@@ -58,8 +58,19 @@ $(document).ready(function(){
 	var timer = $.timer(tick);
 	var round;
 	var timeCount=0;
-	
-///////////////////////////////////////////////////////
+	$(document).keydown(function(event)
+	{
+		event.preventDefault();
+		if(event.keyCode==37) // press left
+			key=37;
+		else if (event.keyCode==38) // press up
+			key=38;	
+		else if (event.keyCode==39) // press right
+			key=39;	
+		else if (event.keyCode==40) // press down
+			key=40;
+	});
+////////////////////////////////snake////////////////////////////////////////////
 	var coordx, coordy;
 	var blocknum = 30;
 	var Box = new Array(blocknum);
@@ -72,8 +83,7 @@ $(document).ready(function(){
 	var length = 5;
 	var key = 37;
 	var snakeDirection = 37;
-	
-////////////////////////////////////////////////////////////////////////////
+////////////////////////////////echinacea////////////////////////////////////////////
 	var echinacea = new Array(7);
 	var bomb = new Array(50);
 		for(var i=0 ; i<50 ; i++) 
@@ -87,24 +97,16 @@ $(document).ready(function(){
 		for(var i=0 ; i<20 ; i++) 
 			bombEx[i] = 10;
 	var point = new Array(2);
-	
 	var echina;
 	var rx,ry;
 	var x,y;
-
-	$(document).keydown(function(event)
-	{
-		event.preventDefault();
-		if(event.keyCode==37) // press left
-			key=37;
-		else if (event.keyCode==38) // press up
-			key=38;	
-		else if (event.keyCode==39) // press right
-			key=39;	
-		else if (event.keyCode==40) // press down
-			key=40;
-	});
-
+////////////////////////////////explosion////////////////////////////////////////////
+	var explorRadius = 2;
+	var live = 1000;
+	var brokenBefore = new Array(800);
+		for(var i=0 ; i<800 ; i++) 
+			brokenBefore[i] = new Array(2);
+	var brokenBeforeCount=0;
 ////////////////////////////////////initial-architecture/////////////////////////////////////////////
 	function initial()
 	{
@@ -152,21 +154,20 @@ $(document).ready(function(){
 		coord = coord - coord%1;
 		return coord;
 	}
-
 ////////////////////////////////////snake/////////////////////////////////////////////
-	
 	function startGame()
 	{
 		round= (4-difficult)*2;
 		timer.set({ time:50, autostart:true });
 	}
-	
+
+	var loseTimer=0;
 	function tick()
 	{
 		timeCount++;
+
 		if( timeCount%round != 0 )
 			return;
-
 		if(Math.abs(key-snakeDirection)!=2)
 			snakeDirection = key;
 		if(snakeDirection==37) // move left
@@ -178,25 +179,32 @@ $(document).ready(function(){
 		else if (snakeDirection==40) // move down
 			coordx++;
 
-		if( timeCount%20==0 && bombcount!=0 )
-			bombExplosion();
-		
+		if(lose==0)
+			loseOthers();
 
-		loseOthers();
+		if( timeCount%20==0 && bombcount!=0 && lose==0 )
+			bombExplosion();
+
 		if(lose==0)
 		{
 			loseItself();
 			tickMove();
 			loseItself();
 			refresh();
-			
 		}
 		else
+			loseTimer++;
+
+		if(loseTimer==10)
 		{
-			timer.stop();
 			totalScore();
+			timer.stop();
 			$('#content').hide();
 			$('#endScreen').show();
+			$('#collect').click(function() {
+
+			});
+			$('#again').click(function() {location.reload();});
 		}
 		levelUp();
 	}
@@ -236,11 +244,14 @@ $(document).ready(function(){
 			if( (snakespath[0][0]==bomb[i][0]) && (snakespath[0][1]==bomb[i][1]) )
 			{
 				lose = 1;
-				Box[ snakespath[0][0] ][ snakespath[0][1] ].empty();
 				bombpicture = $('<div id="bomb"><img src="..\\images\\gameSnake\\bomb.jpg"  width="30px" height="23px" "></div>');
 				bombpicture.appendTo( Box[ bomb[i][0] ][ bomb[i][1] ] );
 			}
-
+		for(var i=0; i<snakespathnum; i++)
+		{
+			bombpicture = $('<div id="brokenBody"><img src="..\\images\\gameSnake\\brokenBody.jpg"  width="30px" height="23px" "></div>');
+			bombpicture.appendTo( Box[ snakespath[i][0] ][ snakespath[i][1] ] );
+		}
 	}
 
 	function loseItself()
@@ -309,8 +320,6 @@ $(document).ready(function(){
 
 		if(echina<30) // red
 		{
-
-		////////////////////////////////////
 			// bombechinacea and snake can't at the same place
 			for(var i=0; i<snakespathnum; i++)
 				if( rx==snakespath[i][0]&&ry==snakespath[i][1] )
@@ -362,10 +371,6 @@ $(document).ready(function(){
 		var correct = 1;
 		x = coordEchinaceaRandom(x);
 		y = coordEchinaceaRandom(y);
-		if(x==0){x=1;}
-		if(x==29){x=28;}
-		if(y==0){y=1;}
-		if(y==29){y=28;}
 
 		// pointechinacea and snake can't at the same place
 		for(var i=0; i<snakespathnum; i++)
@@ -374,7 +379,6 @@ $(document).ready(function(){
 				pointEchinacea();
 				correct=0;
 			}
-
 		// pointechinacea and bombechinacea can't at the same place
 		for(var i=0; i<bombcount; i++)
 		{
@@ -429,6 +433,7 @@ $(document).ready(function(){
 		}
 	}
 
+////////////////////////////////////explosion/////////////////////////////////////////////
 	function bombExplosion()
 	{
 		var count = 0;
@@ -458,7 +463,7 @@ $(document).ready(function(){
 				nearExplosionClear(bomb[i][0],bomb[i][1]);
 			}
 		}
-
+		// refresh bomb[][] because of the explosion
 		for(var i=0; i<bombcount-count; i++)
 		{
 			bomb[i][0]=bomb[count+i][0];
@@ -469,15 +474,8 @@ $(document).ready(function(){
 			bombEx[i]=10;
 
 		bombcount = bombcount-count;
-
+		
 	}
-
-	var explorRadius = 2;
-	var live = 1000;
-	var brokenBefore = new Array(800);
-		for(var i=0 ; i<800 ; i++) 
-			brokenBefore[i] = new Array(2);
-	var brokenBeforeCount=0;;
 
 	function nearExplosion(x,y)
 	{
@@ -485,12 +483,14 @@ $(document).ready(function(){
 		for(var i=-1; i<explorRadius; i++)
 			for(var j=-1; j<explorRadius; j++)
 			{
+				// produce a pointEchinacea if a recent pointEchinacea was broken by explosion
 				if((x+i)==point[0]&&(y+j)==point[1])
 					pointEchinacea();
+
 				bombpicture = $('<div id="exbomb"><img src="..\\images\\gameSnake\\exbomb.jpg"  width="30px" height="23px" "></div>');
 				bombpicture.appendTo(Box[x+i][y+j]);
 
-				// body of snake is explore
+				// get the smallest broken dot of the snake
 				for(var k=0; k<snakespathnum; k++)
 					if( (x+i)==snakespath[k][0] && (y+j)==snakespath[k][1] )
 					{
@@ -499,13 +499,15 @@ $(document).ready(function(){
 							live = k;
 					}
 			}
+
 		brokenSnake();
 	}
+
 	function brokenSnake()
 	{
-		if(live!=0 && live!=1000)
+		// body of snake is explore
+		if(live!=1000)
 		{
-			alert(live);
 			for(var i=live; i<snakespathnum; i++)
 			{
 				bombpicture = $('<div id="brokenBody"><img src="..\\images\\gameSnake\\brokenBody.jpg"  width="30px" height="23px" "></div>');
@@ -513,11 +515,20 @@ $(document).ready(function(){
 				brokenBefore[brokenBeforeCount][0] = snakespath[i][0];
 				brokenBefore[brokenBeforeCount][1] = snakespath[i][1];
 				brokenBeforeCount++;
+			}		
+
+			if(live==0)
+			{
+				lose=1;
+				alert(snakespathnum);
+				for(var j=0; j<snakespathnum; j++)
+				{
+					bombpicture = $('<div id="brokenBody"><img src="..\\images\\gameSnake\\brokenBody.jpg"  width="30px" height="23px" "></div>');
+					bombpicture.appendTo( Box[snakespath[j][0] ][ snakespath[j][1] ] );
+				}	
 			}
 			snakespathnum = live;
-		}
-		else if(live==0)
-			lose=1;
+		}	
 	}
 
 	function nearExplosionClear(x,y)
@@ -531,8 +542,6 @@ $(document).ready(function(){
 				Box[ brokenBefore[i][0] ][ brokenBefore[i][1] ].empty();
 			brokenBeforeCount = 0;
 		}
-		
-		
 	}
 
 ////////////////////////////////////score/////////////////////////////////////////////
