@@ -143,16 +143,16 @@ Route::post('about_rate_url', array('as' => 'video.aboutrate','uses' =>'VideoCon
 
 //=============================================================================
 // Necessity
-Route::get('necessity_index',array('as' => 'necessity.necessity_index', 'uses' => 'necessityController@index'));
+Route::get('necessity',array('as' => 'necessity.necessity_index', 'uses' => 'necessityController@index'));
 
 
-Route::get('necessity_backstage_freshman',array('as' => 'necessity.necessity_backstage_freshman', 'uses' => 'necessityController@index_backstage_freshman'));
+Route::get('necessity/backstage/freshman',array('as' => 'necessity.necessity_backstage_freshman', 'uses' => 'necessityController@index_backstage_freshman'));
 
 Route::post('freshman_add',array('as' => 'freshman_add', 'uses' => 'necessityController@freshman_add'));
 
 Route::post('freshman_delete',array('as' => 'freshman_delete', 'uses' => 'necessityController@freshman_delete'));
 
-Route::get('necessity_backstage_research',array('as' => 'necessity.necessity_backstage_research', 'uses' => 'necessityController@index_backstage_research'));
+Route::get('necessity/backstage/research',array('as' => 'necessity.necessity_backstage_research', 'uses' => 'necessityController@index_backstage_research'));
 
 Route::post('research_add',array('as' => 'research_add', 'uses' => 'necessityController@research_add'));
 
