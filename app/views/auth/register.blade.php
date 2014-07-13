@@ -93,7 +93,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="depaetment_id" class="col-sm-3 control-label">系所</label>
+					<label for="department_id" class="col-sm-3 control-label">系所</label>
 					<div class="col-sm-5">
 						{{ Form::select('department_id', $departments, array('class' => 'form-control', 'placeholder' => '請輸入系所')) }}
 					</div>

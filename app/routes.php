@@ -16,6 +16,7 @@ Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 //==========================================================================================
 //auth
 Route::post('login', array('as' => 'login', 'uses' => 'AuthController@login'));
+Route::post('login/ajax', array('as' => 'login.ajax', 'uses' => 'AuthController@loginAjax'));
 //login with fb
 Route::get('login/FB', array('as' => 'login.FB', 'uses' => 'AuthController@loginFB'));
 //login with fb callback
@@ -47,7 +48,7 @@ Route::get('admin', array('as' => 'dashboard', 'uses' => 'HomeController@dashboa
 
 //==========================================================================================
 //API
-Route::group(array('prefix' => 'api/v1'), function()
+Route::group(array('prefix' => 'api'), function()
 {
 	Route::get('/', function(){return Response::json('Hello API');});
 	Route::resource('announcement', 'APIAnnouncementController');

@@ -12,11 +12,7 @@ function getTransferData(index){
 }
 
 function ajaxPost(url, data, success_callback){
-	if($.isPlainObject(data) != true || typeof data == undefined){
-		throw "Data is not allow!";
-	}else{
-		$.post(url, data, success_callback);
-	}
+	$.post(url, data, success_callback);
 }
 
 function ajaxGet(url, data, success_callback){
@@ -25,12 +21,7 @@ function ajaxGet(url, data, success_callback){
 
 
 function pushLocation(name, url){
-	var bURL = getTransferData('burl');
-	var siteMap = $('#site_map');
-	var aTag = $('<a></a>').text(name).attr('href', bURL + url);
-	var span = $('<span></span>').append(aTag).append('/');
-	siteMap.append(span)
-	changeURL(url);
+	$.pushLocation(name, url);
 }
 
 function popLocation(){
@@ -57,18 +48,44 @@ $(window).on('popstate', function(event) {
 	location.reload();
 });
 
+$(function(){
 
-function alertMessage(text){
-	console.log(text);
-	var div = $('<div class="alert alert-success" role="alert"></div>').text(text).css({display: 'block', opacity: 0}).appendTo($('#alert-messages'));
-	div.animate({opacity: 1}, null, function(){$(this).animate({opacity: 0}, null, function(){
-		$(this).remove();
-	})
+	var loginAjaxUrl = getTransferData('login-ajax-url');
+
+	$('#login-form').submit(function(e){
+		var postData = $(this).serializeArray();
+
+		ajaxPost(loginAjaxUrl, postData, function(data){
+			if(data == 'Error'){
+				$.alertMessage('帳號或密碼錯誤', {type: 'alert-danger'});
+			}else if(data['id'] != undefined){
+				$.alertMessage(data['name'] + ' 歡迎回來!');
+				setTimeout(function(){location.reload();}, 4000);
+			}else{
+				$.alertMessage('帳號或密碼錯誤', 'alert-error');
+			}
+
+		});
+		e.preventDefault();
 	});
-//	<div class="alert alert-success" role="alert">...</div>
-}
+});
 
+$.pushLocation = function(name, url){
+	var bURL = getTransferData('burl');
 
+	var defaults = {
+		name: '頁面',
+		url: bURL
+	};
+
+	var options = $.extend({}, defaults, options);
+
+	var siteMap = $('#site_map');
+	var aTag = $('<a></a>').text(name).attr('href', bURL + url);
+	var span = $('<span></span>').append(aTag).append('/');
+	siteMap.append(span)
+	changeURL(url);
+};
 
 $.alertMessage = function(text, options){
 
@@ -77,24 +94,27 @@ $.alertMessage = function(text, options){
 		type: "alert-success"
 	};
 
-	options = $.extend({}, defaults, options);
+	var settings = $.extend({}, defaults, options);
 	var alertTarget = $('#alert-messages');
-	var div = $('<div class="alert" role="alert"></div>').addClass("alert " + options.type).text(text).appendTo(alertTarget);
+	var div = $('<div class="alert" role="alert"></div>').addClass("alert " + settings.type).text(text).appendTo(alertTarget);
 
-	div.animate({opacity: 1}).delay(options.delay).animate({opacity: 0}, null, function(){$(this).remove()});
+	div.animate({opacity: 1}).delay(settings.delay).animate({opacity: 0}, null, function(){$(this).remove()});
 };
 
-$.jumpWindow = function(head, body, options){
+$.jumpWindow = function(head, body, foot, options){
 
 	var defaults = {
-
-	}
+		head: '',
+		body: '',
+		foot: ''
+	};
 
 	options = $.extend({}, defaults, options);
 
 
 	$('#jump-window-head').html(head);
 	$('#jump-window-body').html(body);
+	$('#jump-window-footer').html(foot);
 	$('#jump-window').modal('show');
 
 };
