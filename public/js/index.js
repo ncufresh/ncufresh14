@@ -5,7 +5,7 @@ $(function(){
 	$('.announcement-row').click(function(){
 		var announcementID = $(this).data('announcement-id');
 		console.log(announcementID);
-		ajaxGet(announcementAPIURL + '/' + announcementID, {id: announcementID},displayAnnouncement);
+		ajaxGet(announcementAPIURL + '/' + announcementID, {id: announcementID}, displayAnnouncement);
 	});
 
 	function displayAnnouncement(data){
@@ -14,5 +14,6 @@ $(function(){
 		$.jumpWindow(data['title'], data['content'], foot);
 		$.pushLocation('公告', announcementURL + '/' + data['id']);
 	}
+
 
 });

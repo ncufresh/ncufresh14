@@ -12,11 +12,7 @@ function getTransferData(index){
 }
 
 function ajaxPost(url, data, success_callback){
-	if($.isPlainObject(data) != true || typeof data == undefined){
-		throw "Data is not allow!";
-	}else{
-		$.post(url, data, success_callback);
-	}
+	$.post(url, data, success_callback);
 }
 
 function ajaxGet(url, data, success_callback){
@@ -53,8 +49,26 @@ $(window).on('popstate', function(event) {
 });
 
 $(function(){
-	changeURL('');
-})
+
+	var loginAjaxUrl = getTransferData('login-ajax-url');
+
+	$('#login-form').submit(function(e){
+		var postData = $(this).serializeArray();
+
+		ajaxPost(loginAjaxUrl, postData, function(data){
+			if(data == 'Error'){
+				$.alertMessage('帳號或密碼錯誤', {type: 'alert-danger'});
+			}else if(data['id'] != undefined){
+				$.alertMessage(data['name'] + ' 歡迎回來!');
+				setTimeout(function(){location.reload();}, 4000);
+			}else{
+				$.alertMessage('帳號或密碼錯誤', 'alert-error');
+			}
+
+		});
+		e.preventDefault();
+	});
+});
 
 $.pushLocation = function(name, url){
 	var bURL = getTransferData('burl');
@@ -80,11 +94,11 @@ $.alertMessage = function(text, options){
 		type: "alert-success"
 	};
 
-	options = $.extend({}, defaults, options);
+	var settings = $.extend({}, defaults, options);
 	var alertTarget = $('#alert-messages');
-	var div = $('<div class="alert" role="alert"></div>').addClass("alert " + options.type).text(text).appendTo(alertTarget);
+	var div = $('<div class="alert" role="alert"></div>').addClass("alert " + settings.type).text(text).appendTo(alertTarget);
 
-	div.animate({opacity: 1}).delay(options.delay).animate({opacity: 0}, null, function(){$(this).remove()});
+	div.animate({opacity: 1}).delay(settings.delay).animate({opacity: 0}, null, function(){$(this).remove()});
 };
 
 $.jumpWindow = function(head, body, foot, options){

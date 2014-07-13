@@ -5,7 +5,7 @@
 @else
 {{-- User not logined. show login form --}}
 	{{-- Login form --}}
-	{{ Form::open(array('route' => 'login')) }}
+	{{ Form::open(array('route' => 'login', 'id' => 'login-form')) }}
 	{{ Form::label('email', '帳號') }}
 	{{ Form::text('email') }}
 	<br>
