@@ -38,7 +38,7 @@
 
 	<div id="endScreen">
 		<div id="squirrel"> <img src="..\\images\\gameSnake\\squirrel.jpg"></div>
-		<div id="score">  <font size="20">Total Score : &nbsp</font></div>
+		 <font size="20"><div id="score"></div></font>
 		<!-- <div id="score">  <font size="20">Total Score : &nbsp</font></div> -->
 		<div id="collect"> <img src="..\\images\\gameSnake\\collect.jpg"> </div>
 		<div id="again"> <img src="..\\images\\gameSnake\\again.jpg"> </div>

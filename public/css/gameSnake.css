@@ -3,7 +3,6 @@
 	width: 100%;
 	height: 800px;
 	background-color: lightblue;
-	
 	/* display: none; */
 	
 }
@@ -130,14 +129,12 @@
 #squirrel {
 	margin: 0px auto;
 	top: 8%;
-	
 	position: relative;
 }
 
 #score {
-	text-align: left;
+	text-align: center;
 	margin-top: 15%;
-	margin-left: 20%
 }
 
 #collect {
