@@ -9,77 +9,97 @@
 #main {
 	position:absolute;
 	top:0;
-	left:0;
+	left:20;
 }
 
 #intro {
 	position:absolute;
 	top:0px;
-	right:0px;
-	width:480px;
-	height: 360px;
+	right:100px;
+	width:400px;
+	height: 450px;
 	}
-
+/*
 #attached1 {
 	position:absolute;
-	top:380px;
-	right:0px;
+	top:340px;
+	right:100px;
+	width:400px;
+	height: 300px;
 }
 
 #attached2 {
 	position:absolute;
 	top:760px;
-	right:0px;
+	right:100px;
+	width:400px;
+	height: 300px;
 }
 
 #attached3 {
 	position:absolute;
 	top:1140px;
-	right:0px;
+	right:100px;
+	width:400px;
+	height: 300px;
 }
 
 #attached4 {
 	position:absolute;
 	top:1520px;
-	right:0px;
+	right:100px;
+	width:400px;
+	height: 300px;
 }
 
 #attached5 {
 	position:absolute;
 	top:1900px;
-	right:0px;
+	right:100px;
+	width:400px;
+	height: 300px;
 }
 
 #attached6 {
 	position:absolute;
 	top:2280px;
-	right:0px;
+	right:100px;
+	width:400px;
+	height: 300px;
 }
 
 #attached7 {
 	position:absolute;
 	top:2660px;
-	right:0px;
+	right:100px;
+	width:400px;
+	height: 300px;
 }
 
 #attached8 {
 	position:absolute;
 	top:3040px;
-	right:0px;
+	right:100px;
+	width:400px;
+	height: 300px;
 }
 
 #attached9 {
 	position:absolute;
 	top:3420px;
-	right:0px;
+	right:100px;
+	width:400px;
+	height: 300px;
 }
 
 #attached10 {
 	position:absolute;
 	top:3800px;
-	right:0px;
+	right:100px;
+	width:400px;
+	height: 300px;
 }
-
+*/
 /*////////////////////////////////////////////////////////////////////////////////*/
 
 #like {
@@ -92,7 +112,7 @@
 	top:410px;
 	left:110px;
 }
-#message {
+#message {  
 	position:absolute;
 	top:410px;
 	left:220px;
@@ -137,12 +157,13 @@
 #user_message {
 	position:relative;	
 	top:480px;
-	width: 600px;
+	width: 1200px;
 	height: 190px;
 }
 #portrait{
 	position:absolute;
-
+	top: 20px;
+	left: 10px;	
 	height:150px;
 }
 
