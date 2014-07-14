@@ -1,3 +1,10 @@
+<?php
+	$now = \Carbon\Carbon::now();
+	$target = \Carbon\Carbon::create(2014, 8, 6, 8, 0, 0);
+	$diff = $target->diffInDays($now);
+
+?>
+
 <!doctype html>
 <html>
 <script>
@@ -7,6 +14,7 @@
 	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 	ga('create', 'UA-10121863-1', 'auto');
+	ga('require', 'displayfeatures');
 	ga('send', 'pageview');
 
 </script>
@@ -25,16 +33,47 @@
 		}
 		#coming_soon{
 			margin: 0 auto;
+			position: relative;
 			width: 1000px;
 			height: 1000px;
 		}
 
+		#count-down{
+			width: 146px;
+			height: 192px;
+			position: absolute;
+			top: 191px;
+			left: 843px;
+			background-image: url('./images/coming_soon/count_down.png');
+		}
+
+		#count-number{
+			top: 82px;
+			position: relative;
+		}
+
+		.count-item{
+
+		}
 
 	</style>
 </head>
 	<body>
 		<div id="coming_soon">
 			<img src="images/coming_soon.png">
+			<div id="count-down">
+				<div id="count-number">
+					<?php
+						if($diff > 10){
+							$count = $diff/10%10;
+							echo "<img src='./images/coming_soon/$count.png' class='count-item'>";
+						}
+						$count = $diff%10;
+						echo "<img src='./images/coming_soon/$count.png' class='count-item'>";
+					?>
+				</div>
+			</div>
 		</div>
+
 	</body>
 </html>

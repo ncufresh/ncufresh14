@@ -36,6 +36,8 @@ Route::resource('announcement', 'AnnouncementController');
 
 Route::resource('link', 'LinkController');
 
+Route::resource('calender', 'CalenderController');
+
 Route::post('imageUpload', array('as' => 'imageUpload', 'uses' => 'HomeController@imageUpload'));
 
 //==========================================================================================
