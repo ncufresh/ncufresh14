@@ -16,8 +16,11 @@ class HomeController extends BaseController {
 	*/
 
 	public function index(){
+		App::make('TransferData')->addData('announcement-api-url', route('api.announcement.index'));
+		App::make('TransferData')->addData('announcement-url', route('announcement.index'));
 		$links = Link::orderBy('order', 'ASC')->get();
-		return View::make('index', array('links' => $links));
+		$announcements = Announcement::orderBy('pinned', 'DESC')->orderBy('created_at', 'DESC')->get()->take(10);
+		return View::make('index', array('links' => $links, 'announcements' => $announcements));
 	}
 
 	public function errorPage(){

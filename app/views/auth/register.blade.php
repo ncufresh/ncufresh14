@@ -18,6 +18,7 @@
 	<div id="normal">
 		<div id="normal-data">
 			{{ Form::open(array('route' => 'register.store', 'class' => 'form-horizontal')) }}
+				{{ $errors }}
 				<div class="form-group">
 					<label for="name" class="col-sm-3 control-label">姓名</label>
 					<div class="col-sm-5">
@@ -82,9 +83,14 @@
 		</div>
 	</div>
 
+	@if($type == 'FB')
+
 	<div id="fb">
 		<div id="fb-data">
 			{{ Form::open(array('route' => 'register.store', 'class' => 'form-horizontal')) }}
+				{{ Form::hidden('facebook-uid', Auth::user()->getFacebookData->uid) }}
+				{{ Form::hidden('email', Auth::user()->email) }}
+				{{ Form::hidden('department_id', Auth::user()->department_id) }}
 				<div class="form-group">
 					<label for="high_school" class="col-sm-3 control-label">畢業高中</label>
 					<div class="col-sm-5">
@@ -93,7 +99,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="depaetment_id" class="col-sm-3 control-label">系所</label>
+					<label for="department_id" class="col-sm-3 control-label">系所</label>
 					<div class="col-sm-5">
 						{{ Form::select('department_id', $departments, array('class' => 'form-control', 'placeholder' => '請輸入系所')) }}
 					</div>
@@ -113,6 +119,7 @@
 		</div>
 	</div>
 
+	@endif
 	</div>
 
 @stop

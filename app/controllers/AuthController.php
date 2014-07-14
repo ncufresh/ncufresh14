@@ -33,6 +33,18 @@ class AuthController extends BaseController {
 		}
 	}
 
+	public function loginAjax(){
+		if(Request::ajax() && Input::has('email', 'password')){
+			$email = Input::get('email');
+			$password = Input::get('password');
+
+			if(Auth::attempt(array('email' => $email, 'password' => $password))){
+				return Response::json(Auth::user());
+			}
+		}
+			return Response::json('Error');
+	}
+
 	/*
 	 * Login with facebook
 	 * Redirect to fb login page.
@@ -140,7 +152,7 @@ class AuthController extends BaseController {
 	public function register(){
 		$siteMap = App::make('SiteMap');
 		$siteMap->pushLocation('註冊', route('register'));
-		$departments = Department::all(array('department_name'))->toArray();
+		$departments = Department::lists('department_name', 'system_id');
 		$type = 'choose';
 		if(Route::currentRouteName() == 'register.email'){
 			$type = 'email';
@@ -156,26 +168,44 @@ class AuthController extends BaseController {
 	public function registerStore(){
 
 		$rules = array(
-			'email' => 'required|unique:users|max:255|email',
-			'name' => 'required|max:10',
-			'nick_name' => 'required|max:10',
-			'password' => 'required|min:6',
-			're_password' => 'required|same:password'
+			'email' => 'required|unique:users,id,'.Auth::user()->id.'|max:255|email|required_without:facebook-uid',
+			'name' => 'required_without:facebook-uid|max:10',
+			'department_id' => 'required|exists:departments,system_id',
+			'grade' => 'required|in:1,2,3,4',
+			'high_school' => 'required',
+			'password' => 'required_without:facebook-uid|min:6',
+			're_password' => 'required_without:facebook-uid|same:password'
 		);
 
 		$validator = Validator::make(Input::all(), $rules);
 
 		if($validator->fails()){
-			return Redirect::to('register')->withErrors($validator)->withInput();
+			if(Input::has('facebook-uid') == false){
+				return Redirect::route('register.email')->withErrors($validator)->withInput();
+			}else{
+				return Redirect::route('register.FB')->withErrors($validator)->withInput();
+			}
 		}else{
 			//success! save user to database~~
-			$newUser = new User;
-			$newUser->name = Input::get('name');
-			$newUser->nick_name = Input::get('nick_name');
-			$newUser->email = Input::get('email');
-			$newUser->password = Hash::make(Input::get('password'));
-			$newUser->save();
-			return Redirect::to('/');
+			if(Auth::check()){
+				$user = Auth::user();
+				$user->department_id = Input::get('department_id');
+				$user->grade = Input::get('grade');
+				$user->high_school_id = HighSchool::firstOrCreate(array('high_school_name' => Input::get('high_school')))->id;
+				$user->gender = Input::get('gender');
+				return Redirect::to('/');
+			}else{
+				$newUser = new User;
+				$newUser->name = Input::get('name');
+				$newUser->email = Input::get('email');
+				$newUser->password = Hash::make(Input::get('password'));
+				$newUser->department_id = Input::get('department_id');
+				$newUser->grade = Input::get('grade');
+				$newUser->high_school_id = HighSchool::firstOrCreate(array('high_school_name' => Input::get('high_school')))->id;
+				$newUser->gender = Input::get('gender');
+				$newUser->save();
+				return Redirect::intended('/');
+			}
 		}
 	}
 

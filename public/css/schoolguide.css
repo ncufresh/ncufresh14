@@ -128,4 +128,24 @@ html, body {
     top:10px;
     left: 370px;
 }
+.map{
 
+    position: relative;
+    top:20px;
+    z-index: 0;
+}
+
+#Zhidao{
+    position: relative;
+    top:-403px;
+    left: 118px;
+    z-index: 1;
+}
+
+#G-14{
+    position: relative;
+    top:-403px;
+    left: 118px;
+    z-index: 1;
+
+}
