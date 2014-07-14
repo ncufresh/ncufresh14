@@ -49,16 +49,19 @@ class NcuLifeController extends BaseController
 	public function edit($id)
 	{
 		$data = NcuLifeModel::find($id);
-		return View::make('nculife.nculife_edit', array('nculife'=>$data));
+		$pictures = NcuLifeModel::find($id)->picture;
+		// dd($pictures);
+		//  dd($pictures[0]->pictureAdmin->file_name);
+		return View::make('nculife.nculife_edit', array('nculife'=>$data, 'pictures'=>$pictures));
 	}
 
 	public function addData()
 	{
-
 		$data = new NcuLifeModel;
 		$data->item = Input::get('item');
 		$data->place = Input::get('place');
 		$data->introduction = Input::get('introduction');
+		$data->local_id = Input::get('local_id');
 		$data->save();
 		return Redirect::route('nculife.data');
 	}

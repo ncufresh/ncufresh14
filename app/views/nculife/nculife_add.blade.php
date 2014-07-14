@@ -16,12 +16,17 @@
 		<div>簡介:
 			{{Form::textarea('introduction')}}
 		</div>
+		{{Form::hidden('local_id', null, array('id' => 'local_id'))}}
 		{{Form::submit('新增')}}
 		{{Form::close()}}
+		{{Form::open(array('route'=>'imageUpload', 'method'=>'post', 'files' => true, 'id' => 'ajax-image-form'))}}
 		<div>地圖上傳:
-			{{Form::file('imageUpload', array('id'=>'imageUpload'))}}
+			{{Form::hidden('response_type', 'json')}}
+			{{Form::file('upload', array('id'=>'upload'))}}
 		</div>
-		<button id="Upload">上傳</button>
+		<input type="submit" id="Upload">
+		{{Form::close()}}
+		<img id="image" src="">
 	</div>
 	<script>
 		CKEDITOR.replace('introduction', {filebrowserImageUploadUrl : '{{ route("imageUpload") }}'});

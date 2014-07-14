@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	
+	{{ HTML::script('js/nculife/nculife_imageUpload.js') }}
 @stop
 
 @section('content')
@@ -17,19 +17,17 @@
 		<div>簡介:
 			{{Form::textarea('introduction', $nculife->introduction, array('id'=>$nculife->id))}}
 		</div>
-		<div>照片檔名:
-			{{Form::text('picture', $nculife->picture, array('id'=>$nculife->id))}}
-		</div>
-		<div>地圖檔名:
-			{{Form::text('local', $nculife->local, array('id'=>$nculife->id))}}
-		</div>
-		<div id="picture">
-			<img id="image" src="{{asset("images/nculife/" .  $nculife->local)}}">
-			<div id="containment">
-			</div>
-		</div>
 		{{Form::submit('確認修改')}}
 		{{Form::close()}}
+		<div>地圖上傳:
+			{{Form::hidden('response_type', 'json')}}
+			{{Form::file('upload', array('id'=>'upload'))}}
+		</div>
+		<input type="submit" id="Upload">
+		{{Form::close()}}
+		@foreach($pictures as $picture)
+		<img class="image" src="{{ asset('img/uploadImage/' . $picture->pictureAdmin->file_name) }}" style="height:100%; width:100% ;">
+		@endforeach
 	</div>
 	<script>
 		CKEDITOR.replace('introduction', {filebrowserImageUploadUrl : '{{ route("imageUpload") }}'});

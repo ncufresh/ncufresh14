@@ -41,7 +41,7 @@ $(function(){
 
 	function changeIntroductionAndImage(data){
 		$('#introduction').text(data['introduction']);
-		$('#image').attr("src", bURL + "/images/nculife/" + data['picture']);
+		$('#image').attr("src", bURL + "/img/uploadImage/" + data['picture']);
 		$('#buttom').data("num", data['id']);
 		$('#image').css("width", "100%");
 		$('#image').css("height", "100%");
@@ -50,7 +50,7 @@ $(function(){
 	}
 
 	function changePicture(data){
-		$('#image').attr("src", bURL + "/images/nculife/" + data['picture']);
+		$('#image').attr("src", bURL + "/img/uploadImage/" + data['picture']);
 		$('#image').css("width", "100%");
 		$('#image').css("height", "100%");
 		$('#image').css("top", "0px");
@@ -58,7 +58,7 @@ $(function(){
 	}
 
 	function changeLocal(data){
-		$('#image').attr("src", bURL + "/images/nculife/" + data['local']);
+		$('#image').attr("src", bURL + "/img/uploadImage/" + data['local']);
 		$('#image').css("width", "140%");
 		$('#image').css("height", "140%");
 		$('#image').css("top", data['top']);
