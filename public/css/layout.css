@@ -61,7 +61,7 @@ body {
 #topContainer{
 	width: 100%;
 	height: 250px;
-	margin-top: 35px;
+	margin-top: 55px;
 }
 
 
@@ -93,6 +93,7 @@ body {
 	background-image: url("../images/layout/logo.png");
 	background-size: 100%;
 	background-repeat:no-repeat;
+	border-radius: 50%;
 }
 
 #topSearchBar{
@@ -111,53 +112,53 @@ body {
 }
 
 #topNavBarLife {
-	background-image: url("../images/layout/nculife2.png");
-	margin-left: 80px;
-}
-
-#topNavBarLife:hover{
 	background-image: url("../images/layout/nculife.png");
 	margin-left: 80px;
 }
 
-#topNavBarFourm {
-	background-image: url("../images/layout/forum2.png");
+#topNavBarLife:hover{
+	background-image: url("../images/layout/nculife2.png");
+	margin-left: 80px;
 }
 
-#topNavBarFourm:hover {
+#topNavBarFourm {
 	background-image: url("../images/layout/forum.png");
 }
 
-#topNavBarRead {
-	background-image: url("../images/layout/read2.png");
+#topNavBarFourm:hover {
+	background-image: url("../images/layout/forum2.png");
 }
 
-#topNavBarRead:hover {
+#topNavBarRead {
 	background-image: url("../images/layout/read.png");
 }
 
-#topNavBarCampus {
-	background-image: url("../images/layout/campus2.png");
+#topNavBarRead:hover {
+	background-image: url("../images/layout/read2.png");
 }
 
-#topNavBarCampus:hover {
+#topNavBarCampus {
 	background-image: url("../images/layout/campus.png");
 }
 
-#topNavBarVideo {
-	background-image: url("../images/layout/video2.png");
+#topNavBarCampus:hover {
+	background-image: url("../images/layout/campus2.png");
 }
 
-#topNavBarVideo:hover {
+#topNavBarVideo {
 	background-image: url("../images/layout/video.png");
 }
 
+#topNavBarVideo:hover {
+	background-image: url("../images/layout/video2.png");
+}
+
 #topNavBarAbout {
-	background-image: url("../images/layout/about2.png");
+	background-image: url("../images/layout/about.png");
 }
 
 #topNavBarAbout:hover {
-	background-image: url("../images/layout/about.png");
+	background-image: url("../images/layout/about2.png");
 }
 
 
