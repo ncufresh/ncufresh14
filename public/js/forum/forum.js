@@ -2,7 +2,11 @@ $(function(){
 
 	//alert("NEW checked");
 	var url = $("#new").attr("direct");
-	//alert(url);
+	var getCommentsUrl = $("#getComment").attr("direct");
+	var createUrl = $("#createComment").attr("direct");
+	alert(url);
+	alert(getCommentsUrl);
+	alert(createUrl);
 	$.ajax({
 		type:"POST",
 		url:url,
@@ -11,8 +15,8 @@ $(function(){
 			alert("Ajax success");
 			//alert(data['data'].length);
 			for(i=0;i<data['data'].length;i++){
-				$("#Test1").append("<div><div class='postTimeContainer'><div class='articlePostTime'><span class='author'>"+data['data'][i]['author_id']+"</span>posted"+data['data'][i]['created_at']+"</div></div></div>");
-				$("#Test1").append("<div class='articleContainer' id="+data['data'][i]['id']+" ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+data['data'][i]['title'] +" </h3></div><div class='panel-body'>"+data['data'][i]['content']+"</div><a class='moreBox'><div class='moreBtn' id='"+data['data'][i]['id']+"' direct="{{URL::to('/getComments')}}"><div class="panel panel-default arrow">&dArr;</div></div></a></div><div class="responseContainer"><form class="commentForm" route="createComment" direct="{{URL::to('/create')}}">{{ Form::label('comment','回覆貼文') }}{{ Form::submit('發表回覆',array('type' => 'button' , 'class' => 'btn btn-primary createComment')) }}{{ Form::text('commenterID','',array('class' => 'form-control commenterID' , 'placeholder' => 'Your ID' ,'id' => 'commenterID')) }}{{ Form::hidden('articleID','',array('id' => $article-> id , 'class' => 'articleID')) }}{{ Form::textarea('comment','',array('class' => 'form-control commentTextArea' , 'id' => 'inputContent')) }}</form></div></div>");
+				$("#Test1").append("<div class='postTimeContainer'><div class='articlePostTime'><span class='author'>"+data['data'][i]['author_id']+"</span>posted"+data['data'][i]['created_at']+"</div></div>");
+				$("#Test1").append("<div class='articleContainer' id='"+data['data'][i]['id']+"' ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+data['data'][i]['title'] +" </h3></div><div class='panel-body'>"+data['data'][i]['content']+"</div><a class='moreBox'><div class='moreBtn' id='"+data['data'][i]['id']+"' direct='"+getCommentsUrl+"'><div class='panel panel-default arrow'>&dArr;</div></div></a></div><div class='responseContainer'><form class='commentForm' route='createComment' direct='"+createUrl+"'><label>回覆貼文</label><input type='button' class='btn btn-primary createComment' value='發表回覆'><input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'><input type='hidden' name='articleID' id='"+data['data']['id']+"' class='articleID'><input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'></form></div></div>");
 			}
 		},
 		error:function(){
@@ -26,11 +30,11 @@ $(function(){
 		$(this).tab('show');
 	});
 	$("#createBtn").click(function(){
-		$('#myModal').modal('toggle')
+		$('#myModal').modal('toggle');
 	});
-	$(".moreBtn").click(function(){
-		//alert("click");
-		var response = $(this).parent().parent().parent().find(".responseContainer");
+	$(".arrow").click(function(){
+		alert("click");
+	/*	var response = $(this).parent().parent().parent().find(".responseContainer");
 		var url = $(this).attr("direct");
 		var target = $(this);
 		var responseContainer = target.parent().parent().parent().find(".responseContainer");
@@ -63,7 +67,7 @@ $(function(){
 			response.parent().css("background-color","#FFFFFF");
 			responseContainer.children(".panel").remove();
 		}
-		response.slideToggle();
+		response.slideToggle(); */
 	});
 	$(".commentForm").submit(function(e){
 		e.preventDefault();
@@ -100,21 +104,28 @@ $(function(){
 	});
 	
 	$("#new").change(function(){
-		/*alert("new");
-		var url = $(this).attr("direct");
+		alert("new");
 		alert(url);
 		$.ajax({
 			type : "POST",
 			url : url,
 			data : { },
 			success : function(data){
-				alert("success");
+				alert("Ajax success");
+				$(".articleContainer").remove();
+				$(".postTimeContainer").remove();
+				//alert(data['data'].length);
+				for(i=0;i<data['data'].length;i++){
+					
+					$("#Test1").append("<div><div class='postTimeContainer'><div class='articlePostTime'><span class='author'>"+data['data'][i]['author_id']+"</span>posted"+data['data'][i]['created_at']+"</div></div></div>");
+					$("#Test1").append("<div class='articleContainer' id='"+data['data'][i]['id']+"' ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+data['data'][i]['title'] +" </h3></div><div class='panel-body'>"+data['data'][i]['content']+"</div><a class='moreBox'><div class='moreBtn' id='"+data['data'][i]['id']+"' direct='"+getCommentsUrl+"'><div class='panel panel-default arrow'>&dArr;</div></div></a></div><div class='responseContainer'><form class='commentForm' route='createComment' direct='"+createUrl+"'><label>回覆貼文</label><input type='button' class='btn btn-primary createComment' value='發表回覆'><input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'><input type='hidden' name='articleID' id='"+data['data']['id']+"' class='articleID'><input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'></form></div></div>");
+				}
 
 			},
 			error : function(){
 				alert("ERROR");
 			}
-		},"json");*/
+		},"json");
 	});
 	$("#pop").change(function(){
 		alert("pop");

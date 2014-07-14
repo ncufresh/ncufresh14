@@ -5,6 +5,9 @@
 @stop
 @section('content')
 		<div>
+			<input type="hidden" name="orderPop" id="orderPopHidden" direct="">
+			<input type="hidden" name="getComment" id="getComment" direct="{{URL::to('getComments')}}">
+			<input type="hidden" name="createComment" id="createComment" direct="{{URL::to('/create')}}">
 			<ul class="nav nav-tabs" id="myTab">
 				<li><a href="#Test1">討論區</a></li>
 				<li><a href="#Test2">系所</a></li>
@@ -18,51 +21,6 @@
 							<input type="radio" name="orderBy" id="pop" value="pop"> 熱門貼文
 						</div>
 						<button class="btn btn-primary" id="createBtn">發表新文章</button>
-					</div>
-					<div>
-						@foreach($postArticles as $article)
-							<div class="postTimeContainer">
-								<div class="articlePostTime">
-									<span class="author">{{ $article -> author_id }}</span>
-									 posted at 
-									{{ $article -> created_at }} 
-								</div>
-							</div>
-							<div class="articleContainer" id="{{ $article -> id }}" >
-								<div class="panel panel-default articleBody">
-									<div class="panel-heading">
-										<h3 class="panel-title"> {{ $article -> title }} </h3>
-									</div>
-									<div class="panel-body">
-										{{ $article -> content }}
-									</div>
-									<a class="moreBox">
-										<div class="moreBtn" id="{{$article -> id}}" direct="{{URL::to('/getComments')}}">
-											<div class="panel panel-default arrow">&dArr;</div>
-										</div>
-									</a>
-								</div>
-								<div class="responseContainer">
-									<form class="commentForm" route="createComment" direct="{{URL::to('/create')}}">
-									{{ Form::label('comment','回覆貼文') }}
-									{{ Form::submit('發表回覆',array(
-										'type' => 'button' , 
-										'class' => 'btn btn-primary createComment'
-									)) }}
-									{{ Form::text('commenterID','',array(
-										'class' => 'form-control commenterID' , 
-										'placeholder' => 'Your ID' ,
-										'id' => 'commenterID'
-									)) }}
-									{{ Form::hidden('articleID','',array('id' => $article-> id , 'class' => 'articleID')) }}
-									{{ Form::textarea('comment','',array(
-										'class' => 'form-control commentTextArea' , 
-										'id' => 'inputContent'
-									)) }}
-									</form>
-								</div>
-							</div>
-						@endforeach
 					</div>
 				</div>
 				<div class="tab-pane" id="Test2">
