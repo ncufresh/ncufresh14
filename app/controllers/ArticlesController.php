@@ -6,9 +6,9 @@ class ArticlesController extends BaseController{
 
 	public function getArticles(){
 		$articles = Forum::orderBy('created_at','desc')->paginate();
-		$postArticles = Forum::where('article_type','P')->paginate();
-		$clubArticles = Forum::where('article_type','C')->paginate();
-		$departmentArticles = Forum::where('article_type','D')->paginate();
+		$postArticles = Forum::where('article_type','P')->orderBy('created_at','desc')->paginate();
+		$clubArticles = Forum::where('article_type','C')->orderBy('created_at','desc')->paginate();
+		$departmentArticles = Forum::where('article_type','D')->orderBy('created_at','desc')->paginate();
 		//return View::make('forum/articles')->with('articles',$articles);
 		return View::make('forum/articles',array(
 			'articles' => $articles , 
@@ -43,6 +43,11 @@ class ArticlesController extends BaseController{
 			'content' => $comment
 		));
 
+		$article = Forum::where('id',$article_id)->firstOrFail();
+		$commentNum = $article -> comment_number;
+
+		Forum::where('id',$article_id)->update(array('comment_number' => $commentNum+1));
+
 		$response = array(
 			'status' => 'success',
 			'msg' => 'successfully'
@@ -57,10 +62,12 @@ class ArticlesController extends BaseController{
 
 		return Response::json($comments);
 	}
-
-
-
-
+	public function newArticles(){
+		
+		$postArticles = Forum::where('article_type','P')->orderBy('created_at','desc')->paginate();
+		
+		return Response::json($postArticles);
+	}
 
 
 

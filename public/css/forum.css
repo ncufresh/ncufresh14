@@ -27,6 +27,7 @@
 }
 .articleContainer{
 	border-radius: 5px;
+	margin-bottom: 10px;
 }
 .arrow{
 	text-align: center;
@@ -70,7 +71,23 @@ textarea.commentTextArea{
 	margin-bottom: 5px;
 	width: 17%;
 }
-
+/* the comment under each Articles */
+.commentAuthorId{
+	font-weight: 800;
+	margin-left: 5px;
+}
+.commentContent{
+	display: block;
+	margin-left: 15px;
+	width: 95%;
+	word-break: break-word;
+}
+.commentTime{
+	position: relative;
+	float: right;
+	top: -20px;
+	right: 10px;	
+}
 
 
 

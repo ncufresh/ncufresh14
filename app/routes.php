@@ -109,6 +109,8 @@ Route::post('/create',array('as' => 'createComment' , 'uses' => 'ArticlesControl
 
 Route::post('/getComments',array('uses' => 'ArticlesController@getComment'));
 
+Route::post('/orderNew',array('uses' =>'ArticlesController@newArticles'));
+
 //==========================================================================================
 //NcuLife
 Route::get('nculife', array('as' => 'nculife.index', 'uses' => 'NcuLifeController@index'));

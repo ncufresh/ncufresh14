@@ -14,8 +14,8 @@
 				<div class="tab-pane active" id="Test1">
 					<div id="toolBar">
 						<div id="orderBox">
-							{{ Form::radio('orderBy','New',true) }} 最新貼文
-							{{ Form::radio('orderBy','Pop') }} 熱門貼文
+							<input type="radio" name="orderBy" value="new" id="new" direct="{{URL::to('/orderNew')}}" checked> 最新貼文
+							<input type="radio" name="orderBy" id="pop" value="pop"> 熱門貼文
 						</div>
 						<button class="btn btn-primary" id="createBtn">發表新文章</button>
 					</div>
