@@ -42,6 +42,7 @@ class NcuLifeController extends BaseController
 
 	public function add()
 	{
+		App::make('TransferData')->addData('ncu_life_imageupload_url', route('imageUpload'));	
 		return View::make('nculife.nculife_add');
 	}
 
@@ -53,12 +54,11 @@ class NcuLifeController extends BaseController
 
 	public function addData()
 	{
+
 		$data = new NcuLifeModel;
 		$data->item = Input::get('item');
 		$data->place = Input::get('place');
 		$data->introduction = Input::get('introduction');
-		$data->picture = Input::get('picture');
-		$data->local = Input::get('local');
 		$data->save();
 		return Redirect::route('nculife.data');
 	}
@@ -72,8 +72,6 @@ class NcuLifeController extends BaseController
 			$data->item= Input::get('item');
 			$data->place= Input::get('place');;
 			$data->introduction= Input::get('introduction');
-			$data->picture = Input::get('picture');
-			$data->local = Input::get('local');
 			$data->save();
 		}
 		return Redirect::route('nculife.data');

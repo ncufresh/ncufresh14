@@ -83,6 +83,7 @@ Route::get('SchoolGuide/add',array('as'=>'SchoolGuide.add','uses'=>'SchoolGuideC
 Route::get('SchoolGuide/{id}',array('as'=>'SchoolGuide.photo','uses'=>'SchoolGuideController@tophoto'));
 
 
+
 //============================================================================
 //game
 Route::get('game', array('as' => 'game', 'uses' => 'GameController@index'));
@@ -119,9 +120,9 @@ Route::get('nculife/{item}', array('as' => 'nculife.item', 'uses' => 'NcuLifeCon
 
 Route::get('nculife/data', array('as' => 'nculife.data', 'uses' => 'NcuLifeController@data'));
 
-Route::get('nculife/add', array('as' => 'nculife.add', 'uses' => 'NcuLifeController@add'));
+Route::get('nculife/data/add', array('as' => 'nculife.add', 'uses' => 'NcuLifeController@add'));
 
-Route::get('nculife/edit/{id}', array('as' => 'nculife.edit', 'uses' => 'NcuLifeController@edit'));
+Route::get('nculife/data/edit/{id}', array('as' => 'nculife.edit', 'uses' => 'NcuLifeController@edit'));
 
 Route::post('nculife/addData', array('as' => 'nculife.addData', 'uses' => 'NcuLifeController@addData'));
 
