@@ -86,10 +86,10 @@ body {
 
 #topLogo{
 	position: relative;
-	width: 350px;
-	height: 350px;
+	width: 320px;
+	height: 320px;
 	top: -50px;
-	left: -50px;
+	left: -40px;
 	background-image: url("../images/layout/logo.png");
 	background-size: 100%;
 	background-repeat:no-repeat;
