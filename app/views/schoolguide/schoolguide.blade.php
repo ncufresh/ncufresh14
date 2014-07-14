@@ -7,12 +7,10 @@
 
 @section('content')
 
-<div id="container" class="container">
-				<div id="contentContainer" class="testR">
-	<div id="contentLeft" class="testB">
-		<div id="option" class="testG">
-			</br>
-
+<div id="bigcontent">
+	<img id = "object" src="http://localhost/ncufresh14/public/images/SchoolGuide/object.png">
+	
+		<div id="option">
 			<select style="width:180px; height:30px;" id="select">
 				<option value="1">系館</option>
 				<option value="2">行政</option>
@@ -21,31 +19,61 @@
 				<option value="5">飲食</option>
 				<option value="6">住宿</option>
 			</select>
-
+		</div>
 			
 			<ol id="leftlist" style="font-size:20;">
-				</br>
-			@foreach($Schoolguides as $Schoolguide)
-			<li class="left_item" data-place_id="{{ $Schoolguide->id }}">
-				{{ $Schoolguide->name }}
-			</li>
-			@endforeach
+					@foreach($Schoolguides as $Schoolguide)
+					<img class = "line" src="http://localhost/ncufresh14/public/images/SchoolGuide/line.png">
+					<img class = "board" src="http://localhost/ncufresh14/public/images/SchoolGuide/board.png">
+					<li class="left_item" data-place_id="{{ $Schoolguide->id }}">
+						{{ $Schoolguide->name }}
+					</li>
+					@endforeach
 			</ol>
-			</div>
-		</div>
-			<div id="contentRight" class="testB">
-				<div id="map" class="testG">
-					<img id = "map" src="http://localhost/ncufresh14/public/images/SchoolGuide/底.png">
-					<img data-id = "1" id="Zhidao" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/志道樓.png">
-					<img data-id = "2" id="G-14" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/女十四舍.png">
 
-			</div>
-			</div>
-	
+					<img id = "map" src="http://localhost/ncufresh14/public/images/SchoolGuide/map.png">
+					<img id = "Buttom" src="http://localhost/ncufresh14/public/images/SchoolGuide/Buttom.png">
+					<img data-id = "1" id="Zhidao" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/Zhidao.png">
+					<img data-id = "2" id="G14" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/G14.png">
+					<img data-id = "3" id="G14-ground" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/G14-ground.png">
+					<img data-id = "3" id="B11" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/B11.png">
+					<img data-id = "3" id="B7" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/B7.png">
+					<img data-id = "3" id="B6" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/B6.png">
+					<img data-id = "3" id="B13" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/B13.png">
+					<img data-id = "3" id="art" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/art.png">
+					<img data-id = "3" id="building" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/building.png">
+					<img data-id = "3" id="schoolh" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/schoolh.png">
+					<img data-id = "3" id="door" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/door.png">
+					<img data-id = "3" id="monument" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/monument.png">
+					<img data-id = "3" id="B5" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/B5.png">
+					<img data-id = "3" id="International" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/International.png">
+					<img data-id = "3" id="B3" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/B3.png">
+					<img data-id = "3" id="science" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/science.png">
+					<img data-id = "3" id="administration" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/administration.png">
+					<img data-id = "3" id="library" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/library.png">
+					<img data-id = "3" id="tree" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/tree.png">
+					<img data-id = "3" id="oldlibrary" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/oldlibrary.png">
+					<img data-id = "3" id="tai" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/tai.png">
+					<img data-id = "3" id="blackbox" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/blackbox.png">
+					<img data-id = "3" id="literary" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/literary.png">
+					<img data-id = "3" id="engineer-1" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/engineer-1.png">
+					<img data-id = "3" id="engineer-2" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/engineer-2.png">
+					<img data-id = "3" id="engineer-3" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/engineer-3.png">
+					<img data-id = "3" id="engineer-4" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/engineer-4.png">
+					<img data-id = "3" id="engineer-5" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/engineer-5.png">
+					<img data-id = "3" id="G-1-4" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/G-1-4.png">
+					<img data-id = "3" id="park" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/park.png">
+					<img data-id = "3" id="gym" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/gym.png">
+					<img data-id = "3" id="G-1-4" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/G-1-4.png">
+					<img data-id = "3" id="G-1-4" class="Img" src="http://localhost/ncufresh14/public/images/SchoolGuide/G-1-4.png">
 
-			</div>
 		
-		</div>
+			</div>
+			
+			
+					
+	
+	 
 		@if(isset($old) && $old == true)
 			<div class="photo">
 				<div class="photocontainer">

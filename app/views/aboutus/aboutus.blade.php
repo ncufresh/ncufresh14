@@ -21,9 +21,10 @@
 	</div>
 </div>
 
-<!-- modal -->
+<!-- modal -->	
 <div class="window">
-	<div class="modal">
+	<div class="modal"></span>
+		<span class="close">
 		<div class="photo"></div>
 		<div class="team"></div>
 		<div class="teamintro"></div>

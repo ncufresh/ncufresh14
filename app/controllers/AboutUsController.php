@@ -5,7 +5,7 @@ class AboutUsController extends BaseController {
 
 	public function index(){
 
-		App::make('TransferData')->addData('modal',route('About_modal'));
+		App::make('TransferData')->addData('about_modal',route('About.modal'));
 
 			return View::make('aboutus.aboutus');		
 
@@ -15,7 +15,6 @@ class AboutUsController extends BaseController {
 
 		$id = Input::get('id');
 		$data = AboutUs::find($id);
-
 			return Response::json($data);
 	}
 }

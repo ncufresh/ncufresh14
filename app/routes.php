@@ -151,4 +151,4 @@ Route::post('research_delete',array('as' => 'research_delete', 'uses' => 'necess
 
 Route::get('About_us',array('as'=>'','uses'=>'AboutUsController@index'));
 
-Route::get('About_us/modal',array('as'=>'About_modal','uses'=>'AboutUsController@getModalId'));
+Route::get('About_us/modal',array('as'=>'About.modal','uses'=>'AboutUsController@getModalId'));

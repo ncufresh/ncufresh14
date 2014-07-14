@@ -1,35 +1,26 @@
-#contentContainer {
-	width: 100%;
+#bigcontent{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height:700px;
+    background-color: rgba(168,168,168,0.5)  ;
 
 }
 
-#contentLeft {
-	width: 23%;
-	height: 720px;
-	padding: 10px;
-	float: left;
-}
 
-#contentRight {
-	width: 77%;
-	height: 720px;
-	padding: 10px 10px 10px 0px;
-	float: left;
-}
-
-#option {
-	width: 200px;
-	height: 700px;
-	padding: 10px;
-}
-
-
-#map{
+#picture{
 	width: 100%;
 	height: 700px;
 	padding: 10px;
 }
 
+#option{
+    position: absolute;
+    left: 157px;
+    top: 22px;
+    z-index:3;
+}
 li{
     list-style-type: none;
     
@@ -128,24 +119,276 @@ html, body {
     top:10px;
     left: 370px;
 }
-.map{
-
-    position: relative;
-    top:20px;
+#map{
+    width: 865px;
+    height: 600px;
+    position: absolute;
+    left: 116px;
+    top:69px;
     z-index: 0;
 }
 
-#Zhidao{
-    position: relative;
-    top:-403px;
-    left: 118px;
+#Buttom{
+    position: absolute;
+    top:146px;
+    left: 255px;
+    height: 459px;
+    width: 669px;
+    z-index: 1; 
+}
+
+#object{
+    position: absolute;
+    left: 10px;
+    top: 0px;
     z-index: 1;
 }
 
-#G-14{
+.line{
     position: relative;
-    top:-403px;
-    left: 118px;
+    left: 43px;
+    top: 40px;
     z-index: 1;
+
+}
+.board{
+     position: relative;
+     left: -40px;
+     top: 79px;
+     z-index: 2;
+
+}
+.left_item{
+    position: relative;
+    left: 30px;
+    top: 33px;
+    z-index: 10;
+    width: 90px;
+    padding: 0px;
+}
+
+#Zhidao{
+    position: absolute;
+    top:335px;
+    left: 338px;
+    z-index: 2;
+}
+
+#G14{
+    position: absolute;
+    top:356px;
+    left: 296px;
+    z-index: 2;
+
+}
+#G14-ground{
+    position: absolute;
+    top:372px;
+    left: 350px;
+    z-index: 2;
+}
+
+#B11{
+    position: absolute;
+    top:383px;
+    left: 280px;
+    z-index: 2;
+
+}
+
+#B7{
+    position: absolute;
+    top:395px;
+    left: 259px;
+    z-index: 2;
+
+}
+#B6{
+    position: absolute;
+    top:415px;
+    left: 271px;
+    z-index: 2;
+
+}
+
+#art{
+    position: absolute;
+    top:426px;
+    left: 286px;
+    z-index: 2;
+
+}
+#building{
+    position: absolute;
+    top:453px;
+    left: 304px;
+    z-index: 2;
+
+}
+#B13{
+    position: absolute;
+    top:462px;
+    left: 280px;
+    z-index: 3;
+
+}
+#schoolh{
+    position: absolute;
+    top:446px;
+    left: 374px;
+    z-index: 2;
+
+}
+#door{
+    position: absolute;
+    top:550px;
+    left: 384px;
+    z-index: 2;
+
+}
+#monument{
+    position: absolute;
+    top:435px;
+    left: 441px;
+    z-index: 2;
+
+}
+
+#B5{
+    position: absolute;
+    top:385px;
+    left: 341px;
+    z-index: 3;
+
+}
+
+#International{
+    position: absolute;
+    top:351px;
+    left: 376px;
+    z-index:2;
+
+}
+
+#B3{
+    position: absolute;
+    top:307px;
+    left: 374px;
+    z-index: 2;
+}
+
+#science{
+    position: absolute;
+    top:378px;
+    left: 409px;
+    z-index: 3;
+
+}
+#administration{
+    position: absolute;
+    top:431px;
+    left: 479px;
+    z-index: 2;
+
+}
+#library{
+    position: absolute;
+    top:384px;
+    left: 505px;
+    z-index: 3;
+
+}
+
+#tree{
+    position: absolute;
+    top:367px;
+    left: 480px;
+    z-index: 2;
+
+}
+#oldlibrary{
+    position: absolute;
+    top:370px;
+    left: 531px;
+    z-index: 2;
+
+}
+#tai{
+    position: absolute;
+    top:411px;
+    left: 612px;
+    z-index: 2;
+
+}
+
+#blackbox{
+    position: absolute;
+    top:443px;
+    left: 542px;
+    z-index: 3;
+
+}
+
+#literary{
+    position: absolute;
+    top:419px;
+    left: 561px;
+    z-index: 2  ;
+
+}
+#engineer-1{
+    position: absolute;
+    top:304px;
+    left: 486px;
+    z-index: 2;
+
+}
+#engineer-2{
+    position: absolute;
+    top:266px;
+    left: 530px;
+    z-index: 2;
+
+}
+#G-1-4{
+    position: absolute;
+    top:260px;
+    left: 458px;
+    z-index: 2;
+
+}
+#engineer-3{
+    position: absolute;
+    top:196px;
+    left: 645px;
+    z-index: 2;
+
+}
+#engineer-4{
+    position: absolute;
+    top:166px;
+    left: 710px;
+    z-index: 3;
+
+}
+#engineer-5{
+    position: absolute;
+    top:141px;
+    left: 624px;
+    z-index: 2;
+
+}
+#park{
+    position: absolute;
+    top:249px;
+    left: 564px;
+    z-index: 2;
+
+}
+#gym{
+    position: absolute;
+    top:259px;
+    left: 645px;
+    z-index: 2;
 
 }
