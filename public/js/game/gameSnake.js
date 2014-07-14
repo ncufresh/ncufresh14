@@ -583,9 +583,9 @@ $(document).ready(function(){
 		{
 			for(var i=0; i<brokenBeforeCount; i++)
 			{
+				Box[ brokenBefore[i][0] ][ brokenBefore[i][1] ].empty();
 				if( point[0]==brokenBefore[i][0] && point[1]==brokenBefore[i][1] )
 					pointEchinacea();
-				Box[ brokenBefore[i][0] ][ brokenBefore[i][1] ].empty();
 			}
 				
 			brokenBeforeCount = 0;
