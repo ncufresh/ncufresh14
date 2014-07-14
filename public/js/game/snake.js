@@ -580,7 +580,7 @@ $(document).ready(function(){
 			for(var j=-1; j<explorRadius; j++)
 			{
 				Box[x+i][y+j].empty();
-				if( point[0]==(x+i) && point[1]==(y+j)) )
+				if( point[0]==(x+i) && point[1]==(y+j) )
 					pointEchinacea();
 			}
 				
