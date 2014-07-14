@@ -42,19 +42,19 @@
 			</div>
 			<div id="boardContent">
 				<div class="announcement-head">
-					<div class="col-sm-1"></div>
-					<div class="col-sm-6">標題</div>
+					<div class="col-sm-2"></div>
+					<div class="col-sm-5">標題</div>
 					<div class="col-sm-2">人氣</div>
 					<div class="col-sm-3">發佈日期</div>
 				</div>
 				@foreach($announcements as $announcement)
 				<div class="announcement-row" data-announcement-id="{{ $announcement->id }}">
 					@if($announcement->pinned == true)
-					<div class="col-sm-1">智鼎XD</div>
+					<div class="col-sm-2">智鼎XD</div>
 					@else
-					<div class="col-sm-1"></div>
+					<div class="col-sm-2"></div>
 					@endif
-					<div class="col-sm-6">{{ $announcement->title }}</div>
+					<div class="col-sm-5">{{ $announcement->title }}</div>
 					<div class="col-sm-2">{{ $announcement->viewer }}</div>
 					<div class="col-sm-3">{{ $announcement->created_at->format('Y/m/d - h:ia'); }}</div>
 				</div>
