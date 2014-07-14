@@ -6,8 +6,6 @@
 @stop
 
 @section('game_content')
-	<div id="gamePowerContainer">
-		
-	</div>
+
 @stop
 
