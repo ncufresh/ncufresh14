@@ -41,7 +41,6 @@ $(function(){
 
 	function changeIntroductionAndImage(data){
 		$('#introduction').text(data['introduction']);
-		console.log(bURL + "/images/nculife/" + data['picture']);
 		$('#image').attr("src", bURL + "/images/nculife/" + data['picture']);
 		$('#buttom').data("num", data['id']);
 		$('#image').css("width", "100%");
