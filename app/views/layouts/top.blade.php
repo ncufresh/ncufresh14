@@ -1,25 +1,39 @@
 <div id="topLeft">
-	<div id="topLogo"></div>
+	<a href="{{ route('home') }}"><div id="topLogo"></div></a>
 </div>
-<div id="topMiddle" >
-	<div id="topSearchBar" >Search bar</div>
-	<div id="topNavBar" >
-		<div class="topNavBarButton" id="topNavBarLife">
-		</div>
-		<div class="topNavBarButton" id="topNavBarFourm">
-		</div>
-		<div class="topNavBarButton" id="topNavBarRead">
-		</div>
-		<div class="topNavBarButton" id="topNavBarCampus">
-		</div>
-		<div class="topNavBarButton" id="topNavBarVideo">
-		</div>
-		<div class="topNavBarButton" id="topNavBarAbout">
+<div id="topBackground">
+	<div id="topMiddle">
+		<!--<div id="topSearchBar" >Search bar</div>-->
+		<div id="topNavBar">
+			<a href="{{ route('nculife.index') }}">
+				<div class="topNavBarButton" id="topNavBarLife">
+				</div>
+			</a>
+			<a href="{{ route('forum') }}">
+				<div class="topNavBarButton" id="topNavBarFourm">
+				</div>
+			</a>
+			<a href="{{ route('necessity.necessity_index') }}">
+				<div class="topNavBarButton" id="topNavBarRead">
+				</div>
+			</a>
+			<a href="{{ route('SchoolGuide') }}">
+				<div class="topNavBarButton" id="topNavBarCampus">
+				</div>
+			</a>
+			<a href="{{ route('video') }}">
+				<div class="topNavBarButton" id="topNavBarVideo">
+				</div>
+			</a>
+			<a href="{{ route('home') }}">
+				<div class="topNavBarButton" id="topNavBarAbout">
+				</div>
+			</a>
 		</div>
 	</div>
-</div>
-<div id="topRight">
-	<div id="topLoginBar" >
-		@include('layouts.auth')
+	<div id="topRight">
+		<div id="topLoginBar" >
+			@include('layouts.auth')
+		</div>
 	</div>
 </div>

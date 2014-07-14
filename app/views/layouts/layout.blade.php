@@ -60,12 +60,12 @@
 				</div>
 			</div>
 		<div id="globalContainer" class="container">
-			<div id="topContainer" class="testY">
+			<div id="topContainer">
 				@include('layouts.top')
 			</div>
 			{{-- Site Map --}}
 
-			<ol class="breadcrumb">
+			<ol id="siteMapContainer" class="breadcrumb">
 				@foreach(App::make('SiteMap')->getData() as $item)
 				<li class="site_map_item"><a href="{{ $item['url'] }}">{{ $item['name'] }}</a></li>
 				@endforeach
