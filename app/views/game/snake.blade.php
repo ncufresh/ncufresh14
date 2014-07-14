@@ -39,7 +39,6 @@
 	<div id="endScreen">
 		<div id="squirrel"> <img src="..\\images\\gameSnake\\squirrel.jpg"></div>
 		 <font size="20"><div id="score"></div></font>
-		<div id="collect"> <img src="..\\images\\gameSnake\\collect.jpg"> </div>
 		<div id="again"> <img src="..\\images\\gameSnake\\again.jpg"> </div>
 
 	</div>

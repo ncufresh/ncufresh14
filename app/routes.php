@@ -91,6 +91,8 @@ Route::get('game', array('as' => 'game', 'uses' => 'GameController@index'));
 Route::get('game/snake', array('as' => 'game.snake', 'uses' => 'GameSnakeController@index'));
 Route::get('game/campus', array('as' => 'game.campus', 'uses' => 'GamecampusController@index'));
 Route::get('game/destiny', array('as' => 'game.destiny', 'uses' => 'GamedestinyController@index'));
+Route::get('game/power', array('as' => 'game.power', 'uses' => 'GamePowerController@index'));
+Route::post('game/power/getDayQuest', array('as' => 'game.power.getDayQuest', 'uses' => 'GamePowerController@getDayQuest'));
 
 Route::post('game/destiny/start', array('as' => 'game.destiny.start', 'uses' => 'GamedestinyController@start'));
 Route::post('game/campus/start', array('as' => 'game.campus.start', 'uses' => 'GamecampusController@start'));
@@ -99,7 +101,6 @@ Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameshopController
 Route::post('game/shop/type', array('as' => 'game.shop.type', 'uses' => 'GameshopController@changeType'));
 Route::post('game/shop/buy', array('as' => 'game.shop.buy', 'uses' => 'GameshopController@buy'));
 Route::post('game/shop/equip', array('as' => 'game.shop.equip', 'uses' => 'GameshopController@equip'));
-Route::post('game/shop/power', array('as' => 'game.shop.power', 'uses' => 'GamePowerController@index'));
 
 
 //==========================================================================================

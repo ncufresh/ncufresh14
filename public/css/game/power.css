@@ -1,0 +1,48 @@
+#start {
+	width: 100%;
+	height: 800px;
+	background-color: lightblue;
+	font-size: 50px;
+	position: relative;
+}
+
+#question {
+	width: 90%;
+	top: 10%;
+	left: 5%;
+	position: relative;
+}
+
+.base {
+	margin-left: 5%;
+}
+
+.base:hover {
+	background: #FFFFBB;
+	width: 90%;
+}
+
+#qa {
+	margin-top: 15%;
+}
+
+
+#qb {
+	margin-top: 3%;
+}
+
+#qc {
+	margin-top: 3%;
+}
+
+#qd {
+	margin-top: 3%;
+}
+
+#correctAns {
+	margin-left: 5%;
+	margin-top: 5%;
+	font-family: "標楷體";
+	color: red;
+	display: none;
+}

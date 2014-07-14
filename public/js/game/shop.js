@@ -1,6 +1,6 @@
 (function($)
 {
-
+    ajaxPost();
     $(document).ready(function()
     {
     	var disply_type = 0;

@@ -38,7 +38,6 @@ $(document).ready(function(){
 			$('#mode3').children().attr('src','..\\images\\gameSnake\\m3.jpg');
 	}
 
-	/**/
 	$('#start').click(function() {
 		if(difficult!=0&&mode!=0)
 		{
@@ -48,7 +47,7 @@ $(document).ready(function(){
 			startGame();
 		}
 	});
-	/**/
+
 ////////////////////////////////init////////////////////////////////////////////
 	var lose;
 	var score;
@@ -220,36 +219,24 @@ $(document).ready(function(){
 			console.log('sss',lose);
 			$('#content').hide();
 			$('#endScreen').show();
-			$('#restart').click(function() {
-				$('#endScreen').hide();
-				difficulty=0;
-				mode=0;
-				$('#difficulty1').children().attr('src','..\\images\\gameSnake\\d1.jpg');
-				$('#difficulty2').children().attr('src','..\\images\\gameSnake\\d2.jpg');
-				$('#difficulty3').children().attr('src','..\\images\\gameSnake\\d3.jpg');
-				$('#mode1').children().attr('src','..\\images\\gameSnake\\m1.jpg');
-				$('#mode2').children().attr('src','..\\images\\gameSnake\\m2.jpg');
-				$('#mode3').children().attr('src','..\\images\\gameSnake\\m3.jpg');
-				$('#cover').show();
-				timer.start();
-				initial();
-				startGame();
-			});
 			$('#again').click(function() {
 				$('#endScreen').hide();
-				$('#difficulty1').children().attr('src','..\\images\\gameSnake\\d1.jpg');
-				$('#difficulty2').children().attr('src','..\\images\\gameSnake\\d2.jpg');
-				$('#difficulty3').children().attr('src','..\\images\\gameSnake\\d3.jpg');
-				$('#mode1').children().attr('src','..\\images\\gameSnake\\m1.jpg');
-				$('#mode2').children().attr('src','..\\images\\gameSnake\\m2.jpg');
-				$('#mode3').children().attr('src','..\\images\\gameSnake\\m3.jpg');
-				$('#cover').show();
+				if(difficult==1)
+					$('#difficulty1').children().attr('src','..\\images\\gameSnake\\d1Click.jpg');
+				if(difficult==2)
+					$('#difficulty2').children().attr('src','..\\images\\gameSnake\\d2Click.jpg');
+				if(difficult==3)
+					$('#difficulty3').children().attr('src','..\\images\\gameSnake\\d3Click.jpg');
+				if(mode==1)
+					$('#mode1').children().attr('src','..\\images\\gameSnake\\m1Click.jpg');
+				if(mode==2)
+					$('#mode2').children().attr('src','..\\images\\gameSnake\\m2Click.jpg');
+				if(mode==3)
+					$('#mode3').children().attr('src','..\\images\\gameSnake\\m3Click.jpg');
+					$('#cover').show();
 				timer.start();
 				initial();
 				startGame();
-
-				//timer = $.timer(tick);
-				//location.reload();
 			});
 		}
 		levelUp();
@@ -623,7 +610,7 @@ $(document).ready(function(){
 			score += (scorecount[5]*400);
 		}
 		if(mode==2)
-			score += ((50+timeCount*0.03)/50)*score;
+			score = ((50+timeCount*0.03)/50)*score;
 			
 		if(mode==3)
 			for(var i=0; i<3; i++)
