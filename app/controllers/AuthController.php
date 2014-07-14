@@ -226,21 +226,12 @@ class AuthController extends BaseController {
 	public function highSchool(){
 		$query = Input::get('term', '');
 		$highSchools = HighSchool::where('high_school_name', 'LIKE', '%'.$query.'%')->get();
-//		var_dump($highSchools);
-//		return '';
-//		return $highSchools->getQueryLog();
 		$data = array();
-		// Loop through the results.
-		//
 		foreach ( $highSchools as $result ):
 			$data[] = $result->high_school_name;
 		endforeach;
 
-
-		// Return a response.
-		//
 		return Response::json($data);
-//		return Response::json($highSchool);
 	}
 
 
