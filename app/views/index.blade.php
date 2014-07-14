@@ -17,7 +17,7 @@
 				<div id="calender-action">
 					<ol>
 						@foreach($calenders as $calender)
-						<li>{{ $calender->title }}</li>
+						<li class="calender-row" data-id="{{ $calender->id }}">{{ $calender->title }}</li>
 						@endforeach
 					</ol>
 				</div>

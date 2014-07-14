@@ -55,6 +55,7 @@ Route::group(array('prefix' => 'api'), function()
 	Route::get('/', function(){return Response::json('Hello API');});
 	Route::resource('announcement', 'APIAnnouncementController');
 	Route::resource('link', 'APILinkController');
+	Route::resource('calender', 'APICalenderController');
 });
 
 
