@@ -578,16 +578,16 @@ $(document).ready(function(){
 	{
 		for(var i=-1; i<explorRadius; i++)
 			for(var j=-1; j<explorRadius; j++)
-				Box[x+i][y+j].empty();
-		if(brokenBeforeCount!=0)
-		{
-			for(var i=0; i<brokenBeforeCount; i++)
 			{
-				Box[ brokenBefore[i][0] ][ brokenBefore[i][1] ].empty();
-				if( point[0]==brokenBefore[i][0] && point[1]==brokenBefore[i][1] )
+				Box[x+i][y+j].empty();
+				if( point[0]==(x+i) && point[1]==(y+j)) )
 					pointEchinacea();
 			}
 				
+		if(brokenBeforeCount!=0)
+		{
+			for(var i=0; i<brokenBeforeCount; i++)
+				Box[ brokenBefore[i][0] ][ brokenBefore[i][1] ].empty();	
 			brokenBeforeCount = 0;
 		}
 	}

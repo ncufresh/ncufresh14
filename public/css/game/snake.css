@@ -3,10 +3,7 @@
 	width: 100%;
 	height: 800px;
 	background-color: lightblue;
-	/* display: none; */
-	
 }
-
 .title {
 	width: 75%;
 	height: 20%;
@@ -16,13 +13,11 @@
 	text-align: center;
 	position:  relative;
 }
-
 .choice {
 	width: 100%;
 	height: 45%;
 	margin-top: 10%;
 }
-
 #start {
 	width: 35%;
 	height: 15%;
@@ -53,7 +48,6 @@
 	height: 15%;
 	margin-top: 10%;
 	margin-bottom: 10%;
-	
 }
 
 /*/////////////Mode//////////////////////*/
@@ -81,7 +75,6 @@
 /*/////////////////////////////content/////////////////////////////////////////*/
 #content {	
 	display: none;
-	/* display: none; */
 }
 #snakeContent {
 	width: 100%;
@@ -89,17 +82,14 @@
 	background-color: lightblue;
 	position: relative;
 }
-
 .block {
 	border: 1px gray solid; /*gray solid*/
 	width: 34px;
 	height: 26px;
 }
-
 #bomb {
 	position: absolute;
 }
-
 #snakehead { position: absolute; }
 #snakebody { position: absolute; }
 #red { position: absolute;	 }
@@ -123,26 +113,21 @@
 	text-align: center;
 	background-color: lightblue;
 	display: none;
-	/* display: none; */
 }
-
 #squirrel {
 	margin: 0px auto;
 	top: 8%;
 	position: relative;
 }
-
 #score {
 	text-align: center;
 	margin-top: 15%;
 }
-
 #collect {
 	margin-top: 8%;
 	margin-left: 8%;
 	float: left;
 }
-
 #again {
 	margin-top: 8%;
 }
