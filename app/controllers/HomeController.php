@@ -47,7 +47,11 @@ class HomeController extends BaseController {
 
 			$CKEditorFuncNum = Input::get('CKEditorFuncNum', 2);
 			$fileUrl = url('img/uploadImage/').'/'.$fileName;
-			echo "<script>window.parent.CKEDITOR.tools.callFunction(". $CKEditorFuncNum .",'" . $fileUrl . "','');</script>";
+			if(Input::has('response_type') && Input::get('response_type') == 'json'){
+				return Response::json($image);
+			}else{
+				echo "<script>window.parent.CKEDITOR.tools.callFunction(". $CKEditorFuncNum .",'" . $fileUrl . "','');</script>";
+			}
 		}
 	}
 
