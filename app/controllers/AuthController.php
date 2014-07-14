@@ -162,20 +162,34 @@ class AuthController extends BaseController {
 			$siteMap->pushLocation('臉書註冊', route('register.FB'));
 		}
 		App::make('TransferData')->addData('register-type', $type);
+		App::make('TransferData')->addData('register-high-school-url', route('register.high'));
 		return View::make('auth.register', array('type' => $type, 'departments' => $departments));
 	}
 
 	public function registerStore(){
 
-		$rules = array(
-			'email' => 'required|unique:users,id,'.Auth::user()->id.'|max:255|email|required_without:facebook-uid',
-			'name' => 'required_without:facebook-uid|max:10',
-			'department_id' => 'required|exists:departments,system_id',
-			'grade' => 'required|in:1,2,3,4',
-			'high_school' => 'required',
-			'password' => 'required_without:facebook-uid|min:6',
-			're_password' => 'required_without:facebook-uid|same:password'
-		);
+		$rules = array();
+
+		if(Input::get('facebook-uid', '') == ''){
+			$rules = array(
+				'email' => 'required|unique:users|max:255|email|required_without:facebook-uid',
+				'name' => 'required_without:facebook-uid|max:10',
+				'department_id' => 'required|exists:departments,system_id',
+				'grade' => 'required|in:1,2,3,4',
+				'high_school' => 'required',
+				'password' => 'required_without:facebook-uid|min:6',
+				're_password' => 'required_without:facebook-uid|same:password'
+			);
+		}else{
+			$rules = array(
+				'name' => 'required_without:facebook-uid|max:10',
+				'department_id' => 'required|exists:departments,system_id',
+				'grade' => 'required|in:1,2,3,4',
+				'high_school' => 'required',
+				'password' => 'required_without:facebook-uid|min:6',
+				're_password' => 'required_without:facebook-uid|same:password'
+			);
+		}
 
 		$validator = Validator::make(Input::all(), $rules);
 
@@ -207,6 +221,26 @@ class AuthController extends BaseController {
 				return Redirect::intended('/');
 			}
 		}
+	}
+
+	public function highSchool(){
+		$query = Input::get('term', '');
+		$highSchools = HighSchool::where('high_school_name', 'LIKE', '%'.$query.'%')->get();
+//		var_dump($highSchools);
+//		return '';
+//		return $highSchools->getQueryLog();
+		$data = array();
+		// Loop through the results.
+		//
+		foreach ( $highSchools as $result ):
+			$data[] = $result->high_school_name;
+		endforeach;
+
+
+		// Return a response.
+		//
+		return Response::json($data);
+//		return Response::json($highSchool);
 	}
 
 
