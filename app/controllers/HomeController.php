@@ -20,7 +20,9 @@ class HomeController extends BaseController {
 		App::make('TransferData')->addData('announcement-url', route('announcement.index'));
 		$links = Link::orderBy('order', 'ASC')->get();
 		$announcements = Announcement::orderBy('pinned', 'DESC')->orderBy('created_at', 'DESC')->get()->take(10);
-		return View::make('index', array('links' => $links, 'announcements' => $announcements));
+		$now = \Carbon\Carbon::now();
+		$calenders = Calender::active()->get();
+		return View::make('index', array('links' => $links, 'announcements' => $announcements, 'now' => $now, 'calenders' => $calenders));
 	}
 
 	public function errorPage(){
