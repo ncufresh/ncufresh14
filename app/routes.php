@@ -152,14 +152,27 @@ Route::post('freshman_add',array('as' => 'freshman_add', 'uses' => 'necessityCon
 
 Route::post('freshman_delete',array('as' => 'freshman_delete', 'uses' => 'necessityController@freshman_delete'));
 
+Route::post('freshman_edit',array('as' => 'freshman_edit', 'uses' => 'necessityController@freshman_edit'));
+
+
 Route::get('necessity/backstage/research',array('as' => 'necessity.necessity_backstage_research', 'uses' => 'necessityController@index_backstage_research'));
 
 Route::post('research_add',array('as' => 'research_add', 'uses' => 'necessityController@research_add'));
 
 Route::post('research_delete',array('as' => 'research_delete', 'uses' => 'necessityController@research_delete'));
+
+Route::post('research_edit',array('as' => 'research_edit', 'uses' => 'necessityController@research_edit'));
+
+
+Route::get('necessity/backstage/research/{id}',array('as' => 'necessity.necessity_backstage_research_edit', 'uses' => 'necessityController@edit'));
+
+Route::get('necessity/backstage/freshman/{id}',array('as' => 'necessity.necessity_backstage_freshman_edit', 'uses' => 'necessityController@editA'));
+
 //=============================================================================
 // About us
 
 Route::get('About_us',array('as'=>'','uses'=>'AboutUsController@index'));
 
 Route::get('About_us/modal',array('as'=>'About_modal','uses'=>'AboutUsController@getModalId'));
+
+

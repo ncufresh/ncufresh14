@@ -45,7 +45,7 @@
 						
 						<table>
                           	<th class="formStyleIntroduction">
-                          		research 
+                          		research
                           	</th>
 						</table>
 
