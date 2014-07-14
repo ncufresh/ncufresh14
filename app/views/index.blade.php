@@ -12,6 +12,15 @@
 			<div id="calenderTop">行事曆
 			</div>
 			<div id="calenderContent">
+				<div id="calender-week-day">{{ $now->dayOfWeek }}</div>
+				<div id="calender-month-day">{{ $now->day }}</div>
+				<div id="calender-action">
+					<ol>
+						@foreach($calenders as $calender)
+						<li>{{ $calender->title }}</li>
+						@endforeach
+					</ol>
+				</div>
 			</div>
 			<div id="calenderBottom">
 			</div>
@@ -42,19 +51,19 @@
 			</div>
 			<div id="boardContent">
 				<div class="announcement-head">
-					<div class="col-sm-1"></div>
-					<div class="col-sm-6">標題</div>
+					<div class="col-sm-2"></div>
+					<div class="col-sm-5">標題</div>
 					<div class="col-sm-2">人氣</div>
 					<div class="col-sm-3">發佈日期</div>
 				</div>
 				@foreach($announcements as $announcement)
 				<div class="announcement-row" data-announcement-id="{{ $announcement->id }}">
 					@if($announcement->pinned == true)
-					<div class="col-sm-1">智鼎XD</div>
+					<div class="col-sm-2">智鼎XD</div>
 					@else
-					<div class="col-sm-1"></div>
+					<div class="col-sm-2"></div>
 					@endif
-					<div class="col-sm-6">{{ $announcement->title }}</div>
+					<div class="col-sm-5">{{ $announcement->title }}</div>
 					<div class="col-sm-2">{{ $announcement->viewer }}</div>
 					<div class="col-sm-3">{{ $announcement->created_at->format('Y/m/d - h:ia'); }}</div>
 				</div>

@@ -60,12 +60,12 @@
 				</div>
 			</div>
 		<div id="globalContainer" class="container">
-			<div id="topContainer" class="testY">
+			<div id="topContainer">
 				@include('layouts.top')
 			</div>
 			{{-- Site Map --}}
 
-			<ol class="breadcrumb">
+			<ol id="siteMapContainer" class="breadcrumb">
 				@foreach(App::make('SiteMap')->getData() as $item)
 				<li class="site_map_item"><a href="{{ $item['url'] }}">{{ $item['name'] }}</a></li>
 				@endforeach
@@ -75,7 +75,8 @@
 				@yield('content')
 			</div>
 			<div id="bottomContainer" class="container">
-				<p>Bottom!</p>
+				<p>主辦單位：國立中央大學學務處　承辦單位：諮商中心　執行單位：2014大一生活知訊網工作團隊</p>
+				<p>地址：32001桃園縣中壢市五權里2鄰中大路300號 | 電話：(03)422-7151#57261 | 版權所有：2014大一生活知訊網工作團隊</p>
 			</div>
 		</div>
 

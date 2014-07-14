@@ -1,12 +1,24 @@
 body {
-	overflow: hidden;
 	background-image: url('../images/layout/background.png');
+}
+
+#siteMapContainer {
+	margin-top: 30px;
+	background-color: rgba(200,200,200,0.6);
+}
+
+#chat-room-container {
+	width: 200px;
+	height: 360px;
+	position: fixed;
+	top: 100px;
+	right: 0px;
+	overflow: hidden;
 }
 
 #chat-room {
 	width: 200px;
 	position: absolute;
-	top: 100px;
 	right: -175px;
 }
 
@@ -49,10 +61,9 @@ body {
 #topContainer{
 	width: 100%;
 	height: 250px;
+	margin-top: 35px;
 }
-#topContainer>div{
-	float: left;
-}
+
 
 #topLeft{
 	width: 250px;
@@ -63,6 +74,7 @@ body {
 	width: 574px;
 	height: 100%;
 	padding: 10px;
+	float: left;
 }
 
 #topRight{
@@ -74,10 +86,12 @@ body {
 
 #topLogo{
 	position: relative;
-	width: 250px;
-	height: 250px;
+	width: 350px;
+	height: 350px;
+	top: -50px;
+	left: -50px;
 	background-image: url("../images/layout/logo.png");
-	background-size:250px 250px;
+	background-size: 100%;
 	background-repeat:no-repeat;
 }
 
@@ -92,37 +106,64 @@ body {
 	width: 57px;
 	height: 157px;
 	float: left;
-	margin-left: 30px;
+	margin-left: 20px;
+	margin-top: 50px;
 }
 
 #topNavBarLife {
+	background-image: url("../images/layout/nculife2.png");
+	margin-left: 80px;
+}
+
+#topNavBarLife:hover{
 	background-image: url("../images/layout/nculife.png");
+	margin-left: 80px;
 }
 
 #topNavBarFourm {
+	background-image: url("../images/layout/forum2.png");
+}
+
+#topNavBarFourm:hover {
 	background-image: url("../images/layout/forum.png");
 }
 
 #topNavBarRead {
+	background-image: url("../images/layout/read2.png");
+}
+
+#topNavBarRead:hover {
 	background-image: url("../images/layout/read.png");
 }
 
 #topNavBarCampus {
+	background-image: url("../images/layout/campus2.png");
+}
+
+#topNavBarCampus:hover {
 	background-image: url("../images/layout/campus.png");
 }
 
 #topNavBarVideo {
+	background-image: url("../images/layout/video2.png");
+}
+
+#topNavBarVideo:hover {
 	background-image: url("../images/layout/video.png");
 }
 
 #topNavBarAbout {
+	background-image: url("../images/layout/about2.png");
+}
+
+#topNavBarAbout:hover {
 	background-image: url("../images/layout/about.png");
 }
 
 
 #topNavBar{
 	width: 100%;
-	height: 150px;
+	height: 207px;
 	margin: 10px auto;
 }
 
@@ -135,11 +176,21 @@ body {
 	width: 100%;
 	min-height: 400px;
 	padding: 0px;
+	background-color: rgba(200,200,200,0.6);
 }
 
+#topBackground {
+	background: url("../images/layout/topback.png") no-repeat;
+	background-size: 100%
+}
 
 #bottomContainer{
+	text-align: center;
 	width: 100%;
+}
+
+#topContainer>div{
+	float: left;
 }
 
 #auth_box {
@@ -147,6 +198,7 @@ body {
 	height: 100%;
 	background: url("../images/layout/facebox.png") no-repeat;
 	background-size: 100%;
+	margin-top: 10px;
 }
 
 #auth_box input {
@@ -187,6 +239,18 @@ body {
 	float: left;
 }
 
+#auth_box #submit:hover {
+	width: 26%;
+	height: 9%;
+	left: 29%;
+	top: 54px;
+	position: relative;
+	background: url("../images/layout/login2.png") no-repeat;
+	background-size: 100%;
+	border: 0px;
+	float: left;
+}
+
 #auth_box #register {
 	width: 26%;
 	height: 9%;
@@ -198,6 +262,17 @@ body {
 	float: left;
 }
 
+#auth_box #register:hover{
+	width: 26%;
+	height: 9%;
+	left: 19%;
+	top: 54px;
+	position: relative;
+	background: url("../images/layout/register2.png") no-repeat;
+	background-size: 100%;
+	float: left;
+}
+
 #auth_box #fblogin {
 	width: 45%;
 	height: 6%;
@@ -205,6 +280,16 @@ body {
 	top: 73px;
 	position: relative;
 	background: url("../images/layout/fblogin1.png") no-repeat;
+	background-size: 100%;
+}
+
+#auth_box #fblogin:hover{
+	width: 45%;
+	height: 6%;
+	left: 28%;
+	top: 73px;
+	position: relative;
+	background: url("../images/layout/fblogin2.png") no-repeat;
 	background-size: 100%;
 }
 
