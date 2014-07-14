@@ -97,6 +97,7 @@ Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameshopController
 Route::post('game/shop/type', array('as' => 'game.shop.type', 'uses' => 'GameshopController@changeType'));
 Route::post('game/shop/buy', array('as' => 'game.shop.buy', 'uses' => 'GameshopController@buy'));
 Route::post('game/shop/equip', array('as' => 'game.shop.equip', 'uses' => 'GameshopController@equip'));
+Route::post('game/shop/power', array('as' => 'game.shop.power', 'uses' => 'GamePowerController@index'));
 
 
 //==========================================================================================
