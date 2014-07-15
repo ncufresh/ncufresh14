@@ -5,7 +5,7 @@
 @stop
 @section('content')
 		<div>
-			<input type="hidden" name="orderPop" id="orderPopHidden" direct="">
+			<input type="hidden" name="orderPop" id="orderPopHidden" direct="{{URL::to('/orderPop')}}">
 			<input type="hidden" name="getComment" id="getComment" direct="{{URL::to('getComments')}}">
 			<input type="hidden" name="createComment" id="createComment" direct="{{URL::to('/create')}}">
 			<ul class="nav nav-tabs" id="myTab">
@@ -85,9 +85,8 @@
 									<div class="panel-heading">
 										<h3 class="panel-title"> {{ $article -> title }} </h3>
 									</div>
-									<div class="panel-body">
-										{{ $article -> content }}
-									</div>
+									<div class="panel-body">{{ $article -> content }}</div>
+									<div class='btnBox'><button type="button" class="btn btn-primary btn-sm edit">編輯貼文</button></div>
 									<a class="moreBox">
 										<div class="moreBtn" id="{{$article -> id}}" direct="{{URL::to('/getComments')}}">
 											<div class="panel panel-default arrow">&dArr;</div>

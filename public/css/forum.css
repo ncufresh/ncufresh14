@@ -88,11 +88,31 @@ textarea.commentTextArea{
 	top: -20px;
 	right: 10px;	
 }
-
-
-
-
-
+.edit{
+	position: relative;
+	float: right;
+	top: -15px;
+	right: 10px;
+}
+.editArea{
+	word-break:break-word; 
+}
+.delBtn{
+	position: relative;
+	float: right;
+	bottom: 5px;
+}
+.saveBtn{
+	position: relative;
+	float: right;
+	top: 5px;
+}
+.canBtn{
+	position: relative;
+	float: right;
+	top: 5px;
+	right: 5px;
+}
 
 
 

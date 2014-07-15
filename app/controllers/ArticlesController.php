@@ -68,7 +68,12 @@ class ArticlesController extends BaseController{
 		
 		return Response::json($postArticles);
 	}
+	public function popArticles(){
+		
+		$postArticles = Forum::where('article_type','P')->orderBy('comment_number','desc')->paginate();
 
+		return Response::json($postArticles);
+	}
 
 
 
