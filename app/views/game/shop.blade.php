@@ -18,33 +18,33 @@
 			<img class="character" src="{{asset("images/gameShop/" . $EquipItem[3]["picture"] )}}" id="characterFoot" alt="foot" itemId="{{$EquipItem[3]["id"]}}"/>
 			<img class="character" src="{{asset("images/gameShop/" . $EquipItem[4]["picture"] )}}" id="characterItem" alt="item" itemId="{{$EquipItem[4]["id"]}}"/>
 			<img class="character" src="{{asset("images/gameShop/" . $EquipItem[5]["picture"] )}}" id="characterMap"  alt="map"  itemId="{{$EquipItem[5]["id"]}}"/>
-			<div id="characterEquipButton" action="{{ URL::to('game/shop/equip') }}">Equip</div>
-			<div id="characterReturnButton">Return</div>
+			<div id="characterEquipButton" action="{{ URL::to('game/shop/equip') }}"></div>
+			<div id="characterReturnButton"></div>
 		</div>
 		<div id="gameShopBox">
 			<div id="gameShopBar">
-				<div class="gameShopTypeButton" action="{{ URL::to('game/shop/type') }}">頭部</div>
-				<div class="gameShopTypeButton" action="{{ URL::to('game/shop/type') }}">表情</div>
-				<div class="gameShopTypeButton" action="{{ URL::to('game/shop/type') }}">身體</div>
-				<div class="gameShopTypeButton" action="{{ URL::to('game/shop/type') }}">下體</div>
-				<div class="gameShopTypeButton" action="{{ URL::to('game/shop/type') }}">道具</div>
-				<div class="gameShopTypeButton" action="{{ URL::to('game/shop/type') }}">地圖</div>
+				<div class="gameShopTypeButton" id="gameShopTypeHead" action="{{ URL::to('game/shop/type') }}"></div>
+				<div class="gameShopTypeButton" id="gameShopTypeFace" action="{{ URL::to('game/shop/type') }}"></div>
+				<div class="gameShopTypeButton" id="gameShopTypeBody" action="{{ URL::to('game/shop/type') }}"></div>
+				<div class="gameShopTypeButton" id="gameShopTypeFoot" action="{{ URL::to('game/shop/type') }}"></div>
+				<div class="gameShopTypeButton" id="gameShopTypeItem" action="{{ URL::to('game/shop/type') }}"></div>
+				<div class="gameShopTypeButton" id="gameShopTypeMap" action="{{ URL::to('game/shop/type') }}"></div>
 			</div>
 			<div id="gameShopItems" action="{{ URL::to('game/shop/buy') }}">
 				@foreach( $shop as $item )
 					<div class="gameShopItem">
 						<img class="gameShopItemImage" src="{{asset("images/gameShop/" . $item["small_picture"] )}}" look="{{asset("images/gameShop/" . $item["picture"] )}}" itemId="{{$item["id"]}}"/>
-						<div class="gameShopItemText">{{$item["id"] . " " . $item["name"]}}</div>
+						<div class="gameShopItemText">{{$item["name"] . " " . $item["costgp"]}}</div>
 						<?php
 							for ( $index = 0; $index < count($hadBuyItems); $index++ ) {
 								if ( $hadBuyItems[$index]["item_id"] == $item["id"] ) {
 						?>
-									<div class="gameShopItemBuyButton" id="itemHadBuy" item="{{$item["id"]}}">{{$item["costgp"]}} BUY</div>
+									<div class="gameShopItemBuyButton itemHadBuy" item="{{$item["id"]}}"></div>
 						<?php
 								}
 								else {
 						?>
-									<div class="gameShopItemBuyButton" item="{{$item["id"]}}">{{$item["costgp"]}} BUY</div>
+									<div class="gameShopItemBuyButton" item="{{$item["id"]}}"></div>
 						<?php
 								}
 							}

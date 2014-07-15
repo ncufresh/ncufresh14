@@ -7,15 +7,21 @@
     	$('.gameShopTypeButton').each(function(index) {
     		$(this).click(function() {
     			ajaxPost($(this).attr('action'), {type: index}, function(data) {
+                    console.log(data);
     				disply_type = index;
-    				$("#gameShopItems").empty();
-    				for ( var i = 0; i < data.length; i++ ) {
+    				$('#gameShopItems .jspPane').empty();
+    				for ( var i = 0; i < data["shop"].length; i++ ) {
+                        var buyClass = '';
+                        if ( data["hadBuyItems"][i] == true ) {
+                            buyClass = 'itemHadBuy';
+                        }
     					$('<div class="gameShopItem">' + 
-							'<img class="gameShopItemImage" src="' + bURL + '/images/gameShop/' + data[i]["small_picture"] + '" look="' + bURL + '/images/gameShop/' + data[i]["picture"] + '" itemId="' + data[i]["id"] + '" />' +
-							'<div class="gameShopItemText">' + data[i]["id"] + ' ' + data[i]["name"] + '</div>' + 
-							'<div class="gameShopItemBuyButton" item="' + data[i]["id"] + '">' + data[i]["costgp"] + ' BUY</div>' +
-						'</div>').appendTo($("#gameShopItems"));
+							'<img class="gameShopItemImage" src="' + bURL + '/images/gameShop/' + data["shop"][i]["small_picture"] + '" look="' + bURL + '/images/gameShop/' + data["shop"][i]["picture"] + '" itemId="' + data["shop"][i]["id"] + '" />' +
+							'<div class="gameShopItemText">' + data["shop"][i]["id"] + ' ' + data["shop"][i]["name"] + '</div>' + 
+							'<div class="gameShopItemBuyButton ' + buyClass + '" item="' + data["shop"][i]["id"] + '"></div>' +
+						'</div>').appendTo($('#gameShopItems .jspPane'));
     				}
+                    $('#gameShopItems').jScrollPane();
     				$('.gameShopItemBuyButton').each(function(index) {
 			    		$(this).click(function() {
 				    		buyItem($(this).attr('item'), $(this));
@@ -80,5 +86,7 @@
                 user_look[i].attr('src', init_equip[types[i]][1] );
             }
         });
+
+        $('#gameShopItems').jScrollPane();
     });
 })(jQuery);

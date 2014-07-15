@@ -1,51 +1,170 @@
 #gameContainer {
 	width: 100%;
-	background: blue;
 	padding: 10px;
 }
 
 #userInfo {
-	width: 100%;
-	height: 50px;
-	margin: 0 auto;
-	padding: 10px;
-	background-color: green;
+	width: 935px;
+	height: 103px;
+	margin: 0px auto;
+	padding: 22px;
+	background: url("../images/gameIndex/userback.png") no-repeat;
 }
 
 #gameMain {
-	width: 100%;
-	padding: 10px;
-	background-color: black;
+	width: 935px;
+	margin: 0px auto;
 }
 
 #gameMenu {
-	width: 100%;
-	height: 330px;
-	background-color: yellow;
+	width: 935px;
+	height: 419px;
+	background: url("../images/gameIndex/background.png") no-repeat;
 }
 
-.gameChoose {
-	width: 482px;
-	height: 145px;
-	margin: 5px;
-	background-color: white;
+#gameSnakeButton {
+	background: url("../images/gameIndex/snake.png") no-repeat;
+	width: 201px;
+	height: 160px;
 	float: left;
+	margin: 20px 0px 0px 245px;
+}
+
+#gameSnakeButton:hover {
+	background: url("../images/gameIndex/snakeclick.png") no-repeat;
+	width: 201px;
+	height: 160px;
+	float: left;
+	top: 50px;
+	margin: 20px 0px 0px 245px;
+}
+
+#gameCampusButton {
+	background: url("../images/gameIndex/campus.png") no-repeat;
+	width: 201px;
+	height: 166px;
+	float: left;
+	margin: 14px 0px 0px 40px;
+}
+
+#gameCampusButton:hover {
+	background: url("../images/gameIndex/campusclick.png") no-repeat;
+	width: 201px;
+	height: 166px;
+	float: left;
+	margin: 14px 0px 0px 40px;
+}
+
+#gameDestinyButton {
+	background: url("../images/gameIndex/destiny.png") no-repeat;
+	width: 201px;
+	height: 154px;
+	float: left;
+	margin: 45px 0px 0px 244px;
+}
+
+#gameDestinyButton:hover {
+	background: url("../images/gameIndex/destinyclick.png") no-repeat;
+	width: 201px;
+	height: 154px;
+	float: left;
+	margin: 45px 0px 0px 244px;
+}
+
+#gamePowerButton {
+	background: url("../images/gameIndex/power.png") no-repeat;
+	width: 201px;
+	height: 164px;
+	float: left;
+	margin: 35px 0px 0px 41px;
+}
+
+#gamePowerButton:hover {
+	background: url("../images/gameIndex/powerclick.png") no-repeat;
+	width: 201px;
+	height: 164px;
+	float: left;
+	margin: 35px 0px 0px 41px;
 }
 
 #gameShop {
 	float: left;
-	width: 100px;
-	hegiht: 100%;
-	background-color: red;
+	width: 109px;
+	height: 59px;
+	background: url("../images/gameIndex/shop.png") no-repeat;
+	background-size: 100%;
+	margin: 0px 10px 0px 0px;
+}
+
+#gameShop:hover {
+	float: left;
+	width: 109px;
+	height: 59px;
+	background: url("../images/gameIndex/shopclick.png") no-repeat;
+	background-size: 100%;
 	margin: 0px 10px 0px 0px;
 }
 
 #gameRoom {
 	float: left;
-	width: 100px;
-	hegiht: 100%;
-	background-color: lightblue;
+	width: 110px;
+	height: 59px;
+	background: url("../images/gameIndex/gameroom.png") no-repeat;
+	background-size: 100%;
 	margin: 0px 10px 0px 0px;
+}
+
+#gameRoom:hover {
+	float: left;
+	width: 110px;
+	height: 59px;
+	background: url("../images/gameIndex/gameroomclick.png") no-repeat;
+	background-size: 100%;
+	margin: 0px 10px 0px 0px;
+}
+
+#userName {
+	margin: 17px 20px 0px 0px;
+}
+
+#userNameImage {
+	float: left;
+	width: 49px;
+	height: 30px;
+	background: url("../images/gameIndex/name.png") no-repeat;
+	margin: 13px 10px 0px 133px;
+	background-size: 100%;
+}
+
+#userPowerImage {
+	float: left;
+	width: 49px;
+	height: 30px;
+	background: url("../images/gameIndex/powertext.png") no-repeat;
+	margin: 13px 10px 0px 0px;
+	background-size: 100%;
+}
+
+#userGpImage {
+	float: left;
+	width: 49px;
+	height: 30px;
+	background: url("../images/gameIndex/gp.png") no-repeat;
+	margin: 13px 10px 0px 0px;
+	background-size: 100%;
+}
+
+#powerBox {
+	float: left;
+	width: 78px;
+	height: 34px;
+	/*background: url("../images/gameIndex/power/0.png") no-repeat;*/
+	margin: 11px 10px 0px 0px;
+	background-size: 100%;
+}
+
+#userGP {
+	margin: 17px 10px 0px 5px;
 }
 
 .gameInfoText {
@@ -53,60 +172,127 @@
 	margin: 0px 10px 0px 0px;
 }
 
+/*
+	destiny
+*/
+
 #gameDestinyContainer {
 	width: 100%;
-	height: 310px;
-	background-color: yellow;
+	height: 617px;
+	background: url("../images/gameDestiny/background.png") no-repeat;
 }
 
-#gameDestiny_left {
+#gameDestinyLeft {
 	float: left;
 	width: 487px;
 	height: 100%;
 	margin: 0px 10px 0px 0px;
-	background-color: white;
 	position: relative;
 }
 
-#gameDestiny_right {
+#gameDestinyRight {
 	float: left;
-	width: 487px;
-	height: 100%;
-	background-color: white;
+	width: 438px;
+	height: 407px;
 	position: relative;
+	margin-top: 210px;
 }
 
-#rotate_table {
-	top: 35px;
-	left: 168px;
-	width: 150px;
-	height: 150px;
+#rotateTable {
+	top: 244px;
+	left: 94px;
+	width: 311px;
+	height: 311px;
 	position: absolute;
-	background-color: blue;
+	background: url("../images/gameDestiny/rotate.png") no-repeat;
 }
 
-#rotate_foot {
-	width: 100px;
-	height: 200px;
-	top: 110px;
-	left: 192px;
-	position: absolute ;
-	background-color: rgba(0, 0, 0, 0.4);
+#rotateFoot {
+	width: 383px;
+	height: 388px;
+	top: 210px;
+	left: 56px;
+	position: absolute;
+	background: url("../images/gameDestiny/rotatebox.png") no-repeat;
+}
+
+#rotatePointer {
+	width: 53px;
+	height: 70px;
+	top: 356px;
+	left: 224px;
+	position: absolute;
+	background: url("../images/gameDestiny/pointer.png") no-repeat;
 }
 
 #destinyStart {
-	top: 100px;
-	left: 100px;
-	width: 75px;
-	height: 50px;
-	padding: 10px;
-	background-color: blue;
+	top: 300px;
+	left: 50px;
+	width: 242px;
+	height: 77px;
+	background: url("../images/gameDestiny/start.png") no-repeat;
+	position: absolute;
+}
+
+#destinyStart:hover {
+	top: 300px;
+	left: 50px;
+	width: 242px;
+	height: 77px;
+	background: url("../images/gameDestiny/startclick.png") no-repeat;
+	position: absolute;
+}
+
+#destinyImage {
+	top: 155px;
+	left: 50px;
+	width: 184px;
+	height: 99px;
+	background: url("../images/gameDestiny/powersub.png") no-repeat;
 	position: absolute;
 }
 
 #bounsPage {
 	display: none;
 }
+
+#bonusBoxImage {
+	top: 70px;
+	left: 36px;
+	width: 265px;
+	height: 207px;
+	background: url("../images/gameDestiny/bonusbox.png") no-repeat;
+	position: absolute;
+	padding: 25px;
+}
+
+#destinyAgain {
+	top: 300px;
+	left: 50px;
+	width: 242px;
+	height: 77px;
+	background: url("../images/gameDestiny/again.png") no-repeat;
+	position: absolute;
+}
+
+#destinyAgain:hover {
+	top: 300px;
+	left: 50px;
+	width: 242px;
+	height: 77px;
+	background: url("../images/gameDestiny/againclick.png") no-repeat;
+	position: absolute;
+}
+
+.destinyText {
+	font-family: "微軟正黑體", "Microsoft JhengHei";
+	font-size: 30px;
+	color: white;
+	margin-top: 25px;
+	margin-left: 50px;
+	font-weight: bold;
+}
+
 /*
 
 gameCampus
@@ -164,61 +350,104 @@ gameShop
 
 */
 #gameShopContainer {
-	width: 100%;
-	height: 300px;
+	width: 954px;
+	height: 664px;
 	padding: 10px;
-	background-color: yellow;
+	margin: 0px auto;
+	background: url("../images/gameShop/background.png") no-repeat;
 }
 
 #characterLook {
 	float: left;
-	width: 200px;
-	height: 100%;
-	padding: 10px;
-	background-color: black;
-	margin: 0px 10px 0px 0px;
+	width: 255px;
+	height: 300px;
+	margin: 20px 10px 0px 21px;
 	position: relative;
 }
 
 #gameShopBox {
 	float: left;
-	width: 754px;
-	height: 100%;
-	padding: 10px;
-	background-color: lightblue;
+	width: 537px;
+	height: 389px;
+	margin: 35px 0px 0px 45px;
 	position: relative;
 }
 
 #gameShopBar {
 	width: 100%;
-	height: 30px;
-	padding-left: 12px;
-	background-color: red;
+	height: 48px;
 }
 
 .gameShopTypeButton {
 	float: left;
-	width: 110px;
-	height: 100%;
-	margin: 0px 10px 0px 0px;
-	background-color: yellow;
+	width: 80px;
+	height: 47px;
+	margin: 0px 0px 0px 0px;
 	text-align: center;
 }
 
+#gameShopTypeHead {
+	background: url("../images/gameShop/head.png") no-repeat;
+}
+
+#gameShopTypeHead:hover {
+	background: url("../images/gameShop/headclick.png") no-repeat;
+}
+
+#gameShopTypeFace {
+	background: url("../images/gameShop/face.png") no-repeat;
+}
+
+#gameShopTypeFace:hover {
+	background: url("../images/gameShop/faceclick.png") no-repeat;
+}
+
+#gameShopTypeBody {
+	background: url("../images/gameShop/body.png") no-repeat;
+}
+
+#gameShopTypeBody:hover {
+	background: url("../images/gameShop/bodyclick.png") no-repeat;
+}
+
+#gameShopTypeFoot {
+	background: url("../images/gameShop/foot.png") no-repeat;
+}
+
+#gameShopTypeFoot:hover {
+	background: url("../images/gameShop/footclick.png") no-repeat;
+}
+
+#gameShopTypeItem {
+	background: url("../images/gameShop/item.png") no-repeat;
+}
+
+#gameShopTypeItem:hover {
+	background: url("../images/gameShop/itemclick.png") no-repeat;
+}
+
+#gameShopTypeMap {
+	background: url("../images/gameShop/map.png") no-repeat;
+	width: 119px;
+}
+
+#gameShopTypeMap:hover {
+	background: url("../images/gameShop/mapclick.png") no-repeat;
+	width: 119px;
+}
+
 #gameShopItems {
-	width: 97.4%;
-	min-height: 230px;
-	padding-left: 10px;
-	background-color: blue;
+	width: 537px;
+	height: 342px;
 	position: absolute;
 }
 
 .gameShopItem {
 	float: left;
-	width: 100px;
-	height: 100px;
-	margin: 10px 40px 0px 40px;
-	background-color: black;
+	width: 112px;
+	height: 129px;
+	margin: 20px 7px 20px 11px;
+	background: url("../images/gameShop/itembox.png") no-repeat;
 	position: relative;
 }
 
@@ -226,7 +455,6 @@ gameShop
 	position: absolute;
 	width: 100%;
 	height: 20px;
-	background-color: yellow;
 	text-align: center;
 }
 
@@ -238,32 +466,34 @@ gameShop
 
 .gameShopItemBuyButton {
 	position: absolute;
-	background-color: green;
-	width: 100%;
-	height: 20px;
-	margin-top: 80px;
-	text-align: center;
+	background: url("../images/gameShop/buy.png") no-repeat;
+	width: 79px;
+	height: 30px;
+	top: 105px;
+	left: -5px;
 }
 
-#itemHadBuy {
-	background-color: lightblue;
+.itemHadBuy {
+	background: url("../images/gameShop/buyed.png") no-repeat;
 }
 
 #characterEquipButton {
-	width: 100px;
-	height: 20px;
-	margin: 220px auto 0px auto;
-	background-color: yellow;
-	position: relative;
+	width: 94px;
+	height: 54px;
+	top: 320px;
+	left: 10px;
+	position: absolute;
+	background: url("../images/gameShop/equip.png") no-repeat;
 
 }
 
 #characterReturnButton {
-	width: 100px;
-	height: 20px;
-	margin: 0px auto 0px auto;
-	background-color: yellow;
-	position: relative;
+	width: 94px;
+	height: 54px;
+	top: 320px;
+	left: 145px;
+	position: absolute;
+	background: url("../images/gameShop/return.png") no-repeat;
 
 }
 

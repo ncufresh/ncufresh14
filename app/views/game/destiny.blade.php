@@ -7,23 +7,25 @@
 
 @section('game_content')
 	<div id="gameDestinyContainer">
-		<div id="gameDestiny_left">
-			<div id="rotate_table">
-
-			</div>
-			<div id="rotate_foot">
-
-			</div>
+		<div id="gameDestinyLeft">
+			
+			<div id="rotateFoot"></div>
+			<div id="rotateTable"></div>
+			<div id="rotatePointer"></div>
 		</div>
-		<div id="gameDestiny_right">
+		<div id="gameDestinyRight">
 			<div id="startPage">
-				<div>命運之輪</div>
-				<div>遊戲需求:能量一格</div>
-				<div id="destinyStart" action="{{ URL::to('game/destiny/start') }}">開始</div>
+				<div class="destinyText">遊戲需求:</div>
+				<div class="destinyText">消耗電池電量一格</div>
+				<div id="destinyImage"></div>
+				<div id="destinyStart" action="{{ URL::to('game/destiny/start') }}"></div>
 			</div>
 			<div id="bounsPage">
-				<div>恭喜你獲得</div>
-				<div>item</div>
+				<div class="destinyText">恭喜你獲得</div>
+				<div id="bonusBoxImage">
+					<div>item</div>
+				</div>
+				<div id="destinyAgain"></div>
 			</div>
 		</div>
 	</div>

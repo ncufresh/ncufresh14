@@ -18,9 +18,17 @@ class GameshopController extends BaseController {
 	}
 
 	public function changeType() {
+		$game_user_id = 1;
 		$type = Input::get("type");
 		$shop = Gameitem::where('type', '=', $type)->get();
-		return Response::json($shop);
+		$hadBuy[0] = false;
+		for ( $i = 0; $i < $shop->count(); $i++ ) {
+			$hadBuy[$i] = false;
+			if ( GameBuy::whereRaw('user_id = ? and item_id = ?', array($game_user_id, $shop[$i]->id) )->count() != 0 ) {
+				$hadBuy[$i] = true;
+			}
+		}
+		return Response::json(array('shop'=>$shop->toArray(),'hadBuyItems'=>$hadBuy));
 	}
 
 	public function buy() {
