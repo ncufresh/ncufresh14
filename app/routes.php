@@ -55,16 +55,20 @@ Route::get('error', array('as' => 'error', 'uses' => 'HomeController@errorPage')
 
 
 //==========================================================================================
-//users - admin
+//admin
 Route::group(array('prefix' => 'admin'), function(){
 	Route::get('/', array('as' => 'dashboard', 'uses' => 'AdminController@index'));
 	Route::resource('announcement', 'AdminAnnouncementController');
 
 	Route::resource('link', 'AdminLinkController');
 
+	Route::get('group', array('as' => 'group', 'uses' => 'AdminGroupController@index'));
+
 	Route::group(array('prefix' => 'api'), function(){
 		Route::resource('link', 'APILinkController');
 	});
+
+	Route::get('eriauhfgowijfdwoiEJF', 'AuthController@makePermissionAndRole');
 //	Route::resource('users', array('as' => 'users', 'uses' => ''));
 });
 
