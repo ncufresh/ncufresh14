@@ -31,6 +31,11 @@ Route::post('register', array('as' => 'register.store', 'uses' => 'AuthControlle
 Route::get('register/highschool', array('as' => 'register.high', 'uses' => 'AuthController@highSchool'));
 
 //==========================================================================================
+//user
+Route::get('user', array('as' => 'user.self', 'uses' => 'UserController@selfIndex'));
+Route::get('user/{id}', array('as' => 'user.id', 'uses' => 'UserController@index'));
+
+//==========================================================================================
 //global function
 //announcement
 Route::resource('announcement', 'AnnouncementController');
