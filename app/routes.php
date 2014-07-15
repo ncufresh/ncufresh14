@@ -38,7 +38,7 @@ Route::get('user/{id}', array('as' => 'user.id', 'uses' => 'UserController@index
 //==========================================================================================
 //global function
 //announcement
-Route::resource('announcement', 'AnnouncementController');
+Route::resource('announcement', 'AnnouncementController', array('only' => array('index', 'show')));
 
 Route::resource('link', 'LinkController');
 
@@ -51,8 +51,22 @@ Route::post('imageUpload', array('as' => 'imageUpload', 'uses' => 'HomeControlle
 Route::get('error', array('as' => 'error', 'uses' => 'HomeController@errorPage'));
 
 
-Route::get('admin', array('as' => 'dashboard', 'uses' => 'HomeController@dashboard'));
+//Route::get('admin', array('as' => 'dashboard', 'uses' => 'HomeController@dashboard'));
 
+
+//==========================================================================================
+//users - admin
+Route::group(array('prefix' => 'admin'), function(){
+	Route::get('/', array('as' => 'dashboard', 'uses' => 'AdminController@index'));
+	Route::resource('announcement', 'AdminAnnouncementController');
+
+	Route::resource('link', 'AdminLinkController');
+
+	Route::group(array('prefix' => 'api'), function(){
+		Route::resource('link', 'APILinkController');
+	});
+//	Route::resource('users', array('as' => 'users', 'uses' => ''));
+});
 
 //==========================================================================================
 //API
@@ -60,7 +74,7 @@ Route::group(array('prefix' => 'api'), function()
 {
 	Route::get('/', function(){return Response::json('Hello API');});
 	Route::resource('announcement', 'APIAnnouncementController');
-	Route::resource('link', 'APILinkController');
+
 	Route::resource('calender', 'APICalenderController');
 });
 

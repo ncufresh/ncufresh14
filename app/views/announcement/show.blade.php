@@ -10,4 +10,8 @@
 	@endif
 
 
+	@if($admin == true)
+		<a href="{{ route('admin.announcement.edit', array('id' => $announcement->id)) }}">修改公告</a>
+	@endif
+
 @stop

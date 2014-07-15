@@ -1,21 +1,6 @@
 <?php
 
-class BaseController extends Controller {
-
-	/**
-	 * Setup the layout used by the controller.
-	 *
-	 * @return void
-	 */
-	protected function setupLayout()
-	{
-
-
-		if ( ! is_null($this->layout))
-		{
-			$this->layout = View::make($this->layout);
-		}
-	}
+class AdminBaseController extends BaseController {
 
 	public function __construct()
 	{
@@ -30,6 +15,7 @@ class BaseController extends Controller {
 
 
 		App::make('SiteMap')->pushLocation('首頁', route('home'));
+		App::make('SiteMap')->pushLocation('後台管理', route('dashboard'));
 	}
 
 }
