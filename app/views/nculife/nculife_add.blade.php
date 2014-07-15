@@ -19,14 +19,18 @@
 		{{Form::hidden('local_id', null, array('id' => 'local_id'))}}
 		{{Form::submit('新增')}}
 		{{Form::close()}}
-		{{Form::open(array('route'=>'imageUpload', 'method'=>'post', 'files' => true, 'id' => 'ajax-image-form'))}}
+		{{Form::open(array('route'=>'imageUpload', 'method'=>'post', 'files' => true, 'id' => 'ajax-local-form'))}}
 		<div>地圖上傳:
 			{{Form::hidden('response_type', 'json')}}
 			{{Form::file('upload', array('id'=>'upload'))}}
 		</div>
 		<input type="submit" id="Upload">
 		{{Form::close()}}
-		<img id="image" src="">
+		<div>
+			<img id="local" src="">
+			<div id="containment">
+			</div>
+		</div>
 	</div>
 	<script>
 		CKEDITOR.replace('introduction', {filebrowserImageUploadUrl : '{{ route("imageUpload") }}'});

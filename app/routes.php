@@ -132,6 +132,8 @@ Route::post('nculife/editData', array('as' => 'nculife.editData', 'uses' => 'Ncu
 
 Route::post('nculife/deleteData', array('as' => 'nculife.deleteData', 'uses' => 'NcuLifeController@deleteData'));
 
+Route::post('nculife/deletePicture', array('as' => 'nculife.deletePicture', 'uses' => 'NcuLifeController@deletePicture'));
+
 //==========================================================================================
 //video
 Route::get('video', array('as' => 'video', 'uses' => 'VideoController@index'));

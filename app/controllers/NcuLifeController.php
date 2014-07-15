@@ -22,16 +22,17 @@ class NcuLifeController extends BaseController
 		$name = $convert[$item];
 		App::make('SiteMap')->pushLocation($name, route('nculife.item', array('item' => $item)));
 		$results = NcuLifeModel::where('item', '=', $item)->get();
-		return View::make('nculife.nculife_item',array(
-				'nculifes'=>$results
-				));
+		$pictures = NcuLifePicture::where('place_id', '=', $results[0]->id)->get();
+		return View::make('nculife.nculife_item',array('nculifes'=>$results, 'pictures'=>$pictures));
 	}
 	
 	public function select()
 	{
 		$id = Input::get('num', 1);
 		$result = NcuLifeModel::where('id', '=', $id)->first();
-		return Response::json($result);
+		$pictures = NcuLifePicture::where('place_id', '=', $id)->with('pictureAdmin')->get();
+		$local = NcuLifeModel::find($id)->local;
+		return Response::json(array('result' => $result->toArray(), 'pictures' => $pictures->toArray(), 'local' => $local->toArray()));
 	}
 
 	public function data()
@@ -48,11 +49,13 @@ class NcuLifeController extends BaseController
 
 	public function edit($id)
 	{
+		App::make('TransferData')->addData('ncu_life_imageupload_url', route('imageUpload'));
 		$data = NcuLifeModel::find($id);
 		$pictures = NcuLifeModel::find($id)->picture;
-		// dd($pictures);
-		//  dd($pictures[0]->pictureAdmin->file_name);
-		return View::make('nculife.nculife_edit', array('nculife'=>$data, 'pictures'=>$pictures));
+		$local = NcuLifeModel::find($id)->local->first();
+		//dd($pictures);
+		//dd($pictures[0]->pictureAdmin->file_name);
+		return View::make('nculife.nculife_edit', array('nculife' => $data, 'pictures' => $pictures, 'local' => $local));
 	}
 
 	public function addData()
@@ -72,10 +75,18 @@ class NcuLifeController extends BaseController
 		if(Input::has('id'))
 		{
 			$data = NcuLifeModel::where('id', '=', $id)->first();
-			$data->item= Input::get('item');
-			$data->place= Input::get('place');;
-			$data->introduction= Input::get('introduction');
+			$data->item = Input::get('item');
+			$data->place = Input::get('place');;
+			$data->introduction = Input::get('introduction');
+			$data->local_id = Input::get('local_id');
 			$data->save();
+			$picture = new NcuLifePicture;
+			if(Input::has('picture_id'))
+			{
+				$picture->place_id = $id;
+				$picture->picture_id = Input::get('picture_id');
+				$picture->save();
+			}
 		}
 		return Redirect::route('nculife.data');
 	}
@@ -85,8 +96,20 @@ class NcuLifeController extends BaseController
 		$id = Input::get('id');
 		if(Input::has('id'))
 		{
-			$data = NcuLifeModel::where('id', '=', $id)->delete();
+			NcuLifeModel::find($id)->delete();
+			NcuLifePicture::where('place_id', '=', $id)->delete();
 		}
 		return Redirect::route('nculife.data');
+	}
+
+	public function deletePicture()
+	{
+		$dataId = Input::get('place_id');
+		$id = Input::get('picture_id');
+		if(Input::has('picture_id'))
+		{
+			NcuLifePicture::where('id', '=', $id)->delete();
+		}
+		return Redirect::route('nculife.edit', array('id'=>$dataId));
 	}
 }

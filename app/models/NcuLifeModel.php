@@ -8,4 +8,9 @@ class NcuLifeModel extends Eloquent
     {
         return $this->hasMany('NcuLifePicture', 'place_id', 'id');
     }
+
+    public function local()
+    {
+    	return $this->hasMany('AdminImage', 'id', 'local_id');
+    }
 }

@@ -1,6 +1,6 @@
 $(function(){
 	var bURL = getTransferData('burl');
-	$( "#ajax-image-form" ).submit(function(event){
+	$( "#ajax-local-form" ).submit(function(event){
 		event.preventDefault();
 		var formData = new FormData(this);
 		$.ajax({
@@ -11,17 +11,40 @@ $(function(){
 			contentType: false,
 			cache: false,
 			processData:false,
-			success: UploadAndchangeLocaId
+			success: UploadAndchangeLocalId
 		});
     	event.preventDefault();
 	});
 
-	function UploadAndchangeLocaId(data){
+	$( "#ajax-picture-form" ).submit(function(event){
+		event.preventDefault();
+		var formData = new FormData(this);
+		$.ajax({
+			url: getTransferData('ncu_life_imageupload_url'),
+			type: 'POST',
+			data:  formData,
+			mimeType:"multipart/form-data",
+			contentType: false,
+			cache: false,
+			processData:false,
+			success: UploadAndchangePictureId
+		});
+    	event.preventDefault();
+	});
+
+	function UploadAndchangeLocalId(data){
 		data = $.parseJSON(data);
-		console.log(data);
 		$('#local_id').val(data["id"]);
-		$('#image').attr("src", bURL + "/img/uploadImage/" + data['file_name']);
-		$('#image').css("width", "100%");
-		$('#image').css("height", "100%");
+		$('#local').attr("src", bURL + "/img/uploadImage/" + data['file_name']);
+		$('#local').css("width", "100%");
+		$('#local').css("height", "100%");
+	}
+
+	function UploadAndchangePictureId(data){
+		data = $.parseJSON(data);
+		$('#picture_id').val(data["id"]);
+		$('#picture').attr("src", bURL + "/img/uploadImage/" + data['file_name']);
+		$('#picture').css("width", "100%");
+		$('#picture').css("height", "100%");
 	}
 })

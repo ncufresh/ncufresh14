@@ -17,7 +17,13 @@
 				{{$nculifes[0]->introduction}}
 			</div>
 			<div id="picture">
-				<img id="image" src="{{asset("images/nculife/" .  $nculifes[0]->picture)}}">
+				<?php $i=1; ?>
+				@foreach($pictures as $picture)
+					<img id="{{$i++}}" src="{{ asset( 'img/uploadImage/' .  $picture->pictureAdmin->file_name) }}" style="height:50%; width:50%">
+				@endforeach
+				<script>
+					var i = {{ json_encode($i) }};
+				</script>
 				<div id="containment">
 				</div>
 			</div>
