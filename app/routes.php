@@ -32,7 +32,7 @@ Route::get('register/highschool', array('as' => 'register.high', 'uses' => 'Auth
 
 //==========================================================================================
 //user
-Route::get('user', array('as' => 'user', 'uses' => 'UserController@index'));
+Route::get('user', array('as' => 'user.self', 'uses' => 'UserController@selfIndex'));
 Route::get('user/{id}', array('as' => 'user.id', 'uses' => 'UserController@index'));
 
 //==========================================================================================
