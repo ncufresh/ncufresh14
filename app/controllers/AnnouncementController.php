@@ -4,6 +4,7 @@ class AnnouncementController extends BaseController {
 
 	//resource
 	public function index(){
+		App::make('SiteMap')->pushLocation('公告', route('announcement.index'));
 		$announcements = Announcement::orderBy('pinned', 'DESC')->orderBy('created_at', 'DESC')->get();
 		return View::make('announcement.index', array('announcements' => $announcements));
 	}

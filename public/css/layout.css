@@ -1,3 +1,57 @@
+body {
+	background-image: url('../images/layout/background.png');
+}
+
+#siteMapContainer {
+	margin-top: 30px;
+	background-color: rgba(200,200,200,0.6);
+}
+
+#chat-room-container {
+	width: 200px;
+	height: 360px;
+	position: fixed;
+	top: 100px;
+	right: 0px;
+	overflow: hidden;
+}
+
+#chat-room {
+	width: 200px;
+	position: absolute;
+	right: -175px;
+}
+
+#chat-room .container {
+	width: 175px;
+	background-color: yellow;
+	padding: 10px;
+	float: left;
+}
+
+#chat-room-button {
+	background-color: red;
+	width: 25px;
+	height: 150px;
+	float: left;
+}
+
+#chat-log {
+	width: 100%;
+	min-height: 300px;
+	background-color: white;
+}
+
+.chat-row {
+	background-color: gray;
+}
+
+#chat-input {
+	top: 10px;
+	margin: 0px auto;
+	position: relative;
+}
+
 #globalContainer{
 	width: 1024px;
 	margin: 0 auto;
@@ -7,10 +61,9 @@
 #topContainer{
 	width: 100%;
 	height: 250px;
+	margin-top: 55px;
 }
-#topContainer>div{
-	float: left;
-}
+
 
 #topLeft{
 	width: 250px;
@@ -21,60 +74,263 @@
 	width: 574px;
 	height: 100%;
 	padding: 10px;
+	float: left;
 }
 
 #topRight{
 	width: 200px;
 	height: 250px;
-	padding: 25px 10px;
 	float: right;
+	padding-right: 10px;
 }
 
 #topLogo{
 	position: relative;
-	width: 250px;
-	height: 250px;
-	background-image: url("../images/logo.jpg");
-	background-size:250px 250px;
+	width: 320px;
+	height: 320px;
+	top: -50px;
+	left: -40px;
+	background-image: url("../images/layout/logo.png");
+	background-size: 100%;
 	background-repeat:no-repeat;
+	border-radius: 50%;
 }
 
 #topSearchBar{
 	width: 300px;
 	height: 30px;
 	/*margin: 0 auto;*/
+	background-color: white;
 }
+
+.topNavBarButton {
+	width: 57px;
+	height: 157px;
+	float: left;
+	margin-left: 20px;
+	margin-top: 50px;
+}
+
+#topNavBarLife {
+	background-image: url("../images/layout/nculife.png");
+	margin-left: 80px;
+}
+
+#topNavBarLife:hover{
+	background-image: url("../images/layout/nculife2.png");
+	margin-left: 80px;
+}
+
+#topNavBarFourm {
+	background-image: url("../images/layout/forum.png");
+}
+
+#topNavBarFourm:hover {
+	background-image: url("../images/layout/forum2.png");
+}
+
+#topNavBarRead {
+	background-image: url("../images/layout/read.png");
+}
+
+#topNavBarRead:hover {
+	background-image: url("../images/layout/read2.png");
+}
+
+#topNavBarCampus {
+	background-image: url("../images/layout/campus.png");
+}
+
+#topNavBarCampus:hover {
+	background-image: url("../images/layout/campus2.png");
+}
+
+#topNavBarVideo {
+	background-image: url("../images/layout/video.png");
+}
+
+#topNavBarVideo:hover {
+	background-image: url("../images/layout/video2.png");
+}
+
+#topNavBarAbout {
+	background-image: url("../images/layout/about.png");
+}
+
+#topNavBarAbout:hover {
+	background-image: url("../images/layout/about2.png");
+}
+
 
 #topNavBar{
 	width: 100%;
-	height: 150px;
+	height: 207px;
 	margin: 10px auto;
 }
 
 #topLoginBar{
-	width: 90%;
+	width: 100%;
 	height: 100%;
-	margin: 0 auto;
-	padding: 10px;
 }
 
 #container{
 	width: 100%;
 	min-height: 400px;
 	padding: 0px;
+	background-color: rgba(200,200,200,0.6);
 }
 
+#topBackground {
+	background: url("../images/layout/topback.png") no-repeat;
+	background-size: 100%
+}
 
 #bottomContainer{
+	text-align: center;
 	width: 100%;
 }
 
+#topContainer>div{
+	float: left;
+}
+
 #auth_box {
-	position: relative;
+	width: 100%;
+	height: 100%;
+	background: url("../images/layout/facebox.png") no-repeat;
+	background-size: 100%;
+	margin-top: 10px;
 }
 
 #auth_box input {
-	width:100%;
+	width:50%;
+}
+
+#auth_box #account {
+	width: 50%;
+	height: 8%;
+	left: 25%;
+	top: 47px;
+	position: relative;
+	background-color: #D6D6D6;
+	border: 0px;
+	border-radius: 5px;
+}
+
+#auth_box #password {
+	width: 50%;
+	height: 8%;
+	left: 25%;
+	top: 50px;
+	position: relative;
+	background-color: #D6D6D6;
+	border: 0px;
+	border-radius: 5px;
+}
+
+#auth_box #submit {
+	width: 26%;
+	height: 9%;
+	left: 29%;
+	top: 54px;
+	position: relative;
+	background: url("../images/layout/login1.png") no-repeat;
+	background-size: 100%;
+	border: 0px;
+	float: left;
+}
+
+#auth_box #submit:hover {
+	width: 26%;
+	height: 9%;
+	left: 29%;
+	top: 54px;
+	position: relative;
+	background: url("../images/layout/login2.png") no-repeat;
+	background-size: 100%;
+	border: 0px;
+	float: left;
+}
+
+#auth_box #register {
+	width: 26%;
+	height: 9%;
+	left: 19%;
+	top: 54px;
+	position: relative;
+	background: url("../images/layout/register.png") no-repeat;
+	background-size: 100%;
+	float: left;
+}
+
+#auth_box #register:hover{
+	width: 26%;
+	height: 9%;
+	left: 19%;
+	top: 54px;
+	position: relative;
+	background: url("../images/layout/register2.png") no-repeat;
+	background-size: 100%;
+	float: left;
+}
+
+#auth_box #fblogin {
+	width: 45%;
+	height: 6%;
+	left: 28%;
+	top: 73px;
+	position: relative;
+	background: url("../images/layout/fblogin1.png") no-repeat;
+	background-size: 100%;
+}
+
+#auth_box #fblogin:hover{
+	width: 45%;
+	height: 6%;
+	left: 28%;
+	top: 73px;
+	position: relative;
+	background: url("../images/layout/fblogin2.png") no-repeat;
+	background-size: 100%;
+}
+
+#alert-messages{
+	position: fixed;
+	top: 30%;
+	width: 75%;
+	left: 12.5%;
+	margin: 0 auto;
+	z-index: 100;
+}
+
+.alert{
+	opacity: 0;
+}
+
+/*#jump-window{*/
+	/*position: absolute;*/
+	/*width: 100%;*/
+	/*height: 100%;*/
+	/*background-color: rgba(0, 0, 0, 0.4);*/
+	/*z-index: 90;*/
+/*}*/
+
+/*#jump-window>.container{*/
+	/*max-width: 1024px;*/
+	/*min-height: 50%;*/
+	/*min-width: 80%;*/
+	/*height: auto;*/
+	/*background-color: green;*/
+/*}*/
+
+/*#jump-top{*/
+	/*width: 100%;*/
+	/*height: 50px;*/
+	/*background-color: blue;*/
+/*}*/
+
+body{
+	height: 100%;
 }
 
 /** testing */

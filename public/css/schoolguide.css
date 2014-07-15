@@ -277,7 +277,7 @@ html, body {
     z-index: 2;
 }
 
-#science{
+#science-1{
     position: absolute;
     top:378px;
     left: 409px;
@@ -288,7 +288,7 @@ html, body {
     position: absolute;
     top:431px;
     left: 479px;
-    z-index: 2;
+    z-index: 3;
 
 }
 #library{
@@ -375,7 +375,7 @@ html, body {
     position: absolute;
     top:141px;
     left: 624px;
-    z-index: 2;
+    z-index: 3;
 
 }
 #park{
@@ -390,5 +390,189 @@ html, body {
     top:259px;
     left: 645px;
     z-index: 2;
+
+}
+#basketball{
+    position: absolute;
+    top:259px;
+    left: 767px;
+    z-index: 3;
+
+}
+#playground{
+    position: absolute;
+    top:240px;
+    left: 648px;
+    z-index: 2;
+
+}
+#rock{
+    position: absolute;
+    top:255px;
+    left: 748px;
+    z-index: 3;
+
+}
+#swimpool{
+    position: absolute;
+    top:242px;
+    left: 811px;
+    z-index: 3;
+
+}
+#skate{
+    position: absolute;
+    top:296px;
+    left: 734px;
+    z-index: 3;
+
+}
+#valley{
+    position: absolute;
+    top:270px;
+    left: 622px;
+    z-index: 3;
+
+}
+#badminton{
+    position: absolute;
+    top:292px;
+    left: 716px;
+    z-index: 3;
+
+}
+#wood{
+    position: absolute;
+    top:426px;
+    left: 681px;
+    z-index: 3;
+
+}
+#science-2{
+    position: absolute;
+    top:320px;
+    left: 716px;
+    z-index: 3;
+
+}
+#science-3{
+    position: absolute;
+    top:360px;
+    left: 766px;
+    z-index: 3;
+
+}
+#mbuilding{
+    position: absolute;
+    top:381px;
+    left: 706px;
+    z-index: 3;
+
+}
+#math{
+    position: absolute;
+    top:401px;
+    left: 766px;
+    z-index: 3;
+
+}
+#management-1{
+    position: absolute;
+    top:426px;
+    left: 681px;
+    z-index: 3;
+
+}
+#management-2{
+    position: absolute;
+    top:440px;
+    left: 765px;
+    z-index: 3;
+
+}
+#clibrary{
+    position: absolute;
+    top:446px;
+    left: 641px;
+    z-index: 3;
+
+}
+#Graduate{
+    position: absolute;
+    top:464px;
+    left: 721px;
+    z-index: 3;
+
+}
+#Hakkas{
+    position: absolute;
+    top:279px;
+    left: 852px;
+    z-index: 2;
+
+}
+#electric{
+    position: absolute;
+    top:272px;
+    left: 786px;
+    z-index: 3;
+
+}
+#outerspace{
+    position: absolute;
+    top:123px;
+    left: 624px;
+    z-index: 2;
+}
+
+#flower{
+    position: absolute;
+    top:405px;
+    left: 652px;
+    z-index: 3;
+
+}
+
+#ncu{
+    position: absolute;
+    top:505px;
+    left: 681px;
+    z-index: 3;
+
+}
+#B9{
+    position: absolute;
+    top:553px;
+    left: 635px;
+    z-index: 3;
+
+}
+
+#science-4{
+    position: absolute;
+    top:362px;
+    left: 845px;
+    z-index: 3;
+
+}
+#science-5{
+    position: absolute;
+    top:416px;
+    left: 823px;
+    z-index: 3;
+
+}
+#lake{
+    position: absolute;
+    top:349px;
+    left: 823px;
+    z-index: 3;
+
+}
+#B12{
+    position: absolute;
+    top:522px;
+    left: 733px;
+    z-index: 3;
 
 }

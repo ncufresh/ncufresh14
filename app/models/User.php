@@ -60,7 +60,7 @@ class User extends Eloquent implements UserInterface{
 	 */
 	public function getRememberToken()
 	{
-		return null;
+		return $this->remember_token;
 	}
 
 	/**
@@ -71,7 +71,7 @@ class User extends Eloquent implements UserInterface{
 	 */
 	public function setRememberToken($value)
 	{
-		return;
+		$this->remember_token = $value;
 	}
 
 	/**
@@ -81,7 +81,7 @@ class User extends Eloquent implements UserInterface{
 	 */
 	public function getRememberTokenName()
 	{
-		return null;
+		return 'remember_token';
 	}
 
 	/**
@@ -100,7 +100,7 @@ class User extends Eloquent implements UserInterface{
 	 * @return FacebookData
 	 */
 	public function getFacebookData(){
-		return $this->hasMany('FacebookData', 'uid', 'id');
+		return $this->hasOne('FacebookData', 'user_id', 'id');
 	}
 
 

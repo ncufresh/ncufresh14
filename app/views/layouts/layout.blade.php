@@ -14,6 +14,7 @@
 		{{ HTML::script('js/layout/chatroom.js') }}
 		{{ HTML::style('css/bootstrap.min.css') }}
 		{{ HTML::style('css/jquery.jscrollpane.css') }}
+		{{ HTML::style('css/jquery-ui.min.css') }}
 
 		{{ HTML::style('css/layout.css') }}
 
@@ -33,26 +34,50 @@
 		@yield('js_css')
 	</head>
 	<body data-user_id="@if(Auth::check()){{Auth::user()->id}}@else0@endif">
-
+		{{-- Transfer Data Section --}}
 		<div class="hidden" id="data_section"
 			@foreach(App::make('TransferData')->getData() as $key=>$item)
 				data-{{ $key }}="{{ $item }}"
 			@endforeach
 		></div>
+		{{-- Jump Window's Modal--}}
+		<div id="alert-messages"></div>
+			<div class="modal fade" id="jump-window" tabindex="-1" role="dialog" aria-labelledby="jump-window-modal" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title" id="jump-window-head">Head</h4>
+						</div>
+						<div class="modal-body" id="jump-window-body">
+
+						</div>
+						<div class="modal-footer">
+							<div id="jump-window-footer"></div>
+							<button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+<!--							<button type="button" class="btn btn-primary">Save changes</button>-->
+						</div>
+					</div>
+				</div>
+			</div>
 		<div id="globalContainer" class="container">
-			<div id="topContainer" class="testY">
+			<div id="topContainer">
 				@include('layouts.top')
 			</div>
-			<div id="site_map">
+			{{-- Site Map --}}
+
+			<ol id="siteMapContainer" class="breadcrumb">
 				@foreach(App::make('SiteMap')->getData() as $item)
-					<span class="site_map_item"><a href="{{ $item['url'] }}">{{ $item['name'] }}</a>/</span>
+				<li class="site_map_item"><a href="{{ $item['url'] }}">{{ $item['name'] }}</a></li>
 				@endforeach
-			</div>
+			</ol>
+
 			<div id="container" class="container">
 				@yield('content')
 			</div>
-			<div id="bottomContainer" class="container testG">
-				<p>Bottom!</p>
+			<div id="bottomContainer" class="container">
+				<p>主辦單位：國立中央大學學務處　承辦單位：諮商中心　執行單位：2014大一生活知訊網工作團隊</p>
+				<p>地址：32001桃園縣中壢市五權里2鄰中大路300號 | 電話：(03)422-7151#57261 | 版權所有：2014大一生活知訊網工作團隊</p>
 			</div>
 		</div>
 

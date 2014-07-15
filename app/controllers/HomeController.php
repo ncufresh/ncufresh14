@@ -16,8 +16,15 @@ class HomeController extends BaseController {
 	*/
 
 	public function index(){
+		App::make('TransferData')->addData('announcement-api-url', route('api.announcement.index'));
+		App::make('TransferData')->addData('announcement-url', route('announcement.index'));
+		App::make('TransferData')->addData('calender-api-url', route('api.calender.index'));
+		App::make('TransferData')->addData('calender-url', route('calender.index'));
 		$links = Link::orderBy('order', 'ASC')->get();
-		return View::make('index', array('links' => $links));
+		$announcements = Announcement::orderBy('pinned', 'DESC')->orderBy('created_at', 'DESC')->get()->take(10);
+		$now = \Carbon\Carbon::now();
+		$calenders = Calender::active()->get();
+		return View::make('index', array('links' => $links, 'announcements' => $announcements, 'now' => $now, 'calenders' => $calenders));
 	}
 
 	public function errorPage(){
@@ -42,7 +49,11 @@ class HomeController extends BaseController {
 
 			$CKEditorFuncNum = Input::get('CKEditorFuncNum', 2);
 			$fileUrl = url('img/uploadImage/').'/'.$fileName;
-			echo "<script>window.parent.CKEDITOR.tools.callFunction(". $CKEditorFuncNum .",'" . $fileUrl . "','');</script>";
+			if(Input::has('response_type') && Input::get('response_type') == 'json'){
+				return Response::json($image);
+			}else{
+				echo "<script>window.parent.CKEDITOR.tools.callFunction(". $CKEditorFuncNum .",'" . $fileUrl . "','');</script>";
+			}
 		}
 	}
 

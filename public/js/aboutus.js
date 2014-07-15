@@ -14,7 +14,7 @@ $(document).ready(function(){
 			},1000);
 	});
 	$("#picture").click(function(){
-
+		$(".item").hide("slow");
 		$("#morecontent").animate({
 			width:'5%',
 			marginLeft:'10px'
@@ -30,7 +30,9 @@ $(document).ready(function(){
 	$(".item").click(function(){
 		getID($(this).data('id'));
 	});
-	
+	$("#back").click(function(){
+		$(this).carousel();
+	});
 
 	$(".close").mouseover(function(){
 		$(this).css({"cursor":"pointer"});
@@ -47,6 +49,7 @@ $(document).ready(function(){
 		ajaxGet(url,data,OpenModal);
 	}
 	function OpenModal(data){
-		$(".window").show();
+		//$(".window").show();
+		$.jumpWindow("123","111","222");
 	}
 });

@@ -62,18 +62,18 @@
 	width: 550px;
 	height: 80px;
 }
-.modal{
+/*.modal{
 	width: 700px;
     height: 500px;
-    /*line-height: 200px;*/
+    /*line-height: 200px;
     position: relative;
-    top: 130px; 
+    top: -900px; 
     left: 430px;
     margin-top: -100px;
     margin-left: -150px;
     background-color: #f1c40f;
     border-radius: 5px;
-    z-index: 20; /* 1px higher than the overlay layer */
+    z-index: 20; 
 
 }
 .window{
@@ -98,7 +98,7 @@
     position: relative;
     top:10px;
     left: 370px;
-}
+}*/
 .item{
 	background-color:#FF9900;
 	width: 50px;

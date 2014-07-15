@@ -2,14 +2,14 @@ $(document).ready(function(){
 
 	$(".photo").hide();
 	$("#select").change(changeLeft);
-	$(".Img").click(function(){
+	$(".pointer").click(function(){
 		clickImg($(this).data('id'));
 	});
 	makeLeftCanClick();	
 
 	if(getTransferData('value') == '1'){
 		$("#select").val(getTransferData('select'))
-	$(".photo").show();
+		$(".photo").show();
 }
 
 
@@ -28,9 +28,55 @@ $(document).ready(function(){
 		for(var i=0; i<count; i++){
 			var name =data[i]['name'];
 			var id=data[i]['id'];
+			var category = data[i]['categories'];
 			$("<img class ='line' src='http://localhost/ncufresh14/public/images/SchoolGuide/line.png'>").appendTo("#leftlist").data('place_id', id);
 			$("<img class ='board' src='http://localhost/ncufresh14/public/images/SchoolGuide/board.png'>").appendTo("#leftlist").data('place_id', id);
 			$("<li class='left_item'>"+name+"</li>").appendTo("#leftlist").data('place_id', id);
+
+			if(category==1){
+				$(".departments").show();
+				$(".school").hide();
+				$(".scence").hide();
+				$(".dorm").hide();
+				$(".eat").hide();
+				$(".exercise").hide();
+			}else if(category==2){
+				$(".school").show();
+				$(".dorm").hide();
+				$(".departments").hide();
+				$(".scence").hide();
+				$(".eat").hide();
+				$(".exercise").hide();
+			}else if(category==3){
+				$(".scence").show();
+				$(".departments").hide();
+				$(".dorm").hide();
+				$(".school").hide();
+				$(".eat").hide();
+				$(".exercise").hide();
+			}else if(category==4){
+				$(".exercise").show();
+				$(".dorm").hide();
+				$(".school").hide();
+				$(".departments").hide();
+				$(".scence").hide();
+				$(".eat").hide();
+			}else if(category==5){
+				$(".eat").show();
+				$(".dorm").hide();
+				$(".school").hide();
+				$(".departments").hide();
+				$(".scence").hide();
+				$(".exercise").hide();
+			}else if (category==6){
+				$(".dorm").show();
+				$(".school").hide();
+				$(".departments").hide();
+				$(".scence").hide();
+				$(".eat").hide();
+				$(".exercise").hide();
+			}
+
 		}
 		makeLeftCanClick();
 	}
@@ -85,7 +131,7 @@ $(document).ready(function(){
 		.mouseleave(function(){
 		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/board.png");
 	});
-	$(".Img").mouseover(function(){
+	$(".pointer").mouseover(function(){
 		$(this).css({"cursor":"pointer"});
 	});
     //=============================================================================
@@ -219,12 +265,12 @@ $(document).ready(function(){
 	
 	});
 
-		$("#science")
+		$("#science-1")
 	.mouseenter(function(){
-		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/science-p.png");
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/science-1-p.png");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/science.png");
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/science-1.png");
 	
 	});
 		$("#administration")
@@ -342,5 +388,205 @@ $(document).ready(function(){
 		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/gym.png");
 	
 	});
+
+	$("#G-1-4")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/G-1-4-P.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/G-1-4.png");
+	
+	});
+
+	$("#basketball")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/basketball-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/basketball.png");
+	
+	});
+	$("#playground")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/playground-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/playground.png");
+	
+	});
+		
+		$("#rock")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/rock-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/rock.png");
+	
+	});
+		
+		$("#swimpool")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/swimpool-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/swimpool.png");
+	
+	});
+
+			$("#skate")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/skate-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/skate.png");
+	
+	});
+			$("#valley")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/valley-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/valley.png");
+	
+	});
+	$("#badminton")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/badminton-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/badminton.png");
+	
+	});
+	$("#wood")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/wood-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/wood.png");
+	});
+	$("#science-2")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/science-2-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/science-2.png");
+	});
+	$("#science-3")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/science-3-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/science-3.png");
+	});
+	$("#mbuilding")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/mbuilding-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/mbuilding.png");
+	});
+	$("#math")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/math-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/math.png");
+	});
+	$("#management-1")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/management-1-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/management-1.png");
+	});
+	$("#management-2")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/management-2-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/management-2.png");
+	});
+	$("#clibrary")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/clibrary-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/clibrary.png");
+	});
+	$("#Graduate")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/Graduate-P.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/Graduate.png");
+	});
+	$("#Hakkas")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/Hakkas-P.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/Hakkas.png");
+	});
+	$("#electric")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/electric-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/electric.png");
+	});
+	$("#outerspace")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/outerspace-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/outerspace.png");
+	});
+
+	$("#ncu")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/ncu-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/ncu.png");
+	});
+	$("#B9")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/B9-P.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/B9.png");
+	});
+	$("#B12")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/B12-P.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/B12.png");
+	});
+	$("#lake")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/lake-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/lake.png");
+	});
+	$("#science-5")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/science-5-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/science-5.png");
+	});
+	$("#science-4")
+	.mouseenter(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/science-4-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',"http://localhost/ncufresh14/public/images/SchoolGuide/science-4.png");
+	});
+
+		
+		
+		
 			
 });

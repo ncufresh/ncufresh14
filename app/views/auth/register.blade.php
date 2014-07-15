@@ -18,6 +18,7 @@
 	<div id="normal">
 		<div id="normal-data">
 			{{ Form::open(array('route' => 'register.store', 'class' => 'form-horizontal')) }}
+				{{ $errors }}
 				<div class="form-group">
 					<label for="name" class="col-sm-3 control-label">姓名</label>
 					<div class="col-sm-5">
@@ -32,10 +33,10 @@
 						{{ Form::radio('gender', '0') }} 女
 					</div>
 				</div>
-				<div class="form-group">
+				<div class="form-group ui-widget">
 					<label for="high_school" class="col-sm-3 control-label">畢業高中</label>
 					<div class="col-sm-5">
-						{{ Form::text('high_school', null, array('class' => 'form-control', 'placeholder' => '請輸入畢業高中')) }}
+						{{ Form::text('high_school', null, array('class' => 'form-control', 'placeholder' => '請輸入畢業高中', 'id' => 'high_school')) }}
 					</div>
 				</div>
 
@@ -82,18 +83,23 @@
 		</div>
 	</div>
 
+	@if($type == 'FB')
+
 	<div id="fb">
 		<div id="fb-data">
 			{{ Form::open(array('route' => 'register.store', 'class' => 'form-horizontal')) }}
+				{{ Form::hidden('facebook-uid', Auth::user()->getFacebookData->uid) }}
+				{{ Form::hidden('email', Auth::user()->email) }}
+				{{ Form::hidden('department_id', Auth::user()->department_id) }}
 				<div class="form-group">
 					<label for="high_school" class="col-sm-3 control-label">畢業高中</label>
 					<div class="col-sm-5">
-						{{ Form::text('high_school', null, array('class' => 'form-control', 'placeholder' => '請輸入畢業高中')) }}
+						{{ Form::text('high_school', null, array('class' => 'form-control', 'placeholder' => '請輸入畢業高中', 'id' => 'high_school')) }}
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="depaetment_id" class="col-sm-3 control-label">系所</label>
+					<label for="department_id" class="col-sm-3 control-label">系所</label>
 					<div class="col-sm-5">
 						{{ Form::select('department_id', $departments, array('class' => 'form-control', 'placeholder' => '請輸入系所')) }}
 					</div>
@@ -113,6 +119,7 @@
 		</div>
 	</div>
 
+	@endif
 	</div>
 
 @stop
