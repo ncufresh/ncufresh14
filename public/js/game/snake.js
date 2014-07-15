@@ -85,7 +85,7 @@ $(document).ready(function(){
 			}
 		}
 	var snakes = new Array(2);
-		snakes[0] = $('#snakehead');
+		//snakes[0] = $('#snakehead');
 	var snakespath = new Array(900);
 		for(var i=0 ; i<900 ; i++) 
 			snakespath[i] = new Array(2);
@@ -148,7 +148,7 @@ $(document).ready(function(){
 		for(var i=0; i<length; i++)
 		{
 			if(i==0)
-				snakes[0].appendTo(Box[coordx][coordy]);
+				headChange(coordx,coordy);
 			else
 			{
 				snakes[1] = $('<div id="snakebody"><img src="..\\images\\gameSnake\\body.png" width="27px" height="23px"></div>');
@@ -160,10 +160,8 @@ $(document).ready(function(){
 		}
 
 
-		if(mode==3)
-			for(var i=0; i<4+pointcount; i++)
-				bombEchinacea();
-		bombEchinacea();
+		if(mode!=3)
+			bombEchinacea();
 		pointEchinacea();
 	}
 
@@ -173,6 +171,31 @@ $(document).ready(function(){
 		coord = coord - coord%1;
 		return coord;
 	}
+
+	function headChange(x,y)
+	{
+		if(key==37) // move left
+		{
+			bombpicture = $('<div id="bomb"><img src="..\\images\\gameSnake\\headLeft.png"  width="30px" height="23px" "></div>');
+			bombpicture.appendTo( Box[x][y] );
+		}
+		else if (key==38) // move up
+		{
+			bombpicture = $('<div id="bomb"><img src="..\\images\\gameSnake\\headUp.png"  width="30px" height="23px" "></div>');
+			bombpicture.appendTo( Box[x][y] );
+		}
+		else if (key==39) // move right
+		{
+		 	bombpicture = $('<div id="bomb"><img src="..\\images\\gameSnake\\headRight.png"  width="30px" height="23px" "></div>');
+			bombpicture.appendTo( Box[x][y] );
+		}
+		else if (key==40) // move down
+		{	
+			bombpicture = $('<div id="bomb"><img src="..\\images\\gameSnake\\headDown.png"  width="30px" height="23px" "></div>');
+			bombpicture.appendTo( Box[x][y] );
+		}
+
+	} 
 ////////////////////////////////////snake/////////////////////////////////////////////
 	function startGame()
 	{
@@ -216,7 +239,7 @@ $(document).ready(function(){
 		{
 			totalScore();
 			timer.stop();
-
+/*
 			$('#content').hide();
 			$('#endScreen').show();
 			$('#again').click(function() {
@@ -236,8 +259,8 @@ $(document).ready(function(){
 					$('#cover').show();
 				timer.start();
 				initial();
-				startGame();
-			});
+				startGame();				
+			});*/
 		}
 		levelUp();
 	}
@@ -247,7 +270,7 @@ $(document).ready(function(){
 		// eat a point echinacea 
 		if(snakespath[0][0]==point[0] && snakespath[0][1]==point[1])
 		{
-			snakes[0].appendTo(Box[ snakespath[0][0] ][ snakespath[0][1] ]);
+			headChange(snakespath[0][0],snakespath[0][1]);
 			snakespathnum++;
 
 			if(0<=echina && echina<60) // yellow
@@ -322,7 +345,7 @@ $(document).ready(function(){
 			for(var j=0; j<2; j++)
 			{
 				if(i==0)
-					snakes[0].appendTo(Box[ snakespath[i][0] ][ snakespath[i][1] ]);
+					headChange(snakespath[i][0],snakespath[i][1]);
 				else if(i!=snakespathnum)
 				{
 					Box[ snakespath[i][0] ][ snakespath[i][1] ].empty();
@@ -400,7 +423,7 @@ $(document).ready(function(){
 			{
 				if(mode!=3)
 				{
-					echinacea = $('<div id="red"><img src="..\\images\\gameSnake\\red.png"  width="30px" height="23px" "></div>');
+					echinacea = $('<div id="red"><img src="..\\images\\gameSnake\\red.jpg"  width="30px" height="23px" "></div>');
 					echinacea.appendTo(Box[rx][ry]);				
 				}
 				else

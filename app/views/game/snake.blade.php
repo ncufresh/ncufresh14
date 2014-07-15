@@ -20,21 +20,16 @@
 				<div id="mode3"> <img src="..\\images\\gameSnake\\m3.png"> </div>
 			</div>
 		</div>
-		<div id="start">
-			<img src="..\\images\\gameSnake\\start.png">
-		</div>
+		<div id="start"><img src="..\\images\\gameSnake\\start.png"></div>
 	</div>
 
 	<div id="content">
 		<div id="snakeContent">
-			<div id="snakehead">
-				<img src="..\images\gameSnake\head.png" width="30px" height="23px">
-			</div>
+			<div id="snakehead"></div>
 		</div>
 	</div>
 
 	<div id="endScreen">
-		<div id="squirrel"> <img src="..\\images\\gameSnake\\squirrel.png"></div>
 		 <font size="20"><div id="score"></div></font>
 		<div id="again"> <img src="..\\images\\gameSnake\\again.png"> </div>
 

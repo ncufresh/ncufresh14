@@ -1,15 +1,62 @@
+#cover {
+	width: 935px;
+	height: 617px;
+	background-image: url("../../images/gamePower/cover.png");
+}
+
 #start {
-	width: 100%;
-	height: 800px;
+	width: 246px;
+	height: 81px;
+	margin-top: 450px;
+	margin-left: 180px;
+	float: left;
+	background-image: url("../../images/gamePower/start.png");
+}
+#start:hover {
+	background-image: url("../../images/gamePower/startClick.png");
+}
+
+#intro {
+	width: 246px;
+	height: 81px;
+	margin-top: 450px;
+	margin-right: 180px;
+	float: right;
+	background-image: url("../../images/gamePower/intro.png");
+}
+#intro:hover {
+	background-image: url("../../images/gamePower/introClick.png");
+}
+
+/*/////////////////////////////introduction/////////////////////////////////////////*/
+#introduction {
+	width: 935px;
+	height: 617px;
+	background-image: url("../../images/gamePower/introduction.png");
+	display: none;
+}
+
+#button {
+	width: 85px;
+	height: 29px;
+	margin-top: 300px;
+	margin-left: 180px;
+	background-image: url("../../images/gamePower/button.png");
+}
+/*/////////////////////////////startGame/////////////////////////////////////////*/
+#startGame {
+	width: 935px;
+	height: 617px;
 	background-color: lightblue;
-	font-size: 50px;
-	font-family: "標楷體";
+	font-size: 40px;
+	font-family: "微軟正黑體";
 	position: relative;
+	display: none;
 }
 
 #question {
 	width: 90%;
-	top: 10%;
+	top: 5%;
 	left: 5%;
 	position: relative;
 }
@@ -22,19 +69,19 @@
 	width: 90%;
 }
 #qa {
-	top: 15%;
+	top: 10%;
 	position: relative;
 }
 #qb {
-	top: 18%;
+	top: 13%;
 	position: relative;
 }
 #qc {
-	top: 21%;
+	top: 16%;
 	position: relative;
 }
 #qd {
-	top: 24%;
+	top: 19%;
 	position: relative;
 }
 
@@ -42,11 +89,19 @@
 	width: 90%;
 	text-align: center;
 	margin-left: 5%;
-	margin-top: 25%;
+	margin-top: 150px;
 	font-size: 33px;
 	font-weight: bold;
 	background-color: #FFFFBB;
 	color: saddlebrown;
 	border-radius: 15px;
+	display: none;
+}
+
+/*/////////////////////////////endScreen/////////////////////////////////////////*/
+#endScreen {
+	width: 935px;
+	height: 617px;
+	background-image: url("../../images/gamePower/endScreen.png");
 	display: none;
 }
