@@ -1,22 +1,15 @@
 /*/////////////////////////////cover/////////////////////////////////////////*/
 #cover {
 	width: 100%;
-	height: 800px;
-	background-color: lightblue;
-}
-.title {
-	width: 75%;
-	height: 20%;
-	margin: 0px auto;
-	top: 5%;
-	background-color: lightgreen;
-	text-align: center;
-	position:  relative;
+	text-align : center;
+	background-image: url("../../images/gameSnake/cover.png");
+	background-repeat: no-repeat;
 }
 .choice {
 	width: 100%;
 	height: 45%;
-	margin-top: 10%;
+	top: 33%;
+	position: relative;
 }
 #start {
 	width: 35%;
@@ -28,48 +21,48 @@
 
 /*/////////////Difficult//////////////////////*/
 .Difficult {
+	margin-top: 25%;
 	float: left;
 	width: 50%;
 }
 #difficulty1 {
 	width: 45%;
 	height: 15%;
-	margin-top: 10%;
+	margin-top: 5%;
 	
 }
 #difficulty2 {
 	width: 45%;
 	height: 15%;
-	margin-top: 10%;
+	margin-top: 5%;
 	
 }
 #difficulty3 {
 	width: 45%;
 	height: 15%;
-	margin-top: 10%;
-	margin-bottom: 10%;
+	margin-top: 5%;
 }
 
 /*/////////////Mode//////////////////////*/
 .Mode {
+	margin-top: 25%;
 	float: left;
 	width: 50%;
 }
 #mode1 {
 	width: 45%;
 	height: 15%;
-	margin-top: 10%;
+	margin-top: 5%;
 }
 #mode2 {
 	width: 45%;
 	height: 15%;
-	margin-top: 10%;
+	margin-top: 5%;
 }
 #mode3 {
 	width: 45%;
 	height: 15%;
-	margin-top: 10%;
-	margin-bottom: 10%;
+	margin-top: 5%;
 }
 
 /*/////////////////////////////content/////////////////////////////////////////*/

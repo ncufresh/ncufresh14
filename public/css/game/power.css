@@ -3,6 +3,7 @@
 	height: 800px;
 	background-color: lightblue;
 	font-size: 50px;
+	font-family: "標楷體";
 	position: relative;
 }
 
@@ -16,33 +17,36 @@
 .base {
 	margin-left: 5%;
 }
-
 .base:hover {
-	background: #FFFFBB;
+	background: #CCEEFF;
 	width: 90%;
 }
-
 #qa {
-	margin-top: 15%;
+	top: 15%;
+	position: relative;
 }
-
-
 #qb {
-	margin-top: 3%;
+	top: 18%;
+	position: relative;
 }
-
 #qc {
-	margin-top: 3%;
+	top: 21%;
+	position: relative;
 }
-
 #qd {
-	margin-top: 3%;
+	top: 24%;
+	position: relative;
 }
 
 #correctAns {
+	width: 90%;
+	text-align: center;
 	margin-left: 5%;
-	margin-top: 5%;
-	font-family: "標楷體";
-	color: red;
+	margin-top: 25%;
+	font-size: 33px;
+	font-weight: bold;
+	background-color: #FFFFBB;
+	color: saddlebrown;
+	border-radius: 15px;
 	display: none;
 }
