@@ -9,7 +9,7 @@
 <div id="contentContainer">
 	<div id="contentLeft">
 		<div id="calender">
-			<div id="calenderTop">行事曆
+			<div id="calenderTop" class="textStyle">行事曆
 			</div>
 			<div id="calenderContent">
 				<div id="calender-week-day">{{ $now->dayOfWeek }}</div>
@@ -25,7 +25,7 @@
 			<div id="calenderBottom">
 			</div>
 		</div>
-		<div id="links">常用連結
+		<div id="links" class="textStyle">常用連結
 			<div id="linkContent">
 				@foreach($links as $link)
 					<div>
@@ -39,7 +39,7 @@
 	</div>
 	<div id="contentRight">
 		<div id="board">
-			<div id="boardTop">公告
+			<div id="boardTop" class="textStyle">公告
 			</div>
 			<div id="boardMid1">
 			</div>
@@ -72,7 +72,7 @@
 			</div>
 		</div>
 		<div id="forum">
-			<div id="forumTop">論壇高人氣文章
+			<div id="forumTop" class="textStyle">論壇高人氣文章
 			</div>
 			<div id="forumContent">
 			</div>
@@ -80,7 +80,7 @@
 			</div>
 		</div>
 		<div id="vedio">
-			<div id="vedioTop">影片連結
+			<div id="vedioTop" class="textStyle">影片連結
 			</div>
 			<div id="vedioContent">
 			</div>
