@@ -4,7 +4,7 @@ class VideoController extends BaseController {
 
 	public function index(){
 		App::make('TransferData')->addData('like_video_url', route('video.rate')); //ajax
-		//App::make('TransferData')->addData('about_rate_url', route('video.aboutrate'));
+		//App::make('TransferData')->addData('about_rate_url', route('video.aboutrate'))		;
 		//App::make('TransferData')->addData('change_intro_url', route('video.intro'));
 
 		$data = Message::paginate(13);
@@ -36,25 +36,32 @@ class VideoController extends BaseController {
 	*/
 
 	public function post_index(){
-		if(Auth::check()){
-			$user = Auth::user();
-			$user = new message;
-			$user->user_id = '0';
-			$user->video_text = Input::get('video_text');
-			$user->save();
-			return Redirect::to('video');	
-		}else{		
-			return Redirect::to('video') -> withErrors(['請先登入！']);
+		$lines = substr_count( Input::get('video_text'), "\n" );
+		if ($lines > 7){
+			return Redirect::to('video') -> withErrors(['留言行數不能超過七行！']);
+		}else{
+			if(Auth::check()){
+				$user = Auth::user();
+				$user = new message;
+				$user->user_id = Auth::user()->id;//TODO
+				$user->video_text = Input::get('video_text');
+				$user->save();
+				return Redirect::to('video');	
+			}else{		
+				return Redirect::to('video') -> withErrors(['請先登入！']);
+			}
 		}
+
 	}
 
 	public function post_like(){
 		$user = Auth::user();
+
 		if(isset($user)){
 			if(Video::find(Input::get('video_id'))->getRating()->where('user_id', '=', $user)->count() == 0)
 			{
 				$like = new VideoLike;
-				$like->user_id = $user; 
+				$like->user_id = Auth::user()->id; 
 				$like->video_rate = Input::get('video_rate');
 				$like->video_id = Input::get('video_id');
 				$like->save();
@@ -69,4 +76,12 @@ class VideoController extends BaseController {
 			return Response::json($gg);
 		}
 	}
+
+/*	public function avoid_excessive_message(){
+		$user_id = Auth::user()->id;
+		$message_time = VideoMessage::get('created_at');
+		if(isset(Carbon::now->hour) ){
+
+		}*/
+
 }

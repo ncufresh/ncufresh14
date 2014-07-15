@@ -83,6 +83,7 @@
 			<div id="vedioTop">影片連結
 			</div>
 			<div id="vedioContent">
+				<a href='http://localhost/ncufresh14/public/video'><img src="images\youtube縮圖\deargod.jpg " id="videoHref"></a>
 			</div>
 			<div id="vedioBottom">
 			</div>

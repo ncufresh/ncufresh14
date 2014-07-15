@@ -171,6 +171,7 @@
 	position:relative;
 	top:20px;
 	left:184px;
+	word-wrap:break-word;
 }
 #video_name {
 	position:absolute;
@@ -180,6 +181,17 @@
 }
 
 #textarea {
-	width: 1000px;
+	position: relative;
+	top:80px;
+	width: 820px;
 	height: 150px;
+	border: double;
+	resize:none;
+	color: #CC0099;
+}
+
+#submit {
+	position:relative;
+	top:65px;
+	right:53px;
 }

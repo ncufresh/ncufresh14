@@ -20,12 +20,7 @@
 <button id="like" type="button" style="width:100px;height:30px;"><img src="圖片網址"></button>
 <button id="love" type="button" style="width:100px;height:30px;"><img src="圖片網址"></button>
 <button id="message" style="width:100px;height:30px;">留言</button>
-<div id="div1" type="submit"  style="width:900px; height:150px; display:none;">
-	{{ Form::open(array('route' => 'video.message')) }}
-	{{ Form::textarea('video_text','',array('maxlength'=>380)) }}
-	{{ Form::submit('送出') }}
-	{{ Form::close() }}
-</div>
+
 <!-- 彈出視窗 -->
 
 <img src="images\youtube縮圖\下載.jpg" id="rating">
@@ -33,10 +28,16 @@
 <div id="rating_number1" style="text-align:center ; font-size:27px">{{$getLike}}</div>  <!--rating nuber，先暫訂-->
 <div id="rating_number2" style="text-align:center ; font-size:27px">{{$getLove}}</div>
 
+<div id="div1" type="submit"  style=" display:none;">
+	{{ Form::open(array('route' => 'video.message')) }}
+	{{ Form::textarea('video_text','',array('maxlength'=>400,'id'=>'textarea' )) }}
+	{{ Form::submit('送出',array('id'=>'submit')) }}
+	{{ Form::close() }}
+</div>
 @foreach( $messages as $message)
 	<div id="user_message">
 		<a href="https://www.youtube.com/watch?v=ibWYROwadYs"><img src="images\youtube縮圖\頭貼.jpg" id="portrait"></a>
-		<div id= "div_message" style="width:820px; height:150px;">{{$message["video_text"]}}</div>
+		<div id= "div_message" style="width:820px; height:150px;">{{nl2br($message["video_text"])}}</div>
 	</div>
 @endforeach
 </div> <!--frame div-->
