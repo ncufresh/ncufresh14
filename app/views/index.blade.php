@@ -12,6 +12,15 @@
 			<div id="calenderTop">行事曆
 			</div>
 			<div id="calenderContent">
+				<div id="calender-week-day">{{ $now->dayOfWeek }}</div>
+				<div id="calender-month-day">{{ $now->day }}</div>
+				<div id="calender-action">
+					<ol>
+						@foreach($calenders as $calender)
+						<li>{{ $calender->title }}</li>
+						@endforeach
+					</ol>
+				</div>
 			</div>
 			<div id="calenderBottom">
 			</div>

@@ -20,7 +20,9 @@ class HomeController extends BaseController {
 		App::make('TransferData')->addData('announcement-url', route('announcement.index'));
 		$links = Link::orderBy('order', 'ASC')->get();
 		$announcements = Announcement::orderBy('pinned', 'DESC')->orderBy('created_at', 'DESC')->get()->take(10);
-		return View::make('index', array('links' => $links, 'announcements' => $announcements));
+		$now = \Carbon\Carbon::now();
+		$calenders = Calender::active()->get();
+		return View::make('index', array('links' => $links, 'announcements' => $announcements, 'now' => $now, 'calenders' => $calenders));
 	}
 
 	public function errorPage(){
@@ -45,7 +47,11 @@ class HomeController extends BaseController {
 
 			$CKEditorFuncNum = Input::get('CKEditorFuncNum', 2);
 			$fileUrl = url('img/uploadImage/').'/'.$fileName;
-			echo "<script>window.parent.CKEDITOR.tools.callFunction(". $CKEditorFuncNum .",'" . $fileUrl . "','');</script>";
+			if(Input::has('response_type') && Input::get('response_type') == 'json'){
+				return Response::json($image);
+			}else{
+				echo "<script>window.parent.CKEDITOR.tools.callFunction(". $CKEditorFuncNum .",'" . $fileUrl . "','');</script>";
+			}
 		}
 	}
 
