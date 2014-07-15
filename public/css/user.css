@@ -1,0 +1,122 @@
+#user-container{
+	width: 947px;
+	margin: 0 auto;
+}
+
+#user-top{
+	width: 947px;
+	height: 386px;
+	background-image: url('../images/user/top-back.png');
+}
+
+#user-left{
+	position: relative;
+	width: 190px;
+	height: 320px;
+	top: 70px;
+	left: 50px;
+	float: left;
+}
+
+#user-img{
+	width: 190px;
+	height: 240px;
+}
+
+.user-data-link{
+	width: 177px;
+	height: 36px;
+	margin-top: 13px;
+	cursor: pointer;
+}
+
+#link-fb{
+	background-image: url('../images/user/user-data-link.png');
+}
+
+#link-fb:hover{
+	background-image: url('../images/user/user-data-link-h.png');
+}
+
+#to-fb{
+	background-image: url('../images/user/user-data-to-fb.png');
+}
+
+#to-fb:hover{
+	background-image: url('../images/user/user-data-to-fb-h.png');
+}
+
+#user-right{
+	float: left;
+	width: 545px;
+	height: 300px;
+	top: 45px;
+	left: 90px;
+	position: relative;
+}
+
+#user-photo{
+	width: 545px;
+	height: 320px;
+}
+
+#user-data{
+	width: 545px;
+	height: 320px;
+	position: relative;
+}
+
+.user-data{
+	width: 545px;
+	height: 36px;
+	margin-bottom: 27px;
+}
+
+.user-data>img{
+	margin-right: 5px;
+}
+
+#user-bottom{
+	width: 947px;
+	height: 386px;
+	background-image: url('../images/user/bottom-back.png');
+}
+
+#bottom-talk{
+	position: relative;
+	top: 47px;
+	left: 43px;
+	width: 245px;
+	height: 219px;
+	background-image: url('../images/user/bottom-talk.png');
+}
+
+#bottom-talk>div{
+	width: 210px;
+	text-align: center;
+	top: 60px;
+	left: 5px;
+	position: relative;
+	-webkit-transform: rotate(-12deg);
+	-moz-transform: rotate(-12deg);
+	-o-transform: rotate(-12deg);
+	-ms-transform: rotate(-12deg);
+	transform: rotate(-12deg);
+}
+
+#bottom-game{
+	width: 162px;
+	height: 32px;
+	position: relative;
+	left: 550px;
+	top: 90px;
+	background-image: url('../images/user/bottom-game.png');
+}
+
+#bottom-game:hover{
+	background-image: url('../images/user/bottom-game-h.png');
+}
+
+
+
+/*162 32*/
