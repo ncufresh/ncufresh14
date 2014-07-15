@@ -49,7 +49,7 @@
 			<br>
 			
 			{{ Form::submit('刪除')}}
-			<input type="button" value="修改" onclick="location.href='http://localhost/ncufresh14/public/necessity/backstage/research/{{$freshmandata->id}}'">
+			<input type="button" value="修改" onclick="location.href='http://localhost/ncufresh14/public/necessity/backstage/freshman/{{$freshmandata->id}}'">
 			{{ Form::close() }}
 
 	@endforeach
