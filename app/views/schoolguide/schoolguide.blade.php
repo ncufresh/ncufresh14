@@ -96,7 +96,7 @@
 			
 					
 	
-	 
+	 <!-- 
 		@if(isset($old) && $old == true)
 			<div class="photo">
 				<div class="photocontainer">
@@ -125,7 +125,7 @@
 			 </div>
 		 @endif
 
-			
+			 -->
 
 
 

@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-	$(".photo").hide();
 	$("#select").change(changeLeft);
 	$(".pointer").click(function(){
 		clickImg($(this).data('id'));
@@ -9,7 +8,7 @@ $(document).ready(function(){
 
 	if(getTransferData('value') == '1'){
 		$("#select").val(getTransferData('select'))
-		$(".photo").show();
+		// $.jumpWindow("123","111","222");
 }
 
 
@@ -102,8 +101,7 @@ $(document).ready(function(){
 	function showPhoto(data){
 
 		var a =data['introduction'];
-		$("<div>"+a+"</div>").appendTo(".content");
-		$(".photo").show();
+		$.jumpWindow("123",a,"222");
 	
 	}
 
@@ -116,7 +114,6 @@ $(document).ready(function(){
 
 	$(".close2").click(function(){
 		$(".content").children().remove();
-		$(".photo").hide();
 	});
 
 	$(".close2").mouseover(function(){
