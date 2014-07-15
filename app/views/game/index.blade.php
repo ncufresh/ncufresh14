@@ -8,23 +8,19 @@
 
 	<div id="gameMenu">
 		<a href="{{ route('game.snake') }}">
-			<div class="gameChoose">
-				<p>貪食松鼠</p>
+			<div class="gameChoose" id="gameSnakeButton">
 			</div>
 		</a>
 		<a href="{{ route('game.campus') }}">
-			<div class="gameChoose">
-				<p>認識中大</p>
+			<div class="gameChoose" id="gameCampusButton">
 			</div>
 		</a>
 		<a href="{{ route('game.destiny') }}">
-			<div class="gameChoose">
-				<p>命運之輪</p>
+			<div class="gameChoose" id="gameDestinyButton">
 			</div>
 		</a>
-		<a href="game/???">
-			<div class="gameChoose">
-				<p>電池補給站</p>
+		<a href="game/power">
+			<div class="gameChoose" id="gamePowerButton">
 			</div>
 		</a>
 	</div>

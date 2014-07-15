@@ -7,32 +7,21 @@
 	                 'transform' : 'rotate('+ degrees +'deg)'});
 	    return $(this);
 	};
-	function ajax(formURL, postData, success_function, error_function) {
-		$.ajax({
-			url : formURL,
-			type: "POST",
-			data : postData,
-			success: success_function,
-			error: error_function
-		});
-	}
+
     $(document).ready(function()
     {
     	var running = false;
     	$('#destinyStart').click(function() {
     		if ( !running ) {
-    			$(this).hide();
-	    		var postData = $(this).serializeArray();
-				var formURL = $(this).attr("action");
-				
-				ajax(formURL, postData, function(data, textStatus, jqXHR) {
-					if ( data["play"] ){
+    			$(this).hide();				
+				ajaxPost($(this).attr("action"), '', function(data) {
+					if ( data["play"] ) {
 			    		var rotation = 0;
 			    		var decrease = 20;
 			    		var timer = $.timer(function() {
 					        rotation += decrease;
 					        decrease -= 0.1;
-						    $('#rotate_table').rotate(rotation + decrease);
+						    $('#rotateTable').rotate(rotation + decrease);
 						    if ( decrease <= 0 ) {
 						    	timer.stop();
 						    	running = false;
@@ -40,22 +29,21 @@
 					    		$('#userGP').text('GP: ' + data["gp"]);
 					    		$('#destinyStart').show();
 					    		$('#startPage').hide();
-					    		$('#bounsPage').show();
+					    		$('#bounsPage').fadeIn();
 						    }
 					    });
 						timer.set({ time : 10, autostart : false });
-					    	running = true;
-					    	timer.play();
+				    	running = true;
+				    	timer.play();
 					}
 				}, function() {
 
 				});
 			}
 		});
-    	$('#bounsPage').click(function(){
-    		$(this).hide();
-    		$('#startPage').show();
+    	$('#destinyAgain').click(function(){
+    		$('#bounsPage').hide();
+    		$('#startPage').fadeIn();
     	});
-    	
     });
 })(jQuery);
