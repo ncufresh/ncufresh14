@@ -27,8 +27,8 @@
 		</div>
 	</div>
 	<div id="user-bottom">
-		<div id="bottom-talk"><div>怎麼用</div></div>
-		<div id="bottom-game"></div>
+		<div id="bottom-talk"><div>{{ $talk->string }}</div></div>
+		<a href="{{ route('game') }}"><div id="bottom-game"></div></a>
 	</div>
 </div>
 @stop

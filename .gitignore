@@ -19,3 +19,6 @@ _ide_helper_models.php
 /app/storage/debugbar
 
 app/config/database.php
+
+/public/packages/barryvdh/
+/public/packages/maximebf/
