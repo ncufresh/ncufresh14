@@ -28,6 +28,7 @@ Route::get('register', array('as' => 'register', 'uses' => 'AuthController@regis
 Route::get('register/email', array('as' => 'register.email', 'uses' => 'AuthController@register'));
 Route::get('register/FB', array('as' => 'register.FB', 'uses' => 'AuthController@register'));
 Route::post('register', array('as' => 'register.store', 'uses' => 'AuthController@registerStore'));
+Route::get('register/highschool', array('as' => 'register.high', 'uses' => 'AuthController@highSchool'));
 
 //==========================================================================================
 //global function
@@ -55,6 +56,7 @@ Route::group(array('prefix' => 'api'), function()
 	Route::get('/', function(){return Response::json('Hello API');});
 	Route::resource('announcement', 'APIAnnouncementController');
 	Route::resource('link', 'APILinkController');
+	Route::resource('calender', 'APICalenderController');
 });
 
 
