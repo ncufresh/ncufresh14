@@ -2,7 +2,7 @@
 
 
 @section('content')
-	{{ Form::open(array('route' => 'calender.store')) }}
+	{{ Form::open(array('route' => 'admin.calender.store')) }}
 	{{ Form::label('title', '標題') }}
 	{{ Form::text('title')}}
 	{{ Form::label('content', '內容') }}

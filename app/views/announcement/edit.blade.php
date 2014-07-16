@@ -2,7 +2,7 @@
 
 
 @section('content')
-	{{ Form::model($announcement, array('route' => array('announcement.update', $announcement->id ), 'method' => 'PUT')) }}
+	{{ Form::model($announcement, array('route' => array('admin.announcement.update', $announcement->id ), 'method' => 'PUT')) }}
 	{{ Form::label('title', '標題') }}
 	{{ Form::text('title')}}
 	{{ Form::label('content', '內容') }}

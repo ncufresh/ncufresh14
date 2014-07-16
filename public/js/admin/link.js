@@ -1,5 +1,7 @@
 $(function(){
 
+	var baseURL = getTransferData('link-api-url');
+
 
 	var list = $('#links_list').sortable({
 		placeholder: "ui-state-highlight",
@@ -20,7 +22,7 @@ $(function(){
 	$('#link_form').submit(function(e){
 		saving();
 		var postData = $(this).serializeArray();
-		var formURL = $(this).attr("action");
+		var formURL = baseURL;
 		$.ajax(
 			{
 				url : formURL,
@@ -37,9 +39,10 @@ $(function(){
 					$('<td></td>').appendTo(tr).append(data['id']);
 					$('<td></td>').appendTo(tr).append(data['display_name']);
 					$('<td></td>').appendTo(tr).append(data['url']);
+					$('<td><span class="glyphicon glyphicon-remove link-del"></span></td>').appendTo(tr);
 					tr.data('id', data['id']);
-					console.log(data['id']);
 					doneSaving();
+					$('.link-del').click(deleteLink);
 				},
 				error: function(jqXHR, textStatus, errorThrown)
 				{
@@ -58,7 +61,7 @@ $(function(){
 
 	function updateOrder(id, order){
 		$.ajax({
-			url: '/api/v1/link/' + id,
+			url: baseURL + '/' + id,
 			type: 'PUT',
 			data: 'order=' + order,
 			success:function(data, textStatus, jqXHR){
@@ -77,7 +80,7 @@ $(function(){
 		console.log(item);
 		console.log('Deleteing ' + item.data('id'));
 		$.ajax({
-			url: '/api/v1/link/' + item.data('id'),
+			url: baseURL + '/' + item.data('id'),
 			type: 'DELETE',
 			success:function(data, textStatus, jqXHR){
 				//data: return data from server

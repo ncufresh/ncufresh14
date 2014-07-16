@@ -23,7 +23,8 @@
 		@endforeach
 		</tbody>
 	</table>
-	<form id="link_form" action="{{ URL::to('/api/v1/link') }}">
+	新增區域:
+	<form id="link_form" action="{{ URL::route('admin.api.link.create') }}">
 		<label>顯示名稱:</label><input name="display_name" type="text"><br>
 		<label>網址:</label><input name="url" type="url"><br>
 		<input type="submit">

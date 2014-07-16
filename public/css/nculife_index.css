@@ -1,35 +1,54 @@
 #all {	
-	height: 800px;
+	height: 1000px;
 	width: 100%;
 }
 
-#flipup {
-	height: 50%;
-	width: 100%;
+#item1 {
+	position: absolute;
+	top: 410px;
+	left: 200px;
+	height: 251px;
+	width: 344px;
 }
 
-#flipdown {
-	height: 50%;
-	width: 100%;
+#item2 {
+	position: absolute;
+	top: 720px;
+	left: 335px;
+	height: 291px;
+	width: 308px;
 }
 
-.item1 {
-	position: relative;
-	top: 5%;
-	display: inline-block;
-	height: 80%;
-	width: 33%;
+#item3 {
+	position: absolute;
+	top: 400px;
+	left: 590px;
+	height: 289px;
+	width: 365px;
 }
 
-.item2 {
-	display: inline-block;
-	height: 70%;
-	width: 33%;
+#item4 {
+	position: absolute;
+	top: 710px;
+	left: 745px;
+	height: 268px;
+	width: 347px;
+}
+
+#item5 {
+	position: absolute;
+	top: 1020px;
+	left: 640px;
+	height: 289px;
+	width: 365px;
 }
 
 #robot {
-	height: 100%;
-	width: 33%;
+	position: absolute;
+	top: 900px;
+	left: 175px;
+	height: 464px;
+	width: 238px;
 }
 
 .picture {

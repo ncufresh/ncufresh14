@@ -9,6 +9,16 @@ class BaseController extends Controller {
 	 */
 	protected function setupLayout()
 	{
+
+
+		if ( ! is_null($this->layout))
+		{
+			$this->layout = View::make($this->layout);
+		}
+	}
+
+	public function __construct()
+	{
 		$transferData = App::make('TransferData');
 		$transferData->addData('login', Auth::check() ? 1 : 0);
 		if(Auth::check()){
@@ -20,11 +30,6 @@ class BaseController extends Controller {
 
 
 		App::make('SiteMap')->pushLocation('首頁', route('home'));
-
-		if ( ! is_null($this->layout))
-		{
-			$this->layout = View::make($this->layout);
-		}
 	}
 
 }

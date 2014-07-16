@@ -29,8 +29,9 @@
 	width: 228px;
 	height: 64px;
 	background: url("../images/index/calendertop.png") no-repeat;
-	padding-top: 36px;
-	padding-left: 55px;
+	padding-top: 32px;
+	padding-left: 51px;
+	color: gray;
 }
 
 #calenderContent {
@@ -53,6 +54,7 @@
 	margin-top: 10px;
 	background-color: #0aadd6;
 	color: white;
+	padding: 10px;
 }
 
 #linkContent {
@@ -169,8 +171,9 @@
 	height: 40px;
 }
 
-#videoHref{
-	position: relative;
-	left: -10px;
-	width:220px;
+.textStyle {
+	/*font:  bold 5pt arial,sans-serif;*/
+	font-family: 'Microsoft JhengHei';
+	font-size: 16pt;
+	font-weight: bold;
 }
