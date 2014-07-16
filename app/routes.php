@@ -56,7 +56,7 @@ Route::get('error', array('as' => 'error', 'uses' => 'HomeController@errorPage')
 
 //==========================================================================================
 //admin
-Route::group(array('prefix' => 'admin'), function(){
+Route::group(array('prefix' => 'admin', 'before' => 'basic_admin'), function(){
 	Route::get('/', array('as' => 'dashboard', 'uses' => 'AdminController@index'));
 	Route::resource('announcement', 'AdminAnnouncementController');
 
@@ -162,19 +162,23 @@ Route::get('nculife/select', array('as' => 'nculife.select', 'uses' => 'NcuLifeC
 
 Route::get('nculife/{item}', array('as' => 'nculife.item', 'uses' => 'NcuLifeController@item'))->where('item', '(food|live|go|inschool|outschool)');
 
-Route::get('nculife/data', array('as' => 'nculife.data', 'uses' => 'NcuLifeController@data'));
 
-Route::get('nculife/data/add', array('as' => 'nculife.add', 'uses' => 'NcuLifeController@add'));
+Route::group(array(), function(){
+	Route::get('nculife/data', array('as' => 'nculife.data', 'uses' => 'NcuLifeController@data'));
 
-Route::get('nculife/data/edit/{id}', array('as' => 'nculife.edit', 'uses' => 'NcuLifeController@edit'));
+	Route::get('nculife/data/add', array('as' => 'nculife.add', 'uses' => 'NcuLifeController@add'));
 
-Route::post('nculife/addData', array('as' => 'nculife.addData', 'uses' => 'NcuLifeController@addData'));
+	Route::get('nculife/data/edit/{id}', array('as' => 'nculife.edit', 'uses' => 'NcuLifeController@edit'));
 
-Route::post('nculife/editData', array('as' => 'nculife.editData', 'uses' => 'NcuLifeController@editData'));
+	Route::post('nculife/addData', array('as' => 'nculife.addData', 'uses' => 'NcuLifeController@addData'));
 
-Route::post('nculife/deleteData', array('as' => 'nculife.deleteData', 'uses' => 'NcuLifeController@deleteData'));
+	Route::post('nculife/editData', array('as' => 'nculife.editData', 'uses' => 'NcuLifeController@editData'));
 
-Route::post('nculife/deletePicture', array('as' => 'nculife.deletePicture', 'uses' => 'NcuLifeController@deletePicture'));
+	Route::post('nculife/deleteData', array('as' => 'nculife.deleteData', 'uses' => 'NcuLifeController@deleteData'));
+
+	Route::post('nculife/deletePicture', array('as' => 'nculife.deletePicture', 'uses' => 'NcuLifeController@deletePicture'));
+});
+
 
 //==========================================================================================
 //video

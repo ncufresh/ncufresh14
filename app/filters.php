@@ -78,3 +78,20 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+
+//Route::filter('')
+
+Route::filter('basic_admin', function(){
+	if (! Entrust::can('manage_users') ) // Checks the current user
+	{
+		return Redirect::to('/');
+	}
+});
+
+
+Route::filter('manage_editor', function(){
+	if(! Entrust::can('manage_editor')){
+		return Redirect::to('/');
+	}
+});
