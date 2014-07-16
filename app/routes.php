@@ -28,6 +28,12 @@ Route::get('register', array('as' => 'register', 'uses' => 'AuthController@regis
 Route::get('register/email', array('as' => 'register.email', 'uses' => 'AuthController@register'));
 Route::get('register/FB', array('as' => 'register.FB', 'uses' => 'AuthController@register'));
 Route::post('register', array('as' => 'register.store', 'uses' => 'AuthController@registerStore'));
+Route::get('register/highschool', array('as' => 'register.high', 'uses' => 'AuthController@highSchool'));
+
+//==========================================================================================
+//user
+Route::get('user', array('as' => 'user.self', 'uses' => 'UserController@selfIndex'));
+Route::get('user/{id}', array('as' => 'user.id', 'uses' => 'UserController@index'));
 
 //==========================================================================================
 //global function
@@ -35,6 +41,8 @@ Route::post('register', array('as' => 'register.store', 'uses' => 'AuthControlle
 Route::resource('announcement', 'AnnouncementController');
 
 Route::resource('link', 'LinkController');
+
+Route::resource('calender', 'CalenderController');
 
 Route::post('imageUpload', array('as' => 'imageUpload', 'uses' => 'HomeController@imageUpload'));
 
@@ -53,6 +61,7 @@ Route::group(array('prefix' => 'api'), function()
 	Route::get('/', function(){return Response::json('Hello API');});
 	Route::resource('announcement', 'APIAnnouncementController');
 	Route::resource('link', 'APILinkController');
+	Route::resource('calender', 'APICalenderController');
 });
 
 
