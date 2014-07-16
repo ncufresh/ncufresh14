@@ -171,9 +171,16 @@
 	height: 40px;
 }
 
+
 .textStyle {
 	/*font:  bold 5pt arial,sans-serif;*/
 	font-family: 'Microsoft JhengHei';
 	font-size: 16pt;
 	font-weight: bold;
+}
+
+#videoHref{
+	position: relative;
+	left: -10px;
+	width:220px;
 }

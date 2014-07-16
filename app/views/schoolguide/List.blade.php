@@ -27,9 +27,9 @@
 			<span class="list">{{$list->name}}</span>
 			
 			<span class="list">{{$list->introduction}}</span>
-			{{Form::submit('刪除')}}
+			<span>{{Form::submit('刪除')}}</span>
 			{{Form::close()}}
-			<a href="{{ route('SchoolGuide.edit', array('id' => $list->id)) }}">編輯</a>
+			<span><a href="{{ route('SchoolGuide.edit', array('id' => $list->id)) }}">編輯</a></span>
 			</li>	
 			</p>
 			@endforeach

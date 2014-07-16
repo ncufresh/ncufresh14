@@ -31,8 +31,32 @@
 
 			</div>
 
-			<div id="contDownLeft">
+			<div id="contDownLeftResearch">
+				
+					<button><a href="#30">分類一</a></button>
+					<button><a href="#31">分類二</a></button>
+					<button><a href="#32">分類三</a></button>
+					<button><a href="#33">分類四</a></button>
+					<button><a href="#34">分類五</a></button>
+					<button><a href="#35">分類六</a></button>
+					<button><a href="#36">分類七</a></button>
+					<button><a href="#37">分類八</a></button>
+			
+			</div>
 
+			<div id="contDownLeftFreshman">
+				
+					<button><a href="#30">分類一</a></button>
+					<button><a href="#31">分類二</a></button>
+					<button><a href="#32">分類三</a></button>
+					<button><a href="#33">分類四</a></button>
+					<button><a href="#34">分類五</a></button>
+					<button><a href="#35">分類六</a></button>
+					<button><a href="#36">分類七</a></button>
+					<button><a href="#37">分類八</a></button>
+					<button><a href="#37">分類九</a></button>
+					<button><a href="#37">分類十</a></button>
+					<button><a href="#37">分類十一</a></button>
 			</div>
 
 			<div id="contentDown">
@@ -45,7 +69,7 @@
 						
 						<table>
                           	<th class="formStyleIntroduction">
-                          		research 
+                          		research
                           	</th>
 						</table>
 
@@ -65,8 +89,8 @@
 									</td>
 								</tr>
 							@foreach($necessityResearchData as $necessityresearchdata)
-								<tr>
-									<td class="formStyleSide">{{$necessityresearchdata->item }}</td>
+								<tr >
+									<td class="formStyleSide" {{"id='".$necessityresearchdata->id."'" }}>{{$necessityresearchdata->item }}</td>
 									<td class="formStyleMid">{{$necessityresearchdata->explanation }}</td>
 									<td class="formStyleSide">{{$necessityresearchdata->organizer }}</td>
 								</tr>
@@ -104,7 +128,7 @@
 								</tr>
 							@foreach($necessityFreshmanData as $necessityfreshmandata)
 								<tr>
-									<td class="formStyleSide">{{$necessityfreshmandata->item }}</td>
+									<td class="formStyleSide" {{"id='".$necessityresearchdata->id."'" }}>{{$necessityfreshmandata->item }}</td>
 									<td class="formStyleMid">{{$necessityfreshmandata->explanation }}</td>
 									<td class="formStyleSide">{{$necessityfreshmandata->organizer }}</td>
 								</tr>
