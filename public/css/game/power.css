@@ -16,6 +16,8 @@
 	background-image: url("../../images/gamePower/startClick.png");
 }
 
+
+/*/////////////////////////////introduction/////////////////////////////////////////*/
 #intro {
 	width: 246px;
 	height: 81px;
@@ -27,29 +29,22 @@
 #intro:hover {
 	background-image: url("../../images/gamePower/introClick.png");
 }
-
-/*/////////////////////////////introduction/////////////////////////////////////////*/
 #introduction {
-	width: 935px;
-	height: 617px;
+	width: 776px;
+	height: 463px;
+	top: 80px;
+	margin: center;
+	position: relative;
 	background-image: url("../../images/gamePower/introduction.png");
 	display: none;
 }
 
-#button {
-	width: 85px;
-	height: 29px;
-	margin-top: 300px;
-	margin-left: 180px;
-	background-image: url("../../images/gamePower/button.png");
-}
 /*/////////////////////////////startGame/////////////////////////////////////////*/
 #startGame {
 	width: 935px;
 	height: 617px;
-	background-color: lightblue;
+	background-image: url("../../images/gamePower/startGame.png");
 	font-size: 40px;
-	font-family: "微軟正黑體";
 	position: relative;
 	display: none;
 }
@@ -65,7 +60,7 @@
 	margin-left: 5%;
 }
 .base:hover {
-	background: #CCEEFF;
+	background: #F8E566;
 	width: 90%;
 }
 #qa {
@@ -89,13 +84,27 @@
 	width: 90%;
 	text-align: center;
 	margin-left: 5%;
-	margin-top: 150px;
+	margin-top: 140px;
 	font-size: 33px;
 	font-weight: bold;
-	background-color: #FFFFBB;
+	background-color: #F8E566;
 	color: saddlebrown;
 	border-radius: 15px;
 	display: none;
+}
+
+#next {
+	width: 194px;
+	height: 81px;
+	margin-top: 20px;
+	margin-left: 340px;
+	background-image: url("../../images/gamePower/next.png");
+	display: none;
+}
+#next:hover {
+	width: 194px;
+	height: 81px;
+	background-image: url("../../images/gamePower/nextClick.png");
 }
 
 /*/////////////////////////////endScreen/////////////////////////////////////////*/
@@ -103,5 +112,32 @@
 	width: 935px;
 	height: 617px;
 	background-image: url("../../images/gamePower/endScreen.png");
+	text-align: center;
 	display: none;
+	/*display: none;*/
+}
+#getPower {
+	top: 100px;
+	font-family: "微軟正黑體";
+	font-weight: bolder ;
+	color: gray;
+	font-size: 25px;
+	position: relative;
+}
+
+#power {
+	margin-top: 150px;
+	margin-left: 60px;
+}
+#again {
+	width: 246px;
+	height: 81px;
+	margin-top: 100px;
+	margin-left: 340px;
+	background-image: url("../../images/gamePower/again.png");
+}
+#again:hover {
+	width: 246px;
+	height: 81px;
+	background-image: url("../../images/gamePower/againClick.png");
 }
