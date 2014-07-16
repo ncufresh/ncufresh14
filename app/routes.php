@@ -62,7 +62,12 @@ Route::group(array('prefix' => 'admin'), function(){
 
 	Route::resource('link', 'AdminLinkController');
 
-	Route::get('group', array('as' => 'group', 'uses' => 'AdminGroupController@index'));
+	Route::get('group', array('as' => 'admin.group', 'uses' => 'AdminGroupController@index'));
+
+	Route::get('users', array('as' => 'admin.users', 'uses' => 'AdminUsersController@index'));
+	Route::post('users/changeRole', array('as' => 'admin.changeRole', 'uses' => 'AdminUsersController@changeRole'));
+
+
 
 	Route::group(array('prefix' => 'api'), function(){
 		Route::resource('link', 'APILinkController');

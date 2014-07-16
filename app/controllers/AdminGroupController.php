@@ -3,7 +3,7 @@
 class AdminGroupController extends AdminBaseController{
 
 	public function index(){
-		App::make('SiteMap')->pushLocation('群組', route('group'));
+		App::make('SiteMap')->pushLocation('群組', route('admin.group'));
 
 		$roles = Role::all();
 		$permissions = Permission::all();
