@@ -113,6 +113,10 @@ Route::post('/orderNew',array('uses' =>'ArticlesController@newArticles'));
 
 Route::post('/orderPop',array('uses' => 'ArticlesController@popArticles'));
 
+Route::post('/deleteArticle',array('uses' => 'ArticlesController@deleteArticle'));
+
+Route::post('/updateArticle',array('uses' => 'ArticlesController@updateArticle'));
+
 //==========================================================================================
 //NcuLife
 Route::get('nculife', array('as' => 'nculife.index', 'uses' => 'NcuLifeController@index'));

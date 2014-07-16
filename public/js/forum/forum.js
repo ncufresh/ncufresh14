@@ -4,6 +4,8 @@ $(function(){
 	var getCommentsUrl = $("#getComment").attr("direct");
 	var createUrl = $("#createComment").attr("direct");
 	var orderPopUrl = $("#orderPopHidden").attr("direct");
+	var deleteArticleUrl = $("#deleteArticle").attr("direct");
+	var updateArticleUrl = $("#updateArticle").attr("direct");
 	//alert(url);
 	//alert(getCommentsUrl);
 	//alert(createUrl);
@@ -320,8 +322,46 @@ $(function(){
 				target.text(originText);
 				btn.css("display","inline-block");
 			});
-
-
+			$(".delBtn").click(function(){
+				var articleId = $(this).parent().parent().parent().attr("id");
+				//alert(articleId);
+				var delBtn = $(this);
+				$.ajax({
+					type:"POST",
+					url:deleteArticleUrl,
+					data:{
+						"id":articleId
+					},
+					success:function(){
+						alert("Ajax Success");
+						delBtn.parent().parent().parent().parent().remove();
+					},
+					error:function(){
+						alert("Ajax error");
+					}
+				},"json");
+			});
+			$(".saveBtn").click(function(){
+				//alert("click");
+				var articleId = $(this).parent().parent().parent().attr("id");
+				var newContent = $(this).parent().find(".editArea").val();
+				//alert(articleId);
+				$.ajax({
+					type:"POST",
+					url: updateArticleUrl,
+					data:{
+						"id":articleId,
+						"content":newContent
+					},
+					success:function(){
+						target.text(newContent);
+						btn.css("display","inline-block");
+					},
+					error:function(){
+						alert("Ajax Error");
+					}
+				},"json");
+			});
 
 
 
