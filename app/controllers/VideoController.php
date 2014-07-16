@@ -1,4 +1,5 @@
 <?php
+//\Carbon\Carbon::createFromTimeStamp(strtotime($comment->created_at));
 
 class VideoController extends BaseController {
 
@@ -37,16 +38,22 @@ class VideoController extends BaseController {
 
 	public function post_index(){
 		$lines = substr_count( Input::get('video_text'), "\n" );
+		get_how_many_messages();
+
 		if ($lines > 7){
 			return Redirect::to('video') -> withErrors(['留言行數不能超過七行！']);
 		}else{
 			if(Auth::check()){
-				$user = Auth::user();
-				$user = new message;
-				$user->user_id = Auth::user()->id;//TODO
-				$user->video_text = Input::get('video_text');
-				$user->save();
-				return Redirect::to('video');	
+				if (jumiMessage < 10){
+					$user = Auth::user();
+					$user = new message;
+					$user->user_id = Auth::user()->id;//TODO
+					$user->video_text = Input::get('video_text');
+					$user->save();
+					return Redirect::to('video');
+					}else{
+					return Redirect::to('video') -> withErrors(['一天不能發布超過10次留言！']);
+					}
 			}else{		
 				return Redirect::to('video') -> withErrors(['請先登入！']);
 			}
@@ -76,9 +83,38 @@ class VideoController extends BaseController {
 			return Response::json($gg);
 		}
 	}
+/*
+	public function get_how_many_messages(){
+		$user = Auth::user();
+		$lastMessage = VideoMessage:: first('created_at');
+		$siftMessage = VideoMessage:: whereRaw('created_at');
+
+		$jumiMessage =  where 'created_at' BETWEEN $siftMessage AND $lastMessage ;
+		return count($jumiMessage);
+	}
+	//$發文時間 = 取得最後那一篇文的發文時間
+	//$文章們 = 用eloquent取得文章->where($發文時間-文章時間, '<', 一天)
+	
+
+
+/*
+	$now = Carbon::now();
+	$yesterday = Carbon::yesterday();
+
+	public function avoid_excessive_message($now,$yesterday) {
+			$user_id = Auth::user()->id; 
+			$message_user_id = VideoMessage:: Input::get('user_id');
+			if (count($message_user_id = $user_id) > 10)
+			{
+				return Redirect::to('video') -> withErrors(['一天不能發布超過10次留言！']);
+			}else{
+
+			}
+	}
 
 /*	public function avoid_excessive_message(){
 		$user_id = Auth::user()->id;
+		date("Y-m-d",time())
 		$message_time = VideoMessage::get('created_at');
 		if(isset(Carbon::now->hour) ){
 
