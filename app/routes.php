@@ -216,4 +216,5 @@ Route::get('necessity/backstage/freshman/{id}',array('as' => 'necessity.necessit
 
 Route::get('About_us',array('as'=>'','uses'=>'AboutUsController@index'));
 
+
 Route::get('About_us/modal',array('as'=>'About.modal','uses'=>'AboutUsController@getModalId'));
