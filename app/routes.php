@@ -170,6 +170,22 @@ Route::get('necessity/backstage/research/{id}',array('as' => 'necessity.necessit
 
 Route::get('necessity/backstage/freshman/{id}',array('as' => 'necessity.necessity_backstage_freshman_edit', 'uses' => 'necessityController@editA'));
 
+/**/
+
+Route::get('necessity/backstage/download',array('as' => 'necessity.necessity_backstage_download', 'uses' => 'necessityController@index_backstage_download'));
+
+Route::post('download_add',array('as' => 'download_add', 'uses' => 'necessityController@research_add'));
+
+Route::post('download_delete',array('as' => 'download_delete', 'uses' => 'necessityController@research_delete'));
+
+Route::post('download_edit',array('as' => 'download_edit', 'uses' => 'necessityController@research_edit'));
+
+
+Route::get('necessity/backstage/research/{id}',array('as' => 'necessity.necessity_backstage_research_edit', 'uses' => 'necessityController@edit'));
+
+/**/
+
+
 //=============================================================================
 // About us
 
