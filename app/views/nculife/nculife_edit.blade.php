@@ -28,7 +28,9 @@
 		</div>
 		<input type="submit" id="Upload">
 		{{Form::close()}}
-		<img id="local" src="{{ asset('img/uploadImage/' . $local->file_name) }}" style="height:100%; width:100% ;">
+		@if($local != NULL)
+			<img id="local" src="{{ asset('img/uploadImage/' . $local->file_name) }}" style="height:100%; width:100% ;">
+		@endif
 		{{Form::open(array('route'=>'imageUpload', 'method'=>'post', 'files' => true, 'id' => 'ajax-picture-form'))}}
 		<div>照片上傳:
 			{{Form::hidden('response_type', 'json')}}

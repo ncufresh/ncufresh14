@@ -133,6 +133,7 @@ Route::post('game/power/getDayQuest', array('as' => 'game.power.getDayQuest', 'u
 
 Route::post('game/destiny/start', array('as' => 'game.destiny.start', 'uses' => 'GamedestinyController@start'));
 Route::post('game/campus/start', array('as' => 'game.campus.start', 'uses' => 'GamecampusController@start'));
+Route::post('game/campus/check', array('as' => 'game.campus.check', 'uses' => 'GamecampusController@check'));
 
 Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameshopController@index'));
 Route::post('game/shop/type', array('as' => 'game.shop.type', 'uses' => 'GameshopController@changeType'));
@@ -153,6 +154,10 @@ Route::post('/getComments',array('uses' => 'ArticlesController@getComment'));
 Route::post('/orderNew',array('uses' =>'ArticlesController@newArticles'));
 
 Route::post('/orderPop',array('uses' => 'ArticlesController@popArticles'));
+
+Route::post('/deleteArticle',array('uses' => 'ArticlesController@deleteArticle'));
+
+Route::post('/updateArticle',array('uses' => 'ArticlesController@updateArticle'));
 
 //==========================================================================================
 //NcuLife
@@ -220,6 +225,22 @@ Route::post('research_edit',array('as' => 'research_edit', 'uses' => 'necessityC
 Route::get('necessity/backstage/research/{id}',array('as' => 'necessity.necessity_backstage_research_edit', 'uses' => 'necessityController@edit'));
 
 Route::get('necessity/backstage/freshman/{id}',array('as' => 'necessity.necessity_backstage_freshman_edit', 'uses' => 'necessityController@editA'));
+
+/**/
+
+Route::get('necessity/backstage/download',array('as' => 'necessity.necessity_backstage_download', 'uses' => 'necessityController@index_backstage_download'));
+
+Route::post('download_add',array('as' => 'download_add', 'uses' => 'necessityController@research_add'));
+
+Route::post('download_delete',array('as' => 'download_delete', 'uses' => 'necessityController@research_delete'));
+
+Route::post('download_edit',array('as' => 'download_edit', 'uses' => 'necessityController@research_edit'));
+
+
+Route::get('necessity/backstage/research/{id}',array('as' => 'necessity.necessity_backstage_research_edit', 'uses' => 'necessityController@edit'));
+
+/**/
+
 
 //=============================================================================
 // About us

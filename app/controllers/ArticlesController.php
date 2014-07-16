@@ -5,6 +5,7 @@ class ArticlesController extends BaseController{
 	public $restful = true;
 
 	public function getArticles(){
+
 		$articles = Forum::orderBy('created_at','desc')->paginate();
 		$postArticles = Forum::where('article_type','P')->orderBy('created_at','desc')->paginate();
 		$clubArticles = Forum::where('article_type','C')->orderBy('created_at','desc')->paginate();
@@ -74,9 +75,42 @@ class ArticlesController extends BaseController{
 
 		return Response::json($postArticles);
 	}
+	public function deleteArticle(){
+		
+		$id = Input::get('id');
 
+		$comments = Forum::find($id);
+		$num = $comments->comment->count();
+		if($num > 0 || true){
+			//Forum::find($id)->comment->delete();
+			foreach($comments->comment as $comment){
+				$comment->delete();
+			}
+		}
+		Forum::find($id)->delete();
+		$response = array(
+			'status' => 'success' , 
+			'msg' => 'successfully');	
+		return Response::json($response);
+	}
 
+	public function updateArticle(){
+		
+		$id = Input::get('id');
+		$content = Input::get('content');
+		
 
+		$article = Forum::find($id);
+
+		$article->content = $content;
+
+		$article->save();
+		$response = array(
+			'status' => 'success',
+			'msg' => 'successfully');
+
+		return Response::json($response);
+	}
 
 
 

@@ -23,10 +23,10 @@ class necessityController extends BaseController
 	//新增資料進去資料庫
 	public function freshman_add(){
 
-		$user = new NecessityFreshmanData; 	  
+		$user = new NecessityFreshmanData;
 		$user->item = Input::get('item');
-		$user->explanation= Input::get('explanation');
-		$user->organizer= Input::get('organizer');
+		$user->explanation = Input::get('explanation');
+		$user->organizer = Input::get('organizer');
 		$user->save();
 
 		return Redirect::to('necessity/backstage/freshman');
@@ -126,7 +126,16 @@ class necessityController extends BaseController
 
 	public function index_backstage_download()
 	{
-		//no
+		return View::make('necessity.necessity_backstage_download',array(/*參數*/'DownloadData'=>/*model*/NecessityDownloadData::all()));
+	}
+
+	public function download_add(){
+
+		$user = new NecessityDownloadData; 	  
+		$user->name = Input::get('filename');
+		$user->save();
+
+		return Redirect::to('necessity/backstage/doenload');
 	}
 
 //*******************************************************************//
@@ -144,3 +153,4 @@ class necessityController extends BaseController
 
 
 
+/*************************************************************************************************************************************************/

@@ -300,14 +300,81 @@ gameCampus
 */
 #gameCampusContainer {
 	width: 100%;
-	height: 570px;
+	height: 617px;
 	padding: 10px;
-	background-color: yellow;
 }
+
+#gameCampusMain {
+	width: 935px;
+	height: 617px;
+	background: url("../images/gameCampus/startbackground.png") no-repeat;
+	position: relative;
+}
+
+#gameCampusMapButton {
+	width: 201px;
+	height: 135px;
+	top: 402px;
+	left: 87px;
+	background: url("../images/gameCampus/mapButton.png") no-repeat;
+	position: absolute;
+}
+
+#gameCampusMapButton:hover {
+	width: 201px;
+	height: 135px;
+	top: 402px;
+	left: 87px;
+	background: url("../images/gameCampus/mapButtonClick.png") no-repeat;
+	position: absolute;
+}
+
+#gameCampusStartButton {
+	width: 191px;
+	height: 138px;
+	top: 399px;
+	left: 379px;
+	background: url("../images/gameCampus/startButton.png") no-repeat;
+	position: absolute;
+}
+
+#gameCampusStartButton:hover {
+	width: 191px;
+	height: 138px;
+	top: 399px;
+	left: 379px;
+	background: url("../images/gameCampus/startButtonClick.png") no-repeat;
+	position: absolute;
+}
+
+#gameCampusInfoButton {
+	width: 191px;
+	height: 151px;
+	top: 386px;
+	left: 675px;
+	background: url("../images/gameCampus/infoButton.png") no-repeat;
+	position: absolute;
+}
+
+#gameCampusInfoButton:hover {
+	width: 191px;
+	height: 151px;
+	top: 386px;
+	left: 675px;
+	background: url("../images/gameCampus/infoButtonClick.png") no-repeat;
+	position: absolute;
+}
+
 
 #gameCampusMap {
 	display: none;
 	position: relative;
+}
+
+#gameCampusGameBox {
+	width: 935px;
+	height: 617px;
+	background: url("../images/gameCampus/gameBox.png") no-repeat;
 }
 
 .gameCampusType {
@@ -332,16 +399,65 @@ gameCampus
 
 #gameCampusInfo {
 	display: none;
+	width: 935px;
+	height: 617px;
+	margin: auto;
+	background: url("../images/gameCampus/infoBackground.png") no-repeat;
+	position: relative;
+	padding-left: 120px;
+	padding-top: 175px;
+}
+
+#gameCampusInfoExit {
+	width: 46px;
+	height: 46px;
+	top: 102px;
+	left: 790px;
+	position: absolute;
+	background: url("../images/gameCampus/infoExit.png") no-repeat;
+}
+
+#gameCampusInfoExit:hover {
+	width: 46px;
+	height: 46px;
+	top: 102px;
+	left: 790px;
+	position: absolute;
+	background: url("../images/gameCampus/infoExitClick.png") no-repeat;
 }
 
 #gameCampusEnd {
 	display: none;
+	width: 935px;
+	height: 617px;
+	/*background: url("../images/gameCampus/endBackground.png") no-repeat;*/
+	background: url("../images/gameCampus/test.png") no-repeat;
+	position: relative;
+}
+
+#gameCampusScore {
+	font-family: "微軟正黑體", "Microsoft JhengHei";
+	font-size: 30px;
+	color: white;
+	top: 107px;
+	font-weight: bold;
+	position: relative;
+	left: 530px;
 }
 
 #gameCampusAgain {
-	width: 50px;
-	height: 50px;
-	background-color: white;
+	width: 298px;
+	height: 139px;
+	top: 403px;
+	left: 320px;
+	position: absolute;
+	background: url("../images/gameCampus/again.png") no-repeat;
+}
+
+#gameCampusAgain:hover {
+	width: 298px;
+	height: 139px;
+	background: url("../images/gameCampus/againClick.png") no-repeat;
 }
 
 /*

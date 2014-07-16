@@ -1,7 +1,8 @@
+console.log(5);
 $(document).ready(function(){
-
-	$(".window").hide();
-	$(".item").hide();
+console.log(3);
+	//$(".wrapper").hide();
+	$(".item").hide(;fdgfdg
 	$("#morecontent").click(function(){
 		$(".item").show("slow");
 		$("#picture").animate({
@@ -13,6 +14,7 @@ $(document).ready(function(){
 			marginLeft:'-850px'
 			},1000);
 	});
+
 	$("#picture").click(function(){
 		$(".item").hide("slow");
 		$("#morecontent").animate({
@@ -30,17 +32,16 @@ $(document).ready(function(){
 	$(".item").click(function(){
 		getID($(this).data('id'));
 	});
-	$("#back").click(function(){
-		$(this).carousel();
-	});
 
 	$(".close").mouseover(function(){
 		$(this).css({"cursor":"pointer"});
 	
 	});
+
 	$(".item").mouseover(function(){
 		$(this).css({"cursor":"pointer"});
-		open = 0;
+
+
 	});
 
 	function getID(id){
@@ -48,8 +49,26 @@ $(document).ready(function(){
 		var data = {id: id};
 		ajaxGet(url,data,OpenModal);
 	}
+
+console.log(2);
+
 	function OpenModal(data){
-		//$(".window").show();
-		$.jumpWindow("123","111","222");
+		// var introduction = data['introduction'];
+		// if(data['id']!=6){
+		// 	$.jumpWindow("",introduction,"");
+		// }
 	}
+
+	var carousel = $('#carousel').carouseSl();
+  console.log(carousel);
+	$('#carousel_prev').on('click', function(ev) {
+		console.log('left');
+	  carousel.carousel('prev');
+	});
+	$('#carousel_next').on('click', function(ev) {
+	  carousel.carousel('next');
+	});
+
+	console.log(1);
+
 });

@@ -8,6 +8,8 @@
 			<input type="hidden" name="orderPop" id="orderPopHidden" direct="{{URL::to('/orderPop')}}">
 			<input type="hidden" name="getComment" id="getComment" direct="{{URL::to('getComments')}}">
 			<input type="hidden" name="createComment" id="createComment" direct="{{URL::to('/create')}}">
+			<input type="hidden" name="deleteArticle" id="deleteArticle" direct="{{URL::to('/deleteArticle')}}">
+			<input type="hidden" name="updateArticle" id="updateArticle" direct="{{URL::to('/updateArticle')}}">
 			<ul class="nav nav-tabs" id="myTab">
 				<li><a href="#Test1">討論區</a></li>
 				<li><a href="#Test2">系所</a></li>
@@ -26,45 +28,47 @@
 				<div class="tab-pane" id="Test2">
 					<div>
 						@foreach($departmentArticles as $article)
-							<div class="postTimeContainer">
-								<div class="articlePostTime">
-									<span class="author">{{ $article -> author_id }}</span>
-									 posted at 
-									{{ $article -> created_at }} 
+							<div class="fullArticleBox">
+								<div class="postTimeContainer">
+									<div class="articlePostTime">
+										<span class="author">{{ $article -> author_id }}</span>
+										 posted at 
+										{{ $article -> created_at }} 
+									</div>
 								</div>
-							</div>
-							<div class="articleContainer" id="{{ $article -> id }}" >
-								<div class="panel panel-default articleBody">
-									<div class="panel-heading">
-										<h3 class="panel-title"> {{ $article -> title }} </h3>
-									</div>
-									<div class="panel-body">
-										{{ $article -> content }}
-									</div>
-									<a class="moreBox">
-										<div class="moreBtn" id="{{$article -> id}}" direct="{{URL::to('/getComments')}}">
-											<div class="panel panel-default arrow">&dArr;</div>
+								<div class="articleContainer" id="{{ $article -> id }}" >
+									<div class="panel panel-default articleBody">
+										<div class="panel-heading">
+											<h3 class="panel-title"> {{ $article -> title }} </h3>
 										</div>
-									</a>
-								</div>
-								<div class="responseContainer">
-									<form class="commentForm" route="createComment" direct="{{URL::to('/create')}}">
-									{{ Form::label('comment','回覆貼文') }}
-									{{ Form::submit('發表回覆',array(
-										'type' => 'button' , 
-										'class' => 'btn btn-primary createComment'
-									)) }}
-									{{ Form::text('commenterID','',array(
-										'class' => 'form-control commenterID' , 
-										'placeholder' => 'Your ID' ,
-										'id' => 'commenterID'
-									)) }}
-									{{ Form::hidden('articleID','',array('id' => $article-> id , 'class' => 'articleID')) }}
-									{{ Form::textarea('comment','',array(
-										'class' => 'form-control commentTextArea' , 
-										'id' => 'inputContent'
-									)) }}
-									</form>
+										<div class="panel-body">
+											{{ $article -> content }}
+										</div>
+										<a class="moreBox">
+											<div class="moreBtn" id="{{$article -> id}}" direct="{{URL::to('/getComments')}}">
+												<div class="panel panel-default arrow">&dArr;</div>
+											</div>
+										</a>
+									</div>
+									<div class="responseContainer">
+										<form class="commentForm" route="createComment" direct="{{URL::to('/create')}}">
+										{{ Form::label('comment','回覆貼文') }}
+										{{ Form::submit('發表回覆',array(
+											'type' => 'button' , 
+											'class' => 'btn btn-primary createComment'
+										)) }}
+										{{ Form::text('commenterID','',array(
+											'class' => 'form-control commenterID' , 
+											'placeholder' => 'Your ID' ,
+											'id' => 'commenterID'
+										)) }}
+										{{ Form::hidden('articleID','',array('id' => $article-> id , 'class' => 'articleID')) }}
+										{{ Form::textarea('comment','',array(
+											'class' => 'form-control commentTextArea' , 
+											'id' => 'inputContent'
+										)) }}
+										</form>
+									</div>
 								</div>
 							</div>
 						@endforeach
@@ -73,44 +77,46 @@
 				<div class="tab-pane" id="Test3">
 					<div>
 						@foreach($clubArticles as $article)
-							<div class="postTimeContainer">
-								<div class="articlePostTime">
-									<span class="author">{{ $article -> author_id }}</span>
-									 posted at 
-									{{ $article -> created_at }} 
-								</div>
-							</div>
-							<div class="articleContainer" id="{{ $article -> id }}" >
-								<div class="panel panel-default articleBody">
-									<div class="panel-heading">
-										<h3 class="panel-title"> {{ $article -> title }} </h3>
+							<div class="fullArticleBox">
+								<div class="postTimeContainer">
+									<div class="articlePostTime">
+										<span class="author">{{ $article -> author_id }}</span>
+										 posted at 
+										{{ $article -> created_at }} 
 									</div>
-									<div class="panel-body">{{ $article -> content }}</div>
-									<div class='btnBox'><button type="button" class="btn btn-primary btn-sm edit">編輯貼文</button></div>
-									<a class="moreBox">
-										<div class="moreBtn" id="{{$article -> id}}" direct="{{URL::to('/getComments')}}">
-											<div class="panel panel-default arrow">&dArr;</div>
-										</div>
-									</a>
 								</div>
-								<div class="responseContainer">
-									<form class="commentForm" route="createComment" direct="{{URL::to('/create')}}">
-									{{ Form::label('comment','回覆貼文') }}
-									{{ Form::submit('發表回覆',array(
-										'type' => 'button' , 
-										'class' => 'btn btn-primary createComment'
-									)) }}
-									{{ Form::text('commenterID','',array(
-										'class' => 'form-control commenterID' , 
-										'placeholder' => 'Your ID' ,
-										'id' => 'commenterID'
-									)) }}
-									{{ Form::hidden('articleID','',array('id' => $article-> id , 'class' => 'articleID')) }}
-									{{ Form::textarea('comment','',array(
-										'class' => 'form-control commentTextArea' , 
-										'id' => 'inputContent'
-									)) }}
-									</form>
+								<div class="articleContainer" id="{{ $article -> id }}" >
+									<div class="panel panel-default articleBody">
+										<div class="panel-heading">
+											<h3 class="panel-title"> {{ $article -> title }} </h3>
+										</div>
+										<div class="panel-body">{{ $article -> content }}</div>
+										<div class='btnBox'><button type="button" class="btn btn-primary btn-sm edit">編輯貼文</button></div>
+										<a class="moreBox">
+											<div class="moreBtn" id="{{$article -> id}}" direct="{{URL::to('/getComments')}}">
+												<div class="panel panel-default arrow">&dArr;</div>
+											</div>
+										</a>
+									</div>
+									<div class="responseContainer">
+										<form class="commentForm" route="createComment" direct="{{URL::to('/create')}}">
+										{{ Form::label('comment','回覆貼文') }}
+										{{ Form::submit('發表回覆',array(
+											'type' => 'button' , 
+											'class' => 'btn btn-primary createComment'
+										)) }}
+										{{ Form::text('commenterID','',array(
+											'class' => 'form-control commenterID' , 
+											'placeholder' => 'Your ID' ,
+											'id' => 'commenterID'
+										)) }}
+										{{ Form::hidden('articleID','',array('id' => $article-> id , 'class' => 'articleID')) }}
+										{{ Form::textarea('comment','',array(
+											'class' => 'form-control commentTextArea' , 
+											'id' => 'inputContent'
+										)) }}
+										</form>
+									</div>
 								</div>
 							</div>
 						@endforeach

@@ -2,6 +2,7 @@
 
 @section('js_css')
 	{{ HTML::style('css/game.css') }}
+	{{ HTML::script('js/game/game.js') }}
 	{{ HTML::script('js/game/destiny.js') }}
 @stop
 
@@ -18,7 +19,7 @@
 				<div class="destinyText">遊戲需求:</div>
 				<div class="destinyText">消耗電池電量一格</div>
 				<div id="destinyImage"></div>
-				<div id="destinyStart" action="{{ URL::to('game/destiny/start') }}"></div>
+				<div id="destinyStart" action="{{ URL::to('game/destiny/start') }}" endAction="{{ URL::to('game/destiny/end') }}"></div>
 			</div>
 			<div id="bounsPage">
 				<div class="destinyText">恭喜你獲得</div>
