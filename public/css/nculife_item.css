@@ -55,17 +55,40 @@
 	overflow: hidden;
 }
 
-#image {
+#picture_select {
 	width: 100%;
-	height: 100%
+	height: 50px;
+	position: relative;
+	top: 330px;
+	z-index: 999;
+}
+
+.select {
+	width: 50px;
+	height: 30px;
+	position: relative;
+	top: 10px;
+	left: 10px;
+	background-color: yellow;
+	display: inline-block;
+}
+
+#img {
+	position: relative;
+	top: -50px;
+}
+
+.img {
+	width: 100%;
+	height: 100%;
 }
 
 #containment {
 	width: 1468px;
 	height: 708px;
 	position: relative;
-	bottom: 720px;
-	right: 330px;
+	bottom: 723px;
+	right: 329px;
 	z-index: -1;
 }
 
