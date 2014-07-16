@@ -13,20 +13,20 @@
 	</thead>
 	<tbody>
 	@foreach($calenders as $calender)
-		<tr data-url="{{ route('calender.show', array('id' => $calender->id)) }}">
+		<tr data-url="{{ route('admin.calender.show', array('id' => $calender->id)) }}">
 		<td>{{ $calender->id }}</td>
 		<td>{{ $calender->title }}</td>
 		<td>{{ $calender->start_at }}</td>
 		<td>{{ $calender->end_at }}</td>
-		<td><a href="{{ route('calender.show', array('id' => $calender->id)) }}">戳我</a></td>
+		<td><a href="{{ route('admin.calender.show', array('id' => $calender->id)) }}">戳我</a></td>
 	</tr>
 	@endforeach
 	</tbody>
 </table>
 
-@if(Auth::check())
-{{-- @if(Auth::user->can('announcement_admin')) //TODO --}}
-<button id="announcement_create">發公告</button>
+@if($admin == true)
+{{-- @if(Auth::user->can('announcement_admin')) --}}
+	<a href="{{ route('admin.calender.create') }}"><button id="calender-create">發行事曆</button></a>
 {{-- @endif --}}
 @endif
 @stop

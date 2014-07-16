@@ -40,7 +40,31 @@ class necessityController extends BaseController
 		return Redirect::to('necessity/backstage/freshman');
 	}
 
+	 //從資料庫裡面更改資料
+	public function editA($id){
+
+    $data = NecessityFreshmanData::find($id);
 	
+	return View::make('necessity.necessity_backstage_freshman_edit',array('necessityEdition'=>$data));
+	}
+
+	public function freshman_edit(){
+
+		$id = Input::get('id');
+		if(Input::has('id'))
+		{
+
+		$data = NecessityFreshmanData::where('id', '=',$id)->first();;	  
+		$data->item = Input::get('item');
+		$data->explanation= Input::get('explanation');
+		$data->organizer= Input::get('organizer');
+		$data->save();
+
+		}
+
+		return Redirect::to('necessity/backstage/freshman');
+	}
+
 
 //*******************************************************************//
 //research後台的controller
@@ -68,6 +92,34 @@ class necessityController extends BaseController
 
 		return Redirect::to('necessity/backstage/research');
 	}
+    
+
+    //從資料庫裡面更改資料
+	public function edit($id){
+
+    $data = NecessityResearchData::find($id);
+	
+	return View::make('necessity.necessity_backstage_research_edit',array('necessityEdition'=>$data));
+	}
+
+	public function research_edit(){
+
+		$id = Input::get('id');
+		if(Input::has('id'))
+		{
+
+		$data = NecessityResearchData::where('id', '=',$id)->first();;	  
+		$data->item = Input::get('item');
+		$data->explanation= Input::get('explanation');
+		$data->organizer= Input::get('organizer');
+		$data->save();
+
+		}
+
+		return Redirect::to('necessity/backstage/research');
+	}
+
+
 
 //*******************************************************************//
 //download後台的controller
@@ -77,7 +129,18 @@ class necessityController extends BaseController
 		//no
 	}
 
+//*******************************************************************//
+//後台的編輯區
 
+	public function index_backstage_research_edit()
+	{
+		return View::make('necessity.necessity_backstage_research_edit',array(/*參數*/
+			'ResearchData'=>/*model*/NecessityResearchData::all()
+			));
+	}
 
 
 }
+
+
+

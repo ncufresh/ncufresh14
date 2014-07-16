@@ -6,78 +6,19 @@ class AnnouncementController extends BaseController {
 	public function index(){
 		App::make('SiteMap')->pushLocation('公告', route('announcement.index'));
 		$announcements = Announcement::orderBy('pinned', 'DESC')->orderBy('created_at', 'DESC')->get();
-		return View::make('announcement.index', array('announcements' => $announcements));
+		return View::make('announcement.index', array('announcements' => $announcements, 'admin' => false));
 	}
 
-	public function create(){
-		return View::make('announcement.create');
-	}
-
-	public function store(){
-
-		$rules = array(
-			'title' => 'required|max:30',
-			'content' => 'required',
-			'pinned' => 'required',
-		);
-
-		$validator = Validator::make(Input::all(), $rules);
-
-		if($validator->fails()){
-			return Redirect::route('announcement.create')->withErrors($validator)->withInput();
-		}else{
-			//success! save announcement to database~~
-			$announcement = new Announcement;
-			$announcement->title = Input::get('title');
-			$announcement->content = Input::get('content');
-			$announcement->pinned = Input::get('pinned');
-			$announcement->user_id = Auth::user()->id;
-			$announcement->save();
-
-			return Redirect::route('announcement.show', array('id' => $announcement->id));
-		}
-	}
 
 	public function show($id){
+		App::make('SiteMap')->pushLocation('公告', route('announcement.index'));
 		$announcement = Announcement::find($id);
 		//TODO 檢查存不存在
 		$announcement->addViewer();
-		return View::make('announcement.show', array('announcement' => $announcement));
-
+		App::make('SiteMap')->pushLocation($announcement->title, route('announcement.show', array('id' => $announcement->id)));
+		return View::make('announcement.show', array('announcement' => $announcement, 'admin' => true));
 	}
 
-	public function edit($id){
-		$announcement = Announcement::find($id);
-		//TODO 檢查存不存在
-		$announcement->addViewer();
-		return View::make('announcement.edit', array('announcement' => $announcement));
-	}
-
-	public function update($id){
-		$announcement = Announcement::find($id);
-		$rules = array(
-			'title' => 'required|max:30',
-			'content' => 'required',
-			'pinned' => 'required',
-		);
-
-		$validator = Validator::make(Input::all(), $rules);
-		if($validator->fails()){
-			return Redirect::route('announcement.edit')->withErrors($validator)->withInput();
-		}else{
-			//success! save announcement to database~~
-			$announcement->title = Input::get('title');
-			$announcement->content = Input::get('content');
-			$announcement->pinned = Input::get('pinned');
-			$announcement->save();
-
-			return Redirect::route('announcement.show', array('id' => $announcement->id));
-		}
-	}
-
-	public function destroy($id){
-		Announcement::destroy($id);
-	}
 
 
 //	create	resource.create
