@@ -56,19 +56,27 @@ Route::get('error', array('as' => 'error', 'uses' => 'HomeController@errorPage')
 
 //==========================================================================================
 //admin
-Route::group(array('prefix' => 'admin', 'before' => 'basic_admin'), function(){
+Route::group(array('prefix' => 'admin', 'before' => 'admin_basic'), function(){
 	Route::get('/', array('as' => 'dashboard', 'uses' => 'AdminController@index'));
-	Route::resource('announcement', 'AdminAnnouncementController');
 
-	Route::resource('link', 'AdminLinkController');
+	//advance (announcement, link, calender)
+	Route::group(array('before' => 'admin_advance'), function(){
+		Route::resource('announcement', 'AdminAnnouncementController');
 
-	Route::get('group', array('as' => 'admin.group', 'uses' => 'AdminGroupController@index'));
+		Route::resource('link', 'AdminLinkController');
 
-	Route::get('users', array('as' => 'admin.users', 'uses' => 'AdminUsersController@index'));
-	Route::post('users/changeRole', array('as' => 'admin.changeRole', 'uses' => 'AdminUsersController@changeRole'));
+		Route::resource('calender', 'AdminCalenderController');
+	});
 
+	//op users
+	Route::group(array('before' => 'admin_global'), function(){
 
-	Route::resource('calender', 'AdminCalenderController');
+		Route::get('group', array('as' => 'admin.group', 'uses' => 'AdminGroupController@index'));
+
+		Route::get('users', array('as' => 'admin.users', 'uses' => 'AdminUsersController@index'));
+		Route::post('users/changeRole', array('as' => 'admin.changeRole', 'uses' => 'AdminUsersController@changeRole'));
+
+	});
 
 
 	Route::group(array('prefix' => 'api'), function(){
@@ -103,7 +111,7 @@ Route::get('SchoolGuide/getItem', array('as' => 'Guide.one', 'uses' => 'SchoolGu
 Route::get('SchoolGuide/clickImg', array('as' => 'Guide.map', 'uses' => 'SchoolGuideController@clickImg') );
 
 //School guide admin
-Route::group(array('prefix' => ''), function()
+Route::group(array('before' => 'manage_editor'), function()
 {
 
 	Route::post('sure', array('as' => 'sure', 'uses' => 'SchoolGuideController@sure') );

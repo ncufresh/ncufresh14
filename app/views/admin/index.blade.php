@@ -15,15 +15,20 @@
 			</div>
 		@endif
 {{-- manage_link manage_announcement manage_calender --}}
-		@if(Auth::user()->can('manage_link'))
+
 		<div class="functions-block">
 			<h3>編輯東西</h3>
-			<a href="{{ route('admin.announcement.index') }}"><button id="admin-announcement">公告管理</button></a>
-			<a href="{{ route('admin.link.index') }}"><button id="admin-link">友站連結管理</button></a>
-			<a href="{{ route('admin.calender.index') }}"><button id="admin-link">行事曆管理</button></a>
+			@if(Auth::user()->can('manage_announcement'))
+				<a href="{{ route('admin.announcement.index') }}"><button id="admin-announcement">公告管理</button></a>
+			@endif
+			@if(Auth::user()->can('manage_link'))
+				<a href="{{ route('admin.link.index') }}"><button id="admin-link">友站連結管理</button></a>
+			@endif
+			@if(Auth::user()->can('manage_calender'))
+				<a href="{{ route('admin.calender.index') }}"><button id="admin-link">行事曆管理</button></a>
+			@endif
 
 		</div>
-		@endif
 
 		@if(Auth::user()->can('manage_users'))
 		<div class="functions-block">

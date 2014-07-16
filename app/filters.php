@@ -82,16 +82,27 @@ Route::filter('csrf', function()
 
 //Route::filter('')
 
-Route::filter('basic_admin', function(){
-	if (! Entrust::can('manage_users') ) // Checks the current user
-	{
+Route::filter('admin_basic', function(){
+	if(! Entrust::can('manage_editor')){
 		return Redirect::to('/');
 	}
 });
 
 
-Route::filter('manage_editor', function(){
+Route::filter('admin_editor', function(){
 	if(! Entrust::can('manage_editor')){
+		return Redirect::to('/');
+	}
+});
+
+Route::filter('admin_advance', function(){
+	if(! (Entrust::can('manage_calender') && Entrust::can('manage_announcement') && Entrust::can('manage_link'))){
+		return Redirect::to('/');
+	}
+});
+
+Route::filter('admin_global', function(){
+	if(! Entrust::can('manage_users')){
 		return Redirect::to('/');
 	}
 });
