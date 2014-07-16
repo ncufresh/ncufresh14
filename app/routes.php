@@ -42,7 +42,7 @@ Route::resource('announcement', 'AnnouncementController', array('only' => array(
 
 Route::resource('link', 'LinkController');
 
-Route::resource('calender', 'CalenderController');
+//Route::resource('calender', 'CalenderController');
 
 Route::post('imageUpload', array('as' => 'imageUpload', 'uses' => 'HomeController@imageUpload'));
 
@@ -67,6 +67,8 @@ Route::group(array('prefix' => 'admin'), function(){
 	Route::get('users', array('as' => 'admin.users', 'uses' => 'AdminUsersController@index'));
 	Route::post('users/changeRole', array('as' => 'admin.changeRole', 'uses' => 'AdminUsersController@changeRole'));
 
+
+	Route::resource('calender', 'AdminCalenderController');
 
 
 	Route::group(array('prefix' => 'api'), function(){

@@ -8,7 +8,8 @@
 		<th>主題</th>
 		<th>開始日期</th>
 		<th>結束日期</th>
-		<th>暫時link</th>
+		<th>看詳細</th>
+		<th>Say Goodbye!</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -19,13 +20,18 @@
 		<td>{{ $calender->start_at }}</td>
 		<td>{{ $calender->end_at }}</td>
 		<td><a href="{{ route('admin.calender.show', array('id' => $calender->id)) }}">戳我</a></td>
+		<td>
+			{{ Form::open(array('route' => array('admin.calender.destroy', $calender->id), 'method' => 'delete')) }}
+			<button type="submit" >刪除</button>
+			{{ Form::close() }}
+		</td>
 	</tr>
 	@endforeach
 	</tbody>
 </table>
 
 @if($admin == true)
-{{-- @if(Auth::user->can('announcement_admin')) --}}
+{{-- @if(Auth::user->can('ma')) --}}
 	<a href="{{ route('admin.calender.create') }}"><button id="calender-create">發行事曆</button></a>
 {{-- @endif --}}
 @endif

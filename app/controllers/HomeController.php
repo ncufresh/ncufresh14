@@ -19,7 +19,7 @@ class HomeController extends BaseController {
 		App::make('TransferData')->addData('announcement-api-url', route('api.announcement.index'));
 		App::make('TransferData')->addData('announcement-url', route('announcement.index'));
 		App::make('TransferData')->addData('calender-api-url', route('api.calender.index'));
-		App::make('TransferData')->addData('calender-url', route('calender.index'));
+//		App::make('TransferData')->addData('calender-url', route('calender.index'));
 		$links = Link::orderBy('order', 'ASC')->get();
 		$announcements = Announcement::orderBy('pinned', 'DESC')->orderBy('created_at', 'DESC')->get()->take(10);
 		$now = \Carbon\Carbon::now();
