@@ -100,8 +100,8 @@ $(document).ready(function(){
 
 	function showPhoto(data){
 
-		var a =data['introduction'];
-		$.jumpWindow("123",a,"222");
+		var introduction =data['introduction'];
+		$.jumpWindow("123",introduction,"222");
 	
 	}
 
