@@ -2,11 +2,10 @@ $(function(){
 
 	var LorP = 'picture';
 	var canDrag = false;
-	var drag = $('#image').draggable({
+	var drag = $('#1').draggable({
 				containment: '#containment'
         		});
 	var bURL = getTransferData('burl');
-	console.log(bURL);
 	DragLocal();
 
 	$('.place').click(function(){
@@ -40,30 +39,37 @@ $(function(){
 	});
 
 	function changeIntroductionAndImage(data){
-		$('#introduction').text(data['introduction']);
-		console.log(bURL + "/images/nculife/" + data['picture']);
-		$('#image').attr("src", bURL + "/images/nculife/" + data['picture']);
-		$('#buttom').data("num", data['id']);
-		$('#image').css("width", "100%");
-		$('#image').css("height", "100%");
-		$('#image').css("top", "0px");
-		$('#image').css("left", "0px");
+		var i = data['pictures'].length;
+		$('#introduction').text(data['result']['introduction']);
+		$('#1').attr("src", bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name);
+		$('#buttom').data("num", data['result']['id']);
+		$('#1').css("width", "50%");
+		$('#1').css("height", "50%");
 	}
 
 	function changePicture(data){
-		$('#image').attr("src", bURL + "/images/nculife/" + data['picture']);
-		$('#image').css("width", "100%");
-		$('#image').css("height", "100%");
-		$('#image').css("top", "0px");
-		$('#image').css("left", "0px");
+		var i = data['pictures'].length;
+		var j = 1;
+		$('#1').attr("src", bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name);
+		$('#1').css("width", "50%");
+		$('#1').css("height", "50%");
+		for(j;j<i;j++)
+		{
+			$('#picture').append('<img id="' + (j+1) + '" src="' + bURL + "/img/uploadImage/" + data['pictures'][j]['picture_admin'].file_name +'">');
+			$('#' + (j+1)).css("width", "50%");
+			$('#' + (j+1)).css("height", "50%");
+		}
 	}
 
 	function changeLocal(data){
-		$('#image').attr("src", bURL + "/images/nculife/" + data['local']);
-		$('#image').css("width", "140%");
-		$('#image').css("height", "140%");
-		$('#image').css("top", data['top']);
-		$('#image').css("left", data['left']);
+		$('#1').attr("src", bURL + "/img/uploadImage/" + data['local'][0].file_name);
+		var j=2;
+		for(j;j<i;j++)
+		{
+			$('#' + j).remove();
+		}
+		$('#1').css("width", "140%");
+		$('#1').css("height", "140%");
 	}
 
 	function DragLocal(){
