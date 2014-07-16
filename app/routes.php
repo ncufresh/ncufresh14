@@ -102,21 +102,25 @@ Route::get('SchoolGuide/getItem', array('as' => 'Guide.one', 'uses' => 'SchoolGu
 
 Route::get('SchoolGuide/clickImg', array('as' => 'Guide.map', 'uses' => 'SchoolGuideController@clickImg') );
 
-Route::post('sure', array('as' => 'sure', 'uses' => 'SchoolGuideController@sure') );
+//School guide admin
+Route::group(array('prefix' => ''), function()
+{
 
-Route::post('add', array('as' => 'add', 'uses' => 'SchoolGuideController@add') );
+	Route::post('sure', array('as' => 'sure', 'uses' => 'SchoolGuideController@sure') );
 
-Route::post('delete', array('as' => 'delete', 'uses' => 'SchoolGuideController@delete') );
+	Route::post('add', array('as' => 'add', 'uses' => 'SchoolGuideController@add') );
 
-Route::get('SchoolGuide/list',array('as'=>'SchoolGuide.list','uses'=>'SchoolGuideController@showlist'));
+	Route::post('delete', array('as' => 'delete', 'uses' => 'SchoolGuideController@delete') );
 
-Route::get('SchoolGuide/edit/{id}',array('as'=>'SchoolGuide.edit','uses'=>'SchoolGuideController@toedit'));
+	Route::get('SchoolGuide/list',array('as'=>'SchoolGuide.list','uses'=>'SchoolGuideController@showlist'));
 
-Route::get('SchoolGuide/add',array('as'=>'SchoolGuide.add','uses'=>'SchoolGuideController@toadd'));
+	Route::get('SchoolGuide/edit/{id}',array('as'=>'SchoolGuide.edit','uses'=>'SchoolGuideController@toedit'));
 
-Route::get('SchoolGuide/{id}',array('as'=>'SchoolGuide.photo','uses'=>'SchoolGuideController@tophoto'));
+	Route::get('SchoolGuide/add',array('as'=>'SchoolGuide.add','uses'=>'SchoolGuideController@toadd'));
 
+	Route::get('SchoolGuide/{id}',array('as'=>'SchoolGuide.photo','uses'=>'SchoolGuideController@tophoto'));
 
+});
 
 //============================================================================
 //game
