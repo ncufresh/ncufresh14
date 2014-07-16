@@ -103,6 +103,7 @@ Route::post('game/power/getDayQuest', array('as' => 'game.power.getDayQuest', 'u
 
 Route::post('game/destiny/start', array('as' => 'game.destiny.start', 'uses' => 'GamedestinyController@start'));
 Route::post('game/campus/start', array('as' => 'game.campus.start', 'uses' => 'GamecampusController@start'));
+Route::post('game/campus/check', array('as' => 'game.campus.check', 'uses' => 'GamecampusController@check'));
 
 Route::get('game/shop', array('as' => 'game.shop', 'uses' => 'GameshopController@index'));
 Route::post('game/shop/type', array('as' => 'game.shop.type', 'uses' => 'GameshopController@changeType'));

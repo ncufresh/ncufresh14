@@ -13,9 +13,10 @@
     	var running = false;
     	$('#destinyStart').click(function() {
     		if ( !running ) {
-    			$(this).hide();				
 				ajaxPost($(this).attr("action"), '', function(data) {
-					if ( data["play"] ) {
+
+					if ( data["play"] == true) {
+						$('#destinyStart').hide();
 			    		var rotation = 0;
 			    		var decrease = 20;
 			    		var timer = $.timer(function() {
@@ -25,8 +26,7 @@
 						    if ( decrease <= 0 ) {
 						    	timer.stop();
 						    	running = false;
-						    	$('#userPower').text('電量: ' + data["power"]);
-					    		$('#userGP').text('GP: ' + data["gp"]);
+						    	editStatus(data);
 					    		$('#destinyStart').show();
 					    		$('#startPage').hide();
 					    		$('#bounsPage').fadeIn();
@@ -36,14 +36,16 @@
 				    	running = true;
 				    	timer.play();
 					}
-				}, function() {
-
+					else {
+						alert('no power.');
+					}
 				});
 			}
 		});
     	$('#destinyAgain').click(function(){
     		$('#bounsPage').hide();
     		$('#startPage').fadeIn();
+    		running = false;
     	});
     });
 })(jQuery);
