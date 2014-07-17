@@ -46,15 +46,23 @@ $(document).ready(function(){
 			$('#mode3').children().attr('src',''+burl+'/images/gameSnake/m3.png');
 	}
 
-	$('#start').click(function() {
+	var power;
+	$('#start').click(function() 
+	{
 		if(difficult!=0&&mode!=0)
 		{
-			key=0;
 			$('#cover').hide();
 			$('#content').show();
-
-			initial();
-			startGame();
+			ajaxPost(getTransferData('get-power-url'),'', function(data)
+			{
+				power=data['power'];
+				if(power>0)
+				{
+					key=0;
+					initial();
+					startGame();
+				}
+			});
 		}
 	});
 
@@ -146,10 +154,6 @@ $(document).ready(function(){
 		pointcount = 0;
 		live = 1000;
 		brokenBeforeCount = 0;
-
-		for(var i=0; i<blocknum; i++)
-			for(var j=0; j<blocknum; j++)
-				Box[i][j].empty();
 
 		coordx=coordRandom(coordx);
 		coordy=coordRandom(coordy);
@@ -251,6 +255,12 @@ $(document).ready(function(){
 			timer.stop();
 			$('#content').hide();
 			$('#endScreen').show();
+			ajaxPost(getTransferData('renew-value-url'),{score:score},'');
+
+			for(var i=0; i<blocknum; i++)
+				for(var j=0; j<blocknum; j++)
+					Box[i][j].empty();
+
 			$('#again').click(function() {
 				$('#endScreen').hide();
 				if(difficult==1)
@@ -266,7 +276,7 @@ $(document).ready(function(){
 				if(mode==3)
 					$('#mode3').children().attr('src',''+burl+'/images/gameSnake/m3Click.png');
 					$('#cover').show();
-				//timer.start();
+				timer.start();
 				initial();
 				startGame();				
 			});
@@ -285,7 +295,7 @@ $(document).ready(function(){
 
 			if(0<=echina && echina<60) // yellow
 				scorecount[0]++;
-			else if(60<=echina && echina<80) // orange
+			else if(60<=echina && echina<80) // white
 				scorecount[1]++;
 			else if(80<=echina && echina<92) // green
 				scorecount[2]++;
@@ -302,7 +312,6 @@ $(document).ready(function(){
 				for(var i=0; i<5+pointcount; i++)
 					bombEchinacea();
 			pointEchinacea();
-			
 		}
 
 		// store new value of recent position of snack in snakespath[][] 
@@ -485,7 +494,7 @@ $(document).ready(function(){
 			if(0<=echina && echina<60) // yellow
 				echinacea = $('<div id="yellow"><img src="'+burl+'/images/gameSnake/yellow.png" width="30px" height="25px" "></div>');
 			else if(60<=echina && echina<80) // green
-				echinacea = $('<div id="orange"><img src="'+burl+'/images/gameSnake/orange.png" width="30px" height="25px" "></div>');
+				echinacea = $('<div id="white"><img src="'+burl+'/images/gameSnake/white.png" width="30px" height="25px" "></div>');
 			else if(80<=echina && echina<92) // brown
 				echinacea = $('<div id="green"><img src="'+burl+'/images/gameSnake/green.png" width="30px" height="25px" "></div>');
 			else if(92<=echina && echina<97) // purple
@@ -555,8 +564,8 @@ $(document).ready(function(){
 				// produce a pointEchinacea if a recent pointEchinacea was broken by explosion
 				if((x+i)==point[0]&&(y+j)==point[1])
 				{
-					pointEchinacea();
 					Box[point[0]][point[1]].empty();
+					pointEchinacea();
 				}
 				
 				bombpicture = $('<div id="exbomb"><img src="'+burl+'/images/gameSnake/exbomb.png"  width="30px" height="25px" "></div>');

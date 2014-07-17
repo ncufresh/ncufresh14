@@ -13,8 +13,6 @@
 		<div id="introduction"></div>
 	</div>
 
-	
-
 	<div id="startGame">
 		<div id="question"></div>
 		<div class="base" id="qa" data-getclick="1" data-option="(A)"></div>
