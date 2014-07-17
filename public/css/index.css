@@ -113,6 +113,15 @@
 	top: 100px;
 	left: 45px;
 }
+
+.announcement-row{
+	cursor: pointer;
+}
+
+.calender-row{
+	cursor: pointer;
+}
+
 #forum {
 	width: 450px;
 	float: left;
