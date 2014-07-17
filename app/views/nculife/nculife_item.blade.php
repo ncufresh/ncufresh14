@@ -18,13 +18,19 @@
 			</div>
 			<div id="picture">
 				<?php $i=1; ?>
+				<div id="picture_select">
 				@foreach($pictures as $picture)
-					<img id="{{$i++}}" src="{{ asset( 'img/uploadImage/' .  $picture->pictureAdmin->file_name) }}" style="height:50%; width:50%">
+					<div id="{{$picture->pictureAdmin->id}}" class="select">
+						{{$i++}}
+					</div>
 				@endforeach
 				<script>
 					var i = {{ json_encode($i) }};
 				</script>
-				<div id="containment">
+				</div>
+				<?php $i=1; ?>
+				<div id="img">
+					<img id="{{$i}}" class="img" src="{{ asset( 'img/uploadImage/' .  $pictures[0]->pictureAdmin->file_name) }}">
 				</div>
 			</div>
 			<div id="select">

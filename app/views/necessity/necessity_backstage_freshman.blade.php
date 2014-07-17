@@ -15,7 +15,7 @@
     		</br>
     		項目：
 			{{ Form::text('item','  偷拍女生洗澡注意事項!!', array('class' => 'backstage_item_add' ))}}
-			</br>			
+			</br>
 			說明：
 			{{ Form::textarea ('explanation', '  切記相機要關閃光燈!!', array('class' => 'backstage_explanation_add' )) }}
 			</br>			
@@ -39,7 +39,7 @@
 			{{ Form::open(array('route' => 'freshman_delete')) }}
     		</br>
 			項目
-    		<div class="backstage">{{$freshmandata->item }}</div>
+    		<div class="backstage">{{$freshmandata->item}}</div>
 			<br>			
 			說明
 			<div class="backstage">{{$freshmandata->explanation}}</div>
