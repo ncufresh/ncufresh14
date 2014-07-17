@@ -1,11 +1,15 @@
-$(function(){
+var titleEmptyMsg = "請輸入文章標題";
+var contentEmptyMsg = "請輸入文章內容";
+var commentEmptyMsg = "請輸入留言內容";
 
+$(function(){
 	var orderNewUrl = $("#orderNewHidden").attr("direct");
 	var getCommentsUrl = $("#getComment").attr("direct");
 	var createCommentUrl = $("#createComment").attr("direct");
 	var orderPopUrl = $("#orderPopHidden").attr("direct");
 	var deleteArticleUrl = $("#deleteArticle").attr("direct");
 	var updateArticleUrl = $("#updateArticle").attr("direct");
+	var newArticleUrl = $("#newArticle").attr("direct");
 	$.ajax({
 		type:"POST",
 		url:orderNewUrl,
@@ -94,6 +98,7 @@ $(function(){
 	$("#createBtn").click(function(){
 		$('#myModal').modal('toggle');
 	});
+	//$("#errorMsgDialog").modal('toggle'); /*-----------------------------------------------------------------------------------------*/
 	$("#new").change(function(){
 		//alert("new");
 		//alert(url);
@@ -298,6 +303,35 @@ $(function(){
 		}
 		responseContainer.slideToggle(); 
 	});
+
+	$("#submitArticle").click(function(){
+		var title = $("#inputTitle").val();
+		var content =$("#inputDetail").val();
+		var id = $("#inputAuthor_id").val();
+		var type = $("#selectType").val();
+		$.ajax({
+			type:"POST",
+			url:newArticleUrl,
+			data:{
+				"title":title,
+				"id":id,
+				"content":content,
+				"article_type":type
+			},
+			success:function(){
+				$('#myModal').modal('toggle');
+				alert("success");
+				var dateTime = new Date();
+				var currentTime = dateTime.getFullYear()+"-"+dateTime.getMonth()+1+"-"+dateTime.getDate()+" "+dateTime.getHours()+":"+dateTime.getMinutes();
+				$("#toolBar").after("<div><div class='postTimeContainer'><div class='articlePostTime'><span class='author'>"+id+"</span>posted"+currentTime+"</div></div></div>");
+				$("#toolBar").after("<div class='articleContainer' id='"+id+"' ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+title+" </h3></div><div class='panel-body'>"+content+"</div><a class='moreBox'><div class='moreBtn' id='"+id+"' direct='"+getCommentsUrl+"'><div class='panel panel-default arrow' >&dArr;</div></div></a></div><div class='responseContainer'><form class='commentForm' route='createComment'><label>回覆貼文</label><input type='submit' class='btn btn-primary createComment' value='發表回覆'><input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'><input type='hidden' name='articleID' id='"+id+"' class='articleID'><input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'></form></div></div>");
+			},
+			error:function(){
+				alert("Error");
+			}
+		},"json");
+	});
+
 	$(".edit").click(function(){
 		var target = $(this).parent().parent().find(".panel-body");
 		var btn = $(this);

@@ -177,8 +177,6 @@ Route::post('/orderNew',array('as' => 'orderNew' , 'uses' =>'ArticlesController@
 
 Route::post('/orderPop',array('as' => 'orderPop' , 'uses' => 'ArticlesController@popArticles'));
 
-#Route::post('/deleteArticle',array('as' => 'deleteArticle' , 'uses' => 'ArticlesController@deleteArticle'));
-
 // Need login
 Route::group(array('before' => 'auth'), function(){
 	Route::post('/new',array('as'=>'newArticle','uses' => 'ArticlesController@postArticles'));
