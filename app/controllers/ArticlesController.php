@@ -4,16 +4,18 @@ class ArticlesController extends BaseController{
 
 	public $restful = true;
 
-	public function getArticles(){
+	/*$rules = array(
+		'title' => 'required|max:20'
+	);*/
 
-		$articles = Forum::orderBy('created_at','desc')->paginate();
-		$postArticles = Forum::where('article_type','P')->orderBy('created_at','desc')->paginate();
+	public function getArticles(){
+		
+		$siteMap = App::make('SiteMap');
+		$siteMap->pushLocation('論壇',route('forum'));
+
 		$clubArticles = Forum::where('article_type','C')->orderBy('created_at','desc')->paginate();
 		$departmentArticles = Forum::where('article_type','D')->orderBy('created_at','desc')->paginate();
-		//return View::make('forum/articles')->with('articles',$articles);
 		return View::make('forum/articles',array(
-			'articles' => $articles , 
-			'postArticles' => $postArticles ,
 			'clubArticles' => $clubArticles ,
 			'departmentArticles' => $departmentArticles
 		));
@@ -21,6 +23,8 @@ class ArticlesController extends BaseController{
 
 	public function postArticles(){
 		$input = Input::all();
+		
+				
 
 		Forum::create(array(
 			'title' => Input::get('title'),

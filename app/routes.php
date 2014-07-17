@@ -159,21 +159,24 @@ Route::group(array('before' => 'auth'), function(){
 //Forum articles
 Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@getArticles'));
 
-Route::post('/getComments',array('uses' => 'ArticlesController@getComment'));
 
-Route::post('/orderPop',array('uses' => 'ArticlesController@popArticles'));
+Route::post('/getComments',array('as' => 'getComments' , 'uses' => 'ArticlesController@getComment'));
 
-Route::post('/deleteArticle',array('uses' => 'ArticlesController@deleteArticle'));
+Route::post('/orderNew',array('as' => 'orderNew' , 'uses' =>'ArticlesController@newArticles'));
+
+Route::post('/orderPop',array('as' => 'orderPop' , 'uses' => 'ArticlesController@popArticles'));
+
+#Route::post('/deleteArticle',array('as' => 'deleteArticle' , 'uses' => 'ArticlesController@deleteArticle'));
 
 // Need login
 Route::group(array('before' => 'auth'), function(){
-	Route::post('/new',array('uses' => 'ArticlesController@postArticles'));
+	Route::post('/new',array('as'=>'newArticle','uses' => 'ArticlesController@postArticles'));
 
 	Route::post('/create',array('as' => 'createComment' , 'uses' => 'ArticlesController@postComment' ));
 
-	Route::post('/orderNew',array('uses' =>'ArticlesController@newArticles'));
+	Route::post('/deleteArticle',array('as' => 'deleteArticle' , 'uses' => 'ArticlesController@deleteArticle'));
 
-	Route::post('/updateArticle',array('uses' => 'ArticlesController@updateArticle'));
+	Route::post('/updateArticle',array('as'=>'updateArticle','uses' => 'ArticlesController@updateArticle'));
 });
 
 //==========================================================================================
