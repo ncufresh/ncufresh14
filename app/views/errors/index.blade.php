@@ -1,6 +1,14 @@
 @extends('layouts.layout')
 
+@section('js_css')
+	{{ HTML::style('css/error.css') }}
+@stop
+
 @section('content')
-	發生錯誤了QQ<br>
-	錯誤訊息: {{{ $message }}}
+	<div id="errorContainer">
+		<a id="erroGoHome" href="{{ route('home') }}"></a>
+
+		錯誤訊息: {{{ $message }}}
+	</div>
+	
 @stop

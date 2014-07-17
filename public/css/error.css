@@ -1,0 +1,25 @@
+#errorContainer {
+	width: 936px;
+	height: 528px;
+	background: url("../images/error/background.png") no-repeat;
+	margin: 25px auto;
+	position: relative;
+}
+
+#erroGoHome {
+	width: 110px;
+	height: 46px;
+	top: 465px;
+	left: 795px;
+	background: url("../images/error/home.png") no-repeat;
+	position: absolute;
+}
+
+#erroGoHome:hover {
+	width: 110px;
+	height: 46px;
+	top: 465px;
+	left: 795px;
+	background: url("../images/error/homeClick.png") no-repeat;
+	position: absolute;
+}
