@@ -5,6 +5,8 @@ class necessityController extends BaseController
 	//取得資料庫資料
 	public function index()
 	{
+		App::make('SiteMap')->pushLocation('新生必讀', route('necessity.necessity_index'));
+
 		return View::make('necessity.necessity_index',array(/*參數*/
 			'necessityResearchData'=>/*model*/NecessityResearchData::all(),
 			'necessityFreshmanData'=>/*model*/NecessityFreshmanData::all()));
@@ -29,7 +31,7 @@ class necessityController extends BaseController
 		$user->organizer = Input::get('organizer');
 		$user->save();
 
-		return Redirect::to('necessity/backstage/freshman');
+		return Redirect::route('necessity.necessity_backstage_freshman');
 	}
 
 	//從資料庫裏面刪除資料
@@ -37,7 +39,7 @@ class necessityController extends BaseController
 		
 		$user = NecessityFreshmanData::where('id', '=', Input::get('ID'))->delete();
 
-		return Redirect::to('necessity/backstage/freshman');
+		return Redirect::route('necessity.necessity_backstage_freshman');
 	}
 
 	 //從資料庫裡面更改資料
@@ -62,7 +64,7 @@ class necessityController extends BaseController
 
 		}
 
-		return Redirect::to('necessity/backstage/freshman');
+		return Redirect::route('necessity.necessity_backstage_freshman');
 	}
 
 
@@ -82,7 +84,7 @@ class necessityController extends BaseController
 		$user->organizer= Input::get('organizer');
 		$user->save();
 
-		return Redirect::to('necessity/backstage/research');
+		return Redirect::route('necessity.necessity_backstage_research');
 	}
 
 	//從資料庫裏面刪除資料
@@ -90,7 +92,7 @@ class necessityController extends BaseController
 		
 		$user = NecessityResearchData::where('id', '=', Input::get('ID'))->delete();
 
-		return Redirect::to('necessity/backstage/research');
+		return Redirect::route('necessity.necessity_backstage_research');
 	}
     
 
@@ -116,7 +118,7 @@ class necessityController extends BaseController
 
 		}
 
-		return Redirect::to('necessity/backstage/research');
+		return Redirect::route('necessity.necessity_backstage_research');
 	}
 
 
@@ -135,7 +137,7 @@ class necessityController extends BaseController
 		$user->name = Input::get('filename');
 		$user->save();
 
-		return Redirect::to('necessity/backstage/doenload');
+		return Redirect::route('necessity.necessity_backstage_download');
 	}
 
 //*******************************************************************//

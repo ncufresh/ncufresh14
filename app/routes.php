@@ -224,6 +224,7 @@ Route::get('necessity',array('as' => 'necessity.necessity_index', 'uses' => 'nec
 
 
 Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){
+	
 	Route::get('necessity/backstage/freshman',array('as' => 'necessity.necessity_backstage_freshman', 'uses' => 'necessityController@index_backstage_freshman'));
 
 	Route::post('freshman_add',array('as' => 'freshman_add', 'uses' => 'necessityController@freshman_add'));
