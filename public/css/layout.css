@@ -115,7 +115,7 @@ body {
 	margin-left: 80px;
 }
 
-#topNavBarLife:hover{
+#topNavBarLife:hover {
 	background-image: url("../images/layout/nculife2.png");
 	margin-left: 80px;
 }
@@ -204,6 +204,23 @@ body {
 	margin-top: 10px;
 	background: url("../images/layout/facebox2.png") no-repeat;
 	background-size: 100%;
+	position: relative;
+}
+
+#logoutButton {
+	width: 79px;
+	height: 22px;
+	background: url("../images/layout/logout.png") no-repeat;
+	background-size: 100%;
+	position: absolute;
+}
+
+#logoutButton:hover {
+	width: 79px;
+	height: 22px;
+	background: url("../images/layout/logoutClick.png") no-repeat;
+	background-size: 100%;
+	position: absolute;
 }
 
 #auth_nolgin {

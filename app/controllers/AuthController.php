@@ -249,6 +249,27 @@ class AuthController extends BaseController {
 	public function postRegister($user){
 		$role = Role::orderBy('id', 'DESC')->first();
 		$user->roles()->sync(array($role->id));
+
+		/*
+			add game user
+		*/
+		$gameUser = new Game;
+		$gameUser->user_id = $user->id;
+		$gameUser->power = 5;
+		$gameUser->max_power = 5;
+		$gameUser->gp = 0;
+		$gameUser->head = 0;
+		$gameUser->face = 0;
+		$gameUser->body = 0;
+		$gameUser->foot = 0;
+		$gameUser->item = 0;
+		$gameUser->map = 0;
+		$gameUser->save();
+
+		/*
+			end
+		*/
+
 	}
 
 

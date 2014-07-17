@@ -26,7 +26,6 @@
 	</div>
 	<div id="content">
 		<div id="snakeContent">
-			<div id="snakehead"></div>
 		</div>
 	</div>
 

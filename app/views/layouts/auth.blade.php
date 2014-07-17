@@ -2,7 +2,7 @@
 @if(Auth::check())
 	<div id="auth_logined">
 	{{-- User has logined. show logout(?) --}}
-		<a href="{{ route('logout') }}">Logout</a>
+		<a id="logoutButton"href="{{ route('logout') }}"></a>
 	</div>
 @else
 	

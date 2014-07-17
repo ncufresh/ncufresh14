@@ -411,7 +411,7 @@ gameCampus
 #gameCampusInfoExit {
 	width: 46px;
 	height: 46px;
-	top: 102px;
+	top: 50px;
 	left: 790px;
 	position: absolute;
 	background: url("../images/gameCampus/infoExit.png") no-repeat;
@@ -420,7 +420,7 @@ gameCampus
 #gameCampusInfoExit:hover {
 	width: 46px;
 	height: 46px;
-	top: 102px;
+	top: 50px;
 	left: 790px;
 	position: absolute;
 	background: url("../images/gameCampus/infoExitClick.png") no-repeat;
