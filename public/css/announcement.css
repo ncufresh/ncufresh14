@@ -1,0 +1,13 @@
+#announcement-content{
+	padding: 10px;
+}
+#announcement-content>table>tbody>tr>td>img{
+	width: 30px;
+}
+#announcement-content>table>tbody>tr{
+	cursor: pointer;
+}
+
+#announcement-show{
+	padding: 10px;
+}
