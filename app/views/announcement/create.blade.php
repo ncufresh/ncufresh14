@@ -2,7 +2,7 @@
 
 
 @section('content')
-	{{ Form::open(array('route' => 'announcement.store')) }}
+	{{ Form::open(array('route' => 'admin.announcement.store')) }}
 	{{ Form::label('title', '標題') }}
 	{{ Form::text('title')}}
 	{{ Form::label('content', '內容') }}

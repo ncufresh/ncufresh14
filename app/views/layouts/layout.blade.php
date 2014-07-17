@@ -14,6 +14,7 @@
 		{{ HTML::script('js/layout/chatroom.js') }}
 		{{ HTML::style('css/bootstrap.min.css') }}
 		{{ HTML::style('css/jquery.jscrollpane.css') }}
+		{{ HTML::style('css/jquery-ui.min.css') }}
 
 		{{ HTML::style('css/layout.css') }}
 

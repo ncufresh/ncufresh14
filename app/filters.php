@@ -78,3 +78,31 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+
+//Route::filter('')
+
+Route::filter('admin_basic', function(){
+	if(! Entrust::can('manage_editor')){
+		return Redirect::to('/');
+	}
+});
+
+
+Route::filter('admin_editor', function(){
+	if(! Entrust::can('manage_editor')){
+		return Redirect::to('/');
+	}
+});
+
+Route::filter('admin_advance', function(){
+	if(! (Entrust::can('manage_calender') && Entrust::can('manage_announcement') && Entrust::can('manage_link'))){
+		return Redirect::to('/');
+	}
+});
+
+Route::filter('admin_global', function(){
+	if(! Entrust::can('manage_users')){
+		return Redirect::to('/');
+	}
+});

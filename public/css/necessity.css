@@ -34,7 +34,7 @@
 	word-wrap: break-word;
 }
 
-.backstage_item{
+.backstage{
 	width: 650px;
 	height: auto;
 	border-style:ridge;
@@ -44,28 +44,5 @@
 	text-indent:20px; 
 	white-space: pre;
 	word-wrap: break-word;
-}
-
-.backstage_explanation{
-	width: 650px;
-	height: auto;
-	border-style:ridge;
-	border-width:2px;
-	font-size:100%;
-	text-align:left;
-	text-indent:20px; 
-	white-space: pre;
-	word-wrap: break-word;
-}
-
-.backstage_organizer{
-	width: 650px;
-	height: auto;
-	border-style:ridge;
-	border-width:2px;
-	font-size:100%;
-	text-align:left; 
-	text-indent:20px;
-	white-space: pre;
-	word-wrap: break-word;
+	
 }

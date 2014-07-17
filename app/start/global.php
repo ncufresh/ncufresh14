@@ -85,4 +85,10 @@ App::down(function()
 App::instance('TransferData', new TransferData);
 App::instance('SiteMap', new SiteMap);
 
+
+App::missing(function($exception)
+{
+	return Response::view('errors.index', array('message' => '找不到路徑'), 404);
+});
+
 require app_path().'/filters.php';

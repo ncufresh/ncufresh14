@@ -26,4 +26,13 @@ $(function(){
 
 		$('#fb').css({display: 'block', opacity: 0}).animate({opacity: 1}, 2000);
 	}
+
+	$("#high_school").autocomplete({
+		source: getTransferData('register-high-school-url'),
+		minLength: 1,
+		messages: {
+			noResults: '',
+			results: function() {}
+		}
+	});
 });

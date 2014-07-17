@@ -1,0 +1,141 @@
+/*/////////////////////////////cover/////////////////////////////////////////*/
+#cover {
+	width: 935px;
+	height: 617px;
+	background-image: url("../../images/gameSnake/cover.png");
+}
+.choice {
+	width: 100%;
+	height: 45%;	
+	position: relative;
+}
+
+/*/////////////Difficult//////////////////////*/
+.Difficult {
+	margin-top: 200px;
+	float: left;
+	width: 50%;
+}
+#difficulty1 {
+	width: 254px;
+	height: 66px;	
+	margin-top: 20px;
+}
+#difficulty2 {
+	width: 254px;
+	height: 66px;
+	margin-top: 20px;
+}
+#difficulty3 {
+	width: 254px;
+	height: 66px;
+	margin-top: 20px;
+}
+#start {
+	width: 304px;
+	height: 95px;
+	margin-top: 20px;
+	background: url("../../images/gameSnake/start.png") no-repeat;
+}
+#start:hover {
+	background: url("../../images/gameSnake/startClick.png") no-repeat;
+}
+/*/////////////Mode//////////////////////*/
+.Mode {
+	margin-top: 200px;
+	float: left;
+	width: 50%;
+}
+#mode1 {
+	width: 254px;
+	height: 66px;
+	margin-top: 20px;
+}
+#mode2 {
+	width: 254px;
+	height: 66px;
+	margin-top: 20px;
+}
+#mode3 {
+	width: 254px;
+	height: 66px;
+	margin-top: 20px;
+}
+#intro {
+	width: 304px;
+	height: 95px;
+	margin-top: 20px;
+	background: url("../../images/gameSnake/intro.png") no-repeat;
+}
+#intro:hover {
+	background: url("../../images/gameSnake/introClick.png") no-repeat;
+}
+#introduction {
+	width: 776px;
+	height: 463px;
+	top: 80px;
+	margin: center;
+	position: relative;
+	background-image: url("../../images/gamePower/introduction.png");
+	display: none;
+}
+/*/////////////////////////////content/////////////////////////////////////////*/
+#content {	
+	width: 935px;
+	height: 617px;
+	background-image: url("../../images/gameSnake/content.png");
+	display: none;
+}
+#snakeContent {
+	width: 920px;
+	height: 610px;
+	top: 2px;
+	left: 8px;
+	border: 3px green solid; /*gray solid*/
+	position: relative;
+}
+.block {
+	border: 1px; /*gray solid*/
+	width: 32px;
+	height: 20px;
+}
+#bomb {
+	position: absolute;
+}
+#snakehead { position: absolute;
+z-index: 100;
+margin-top: -5px;
+margin-left: -9px; }
+#snakebody { position: absolute; }
+#red { position: absolute;	 }
+#yellow { position: absolute;	 }
+#green { position: absolute;	 }
+#brown { position: absolute;	 }
+#purple { position: absolute;	 }
+#blue { position: absolute;	 }
+#muliticolor { position: absolute; }
+#bomb { position: absolute; }
+#bomb1 { position: absolute; }
+#bomb2 { position: absolute; }
+#bomb3 { position: absolute; }
+#exbomb { position: absolute; }
+#brokenBody { position: absolute; }
+
+/*/////////////////////////////endScreen/////////////////////////////////////////*/
+#endScreen {
+	width: 935px;
+	height: 617px;
+	text-align: center;
+	background-image: url("../../images/gameSnake/endScreen.png");
+	display: none;
+}
+#score {
+	text-align: center;
+	top: 330px;
+	font-family: "微軟正黑體";
+	position: relative;
+}
+#again {
+	margin-top: 340px;
+	position: relative;
+}

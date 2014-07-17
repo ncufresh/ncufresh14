@@ -33,10 +33,10 @@
 						{{ Form::radio('gender', '0') }} 女
 					</div>
 				</div>
-				<div class="form-group">
+				<div class="form-group ui-widget">
 					<label for="high_school" class="col-sm-3 control-label">畢業高中</label>
 					<div class="col-sm-5">
-						{{ Form::text('high_school', null, array('class' => 'form-control', 'placeholder' => '請輸入畢業高中')) }}
+						{{ Form::text('high_school', null, array('class' => 'form-control', 'placeholder' => '請輸入畢業高中', 'id' => 'high_school')) }}
 					</div>
 				</div>
 
@@ -94,7 +94,7 @@
 				<div class="form-group">
 					<label for="high_school" class="col-sm-3 control-label">畢業高中</label>
 					<div class="col-sm-5">
-						{{ Form::text('high_school', null, array('class' => 'form-control', 'placeholder' => '請輸入畢業高中')) }}
+						{{ Form::text('high_school', null, array('class' => 'form-control', 'placeholder' => '請輸入畢業高中', 'id' => 'high_school')) }}
 					</div>
 				</div>
 
