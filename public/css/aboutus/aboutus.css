@@ -33,7 +33,7 @@
 }
 #content{
 	width: 100%;
-	height: 2000px;
+	height: 700px;
 	background-color:#990033;
 }
 /*modal*/
@@ -62,27 +62,10 @@
 	width: 550px;
 	height: 80px;
 }
-/*#carousel {
-  margin: 0 auto;
-  width: 600px;
-  height: 150px;
-  background: #efefef;
-  overflow: hidden;
-}
-#carousel .carousel_box {
-   width: 600px;
-    height: 140px;
-    color: #fff;
-    background: #252525;
-    line-height: 140px;
-    text-align: center;
-    font-size: 123%; 
-}*/
-/*
-.modal{
+/*.modal{
 	width: 700px;
     height: 500px;
-    line-height: 200px;
+    /*line-height: 200px;
     position: relative;
     top: -900px; 
     left: 430px;
@@ -116,17 +99,10 @@
     top:10px;
     left: 370px;
 }*/
-.items{
+.item{
 	background-color:#FF9900;
 	width: 50px;
 	height: 15px;
 	z-index: 3;
 	margin: 10px;
-}
-.modal-lg{
-	width: 1000px; !important
-}
-
-#carousel-example-generic{
-	width: 600px;  !important
 }

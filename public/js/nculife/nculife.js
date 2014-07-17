@@ -38,27 +38,34 @@ $(function(){
 		}
 	});
 
+	$('.select').click(function(){
+
+	});
+
 	function changeIntroductionAndImage(data){
 		var i = data['pictures'].length;
 		$('#introduction').text(data['result']['introduction']);
 		$('#1').attr("src", bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name);
 		$('#buttom').data("num", data['result']['id']);
-		$('#1').css("width", "50%");
-		$('#1').css("height", "50%");
+		$('#1').css("width", "100%");
+		$('#1').css("height", "100%");
+		$('#1').css("top", "0px");
+		$('#1').css("left", "0px");
 	}
 
 	function changePicture(data){
 		var i = data['pictures'].length;
-		var j = 1;
-		$('#1').attr("src", bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name);
-		$('#1').css("width", "50%");
-		$('#1').css("height", "50%");
+		var j = 0;
+		$('#img').remove();
+		$('#containment').remove();
+		$('#picture').append('<div id="picture_select"></div>');
 		for(j;j<i;j++)
 		{
-			$('#picture').append('<img id="' + (j+1) + '" src="' + bURL + "/img/uploadImage/" + data['pictures'][j]['picture_admin'].file_name +'">');
-			$('#' + (j+1)).css("width", "50%");
-			$('#' + (j+1)).css("height", "50%");
+			$('#picture_select').append('<div id="' + data['pictures'][j].picture_id + '" class="select">' + (j+1) +'</div> ');
 		}
+		$('#picture').append('<div id="img"></div>');
+		$('#img').append('<img id="1" src="' + bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name +'">');
+		$('#1').css("width", "100%").css("height", "100%").css("top", "0px").css("left", "0px");
 	}
 
 	function changeLocal(data){
@@ -68,8 +75,12 @@ $(function(){
 		{
 			$('#' + j).remove();
 		}
-		$('#1').css("width", "140%");
-		$('#1').css("height", "140%");
+		$('#1').css("width", "140%").css("height", "140%");
+		$('#picture_select').remove();
+		$('#picture').append('<div id="containment"></div>');
+		$('#img').css("top", "0px");
+		// $('#1').css("top", "0px");
+		// $('#1').css("left", "0px");
 	}
 
 	function DragLocal(){
