@@ -109,7 +109,7 @@ class AuthController extends BaseController {
 						$user->nick_name = $userProfile->getName();
 						$user->email = $userProfile->getProperty('email');
 						$user->high_school_id = 1;
-						$user->department_id = 1;
+						$user->department_id = 1001;
 						$user->grade = 1;
 						$user->password = 'facebook';
 						$user->save();
@@ -119,6 +119,8 @@ class AuthController extends BaseController {
 						$facebookData->user_id = $user->id;
 
 						$facebookData->save();
+
+						$this->postRegister($user);
 
 						Auth::login($user);
 						return Redirect::route('register.FB');
@@ -218,6 +220,7 @@ class AuthController extends BaseController {
 				$newUser->high_school_id = HighSchool::firstOrCreate(array('high_school_name' => Input::get('high_school')))->id;
 				$newUser->gender = Input::get('gender');
 				$newUser->save();
+				$this->postRegister($newUser);
 				return Redirect::intended('/');
 			}
 		}
@@ -232,6 +235,11 @@ class AuthController extends BaseController {
 		endforeach;
 
 		return Response::json($data);
+	}
+
+	public function postRegister($user){
+		$role = Role::orderBy('id', 'DESC')->first();
+		$user->roles()->sync(array($role->id));
 	}
 
 
