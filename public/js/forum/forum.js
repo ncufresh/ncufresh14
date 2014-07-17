@@ -1,24 +1,21 @@
 $(function(){
 
-	var url = $("#new").attr("direct");
+	var orderNewUrl = $("#orderNewHidden").attr("direct");
 	var getCommentsUrl = $("#getComment").attr("direct");
-	var createUrl = $("#createComment").attr("direct");
+	var createCommentUrl = $("#createComment").attr("direct");
 	var orderPopUrl = $("#orderPopHidden").attr("direct");
 	var deleteArticleUrl = $("#deleteArticle").attr("direct");
 	var updateArticleUrl = $("#updateArticle").attr("direct");
-	//alert(url);
-	//alert(getCommentsUrl);
-	//alert(createUrl);
 	$.ajax({
 		type:"POST",
-		url:url,
+		url:orderNewUrl,
 		data:{},
 		success:function(data){
 			//alert("Ajax success");
 			//alert(data['data'].length);
 			for(i=0;i<data['data'].length;i++){
 				$("#Test1").append("<div class='postTimeContainer'><div class='articlePostTime'><span class='author'>"+data['data'][i]['author_id']+"</span>posted"+data['data'][i]['created_at']+"</div></div>");
-				$("#Test1").append("<div class='articleContainer' id='"+data['data'][i]['id']+"' ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+data['data'][i]['title'] +" </h3></div><div class='panel-body'>"+data['data'][i]['content']+"</div><a class='moreBox'><div class='moreBtn' id='"+data['data'][i]['id']+"' direct='"+getCommentsUrl+"'><div class='panel panel-default arrow'>&dArr;</div></div></a></div><div class='responseContainer'><form class='commentForm' route='createComment' direct='"+createUrl+"'><label>回覆貼文</label><input type='submit' class='btn btn-primary createComment' value='發表回覆'><input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'><input type='hidden' name='articleID' id='"+data['data'][i]['id']+"' class='articleID'><input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'></form></div></div>");
+				$("#Test1").append("<div class='articleContainer' id='"+data['data'][i]['id']+"' ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+data['data'][i]['title'] +" </h3></div><div class='panel-body'>"+data['data'][i]['content']+"</div><a class='moreBox'><div class='moreBtn' id='"+data['data'][i]['id']+"' direct='"+getCommentsUrl+"'><div class='panel panel-default arrow'>&dArr;</div></div></a></div><div class='responseContainer'><form class='commentForm' route='createComment'><label>回覆貼文</label><input type='submit' class='btn btn-primary createComment' value='發表回覆'><input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'><input type='hidden' name='articleID' id='"+data['data'][i]['id']+"' class='articleID'><input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'></form></div></div>");
 			}
 				$("#Test1 .arrow").click(function(){
 					//alert("arrow");
@@ -57,7 +54,6 @@ $(function(){
 					//alert("");
 					var content = $(this).find("#inputContent").val();
 					var commenterID = $(this).find("#commenterID").val();
-					var url = $(this).attr("direct");
 					var articleID = $(this).find(".articleID").attr("id");
 					//alert("Content:"+content);
 					//alert("authorID:"+commenterID);
@@ -65,7 +61,7 @@ $(function(){
 					var target = $(this);
 					$.ajax({
 						type : "POST",
-						url : url,
+						url : createCommentUrl,
 						data : { 
 							"comment" : content ,
 							"author_id" : commenterID ,
@@ -103,7 +99,7 @@ $(function(){
 		//alert(url);
 		$.ajax({
 			type : "POST",
-			url : url,
+			url : orderNewUrl,
 			data : { },
 			success : function(data){
 				//alert("Ajax success");
@@ -113,7 +109,7 @@ $(function(){
 				for(i=0;i<data['data'].length;i++){
 					
 					$("#Test1").append("<div><div class='postTimeContainer'><div class='articlePostTime'><span class='author'>"+data['data'][i]['author_id']+"</span>posted"+data['data'][i]['created_at']+"</div></div></div>");
-					$("#Test1").append("<div class='articleContainer' id='"+data['data'][i]['id']+"' ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+data['data'][i]['title'] +" </h3></div><div class='panel-body'>"+data['data'][i]['content']+"</div><a class='moreBox'><div class='moreBtn' id='"+data['data'][i]['id']+"' direct='"+getCommentsUrl+"'><div class='panel panel-default arrow' >&dArr;</div></div></a></div><div class='responseContainer'><form class='commentForm' route='createComment' direct='"+createUrl+"'><label>回覆貼文</label><input type='submit' class='btn btn-primary createComment' value='發表回覆'><input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'><input type='hidden' name='articleID' id='"+data['data']['id']+"' class='articleID'><input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'></form></div></div>");
+					$("#Test1").append("<div class='articleContainer' id='"+data['data'][i]['id']+"' ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+data['data'][i]['title'] +" </h3></div><div class='panel-body'>"+data['data'][i]['content']+"</div><a class='moreBox'><div class='moreBtn' id='"+data['data'][i]['id']+"' direct='"+getCommentsUrl+"'><div class='panel panel-default arrow' >&dArr;</div></div></a></div><div class='responseContainer'><form class='commentForm' route='createComment'><label>回覆貼文</label><input type='submit' class='btn btn-primary createComment' value='發表回覆'><input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'><input type='hidden' name='articleID' id='"+data['data']['id']+"' class='articleID'><input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'></form></div></div>");
 				}
 				$("#Test1 .arrow").click(function(){
 					//alert("arrow");
@@ -160,7 +156,7 @@ $(function(){
 					var target = $(this);
 					$.ajax({
 						type : "POST",
-						url : url,
+						url : createCommentUrl,
 						data : { 
 							"comment" : content ,
 							"author_id" : commenterID ,
@@ -198,7 +194,7 @@ $(function(){
 				for(i=0;i<data['data'].length;i++){
 					
 					$("#Test1").append("<div><div class='postTimeContainer'><div class='articlePostTime'><span class='author'>"+data['data'][i]['author_id']+"</span>posted"+data['data'][i]['created_at']+"</div></div></div>");
-					$("#Test1").append("<div class='articleContainer' id='"+data['data'][i]['id']+"' ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+data['data'][i]['title'] +" </h3></div><div class='panel-body'>"+data['data'][i]['content']+"</div><a class='moreBox'><div class='moreBtn' id='"+data['data'][i]['id']+"' direct='"+getCommentsUrl+"'><div class='panel panel-default arrow' >&dArr;</div></div></a></div><div class='responseContainer'><form class='commentForm' route='createComment' direct='"+createUrl+"'><label>回覆貼文</label><input type='submit' class='btn btn-primary createComment' value='發表回覆'><input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'><input type='hidden' name='articleID' id='"+data['data']['id']+"' class='articleID'><input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'></form></div></div>");
+					$("#Test1").append("<div class='articleContainer' id='"+data['data'][i]['id']+"' ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+data['data'][i]['title'] +" </h3></div><div class='panel-body'>"+data['data'][i]['content']+"</div><a class='moreBox'><div class='moreBtn' id='"+data['data'][i]['id']+"' direct='"+getCommentsUrl+"'><div class='panel panel-default arrow' >&dArr;</div></div></a></div><div class='responseContainer'><form class='commentForm' route='createComment'><label>回覆貼文</label><input type='submit' class='btn btn-primary createComment' value='發表回覆'><input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'><input type='hidden' name='articleID' id='"+data['data']['id']+"' class='articleID'><input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'></form></div></div>");
 				}
 				$("#Test1 .arrow").click(function(){
 					//alert("arrow");
@@ -237,7 +233,6 @@ $(function(){
 					//alert("");
 					var content = $(this).find("#inputContent").val();
 					var commenterID = $(this).find("#commenterID").val();
-					var url = $(this).attr("direct");
 					var articleID = $(this).find(".articleID").attr("id");
 					//alert("Content:"+content);
 					//alert("authorID:"+commenterID);
@@ -245,7 +240,7 @@ $(function(){
 					var target = $(this);
 					$.ajax({
 						type : "POST",
-						url : url,
+						url : createCommentUrl,
 						data : { 
 							"comment" : content ,
 							"author_id" : commenterID ,
