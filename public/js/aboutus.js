@@ -1,10 +1,10 @@
-console.log(5);
+
 $(document).ready(function(){
-console.log(3);
-	//$(".wrapper").hide();
-	$(".item").hide(;fdgfdg
+
+	$(".wrapper").hide();
+	$(".items").hide();
 	$("#morecontent").click(function(){
-		$(".item").show("slow");
+		$(".items").show("slow");
 		$("#picture").animate({
 			width:'50px',
 			marginLeft:'-30px'
@@ -16,7 +16,7 @@ console.log(3);
 	});
 
 	$("#picture").click(function(){
-		$(".item").hide("slow");
+		$(".items").hide("slow");
 		$("#morecontent").animate({
 			width:'5%',
 			marginLeft:'10px'
@@ -29,7 +29,7 @@ console.log(3);
 		
 	});
 
-	$(".item").click(function(){
+	$(".items").click(function(){
 		getID($(this).data('id'));
 	});
 
@@ -38,11 +38,15 @@ console.log(3);
 	
 	});
 
-	$(".item").mouseover(function(){
+	$(".items").mouseover(function(){
 		$(this).css({"cursor":"pointer"});
 
 
 	});
+
+	$('.carousel').carousel({
+  interval: 3000
+	})
 
 	function getID(id){
 		var url = getTransferData('about_modal');
@@ -50,25 +54,11 @@ console.log(3);
 		ajaxGet(url,data,OpenModal);
 	}
 
-console.log(2);
-
 	function OpenModal(data){
-		// var introduction = data['introduction'];
-		// if(data['id']!=6){
-		// 	$.jumpWindow("",introduction,"");
-		// }
+		var introduction = data['introduction'];
+		if(data['id']!=6){
+			$.jumpWindow("",introduction,"");
+		}
 	}
-
-	var carousel = $('#carousel').carouseSl();
-  console.log(carousel);
-	$('#carousel_prev').on('click', function(ev) {
-		console.log('left');
-	  carousel.carousel('prev');
-	});
-	$('#carousel_next').on('click', function(ev) {
-	  carousel.carousel('next');
-	});
-
-	console.log(1);
-
+	
 });
