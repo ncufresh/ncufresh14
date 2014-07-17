@@ -1,4 +1,4 @@
-@extends('../layouts/layout');
+@extends('../layouts/layout')
 @section('js_css')
 	{{ HTML::style('css/forum.css') }}
 	{{ HTML::script('js/forum/forum.js') }}
@@ -11,6 +11,7 @@
 			<input type="hidden" name="createComment" id="createComment" direct="{{URL::route('createComment')}}">
 			<input type="hidden" name="deleteArticle" id="deleteArticle" direct="{{URL::route('deleteArticle')}}">
 			<input type="hidden" name="updateArticle" id="updateArticle" direct="{{URL::route('updateArticle')}}">
+			<input type="hidden" name="newArticle" id="newArticle" direct="{{URL::route('newArticle')}}">
 			<ul class="nav nav-tabs" id="myTab">
 				<li><a href="#Test1">討論區</a></li>
 				<li><a href="#Test2">系所</a></li>
@@ -135,7 +136,6 @@
 						<h4 class="modal-title">發表新文章</h4>
 					</div>
 					<div class="modal-body" id="createForm">
-						{{ Form::open(array('route'=>'newArticle','method'=> 'post'))}}
 						<div id="formTitleContainer">
 							{{ Form::label('title','文章標題') }}
 							{{ Form::text('title','',array(
@@ -167,16 +167,30 @@
 						) }}
 						</div>
 						{{ Form::label('content','內容') }}
-						{{ Form::textarea('content','',array('class' => 'form-control' , 'id' => 'inputContent')) }} <br>
+						{{ Form::textarea('content','',array('class' => 'form-control' , 'id' => 'inputDetail')) }} <br>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-						{{ Form::submit('發佈',array('type' => 'button' , 'class' => 'btn btn-primary' )) }}
-						{{ Form::close() }}
+						{{ Form::button('發佈',array('type' => 'button' , 'class' => 'btn btn-primary' , 'id' => 'submitArticle')) }}
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 
+	        <div class="modal fade" id="errorMsgDialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title">錯誤</h4>
+					</div>
+					<div class="modal-body">&nbsp;
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">確認</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 	
 @stop	

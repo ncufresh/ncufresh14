@@ -4,9 +4,6 @@ class ArticlesController extends BaseController{
 
 	public $restful = true;
 
-	/*$rules = array(
-		'title' => 'required|max:20'
-	);*/
 
 	public function getArticles(){
 		
@@ -23,17 +20,31 @@ class ArticlesController extends BaseController{
 
 	public function postArticles(){
 		$input = Input::all();
+		$rules = array(
+			'title' => 'required',
+			'content' => 'required'
+		);
 		
-				
+		$validation = Validator::make($input,$rules);
 
-		Forum::create(array(
-			'title' => Input::get('title'),
-			'author_id' => Input::get('author_id'),
-			'article_type' => Input::get('article_type'),
-			'content' => Input::get('content')
-		));
+		if($validation->fails()){
+			$response = array('status' => 'fail','msg' => 'failed', 'input'=>$input);
+			
+			return Response::json($response);
+		}else{
+			Forum::create(array(
+				'title' => Input::get('title'),
+				'author_id' => Input::get('id'),
+				'article_type' => Input::get('article_type'),
+				'content' => Input::get('content'),
+				'comment_number' => 0
+			));
 
-		return Redirect::to('articles');
+			$response = array('status' => 'success','msg' => 'successfully');
+	
+			return Response::json($response);
+
+		}
 	}
 
 	public function postComment(){
