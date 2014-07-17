@@ -1,6 +1,6 @@
-function editStatus(data) {
+function editStatus(power,gp) {
 	$('#powerBox').css({
-		background: 'url("../images/gameIndex/power/' + data["power"] + '.png")'
+		background: 'url("../images/gameIndex/power/' + power + '.png")'
 	});
-	$('#userGP').text(data["gp"]);
+	$('#userGP').text(gp);
 }

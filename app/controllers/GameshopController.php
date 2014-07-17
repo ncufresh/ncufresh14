@@ -2,18 +2,20 @@
 
 class GameshopController extends BaseController {
 	public function index() {
-		$game_user_id = 1;
-		$user = Game::find($game_user_id);
-		$name = User::where('id', '=', $game_user_id)->firstOrFail();
+		if ( !Auth::check() ) {
+			return Redirect::to('/');	
+		}
+		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
+		$name = User::where('id', '=', $user["user_id"])->firstOrFail();
 		$shop = Gameitem::where('type', '=', 0)->get();
-		$hadBuyItems = GameBuy::where('id', '=', $game_user_id)->get();
+		$hadBuyItems = GameBuy::where('id', '=', $user->id)->get();
 		$EquipItem[0] = Gameitem::where('id', '=', $user->head)->firstOrFail();
 		$EquipItem[1] = Gameitem::where('id', '=', $user->face)->firstOrFail();
 		$EquipItem[2] = Gameitem::where('id', '=', $user->body)->firstOrFail();
 		$EquipItem[3] = Gameitem::where('id', '=', $user->foot)->firstOrFail();
 		$EquipItem[4] = Gameitem::where('id', '=', $user->item)->firstOrFail();
 		$EquipItem[5] = Gameitem::where('id', '=', $user->map)->firstOrFail();
-		return View::make('game.shop', array('user' => $user, 'name' => $name, 'shop' => $shop,
+		return View::make('game.shop', array('user' => $user, 'name' => $name->name, 'shop' => $shop,
 						 'hadBuyItems'=>$hadBuyItems, 'EquipItem' => $EquipItem));
 	}
 
@@ -32,19 +34,7 @@ class GameshopController extends BaseController {
 	}
 
 	public function buy() {
-		/*if ( Auth::check() ) {
-			$user = Auth::user();
-		}
-		else {
-			$user = new Auth;
-		}
-		$user = Game::where('user_id', '=', $user->id)->firstOrFail();
-		if ( !$user ) {
-
-		}*/
-		$game_user_id = 1;
-
-		$gameuser = Game::find($game_user_id);
+		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
 		$item = Gameitem::where('id', '=', Input::get("itemId"))->firstOrFail();
 		$isBuy = false;
 		if ( $gameuser->gp >= $item->costgp ) {
@@ -63,7 +53,8 @@ class GameshopController extends BaseController {
 
 	public function equip() {
 		$userWant = Input::get('user_want');
-		$game_user_id = 1;
+		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
+		$game_user_id = $user->id;
 		for ( $i = 0; $i < 6; $i++ ) {
 			$hadBuyItems = GameBuy::whereRaw('user_id = ? and item_id = ?', array($game_user_id, $userWant[$i]) )->count();
 			if ( $hadBuyItems != 0 ) {
