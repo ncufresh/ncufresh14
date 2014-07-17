@@ -31,7 +31,7 @@
 				<td><a href="{{ route('poweredit.show', array('id' => $poweredit->id)) }}">改個</a></td>
 			</tr>
 		@endforeach
-			<tr><a href="{{ route('poweredit.create', array('id' => $poweredit->id+1)) }}">新增</a></tr>
+			<tr><a href="{{ route('poweredit.create') }}">新增</a></tr>
 	</tbody>
 </table>
 @stop

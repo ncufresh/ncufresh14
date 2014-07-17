@@ -13,6 +13,11 @@
 		<p>最後修改：{{ $poweredit->updated_at }}</p>
 	@endif
 
-	<a href="{{ route('poweredit.edit', array('id' => $poweredit->id)) }}">修改</a>
-
+	<div align="center">
+		<a href="{{ route('poweredit.edit', array('id' => $poweredit->id)) }}">修改</a>
+		<p><a href="{{ route('poweredit.index') }}">等去</a></p>
+		{{ Form::open(array('route' => array('poweredit.destroy', $poweredit->id), 'method' => 'delete')) }}
+			<button type="submit" >刪除</button>
+		{{ Form::close() }}
+	</div>
 @stop
