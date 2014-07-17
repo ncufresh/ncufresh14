@@ -43,7 +43,10 @@ $(document).ready(function(){
 
 
 	});
-
+	$(".a").mouseover(function(){
+		$(this).css({"cursor":"pointer"});
+	});
+	
 	$('.carousel').carousel({
   interval: 3000
 	})
@@ -56,8 +59,9 @@ $(document).ready(function(){
 
 	function OpenModal(data){
 		var introduction = data['introduction'];
+		var teamphoto = data['teamphoto'];
 		if(data['id']!=6){
-			$.jumpWindow("",introduction,"");
+			$.jumpWindow("",teamphoto+introduction,"");
 		}
 	}
 	
