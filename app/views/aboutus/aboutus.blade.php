@@ -2,8 +2,7 @@
 
 @section('js_css')
 	{{ HTML::style('css/aboutus.css') }}
-	{{-- HTML::script('js/aboutus/jq.carousel.js') --}}
-	{{ HTML::script('js/aboutus/aboutus.js') }}
+	{{ HTML::script('js/aboutus.js') }}
 @stop
 
 @section('content')
@@ -72,7 +71,30 @@
 	  </a>
 	</div>
 
-
+	<!-- vertical -->
+	<div class="container">
+    
+    <div class="row-fluid">
+      <div class="span6 offset3">
+        <div id="myCarousel" class="carousel slide vertical">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <div class="active item">
+                    <img src="http://placehold.it/600x400&amp;text=First+Slide">
+                </div>
+                <div class="item">
+                    <img src="http://placehold.it/600x400&amp;text=Second+Slide">
+                </div>
+                <div class="item">
+                    <img src="http://placehold.it/600x400&amp;text=Third+Slide">
+                </div>
+            </div>
+            <!-- Carousel nav -->
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+            <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+        </div>
+    </div>
+</div>
 </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
