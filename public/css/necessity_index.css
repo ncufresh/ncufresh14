@@ -30,6 +30,7 @@
 	height: 100px;
 	background-color: FDFF73;
 	margin: 0 auto;
+
 }
 
 .contMidButton
@@ -69,6 +70,17 @@
 	/*overflow: auto;*/
 	
 }
+
+#contDownSlideDownload
+{
+	width: 800px;
+	background-color: CECDFF;
+	margin-left: 0px;
+	/*overflow: auto;*/
+	display: none;
+	
+}
+
 
 #contDownText
 {
@@ -121,6 +133,7 @@
 	margin: 0 auto;
 	font-size:15px;
 	font-weight: 100;
+
 }
 
 .formStyleUpSide
@@ -134,6 +147,7 @@
 	margin: 0 auto;
 	font-size:15px;
 	font-weight: 100;
+
 }
 
 .formStyleUpMid
@@ -161,6 +175,7 @@
 	/*margin: 0 auto;*/
 	font-size:15px;
 	font-weight: 100;
+	text-align:center;
 
 }
 

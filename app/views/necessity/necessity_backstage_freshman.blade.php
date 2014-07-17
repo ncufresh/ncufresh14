@@ -53,7 +53,8 @@
 			<a href="{{ route('necessity.necessity_backstage_freshman_edit', array('id' => $freshmandata->id)) }}">修改</a>
 			
 			{{ Form::close() }}
-
+			
 	@endforeach
+
 
 @stop

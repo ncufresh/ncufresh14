@@ -9,7 +9,8 @@ class necessityController extends BaseController
 
 		return View::make('necessity.necessity_index',array(/*參數*/
 			'necessityResearchData'=>/*model*/NecessityResearchData::all(),
-			'necessityFreshmanData'=>/*model*/NecessityFreshmanData::all()));
+			'necessityFreshmanData'=>/*model*/NecessityFreshmanData::all(),
+			'necessityDownloadData'=>/*model*/NecessityDownloadData::all()));
 	}
 
 
@@ -134,12 +135,52 @@ class necessityController extends BaseController
 	public function download_add(){
 
 		$user = new NecessityDownloadData; 	  
-		$user->name = Input::get('filename');
+		$user->name = Input::get('downloadname');
+		
+		// if(Input::hasFile('file')){
+		// 	return "yES";
+		// }else{
+		// 	return 'no';
+		// }
+		
+		$file = Input::file('File');
+		$fileid = $file -> getClientOriginalName();
+		$extension = $file ->getClientOriginalExtension();
+
+		$fileName = str_random(64);
+		$fileName = $fileName.'.'.$extension;
+
+		$user->fileid = $fileid;
 		$user->save();
+
+		$file -> move(public_path('necessityfile'), $fileName);
 
 		return Redirect::route('necessity.necessity_backstage_download');
 	}
+	
+	public function returnDownload( )
+	{
+		return Response::download('necessityfile/123456.txt');
+	}
 
+
+
+
+
+	/**更改資料**/
+
+	public function editC($id){
+
+    $data = NecessityDownloadData::find($id);
+	
+	return View::make('necessity.necessity_backstage_download_edit',array('necessityEdition'=>$data));
+	}
+	
+	public function download_edit(){
+	
+	// NO
+		
+	}
 //*******************************************************************//
 //後台的編輯區
 

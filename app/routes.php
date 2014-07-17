@@ -251,14 +251,15 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){
 
 	Route::get('necessity/backstage/download',array('as' => 'necessity.necessity_backstage_download', 'uses' => 'necessityController@index_backstage_download'));
 
-	Route::post('download_add',array('as' => 'download_add', 'uses' => 'necessityController@research_add'));
+	Route::post('download_add',array('as' => 'download_add', 'uses' => 'necessityController@download_add'));
 
 	Route::post('download_delete',array('as' => 'download_delete', 'uses' => 'necessityController@research_delete'));
 
-	Route::post('download_edit',array('as' => 'download_edit', 'uses' => 'necessityController@research_edit'));
+	Route::post('download_edit',array('as' => 'download_edit', 'uses' => 'necessityController@download_edit'));
 
+	Route::post('download_return',array('as' => 'download_return', 'uses' => 'necessityController@returnDownload'));
 
-	Route::get('necessity/backstage/research/{id}',array('as' => 'necessity.necessity_backstage_research_edit', 'uses' => 'necessityController@edit'));
+	Route::get('necessity/backstage/download/{id}',array('as' => 'necessity.necessity_backstage_download_edit', 'uses' => 'necessityController@editA'));
 
 	/**/
 
