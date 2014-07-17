@@ -271,6 +271,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){
 //=============================================================================
 // About us
 
-Route::get('About_us',array('as'=>'','uses'=>'AboutUsController@index'));
+Route::get('About_us',array('as'=>'about','uses'=>'AboutUsController@index'));
 
 Route::get('About_us/modal',array('as'=>'About.modal','uses'=>'AboutUsController@getModalId'));
