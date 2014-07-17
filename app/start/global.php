@@ -88,6 +88,7 @@ App::instance('SiteMap', new SiteMap);
 
 App::missing(function($exception)
 {
+	Log::error($exception);
 	return Response::view('errors.index', array('message' => '找不到路徑'), 404);
 });
 
