@@ -102,28 +102,37 @@ class AuthController extends BaseController {
 
 						Auth::login($user);
 						return Redirect::intended();
-					}else{
-						//New user to the system, create user!
-						$user = new User();
-						$user->name = $userProfile->getName();
-						$user->nick_name = $userProfile->getName();
-						$user->email = $userProfile->getProperty('email');
-						$user->high_school_id = 1;
-						$user->department_id = 1001;
-						$user->grade = 1;
-						$user->password = 'facebook';
-						$user->save();
-
+					}else if(User::check()){
+						//Connect with different email
+						$user = Auth::user();
 						$facebookData = new FacebookData;
 						$facebookData->uid = $uid;
 						$facebookData->user_id = $user->id;
-
 						$facebookData->save();
 
-						$this->postRegister($user);
+						return Redirect::intended();
+					}else{
+							//New user to the system, create user!
+							$user = new User();
+							$user->name = $userProfile->getName();
+							$user->nick_name = $userProfile->getName();
+							$user->email = $userProfile->getProperty('email');
+							$user->high_school_id = HighSchool::first()->id;
+							$user->department_id = Department::first()->id;
+							$user->grade = 1;
+							$user->password = 'facebook';
+							$user->save();
 
-						Auth::login($user);
-						return Redirect::route('register.FB');
+							$facebookData = new FacebookData;
+							$facebookData->uid = $uid;
+							$facebookData->user_id = $user->id;
+
+							$facebookData->save();
+
+							$this->postRegister($user);
+
+							Auth::login($user);
+							return Redirect::route('register.FB');
 					}
 				}else{
 					//Exist user. go Login.
