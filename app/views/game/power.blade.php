@@ -3,6 +3,7 @@
 @section('js_css')
 	{{ HTML::style('css/game.css') }}
 	{{ HTML::style('css/game/power.css') }}
+	{{ HTML::script('js/game/game.js') }}
 	{{ HTML::script('js/game/power.js') }}
 @stop
 

@@ -46,24 +46,19 @@ $(document).ready(function(){
 			$('#mode3').children().attr('src',''+burl+'/images/gameSnake/m3.png');
 	}
 
-	var power;
+	var power,done=false,recentScore;
+	ajaxPost(getTransferData('get-power-url'),'', getData);
 	$('#start').click(function() 
 	{
-		if(difficult!=0&&mode!=0)
-		{
-			$('#cover').hide();
-			$('#content').show();
-			ajaxPost(getTransferData('get-power-url'),'', function(data)
+		if(power>0)
+			if(difficult!=0&&mode!=0&&done==true)
 			{
-				power=data['power'];
-				if(power>0)
-				{
-					key=0;
-					initial();
-					startGame();
-				}
-			});
-		}
+				$('#cover').hide();
+				$('#content').show();
+				key=0;
+				initial();
+				startGame();	
+			}
 	});
 
 ////////////////////////////////init////////////////////////////////////////////
@@ -132,7 +127,13 @@ $(document).ready(function(){
 			brokenBefore[i] = new Array(2);
 	var brokenBeforeCount;
 ////////////////////////////////////initial-architecture/////////////////////////////////////////////
-	
+	function getData(data)
+	{
+		done = true;
+		power=data['power'];
+		recentScore=data['score'];
+	}
+
 	function initial()
 	{
 		lose = 0;
@@ -253,6 +254,7 @@ $(document).ready(function(){
 		{
 			totalScore();
 			timer.stop();
+			editStatus(power-1,score+recentScore);
 			$('#content').hide();
 			$('#endScreen').show();
 			ajaxPost(getTransferData('renew-value-url'),{score:score},'');
@@ -262,6 +264,7 @@ $(document).ready(function(){
 					Box[i][j].empty();
 
 			$('#again').click(function() {
+				done=false;
 				$('#endScreen').hide();
 				if(difficult==1)
 					$('#difficulty1').children().attr('src',''+burl+'/images/gameSnake/d1Click.png');
@@ -276,9 +279,7 @@ $(document).ready(function(){
 				if(mode==3)
 					$('#mode3').children().attr('src',''+burl+'/images/gameSnake/m3Click.png');
 					$('#cover').show();
-				timer.start();
-				initial();
-				startGame();				
+				ajaxPost(getTransferData('get-power-url'),'', getData);
 			});
 		}
 		levelUp();
