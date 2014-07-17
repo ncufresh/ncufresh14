@@ -212,7 +212,7 @@ Route::get('video/intro', array('as' => 'video.intro','uses' => 'VideoController
 Route::group(array('before' => 'auth'), function(){
 
 	Route::post('video', array('as' => 'video.message','uses' => 'VideoController@post_index'));
-	//??
+
 	Route::post('video/message', array('as' => 'video.message','uses' => 'VideoController@post_index'));
 
 	Route::post('video/like', array('as' => 'video.rate','uses' =>'VideoController@post_like'));
