@@ -20,7 +20,7 @@
 			<p>
 			<li>
 
-			{{Form::open(array('url'=>'delete','method'=>'post'))}}
+			{{Form::open(array('route'=>'delete','method'=>'post'))}}
 			{{Form::hidden('id',$list->id)}}
 			<span class="list">{{$list->categories}}</span>
 			

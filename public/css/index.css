@@ -31,7 +31,7 @@
 	background: url("../images/index/calendertop.png") no-repeat;
 	padding-top: 32px;
 	padding-left: 51px;
-	color: gray;
+	color: #7b7b7b;
 }
 
 #calenderContent {
@@ -53,7 +53,7 @@
 	margin-left: 28px;
 	margin-top: 10px;
 	background-color: #0aadd6;
-	color: white;
+	color: #b9f1ff;
 }
 
 #linkContent {
@@ -80,6 +80,7 @@
 	height: 103px;
 	padding-top: 70px;
 	padding-left: 30px;
+	color: #864500;
 }
 
 #boardMid1 {
@@ -136,6 +137,7 @@
 	height: 43px;
 	padding-top: 12px;
 	padding-left: 26px;
+	color: #7b7b7b;
 }
 
 #forumContent {
@@ -163,7 +165,7 @@
 	height: 41px;
 	padding-top: 12px;
 	padding-left: 15px;
-	color: white;
+	color: #ffc4e4;
 }
 
 #vedioContent {
