@@ -1,0 +1,1 @@
+php artisan brainsocket:start --port 27704

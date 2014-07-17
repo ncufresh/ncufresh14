@@ -1,15 +1,5 @@
 (function($)
-{
-	function ajax(formURL, postData, success_function, error_function) {
-		$.ajax({
-			url : formURL,
-			type: "POST",
-			data : postData,
-			success: success_function,
-			error: error_function
-		});
-	}
-	
+{	
     $(document).ready(function()
     {
     	var mapType = new Array(6);
@@ -21,40 +11,60 @@
 		var score = 0;
 		var question_number = 0;
     	$("#gameCampusStartButton").click(function() {
-    		ajax($(this).attr("action"), $(this).serializeArray(), function(data, textStatus, jqXHR) {
-    			function nextQuestion() {
-    				$('#gameCampusQuestion').text('Q' + (question_number+1) + ': ' + data['question' + question_number]['question']);
-					mapType[data['question' + question_number]['type']].show();
-    			}
+    		ajaxPost($(this).attr("action"), '', function(data) {
     			life = 3;
 				combo = 0;
 				score = 0;
-				var question_number = 0;
-    			if ( !data['user']['play'] ) {
+				question_number = 0;
+                editStatus(data['user']);
+    			if ( data['user']['play'] == true ) {
 					$('#gameCampusMain').hide();
 					$('#gameCampusMap').show();
-					nextQuestion();
-					$('.gameCampusBuilding').click(function(){
-						mapType[data['question' + question_number]['type']].hide();
-						question_number++;
-						if ( question_number < 10 ) {
-							nextQuestion();	
-						}
-						else {
-							$('#gameCampusMap').hide();
-							$('#gameCampusEnd').show();
-						}
-					});
+					$('#gameCampusQuestion').text('Q' + (question_number+1) + ': ' + data['question']['question']);
+                    mapType[data['question']['type']].show();
 				}
-    		}, function() {
-
+                else {
+                    alert('ne power.');
+                }
     		});
     	});
 
+        $('.gameCampusBuilding').each(function(index) {
+            $(this).click(function(){
+                ajaxPost($('#gameCampusGameBox').attr('action'), {index: $(this).attr('index')}, function(data) {
+                    editStatus(data['user']);
+                    $('.gameCampusType').each(function(index) {
+                        $(this).hide();
+                    });
+                    question_number++;
+                    if ( question_number < 10 ) {
+                        $('#gameCampusQuestion').text('Q' + (question_number+1) + ': ' + data['question']['question']);
+                        mapType[data['question']['type']].show();
+                    }
+                    else {
+                        $('#gameCampusMap').hide();
+                        $('#gameCampusScore').text(data['score']);
+                        $('#gameCampusEnd').show();
+
+                    }
+                });
+            });
+        });
     	$('#gameCampusAgain').click(function() {
-    		$('.gameCampusBuilding').off();
     		$('#gameCampusMain').show();
     		$('#gameCampusEnd').hide();
+    	});
+
+    	$('#gameCampusInfoButton').click(function() {
+    		$('#gameCampusInfo').fadeIn();
+    		$('#gameCampusMain').hide();
+    		
+    	});
+
+    	$('#gameCampusInfoExit').click(function() {
+    		$('#gameCampusInfo').hide();
+    		$('#gameCampusMain').show();
+    		
     	});
     });
 })(jQuery);

@@ -22,11 +22,12 @@
 .articlePostTime{
 	position:absolute;
 	display: table;
-	right: 13%;
+	right: 14%;
 	margin-top: 2%;
 }
 .articleContainer{
 	border-radius: 5px;
+	margin-bottom: 10px;
 }
 .arrow{
 	text-align: center;
@@ -70,12 +71,48 @@ textarea.commentTextArea{
 	margin-bottom: 5px;
 	width: 17%;
 }
-
-
-
-
-
-
+/* the comment under each Articles */
+.commentAuthorId{
+	font-weight: 800;
+	margin-left: 5px;
+}
+.commentContent{
+	display: block;
+	margin-left: 15px;
+	width: 95%;
+	word-break: break-word;
+}
+.commentTime{
+	position: relative;
+	float: right;
+	top: -20px;
+	right: 10px;	
+}
+.edit{
+	position: relative;
+	float: right;
+	top: -15px;
+	right: 10px;
+}
+.editArea{
+	word-break:break-word; 
+}
+.delBtn{
+	position: relative;
+	float: right;
+	bottom: 5px;
+}
+.saveBtn{
+	position: relative;
+	float: right;
+	top: 5px;
+}
+.canBtn{
+	position: relative;
+	float: right;
+	top: 5px;
+	right: 5px;
+}
 
 
 

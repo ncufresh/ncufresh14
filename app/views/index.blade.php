@@ -50,22 +50,22 @@
 			<div id="boardBottom">
 			</div>
 			<div id="boardContent">
-				<div class="announcement-head">
-					<div class="col-sm-2"></div>
-					<div class="col-sm-5">標題</div>
+				<div class="announcement-head row">
+					<div class="col-sm-1"></div>
+					<div class="col-sm-6">標題</div>
 					<div class="col-sm-2">人氣</div>
 					<div class="col-sm-3">發佈日期</div>
 				</div>
 				@foreach($announcements as $announcement)
-				<div class="announcement-row" data-announcement-id="{{ $announcement->id }}">
+				<div class="announcement-row row" data-announcement-id="{{ $announcement->id }}">
 					@if($announcement->pinned == true)
-					<div class="col-sm-2">智鼎XD</div>
+					<div class="col-sm-1"><img src="{{ asset('images/index/top.png') }}" style="width: 100%"></div>
 					@else
-					<div class="col-sm-2"></div>
+					<div class="col-sm-1"></div>
 					@endif
-					<div class="col-sm-5">{{ $announcement->title }}</div>
+					<div class="col-sm-6">{{ $announcement->title }}</div>
 					<div class="col-sm-2">{{ $announcement->viewer }}</div>
-					<div class="col-sm-3">{{ $announcement->created_at->format('Y/m/d - h:ia'); }}</div>
+					<div class="col-sm-3">{{ $announcement->created_at->format('Y/m/d - h:i'); }}</div>
 				</div>
 				@endforeach
 				<a href="{{ route('announcement.index') }}">閱讀更多</a>
@@ -83,6 +83,7 @@
 			<div id="vedioTop" class="textStyle">影片連結
 			</div>
 			<div id="vedioContent">
+				<a href='http://localhost/ncufresh14/public/video'><img src="images\youtube縮圖\deargod.jpg " id="videoHref"></a>
 			</div>
 			<div id="vedioBottom">
 			</div>

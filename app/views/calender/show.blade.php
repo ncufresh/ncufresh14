@@ -7,4 +7,8 @@
 	<p>結束時間：{{ $calender->start_at }}</p>
 
 
+	@if($admin == true)
+		<a href="{{ route('admin.calender.edit', array('id' => $calender->id)) }}">修改行事曆</a>
+	@endif
+
 @stop

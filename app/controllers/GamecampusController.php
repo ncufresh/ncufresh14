@@ -2,18 +2,27 @@
 
 class GamecampusController extends BaseController {
 	public function index() {
-		$user = Game::find(1);
-		$name = User::where('id', '=', 1)->firstOrFail();
+		if ( !Auth::check() ) {
+			return Redirect::to('/');	
+		}
+		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
+		$name = User::where('id', '=', $user["user_id"])->firstOrFail();
 		return View::make('game.campus', array('user' => $user, 'name' => $name));
 	}
 
 	public function start() {
-		$user = Game::find(1);
-		$name = User::where('id', '=', 1)->firstOrFail();
+		Session::forget('score');
+		Session::forget('life');
+		Session::forget('index');
+		Session::forget('questions');
+		Session::put('score', 0);
+		Session::put('life', 3);
+		Session::put('index', 0);
+		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
 		if ( $user->power > 0 ) {
-			$user->power = $user->power;// - 1;
+			$user->power = $user->power - 1;
 			$user->save();
-			//$user["play"] = true;
+			$user["play"] = true;
 			$question_number = GameCampus::all()->count();
 			for ( $i = 0; $i < 10; $i++ ) {
 				do {
@@ -28,16 +37,35 @@ class GamecampusController extends BaseController {
 					}
 				} while($isrepeat);
 				$data[$i] = $question;
+				Session::push('questions', $data[$i]->toArray());
 			}
-			return Response::json(array('user' => $user->toArray(), 'question0' => $data[0]->toArray(), 
-									'question1' => $data[1]->toArray(), 'question2' => $data[2]->toArray(),
-									'question3' => $data[3]->toArray(), 'question4' => $data[4]->toArray(),
-									'question5' => $data[5]->toArray(), 'question6' => $data[6]->toArray(),
-									'question7' => $data[7]->toArray(), 'question8' => $data[8]->toArray(),
-									'question9' => $data[9]->toArray() ));
+			$data[0]->answer_id = null;
+			return Response::json(array('user' => $user->toArray(), 'question' => $data[0]->toArray()));
 		}
 		$user["play"] = false;
-		return Response::json(array('user' => $user, 'data' => $data));
+		return Response::json(array('user' => $user->toArray()));
+	}
+
+	public function check() {
+		$questions = Session::get('questions');
+		$questionID = Session::get('index');
+		$score = Session::get('score');
+		$question = $questions[$questionID+1];
+		if ( Input::get('index') == $questions[$questionID]['answer_id']) {
+			$score++;
+			Session::forget('score');
+			Session::put('score', $score);
+			Session::forget('index');
+			Session::put('index', $questionID + 1);
+			$gameUser = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
+			$gameUser->gp += $score;
+			$gameUser->save();
+			return Response::json(array('user' => $gameUser->toArray(), 'isRight' => true, 'score' => $score, 'question' => $question));
+		}
+		$gameUser = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
+		$gameUser->gp += $score;
+		$gameUser->save();
+		return Response::json(array('user' => $gameUser->toArray(), 'isRight' => false, 'score' => $score, 'question' => $question));
 	}
 
 }

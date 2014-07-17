@@ -102,26 +102,37 @@ class AuthController extends BaseController {
 
 						Auth::login($user);
 						return Redirect::intended();
-					}else{
-						//New user to the system, create user!
-						$user = new User();
-						$user->name = $userProfile->getName();
-						$user->nick_name = $userProfile->getName();
-						$user->email = $userProfile->getProperty('email');
-						$user->high_school_id = 1;
-						$user->department_id = 1;
-						$user->grade = 1;
-						$user->password = 'facebook';
-						$user->save();
-
+					}else if(User::check()){
+						//Connect with different email
+						$user = Auth::user();
 						$facebookData = new FacebookData;
 						$facebookData->uid = $uid;
 						$facebookData->user_id = $user->id;
-
 						$facebookData->save();
 
-						Auth::login($user);
-						return Redirect::route('register.FB');
+						return Redirect::intended();
+					}else{
+							//New user to the system, create user!
+							$user = new User();
+							$user->name = $userProfile->getName();
+							$user->nick_name = $userProfile->getName();
+							$user->email = $userProfile->getProperty('email');
+							$user->high_school_id = HighSchool::first()->id;
+							$user->department_id = Department::first()->id;
+							$user->grade = 1;
+							$user->password = 'facebook';
+							$user->save();
+
+							$facebookData = new FacebookData;
+							$facebookData->uid = $uid;
+							$facebookData->user_id = $user->id;
+
+							$facebookData->save();
+
+							$this->postRegister($user);
+
+							Auth::login($user);
+							return Redirect::route('register.FB');
 					}
 				}else{
 					//Exist user. go Login.
@@ -218,6 +229,7 @@ class AuthController extends BaseController {
 				$newUser->high_school_id = HighSchool::firstOrCreate(array('high_school_name' => Input::get('high_school')))->id;
 				$newUser->gender = Input::get('gender');
 				$newUser->save();
+				$this->postRegister($newUser);
 				return Redirect::intended('/');
 			}
 		}
@@ -234,6 +246,32 @@ class AuthController extends BaseController {
 		return Response::json($data);
 	}
 
+	public function postRegister($user){
+		$role = Role::orderBy('id', 'DESC')->first();
+		$user->roles()->sync(array($role->id));
+
+		/*
+			add game user
+		*/
+		$gameUser = new Game;
+		$gameUser->user_id = $user->id;
+		$gameUser->power = 5;
+		$gameUser->max_power = 5;
+		$gameUser->gp = 0;
+		$gameUser->head = 0;
+		$gameUser->face = 0;
+		$gameUser->body = 0;
+		$gameUser->foot = 0;
+		$gameUser->item = 0;
+		$gameUser->map = 0;
+		$gameUser->save();
+
+		/*
+			end
+		*/
+
+	}
+
 
 	//$user->attachRole( $admin ); // Parameter can be an Role object, array or id.
 	//$owner->perms()->sync(array($managePosts->id,$manageUsers->id));
@@ -242,49 +280,113 @@ class AuthController extends BaseController {
 
 		//Role
 		$developer = new Role;
-		$developer->name = '開發者';
+		$developer->name = 'Developer';
 		$developer->save();
 
 		$admin = new Role;
 		$admin->name = '系統管理者';
 		$admin->save();
 
+		$editor = new Role;
+		$editor->name = '編輯者';
+		if($editor->forceSave()){
+			echo '1';
+		}else{
+			echo '2';
+		}
+
+
 		$unit = new Role;
 		$unit->name = '社團/系所帳號';
 		$unit->save();
 
 		$user = new Role;
-		$user->name = '使用者';
+		$user->name = '一般帳號';
 		$user->save();
 
 
-		//Permission
-		$global_admin = new Permission;
-		$global_admin->name = 'global_admin';
-		$global_admin->display_name = '全域管理';
-		$global_admin->save();
 
-		$edit_user = new Permission;
-		$edit_user->name = 'edit_user';
-		$edit_user->display_name = '編輯使用者';
-		$edit_user->save();
+		$manageUsers = new Permission;
+		$manageUsers->name = 'manage_users';
+		$manageUsers->display_name = '管理會員';
+		$manageUsers->save();
 
-		$announcement_admin = new Permission;
-		$announcement_admin->name = 'announcement_admin';
-		$announcement_admin->display_name = '管理公告';
-		$announcement_admin->save();
+		$manageAnnouncement = new Permission;
+		$manageAnnouncement->name = 'manage_announcement';
+		$manageAnnouncement->display_name = '管理公告';
+		$manageAnnouncement->save();
+
+		$manageLink = new Permission;
+		$manageLink->name = 'manage_link';
+		$manageLink->display_name = '管理常用連結';
+		$manageLink->save();
+
+		$manageCalender = new Permission;
+		$manageCalender->name = 'manage_calender';
+		$manageCalender->display_name = '管理行事曆';
+		$manageCalender->save();
+
+		$manageEditor = new Permission;
+		$manageEditor->name = 'manage_editor';
+		$manageEditor->display_name = '編輯文案';
+		$manageEditor->save();
+
+		$globalUsage = new Permission;
+		$globalUsage->name = 'global_usage';
+		$globalUsage->display_name = '一般使用';
+		$globalUsage->save();
+
+		$forumUsage = new Permission;
+		$forumUsage->name = 'forum_usage';
+		$forumUsage->display_name = '論壇一般發文';
+		$forumUsage->save();
+
+		$forumUnit = new Permission;
+		$forumUnit->name = 'forum_unit';
+		$forumUnit->display_name = '社團/系所編輯';
+		$forumUnit->save();
 
 
-		//sync permission to Role
+
 		$developer->perms()->sync(array(
-			$global_admin->id,
-			$edit_user->id,
-			$announcement_admin->id,
+			$manageUsers->id,
+			$manageAnnouncement->id,
+			$manageLink->id,
+			$manageCalender->id,
+			$manageEditor->id,
+			$globalUsage->id,
+			$forumUsage->id,
+			$forumUnit->id,
 		));
 
 		$admin->perms()->sync(array(
-			$edit_user->id,
-			$announcement_admin->id,
+			$manageUsers->id,
+			$manageAnnouncement->id,
+			$manageLink->id,
+			$manageCalender->id,
+			$manageEditor->id,
+			$globalUsage->id,
+			$forumUsage->id,
+			$forumUnit->id,
+		));
+
+		$editor->perms()->sync(array(
+			$manageAnnouncement->id,
+			$manageLink->id,
+			$manageCalender->id,
+			$manageEditor->id,
+			$globalUsage->id,
+			$forumUsage->id,
+			$forumUnit->id,
+		));
+
+		$unit->perms()->sync(array(
+			$globalUsage->id,
+			$forumUnit->id,
+		));
+
+		$user->perms()->sync(array(
+			$globalUsage->id,
 		));
 
 	}

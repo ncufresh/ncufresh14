@@ -93,7 +93,7 @@ class SchoolGuideController extends BaseController {
 
 			$user->save();
 
-		   return Redirect::to('SchoolGuide/list');
+		   return Redirect::route('SchoolGuide.list');
 
 	}
 
@@ -109,7 +109,7 @@ class SchoolGuideController extends BaseController {
 		if(Input::has('id')){
 		 $user = Schoolguide::where('id', '=', $id)->delete();
 		 }
-		 return Redirect::to('SchoolGuide/list');
+		 return Redirect::route('SchoolGuide.list');
 
 	}
 
@@ -142,7 +142,7 @@ class SchoolGuideController extends BaseController {
 
 		 $data->save();
 	}
-		return Redirect::to('SchoolGuide/list');
+		return Redirect::route('SchoolGuide.glist');
 	}
 
 	public function showlist(){

@@ -3,7 +3,7 @@ body {
 }
 
 #siteMapContainer {
-	margin-top: 30px;
+	margin-top: 40px;
 	background-color: rgba(200,200,200,0.6);
 }
 
@@ -64,7 +64,6 @@ body {
 	margin-top: 55px;
 }
 
-
 #topLeft{
 	width: 250px;
 	height: 100%;
@@ -86,10 +85,10 @@ body {
 
 #topLogo{
 	position: relative;
-	width: 320px;
-	height: 320px;
-	top: -50px;
-	left: -40px;
+	width: 286px;
+	height: 286px;
+	top: -20px;
+	left: 1px;
 	background-image: url("../images/layout/logo.png");
 	background-size: 100%;
 	background-repeat:no-repeat;
@@ -116,7 +115,7 @@ body {
 	margin-left: 80px;
 }
 
-#topNavBarLife:hover{
+#topNavBarLife:hover {
 	background-image: url("../images/layout/nculife2.png");
 	margin-left: 80px;
 }
@@ -197,9 +196,39 @@ body {
 #auth_box {
 	width: 100%;
 	height: 100%;
+}
+
+#auth_logined {
+	width: 100%;
+	height: 100%;
+	margin-top: 10px;
+	background: url("../images/layout/facebox2.png") no-repeat;
+	background-size: 100%;
+	position: relative;
+}
+
+#logoutButton {
+	width: 79px;
+	height: 22px;
+	background: url("../images/layout/logout.png") no-repeat;
+	background-size: 100%;
+	position: absolute;
+}
+
+#logoutButton:hover {
+	width: 79px;
+	height: 22px;
+	background: url("../images/layout/logoutClick.png") no-repeat;
+	background-size: 100%;
+	position: absolute;
+}
+
+#auth_nolgin {
+	width: 100%;
+	height: 100%;
+	margin-top: 10px;
 	background: url("../images/layout/facebox.png") no-repeat;
 	background-size: 100%;
-	margin-top: 10px;
 }
 
 #auth_box input {

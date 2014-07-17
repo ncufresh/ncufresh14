@@ -1,35 +1,55 @@
-#all {	
-	height: 800px;
-	width: 100%;
-}
-
-#flipup {
-	height: 50%;
-	width: 100%;
-}
-
-#flipdown {
-	height: 50%;
-	width: 100%;
-}
-
-.item1 {
+#all {
 	position: relative;
-	top: 5%;
-	display: inline-block;
-	height: 80%;
-	width: 33%;
+	height: 950px;
+	width: 100%;
 }
 
-.item2 {
-	display: inline-block;
-	height: 70%;
-	width: 33%;
+#item1 {
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	height: 251px;
+	width: 344px;
+}
+
+#item2 {
+	position: absolute;
+	top: 330px;
+	left: 320px;
+	height: 291px;
+	width: 308px;
+}
+
+#item3 {
+	position: absolute;
+	top: 20px;
+	left: 510px;
+	height: 289px;
+	width: 365px;
+}
+
+#item4 {
+	position: absolute;
+	top: 650px;
+	left: 580px;
+	height: 291px;
+	width: 308px;
+}
+
+#item5 {
+	position: absolute;
+	top: 320px;
+	left: 655px;
+	height: 289px;
+	width: 365px;
 }
 
 #robot {
-	height: 100%;
-	width: 33%;
+	position: absolute;
+	top: 505px;
+	left: 100px;
+	height: 464px;
+	width: 238px;
 }
 
 .picture {

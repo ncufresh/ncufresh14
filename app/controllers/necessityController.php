@@ -5,6 +5,8 @@ class necessityController extends BaseController
 	//取得資料庫資料
 	public function index()
 	{
+		App::make('SiteMap')->pushLocation('新生必讀', route('necessity.necessity_index'));
+
 		return View::make('necessity.necessity_index',array(/*參數*/
 			'necessityResearchData'=>/*model*/NecessityResearchData::all(),
 			'necessityFreshmanData'=>/*model*/NecessityFreshmanData::all()));
@@ -23,13 +25,13 @@ class necessityController extends BaseController
 	//新增資料進去資料庫
 	public function freshman_add(){
 
-		$user = new NecessityFreshmanData; 	  
+		$user = new NecessityFreshmanData;
 		$user->item = Input::get('item');
-		$user->explanation= Input::get('explanation');
-		$user->organizer= Input::get('organizer');
+		$user->explanation = Input::get('explanation');
+		$user->organizer = Input::get('organizer');
 		$user->save();
 
-		return Redirect::to('necessity/backstage/freshman');
+		return Redirect::route('necessity.necessity_backstage_freshman');
 	}
 
 	//從資料庫裏面刪除資料
@@ -37,10 +39,34 @@ class necessityController extends BaseController
 		
 		$user = NecessityFreshmanData::where('id', '=', Input::get('ID'))->delete();
 
-		return Redirect::to('necessity/backstage/freshman');
+		return Redirect::route('necessity.necessity_backstage_freshman');
 	}
 
+	 //從資料庫裡面更改資料
+	public function editA($id){
+
+    $data = NecessityFreshmanData::find($id);
 	
+	return View::make('necessity.necessity_backstage_freshman_edit',array('necessityEdition'=>$data));
+	}
+
+	public function freshman_edit(){
+
+		$id = Input::get('id');
+		if(Input::has('id'))
+		{
+
+		$data = NecessityFreshmanData::where('id', '=',$id)->first();;	  
+		$data->item = Input::get('item');
+		$data->explanation= Input::get('explanation');
+		$data->organizer= Input::get('organizer');
+		$data->save();
+
+		}
+
+		return Redirect::route('necessity.necessity_backstage_freshman');
+	}
+
 
 //*******************************************************************//
 //research後台的controller
@@ -58,7 +84,7 @@ class necessityController extends BaseController
 		$user->organizer= Input::get('organizer');
 		$user->save();
 
-		return Redirect::to('necessity/backstage/research');
+		return Redirect::route('necessity.necessity_backstage_research');
 	}
 
 	//從資料庫裏面刪除資料
@@ -66,18 +92,67 @@ class necessityController extends BaseController
 		
 		$user = NecessityResearchData::where('id', '=', Input::get('ID'))->delete();
 
-		return Redirect::to('necessity/backstage/research');
+		return Redirect::route('necessity.necessity_backstage_research');
 	}
+    
+
+    //從資料庫裡面更改資料
+	public function edit($id){
+
+    $data = NecessityResearchData::find($id);
+	
+	return View::make('necessity.necessity_backstage_research_edit',array('necessityEdition'=>$data));
+	}
+
+	public function research_edit(){
+
+		$id = Input::get('id');
+		if(Input::has('id'))
+		{
+
+		$data = NecessityResearchData::where('id', '=',$id)->first();;	  
+		$data->item = Input::get('item');
+		$data->explanation= Input::get('explanation');
+		$data->organizer= Input::get('organizer');
+		$data->save();
+
+		}
+
+		return Redirect::route('necessity.necessity_backstage_research');
+	}
+
+
 
 //*******************************************************************//
 //download後台的controller
 
 	public function index_backstage_download()
 	{
-		//no
+		return View::make('necessity.necessity_backstage_download',array(/*參數*/'DownloadData'=>/*model*/NecessityDownloadData::all()));
+	}
+
+	public function download_add(){
+
+		$user = new NecessityDownloadData; 	  
+		$user->name = Input::get('filename');
+		$user->save();
+
+		return Redirect::route('necessity.necessity_backstage_download');
+	}
+
+//*******************************************************************//
+//後台的編輯區
+
+	public function index_backstage_research_edit()
+	{
+		return View::make('necessity.necessity_backstage_research_edit',array(/*參數*/
+			'ResearchData'=>/*model*/NecessityResearchData::all()
+			));
 	}
 
 
-
-
 }
+
+
+
+/*************************************************************************************************************************************************/

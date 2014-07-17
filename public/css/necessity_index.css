@@ -1,7 +1,6 @@
 #backgroundContent
 {
 	width:100%;
-	height: 600px;
 	background-color: FF9D37;
 	margin: 0 auto;
 }
@@ -49,7 +48,6 @@
 #contentDown
 {
 	width: 800px;
-	height: 400px;
 	background-color: FEFF91;
 	margin: 0 auto;
 }
@@ -57,24 +55,18 @@
 #contDownSlideFreshman
 {
 	width: 800px;
-	height: 400px;
 	background-color: CECDFF;
-	position:relative; 
 	margin-left: 0px;
-	float: left;
-	overflow: auto;
+	/*overflow: auto;*/
 	display: none;
 }
 
 #contDownSlideResearch
 {
 	width: 800px;
-	height: 400px;
 	background-color: CECDFF;
-	position:relative; 
 	margin-left: 0px;
-	float: left;
-	overflow: auto;
+	/*overflow: auto;*/
 	
 }
 
@@ -88,26 +80,33 @@
 	top: 10px; 
 }
 
-#contDownLeft
+#contDownLeftResearch
 {
-
 	width: 50px;
-	height: 370px;
 	background-color: FF73FD;
-	position:relative; 
+	position: relative;
 	margin-left:25px;
 	top: 10px; 
 	float: left;
 }
 
+#contDownLeftFreshman
+{
+	width: 50px;
+	background-color: FF73FD;
+	position: relative;
+	margin-left:25px;
+	top: 10px; 
+	float: left;
+	display: none;
+}
+
 #contDownForm
 {
 	width: 770px;
-	height: 220px;
 	position:relative; 
 	margin-left:15px;
-	top: 10px; 
-	float: left;
+	 
 }
 
 /*****************FormStyle*********************/
@@ -177,7 +176,7 @@
 	word-wrap: break-word;
 }
 
-/*********************FontStyle**********************/
+/*********************others**********************/
 
 
 

@@ -31,7 +31,7 @@
 	background: url("../images/index/calendertop.png") no-repeat;
 	padding-top: 32px;
 	padding-left: 51px;
-	color: gray;
+	color: #7b7b7b;
 }
 
 #calenderContent {
@@ -53,8 +53,7 @@
 	margin-left: 28px;
 	margin-top: 10px;
 	background-color: #0aadd6;
-	color: white;
-	padding: 10px;
+	color: #b9f1ff;
 }
 
 #linkContent {
@@ -81,6 +80,7 @@
 	height: 103px;
 	padding-top: 70px;
 	padding-left: 30px;
+	color: #864500;
 }
 
 #boardMid1 {
@@ -114,6 +114,15 @@
 	top: 100px;
 	left: 45px;
 }
+
+.announcement-row{
+	cursor: pointer;
+}
+
+.calender-row{
+	cursor: pointer;
+}
+
 #forum {
 	width: 450px;
 	float: left;
@@ -128,6 +137,7 @@
 	height: 43px;
 	padding-top: 12px;
 	padding-left: 26px;
+	color: #7b7b7b;
 }
 
 #forumContent {
@@ -155,7 +165,7 @@
 	height: 41px;
 	padding-top: 12px;
 	padding-left: 15px;
-	color: white;
+	color: #ffc4e4;
 }
 
 #vedioContent {
@@ -171,9 +181,16 @@
 	height: 40px;
 }
 
+
 .textStyle {
 	/*font:  bold 5pt arial,sans-serif;*/
 	font-family: 'Microsoft JhengHei';
 	font-size: 16pt;
 	font-weight: bold;
+}
+
+#videoHref{
+	position: relative;
+	left: -10px;
+	width:220px;
 }
