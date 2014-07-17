@@ -181,6 +181,10 @@
 	height: 40px;
 }
 
+body{
+	font-family: 'Microsoft JhengHei';
+}
+
 
 .textStyle {
 	/*font:  bold 5pt arial,sans-serif;*/

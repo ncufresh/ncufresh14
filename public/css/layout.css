@@ -362,6 +362,11 @@ body{
 	height: 100%;
 }
 
+.modal-content{
+	border-width: 13px;
+	border-color: #F8E566;
+}
+
 /** testing */
 .testR{
 	background-color: rgba(255, 0, 0, 0.4);

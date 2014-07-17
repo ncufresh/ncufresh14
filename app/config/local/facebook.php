@@ -7,7 +7,7 @@
 
 // Facebook app Config
 return array(
-	'appId' => '812143938818671',
-	'secret' => 'caef79eb6cc96521382715418a76b4d3',
+	'appId' => '574321019249143',
+	'secret' => '67afb894e18504ab068d59cd6e56471a',
 	'callback_route' => 'fb_login_callback'
 );
