@@ -15,7 +15,6 @@ $(function(){
 	}
 
 	var calenderAPIURL = getTransferData('calender-api-url');
-	var calenderURL = getTransferData('calender-url');
 	$('.calender-row').click(function(){
 		var id = $(this).data('id');
 		ajaxGet(calenderAPIURL + '/' + id, {id: id}, displayCalender);
@@ -26,7 +25,6 @@ $(function(){
 		var end = new Date(data['end_at']);
 		var time = '適用時間:' + start.toLocaleDateString() + ' ~ ' + end.toLocaleDateString();
 		$.jumpWindow(data['title'], data['content'], time);
-		$.pushLocation('行事曆', calenderURL + '/' + data['id']);
 	}
 
 
