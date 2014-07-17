@@ -7,7 +7,7 @@
 	                 'transform' : 'rotate('+ degrees +'deg)'});
 	    return $(this);
 	};
-
+	
     $(document).ready(function()
     {
     	var running = false;
@@ -26,7 +26,7 @@
 						    if ( decrease <= 0 ) {
 						    	timer.stop();
 						    	running = false;
-						    	editStatus(data);
+						    	editStatus(data['power'],data['gp']);
 					    		$('#destinyStart').show();
 					    		$('#startPage').hide();
 					    		$('#bounsPage').fadeIn();
