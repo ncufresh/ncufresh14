@@ -13,7 +13,7 @@
 </div>
 
 @if(isset($introduction) )
-	<div id = "intro">{{$introduction}}</div> <!--video introduction-->
+	<div id = "intro">{{nl2br($introduction)}}</div> <!--video introduction-->
 @endif
 
 <div id="video_name" style ="width:500px;height:100px;font-size:80px;">影片名稱</div>

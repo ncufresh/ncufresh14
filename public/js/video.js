@@ -115,6 +115,7 @@ $(function(){
   function rateFinish(gg){
     $("#rating_number1").text(gg['a']);
     $("#rating_number2").text(gg['b']);
+    console.log(gg);
   }   //vote完重整，讓rating 即時顯示
 
   function LogInAlert(alert){
