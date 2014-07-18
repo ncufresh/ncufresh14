@@ -84,7 +84,18 @@ $(function(){
   });
 */
   $("#message").click(function(){
-    $("#div1").fadeToggle("slow");
+    $.jumpWindow('留言框', $("#div1").html());//green^2
+
+    $( "#videoPost" ).submit(function( event ) {
+    if(getTransferData('login') == 0 ){
+    $.alertMessage('請先登入！', {type: 'alert-danger'});//green^2
+    // alert( "請先登入！" );
+    event.preventDefault();
+    }
+    else{
+    }
+  });
+    // $("#div1").fadeToggle("slow");
   }); //fade 留言框
 
  //var video_id=1;
@@ -92,16 +103,23 @@ $(function(){
   $('#like').click(function(){   
 		var url = getTransferData('like_video_url');
     var data = {video_id: 1, video_rate: 0};
-
+    if(getTransferData('login') == 0 ){
+    $.alertMessage('請先登入！', {type: 'alert-danger'});
+    event.preventDefault();
+    }  
 	  ajaxPost(url, data , rateFinish);
 	});  //like button
 
   $('#love').click(function(){
   	var url = getTransferData('like_video_url');
 	  var data = {video_id: 1, video_rate: 1};
-
+    if(getTransferData('login') == 0 ){
+    $.alertMessage('請先登入！', {type: 'alert-danger'});
+    event.preventDefault();
+    }  
     ajaxPost(url, data , rateFinish);
 	});  //love button
+  
 
 /*
   function shit(){
@@ -115,7 +133,6 @@ $(function(){
   function rateFinish(gg){
     $("#rating_number1").text(gg['a']);
     $("#rating_number2").text(gg['b']);
-    console.log(gg);
   }   //vote完重整，讓rating 即時顯示
 
   function LogInAlert(alert){
@@ -132,6 +149,8 @@ $(function(){
     $('#intro').text(intro["video_introduction"]);
   }
 */
+
+  
 
 
 });

@@ -10,7 +10,7 @@ class VideoController extends BaseController {
 		//App::make('TransferData')->addData('about_rate_url', route('video.aboutrate'))		;
 		//App::make('TransferData')->addData('change_intro_url', route('video.intro'));
 
-		$data = Message::paginate(13);
+		$data = Message::paginate(10);
 
 		//$videoID = VideoLike::where('video_id','=','');
 		$video=Video::where('id','=','');
@@ -23,7 +23,7 @@ class VideoController extends BaseController {
 			));
 	}
 
-	function RemoveXSS($val) {   //xss
+	function removeXSS($val) {   //xss
 	  
 	   $val = preg_replace('/([\x00-\x08,\x0b-\x0c,\x0e-\x19])/', '', $val); 
 	 
@@ -36,7 +36,12 @@ class VideoController extends BaseController {
 	   } 
 
 	   $ra1 = Array('javascript', 'vbscript', 'expression', 'applet', 'meta', 'xml', 'blink', 'link', 'style', 'script', 'embed', 'object', 'iframe', 'frame', 'frameset', 'ilayer', 'layer', 'bgsound', 'title', 'base'); 
-	   $ra2 = Array('onabort', 'onactivate', 'onafterprint', 'onafterupdate', 'onbeforeactivate', 'onbeforecopy', 'onbeforecut', 'onbeforedeactivate', 'onbeforeeditfocus', 'onbeforepaste', 'onbeforeprint', 'onbeforeunload', 'onbeforeupdate', 'onblur', 'onbounce', 'oncellchange', 'onchange', 'onclick', 'oncontextmenu', 'oncontrolselect', 'oncopy', 'oncut', 'ondataavailable', 'ondatasetchanged', 'ondatasetcomplete', 'ondblclick', 'ondeactivate', 'ondrag', 'ondragend', 'ondragenter', 'ondragleave', 'ondragover', 'ondragstart', 'ondrop', 'onerror', 'onerrorupdate', 'onfilterchange', 'onfinish', 'onfocus', 'onfocusin', 'onfocusout', 'onhelp', 'onkeydown', 'onkeypress', 'onkeyup', 'onlayoutcomplete', 'onload', 'onlosecapture', 'onmousedown', 'onmouseenter', 'onmouseleave', 'onmousemove', 'onmouseout', 'onmouseover', 'onmouseup', 'onmousewheel', 'onmove', 'onmoveend', 'onmovestart', 'onpaste', 'onpropertychange', 'onreadystatechange', 'onreset', 'onresize', 'onresizeend', 'onresizestart', 'onrowenter', 'onrowexit', 'onrowsdelete', 'onrowsinserted', 'onscroll', 'onselect', 'onselectionchange', 'onselectstart', 'onstart', 'onstop', 'onsubmit', 'onunload'); 
+	   $ra2 = Array('onabort', 'onactivate', 'onafterprint', 'onafterupdate', 'onbeforeactivate', 'onbeforecopy', 'onbeforecut', 'onbeforedeactivate',
+	    'onbeforeeditfocus', 'onbeforepaste', 'onbeforeprint', 'onbeforeunload', 'onbeforeupdate', 'onblur', 'onbounce', 'oncellchange', 'onchange', 'onclick', 'oncontextmenu', 'oncontrolselect', 'oncopy', 'oncut', 
+	    'ondataavailable', 'ondatasetchanged', 'ondatasetcomplete', 'ondblclick', 'ondeactivate', 'ondrag', 'ondragend', 'ondragenter', 'ondragleave', 'ondragover', 'ondragstart', 'ondrop', 'onerror', 'onerrorupdate',
+	    'onfilterchange', 'onfinish', 'onfocus', 'onfocusin', 'onfocusout', 'onhelp', 'onkeydown', 'onkeypress', 'onkeyup', 'onlayoutcomplete', 'onload', 'onlosecapture', 'onmousedown', 'onmouseenter', 'onmouseleave',
+	    'onmousemove', 'onmouseout', 'onmouseover', 'onmouseup', 'onmousewheel', 'onmove', 'onmoveend', 'onmovestart', 'onpaste', 'onpropertychange', 'onreadystatechange', 'onreset', 'onresize', 'onresizeend', 'onresizestart',
+	    'onrowenter', 'onrowexit', 'onrowsdelete', 'onrowsinserted', 'onscroll', 'onselect', 'onselectionchange', 'onselectstart', 'onstart', 'onstop', 'onsubmit', 'onunload'); 
 	   $ra = array_merge($ra1, $ra2); 
 	 
 	   $found = true;  
@@ -97,6 +102,7 @@ class VideoController extends BaseController {
 	public function post_index(){
 		$lines = substr_count( Input::get('video_text'), "\n" );
 		$jumiMessage = $this->get_how_many_messages();
+		//$val = $this ->removeXSS();
 		if ($lines > 7){
 			return Redirect::route('video') -> withErrors(['留言行數不能超過七行！']);
 		}else{
@@ -106,13 +112,12 @@ class VideoController extends BaseController {
 					$user = new message;
 					$user->user_id = Auth::user()->id;//TODO
 					$user->video_text = Input::get('video_text');
+					removeXSS(Input::get('video_text'));
 					$user->save();
 					return Redirect::route('video');
 				}else{
 					return Redirect::route('video') -> withErrors(['一天不能發布超過10次留言！']);
 				}
-			}else{		
-				return Redirect::route('video') -> withErrors(['請先登入！']);//TODO
 			}
 		}
 	}
@@ -120,14 +125,14 @@ class VideoController extends BaseController {
 	public function post_like(){
 		if(Auth::check()){
 			$user_id = Auth::user()->id;
-			$gg['d']=VideoLike::where('user_id', '=', $user_id)->get()->count();
 			if(VideoLike::where('user_id', '=', $user_id)->get()->count() == 0){
-				$gg['c']="1";
 				$like = new VideoLike;
 				$like->user_id = $user_id; 
 				$like->video_rate = Input::get('video_rate');
 				$like->video_id = Input::get('video_id');
 				$like->save();
+			}else{
+				return Redirect::route('video') -> withErrors(['你已經投過了！']);////TODO******************
 			}
 			
 			$videoRating1 = Video::find(Input::get('video_id'))->getRating()->where('video_rate', '=', '0')->count();
@@ -136,46 +141,9 @@ class VideoController extends BaseController {
 			$gg['a'] = $videoRating1;
 			$gg['b'] = $videoRating2;
 			return Response::json($gg);
+		}else{
+			return Redirect::route('video') -> withErrors(['請先登入！']);
 		}
 	}
-
-
-/*	
-	public function get_how_many_messages()
-	{
-			$user = Auth::user();
-			$lastMessage = VideoMessage::first('created_at');
-			$lastDate1 = 想辦法取得日期($lastMessage->created_at);
-			$lastDate2 = $lastDate1 + 1天;
-			$jumiMessage = VideoMessage::where('created_at', '>', $lastDate1)->where('created_at', '<', $lastDate2)->get();
-			return count($jumiMessage);
-	}
- 	//$發文時間 = 取得最後那一篇文的發文時間
-	//$文章們 = 用eloquent取得文章->where($發文時間-文章時間, '<', 一天)
-	
-
-
-/*
-	$now = Carbon::now();
-	$yesterday = Carbon::yesterday();
-
-	public function avoid_excessive_message($now,$yesterday) {
-			$user_id = Auth::user()->id; 
-			$message_user_id = VideoMessage:: Input::get('user_id');
-			if (count($message_user_id = $user_id) > 10)
-			{
-				return Redirect::route('video') -> withErrors(['一天不能發布超過10次留言！']);
-			}else{
-
-			}
-	}
-
-/*	public function avoid_excessive_message(){
-		$user_id = Auth::user()->id;
-		date("Y-m-d",time())
-		$message_time = VideoMessage::get('created_at');
-		if(isset(Carbon::now->hour) ){
-
-		}*/
 
 }
