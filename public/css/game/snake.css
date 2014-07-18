@@ -90,9 +90,8 @@
 #space {
 	width: 935px;
 	height: 95px;
-	top: 780px;
+	top: 380px;
 	position: absolute;
-	/*opacity:0.6;*/
 	background: url("../../images/gameSnake/space.png") no-repeat;
 }
 

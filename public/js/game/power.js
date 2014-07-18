@@ -68,7 +68,6 @@ $(function()
         ajaxPost(getTransferData('recent-power-url'),'', getRecent);
         $('#correctAns').empty();
         $('#next').hide();
-        
     });
 
      $('#again').click(function() {

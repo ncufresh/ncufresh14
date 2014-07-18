@@ -51,6 +51,7 @@ $(document).ready(function(){
 	$('#start').click(function() 
 	{
 		if(power>0)
+		{
 			if(difficult!=0&&mode!=0&&done==true)
 			{
 				$('#cover').hide();
@@ -59,6 +60,9 @@ $(document).ready(function(){
 				key=0;
 				waiting = true;
 			}
+		}
+		else
+			noPowerDisplay();
 	});
 
 ////////////////////////////////init////////////////////////////////////////////
