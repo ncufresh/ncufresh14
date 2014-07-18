@@ -1,17 +1,7 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	<style>
-		#announcement-content{
-			padding: 10px;
-		}
-		#announcement-content>table>tbody>tr>td>img{
-			width: 30px;
-		}
-		#announcement-content>table>tbody>tr{
-			cursor: pointer;
-		}
-	</style>
+	{{ HTML::style('css/announcement.css') }}
 	<script>
 		$(function(){
 			$('.announcement-row').click(function(){

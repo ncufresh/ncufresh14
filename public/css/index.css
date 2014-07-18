@@ -56,6 +56,14 @@
 	color: #b9f1ff;
 }
 
+#linkTop{
+	background: url("../images/index/linktop.png");
+	width: 200px;
+	height: 40px;
+	padding-left: 10px;
+	padding-top: 5px;
+}
+
 #linkContent {
 	width: 100%;
 	height: 250px;
@@ -68,6 +76,20 @@
 	height: 63px;
 }
 
+#link-ul{
+	list-style-image: url("../images/index/linklist.png");
+}
+
+#link-ul>li>a{
+	color: #b9f1ff;
+}
+
+
+
+#link-ul>li>a:hover{
+	color: white;
+}
+
 #board {
 	width: 700px;
 	margin-left: 30px;
@@ -77,34 +99,22 @@
 #boardTop {
 	background: url("../images/index/boardtop.png") no-repeat;
 	width: 700px;
-	height: 103px;
+	height: 164px;
 	padding-top: 70px;
 	padding-left: 30px;
 	color: #864500;
 }
 
-#boardMid1 {
-	background: url("../images/index/boardmid1.png") repeat-y;
+#boardMid {
+	background: url("../images/index/boardmid.png") repeat-y;
 	width: 700px;
-	height: 100px;
-}
-
-#boardMid2 {
-	background: url("../images/index/boardmid2.png") repeat-y;
-	width: 700px;
-	height: 100px;
-}
-
-#boardMid3 {
-	background: url("../images/index/boardmid3.png") repeat-y;
-	width: 700px;
-	height: 100px;
+	height: 188px;
 }
 
 #boardBottom {
 	background: url("../images/index/boardbottom.png") no-repeat;
 	width: 700px;
-	height: 52px;
+	height: 114px;
 }
 
 #boardContent {
@@ -113,10 +123,17 @@
 	height: 310px;
 	top: 100px;
 	left: 45px;
+	font-size: medium;
 }
 
 .announcement-row{
+	padding-top: 10px;
+	padding-bottom: 10px;
 	cursor: pointer;
+}
+
+.announcement-row:hover{
+	background-color: rgb(254, 219, 95);
 }
 
 .calender-row{
@@ -144,6 +161,7 @@
 	background: #ffffff;
 	width: 450px;
 	height: 252px;
+
 }
 
 #forumBottom {

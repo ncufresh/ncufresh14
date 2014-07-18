@@ -25,8 +25,8 @@ function pushLocation(name, url){
 }
 
 function popLocation(){
-	$('#site_map').children().last().remove();
-	window.history.back();
+	$.popLocation();
+
 }
 
 function changeURL(url){
@@ -70,21 +70,32 @@ $(function(){
 	});
 });
 
-$.pushLocation = function(name, url){
+$.pushLocation = function(name, url, options){
 	var bURL = getTransferData('burl');
 
 	var defaults = {
 		name: '頁面',
-		url: bURL
+		url: bURL,
+		full: false
 	};
 
 	var options = $.extend({}, defaults, options);
 
-	var siteMap = $('#site_map');
-	var aTag = $('<a></a>').text(name).attr('href', bURL + url);
-	var span = $('<span></span>').append(aTag).append('/');
-	siteMap.append(span)
+	if(options.full == false){
+		options.url = bURL + url;
+	}
+
+	var siteMap = $('#siteMapContainer');
+	var aTag = $('<a></a>').text(name).attr('href', options.url);
+	var li = $('<li class="site_map_item"></li>').append(aTag);
+	console.log(siteMap);
+	siteMap.append(li);
 	changeURL(url);
+};
+
+$.popLocation = function(){
+	$('#siteMapContainer').children().last().remove();
+	window.history.back();
 };
 
 $.alertMessage = function(text, options){
@@ -106,7 +117,8 @@ $.jumpWindow = function(head, body, foot, options){
 	var defaults = {
 		head: '',
 		body: '',
-		foot: ''
+		foot: '',
+		pop: true
 	};
 
 	options = $.extend({}, defaults, options);
@@ -115,9 +127,13 @@ $.jumpWindow = function(head, body, foot, options){
 	$('#jump-window-head').html(head);
 	$('#jump-window-body').html(body);
 	$('#jump-window-footer').html(foot);
-	$('#jump-window').modal('show');
+	$('#jump-window').modal('show').data('pop-location', options.pop);
 
 };
 $(function(){
-//	$('body').jScrollPane();
+	$('#jump-window').on('hide.bs.modal', function (e) {
+		if($(this).data('pop-location') == true){
+			$.popLocation();
+		}
+	});
 });

@@ -25,13 +25,16 @@
 			<div id="calenderBottom">
 			</div>
 		</div>
-		<div id="links" class="textStyle">常用連結
+		<div id="links" class="textStyle">
+			<div id="linkTop">常用連結</div>
 			<div id="linkContent">
+				<ul id="link-ul">
 				@foreach($links as $link)
-					<div>
+					<li>
 						<a href="{{ $link->url }}">{{ $link->display_name }}</a>
-					</div>
+					</li>
 				@endforeach
+				</ul>
 			</div>
 			<div id="linkBottom">
 			</div>
@@ -41,11 +44,7 @@
 		<div id="board">
 			<div id="boardTop" class="textStyle">公告
 			</div>
-			<div id="boardMid1">
-			</div>
-			<div id="boardMid2">
-			</div>
-			<div id="boardMid3">
+			<div id="boardMid">
 			</div>
 			<div id="boardBottom">
 			</div>
@@ -65,7 +64,7 @@
 					@endif
 					<div class="col-sm-6">{{ $announcement->title }}</div>
 					<div class="col-sm-2">{{ $announcement->viewer }}</div>
-					<div class="col-sm-3">{{ $announcement->created_at->format('Y/m/d - h:i'); }}</div>
+					<div class="col-sm-3">{{ $announcement->created_at->format('Y/m/d h:i'); }}</div>
 				</div>
 				@endforeach
 				<a href="{{ route('announcement.index') }}">閱讀更多</a>

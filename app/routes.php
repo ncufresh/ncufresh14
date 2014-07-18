@@ -40,7 +40,7 @@ Route::get('user/{id}', array('as' => 'user.id', 'uses' => 'UserController@index
 //announcement
 Route::resource('announcement', 'AnnouncementController', array('only' => array('index', 'show')));
 
-Route::resource('link', 'LinkController');
+//Route::resource('link', 'LinkController');
 
 //Route::resource('calender', 'CalenderController');
 

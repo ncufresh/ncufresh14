@@ -78,6 +78,9 @@
 				<p>主辦單位：國立中央大學學務處　承辦單位：諮商中心　執行單位：2014大一生活知訊網工作團隊</p>
 				<p>地址：32001桃園縣中壢市五權里2鄰中大路300號 | 電話：(03)422-7151#57261 | 版權所有：2014大一生活知訊網工作團隊</p>
 			</div>
+			@if(Entrust::can('manage_editor'))
+				<a style="color:green; font-size: 2em" href="{{ route('dashboard') }}">點我進入後台喔~~~~</a>
+			@endif
 		</div>
 
 		@include('layouts.chatroom')
