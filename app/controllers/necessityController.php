@@ -5,9 +5,12 @@ class necessityController extends BaseController
 	//取得資料庫資料
 	public function index()
 	{
+		App::make('SiteMap')->pushLocation('新生必讀', route('necessity.necessity_index'));
+
 		return View::make('necessity.necessity_index',array(/*參數*/
 			'necessityResearchData'=>/*model*/NecessityResearchData::all(),
-			'necessityFreshmanData'=>/*model*/NecessityFreshmanData::all()));
+			'necessityFreshmanData'=>/*model*/NecessityFreshmanData::all(),
+			'necessityDownloadData'=>/*model*/NecessityDownloadData::all()));
 	}
 
 
@@ -29,15 +32,16 @@ class necessityController extends BaseController
 		$user->organizer = Input::get('organizer');
 		$user->save();
 
-		return Redirect::to('necessity/backstage/freshman');
+		return Redirect::route('necessity.necessity_backstage_freshman');
 	}
 
 	//從資料庫裏面刪除資料
 	public function freshman_delete(){
 		
 		$user = NecessityFreshmanData::where('id', '=', Input::get('ID'))->delete();
+		$user = NecessityResearchData::where('id', '=', Input::get('ID'))->delete();
 
-		return Redirect::to('necessity/backstage/freshman');
+		return Redirect::route('necessity.necessity_backstage_freshman');
 	}
 
 	 //從資料庫裡面更改資料
@@ -62,7 +66,7 @@ class necessityController extends BaseController
 
 		}
 
-		return Redirect::to('necessity/backstage/freshman');
+		return Redirect::route('necessity.necessity_backstage_freshman');
 	}
 
 
@@ -82,7 +86,7 @@ class necessityController extends BaseController
 		$user->organizer= Input::get('organizer');
 		$user->save();
 
-		return Redirect::to('necessity/backstage/research');
+		return Redirect::route('necessity.necessity_backstage_research');
 	}
 
 	//從資料庫裏面刪除資料
@@ -90,7 +94,7 @@ class necessityController extends BaseController
 		
 		$user = NecessityResearchData::where('id', '=', Input::get('ID'))->delete();
 
-		return Redirect::to('necessity/backstage/research');
+		return Redirect::route('necessity.necessity_backstage_research');
 	}
     
 
@@ -116,7 +120,7 @@ class necessityController extends BaseController
 
 		}
 
-		return Redirect::to('necessity/backstage/research');
+		return Redirect::route('necessity.necessity_backstage_research');
 	}
 
 
@@ -132,25 +136,108 @@ class necessityController extends BaseController
 	public function download_add(){
 
 		$user = new NecessityDownloadData; 	  
-		$user->name = Input::get('filename');
+		$user->name = Input::get('downloadname');
+		
+		// if(Input::hasFile('file')){
+		// 	return "yES";
+		// }else{
+		// 	return 'no';
+		// }
+		
+		$file = Input::file('File');
+		$fileid = $file -> getClientOriginalName();
+		// $fileType = $file -> getMimeType();
+		$extension = $file ->getClientOriginalExtension();
+		$extension = strtolower($extension);
+
+		$fileName = str_random(5);
+		$fileName = $fileName.'.'.$extension;
+
+		$user->fileid = $fileid;
+		$user->contentType = $extension;
+		$user->machineName = $fileName;
 		$user->save();
 
-		return Redirect::to('necessity/backstage/doenload');
+		$file -> move(public_path('necessityfile'), $fileName);
+
+		return Redirect::route('necessity.necessity_backstage_download');
 	}
+	
 
-//*******************************************************************//
-//後台的編輯區
 
-	public function index_backstage_research_edit()
+	public function returnDownload($id)
 	{
-		return View::make('necessity.necessity_backstage_research_edit',array(/*參數*/
-			'ResearchData'=>/*model*/NecessityResearchData::all()
-			));
+
+		$data = NecessityDownloadData::find($id);
+		$contentType = $data -> contentType;
+		$machineName = $data -> machineName;
+		
+		if( $contentType == 'pdf' )
+		{
+			$headers = array(
+              'Content-Type: application/pdf',
+            );	
+        }
+        else if( $contentType == 'doc' || $contentType == 'docx')
+        {
+        	$headers = array(
+              'Content-Type: application/doc',
+            );	
+        }
+        else
+        {
+        	$headers = array(
+              'Content-Type: application/txt',
+            );	
+        }
+
+
+
+		$file = public_path(). "/necessityfile/$machineName";
+		$downloadFilename = $data -> name;
+
+		return Response::download($file,$downloadFilename,$headers);
 	}
 
+	// 從資料庫裏面刪除資料
+	
+	public function download_delete(){
+		
+		$user = NecessityDownloadData::where('id', '=', Input::get('ID'))->delete();
+
+		return Redirect::route('necessity.necessity_backstage_download');
+	}
+
+
+
+	// 更改資料
+
+	public function editC($id){
+
+    $data = NecessityDownloadData::find($id);
+	
+	return View::make('necessity.necessity_backstage_download_edit',array('necessityEdition'=>$data));
+	
+	}
+	
+	public function download_edit(){
+		
+		$id = Input::get('id');
+		if(Input::has('id'))
+		{
+
+		$data = NecessityDownloadData::where('id', '=',$id)->first();;	  
+		$data->name = Input::get('name');
+		$data->save();
+
+		}
+
+		return Redirect::route('necessity.necessity_backstage_download');
+	
+	}	
 
 }
 
 
 
-/*************************************************************************************************************************************************/
+

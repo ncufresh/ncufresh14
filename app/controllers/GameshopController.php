@@ -2,6 +2,8 @@
 
 class GameshopController extends BaseController {
 	public function index() {
+		App::make('SiteMap')->pushLocation('小遊戲', route('game'));
+		App::make('SiteMap')->pushLocation('商店系統', route('game.shop'));
 		if ( !Auth::check() ) {
 			return Redirect::to('/');	
 		}

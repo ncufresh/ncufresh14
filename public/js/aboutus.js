@@ -1,35 +1,60 @@
-console.log(5);
+
 $(document).ready(function(){
-console.log(3);
-	//$(".wrapper").hide();
-	$(".item").hide(;fdgfdg
+
+	$(".wrapper").hide();
+	$(".items").hide();
+	//$("#page2").hide();
+	$("#photo").hide();
+
 	$("#morecontent").click(function(){
-		$(".item").show("slow");
-		$("#picture").animate({
+
+		//$(".items").show("slow");
+		$("#morecontent").animate({
+			opacity:'0'
+		},1);
+		$("#page1").animate({
 			width:'50px',
-			marginLeft:'-30px'
-		},1000);
-		$(this).animate({
-			width:'850px',
-			marginLeft:'-850px'
-			},1000);
+			marginLeft:'-10px',
+			opacity:'0'
+		},800,function(){
+			//$("#page1").hide();
+			$("#photo").show();
+		});
+		
+		$("#page2").animate({
+			width:'1023px',
+			marginLeft:'-37px',
+			opacity:'1'
+			},800);
+
+	 $("#page2").css({"visibility":"visible"});
+
 	});
 
-	$("#picture").click(function(){
-		$(".item").hide("slow");
-		$("#morecontent").animate({
+	$("#photo").click(function(){
+		$("#photo").hide(1);
+		$(".items").hide("slow");
+		$("#page2").animate({
 			width:'5%',
-			marginLeft:'10px'
+			marginLeft:'918px',
+			opacity:'0'
 		},1000);
-		$(this).animate({
-			width:'850px',
-			marginLeft:'10px'
-			},1000);
+		$("#page1").animate({
+			width:'918px',
+			marginLeft:'10px',
+			opacity:'1'
+			},1000,function(){
+				$("#morecontent").animate({
+			opacity:'1'
+			},1);
+
+				$("#page2").css({"visibility":"hidden"});
+			});
 
 		
 	});
 
-	$(".item").click(function(){
+	$(".items").click(function(){
 		getID($(this).data('id'));
 	});
 
@@ -38,11 +63,18 @@ console.log(3);
 	
 	});
 
-	$(".item").mouseover(function(){
+	$(".items").mouseover(function(){
 		$(this).css({"cursor":"pointer"});
 
 
 	});
+	$(".a").mouseover(function(){
+		$(this).css({"cursor":"pointer"});
+	});
+	
+	$('.carousel').carousel({
+  interval: 3000
+	})
 
 	function getID(id){
 		var url = getTransferData('about_modal');
@@ -50,25 +82,12 @@ console.log(3);
 		ajaxGet(url,data,OpenModal);
 	}
 
-console.log(2);
-
 	function OpenModal(data){
-		// var introduction = data['introduction'];
-		// if(data['id']!=6){
-		// 	$.jumpWindow("",introduction,"");
-		// }
+		var introduction = data['introduction'];
+		var teamphoto = data['teamphoto'];
+		if(data['id']!=6){
+			$.jumpWindow("",teamphoto+introduction,"");
+		}
 	}
-
-	var carousel = $('#carousel').carouseSl();
-  console.log(carousel);
-	$('#carousel_prev').on('click', function(ev) {
-		console.log('left');
-	  carousel.carousel('prev');
-	});
-	$('#carousel_next').on('click', function(ev) {
-	  carousel.carousel('next');
-	});
-
-	console.log(1);
-
+	
 });

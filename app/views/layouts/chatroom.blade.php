@@ -1,7 +1,9 @@
 <div id="chat-room-container">
-	<div id="chat-room" data-chatroom-url="{{ Request::server('SERVER_NAME'); }}">
-		<div id="chat-room-button">按我</div>
-		<div class="container">
+	<div id="chat-room" data-chatroom-url="140.115.184.136">
+		<div id="chat-room-button"></div>
+		<div >
+			<div id="chat-log-top">
+			</div>
 			<div id="chat-log">
 				<div class="chat-row">
 					<span class="chat-name"></span>

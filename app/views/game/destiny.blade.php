@@ -9,7 +9,6 @@
 @section('game_content')
 	<div id="gameDestinyContainer">
 		<div id="gameDestinyLeft">
-			
 			<div id="rotateFoot"></div>
 			<div id="rotateTable"></div>
 			<div id="rotatePointer"></div>
@@ -24,7 +23,7 @@
 			<div id="bounsPage">
 				<div class="destinyText">恭喜你獲得</div>
 				<div id="bonusBoxImage">
-					<div>item</div>
+					<div id="bonusText">item</div>
 				</div>
 				<div id="destinyAgain"></div>
 			</div>

@@ -14,13 +14,13 @@
     		研究新生全體注意!!
     		</br>
     		項目：
-			{{ Form::text('item','  偷拍女生洗澡沙龍照注意事項!!', array('class' => 'backstage_item_add' ))}}
+			{{ Form::text('item','', array('class' => 'backstage_item_add' ))}}
 			</br>			
 			說明：
-			{{ Form::textarea('explanation', ' 切記相機鏡頭要HD高畫質!!', array('class' => 'backstage_explanation_add' )) }}
+			{{ Form::textarea('explanation', '', array('class' => 'backstage_explanation_add' )) }}
 			</br>			
 			單位：
-			{{ Form::text('organizer','  綠綠總指揮部', array('class' => 'backstage_organizer_add ' ))}}
+			{{ Form::text('organizer','', array('class' => 'backstage_organizer_add ' ))}}
 			
 			{{ Form::submit('上傳') }}
 			{{ Form::close() }}
@@ -35,7 +35,6 @@
 
 	@foreach($ResearchData as $researchdata)
 
-		
 			{{ Form::open(array('route' => 'research_delete')) }}
     		<br>
     		{{ Form::hidden('ID', $researchdata->id) }}
@@ -49,7 +48,9 @@
 			<div class="backstage">{{$researchdata->organizer}}</div>
 			<br>
 			{{ Form::submit('刪除')}}
-			<input type="button" value="修改" onclick="location.href='http://localhost/ncufresh14/public/necessity/backstage/research/{{$researchdata->id}}'">
+			
+			<a href="{{ route('necessity.necessity_backstage_research_edit', array('id' => $researchdata->id)) }}">修改</a>
+			
 			{{ Form::close() }}
 
 	@endforeach
