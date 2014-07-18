@@ -172,7 +172,7 @@ $(function()
             timer.stop();
             ajaxPost(getTransferData('renew-value-url'),{power:(recentPower+returnCount),max:maxPower},'');
             $('#again').show();
-            editStatus((parseInt(recentPower)+parseInt(returnCount));
+            editStatus((parseInt(recentPower)+parseInt(returnCount)));
         }
             
         powerreturncount++;
