@@ -46,7 +46,7 @@ $(document).ready(function(){
 			$('#mode3').children().attr('src',''+burl+'/images/gameSnake/m3.png');
 	}
 
-	var power,done=false,recentScore,waiting=false;
+	var power,done=false,recentScore = 0,waiting=false;
 	ajaxPost(getTransferData('get-power-url'),'', getData);
 	$('#start').click(function() 
 	{
@@ -63,7 +63,7 @@ $(document).ready(function(){
 
 ////////////////////////////////init////////////////////////////////////////////
 	var lose;
-	var score;
+	var score = 0;
 	var scorecount = new Array(6);
 	var timer = $.timer(tick);
 	var round;
