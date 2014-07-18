@@ -4,3 +4,7 @@ function editStatus(power,gp) {
 	});
 	$('#userGP').text(gp);
 }
+
+function noPowerDisplay() {
+
+}

@@ -567,6 +567,10 @@ gameShop
 	position: relative;
 }
 
+.gameShopItemSelect {
+	background: url("../images/gameShop/itemBoxClick.png") no-repeat;
+}
+
 .gameShopItemText {
 	position: absolute;
 	width: 100%;
@@ -576,24 +580,31 @@ gameShop
 
 .gameShopItemImage {
 	width: 96%;
-	/*height: 100px;*/
 	top: 18px;
 	left: 2%;
 	position: absolute;
 }
-
+/*
 .gameShopItemImage:hover {
 	width: 96%;
-	/*height: 100px;*/
 	top: 18px;
 	left: 2%;
 	position: absolute;
 	z-index: 1;
-}
+}*/
 
 .gameShopItemBuyButton {
 	position: absolute;
 	background: url("../images/gameShop/buy.png") no-repeat;
+	width: 79px;
+	height: 30px;
+	top: 105px;
+	left: -5px;
+}
+
+.gameShopItemBuyButton:hover {
+	position: absolute;
+	background: url("../images/gameShop/buyClick.png") no-repeat;
 	width: 79px;
 	height: 30px;
 	top: 105px;
