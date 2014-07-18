@@ -149,7 +149,7 @@ Route::group(array('before' => 'auth'), function(){
 	Route::post('game/power/getDayQuest', array('as' => 'game.power.getDayQuest', 'uses' => 'GamePowerController@getDayQuest'));
 	Route::post('game/power/getRecentPower', array('as' => 'game.power.getRecentPower', 'uses' => 'GamePowerController@getRecentPower'));
 	Route::post('game/power/renewValue', array('as' => 'game.power.renewValue', 'uses' => 'GamePowerController@renewValue'));
-	Route::resource('game/power/edit', 'GamePowerEditController');
+	Route::resource('poweredit', 'GamePowerEditController');
 
 	Route::post('game/destiny/start', array('as' => 'game.destiny.start', 'uses' => 'GamedestinyController@start'));
 	Route::post('game/campus/start', array('as' => 'game.campus.start', 'uses' => 'GamecampusController@start'));
