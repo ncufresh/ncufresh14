@@ -2,6 +2,18 @@ $(document).ready(function(){
 
 	var burl = getTransferData('burl');
 
+	var change = ['','department', 'administration', 'scence', 'food', 'dorm', 'exercise'];
+	var changeChinese = ['','系館', '行政', '中大十景', '運動', '飲食', '住宿'];
+	//change[2] = ;
+	// 'department' => '1',
+	// 		'administration' => '2',
+	// 		'scence' => '3',
+	// 		'food' => '4',
+	// 		'dorm' => '5',
+	// 		'exercise'=>'6'
+
+		
+
 	$(".departments").show();
 	$(".school").hide();
 	$(".scence").hide();
@@ -12,44 +24,39 @@ $(document).ready(function(){
 	$("#select").change(changeLeft);
 	$(".pointer").click(function(){
 		clickImg($(this).data('id'));
+		changePhoto($(this).data('id'));
 	});
 	makeLeftCanClick();	
 
 	if(getTransferData('value') == '1'){
-		$("#select").val(getTransferData('select'))
+		$("#select").val(getTransferData('select'));
+		$.jumpWindow("","","");
 	}
-
-	// $("option").each(function(){
-	// 	$(this).click(changeSelect($(this).data('id')));
-	// });
-	
+	if(getTransferData('value') == '2'){
+		$("#select").val(getTransferData('select'));
+	}
 
 	function changeSelect($item){
-		// var url = getTransferData('guide_select');// var url = $(this).data('url');
-		// var data = $item;// var value = 'value='+$(this).val();
-		// ajaxGet(url, data, doChangeSelect);
-		// parse the query string into an object
-		// var text = burl+"/images/SchoolGuide/";
-		// var newSrc = 'www.google.com';
-		// var newText = text.replace(/(src=).*?(&)/,'$1' + newSrc + '$2');
-		// var url = window.location.href;    
-		// if (url.indexOf('?') > -1){
-		//    url += '/'+$item;
-		// }else{
-		//    url += '/'+$item;
-		// }
-		// window.location.href = url;
-		
+	
+		 // location.replace(burl+"/SchoolGuide/"+$item);
 	}
-	// function doChangeSelect(data){
-	// 	console.log(data);
-	// }
+	function changePhoto($id){
+		// var url = window.location.href;  
+		// if (url.indexOf('?') > -1){
+		//    url += '/'+$id;
+		// }else{
+		//    url += '/'+$id;
+		// }
+		//  window.location.href=url;
+	}
+	
 
 	function changeLeft(){
 		var url = getTransferData('guide_left_url');// var url = $(this).data('url');
 		var data = {value: $(this).val()};// var value = 'value='+$(this).val();
 		ajaxGet(url, data, doChangeLeft);
 		changeSelect($(this).find("option:selected").data('id'));
+
 		
 	}
 
@@ -57,6 +64,10 @@ $(document).ready(function(){
 		var count = data.length;
 		//for(var key in data)
 		$("#leftlist").children().remove();
+
+		$('#siteMapContainer').children().last().remove();
+		$.pushLocation(changeChinese[data[0]['categories']], '/SchoolGuide/'+change[data[0]['categories']]);
+		
 
 		for(var i=0; i<count; i++){
 			var name =data[i]['name'];
@@ -119,6 +130,7 @@ $(document).ready(function(){
 		$('.left_item').each(function(){
 			$(this).click(function(){
 				getId($(this).data('place_id'));
+				changePhoto($(this).data('place_id'));
 			});
 			$(this).mouseover(function(){
 				$(this).css({"cursor":"pointer"});
@@ -135,7 +147,7 @@ $(document).ready(function(){
 
 	function showPhoto(data){
 		var introduction =data['introduction'];
-		$.pushLocation(data['name'], '/SchoolGuide/photo/'+data['id'])
+		$.pushLocation(data['name'], '/SchoolGuide/'+change[data['categories']]+'/'+data['id'])
 		$.jumpWindow("",introduction+"<img class='robot' src='"+burl+"/images/SchoolGuide/robot.png'>","");
 	
 	}
