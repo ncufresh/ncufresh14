@@ -11,7 +11,7 @@ $(function(){
 		var date = new Date(data['created_at']);
 		var foot = '發佈時間:' + date.toLocaleDateString() + ' ' + date.getHours() + ':' + date.getMinutes();
 		$.jumpWindow(data['title'], data['content'], foot);
-		$.pushLocation('公告', announcementURL + '/' + data['id']);
+		$.pushLocation('公告', announcementURL + '/' + data['id'], {full: true});
 	}
 
 	var calenderAPIURL = getTransferData('calender-api-url');
@@ -24,7 +24,7 @@ $(function(){
 		var start = new Date(data['start_at']);
 		var end = new Date(data['end_at']);
 		var time = '適用時間:' + start.toLocaleDateString() + ' ~ ' + end.toLocaleDateString();
-		$.jumpWindow(data['title'], data['content'], time);
+		$.jumpWindow(data['title'], data['content'], time, {pop: false});
 	}
 
 

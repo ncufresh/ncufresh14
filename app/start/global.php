@@ -49,6 +49,9 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
+	App::make('SiteMap')->pushLocation('首頁', route('home'));
+	App::make('SiteMap')->pushLocation('錯誤頁面', route('error'));
+	return Response::view('errors.index', array('message' => '有事情發生了'), 404);
 });
 
 /*
@@ -88,7 +91,11 @@ App::instance('SiteMap', new SiteMap);
 
 App::missing(function($exception)
 {
+	Log::error($exception);
+	App::make('SiteMap')->pushLocation('首頁', route('home'));
+	App::make('SiteMap')->pushLocation('錯誤頁面', route('error'));
 	return Response::view('errors.index', array('message' => '找不到路徑'), 404);
 });
+
 
 require app_path().'/filters.php';

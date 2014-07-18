@@ -78,30 +78,54 @@ html, body {
     top: 0px;
     z-index: 1;
 }
-
-.line{
-    position: relative;
-    left: 43px;
-    top: 40px;
-    z-index: 1;
+.one{
+    border: 2px solid #000;
+    width: 1024px;
+    margin-left:-50px;
+    height: 300px; 
+    overflow-y: scroll;
 
 }
 .board{
      position: relative;
-     left: -40px;
-     top: 79px;
+     left: -21px;
+     top: 118px;
      z-index: 2;
+     margin-top: -49px;
 
 }
 .left_item{
     position: relative;
-    left: 30px;
-    top: 33px;
+    left: -17px;
+    top: 62px;
     z-index: 10;
-    width: 90px;
+    width: 135px;
     padding: 0px;
+    text-align: center;
+    font-family: "微軟正黑體";
+    color: white;
+    font-weight: 900;
+    text-shadow:3px 3px 3px #383838 ;
 }
 
+.modal-content{
+    margin-top:80px; 
+    width: 1024px; 
+    left: -205px; 
+    background-color: #f0ffff;
+}
+.modal-header{
+    border-bottom:0px; !important
+}
+.modal-footer{
+    border-top:0px; !important
+}
+.robot{
+    position: absolute;
+    top: -101px;
+    left: 666px;
+    width: 100px;
+}
 #Zhidao{
     position: absolute;
     top:335px;

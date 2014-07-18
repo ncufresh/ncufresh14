@@ -12,9 +12,9 @@ $(function(){
 		userName = '遊客';
 	}
 
-	var path = $('#chat_room').data('chatroom-url');
+	var path = $('#chat-room').data('chatroom-url');
 	app.BrainSocket = new BrainSocket(
-		new WebSocket('ws://'+path+':8080'),
+		new WebSocket('ws://'+path+':27704'),
 		new BrainSocketPubSub()
 	);
 
