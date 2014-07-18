@@ -17,15 +17,40 @@ $(document).ready(function(){
 
 	if(getTransferData('value') == '1'){
 		$("#select").val(getTransferData('select'))
-		// $.jumpWindow("123","111","222");
-}
+	}
 
+	// $("option").each(function(){
+	// 	$(this).click(changeSelect($(this).data('id')));
+	// });
+	
 
+	function changeSelect($item){
+		// var url = getTransferData('guide_select');// var url = $(this).data('url');
+		// var data = $item;// var value = 'value='+$(this).val();
+		// ajaxGet(url, data, doChangeSelect);
+		// parse the query string into an object
+		// var text = burl+"/images/SchoolGuide/";
+		// var newSrc = 'www.google.com';
+		// var newText = text.replace(/(src=).*?(&)/,'$1' + newSrc + '$2');
+		// var url = window.location.href;    
+		// if (url.indexOf('?') > -1){
+		//    url += '/'+$item;
+		// }else{
+		//    url += '/'+$item;
+		// }
+		// window.location.href = url;
+		
+	}
+	// function doChangeSelect(data){
+	// 	console.log(data);
+	// }
 
 	function changeLeft(){
 		var url = getTransferData('guide_left_url');// var url = $(this).data('url');
 		var data = {value: $(this).val()};// var value = 'value='+$(this).val();
-		ajaxGet(url, data, doChangeLeft)
+		ajaxGet(url, data, doChangeLeft);
+		changeSelect($(this).find("option:selected").data('id'));
+		
 	}
 
 	function doChangeLeft(data){ //success
@@ -109,8 +134,8 @@ $(document).ready(function(){
 	}
 
 	function showPhoto(data){
-
 		var introduction =data['introduction'];
+		$.pushLocation(data['name'], '/SchoolGuide/photo/'+data['id'])
 		$.jumpWindow("",introduction+"<img class='robot' src='"+burl+"/images/SchoolGuide/robot.png'>","");
 	
 	}

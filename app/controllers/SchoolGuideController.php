@@ -8,14 +8,22 @@ class SchoolGuideController extends BaseController {
 		App::make('TransferData')->addData('guide_left_url', route('Guide'));
 		App::make('TransferData')->addData('guide_right_url', route('Guide.one'));
 		App::make('TransferData')->addData('guide_map',route('Guide.map'));
-
+		App::make('TransferData')->addData('guide_select',route('Guide.select'));
 		App::make('SiteMap')->pushLocation('校園導覽', route('SchoolGuide'));
 
+		return Redirect::route('schoolguide.item', array('item' => 'department'));
 
-		return View::make('schoolguide.schoolguide',
-			array('Schoolguides'=>Schoolguide::where('categories', '=', '1')->orderBy('id','DESC')->get()));
+
+		// return View::make('schoolguide.schoolguide',
+		// 	array('Schoolguides'=>Schoolguide::where('categories', '=', '1')->orderBy('id','DESC')->get()));
 
 	}
+
+	// public function getselect(){
+	// 	$id=Input::get('id');
+	// 	$data = Schoolguide::find($id);
+	// 	return Response::json($data);
+	// }
 
 	public function getItem(){
 		$placeId = Input::get('id');
@@ -37,7 +45,7 @@ class SchoolGuideController extends BaseController {
 		return Response::json($data);
 	}
 
-	public function tophoto($id){
+	public function tophoto($item, $id){
 		App::make('TransferData')->addData('guide_left_url', route('Guide'));
 		App::make('TransferData')->addData('guide_right_url', route('Guide.one'));
 		App::make('TransferData')->addData('guide_map',route('Guide.map'));
@@ -48,9 +56,10 @@ class SchoolGuideController extends BaseController {
 		App::make('TransferData')->addData('select', $user->categories);
 
 		
-		App::make('SiteMap')->pushLocation($user->categoryName, route('SchoolGuide.photo', array('id' => $id)));
-		App::make('SiteMap')->pushLocation($user->name, route('SchoolGuide.photo', array('id' => $id)));
+		App::make('SiteMap')->pushLocation($user->categoryName, route('schoolguide.item', array('id' => $id)));
+		App::make('SiteMap')->pushLocation($user->name, route('schoolguide.photo', array('id' => $id)));
 
+		//return Redirect::route('schoolguide.photo', array('id'=>$id,'item' =>$item,'users'=>$user, 'Schoolguides'=>Schoolguide::where('categories', '=', $user->categories)->orderBy('id','DESC')->get()));
 		return View::make('schoolguide.schoolguide',array('users'=>$user, 'Schoolguides'=>Schoolguide::where('categories', '=', $user->categories)->orderBy('id','DESC')->get(), 'old' => true));
 	}
 	
@@ -140,7 +149,7 @@ class SchoolGuideController extends BaseController {
 
 		 $data->save();
 	}
-		return Redirect::route('SchoolGuide.glist');
+		return Redirect::route('SchoolGuide.list');
 	}
 
 	public function showlist(){
@@ -158,7 +167,6 @@ class SchoolGuideController extends BaseController {
 		App::make('TransferData')->addData('guide_map',route('Guide.map'));
 		App::make('SiteMap')->pushLocation('校園導覽', route('SchoolGuide'));
 
-		App::make('SiteMap')->pushLocation('校園導覽', route('SchoolGuide'));
 		$convert = array(
 			'department' => '系館',
 			'administration' => '行政',
@@ -175,10 +183,14 @@ class SchoolGuideController extends BaseController {
 			'food' => '4',
 			'dorm' => '5',
 			'exercise'=>'6'
-		);
+		);	
 		$categories = $value[$item];
-		App::make('SiteMap')->pushLocation($name, route('SchoolGuide'));
+		App::make('TransferData')->addData('value', '1');
+		App::make('TransferData')->addData('select', $categories);
+		App::make('SiteMap')->pushLocation($name, route('schoolguide.item', array('item' => $item)));
 		$results = Schoolguide::where('categories', '=', $categories)->get();
+
+		
 		return View::make('schoolguide.schoolguide',array('Schoolguides'=>$results));
 	}
 

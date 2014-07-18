@@ -9,15 +9,16 @@
 
 <div id="bigcontent">
 	<img id = "object" src="{{ asset('images/SchoolGuide/object.png') }}">
-	
+			
+
 		<div id="option">
 			<select style="width:180px; height:30px;" id="select">
-				<option value="1">系館</option>
-				<option value="2">行政</option>
-				<option value="3">中大十景</option>
-				<option value="4">運動</option>
-				<option value="5">飲食</option>
-				<option value="6">住宿</option>
+				<option value="1" data-id="department">系館</option>
+				<option value="2" data-id="administration">行政</option>
+				<option value="3" data-id="scence">中大十景</option>
+				<option value="4" data-id="exercise">運動</option>
+				<option value="5" data-id="food">飲食</option>
+				<option value="6" data-id="dorm">住宿</option>
 			</select>
 		</div>
 			
