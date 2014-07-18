@@ -86,6 +86,17 @@
 	background-image: url("../../images/gameSnake/content.png");
 	display: none;
 }
+
+#space {
+	width: 935px;
+	height: 168px;
+	top: 780px;
+	position: absolute;
+	opacity:0.6;
+	background: url("../../images/gameSnake/space.png") no-repeat;
+}
+
+
 #snakeContent {
 	width: 925px;
 	height: 615px;
@@ -121,6 +132,7 @@ margin-left: -9px; }
 #exbomb { position: absolute; }
 #brokenBody { position: absolute; }
 #brokenHead { position: absolute; }
+
 
 /*/////////////////////////////endScreen/////////////////////////////////////////*/
 #endScreen {
