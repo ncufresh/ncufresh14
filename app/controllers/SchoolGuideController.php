@@ -57,7 +57,7 @@ class SchoolGuideController extends BaseController {
 
 		
 		App::make('SiteMap')->pushLocation($user->categoryName, route('schoolguide.item', array('id' => $id)));
-		App::make('SiteMap')->pushLocation($user->name, route('schoolguide.photo', array('id' => $id)));
+		App::make('SiteMap')->pushLocation($user->name, route('schoolguide.item', array('id' => $id)));
 
 		//return Redirect::route('schoolguide.photo', array('id'=>$id,'item' =>$item,'users'=>$user, 'Schoolguides'=>Schoolguide::where('categories', '=', $user->categories)->orderBy('id','DESC')->get()));
 		return View::make('schoolguide.schoolguide',array('users'=>$user, 'Schoolguides'=>Schoolguide::where('categories', '=', $user->categories)->orderBy('id','DESC')->get(), 'old' => true));
@@ -171,7 +171,7 @@ class SchoolGuideController extends BaseController {
 			'department' => '系館',
 			'administration' => '行政',
 			'scence' => '中大十景',
-			'food' => '美食',
+			'food' => '飲食',
 			'dorm' => '住宿',
 			'exercise'=>'運動'
 		);
@@ -185,7 +185,7 @@ class SchoolGuideController extends BaseController {
 			'exercise'=>'6'
 		);	
 		$categories = $value[$item];
-		App::make('TransferData')->addData('value', '1');
+		App::make('TransferData')->addData('value', '2');
 		App::make('TransferData')->addData('select', $categories);
 		App::make('SiteMap')->pushLocation($name, route('schoolguide.item', array('item' => $item)));
 		$results = Schoolguide::where('categories', '=', $categories)->get();
