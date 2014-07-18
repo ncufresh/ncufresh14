@@ -46,7 +46,7 @@ $(document).ready(function(){
 			$('#mode3').children().attr('src',''+burl+'/images/gameSnake/m3.png');
 	}
 
-	var power,done=false,recentScore;
+	var power,done=false,recentScore,waiting=false;
 	ajaxPost(getTransferData('get-power-url'),'', getData);
 	$('#start').click(function() 
 	{
@@ -55,9 +55,9 @@ $(document).ready(function(){
 			{
 				$('#cover').hide();
 				$('#content').show();
+				$('#space').show();
 				key=0;
-				initial();
-				startGame();	
+				waiting = true;
 			}
 	});
 
@@ -68,9 +68,16 @@ $(document).ready(function(){
 	var timer = $.timer(tick);
 	var round;
 	var timeCount;
+	var loseTimer=0;
 	$(document).keydown(function(event)
 	{
 		event.preventDefault();
+		if(event.keyCode==32 && waiting == true) // press space
+		{
+			$('#space').hide();
+			initial();
+			startGame();
+		}
 		if(event.keyCode==37) // press left
 			key=37;
 		else if (event.keyCode==38) // press up
@@ -80,7 +87,6 @@ $(document).ready(function(){
 		else if (event.keyCode==40) // press down
 			key=40;
 	});
-	var loseTimer=0;
 ////////////////////////////////snake////////////////////////////////////////////
 	var coordx, coordy;
 	var blocknum = 30;
@@ -249,7 +255,7 @@ $(document).ready(function(){
 		}
 		else
 			loseTimer++;
-		
+
 		if(loseTimer==10)
 		{
 			totalScore();
@@ -265,6 +271,8 @@ $(document).ready(function(){
 
 			$('#again').click(function() {
 				done=false;
+				get=false;
+				waiting=false
 				$('#endScreen').hide();
 				if(difficult==1)
 					$('#difficulty1').children().attr('src',''+burl+'/images/gameSnake/d1Click.png');

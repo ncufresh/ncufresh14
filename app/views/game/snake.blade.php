@@ -26,8 +26,8 @@
 		</div>
 	</div>
 	<div id="content">
-		<div id="snakeContent">
-		</div>
+		<div id="snakeContent"></div>
+		<div id="space"></id></div>
 	</div>
 
 	<div id="endScreen">
