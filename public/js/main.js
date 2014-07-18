@@ -75,7 +75,7 @@ $.pushLocation = function(name, url, options){
 
 	var defaults = {
 		name: '頁面',
-		url: bURL,
+		url: url,
 		full: false
 	};
 
@@ -88,7 +88,6 @@ $.pushLocation = function(name, url, options){
 	var siteMap = $('#siteMapContainer');
 	var aTag = $('<a></a>').text(name).attr('href', options.url);
 	var li = $('<li class="site_map_item"></li>').append(aTag);
-	console.log(siteMap);
 	siteMap.append(li);
 	changeURL(options.url);
 };
