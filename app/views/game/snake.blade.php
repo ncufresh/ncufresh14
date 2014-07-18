@@ -3,6 +3,7 @@
 @section('js_css')
 	{{ HTML::style('css/game.css') }}
 	{{ HTML::style('css/game/snake.css') }}
+	{{ HTML::script('js/game/game.js') }}
 	{{ HTML::script('js/game/snake.js') }}
 @stop
 
@@ -25,8 +26,8 @@
 		</div>
 	</div>
 	<div id="content">
-		<div id="snakeContent">
-		</div>
+		<div id="snakeContent"></div>
+		<div id="space"></id></div>
 	</div>
 
 	<div id="endScreen">

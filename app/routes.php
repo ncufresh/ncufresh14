@@ -140,10 +140,16 @@ Route::group(array('prefix' => 'admin', 'before' => 'manage_editor'), function()
 Route::group(array('before' => 'auth'), function(){
 	Route::get('game', array('as' => 'game', 'uses' => 'GameController@index'));
 	Route::get('game/snake', array('as' => 'game.snake', 'uses' => 'GameSnakeController@index'));
+	Route::post('game/snake/renewValue', array('as' => 'game.snake.renewValue', 'uses' => 'GameSnakeController@renewValue'));
+	Route::post('game/snake/getPower', array('as' => 'game.snake.getPower', 'uses' => 'GameSnakeController@getPower'));
+	
 	Route::get('game/campus', array('as' => 'game.campus', 'uses' => 'GamecampusController@index'));
 	Route::get('game/destiny', array('as' => 'game.destiny', 'uses' => 'GamedestinyController@index'));
 	Route::get('game/power', array('as' => 'game.power', 'uses' => 'GamePowerController@index'));
 	Route::post('game/power/getDayQuest', array('as' => 'game.power.getDayQuest', 'uses' => 'GamePowerController@getDayQuest'));
+	Route::post('game/power/getRecentPower', array('as' => 'game.power.getRecentPower', 'uses' => 'GamePowerController@getRecentPower'));
+	Route::post('game/power/renewValue', array('as' => 'game.power.renewValue', 'uses' => 'GamePowerController@renewValue'));
+	Route::resource('poweredit', 'GamePowerEditController');
 
 	Route::post('game/destiny/start', array('as' => 'game.destiny.start', 'uses' => 'GamedestinyController@start'));
 	Route::post('game/campus/start', array('as' => 'game.campus.start', 'uses' => 'GamecampusController@start'));

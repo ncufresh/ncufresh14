@@ -2,13 +2,14 @@ $(function()
 {
     var burl = getTransferData('burl');
     var questCount=0,correct,correctCount=0,choose,option,click,clickCount=0,id=0;
-    var recentPower=1,maxPower=5,returnCount;
+    var recentPower,maxPower,returnCount;
     var quest = new Array(10);
     var dayQuest;
-    var timer,count=0,returnC=0;
+    var timer,count=0,returnC=0,powerreturncount;
     var done = false;
-
+    var get = false;
     ajaxPost(getTransferData('day-quest-url'),'', storeQuest);
+    ajaxPost(getTransferData('recent-power-url'),'', getRecent);
 
     $('#intro').click(function() {
             $('#introduction').show();
@@ -19,19 +20,21 @@ $(function()
     });
 
     $('#start').click(function() {
-            if(done == true)
-            {
-                $('#cover').hide();
-                $('#startGame').show();
-                nextQuest();
-            }   
+        console.log("aaaaaaaa");
+        if(done==true && get==true)
+        {
+            console.log("bbbbbbbb");
+            $('#cover').hide();
+            $('#startGame').show();
+            nextQuest();
+        }
     });
 
     $('.base').click(function(){
         if(click == 0)
         {
             click = $(this).data('getclick');
-            $(this).css({backgroundColor: '#F8E566'});
+            $(this).addClass('target');
             for(var i=1; i<5; i++)
                 if(i==dayQuest[quest[clickCount]]['correctans'])
                 {
@@ -49,21 +52,22 @@ $(function()
     });
 
     $('#next').click(function(){
+        $('.base').removeClass('target');
+
         if(clickCount==10)
         {
             $('#startGame').hide();
             $('#endScreen').show();
             $('#again').hide();
-
             returnCount = returnPower(correctCount);
             $('#getPower').text("回復電量 * " + returnCount);
+            powerreturncount = recentPower;
             timer = $.timer(powerAnimate);
             timer.set({ time:500, autostart:true });
-            recentPower=1;
-            maxPower=5;
         }
         else
             nextQuest();
+        ajaxPost(getTransferData('recent-power-url'),'', getRecent);
         $('#correctAns').empty();
         $('#next').hide();
         
@@ -71,19 +75,18 @@ $(function()
 
      $('#again').click(function() {
         $('#endScreen').hide();
-        if(done == true)
-            {
-                questCount=0;
-                clickCount=0;
-                correctCount=0;
-                id=0;
-                count=0;
-                returnC=0;
-                ajaxPost(getTransferData('day-quest-url'),'', storeQuest);
-                $('#cover').show();
-            }   
+        questCount=0;
+        clickCount=0;
+        correctCount=0;
+        id=0;
+        count=0;
+        returnC=0;
+        done = false;
+        get = false; 
+        ajaxPost(getTransferData('day-quest-url'),'', storeQuest);
+        ajaxPost(getTransferData('recent-power-url'),'', getRecent);
+        $('#cover').show();
     });
-
 
     function storeQuest(data)
     {
@@ -106,6 +109,12 @@ $(function()
         }
     }
 
+    function getRecent(data)
+    {
+        get = true;
+        recentPower = data['recentPower'];
+        maxPower = data['maxPower'];
+    }
 
     function nextQuest()
     {
@@ -136,7 +145,6 @@ $(function()
     function returnPower(count)
     {
         var hi = 0; 
-
         if(count<5)
             hi = 0;
         else if(count < 7)
@@ -154,17 +162,20 @@ $(function()
         return hi;
     }
 
+
     function powerAnimate()
     {
         $('#power').empty();
-          $('#power').append('<img src="'+burl+'/images/gamePower/power'+recentPower+'.png">');
+        $('#power').append('<img src="'+burl+'/images/gamePower/power'+powerreturncount+'.png">');
         if(returnCount==returnC)
         {
             timer.stop();
+            ajaxPost(getTransferData('renew-value-url'),{power:(recentPower+returnCount),max:maxPower},'');
             $('#again').show();
+            editStatus(recentPower+returnCount);
         }
             
-        recentPower++;
+        powerreturncount++;
         returnC++;
     }
 });

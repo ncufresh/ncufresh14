@@ -7,7 +7,7 @@ class GamedestinyController extends BaseController {
 		}
 		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
 		$name = User::where('id', '=', $user["user_id"])->firstOrFail();
-		return View::make('game.destiny', array('user' => $user, 'name' => $name));
+		return View::make('game.destiny', array('user' => $user, 'name' => $name->name));
 	}
 
 	public function start(){
