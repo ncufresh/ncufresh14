@@ -24,7 +24,7 @@
                     mapType[data['question']['type']].show();
 				}
                 else {
-                    alert('ne power.');
+                    noPowerDisplay();
                 }
     		});
     	});
