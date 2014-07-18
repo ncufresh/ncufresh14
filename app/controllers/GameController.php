@@ -2,6 +2,7 @@
 
 class GameController extends BaseController {
 	public function index(){
+		App::make('SiteMap')->pushLocation('小遊戲', route('game'));
 		if ( !Auth::check() ) {
 			return Redirect::to('/');	
 		}

@@ -2,6 +2,8 @@
 
 class GamedestinyController extends BaseController {
 	public function index(){
+		App::make('SiteMap')->pushLocation('小遊戲', route('game'));
+		App::make('SiteMap')->pushLocation('命運之輪', route('game.destiny'));
 		if ( !Auth::check() ) {
 			return Redirect::to('/');	
 		}
