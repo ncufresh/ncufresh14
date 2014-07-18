@@ -8,7 +8,7 @@ class GameshopController extends BaseController {
 		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
 		$name = User::where('id', '=', $user["user_id"])->firstOrFail();
 		$shop = Gameitem::where('type', '=', 0)->get();
-		$hadBuyItems = GameBuy::where('id', '=', $user->id)->get();
+		$hadBuyItems = GameBuy::where('user_id', '=', $user->id)->get();
 		$EquipItem[0] = Gameitem::where('id', '=', $user->head)->firstOrFail();
 		$EquipItem[1] = Gameitem::where('id', '=', $user->face)->firstOrFail();
 		$EquipItem[2] = Gameitem::where('id', '=', $user->body)->firstOrFail();
@@ -16,7 +16,7 @@ class GameshopController extends BaseController {
 		$EquipItem[4] = Gameitem::where('id', '=', $user->item)->firstOrFail();
 		$EquipItem[5] = Gameitem::where('id', '=', $user->map)->firstOrFail();
 		return View::make('game.shop', array('user' => $user, 'name' => $name->name, 'shop' => $shop,
-						 'hadBuyItems'=>$hadBuyItems, 'EquipItem' => $EquipItem));
+						 'hadBuyItems'=>$hadBuyItems->toArray(), 'EquipItem' => $EquipItem));
 	}
 
 	public function changeType() {
@@ -34,10 +34,11 @@ class GameshopController extends BaseController {
 	}
 
 	public function buy() {
-		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
+		$gameuser = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
 		$item = Gameitem::where('id', '=', Input::get("itemId"))->firstOrFail();
+		$hadbuy = GameBuy::whereRaw('user_id = ? and item_id = ?', array($gameuser->id, Input::get("itemId")) )->count();
 		$isBuy = false;
-		if ( $gameuser->gp >= $item->costgp ) {
+		if ( $gameuser->gp >= $item->costgp && $hadbuy == 0 ) {
 			$buy = new GameBuy;
 			$buy->user_id = $gameuser->id;
 		    $buy->item_id = $item->id;
@@ -46,8 +47,7 @@ class GameshopController extends BaseController {
 			$gameuser->save();
 			$isBuy = true;
 		}
-		$hadBuyItems = GameBuy::where('id', '=', $game_user_id)->get();
-		$data = array('isBuy'=>$isBuy, 'user'=>$gameuser->toArray(), 'hadBuyItems'=>$hadBuyItems->toArray());
+		$data = array('isBuy'=>$isBuy, 'user'=>$gameuser->toArray());
 		return Response::json($data);
 	}
 

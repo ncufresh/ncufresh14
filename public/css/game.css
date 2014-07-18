@@ -575,9 +575,20 @@ gameShop
 }
 
 .gameShopItemImage {
-	width: 100%;
-	height: 100px;
+	width: 96%;
+	/*height: 100px;*/
+	top: 18px;
+	left: 2%;
 	position: absolute;
+}
+
+.gameShopItemImage:hover {
+	width: 96%;
+	/*height: 100px;*/
+	top: 18px;
+	left: 2%;
+	position: absolute;
+	z-index: 1;
 }
 
 .gameShopItemBuyButton {
@@ -615,33 +626,41 @@ gameShop
 
 .character {
 	position: absolute;
-	width: 180px;
-	height: 260px;
 }
 
 #characterHead {
-	background-color: rgba(255, 0, 0, 0.4);
-	
-
+	width: 145px;
+	height: 145px;
+	left: 57px;
 }
 
 #characterFace {
-	background-color: rgba(255, 255, 0, 0.4);
+	width: 78px;
+	height: 69px;
 }
 
 #characterBody {
-	background-color: rgba(255, 255, 255, 0.4);
+	width: 230px;
+	height: 152px;
+	top: 135px;
+	left: 16px;
 }
 
 #characterFoot {
-	background-color: rgba(0, 255, 0, 0.4);
+	width: 108px;
+	height: 51px;
+	top: 259px;
+	left: 79px;
 }
 
 #characterItem {
-	background-color: rgba(0, 255, 255, 0.4);
+	width: 68px;
+	height: 97px;
 }
 
 #characterMap {
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(255, 0, 0, 0.4);
+	width: 100%;
+	height: 100%;
 }
 

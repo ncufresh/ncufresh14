@@ -7,7 +7,6 @@
     	$('.gameShopTypeButton').each(function(index) {
     		$(this).click(function() {
     			ajaxPost($(this).attr('action'), {type: index}, function(data) {
-                    console.log(data);
     				disply_type = index;
     				$('#gameShopItems .jspPane').empty();
     				for ( var i = 0; i < data["shop"].length; i++ ) {
@@ -16,12 +15,18 @@
                             buyClass = 'itemHadBuy';
                         }
     					$('<div class="gameShopItem">' + 
-							'<img class="gameShopItemImage" src="' + bURL + '/images/gameShop/' + data["shop"][i]["small_picture"] + '" look="' + bURL + '/images/gameShop/' + data["shop"][i]["picture"] + '" itemId="' + data["shop"][i]["id"] + '" />' +
-							'<div class="gameShopItemText">' + data["shop"][i]["id"] + ' ' + data["shop"][i]["name"] + '</div>' + 
+							'<img class="gameShopItemImage" src="' + bURL + 'images/gameShop/' + data["shop"][i]["picture"] + '" itemId="' + data["shop"][i]["id"] + '" />' +
+							'<div class="gameShopItemText">' + data["shop"][i]["costgp"] + '</div>' + 
 							'<div class="gameShopItemBuyButton ' + buyClass + '" item="' + data["shop"][i]["id"] + '"></div>' +
 						'</div>').appendTo($('#gameShopItems .jspPane'));
     				}
                     $('#gameShopItems').jScrollPane();
+                     $('.gameShopItemImage').each(function(index) {
+                        $(this).click(function() {
+                            user_look[disply_type].attr('src', $(this).attr('src'));
+                            user_look[disply_type].attr('itemId', $(this).attr('itemId'));
+                        })
+                    });
     				$('.gameShopItemBuyButton').each(function(index) {
 			    		$(this).click(function() {
 				    		buyItem($(this).attr('item'), $(this));
@@ -29,7 +34,7 @@
 			    	});
                     $('.gameShopItemImage').each(function(index) {
                         $(this).click(function() {
-                            user_look[disply_type].attr('src', $(this).attr('look'));
+                            user_look[disply_type].attr('src', $(this).attr('src'));
                         })
                     });
     			});
@@ -37,12 +42,12 @@
     	});
     	function buyItem(id, button) {
     		ajaxPost($('#gameShopItems').attr('action'), {itemId: id}, function(data) {
-				
-                console.log(data);
-                if ( data["isBuy"] ) {
-                    button.css({
-                        backgroundColor: 'lightblue'
-                    });
+                if ( data['isBuy'] ) {
+                    button.addClass('itemHadBuy');
+                    editStatus(data['user']['power'], data['user']['gp']);
+                }
+                else {
+                    alert('you do not have enough money.');
                 }
 			});
     	};
@@ -61,7 +66,7 @@
         });
         $('.gameShopItemImage').each(function(index) {
             $(this).click(function() {
-                user_look[disply_type].attr('src', $(this).attr('look'));
+                user_look[disply_type].attr('src', $(this).attr('src'));
                 user_look[disply_type].attr('itemId', $(this).attr('itemId'));
             })
         });
@@ -71,11 +76,12 @@
             for ( var i = 0; i < 6; i++ ) {
                 user_want[i] = user_look[i].attr('itemId');
             }
+            console.log(user_want);
             ajaxPost($(this).attr('action'), {user_want: user_want}, function(data) {
                 console.log(data);
                 for ( var i = 0; i < 6; i++ ) {
-                    if ( !isBuy[i] ) {
-                        
+                    if ( !data['isBuy'][i] ) {
+                        alert('你還沒買喔~' + types[i]);
                     }
                 }
             });
