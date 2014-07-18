@@ -9,11 +9,20 @@
 <div id="contentContainer">
 	<div id="contentLeft">
 		<div id="calender">
-			<div id="calenderTop" class="textStyle">行事曆
+			<div id="calenderTop" class="textStyle">
+				<div id="calenderTopWord">行事曆</div>
+				<div id="calender-top-content">
+					<div id="calender-week-day" class="calender-num"><img src="{{ asset('images/index/calender_week/' . $now->dayOfWeek . '.png') }}"></div>
+					<div id="calender-month" class="calender-num"><img src="{{ asset('images/index/calender_month/' . $now->month . '.png') }}"></div>
+					<div id="calender-month-day" class="calender-num">
+						@if($now->day >= 10)
+							<img src="{{ asset('images/index/calender_num/' . $now->day/10%10 . '.png') }}">
+						@endif
+						<img src="{{ asset('images/index/calender_num/' . $now->day%10 . '.png') }}">
+					</div>
+				</div>
 			</div>
 			<div id="calenderContent">
-				<div id="calender-week-day">{{ $now->dayOfWeek }}</div>
-				<div id="calender-month-day">{{ $now->day }}</div>
 				<div id="calender-action">
 					<ol>
 						@foreach($calenders as $calender)
@@ -82,7 +91,8 @@
 			<div id="vedioTop" class="textStyle">影片連結
 			</div>
 			<div id="vedioContent">
-				<a href='http://localhost/ncufresh14/public/video'><img src="images\youtube縮圖\deargod.jpg " id="videoHref"></a>
+				<div id="video-pic"><a href="{{ route('video') }}"><img src="images\youtube縮圖\deargod.jpg " id="videoHref"></a></div>
+
 			</div>
 			<div id="vedioBottom">
 			</div>

@@ -27,7 +27,7 @@
 
 #calenderTop {
 	width: 228px;
-	height: 64px;
+	height: 233px;
 	background: url("../images/index/calendertop.png") no-repeat;
 	padding-top: 32px;
 	padding-left: 51px;
@@ -36,7 +36,7 @@
 
 #calenderContent {
 	width: 200px;
-	height: 417px;
+	height: 122px;
 	margin-left: 28px;
 	background: url("../images/index/calendermid.png") repeat-y;
 }
@@ -46,6 +46,28 @@
 	height: 19px;
 	margin-left: 28px;
 	background: url("../images/index/calenderbottom.png") no-repeat;
+}
+
+#calender-top-content{
+	width: 155px;
+	padding-top: 15px;
+}
+.calender-num{
+	text-align: center;
+	width: 100%;
+}
+
+#calender-month{
+	margin-top: 6px;
+}
+
+#calender-day{
+	margin-top: 15px;
+}
+
+.calender-row{
+	width: 140px;
+	cursor: pointer;
 }
 
 #links {
@@ -134,10 +156,6 @@
 
 .announcement-row:hover{
 	background-color: rgb(254, 219, 95);
-}
-
-.calender-row{
-	cursor: pointer;
 }
 
 #forum {
