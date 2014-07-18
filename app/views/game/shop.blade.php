@@ -6,7 +6,13 @@
 	{{ HTML::script('js/game/shop.js') }}
 	<script>
 		var bURL = {{ json_encode(asset('')) }};
-		var disply_item_data = {{ json_encode($shop) }};
+		var disply_item_data = {{ json_encode($shop->toArray()) }};
+		var Equip_items = [{{ json_encode($EquipItem[0]->toArray()) }},
+							{{ json_encode($EquipItem[1]->toArray()) }},
+							{{ json_encode($EquipItem[2]->toArray()) }},
+							{{ json_encode($EquipItem[3]->toArray()) }},
+							{{ json_encode($EquipItem[4]->toArray()) }},
+							{{ json_encode($EquipItem[5]->toArray()) }} ];
 	</script>
 @stop
 
@@ -33,7 +39,11 @@
 			</div>
 			<div id="gameShopItems" action="{{ URL::to('game/shop/buy') }}">
 				@foreach( $shop as $item )
-					<div class="gameShopItem">
+					@if ( $EquipItem[0]["id"] == $item["id"] )
+						<div class="gameShopItem gameShopItemSelect">
+					@else
+						<div class="gameShopItem">
+					@endif
 						<img class="gameShopItemImage" src="{{asset("images/gameShop/" . $item["picture"] )}}" itemId="{{$item["id"]}}"/>
 						<div class="gameShopItemText">{{ $item["costgp"] }}</div>
 						@foreach( $hadBuyItems as $buyItem )
