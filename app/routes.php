@@ -107,6 +107,7 @@ Route::group(array('prefix' => 'api'), function()
 
 //==========================================================================================
 //SchoolGuide
+
 Route::get('SchoolGuide', array('as' => 'SchoolGuide', 'uses' => 'SchoolGuideController@show') );
 
 Route::get('Guide', array('as' => 'Guide', 'uses' => 'SchoolGuideController@get') );
@@ -115,9 +116,12 @@ Route::get('SchoolGuide/getItem', array('as' => 'Guide.one', 'uses' => 'SchoolGu
 
 Route::get('SchoolGuide/clickImg', array('as' => 'Guide.map', 'uses' => 'SchoolGuideController@clickImg') );
 
-Route::get('SchoolGuide/photo/{id}',array('as'=>'SchoolGuide.photo','uses'=>'SchoolGuideController@tophoto'));
+Route::get('SchoolGuide/select', array('as' => 'Guide.select', 'uses' => 'SchoolGuideController@getselect') );
 
 Route::get('SchoolGuide/{item}', array('as' => 'schoolguide.item', 'uses' => 'SchoolGuideController@item'))->where('item', '(department|administration|scence|food|dorm|exercise)');
+
+Route::get('SchoolGuide/{item}/{id}', array('as' => 'schoolguide.item', 'uses' => 'SchoolGuideController@tophoto'))->where('item', '(department|administration|scence|food|dorm|exercise)');
+
 
 //School guide admin
 Route::group(array('prefix' => 'admin', 'before' => 'manage_editor'), function()
@@ -283,14 +287,16 @@ Route::get('About_us',array('as'=>'about','uses'=>'AboutUsController@index'));
 
 Route::get('About_us/modal',array('as'=>'About.modal','uses'=>'AboutUsController@getModalId'));
 
-Route::post('About_us/sure', array('as' => 'sure', 'uses' => 'AboutUsController@sure') );
+Route::post('About_us/sure', array('as' => 'About_us.sure', 'uses' => 'AboutUsController@sure') );
 
-Route::post('About_us/add', array('as' => 'add', 'uses' => 'AboutUsController@add') );
+Route::post('About_us/add', array('as' => 'About_us.add', 'uses' => 'AboutUsController@add') );
 
-Route::post('About_us/delete', array('as' => 'delete', 'uses' => 'AboutUsController@delete') );
+Route::post('About_us/delete', array('as' => 'About_us.delete', 'uses' => 'AboutUsController@delete') );
 
 Route::get('About_us/list',array('as'=>'About_us.list','uses'=>'AboutUsController@showlist'));
 
 Route::get('About_us/edit/{id}',array('as'=>'About_us.edit','uses'=>'AboutUsController@toedit'));
 
 Route::get('About_us/add',array('as'=>'About_us.add','uses'=>'AboutUsController@toadd'));
+
+Route::get('About_us/toadd',array('as'=>'About_us.toadd','uses'=>'AboutUsController@toadd'));
