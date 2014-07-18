@@ -232,6 +232,9 @@ Route::group(array('before' => 'auth'), function(){
 // Necessity
 Route::get('necessity',array('as' => 'necessity.necessity_index', 'uses' => 'necessityController@index'));
 
+Route::get('necessity/{item}',array('as' => 'necessity.necessity_indexItem', 'uses' => 'necessityController@indexItem'))->where('item','(research|freshman|download)');
+
+
 Route::get('download/{id}',array('as' => 'downloadReturn', 'uses' => 'necessityController@returnDownload'));
 
 	

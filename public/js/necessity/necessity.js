@@ -1,41 +1,56 @@
 
 $(document).ready(function() {
 	
-	$("#buttonA").click(function(){
-		$('#contDownSlideFreshman').hide();
-		$('#contDownSlideResearch').show();
-		$('#contDownLeftFreshman').hide();
-		$('#contDownLeftResearch').show();
-        $('#contDownSlideDownload').hide();
-	}); 
+    var target = getTransferData('necessity-target');
+    var burl = getTransferData('burl');
+ 
+    if(target == 'research'){
+        changeToA();
+    }else if(target == 'freshman'){
+        changeToB();
+    }else if(target == 'download'){
+        changeToC();
+    }
 
-	$("#buttonB").click(function(){
-		$('#contDownSlideFreshman').show();
-		$('#contDownSlideResearch').hide();
-		$('#contDownLeftFreshman').show();
-		$('#contDownLeftResearch').hide();
-        $('#contDownSlideDownload').hide();
-	});
 
-    $("#buttonC").click(function(){
+	$("#buttonA").click(changeToA); 
+
+	$("#buttonB").click(changeToB);
+
+    $("#buttonC").click(changeToC); 
+
+    function changeToA(){
+        changeURL(burl + '/necessity/research');
+        $('#contDownSlideFreshman').hide();
+        $('#contDownSlideResearch').show();
+        $('#contDownLeftFreshman').hide();
+        $('#contDownLeftResearch').show();
+        $('#contDownSlideDownload').hide();
+    }
+
+    function changeToB(){
+        changeURL(burl + '/necessity/freshman');
+        $('#contDownSlideFreshman').show();
+        $('#contDownSlideResearch').hide();
+        $('#contDownLeftFreshman').show();
+        $('#contDownLeftResearch').hide();
+        $('#contDownSlideDownload').hide();
+    }
+
+    function changeToC(){
+        changeURL(burl + '/necessity/download');
         $('#contDownSlideFreshman').hide();
         $('#contDownSlideResearch').hide();
         $('#contDownLeftFreshman').hide();
         $('#contDownLeftResearch').hide();
         $('#contDownSlideDownload').show();
-    }); 
+    }
 
 });
 
 
 $(function(){
-    
-    // $("#contDownLeft").click(function(){
-    //     $("html,body").animate({
-    //         scrollTop: '0px'
-    //     });
-    // });
-    
+  
     $(window).scroll(function() {
         if ( $(this).scrollTop() < 500){
             $('#contDownLeftResearch').css({  
@@ -71,27 +86,22 @@ $(function(){
         }
     });
 
+    $(".Note1")
+    .mouseenter(function(){
+        $(this).attr('src',"../images/necessity/Note2.png");
+    })
+    .mouseleave(function(){
+        $(this).attr('src',"../images/necessity/Note1.png");
+    
+    });
+
+
+
 
 });
 
-// $(function(){	
-//   $("#buttonA").click(function(){
-  
-//     var url = getTransferData('about_rate_url');
-//     var data = {video_id: video_id , id: id};
 
-//     ajaxPost(url, data , rateNumber);
 
-//   });
 
-//   $(".ath2").click(function(){
-//   $("#main").empty();
-//   video_id = 2;
-//   id = 2;
-//   $('<iframe id="i_attached1" width="560" height="315" src="//www.youtube.com/embed/ePFWiPo0FzE" frameborder="0" allowfullscreen></iframe>').appendTo($('#main'));
-  
-//     var url = getTransferData('about_rate_url');
-//     var data = {video_id: video_id , id : id};
+//===========================================================================//
 
-//       ajaxPost(url, data , rateNumber);
-// });

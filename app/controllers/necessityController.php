@@ -5,13 +5,23 @@ class necessityController extends BaseController
 	//取得資料庫資料
 	public function index()
 	{
+		return Redirect::route('necessity.necessity_indexItem', array('item' => 'research'));
+	}
+
+	public function indexItem($item)
+	{
 		App::make('SiteMap')->pushLocation('新生必讀', route('necessity.necessity_index'));
 
-		return View::make('necessity.necessity_index',array(/*參數*/
-			'necessityResearchData'=>/*model*/NecessityResearchData::all(),
-			'necessityFreshmanData'=>/*model*/NecessityFreshmanData::all(),
-			'necessityDownloadData'=>/*model*/NecessityDownloadData::all()));
+		App::make('TransferData')->addData('necessity-target', $item);
+
+
+		return View::make('necessity.necessity_index',array(
+			'necessityResearchData'=>NecessityResearchData::all(),
+			'necessityFreshmanData'=>NecessityFreshmanData::all(),
+			'necessityDownloadData'=>NecessityDownloadData::all()));
+
 	}
+
 
 
 //*******************************************************************//

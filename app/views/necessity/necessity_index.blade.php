@@ -2,13 +2,19 @@
 
 @section('js_css')
 	{{ HTML::style('css/necessity_index.css') }}
+	{{ HTML::style('css/necessity_image.css') }}
 	{{ HTML::script('js/necessity/necessity.js')  }}
 @stop
 
 @section('content')
 		
+		<!-- <div>
+			<img class="Logo" src="{{ asset('images/necessity/Logo.png') }}">	
+			<img class="Note1" src="{{ asset('images/necessity/Note1.png') }}">
+		</div> -->
+				
 		<div id="backgroundContent">
-			
+
 			<div id="contentUp">
  				<div id="contUpRead">
 
@@ -61,7 +67,7 @@
 
 			<div id="contentDown">
  				
- 				<!-- research 的 div -->
+ 				<!--  research 的 div  -->
 				
 				<div id="contDownSlideResearch">
 					
@@ -99,7 +105,7 @@
 					</div>
 				</div>
 				
-				<!-- freshman 的 div -->
+				<!--  freshman 的 div  -->
 
 				<div id="contDownSlideFreshman">
  					
@@ -138,7 +144,7 @@
 
 				</div>
 
-				<!-- download 的 div -->
+				<!--  download 的 div  -->
 
 				<div id="contDownSlideDownload">
 					
@@ -148,11 +154,6 @@
 						{{	link_to_route('downloadReturn', $necessitydownloaddata -> name , array( 'id' =>  $necessitydownloaddata -> id ))}}
 
 					@endforeach 
-
-	
-		
-
-				<!--  -->
 		
 				</div>
 
