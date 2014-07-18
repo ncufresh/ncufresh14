@@ -44,8 +44,6 @@ class SchoolGuideController extends BaseController {
 		App::make('TransferData')->addData('value', '1');
 		App::make('SiteMap')->pushLocation('校園導覽', route('SchoolGuide'));
 
-
-
 		$user = Schoolguide::find($id);
 		App::make('TransferData')->addData('select', $user->categories);
 
@@ -170,8 +168,17 @@ class SchoolGuideController extends BaseController {
 			'exercise'=>'運動'
 		);
 		$name = $convert[$item];
-		App::make('SiteMap')->pushLocation($name, route('schoolguide.item', array('item' => $item)));
-		$results = Schoolguide::where('item', '=', $item)->get();
+		$value = array(
+			'department' => '1',
+			'administration' => '2',
+			'scence' => '3',
+			'food' => '4',
+			'dorm' => '5',
+			'exercise'=>'6'
+		);
+		$categories = $value[$item];
+		App::make('SiteMap')->pushLocation($name, route('SchoolGuide'));
+		$results = Schoolguide::where('categories', '=', $categories)->get();
 		return View::make('schoolguide.schoolguide',array('Schoolguides'=>$results));
 	}
 
