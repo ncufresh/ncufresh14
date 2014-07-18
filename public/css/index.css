@@ -68,6 +68,7 @@
 .calender-row{
 	width: 140px;
 	cursor: pointer;
+	text-overflow: ellipsis;
 }
 
 .calender-row:hover{
@@ -156,6 +157,7 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 	cursor: pointer;
+	text-overflow: ellipsis;
 }
 
 .announcement-row:hover{

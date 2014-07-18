@@ -25,9 +25,13 @@
 			<div id="calenderContent">
 				<div id="calender-action">
 					<ol>
-						@foreach($calenders as $calender)
-						<li class="calender-row" data-id="{{ $calender->id }}">{{ $calender->title }}</li>
-						@endforeach
+						@if($calenders->count() == 0)
+							<span>今日沒事</span>
+						@else
+							@foreach($calenders as $calender)
+							<li class="calender-row" data-id="{{ $calender->id }}">{{ $calender->title }}</li>
+							@endforeach
+						@endif
 					</ol>
 				</div>
 			</div>
