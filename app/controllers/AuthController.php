@@ -93,7 +93,7 @@ class AuthController extends BaseController {
 					//Test if email is in database.
 					if(User::where('email', '=', $userProfile->getProperty('email'))->exists()){
 						//Connect
-						$user = User::where('email', '=', $userProfile->getProrerty('email'))->first();
+						$user = User::where('email', '=', $userProfile->getProperty('email'))->first();
 
 						$facebookData = new FacebookData;
 						$facebookData->uid = $uid;
