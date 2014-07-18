@@ -1,12 +1,13 @@
-(function($)
+$(function($)
 {
 	var imageIndex = 1;		//1~4
 	var speed = 8;
 	var left = 0;
 	var side = 'right';
+	var bURL = getTransferData('burl');
 	var timer = $.timer(function() {
 	    $('#topRobot').css({
-	    	background: 'url("' + bURL + 'images/layout/robot/' + imageIndex + '.png") no-repeat',
+	    	background: 'url("' + bURL + '/images/layout/robot/' + imageIndex + '.png") no-repeat',
 	    	left: 700 + left + 'px'
 	    });
 	    var isTurn = Math.floor(Math.random() * 100);
@@ -36,4 +37,4 @@
     {		
 		timer.set({ time : 300, autostart : true });
     });
-})(jQuery);
+});
