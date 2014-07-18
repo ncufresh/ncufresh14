@@ -37,7 +37,7 @@
 				    	timer.play();
 					}
 					else {
-						alert('no power.');
+						noPowerDisplay();
 					}
 				});
 			}
