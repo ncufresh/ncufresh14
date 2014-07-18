@@ -90,7 +90,7 @@ $.pushLocation = function(name, url, options){
 	var li = $('<li class="site_map_item"></li>').append(aTag);
 	console.log(siteMap);
 	siteMap.append(li);
-	changeURL(url);
+	changeURL(options.url);
 };
 
 $.popLocation = function(){
