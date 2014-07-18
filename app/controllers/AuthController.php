@@ -266,6 +266,30 @@ class AuthController extends BaseController {
 		$gameUser->map = 0;
 		$gameUser->save();
 
+		$buy = new GameBuy;
+		$buy->user_id = $gameUser->id;
+		$buy->item_id = 1;
+		$buy->save();
+		$buy = new GameBuy;
+		$buy->user_id = $gameUser->id;
+		$buy->item_id = 7;
+		$buy->save();
+		$buy = new GameBuy;
+		$buy->user_id = $gameUser->id;
+		$buy->item_id = 13;
+		$buy->save();
+		$buy = new GameBuy;
+		$buy->user_id = $gameUser->id;
+		$buy->item_id = 19;
+		$buy->save();
+		$buy = new GameBuy;
+		$buy->user_id = $gameUser->id;
+		$buy->item_id = 25;
+		$buy->save();
+		$buy = new GameBuy;
+		$buy->user_id = $gameUser->id;
+		$buy->item_id = 31;
+		$buy->save();
 		/*
 			end
 		*/

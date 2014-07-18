@@ -6,7 +6,7 @@
 	var side = 'right';
 	var timer = $.timer(function() {
 	    $('#topRobot').css({
-	    	background: 'url("images/layout/robot/' + imageIndex + '.png") no-repeat',
+	    	background: 'url("' + bURL + 'images/layout/robot/' + imageIndex + '.png") no-repeat',
 	    	left: 700 + left + 'px'
 	    });
 	    var isTurn = Math.floor(Math.random() * 100);
