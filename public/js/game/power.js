@@ -20,10 +20,8 @@ $(function()
     });
 
     $('#start').click(function() {
-        console.log("aaaaaaaa");
         if(done==true && get==true)
         {
-            console.log("bbbbbbbb");
             $('#cover').hide();
             $('#startGame').show();
             nextQuest();
@@ -172,7 +170,7 @@ $(function()
             timer.stop();
             ajaxPost(getTransferData('renew-value-url'),{power:(recentPower+returnCount),max:maxPower},'');
             $('#again').show();
-            editStatus((parseInt(recentPower)+parseInt(returnCount));
+            editStatus((parseInt(recentPower)+parseInt(returnCount)));
         }
             
         powerreturncount++;

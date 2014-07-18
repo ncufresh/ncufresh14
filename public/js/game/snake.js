@@ -46,7 +46,7 @@ $(document).ready(function(){
 			$('#mode3').children().attr('src',''+burl+'/images/gameSnake/m3.png');
 	}
 
-	var power,done=false,recentScore = 0,waiting=false;
+	var power,done=false,recentScore,waiting=false;
 	ajaxPost(getTransferData('get-power-url'),'', getData);
 	$('#start').click(function() 
 	{
@@ -63,7 +63,7 @@ $(document).ready(function(){
 
 ////////////////////////////////init////////////////////////////////////////////
 	var lose;
-	var score = 0;
+	var score;
 	var scorecount = new Array(6);
 	var timer = $.timer(tick);
 	var round;
@@ -77,6 +77,7 @@ $(document).ready(function(){
 			$('#space').hide();
 			initial();
 			startGame();
+			waiting=false;
 		}
 		if(event.keyCode==37) // press left
 			key=37;
@@ -260,10 +261,10 @@ $(document).ready(function(){
 		{
 			totalScore();
 			timer.stop();
-			editStatus((power-1),(parseInt(score)+parseInt(recentScore)));
+			editStatus(power-1,score+recentScore);
 			$('#content').hide();
 			$('#endScreen').show();
-			ajaxPost(getTransferData('renew-value-url'),{score:score} ,'');
+			ajaxPost(getTransferData('renew-value-url'),{score:score},'');
 
 			for(var i=0; i<blocknum; i++)
 				for(var j=0; j<blocknum; j++)
@@ -272,7 +273,7 @@ $(document).ready(function(){
 			$('#again').click(function() {
 				done=false;
 				get=false;
-				waiting=false
+				
 				$('#endScreen').hide();
 				if(difficult==1)
 					$('#difficulty1').children().attr('src',''+burl+'/images/gameSnake/d1Click.png');
