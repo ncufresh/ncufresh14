@@ -102,7 +102,7 @@ class AuthController extends BaseController {
 
 						Auth::login($user);
 						return Redirect::intended();
-					}else if(User::check()){
+					}else if(Auth::check()){
 						//Connect with different email
 						$user = Auth::user();
 						$facebookData = new FacebookData;
