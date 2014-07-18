@@ -62,60 +62,7 @@
 	width: 550px;
 	height: 80px;
 }
-/*#carousel {
-  margin: 0 auto;
-  width: 600px;
-  height: 150px;
-  background: #efefef;
-  overflow: hidden;
-}
-#carousel .carousel_box {
-   width: 600px;
-    height: 140px;
-    color: #fff;
-    background: #252525;
-    line-height: 140px;
-    text-align: center;
-    font-size: 123%; 
-}*/
-/*
-.modal{
-	width: 700px;
-    height: 500px;
-    line-height: 200px;
-    position: relative;
-    top: -900px; 
-    left: 430px;
-    margin-top: -100px;
-    margin-left: -150px;
-    background-color: #f1c40f;
-    border-radius: 5px;
-    z-index: 20; 
 
-}
-.window{
-	position: absolute;
-    left: 0;
-    top:0;
-    width: 100%;
-    height: 700px;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 10;
-
-}
-
-.close{
-    color: #000;
-    background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yX/r/0CTfdHxAoA9.png);
-    width: 10px;
-    height: 12px;
-    background-size:502px 324px;
-    display:inline-block;
-    background-position:-202px -276px;
-    position: relative;
-    top:10px;
-    left: 370px;
-}*/
 .items{
 	background-color:#FF9900;
 	width: 50px;
@@ -131,51 +78,48 @@
 	width: 600px;  !important
 }
 
-/*vertical*/
-
-.vertical .carousel-inner {
-  height: 100%;
+.a img{
+	height: 200px;
+	width: 200px;
+	margin: 5px;
 }
+#scroll{
+	overflow: scroll;
+	height: 600px;
+	width: 300px;
+	overflow-x:hidden;
+	position: absolute;
+	top: 19px;
+	left: 646px;
+	margin: 10px;
 
-/*.carousel.vertical .item {
-  -webkit-transition: 0.6s ease-in-out top;
-     -moz-transition: 0.6s ease-in-out top;
-      -ms-transition: 0.6s ease-in-out top;
-       -o-transition: 0.6s ease-in-out top;
-          transition: 0.6s ease-in-out top;
-}
-*/
-.carousel.vertical .active {
-  top: 0;
-}
-
-.carousel.vertical .next {
-  top: 400px;
 }
 
-.carousel.vertical .prev {
-  top: -400px;
+#scroll::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+#scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6); 
+    border-radius: 10px;
+}
+ 
+#scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.7); 
+
 }
 
-.carousel.vertical .next.left,
-.carousel.vertical .prev.right {
-  top: 0;
+li{
+    list-style-type: none;
 }
+.photointro{
+	width: 600px;
+	height:50px;
+	position: relative;
+	top:35px;
+	left:0px;
+	background-color:#990033;
+	margin: 10px;
 
-.carousel.vertical .active.left {
-  top: -400px;
-}
-
-.carousel.vertical .active.right {
-  top: 400px;
-}
-
-.carousel.vertical .item {
-    left: 0;
-}
-.container{
-	
-}
-.row-fluid{
-	width:250px; !important
 }

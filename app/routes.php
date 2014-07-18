@@ -277,6 +277,18 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){
 //=============================================================================
 // About us
 
-Route::get('About_us',array('as'=>'about','uses'=>'AboutUsController@index'));
+Route::get('About_us',array('as'=>'About_us','uses'=>'AboutUsController@index'));
 
 Route::get('About_us/modal',array('as'=>'About.modal','uses'=>'AboutUsController@getModalId'));
+
+Route::post('About_us/sure', array('as' => 'sure', 'uses' => 'AboutUsController@sure') );
+
+Route::post('About_us/add', array('as' => 'add', 'uses' => 'AboutUsController@add') );
+
+Route::post('About_us/delete', array('as' => 'delete', 'uses' => 'AboutUsController@delete') );
+
+Route::get('About_us/list',array('as'=>'About_us.list','uses'=>'AboutUsController@showlist'));
+
+Route::get('About_us/edit/{id}',array('as'=>'About_us.edit','uses'=>'AboutUsController@toedit'));
+
+Route::get('About_us/add',array('as'=>'About_us.add','uses'=>'AboutUsController@toadd'));

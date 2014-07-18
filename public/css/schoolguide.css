@@ -95,11 +95,12 @@ html, body {
 }
 .left_item{
     position: relative;
-    left: 30px;
+    left: -17px;
     top: 33px;
     z-index: 10;
-    width: 90px;
+    width: 135px;
     padding: 0px;
+    text-align: center;
 }
 
 #Zhidao{
