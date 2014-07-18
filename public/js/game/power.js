@@ -20,10 +20,8 @@ $(function()
     });
 
     $('#start').click(function() {
-        console.log("aaaaaaaa");
         if(done==true && get==true)
         {
-            console.log("bbbbbbbb");
             $('#cover').hide();
             $('#startGame').show();
             nextQuest();
