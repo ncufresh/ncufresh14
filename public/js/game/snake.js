@@ -260,7 +260,7 @@ $(document).ready(function(){
 		{
 			totalScore();
 			timer.stop();
-			editStatus((power-1),(score+recentScore));
+			editStatus((power-1),(parseInt(score)+parseInt(recentScore)));
 			$('#content').hide();
 			$('#endScreen').show();
 			ajaxPost(getTransferData('renew-value-url'),{score:score} ,'');
