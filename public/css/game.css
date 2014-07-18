@@ -616,6 +616,10 @@ gameShop
 	background: url("../images/gameShop/buyed.png") no-repeat;
 }
 
+.itemHadBuy:hover {
+	background: url("../images/gameShop/buyed.png") no-repeat;
+}
+
 #characterEquipButton {
 	width: 94px;
 	height: 54px;
