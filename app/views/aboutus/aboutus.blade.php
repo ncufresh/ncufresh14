@@ -3,23 +3,22 @@
 @section('js_css')
 	{{ HTML::style('css/aboutus.css') }}
 	{{ HTML::script('js/aboutus.js') }}
-	{{ HTML::script('js/jquery.cycle2.carousel.js') }}
-	{{ HTML::script('js/jquery.cycle2.js') }}
 @stop
 
 @section('content')
 
 <div id="content">
-	<div id = "title">about us</div>
-	<div id="picture"> photo</div>
-	<div id="introduction">introduction</div>
-	<div id="morecontent">
-		<div id="operate" data-id="1" class="items">operate</div>
-		<div id="code" data-id="2" class="items">code</div>
-		<div id="draw" data-id="3" class="items">draw</div>
-		<div id="project" data-id="4" class="items">project</div>
-		<div id="movie" data-id="7" class="items">movie</div>
-		<div id="back" data-id="6" class="items"  data-toggle="modal" data-target="#myModal">back</div>
+	<img id="page1" src="{{asset('images/aboutus/page1.png')}}">
+	<img id="morecontent" src="{{asset('images/aboutus/morecontent.png')}}">
+	<img id="photo" src="{{asset('images/aboutus/photo.png')}}">
+	<div class="page2">
+		<img id="page2" src="{{asset('images/aboutus/page2.png')}}">
+		<img id="code" data-id="2" class="items" src="{{asset('images/aboutus/code.png')}}">
+		<img id="draw" data-id="3" class="items" src="{{asset('images/aboutus/draw.png')}}">
+		<img id="project" data-id="4" class="items" src="{{asset('images/aboutus/project.png')}}">
+		<img id="operate" data-id="1" class="items" src="{{asset('images/aboutus/operate.png')}}">
+		<img id="movie" data-id="7" class="items" src="{{asset('images/aboutus/movie.png')}}">
+		<img id="back"  data-id="6" class="items" data-toggle="modal" data-target="#myModal" src="{{asset('images/aboutus/back.png')}}">
 	</div>
 </div>
 

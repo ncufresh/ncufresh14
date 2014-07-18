@@ -2,6 +2,13 @@ $(document).ready(function(){
 
 	var burl = getTransferData('burl');
 
+	$(".departments").show();
+	$(".school").hide();
+	$(".scence").hide();
+	$(".dorm").hide();
+	$(".eat").hide();
+	$(".exercise").hide();
+
 	$("#select").change(changeLeft);
 	$(".pointer").click(function(){
 		clickImg($(this).data('id'));
@@ -30,7 +37,7 @@ $(document).ready(function(){
 			var name =data[i]['name'];
 			var id=data[i]['id'];
 			var category = data[i]['categories'];
-			$("<img class ='line' src='"+burl+"/images/SchoolGuide/line.png'>").appendTo("#leftlist").data('place_id', id);
+			// $("<img class ='line' src='"+burl+"/images/SchoolGuide/line.png'>").appendTo("#leftlist").data('place_id', id);
 			$("<img class ='board' src='"+burl+"/images/SchoolGuide/board.png'>").appendTo("#leftlist").data('place_id', id);
 			$("<li class='left_item'>"+name+"</li>").appendTo("#leftlist").data('place_id', id);
 
@@ -79,6 +86,8 @@ $(document).ready(function(){
 			}
 
 		}
+		//$("<img class ='item2' src='"+burl+"/images/SchoolGuide/item2.png'>").appendTo("#leftlist").data('place_id', id);
+
 		makeLeftCanClick();
 	}
 
@@ -103,7 +112,7 @@ $(document).ready(function(){
 	function showPhoto(data){
 
 		var introduction =data['introduction'];
-		$.jumpWindow("123",introduction,"222");
+		$.jumpWindow("",introduction+"<img class='robot' src='"+burl+"/images/SchoolGuide/robot.png'>","");
 	
 	}
 

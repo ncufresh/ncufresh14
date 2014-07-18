@@ -115,6 +115,10 @@ Route::get('SchoolGuide/getItem', array('as' => 'Guide.one', 'uses' => 'SchoolGu
 
 Route::get('SchoolGuide/clickImg', array('as' => 'Guide.map', 'uses' => 'SchoolGuideController@clickImg') );
 
+Route::get('SchoolGuide/{id}',array('as'=>'SchoolGuide.photo','uses'=>'SchoolGuideController@tophoto'));
+
+Route::get('SchoolGuide/{item}', array('as' => 'schoolguide.item', 'uses' => 'SchoolGuideController@item'))->where('item', '(department|administration|scence|food|dorm|exercise)');
+
 //School guide admin
 Route::group(array('prefix' => 'admin', 'before' => 'manage_editor'), function()
 {
@@ -130,9 +134,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'manage_editor'), function()
 	Route::get('SchoolGuide/edit/{id}',array('as'=>'SchoolGuide.edit','uses'=>'SchoolGuideController@toedit'));
 
 	Route::get('SchoolGuide/add',array('as'=>'SchoolGuide.add','uses'=>'SchoolGuideController@toadd'));
-
-	Route::get('SchoolGuide/{id}',array('as'=>'SchoolGuide.photo','uses'=>'SchoolGuideController@tophoto'));
-
 });
 
 //============================================================================
@@ -272,7 +273,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){
 // About us
 
 
-Route::get('About_us',array('as'=>'About_us','uses'=>'AboutUsController@index'));
+Route::get('About_us',array('as'=>'about','uses'=>'AboutUsController@index'));
 
 Route::get('About_us/modal',array('as'=>'About.modal','uses'=>'AboutUsController@getModalId'));
 
