@@ -51,6 +51,7 @@ $(document).ready(function(){
 	$('#start').click(function() 
 	{
 		if(power>0)
+		{
 			if(difficult!=0&&mode!=0&&done==true)
 			{
 				$('#cover').hide();
@@ -59,6 +60,9 @@ $(document).ready(function(){
 				key=0;
 				waiting = true;
 			}
+		}
+		else
+			noPowerDisplay();
 	});
 
 ////////////////////////////////init////////////////////////////////////////////
@@ -261,35 +265,35 @@ $(document).ready(function(){
 		{
 			totalScore();
 			timer.stop();
-			editStatus(parseInt(power)-1,parseInt(score)+parseInt(recentScore));
-			$('#content').hide();
-			$('#endScreen').show();
-			ajaxPost(getTransferData('renew-value-url'),{score:score},'');
+			// editStatus(parseInt(power)-1,parseInt(score)+parseInt(recentScore));
+			// $('#content').hide();
+			// $('#endScreen').show();
+			// ajaxPost(getTransferData('renew-value-url'),{score:score},'');
 
-			for(var i=0; i<blocknum; i++)
-				for(var j=0; j<blocknum; j++)
-					Box[i][j].empty();
+			// for(var i=0; i<blocknum; i++)
+			// 	for(var j=0; j<blocknum; j++)
+			// 		Box[i][j].empty();
 
-			$('#again').click(function() {
-				done=false;
-				get=false;
+			// $('#again').click(function() {
+			// 	done=false;
+			// 	get=false;
 				
-				$('#endScreen').hide();
-				if(difficult==1)
-					$('#difficulty1').children().attr('src',''+burl+'/images/gameSnake/d1Click.png');
-				if(difficult==2)
-					$('#difficulty2').children().attr('src',''+burl+'/images/gameSnake/d2Click.png');
-				if(difficult==3)
-					$('#difficulty3').children().attr('src',''+burl+'/images/gameSnake/d3Click.png');
-				if(mode==1)
-					$('#mode1').children().attr('src',''+burl+'/images/gameSnake/m1Click.png');
-				if(mode==2)
-					$('#mode2').children().attr('src',''+burl+'/images/gameSnake/m2Click.png');
-				if(mode==3)
-					$('#mode3').children().attr('src',''+burl+'/images/gameSnake/m3Click.png');
-					$('#cover').show();
-				ajaxPost(getTransferData('get-power-url'),'', getData);
-			});
+			// 	$('#endScreen').hide();
+			// 	if(difficult==1)
+			// 		$('#difficulty1').children().attr('src',''+burl+'/images/gameSnake/d1Click.png');
+			// 	if(difficult==2)
+			// 		$('#difficulty2').children().attr('src',''+burl+'/images/gameSnake/d2Click.png');
+			// 	if(difficult==3)
+			// 		$('#difficulty3').children().attr('src',''+burl+'/images/gameSnake/d3Click.png');
+			// 	if(mode==1)
+			// 		$('#mode1').children().attr('src',''+burl+'/images/gameSnake/m1Click.png');
+			// 	if(mode==2)
+			// 		$('#mode2').children().attr('src',''+burl+'/images/gameSnake/m2Click.png');
+			// 	if(mode==3)
+			// 		$('#mode3').children().attr('src',''+burl+'/images/gameSnake/m3Click.png');
+			// 		$('#cover').show();
+			// 	ajaxPost(getTransferData('get-power-url'),'', getData);
+			// });
 		}
 		levelUp();
 	}
