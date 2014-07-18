@@ -37,7 +37,6 @@ $(document).ready(function(){
 			var name =data[i]['name'];
 			var id=data[i]['id'];
 			var category = data[i]['categories'];
-			// $("<img class ='line' src='"+burl+"/images/SchoolGuide/line.png'>").appendTo("#leftlist").data('place_id', id);
 			$("<img class ='board' src='"+burl+"/images/SchoolGuide/board.png'>").appendTo("#leftlist").data('place_id', id);
 			$("<li class='left_item'>"+name+"</li>").appendTo("#leftlist").data('place_id', id);
 
