@@ -25,7 +25,7 @@
 				<div class="topNavBarButton" id="topNavBarVideo">
 				</div>
 			</a>
-			<a href="{{ route('about') }}">
+			<a href="{{ route('About_us') }}">
 				<div class="topNavBarButton" id="topNavBarAbout">
 				</div>
 			</a>
