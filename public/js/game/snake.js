@@ -260,10 +260,10 @@ $(document).ready(function(){
 		{
 			totalScore();
 			timer.stop();
-			editStatus(power-1,score+recentScore);
+			editStatus((power-1),(score+recentScore));
 			$('#content').hide();
 			$('#endScreen').show();
-			ajaxPost(getTransferData('renew-value-url'),{score:score},'');
+			ajaxPost(getTransferData('renew-value-url'),{score:score} ,'');
 
 			for(var i=0; i<blocknum; i++)
 				for(var j=0; j<blocknum; j++)
