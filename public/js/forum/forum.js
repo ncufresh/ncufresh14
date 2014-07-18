@@ -1,6 +1,6 @@
-var titleEmptyMsg = "請輸入文章標題";
-var contentEmptyMsg = "請輸入文章內容";
-var commentEmptyMsg = "請輸入留言內容";
+var titleEmptyMsg = "文章標題";
+var contentEmptyMsg = "文章內容";
+var commentEmptyMsg = "留言內容";
 
 $(function(){
 	var orderNewUrl = $("#orderNewHidden").attr("direct");
@@ -15,76 +15,80 @@ $(function(){
 		url:orderNewUrl,
 		data:{},
 		success:function(data){
-			//alert("Ajax success");
-			//alert(data['data'].length);
 			for(i=0;i<data['data'].length;i++){
-				$("#Test1").append("<div class='postTimeContainer'><div class='articlePostTime'><span class='author'>"+data['data'][i]['author_id']+"</span>posted"+data['data'][i]['created_at']+"</div></div>");
-				$("#Test1").append("<div class='articleContainer' id='"+data['data'][i]['id']+"' ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+data['data'][i]['title'] +" </h3></div><div class='panel-body'>"+data['data'][i]['content']+"</div><a class='moreBox'><div class='moreBtn' id='"+data['data'][i]['id']+"' direct='"+getCommentsUrl+"'><div class='panel panel-default arrow'>&dArr;</div></div></a></div><div class='responseContainer'><form class='commentForm' route='createComment'><label>回覆貼文</label><input type='submit' class='btn btn-primary createComment' value='發表回覆'><input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'><input type='hidden' name='articleID' id='"+data['data'][i]['id']+"' class='articleID'><input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'></form></div></div>");
+				showArticles(
+					data['data'][i]['author_id'],
+					data['data'][i]['created_at'],
+					data['data'][i]['id'],
+					data['data'][i]['title'],
+					data['data'][i]['content'],
+					"#Test1"
+				);
 			}
-				$("#Test1 .arrow").click(function(){
-					//alert("arrow");
-					var responseContainer = $(this).parent().parent().parent().parent().find(".responseContainer");
-					var target = $(this);
-					if(responseContainer.css("display")=="none"){
-						responseContainer.parent().css("background-color","#FFE6E6");
-						var articleID = $(this).parent().attr("id");
-						//alert("articleID:"+articleID);
-						$.ajax({
-							type:"POST",
-							url: getCommentsUrl,
-							data:{
-								"articleID":articleID
-							},
-							success:function(data){
-								//alert("getCommentSuccess");
-								for(i=0;i<data['data'].length;i++){
-									var comment = "<div class='panel panel-default'><span class='commentAuthorId'>"+data['data'][i]['author_id']+"</span><br><span class='commentContent'>"+data['data'][i]['content']+"</span><br><span class='commentTime'>"+data['data'][i]['created_at']+"</span></div>";
-									responseContainer.append(comment);
-								}
-							},
-							error:function(){
-								alert("Getting Comment Failed");
-							}
-						},"json");
-					}
-					if(responseContainer.css("display")=="block"){
-						responseContainer.parent().css("background-color","#FFFFFF");
-						responseContainer.children(".panel").remove();
-					}
-					responseContainer.slideToggle(); 
-				});
-				$(".commentForm").submit(function(e){
-					e.preventDefault();
-					//alert("");
-					var content = $(this).find("#inputContent").val();
-					var commenterID = $(this).find("#commenterID").val();
-					var articleID = $(this).find(".articleID").attr("id");
-					//alert("Content:"+content);
-					//alert("authorID:"+commenterID);
-					//alert("articleID"+articleID);
-					var target = $(this);
+			$("#Test1 .arrow").click(function(){
+				var responseContainer = $(this).parent().parent().parent().parent().find(".responseContainer");
+				var target = $(this);
+				if(responseContainer.css("display")=="none"){
+					responseContainer.parent().css("background-color","#FFE6E6");
+					var articleID = $(this).parent().attr("id");
 					$.ajax({
-						type : "POST",
-						url : createCommentUrl,
-						data : { 
-							"comment" : content ,
-							"author_id" : commenterID ,
-							"article_id" : articleID
+						type:"POST",
+						url: getCommentsUrl,
+						data:{
+							"articleID":articleID
 						},
-						success : function(data){
-							//alert("Ajax Success");
-							var dateTime = new Date();
-							var currentTime = dateTime.getFullYear()+"-"+dateTime.getMonth()+1+"-"+dateTime.getDate()+" "+dateTime.getHours()+":"+dateTime.getMinutes();
-							var comment = "<div class='panel panel-default'><span class='commentAuthorId'>"+commenterID+"</span><br><span class='commentContent'>"+content+"</span><br><span class='commentTime'>"+currentTime+"</span></div>";
-							target.parent().parent().find(".responseContainer").append(comment);
-							target.find("#inputContent").val("");
-							target.find("#commenterID").val("");
+						success:function(data){
+							//alert("getCommentSuccess");
+							for(i=0;i<data['data'].length;i++){
+								displayComments(
+									data['data'][i]['author_id'],
+									data['data'][i]['content'],
+									data['data'][i]['created_at'],
+									responseContainer
+								);
+							}
 						},
-						error :function(){
-							alert("Error");
-						}	
+						error:function(){
+							alert("Getting Comment Failed");
+						}
 					},"json");
-				});
+				}
+				if(responseContainer.css("display")=="block"){
+					responseContainer.parent().css("background-color","#FFFFFF");
+					responseContainer.children(".panel").remove();
+				}
+				responseContainer.slideToggle(); 
+			});
+			$(".commentForm").submit(function(e){
+				e.preventDefault();
+				var content = $(this).find("#inputContent").val();
+				var commenterID = $(this).find("#commenterID").val();
+				var articleID = $(this).find(".articleID").attr("id");
+				var target = $(this);
+				$.ajax({
+					type : "POST",
+					url : createCommentUrl,
+					data : { 
+						"comment" : content ,
+						"author_id" : commenterID ,
+						"article_id" : articleID
+					},
+					success : function(data){
+						var currentTime = getCurrentTime(); 
+						displayComments(
+							commenterID,
+							content,
+							currentTime,
+							target.parent().parent().find(".responseContainer")
+						);
+						target.find("#inputContent").val("");
+						target.find("#commenterID").val("");
+					},
+					error :function(){
+						alert("Error");
+					}	
+				},"json");
+			});
 		},
 		error:function(){
 			alert("ERROR");
@@ -112,9 +116,14 @@ $(function(){
 				$("#Test1 .postTimeContainer").remove();
 				//alert(data['data'].length);
 				for(i=0;i<data['data'].length;i++){
-					
-					$("#Test1").append("<div><div class='postTimeContainer'><div class='articlePostTime'><span class='author'>"+data['data'][i]['author_id']+"</span>posted"+data['data'][i]['created_at']+"</div></div></div>");
-					$("#Test1").append("<div class='articleContainer' id='"+data['data'][i]['id']+"' ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+data['data'][i]['title'] +" </h3></div><div class='panel-body'>"+data['data'][i]['content']+"</div><a class='moreBox'><div class='moreBtn' id='"+data['data'][i]['id']+"' direct='"+getCommentsUrl+"'><div class='panel panel-default arrow' >&dArr;</div></div></a></div><div class='responseContainer'><form class='commentForm' route='createComment'><label>回覆貼文</label><input type='submit' class='btn btn-primary createComment' value='發表回覆'><input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'><input type='hidden' name='articleID' id='"+data['data']['id']+"' class='articleID'><input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'></form></div></div>");
+					showArticles(
+						data['data'][i]['author_id'],
+						data['data'][i]['created_at'],
+						data['data'][i]['id'],
+						data['data'][i]['title'],
+						data['data'][i]['content'],
+						"#Test1"
+					);	
 				}
 				$("#Test1 .arrow").click(function(){
 					//alert("arrow");
@@ -133,8 +142,12 @@ $(function(){
 							success:function(data){
 								//alert("getCommentSuccess");
 								for(i=0;i<data['data'].length;i++){
-									var comment = "<div class='panel panel-default'><span class='commentAuthorId'>"+data['data'][i]['author_id']+"</span><br><span class='commentContent'>"+data['data'][i]['content']+"</span><br><span class='commentTime'>"+data['data'][i]['created_at']+"</span></div>";
-									responseContainer.append(comment);
+									displayComments(
+										data['data'][i]['author_id'],
+										data['data'][i]['content'],
+										data['data'][i]['created_at'],
+										responseContainer
+									);
 								}
 							},
 							error:function(){
@@ -150,14 +163,9 @@ $(function(){
 				});
 				$(".commentForm").submit(function(e){
 					e.preventDefault();
-					alert("");
 					var content = $(this).find("#inputContent").val();
 					var commenterID = $(this).find("#commenterID").val();
-					var url = $(this).attr("direct");
-					var articleID = $(this).find(".articleID").attr("id");
-					//alert("Content:"+content);
-					//alert("authorID:"+commenterID);
-					//alert("articleID"+articleID);
+					var articleID = $(this).parent().parent().attr("id");
 					var target = $(this);
 					$.ajax({
 						type : "POST",
@@ -168,11 +176,13 @@ $(function(){
 							"article_id" : articleID
 						},
 						success : function(data){
-							//alert("Ajax Success");
-							var dateTime = new Date();
-							var currentTime = dateTime.getFullYear()+"-"+dateTime.getMonth()+1+"-"+dateTime.getDate()+" "+dateTime.getHours()+":"+dateTime.getMinutes();
-							var comment = "<div class='panel panel-default'><span class='commentAuthorId'>"+commenterID+"</span><br><span class='commentContent'>"+content+"</span><br><span class='commentTime'>"+currentTime+"</span></div>";
-							target.parent().parent().find(".responseContainer").append(comment);
+							var currentTime = getCurrentTime();
+							displayComments(
+								commenterID,
+								content,
+								currentTime,
+								target.parent().parent().find(".responseContainer")
+							);
 							target.find("#inputContent").val("");
 							target.find("#commenterID").val("");
 						},
@@ -198,8 +208,14 @@ $(function(){
 				$("#Test1 .articleContainer").remove();
 				for(i=0;i<data['data'].length;i++){
 					
-					$("#Test1").append("<div><div class='postTimeContainer'><div class='articlePostTime'><span class='author'>"+data['data'][i]['author_id']+"</span>posted"+data['data'][i]['created_at']+"</div></div></div>");
-					$("#Test1").append("<div class='articleContainer' id='"+data['data'][i]['id']+"' ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+data['data'][i]['title'] +" </h3></div><div class='panel-body'>"+data['data'][i]['content']+"</div><a class='moreBox'><div class='moreBtn' id='"+data['data'][i]['id']+"' direct='"+getCommentsUrl+"'><div class='panel panel-default arrow' >&dArr;</div></div></a></div><div class='responseContainer'><form class='commentForm' route='createComment'><label>回覆貼文</label><input type='submit' class='btn btn-primary createComment' value='發表回覆'><input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'><input type='hidden' name='articleID' id='"+data['data']['id']+"' class='articleID'><input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'></form></div></div>");
+					showArticles(
+						data['data'][i]['author_id'],
+						data['data'][i]['created_at'],
+						data['data'][i]['id'],
+						data['data'][i]['title'],
+						data['data'][i]['content'],
+						"#Test1"
+					);
 				}
 				$("#Test1 .arrow").click(function(){
 					//alert("arrow");
@@ -218,8 +234,12 @@ $(function(){
 							success:function(data){
 								//alert("getCommentSuccess");
 								for(i=0;i<data['data'].length;i++){
-									var comment = "<div class='panel panel-default'><span class='commentAuthorId'>"+data['data'][i]['author_id']+"</span><br><span class='commentContent'>"+data['data'][i]['content']+"</span><br><span class='commentTime'>"+data['data'][i]['created_at']+"</span></div>";
-									responseContainer.append(comment);
+									displayComments(
+										data['data'][i]['author_id'],
+										data['data'][i]['content'],
+										data['data'][i]['created_at'],
+										responseContainer
+									);
 								}
 							},
 							error:function(){
@@ -239,9 +259,6 @@ $(function(){
 					var content = $(this).find("#inputContent").val();
 					var commenterID = $(this).find("#commenterID").val();
 					var articleID = $(this).find(".articleID").attr("id");
-					//alert("Content:"+content);
-					//alert("authorID:"+commenterID);
-					//alert("articleID"+articleID);
 					var target = $(this);
 					$.ajax({
 						type : "POST",
@@ -252,11 +269,13 @@ $(function(){
 							"article_id" : articleID
 						},
 						success : function(data){
-							//alert("Ajax Success");
-							var dateTime = new Date();
-							var currentTime = dateTime.getFullYear()+"-"+dateTime.getMonth()+1+"-"+dateTime.getDate()+" "+dateTime.getHours()+":"+dateTime.getMinutes();
-							var comment = "<div class='panel panel-default'><span class='commentAuthorId'>"+commenterID+"</span><br><span class='commentContent'>"+content+"</span><br><span class='commentTime'>"+currentTime+"</span></div>";
-							target.parent().parent().find(".responseContainer").append(comment);
+							var currentTime = getCurrentTime();
+							displayComments(
+								commenterID,
+								content,
+								currentTime,
+								target.parent().parent().find(".responseContainer")
+							);
 							target.find("#inputContent").val("");
 							target.find("#commenterID").val("");
 						},
@@ -272,13 +291,11 @@ $(function(){
 		},"json");
 	});
 	$(".arrow").click(function(){
-		//alert("arrow");
 		var responseContainer = $(this).parent().parent().parent().parent().find(".responseContainer");
 		var target = $(this);
 		if(responseContainer.css("display")=="none"){
 			responseContainer.parent().css("background-color","#FFE6E6");
 			var articleID = $(this).parent().attr("id");
-			//alert("articleID:"+articleID);
 			$.ajax({
 				type:"POST",
 				url: getCommentsUrl,
@@ -286,10 +303,13 @@ $(function(){
 					"articleID":articleID
 				},
 				success:function(data){
-					//alert("getCommentSuccess");
 					for(i=0;i<data['data'].length;i++){
-						var comment = "<div class='panel panel-default'><span class='commentAuthorId'>"+data['data'][i]['author_id']+"</span><br><span class='commentContent'>"+data['data'][i]['content']+"</span><br><span class='commentTime'>"+data['data'][i]['created_at']+"</span></div>";
-						responseContainer.append(comment);
+						displayComments(
+							data['data'][i]['author_id'],	
+							data['data'][i]['content'],
+							data['data'][i]['created_at'],
+							responseContainer
+						);
 					}
 				},
 				error:function(){
@@ -307,39 +327,120 @@ $(function(){
 	$("#submitArticle").click(function(){
 		var title = $("#inputTitle").val();
 		var content =$("#inputDetail").val();
-		var id = $("#inputAuthor_id").val();
+		var authorId = $("#inputAuthor_id").val();
 		var type = $("#selectType").val();
-		$.ajax({
-			type:"POST",
-			url:newArticleUrl,
-			data:{
-				"title":title,
-				"id":id,
-				"content":content,
-				"article_type":type
-			},
-			success:function(){
-				$('#myModal').modal('toggle');
-				alert("success");
-				var dateTime = new Date();
-				var currentTime = dateTime.getFullYear()+"-"+dateTime.getMonth()+1+"-"+dateTime.getDate()+" "+dateTime.getHours()+":"+dateTime.getMinutes();
-				$("#toolBar").after("<div><div class='postTimeContainer'><div class='articlePostTime'><span class='author'>"+id+"</span>posted"+currentTime+"</div></div></div>");
-				$("#toolBar").after("<div class='articleContainer' id='"+id+"' ><div class='panel panel-default articleBody'><div class='panel-heading'><h3 class='panel-title'>"+title+" </h3></div><div class='panel-body'>"+content+"</div><a class='moreBox'><div class='moreBtn' id='"+id+"' direct='"+getCommentsUrl+"'><div class='panel panel-default arrow' >&dArr;</div></div></a></div><div class='responseContainer'><form class='commentForm' route='createComment'><label>回覆貼文</label><input type='submit' class='btn btn-primary createComment' value='發表回覆'><input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'><input type='hidden' name='articleID' id='"+id+"' class='articleID'><input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'></form></div></div>");
-			},
-			error:function(){
-				alert("Error");
-			}
-		},"json");
+		if(title == '' && content == ''){
+			$("#errorMsgContent").text("請輸入"+titleEmptyMsg+" , "+contentEmptyMsg);
+			$("#errorMsgDialog").modal('toggle');
+		}else if(title =='' && content != ''){
+			$("#errorMsgContent").text("請輸入"+titleEmptyMsg);
+			$("#errorMsgDialog").modal('toggle');
+		}else if(title !='' && content ==''){
+			$("#errorMsgContent").text("請輸入"+contentEmptyMsg);
+			$("#errorMsgDialog").modal('toggle');
+		}else{
+			$.ajax({
+				type:"POST",
+				url:newArticleUrl,
+				data:{
+					"title":title,
+					"id":authorId,
+					"content":content,
+					"article_type":type
+				},
+				success:function(data){
+					$("#inputTitle").val("");
+					$("#inputAuthor_id").val("");
+					$("#inputDetail").val("");
+					$('#myModal').modal('toggle');
+					var currentTime = getCurrentTime(); 
+					var insertPlace;
+					if(type == "P"){
+						insertPlace = "#toolBar";
+					}else if(type == "D"){
+						insertPlace = "#departmentIndex";
+					}else if(type == "C"){
+						insertPlace = "#clubIndex";
+					}
+					insertArticle(authorId,currentTime,data.articleId,title,content,insertPlace);
+					$(".arrow").click(function(){
+						var responseContainer = $(this).parent().parent().parent().parent().find(".responseContainer");
+						var target = $(this);
+						if(responseContainer.css("display")=="none"){
+							responseContainer.parent().css("background-color","#FFE6E6");
+							var articleID = $(this).parent().attr("id");
+							$.ajax({
+								type:"POST",
+								url: getCommentsUrl,
+								data:{
+									"articleID":articleID
+								},
+								success:function(data){
+									for(i=0;i<data['data'].length;i++){
+										displayComments(
+											data['data'][i]['author_id'],	
+											data['data'][i]['content'],
+											data['data'][i]['created_at'],
+											responseContainer
+										);
+									}
+								},
+								error:function(){
+									alert("Getting Comment Failed");
+								}
+							},"json");
+						}
+						if(responseContainer.css("display")=="block"){
+							responseContainer.parent().css("background-color","#FFFFFF");
+							responseContainer.children(".panel").remove();
+						}
+						responseContainer.slideToggle(); 
+					});
+					$(".commentForm").submit(function(e){
+						e.preventDefault();
+						//alert("");
+						var content = $(this).find("#inputContent").val();
+						var commenterID = $(this).find("#commenterID").val();
+						var articleID = $(this).parent().parent().attr("id");
+						var target = $(this);
+						$.ajax({
+							type : "POST",
+							url : createCommentUrl,
+							data : { 
+								"comment" : content ,
+								"author_id" : commenterID ,
+								"article_id" : articleID
+							},
+							success : function(data){
+								var currentTime = getCurrentTime(); 
+								displayComments(
+									commenterID,
+									content,
+									currentTime,
+									target.parent().parent().find(".responseContainer")
+								);
+								target.find("#inputContent").val("");
+								target.find("#commenterID").val("");
+							},
+							error :function(){
+								alert("Error");
+							}	
+						},"json");
+					});
+				},
+				error:function(){
+					alert("Error");
+				}
+			},"json");
+
+		}
 	});
 
 	$(".edit").click(function(){
 		var target = $(this).parent().parent().find(".panel-body");
 		var btn = $(this);
-		//alert(target.text());
-		//alert(target.attr("class"));
 		var originText = target.text();
 		var originHeight = target.css("height");
-		//alert(originHeight);
 		target.empty();
 		target.append("<button type='button' class='btn btn-default btn-sm delBtn'>刪除貼文</button>");
 		target.append("<input type='textarea' class='form-control editArea' value='"+originText+"'>");
@@ -391,14 +492,99 @@ $(function(){
 					}
 				},"json");
 			});
-
-
-
-
-
-
-
 	});	
 });
+
+function getCurrentTime(){
+	var dateTime = new Date();
+	var year = dateTime.getFullYear();
+	var month = dateTime.getMonth() + 1;
+	var date = dateTime.getDate();
+	var hour = dateTime.getHours();
+	var minute = dateTime.getMinutes();
+	var second = dateTime.getSeconds();
+	var currentTime = year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second;
+	return currentTime;
+}
+
+function showArticles(author,createdAt,articleId,title,content,target){
+	$(target).append("\
+		<div class='postTimeContainer'>\
+			<div class='articlePostTime'>\
+				<span class='author'>"+author+"</span>發布於"+createdAt+"\
+			</div>\
+		</div>"
+	);
+	$(target).append("\
+		<div class='articleContainer' id='"+articleId+"' >\
+			<div class='panel panel-default articleBody'>\
+				<div class='panel-heading'>\
+					<h3 class='panel-title'>"+title+"</h3>\
+				</div>\
+				<div class='panel-body'>"+content+"</div>\
+				<a class='moreBox'>\
+					<div class='moreBtn' id='"+articleId+"'>\
+						<div class='panel panel-default arrow'>&dArr;</div>\
+					</div>\
+				</a>\
+			</div>\
+			<div class='responseContainer'>\
+				<form class='commentForm' route='createComment'>\
+					<label>回覆貼文</label>\
+					<input type='submit' class='btn btn-primary createComment' value='發表回覆'>\
+					<input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'>\
+					<input type='hidden' name='articleID' id='"+articleId+"' class='articleID'>\
+					<input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'>\
+				</form>\
+			</div>\
+		</div>"
+	);
+}
+
+function insertArticle(author,currentTime,articleId,title,content,target){
+	$(target).after("\
+		<div class='articleContainer' id='"+articleId+"' >\
+			<div class='panel panel-default articleBody'>\
+				<div class='panel-heading'>\
+					<h3 class='panel-title'>"+title+"</h3>\
+				</div>\
+				<div class='panel-body'>"+content+"</div>\
+				<a class='moreBox'>\
+					<div class='moreBtn' id='"+articleId+"'>\
+						<div class='panel panel-default arrow'>&dArr;</div>\
+					</div>\
+				</a>\
+			</div>\
+			<div class='responseContainer'>\
+				<form class='commentForm' route='createComment'>\
+					<label>回覆貼文</label>\
+					<input type='submit' class='btn btn-primary createComment' value='發表回覆'>\
+					<input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'>\
+					<input type='hidden' name='articleID' id='"+articleId+"' class='articleID'>\
+					<input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'>\
+				</form>\
+			</div>\
+		</div>"
+	);
+	$(target).after("\
+		<div class='postTimeContainer'>\
+			<div class='articlePostTime'>\
+				<span class='author'>"+author+"</span>發布於"+currentTime+"\
+			</div>\
+		</div>"
+	);
+	
+}
+
+function displayComments(author,content,createdAt,target){
+	var comment = "\
+		<div class='panel panel-default'>\
+			<span class='commentAuthorId'>"+author+"</span><br>\
+			<span class='commentContent'>"+content+"</span><br>\
+			<span class='commentTime'>"+createdAt+"</span>\
+		</div>";
+	target.append(comment);
+} 
+
 
 
