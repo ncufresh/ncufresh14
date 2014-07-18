@@ -11,7 +11,7 @@
 		<div id="user-left">
 			<div id="user-img"></div>
 			@if(Auth::check() && Auth::user()->id == $user->id && $user->getFacebookData == NULL)
-				<div id="link-fb" class="user-data-link"></div>
+				<a href="{{ route('login.FB') }}"><div id="link-fb" class="user-data-link"></div></a>
 			@elseif($user->getFacebookData != NULL)
 				<a href="http://www.facebook.com/{{ $user->getFacebookData->uid }}"><div id="to-fb" class="user-data-link"></div></a>
 			@endif
