@@ -3,28 +3,53 @@ $(document).ready(function(){
 
 	$(".wrapper").hide();
 	$(".items").hide();
+	//$("#page2").hide();
+	$("#photo").hide();
+
 	$("#morecontent").click(function(){
-		$(".items").show("slow");
-		$("#picture").animate({
+
+		//$(".items").show("slow");
+		$("#morecontent").animate({
+			opacity:'0'
+		},1);
+		$("#page1").animate({
 			width:'50px',
-			marginLeft:'-30px'
-		},1000);
-		$(this).animate({
-			width:'850px',
-			marginLeft:'-850px'
-			},1000);
+			marginLeft:'-10px',
+			opacity:'0'
+		},800,function(){
+			//$("#page1").hide();
+			$("#photo").show();
+		});
+		
+		$("#page2").animate({
+			width:'1023px',
+			marginLeft:'-37px',
+			opacity:'1'
+			},800);
+
+	 $("#page2").css({"visibility":"visible"});
+
 	});
 
-	$("#picture").click(function(){
+	$("#photo").click(function(){
+		$("#photo").hide(1);
 		$(".items").hide("slow");
-		$("#morecontent").animate({
+		$("#page2").animate({
 			width:'5%',
-			marginLeft:'10px'
+			marginLeft:'918px',
+			opacity:'0'
 		},1000);
-		$(this).animate({
-			width:'850px',
-			marginLeft:'10px'
-			},1000);
+		$("#page1").animate({
+			width:'918px',
+			marginLeft:'10px',
+			opacity:'1'
+			},1000,function(){
+				$("#morecontent").animate({
+			opacity:'1'
+			},1);
+
+				$("#page2").css({"visibility":"hidden"});
+			});
 
 		
 	});
