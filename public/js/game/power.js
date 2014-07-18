@@ -2,7 +2,7 @@ $(function()
 {
     var burl = getTransferData('burl');
     var questCount=0,correct,correctCount=0,choose,option,click,clickCount=0,id=0;
-    var recentPower,maxPower,returnCount;
+    var recentPower = 0,maxPower,returnCount = 0;
     var quest = new Array(10);
     var dayQuest;
     var timer,count=0,returnC=0,powerreturncount;
