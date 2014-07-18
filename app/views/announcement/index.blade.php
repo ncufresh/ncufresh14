@@ -26,7 +26,7 @@
 		<tbody>
 			@foreach($announcements as $announcement)
 				@if($announcement->pinned == true)
-					<tr class="announcement-row info" data-url="{{ route('announcement.show', array('id' => $announcement->id)) }}">
+					<tr class="announcement-row active" data-url="{{ route('announcement.show', array('id' => $announcement->id)) }}">
 						<td><img src="{{ asset('images/index/top.png') }}"> </td>
 				@else
 					<tr class="announcement-row" data-url="{{ route('announcement.show', array('id' => $announcement->id)) }}">

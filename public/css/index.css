@@ -58,16 +58,20 @@
 }
 
 #calender-month{
-	margin-top: 6px;
+	margin-top: 4px;
 }
 
-#calender-day{
-	margin-top: 15px;
+#calender-month-day{
+	margin-top: 17px;
 }
 
 .calender-row{
 	width: 140px;
 	cursor: pointer;
+}
+
+.calender-row:hover{
+	color: #d3d3d3;
 }
 
 #links {
