@@ -74,6 +74,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		if(event.keyCode==32 && waiting == true) // press space
 		{
+			waiting = false;
 			$('#space').hide();
 			initial();
 			startGame();
@@ -272,7 +273,6 @@ $(document).ready(function(){
 			$('#again').click(function() {
 				done=false;
 				get=false;
-				waiting=false
 				$('#endScreen').hide();
 				if(difficult==1)
 					$('#difficulty1').children().attr('src',''+burl+'/images/gameSnake/d1Click.png');
