@@ -7,48 +7,63 @@ body {
 }
 
 #chat-room-container {
-	width: 200px;
+	width: 45px;
 	height: 360px;
 	position: fixed;
 	top: 100px;
 	right: 0px;
-	overflow: hidden;
 }
 
 #chat-room {
-	width: 200px;
+	width: 275px;
 	position: absolute;
-	right: -175px;
+	right: -230px;
 }
 
 #chat-room .container {
-	width: 175px;
-	background-color: yellow;
-	padding: 10px;
+	width: 230px;
 	float: left;
 }
 
 #chat-room-button {
-	background-color: red;
-	width: 25px;
-	height: 150px;
+	background: url('../images/layout/chatroom/clickme.png') no-repeat;
+	width: 45px;
+	height: 152px;
 	float: left;
 }
 
+#chat-log-top {
+	width: 230px;
+	height: 30px;
+	background: url('../images/layout/chatroom/boxHead.png') no-repeat;
+	margin-left: 45px;
+}
+
 #chat-log {
-	width: 100%;
+	width: 230px;
 	min-height: 300px;
-	background-color: white;
+	background: url('../images/layout/chatroom/boxMiddle.png') repeat-y;
+	margin-left: 45px;
+	margin-top: -17px;
+	padding: 0px 12px 0px 13px;
 }
 
 .chat-row {
-	background-color: gray;
+	background-color: rgba(230, 230, 230, 0.4);
 }
 
 #chat-input {
-	top: 10px;
-	margin: 0px auto;
 	position: relative;
+	background: url('../images/layout/chatroom/input.png') no-repeat;
+	margin-left: 45px;
+	height: 64px;
+}
+
+#chat-message {
+	margin-top: 12px;
+	margin-left: 12px;
+	width: 206px;
+	height: 39px;
 }
 
 #globalContainer{

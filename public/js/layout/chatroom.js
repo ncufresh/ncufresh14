@@ -57,7 +57,7 @@ $(function(){
 		}
 		else {
 			$('#chat-room').animate({
-				right: '-175px'
+				right: '-230px'
 			});
 		}
 		isChatroomOpen = !isChatroomOpen;
