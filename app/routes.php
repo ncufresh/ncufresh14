@@ -232,6 +232,9 @@ Route::group(array('before' => 'auth'), function(){
 // Necessity
 Route::get('necessity',array('as' => 'necessity.necessity_index', 'uses' => 'necessityController@index'));
 
+Route::get('download/{id}',array('as' => 'downloadReturn', 'uses' => 'necessityController@returnDownload'));
+
+	
 
 Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){
 	
@@ -257,20 +260,18 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){
 
 	Route::get('necessity/backstage/freshman/{id}',array('as' => 'necessity.necessity_backstage_freshman_edit', 'uses' => 'necessityController@editA'));
 
-	/**/
+	Route::get('necessity/backstage/download/{id}',array('as' => 'necessity.necessity_backstage_download_edit', 'uses' => 'necessityController@editC'));
 
+	
 	Route::get('necessity/backstage/download',array('as' => 'necessity.necessity_backstage_download', 'uses' => 'necessityController@index_backstage_download'));
 
-	Route::post('download_add',array('as' => 'download_add', 'uses' => 'necessityController@research_add'));
+	Route::post('download_add',array('as' => 'download_add', 'uses' => 'necessityController@download_add'));
 
-	Route::post('download_delete',array('as' => 'download_delete', 'uses' => 'necessityController@research_delete'));
+	Route::post('download_delete',array('as' => 'download_delete', 'uses' => 'necessityController@download_delete'));
 
-	Route::post('download_edit',array('as' => 'download_edit', 'uses' => 'necessityController@research_edit'));
+	Route::post('download_edit',array('as' => 'download_edit', 'uses' => 'necessityController@download_edit'));
 
-
-	Route::get('necessity/backstage/research/{id}',array('as' => 'necessity.necessity_backstage_research_edit', 'uses' => 'necessityController@edit'));
-
-	/**/
+	
 
 });
 

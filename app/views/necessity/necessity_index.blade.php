@@ -26,44 +26,44 @@
 				</div>
 				
 				<div>
-					<button class="contMidButton" id="buttonA">下載專區</button>
+					<button class="contMidButton" id="buttonC">下載專區</button>
 				</div>
 
 			</div>
 
 			<div id="contDownLeftResearch">
 				
-					<button><a href="#30">分類一</a></button>
-					<button><a href="#31">分類二</a></button>
-					<button><a href="#32">分類三</a></button>
-					<button><a href="#33">分類四</a></button>
-					<button><a href="#34">分類五</a></button>
-					<button><a href="#35">分類六</a></button>
-					<button><a href="#36">分類七</a></button>
-					<button><a href="#37">分類八</a></button>
+					<button><a href="#49">分類一</a></button>
+					<button><a href="#50">分類二</a></button>
+					<button><a href="#51">分類三</a></button>
+					<button><a href="#52">分類四</a></button>
+					<button><a href="#53">分類五</a></button>
+					<button><a href="#54">分類六</a></button>
+					<button><a href="#55">分類七</a></button>
+					<button><a href="#56">分類八</a></button>
 			
 			</div>
 
 			<div id="contDownLeftFreshman">
 				
-					<button><a href="#30">分類一</a></button>
-					<button><a href="#31">分類二</a></button>
-					<button><a href="#32">分類三</a></button>
-					<button><a href="#33">分類四</a></button>
-					<button><a href="#34">分類五</a></button>
-					<button><a href="#35">分類六</a></button>
-					<button><a href="#36">分類七</a></button>
-					<button><a href="#37">分類八</a></button>
-					<button><a href="#37">分類九</a></button>
-					<button><a href="#37">分類十</a></button>
-					<button><a href="#37">分類十一</a></button>
+					<button><a href="#89">分類一</a></button>
+					<button><a href="#90">分類二</a></button>
+					<button><a href="#91">分類三</a></button>
+					<button><a href="#92">分類四</a></button>
+					<button><a href="#93">分類五</a></button>
+					<button><a href="#94">分類六</a></button>
+					<button><a href="#95">分類七</a></button>
+					<button><a href="#96">分類八</a></button>
+					<button><a href="#97">分類九</a></button>
+					<button><a href="#98">分類十</a></button>
+					<button><a href="#99">分類十一</a></button>
 			</div>
 
 			<div id="contentDown">
-
+ 				
+ 				<!-- research 的 div -->
+				
 				<div id="contDownSlideResearch">
-					
-					 <!-- research 的 div -->
 					
 					<div id="contDownText">
 						
@@ -99,10 +99,10 @@
 					</div>
 				</div>
 				
+				<!-- freshman 的 div -->
+
 				<div id="contDownSlideFreshman">
  					
- 					<!-- freshman 的 div -->
-
  					<div id="contDownText">
 						
 						<table>
@@ -128,7 +128,7 @@
 								</tr>
 							@foreach($necessityFreshmanData as $necessityfreshmandata)
 								<tr>
-									<td class="formStyleSide" {{"id='".$necessityresearchdata->id."'" }}>{{$necessityfreshmandata->item }}</td>
+									<td class="formStyleSide" {{"id='".$necessityfreshmandata->id."'" }}>{{$necessityfreshmandata->item }}</td>
 									<td class="formStyleMid">{{$necessityfreshmandata->explanation }}</td>
 									<td class="formStyleSide">{{$necessityfreshmandata->organizer }}</td>
 								</tr>
@@ -136,6 +136,24 @@
 						</table>
 					</div>
 
+				</div>
+
+				<!-- download 的 div -->
+
+				<div id="contDownSlideDownload">
+					
+						
+				  	@foreach($necessityDownloadData as $necessitydownloaddata)
+														
+						{{	link_to_route('downloadReturn', $necessitydownloaddata -> name , array( 'id' =>  $necessitydownloaddata -> id ))}}
+
+					@endforeach 
+
+	
+		
+
+				<!--  -->
+		
 				</div>
 
 			</div>

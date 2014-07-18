@@ -38,6 +38,7 @@
 
 			{{ Form::open(array('route' => 'freshman_delete')) }}
     		</br>
+    		{{ Form::hidden('ID', $freshmandata->id) }}
 			項目
     		<div class="backstage">{{$freshmandata->item}}</div>
 			<br>			
@@ -53,7 +54,8 @@
 			<a href="{{ route('necessity.necessity_backstage_freshman_edit', array('id' => $freshmandata->id)) }}">修改</a>
 			
 			{{ Form::close() }}
-
+			
 	@endforeach
+
 
 @stop
