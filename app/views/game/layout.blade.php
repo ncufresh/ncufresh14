@@ -18,5 +18,14 @@
 		<div id="gameMain">
 			@yield('game_content')
 		</div>
+		<div id="gmaeNoPowerContainer">
+			<div id="gameNoPowerBox">
+				<div class="gameNoPowerText">你的電池耗盡囉!</div>
+				<div class="gameNoPowerText">該去電池補給站充電囉~</div>
+				<div class="gameNoPowerButton" id="gameNoPowerIKnow">我知道了</div>
+				<a href="{{ route('game.power') }}"><div class="gameNoPowerButton" id="gameNoPowerGoPower">去補給站</div></a>
+				<div id="gameNoPowerExit"></div>
+			</div>
+		</div>
 	</div>
 @stop

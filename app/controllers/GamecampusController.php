@@ -2,6 +2,8 @@
 
 class GamecampusController extends BaseController {
 	public function index() {
+		App::make('SiteMap')->pushLocation('小遊戲', route('game'));
+		App::make('SiteMap')->pushLocation('認識中大', route('game.campus'));
 		if ( !Auth::check() ) {
 			return Redirect::to('/');	
 		}

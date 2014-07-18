@@ -24,6 +24,4 @@
 			</div>
 		</a>
 	</div>
-	<div id="gameNoPower">
-	</div>
 @stop

@@ -1,6 +1,7 @@
 #gameContainer {
 	width: 100%;
 	padding: 10px;
+	position: relative;
 }
 
 #userInfo {
@@ -615,6 +616,10 @@ gameShop
 	background: url("../images/gameShop/buyed.png") no-repeat;
 }
 
+.itemHadBuy:hover {
+	background: url("../images/gameShop/buyed.png") no-repeat;
+}
+
 #characterEquipButton {
 	width: 94px;
 	height: 54px;
@@ -675,3 +680,88 @@ gameShop
 	height: 100%;
 }
 
+#gmaeNoPowerContainer {
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+
+#gameNoPowerBox {
+	/*display: none;*/
+	width: 732px;
+	height: 322px;
+	background: url("../images/gameIndex/noPowerBox.png") no-repeat;
+	margin: 160px auto;
+	position: relative;
+	padding-top: 77px;
+}
+
+.gameNoPowerButton {
+	position: absolute;
+	background: url("../images/gameIndex/noPowerButton.png") no-repeat;
+	font-family: "微軟正黑體", "Microsoft JhengHei";
+	font-size: 30px;
+	color: white;
+	font-weight: bold;
+	padding: 5px;
+	text-align: center;
+	width: 143px;
+	height: 51px;
+}
+
+.gameNoPowerButton:hover {
+	position: absolute;
+	background: url("../images/gameIndex/noPowerButtonClick.png") no-repeat;
+	font-family: "微軟正黑體", "Microsoft JhengHei";
+	font-size: 30px;
+	color: white;
+	font-weight: bold;
+	padding: 5px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#gameNoPowerIKnow {
+	top: 190px;
+	left: 270px;
+}
+
+#gameNoPowerGoPower {
+	top: 190px;
+	left: 455px;
+}
+
+#gameNoPowerExit {
+	top: 10px;
+	left: 648px;
+	width: 46px;
+	height: 46px;
+	position: absolute;
+	background: url("../images/gameIndex/noPowerExit.png") no-repeat;
+}
+
+#gameNoPowerExit:hover {
+	top: 10px;
+	left: 648px;
+	width: 46px;
+	height: 46px;
+	position: absolute;
+	background: url("../images/gameIndex/noPowerExitClick.png") no-repeat;
+	cursor: pointer;
+}
+
+.gameNoPowerText {
+	width: 350px;
+	height: 40px;
+	font-family: "微軟正黑體", "Microsoft JhengHei";
+	font-size: 30px;
+	color: black;
+	font-weight: bold;
+	padding: 5px;
+	text-align: center;
+	margin-left: 250px;
+}

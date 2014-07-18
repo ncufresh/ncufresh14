@@ -51,6 +51,7 @@ $(document).ready(function(){
 	$('#start').click(function() 
 	{
 		if(power>0)
+		{
 			if(difficult!=0&&mode!=0&&done==true)
 			{
 				$('#cover').hide();
@@ -59,6 +60,9 @@ $(document).ready(function(){
 				key=0;
 				waiting = true;
 			}
+		}
+		else
+			noPowerDisplay();
 	});
 
 ////////////////////////////////init////////////////////////////////////////////
@@ -195,23 +199,23 @@ $(document).ready(function(){
 
 	function headChange(x,y)
 	{
-		if(key==37) // move left
+		if(snakeDirection==37) // move left
 		{
 			bombpicture = $('<div id="head"><img src="'+burl+'/images/gameSnake/headLeft.png"  width="35px" height="30px" "></div>');
 			bombpicture.appendTo( Box[x][y] );
 		}
-		else if (key==38) // move up
+		else if (snakeDirection==38) // move up
 		{
 			bombpicture = $('<div id="head"><img src="'+burl+'/images/gameSnake/headUp.png"  width="30px" height="30px" "></div>');
 			bombpicture.appendTo( Box[x][y] );
 		}
-		else if (key==39) // move right
+		else if (snakeDirection==39) // move right
 		{
 		 	bombpicture = $('<div id="head"><img src="'+burl+'/images/gameSnake/headRight.png"  width="35px" height="30px" "></div>');
 			bombpicture.appendTo( Box[x][y] );
 
 		}
-		else if (key==40) // move down
+		else if (snakeDirection==40) // move down
 		{	
 			bombpicture = $('<div id="head"><img src="'+burl+'/images/gameSnake/headDown.png"  width="30px" height="30px" "></div>');
 			bombpicture.appendTo( Box[x][y] );
@@ -261,7 +265,7 @@ $(document).ready(function(){
 		{
 			totalScore();
 			timer.stop();
-			editStatus(power-1,score+recentScore);
+			editStatus(parseInt(power)-1,parseInt(score)+parseInt(recentScore));
 			$('#content').hide();
 			$('#endScreen').show();
 			ajaxPost(getTransferData('renew-value-url'),{score:score},'');
