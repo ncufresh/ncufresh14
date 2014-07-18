@@ -5,8 +5,15 @@
 
 @section('content')
 		
-		<script>
-		CKEDITOR.replace('filename', {filebrowserImageUploadUrl : '{{ route("imageUpload") }}'});
-		</script>
+		    {{ Form::open(array('route' => 'download_edit' , 'method'=>'post')) }}
+			{{ Form::hidden('id',$necessityEdition->id) }}
+    		下載專區修改頁面
+    		</br>
+    		網頁上想要讓他們點選的名稱：
+    		</br>
+			{{ Form::text('name',$necessityEdition -> name, array( 'class' => 'backstage_item_add' ))}}
+			{{ Form::submit('修改完畢') }}
+			{{ Form::close() }}
+		
 	
 @stop

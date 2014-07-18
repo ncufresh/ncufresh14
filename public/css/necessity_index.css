@@ -97,7 +97,7 @@
 	width: 50px;
 	background-color: FF73FD;
 	position: relative;
-	margin-left:25px;
+	margin-left:31px;
 	top: 10px; 
 	float: left;
 }
@@ -106,8 +106,8 @@
 {
 	width: 50px;
 	background-color: FF73FD;
-	position: relative;
-	margin-left:25px;
+	position: fixed;
+	margin-left:31px;
 	top: 10px; 
 	float: left;
 	display: none;
@@ -187,7 +187,6 @@
 	border-width:2px;
 	font-size:15px;
 	font-weight: 100;
-	white-space: pre;
 	word-wrap: break-word;
 }
 

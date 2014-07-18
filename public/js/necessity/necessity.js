@@ -37,25 +37,36 @@ $(function(){
     // });
     
     $(window).scroll(function() {
-        if ( $(this).scrollTop() < 600){
+        if ( $(this).scrollTop() < 500){
             $('#contDownLeftResearch').css({  
-            	position: "relative"
+            	
+                position: "relative",
+                top: "10px"
+                
             });
         } else {
              $('#contDownLeftResearch').css({
-             	position: "fixed"
+             	
+                position: "fixed",
+                top: "109px"
+                
              });
         }
     });
 
      $(window).scroll(function() {
-        if ( $(this).scrollTop() < 600){
+        if ( $(this).scrollTop() < 530){
             $('#contDownLeftFreshman').css({  
-                position: "relative"
+                
+                position: "relative",
+                top: "10px"
             });
         } else {
              $('#contDownLeftFreshman').css({
-                position: "fixed"
+                
+                position: "fixed",
+                top: "78px"
+
              });
         }
     });

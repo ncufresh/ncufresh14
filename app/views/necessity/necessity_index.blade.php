@@ -138,25 +138,21 @@
 
 				</div>
 
-				<!-- freshman 的 div -->
+				<!-- download 的 div -->
 
 				<div id="contDownSlideDownload">
 					
 						
-					<!-- @foreach($necessityDownloadData as $necessitydownloaddata)
-								
-						{{ Form::open(array('route' => 'download_return')) }}
-					
-						<td class="formStyleSide"{{"id='".$necessityfreshmandata->id."'" }}>{{$necessityfreshmandata->item }}</td>
-	                                                                    
-						{{ Form::submit( $necessitydownloaddata->name ) }}
-						
-						{{ Form::close() }}
-						
-					@endforeach  -->
+				  	@foreach($necessityDownloadData as $necessitydownloaddata)
+														
+						{{	link_to_route('downloadReturn', $necessitydownloaddata -> name , array( 'id' =>  $necessitydownloaddata -> id ))}}
 
-					
+					@endforeach 
 
+	
+		
+
+				<!--  -->
 		
 				</div>
 
