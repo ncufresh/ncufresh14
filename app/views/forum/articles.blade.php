@@ -28,6 +28,7 @@
 					</div>
 				</div>
 				<div class="tab-pane" id="Test2">
+					<div id="departmentIndex">index</div>
 					<div>
 						@foreach($departmentArticles as $article)
 							<div class="fullArticleBox">
@@ -77,6 +78,7 @@
 					</div>
 				</div>
 				<div class="tab-pane" id="Test3">
+					<div id="clubIndex">index</div>
 					<div>
 						@foreach($clubArticles as $article)
 							<div class="fullArticleBox">
@@ -184,7 +186,7 @@
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 						<h4 class="modal-title">錯誤</h4>
 					</div>
-					<div class="modal-body">&nbsp;
+					<div class="modal-body" id="errorMsgContent">&nbsp;
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary" data-dismiss="modal">確認</button>

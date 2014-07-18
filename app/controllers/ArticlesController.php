@@ -40,7 +40,9 @@ class ArticlesController extends BaseController{
 				'comment_number' => 0
 			));
 
-			$response = array('status' => 'success','msg' => 'successfully');
+			$articleId = Forum::where('author_id',Input::get('id'))->orderBy('created_at','desc')->firstOrFail()->id;	
+
+			$response = array('status' => 'success','msg' => 'successfully','articleId' => $articleId);
 	
 			return Response::json($response);
 
@@ -52,17 +54,17 @@ class ArticlesController extends BaseController{
 		$comment = Input::get('comment');
 		$author_id = Input::get('author_id');
 		$article_id = Input::get('article_id');
-
+		
 		ForumComment::create(array(
 			'article_id' => $article_id,
 			'author_id' => $author_id,
 			'content' => $comment
 		));
 
-		$article = Forum::where('id',$article_id)->firstOrFail();
+		$article = Forum::where('id','=',$article_id)->firstOrFail();
 		$commentNum = $article -> comment_number;
-
-		Forum::where('id',$article_id)->update(array('comment_number' => $commentNum+1));
+		//dd($article);
+		Forum::where('id','=',$article_id)->update(array('comment_number' => $commentNum+1)); 
 
 		$response = array(
 			'status' => 'success',
