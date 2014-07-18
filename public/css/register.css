@@ -55,6 +55,12 @@
 	background-image: url('../images/register/choose_normal_h.png');
 }
 
+.register-error{
+	color: white;
+	background-color: red;
+	border-radius: 10;
+	z-index: 10;
+}
 
 #normal{
 	position: absolute;

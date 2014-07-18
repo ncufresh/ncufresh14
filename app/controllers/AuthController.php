@@ -23,7 +23,7 @@ class AuthController extends BaseController {
 
 			if (Auth::attempt(array('email' => $email, 'password' => $password))){
 				// Success login
-				return Redirect::intended();
+				return Redirect::intended('/');
 			}else{
 				// Fail login
 				return Redirect::home()->with('message', '帳號或密碼錯誤');
@@ -101,7 +101,7 @@ class AuthController extends BaseController {
 						$facebookData->save();
 
 						Auth::login($user);
-						return Redirect::intended();
+						return Redirect::intended('/');
 					}else if(Auth::check()){
 						//Connect with different email
 						$user = Auth::user();
@@ -110,7 +110,7 @@ class AuthController extends BaseController {
 						$facebookData->user_id = $user->id;
 						$facebookData->save();
 
-						return Redirect::intended();
+						return Redirect::intended('/');
 					}else{
 							//New user to the system, create user!
 							$user = new User();
@@ -151,7 +151,6 @@ class AuthController extends BaseController {
 			return Redirect::route('error')->with('message', 'There was an error communicating with Facebook');
 			//echo "ERROR4";
 		}
-		echo '<a href="/login/FB">login</a>';
 		return Redirect::to('/');
 	}
 
@@ -184,21 +183,19 @@ class AuthController extends BaseController {
 		if(Input::get('facebook-uid', '') == ''){
 			$rules = array(
 				'email' => 'required|unique:users|max:255|email|required_without:facebook-uid',
-				'name' => 'required_without:facebook-uid|max:10',
+				'name' => 'required|max:10',
 				'department_id' => 'required|exists:departments,system_id',
 				'grade' => 'required|in:1,2,3,4',
 				'high_school' => 'required',
-				'password' => 'required_without:facebook-uid|min:6',
-				're_password' => 'required_without:facebook-uid|same:password'
+				'password' => 'required|min:6',
+				're_password' => 'required|same:password'
 			);
 		}else{
 			$rules = array(
 				'name' => 'required_without:facebook-uid|max:10',
 				'department_id' => 'required|exists:departments,system_id',
 				'grade' => 'required|in:1,2,3,4',
-				'high_school' => 'required',
-				'password' => 'required_without:facebook-uid|min:6',
-				're_password' => 'required_without:facebook-uid|same:password'
+				'high_school' => 'required'
 			);
 		}
 

@@ -100,6 +100,12 @@ return array(
 	|
 	*/
 
-	'attributes' => array(),
+	'attributes' => array(
+		'email' => '電子信箱',
+		'name' => '姓名',
+		'high_school' => '畢業高中',
+		'password' =>'密碼',
+		're_password' => '密碼'
+	),
 
 );
