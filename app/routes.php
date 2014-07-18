@@ -115,7 +115,7 @@ Route::get('SchoolGuide/getItem', array('as' => 'Guide.one', 'uses' => 'SchoolGu
 
 Route::get('SchoolGuide/clickImg', array('as' => 'Guide.map', 'uses' => 'SchoolGuideController@clickImg') );
 
-Route::get('SchoolGuide/{id}',array('as'=>'SchoolGuide.photo','uses'=>'SchoolGuideController@tophoto'));
+Route::get('SchoolGuide/photo/{id}',array('as'=>'SchoolGuide.photo','uses'=>'SchoolGuideController@tophoto'));
 
 Route::get('SchoolGuide/{item}', array('as' => 'schoolguide.item', 'uses' => 'SchoolGuideController@item'))->where('item', '(department|administration|scence|food|dorm|exercise)');
 
