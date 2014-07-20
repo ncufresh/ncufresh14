@@ -96,13 +96,10 @@ class ArticlesController extends BaseController{
 		
 		$id = Input::get('id');
 
-		$comments = Forum::find($id);
-		$num = $comments->comment->count();
-		if($num > 0 || true){
-			//Forum::find($id)->comment->delete();
-			foreach($comments->comment as $comment){
-				$comment->delete();
-			}
+		$article = Forum::find($id);
+		$num = $article->comment->count();
+		foreach($article->comment as $comment){
+			$comment->delete();
 		}
 		Forum::find($id)->delete();
 		$response = array(
@@ -129,26 +126,16 @@ class ArticlesController extends BaseController{
 		return Response::json($response);
 	}
 
+	public function viewOneArticle($id){
+		
+		$article = Forum::where('id','=',$id)->firstOrFail();
+		
+		$comments = $article->comment;
+		return View::make('forum/perArticle',array('article' => $article , 'comments' => $comments));
+
+	}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}

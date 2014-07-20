@@ -170,12 +170,13 @@ Route::group(array('before' => 'auth'), function(){
 //Forum articles
 Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@getArticles'));
 
-
 Route::post('/getComments',array('as' => 'getComments' , 'uses' => 'ArticlesController@getComment'));
 
 Route::post('/orderNew',array('as' => 'orderNew' , 'uses' =>'ArticlesController@newArticles'));
 
 Route::post('/orderPop',array('as' => 'orderPop' , 'uses' => 'ArticlesController@popArticles'));
+
+Route::get('perArticle/{id}',array('as' => 'perArticle' , 'uses' => 'ArticlesController@viewOneArticle'));
 
 // Need login
 Route::group(array('before' => 'auth'), function(){

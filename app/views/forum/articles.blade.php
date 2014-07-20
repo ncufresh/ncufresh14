@@ -42,7 +42,7 @@
 								<div class="articleContainer" id="{{ $article -> id }}" >
 									<div class="panel panel-default articleBody">
 										<div class="panel-heading">
-											<h3 class="panel-title"> {{ $article -> title }} </h3>
+											<a href="{{route('perArticle',array('id'=>$article->id))}}"><h3 class="panel-title"> {{ $article -> title }} </h3></a>
 										</div>
 										<div class="panel-body">
 											{{ $article -> content }}
