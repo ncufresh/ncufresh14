@@ -2,16 +2,15 @@
 
 class ArticlesController extends BaseController{
 
-	public $restful = true;
 
 
 	public function getArticles(){
 		
 		$siteMap = App::make('SiteMap');
 		$siteMap->pushLocation('論壇',route('forum'));
-
 		$clubArticles = Forum::where('article_type','C')->orderBy('created_at','desc')->paginate();
 		$departmentArticles = Forum::where('article_type','D')->orderBy('created_at','desc')->paginate();
+		dd($departmentArticles);
 		return View::make('forum/articles',array(
 			'clubArticles' => $clubArticles ,
 			'departmentArticles' => $departmentArticles
@@ -83,7 +82,7 @@ class ArticlesController extends BaseController{
 	public function newArticles(){
 		
 		$postArticles = Forum::where('article_type','P')->orderBy('created_at','desc')->paginate();
-		
+		dd($postArticles);
 		return Response::json($postArticles);
 	}
 	public function popArticles(){
@@ -137,5 +136,5 @@ class ArticlesController extends BaseController{
 
 
 
-
+?>
 

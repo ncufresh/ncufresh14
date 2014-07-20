@@ -41,13 +41,6 @@
 					)) }}
 				</form>
 			</div>
-			@foreach($comments as $comment)
-				<div class='panel panel-default'>
-					<span class="commentAuthorId"> {{$comment -> author_id }}</span><br>
-					<span class='commentContent'> {{ $comment -> content }}</span><br>
-					<span class='commentTime'> {{ $comment -> created_at }}</span>
-				</div>
-			@endforeach
 		</div>
 	</div>
 @stop
