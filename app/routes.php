@@ -200,6 +200,8 @@ Route::get('nculife', array('as' => 'nculife.index', 'uses' => 'NcuLifeControlle
 
 Route::get('nculife/select', array('as' => 'nculife.select', 'uses' => 'NcuLifeController@select'));
 
+Route::get('nculife/selectPicture', array('as' => 'nculif.selectPicture', 'uses' => 'NcuLifeController@selectPicture'));
+
 Route::get('nculife/{item}', array('as' => 'nculife.item', 'uses' => 'NcuLifeController@item'))->where('item', '(food|live|go|inschool|outschool)');
 
 Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){

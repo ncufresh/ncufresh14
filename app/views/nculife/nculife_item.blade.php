@@ -8,9 +8,15 @@
 @section('content')
 	<div id="all">
 		<div id="left">
-		@foreach ($nculifes as $nculife)
-			<p class="place" data-num="{{$nculife->id}}">{{$nculife->place}}</p>
-		@endforeach
+			<div id="left_top">
+			</div>
+			<div id="place">
+			@foreach ($nculifes as $nculife)
+				<div class="place" data-num="{{$nculife->id}}">{{$nculife->place}}</div>
+			@endforeach
+			</div>
+			<div id="left_bottom">
+			</div>
 		</div>
 		<div id="right">
 			<div id="introduction">
@@ -20,7 +26,7 @@
 				<?php $i=1; ?>
 				<div id="picture_select">
 				@foreach($pictures as $picture)
-					<div id="{{$picture->pictureAdmin->id}}" class="select">
+					<div id="{{$picture->pictureAdmin->id}}" class="select" data-num="{{$picture->pictureAdmin->id}}">
 						{{$i++}}
 					</div>
 				@endforeach
@@ -35,6 +41,7 @@
 			</div>
 			<div id="select">
 				<div id="buttom" data-num="{{$nculifes[0]->id}}">
+					<img id="change" src="{{ asset('images/nculife/buttom_left.png') }}">
 				</div>
 			</div>
 		</div>
