@@ -60,9 +60,9 @@ $(document).ready(function(){
 	});
 
 	$(".close").click(function(){
-		$(".menu").hide();
+		$(".menu").hide("slow");
 		$(this).hide();
-		$(".items").show();
+		$(".items").show("slow");
 		$(".m_intro").hide();
 		$(".m_photo").hide();
 		$("#carousel-example-generic").hide();
@@ -98,25 +98,25 @@ $(document).ready(function(){
 		var teamphoto = data['teamphoto'];
 		
 			$(".items").hide(1);
-			$(".close").show(1);
+			$(".close").show("slow");
 		if(data['id']!=6){
 			if(data['id']==1){
-			 $("#operate_menu").show(1);
+			 $("#operate_menu").show("slow");
 			}else if(data['id']==2){
-				$("#code_menu").show(1);
+				$("#code_menu").show("slow");
 			}else if(data['id']==3){
-				$("#draw_menu").show(1);
+				$("#draw_menu").show("slow");
 			}else if(data['id']==4){
-				$("#project_menu").show(1);
+				$("#project_menu").show("slow");
 			}else if(data['id']==5){
-				$("#movie_menu").show(1);
+				$("#movie_menu").show("slow");
 			}
-			$(".m_intro").show();
-			$(".m_photo").show();
+			$(".m_intro").show("slow");
+			$(".m_photo").show("slow");
 		}else{
-				$("#back_menu").show(1);
-				$("#carousel-example-generic").show();
-				$("#scroll").show();
+				$("#back_menu").show("slow");
+				$("#carousel-example-generic").show("slow");
+				$("#scroll").show("slow");
 			}
 	}
 	
