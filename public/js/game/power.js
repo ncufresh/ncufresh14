@@ -167,7 +167,7 @@ $(function()
         if(returnCount==returnC)
         {
             timer.stop();
-            ajaxPost(getTransferData('renew-value-url'),{power:(recentPower+returnCount),max:maxPower},'');
+            ajaxPost(getTransferData('renew-value-url'),{power:(parseInt(recentPower)+parseInt(returnCount)),max:maxPower},'');
             $('#again').show();
             editStatus((parseInt(recentPower)+parseInt(returnCount)));
         }
