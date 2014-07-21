@@ -38,7 +38,7 @@ $(function(){
 		if(event.keyCode == 13){
 
 			console.log(($.now() - lastSend)/1000);
-			if($.now() - lastSend >= 30000){
+			if($.now() - lastSend >= 10000){
 				lastSend = $.now();
 				app.BrainSocket.message('generic.event',
 				{
@@ -49,7 +49,7 @@ $(function(){
 				);
 				$(this).val('');
 			}else{
-				$.alertMessage('30秒只能發言一次噢=D', {type: 'alert-warning'});
+				$.alertMessage('10秒只能發言一次噢=D', {type: 'alert-warning'});
 			}
 
 		}

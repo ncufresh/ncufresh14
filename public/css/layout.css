@@ -227,12 +227,13 @@ body {
 #auth_name {
 	top: 170px;
 	position: absolute;
-	left: 67px;
+	left: 57px;
 	text-align: center;
 	font-family: "微軟正黑體", "Microsoft JhengHei";
 	font-size: 20px;
 	color: white;
 	font-weight: bold;
+	width: 79px;
 }
 
 #bottomContainer{
