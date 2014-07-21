@@ -117,9 +117,8 @@ class VideoController extends BaseController {
 				if ($jumiMessage < 10){
 					$user = Auth::user();
 					$user = new message;
-					$user->user_id = Auth::user()->id;//TODO
-					$this->removeXSS(Input::get('video_text'));		
-					$user->video_text = Input::get('video_text');
+					$user->user_id = Auth::user()->id;
+					$user->video_text = $this->removeXSS(Input::get('video_text'));
 					$user->save();
 					return Redirect::route('video');
 				}else{

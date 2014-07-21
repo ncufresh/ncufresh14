@@ -47,7 +47,7 @@
 	<div id="user_message">
 		<img src="images\videoImages\messageBG.png" id="messageBG">
 		<img src="images\videoImages\messageCamera.png" id="messageBG2">
-		<a href="http://localhost/ncufresh14/public/user/{{$message ->user->id}}"><img src="{{ route('personface',array('id' => $message->user_id )) }}" id="portrait"></a>		
+		<a href="{{ route('user.id', array('id' => $message ->user->id)) }}"><img src="{{ route('personface',array('id' => $message->user_id )) }}" id="portrait"></a>
 		<div id= "div_message" style="width:720px; height:170px;">{{nl2br($message["video_text"])}}</div>
 		<div id ="div_name"><font color = "#7DB7A1">{{ $message->user->name }}</font></div>
 	</div>
