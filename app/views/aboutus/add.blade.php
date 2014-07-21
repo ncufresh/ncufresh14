@@ -15,7 +15,7 @@
 		
 		{{Form::select('categories', array('1' => '執行組', '2' => '程設組','3'=>'美工組','4'=>'影音組','5'=>'企劃組','6'=>'幕後花絮'))}}
 
-		{{Form::text('teamphoto')}}
+		<!-- {{Form::text('teamphoto')}} -->
 
 		{{Form::textarea('introduction')}}
 		
