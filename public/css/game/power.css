@@ -129,10 +129,12 @@
 	/*display: none;*/
 }
 #getPower {
+	width: 50%;
 	top: 100px;
 	font-family: "微軟正黑體";
 	font-weight: bolder ;
 	color: gray;
+	margin: 0 auto;
 	font-size: 25px;
 	position: relative;
 }
