@@ -27,7 +27,7 @@
 			
 			<span class="list">{{$list->teamphoto}}</span>
 			
-			<span class="list">{{$list->introduction}}</span>
+			<!-- <span class="list">{{$list->introduction}}</span> -->
 			<span>{{Form::submit('刪除')}}</span>
 			{{Form::close()}}
 			<span><a href="{{ route('About_us.edit', array('id' => $list->id)) }}">編輯</a></span>
