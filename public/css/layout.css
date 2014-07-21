@@ -403,6 +403,23 @@ body {
 	left: 0px;
 }
 
+#freshButton {
+	background: url("../images/layout/freshButton.png") no-repeat;
+	position: absolute;
+	width: 106px;
+	height: 171px;
+	top: 230px;
+	left: 0px;
+}
+
+#freshButton:hover {
+	background: url("../images/layout/freshButtonClick.png") no-repeat;
+	position: absolute;
+	width: 106px;
+	height: 171px;
+	top: 230px;
+	left: 0px;
+}
 /*#jump-window{*/
 	/*position: absolute;*/
 	/*width: 100%;*/

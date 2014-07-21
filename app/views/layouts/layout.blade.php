@@ -92,7 +92,7 @@
 				<a style="color:green; font-size: 2em" href="{{ route('dashboard') }}">點我進入後台喔~~~~</a>
 			@endif
 		</div>
-
+		<a href="{{ route('necessity.necessity_index') }}"><div id="freshButton"></div></a>
 		@include('layouts.chatroom')
 	</body>
 </html>
