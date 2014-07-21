@@ -7,6 +7,8 @@ $(function(){
 	var userId = getTransferData('user-id');
 	var userName = getTransferData('user-name');
 
+	var lastSend = 0;
+
 	if(userId == undefined){
 		userId = 0;
 		userName = '遊客';
@@ -23,7 +25,7 @@ $(function(){
 		displayMessage(msg.client.data.user_name, msg.client.data.message, '');
 	});
 
-	app.BrainSocket.Event.listen('app.success',function(data){
+	app.BrainSocket.Event.listen('generic.success',function(data){
 		displayMessage('系統', '連線成功', 'success');
 	});
 
@@ -35,14 +37,20 @@ $(function(){
 
 		if(event.keyCode == 13){
 
-			app.BrainSocket.message('generic.event',
-			{
-					'message': $(this).val(),
-					'user_id': userId,
-					'user_name': userName
+			console.log(($.now() - lastSend)/1000);
+			if($.now() - lastSend >= 30000){
+				lastSend = $.now();
+				app.BrainSocket.message('generic.event',
+				{
+						'message': $(this).val(),
+						'user_id': userId,
+						'user_name': userName
+				}
+				);
+				$(this).val('');
+			}else{
+				$.alertMessage('30秒只能發言一次噢=D', {type: 'alert-warning'});
 			}
-			);
-			$(this).val('');
 
 		}
 
@@ -68,6 +76,7 @@ $(function(){
 		var spanMessage = $('<span class="chat-message"></span>').text(message);
 		var divRow = $('<div class="chat-row"></div>').append(spanName).append(spanMessage);
 		$('#chat-log').append(divRow);
+		$('#chat-log').scrollTop($('#chat-log').height()*2)
 
 	}
 });
