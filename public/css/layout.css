@@ -114,6 +114,7 @@ body {
 	background-size: 100%;
 	border-radius: 50%;
 	float: left;
+	z-index: 2;
 }
 
 #topSearchBar{
