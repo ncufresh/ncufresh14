@@ -1,10 +1,16 @@
 @extends('../layouts/layout')
 
 @section('js_css')
-	{{ HTML::style('css/forum.css') }}
+	{{ HTML::style('css/perArticle.css') }}
+	{{ HTML::script('js/forum/perArticle.js') }}
 @stop
 
 @section('content')
+	<input type="hidden" id="createComment" direct="{{URL::route('createComment')}}">
+	<input type="hidden" name="deleteArticle" id="deleteArticle" direct="{{URL::route('deleteArticle')}}">
+	<input type="hidden" name="updateArticle" id="updateArticle" direct="{{URL::route('updateArticle')}}">
+	<input type="hidden" id="articleId" articleId="{{$article->id}}">
+	<input type="hidden" id="articleTitle" articleTitle="{{$article->title}}">
 	<div class="fullArticleBox">
 		<div class="postTimeContainer">
 			<div class="articlePostTime">
@@ -17,10 +23,10 @@
 			<div class="panel panel-default articleBody">
 				<div class="panel-heading">
 					<h3 class="panel-title"> {{ $article -> title }} </h3>
+
 				</div>
-				<div class="panel-body">
-					{{ $article -> content }}
-				</div>
+				<div class="panel-body">{{ $article -> content }}</div>
+				<div class='btnBox'><button type="button" class="btn btn-primary btn-sm edit">編輯貼文 </button></div>
 			</div>
 			<div class="responseBox">
 				<form class="commentForm" route="createComment" >
@@ -49,7 +55,7 @@
 				</div>
 			@endforeach
 		</div>
-	</div>
+	</div>	
 @stop
 
 

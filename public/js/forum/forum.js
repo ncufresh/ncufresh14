@@ -1,15 +1,46 @@
+/****Text for Error message panel to show****************************************/
 var titleEmptyMsg = "文章標題";
 var contentEmptyMsg = "文章內容";
 var commentEmptyMsg = "留言內容";
+var notLoginMsg = "您尚未登入會員哦！";
+/****Variables to store the url**************************************************/
+var orderNewUrl;
+var getCommentsUrl;
+var createCommentUrl;
+var orderPopUrl;
+var deleteArticleUrl;
+var updateArticleUrl;
+var newArticleUrl;
+var perArticleUrl;
+var getDepartmentUrl;
+var getClubUrl;
+/****Store current user's information*********************************************/
+var loginStatus;
+var userId;
+var userName;
+//To indentify which tab we are now on
+var onDepartmentTab = false;
+var onClubTab = false;
+var articleOpened = false;
 
 $(function(){
-	var orderNewUrl = $("#orderNewHidden").attr("direct");
-	var getCommentsUrl = $("#getComment").attr("direct");
-	var createCommentUrl = $("#createComment").attr("direct");
-	var orderPopUrl = $("#orderPopHidden").attr("direct");
-	var deleteArticleUrl = $("#deleteArticle").attr("direct");
-	var updateArticleUrl = $("#updateArticle").attr("direct");
-	var newArticleUrl = $("#newArticle").attr("direct");
+	loginStatus = $("#loginStatus").val();
+	if(loginStatus==1){
+		userId = $("#userId").val();
+		userName = $("#userName").val();
+	}
+	/***********************************************************/
+	orderNewUrl = $("#orderNewHidden").attr("direct");
+	getCommentsUrl = $("#getComment").attr("direct");
+	createCommentUrl = $("#createComment").attr("direct");
+	orderPopUrl = $("#orderPopHidden").attr("direct");
+	deleteArticleUrl = $("#deleteArticle").attr("direct");
+	updateArticleUrl = $("#updateArticle").attr("direct");
+	newArticleUrl = $("#newArticle").attr("direct");
+	perArticleUrl = $("#perArticle").attr("direct");
+	getDepartmentUrl = $("#getDepartment").attr("direct");
+	getClubUrl = $("#getClub").attr("direct");
+	/************************************************************/
 	$.ajax({
 		type:"POST",
 		url:orderNewUrl,
@@ -27,7 +58,11 @@ $(function(){
 			}
 			$("#Test1 .arrow").click(function(){
 				var responseContainer = $(this).parent().parent().parent().parent().find(".responseContainer");
-				var target = $(this);
+				var articleTitle = $(this).parent().parent().parent().find(".panel-title").text();
+				if(articleOpened == true){
+					$.popLocation();
+					console.log('$');
+				}
 				if(responseContainer.css("display")=="none"){
 					responseContainer.parent().css("background-color","#FFE6E6");
 					var articleID = $(this).parent().attr("id");
@@ -38,7 +73,13 @@ $(function(){
 							"articleID":articleID
 						},
 						success:function(data){
-							//alert("getCommentSuccess");
+							if(articleOpened == false){
+								$.pushLocation(articleTitle, '/perArticle/'+articleID, {full: false});
+								articleOpened = true;
+							}else{
+								$.pushLocation(articleTitle, '/perArticle/'+articleID, {full: false});
+								articleOpened = true;
+							}
 							for(i=0;i<data['data'].length;i++){
 								displayComments(
 									data['data'][i]['author_id'],
@@ -56,13 +97,15 @@ $(function(){
 				if(responseContainer.css("display")=="block"){
 					responseContainer.parent().css("background-color","#FFFFFF");
 					responseContainer.children(".panel").remove();
+					articleOpened = false;
+					$.popLocation();
 				}
-				responseContainer.slideToggle(); 
+				responseContainer.fadeToggle("fast"); 
 			});
 			$(".commentForm").submit(function(e){
 				e.preventDefault();
 				var content = $(this).find("#inputContent").val();
-				var commenterID = $(this).find("#commenterID").val();
+				var commenterID = userId;
 				var articleID = $(this).find(".articleID").attr("id");
 				var target = $(this);
 				$.ajax({
@@ -89,32 +132,389 @@ $(function(){
 					}	
 				},"json");
 			});
+			$(".edit").click(function(){
+				var target = $(this).parent().parent().find(".panel-body");
+				var btn = $(this);
+				var originText = target.text();
+				var originHeight = target.css("height");
+				target.empty();
+				target.append("<button type='button' class='btn btn-default btn-sm delBtn'>刪除貼文</button>");
+				target.append("<input type='textarea' class='form-control editArea' value='"+originText+"'>");
+				target.append("<button type='button' class='btn btn-primary btn-sm saveBtn'>儲存編輯</button>");
+				target.append("<button type='button' class='btn btn-default btn-sm canBtn'>取消</button>");
+				$(".editArea").css("height",originHeight);
+				$(this).css("display","none");
+				$(".canBtn").click(function(){
+					target.text(originText);
+					btn.css("display","inline-block");
+				});
+				$(".delBtn").click(function(){
+					var articleId = $(this).parent().parent().parent().attr("id");
+					var delBtn = $(this);
+					$.ajax({
+						type:"POST",
+						url:deleteArticleUrl,
+						data:{
+							"id":articleId
+						},
+						success:function(){
+							delBtn.parent().parent().parent().remove();
+						},
+						error:function(){
+							alert("Ajax error");
+						}
+					},"json");
+				});
+				$(".saveBtn").click(function(){
+					var articleId = $(this).parent().parent().parent().attr("id");
+					var newContent = $(this).parent().find(".editArea").val();
+					$.ajax({
+						type:"POST",
+						url: updateArticleUrl,
+						data:{
+							"id":articleId,
+							"content":newContent
+						},
+						success:function(){
+							target.text(newContent);
+							btn.css("display","inline-block");
+						},
+						error:function(){
+							alert("Ajax Error");
+						}
+					},"json");
+				});
+			});	
 		},
 		error:function(){
 			alert("ERROR");
 		}
 	},"json");
-
-	$("#myTab a").click(function(e){
+	$("#articleTab").click(function(e){
 		e.preventDefault();
 		$(this).tab('show');
+		onClubTab = false;
+		onDepartment = false;
+		$("#Test2 .articleContainer").each(function(){
+			$(this).remove();
+		});
+		$("#Test3 .articleContainer").each(function(){
+			$(this).remove();
+		});
+	});
+	$("#clubTab").click(function(e){
+		if(onClubTab == false){
+			onClubTab = true;
+			onDepartmentTab = false;
+			e.preventDefault();
+			$(this).tab('show');
+			
+			$("#Test2 .articleContainer").each(function(){
+				$(this).remove();
+			});
+			$.ajax({
+				type : "POST",
+				url : getClubUrl ,
+				data : {},
+				success : function(data){
+					for(i=0;i<data['data'].length;i++){
+						showArticles(
+							data['data'][i]['author_id'],
+							data['data'][i]['created_at'],
+							data['data'][i]['id'],
+							data['data'][i]['title'],
+							data['data'][i]['content'],
+							"#Test3"
+						);
+					}
+					$("#Test3 .arrow").click(function(){
+						var responseContainer = $(this).parent().parent().parent().parent().find(".responseContainer");
+						var target = $(this);
+						if(responseContainer.css("display")=="none"){
+							responseContainer.parent().css("background-color","#FFE6E6");
+							var articleID = $(this).parent().attr("id");
+							$.ajax({
+								type:"POST",
+								url: getCommentsUrl,
+								data:{
+									"articleID":articleID
+								},
+								success:function(data){
+									for(i=0;i<data['data'].length;i++){
+										displayComments(
+											data['data'][i]['author_id'],
+											data['data'][i]['content'],
+											data['data'][i]['created_at'],
+											responseContainer
+										);
+									}
+								},
+								error:function(){
+									alert("Getting Comment Failed");
+								}
+							},"json");
+						}	
+						if(responseContainer.css("display")=="block"){
+							responseContainer.parent().css("background-color","#FFFFFF");
+							responseContainer.children(".panel").remove();
+						}
+						responseContainer.fadeToggle("fast"); 
+					});
+					$(".commentForm").submit(function(e){
+						e.preventDefault();
+						var content = $(this).find("#inputContent").val();
+						var commenterID = userId;
+						var articleID = $(this).parent().parent().attr("id");
+						var target = $(this);
+						$.ajax({
+							type : "POST",
+							url : createCommentUrl,
+							data : { 
+								"comment" : content ,
+								"author_id" : commenterID ,
+								"article_id" : articleID
+							},
+							success : function(data){
+								var currentTime = getCurrentTime();
+								displayComments(
+									commenterID,
+									content,
+									currentTime,
+									target.parent().parent().find(".responseContainer")
+								);
+								target.find("#inputContent").val("");
+								target.find("#commenterID").val("");
+							},
+							error :function(){
+								alert("Error");
+							}	
+						},"json");
+					});
+					$(".edit").click(function(){
+						var target = $(this).parent().parent().find(".panel-body");
+						var btn = $(this);
+						var originText = target.text();
+						var originHeight = target.css("height");
+						target.empty();
+						target.append("<button type='button' class='btn btn-default btn-sm delBtn'>刪除貼文</button>");
+						target.append("<input type='textarea' class='form-control editArea' value='"+originText+"'>");
+						target.append("<button type='button' class='btn btn-primary btn-sm saveBtn'>儲存編輯</button>");
+						target.append("<button type='button' class='btn btn-default btn-sm canBtn'>取消</button>");
+						$(".editArea").css("height",originHeight);
+						$(this).css("display","none");
+						$(".canBtn").click(function(){
+							target.text(originText);
+							btn.css("display","inline-block");
+						});
+						$(".delBtn").click(function(){
+							var articleId = $(this).parent().parent().parent().attr("id");
+							var delBtn = $(this);
+							$.ajax({
+								type:"POST",
+								url:deleteArticleUrl,
+								data:{
+									"id":articleId
+								},
+								success:function(){
+									delBtnparent().parent().parent().remove();
+								},
+								error:function(){
+									alert("Ajax error");
+								}
+							},"json");
+						});
+						$(".saveBtn").click(function(){
+							var articleId = $(this).parent().parent().parent().attr("id");
+							var newContent = $(this).parent().find(".editArea").val();
+							$.ajax({
+								type:"POST",
+								url: updateArticleUrl,
+								data:{
+									"id":articleId,
+									"content":newContent
+								},
+								success:function(){
+									target.text(newContent);
+									btn.css("display","inline-block");
+								},
+								error:function(){
+									alert("Ajax Error");
+								}
+							},"json");
+						});
+					});	
+				},
+				error : function(){
+					alert("Getting department failed");
+				}
+			},"json");
+		}
+	});
+	$("#departmentTab").click(function(e){
+		if(onDepartmentTab == false){
+			onDepartmentTab = true;
+			onClubTab = false;
+			e.preventDefault();
+			$(this).tab('show');
+			$("#Test3 .articleContainer").each(function(){
+				$(this).remove();
+			});
+			$.ajax({
+				type : "POST",
+				url : getDepartmentUrl ,
+				data : {},
+				success : function(data){
+					for(i=0;i<data['data'].length;i++){
+						showArticles(
+							data['data'][i]['author_id'],
+							data['data'][i]['created_at'],
+							data['data'][i]['id'],
+							data['data'][i]['title'],
+							data['data'][i]['content'],
+							"#Test2"
+						);
+					}
+					$("#Test2 .arrow").click(function(){
+						var responseContainer = $(this).parent().parent().parent().parent().find(".responseContainer");
+						var target = $(this);
+						if(responseContainer.css("display")=="none"){
+							responseContainer.parent().css("background-color","#FFE6E6");
+							var articleID = $(this).parent().attr("id");
+							$.ajax({
+								type:"POST",
+								url: getCommentsUrl,
+								data:{
+									"articleID":articleID
+								},
+								success:function(data){
+									for(i=0;i<data['data'].length;i++){
+										displayComments(
+											data['data'][i]['author_id'],
+											data['data'][i]['content'],
+											data['data'][i]['created_at'],
+											responseContainer
+										);
+									}
+								},
+								error:function(){
+									alert("Getting Comment Failed");
+								}
+							},"json");
+						}
+						if(responseContainer.css("display")=="block"){
+							responseContainer.parent().css("background-color","#FFFFFF");
+							responseContainer.children(".panel").remove();
+						}
+						responseContainer.fadeToggle("fast"); 
+					});
+					$(".commentForm").submit(function(e){
+						e.preventDefault();
+						var content = $(this).find("#inputContent").val();
+						var commenterID = userId;
+						var articleID = $(this).parent().parent().attr("id");
+						var target = $(this);
+						$.ajax({
+							type : "POST",
+							url : createCommentUrl,
+							data : { 
+								"comment" : content ,
+								"author_id" : commenterID ,
+								"article_id" : articleID
+							},
+							success : function(data){
+								var currentTime = getCurrentTime();
+								displayComments(
+									commenterID,
+									content,
+									currentTime,
+									target.parent().parent().find(".responseContainer")
+								);
+								target.find("#inputContent").val("");
+								target.find("#commenterID").val("");
+							},
+							error :function(){
+								alert("Error");
+							}	
+						},"json");
+					});
+					$(".edit").click(function(){
+						var target = $(this).parent().parent().find(".panel-body");
+						var btn = $(this);
+						var originText = target.text();
+						var originHeight = target.css("height");
+						target.empty();
+						target.append("<button type='button' class='btn btn-default btn-sm delBtn'>刪除貼文</button>");
+						target.append("<input type='textarea' class='form-control editArea' value='"+originText+"'>");
+						target.append("<button type='button' class='btn btn-primary btn-sm saveBtn'>儲存編輯</button>");
+						target.append("<button type='button' class='btn btn-default btn-sm canBtn'>取消</button>");
+						$(".editArea").css("height",originHeight);
+						$(this).css("display","none");
+						$(".canBtn").click(function(){
+							target.text(originText);
+							btn.css("display","inline-block");
+						});
+						$(".delBtn").click(function(){
+							var articleId = $(this).parent().parent().parent().attr("id");
+							var delBtn = $(this);
+							$.ajax({
+								type:"POST",
+								url:deleteArticleUrl,
+								data:{
+									"id":articleId
+								},
+								success:function(){
+									delBtn.parent().parent().parent().remove();
+								},
+								error:function(){
+									alert("Ajax error");
+								}
+							},"json");
+						});
+						$(".saveBtn").click(function(){
+							var articleId = $(this).parent().parent().parent().attr("id");
+							var newContent = $(this).parent().find(".editArea").val();
+							$.ajax({
+								type:"POST",
+								url: updateArticleUrl,
+								data:{
+									"id":articleId,
+									"content":newContent
+								},
+								success:function(){
+									target.text(newContent);
+									btn.css("display","inline-block");
+								},
+								error:function(){
+									alert("Ajax Error");
+								}
+							},"json");
+						});
+					});	
+				},
+				error : function(){
+					alert("Getting department failed");
+				}
+			},"json");
+		}
 	});
 	$("#createBtn").click(function(){
-		$('#myModal').modal('toggle');
+		if(loginStatus != 1){
+			$("#errorMsgContent").text(notLoginMsg);
+			$("#errorMsgDialog").modal('toggle');
+		}
+		if(loginStatus == 1){
+			$('#myModal').modal('toggle');
+		}
 	});
 	//$("#errorMsgDialog").modal('toggle'); /*-----------------------------------------------------------------------------------------*/
 	$("#new").change(function(){
-		//alert("new");
-		//alert(url);
 		$.ajax({
 			type : "POST",
 			url : orderNewUrl,
 			data : { },
 			success : function(data){
-				//alert("Ajax success");
 				$("#Test1 .articleContainer").remove();
 				$("#Test1 .postTimeContainer").remove();
-				//alert(data['data'].length);
 				for(i=0;i<data['data'].length;i++){
 					showArticles(
 						data['data'][i]['author_id'],
@@ -126,13 +526,11 @@ $(function(){
 					);	
 				}
 				$("#Test1 .arrow").click(function(){
-					//alert("arrow");
 					var responseContainer = $(this).parent().parent().parent().parent().find(".responseContainer");
 					var target = $(this);
 					if(responseContainer.css("display")=="none"){
 						responseContainer.parent().css("background-color","#FFE6E6");
 						var articleID = $(this).parent().attr("id");
-						//alert("articleID:"+articleID);
 						$.ajax({
 							type:"POST",
 							url: getCommentsUrl,
@@ -140,7 +538,6 @@ $(function(){
 								"articleID":articleID
 							},
 							success:function(data){
-								//alert("getCommentSuccess");
 								for(i=0;i<data['data'].length;i++){
 									displayComments(
 										data['data'][i]['author_id'],
@@ -159,12 +556,12 @@ $(function(){
 						responseContainer.parent().css("background-color","#FFFFFF");
 						responseContainer.children(".panel").remove();
 					}
-					responseContainer.slideToggle(); 
+					responseContainer.fadeToggle("fast"); 
 				});
 				$(".commentForm").submit(function(e){
 					e.preventDefault();
 					var content = $(this).find("#inputContent").val();
-					var commenterID = $(this).find("#commenterID").val();
+					var commenterID = userId;
 					var articleID = $(this).parent().parent().attr("id");
 					var target = $(this);
 					$.ajax({
@@ -191,6 +588,59 @@ $(function(){
 						}	
 					},"json");
 				});
+				$(".edit").click(function(){
+					var target = $(this).parent().parent().find(".panel-body");
+					var btn = $(this);
+					var originText = target.text();
+					var originHeight = target.css("height");
+					target.empty();
+					target.append("<button type='button' class='btn btn-default btn-sm delBtn'>刪除貼文</button>");
+					target.append("<input type='textarea' class='form-control editArea' value='"+originText+"'>");
+					target.append("<button type='button' class='btn btn-primary btn-sm saveBtn'>儲存編輯</button>");
+					target.append("<button type='button' class='btn btn-default btn-sm canBtn'>取消</button>");
+					$(".editArea").css("height",originHeight);
+					$(this).css("display","none");
+					$(".canBtn").click(function(){
+						target.text(originText);
+						btn.css("display","inline-block");
+					});
+					$(".delBtn").click(function(){
+						var articleId = $(this).parent().parent().parent().attr("id");
+						var delBtn = $(this);
+						$.ajax({
+							type:"POST",
+							url:deleteArticleUrl,
+							data:{
+								"id":articleId
+							},
+							success:function(){
+								delBtn.parent().parent().parent().remove();
+							},
+							error:function(){
+								alert("Ajax error");
+							}
+						},"json");
+					});
+					$(".saveBtn").click(function(){
+						var articleId = $(this).parent().parent().parent().attr("id");
+						var newContent = $(this).parent().find(".editArea").val();
+						$.ajax({
+							type:"POST",
+							url: updateArticleUrl,
+							data:{
+								"id":articleId,
+								"content":newContent
+							},
+							success:function(){
+								target.text(newContent);
+								btn.css("display","inline-block");
+							},
+							error:function(){
+								alert("Ajax Error");
+							}
+						},"json");
+					});
+				});	
 			},
 			error : function(){
 				alert("ERROR");
@@ -198,7 +648,6 @@ $(function(){
 		},"json");
 	});
 	$("#pop").change(function(){
-		//alert("pop");
 		$.ajax({
 			type : "POST",
 			url : orderPopUrl,
@@ -218,13 +667,11 @@ $(function(){
 					);
 				}
 				$("#Test1 .arrow").click(function(){
-					//alert("arrow");
 					var responseContainer = $(this).parent().parent().parent().parent().find(".responseContainer");
 					var target = $(this);
 					if(responseContainer.css("display")=="none"){
 						responseContainer.parent().css("background-color","#FFE6E6");
 						var articleID = $(this).parent().attr("id");
-						//alert("articleID:"+articleID);
 						$.ajax({
 							type:"POST",
 							url: getCommentsUrl,
@@ -232,7 +679,6 @@ $(function(){
 								"articleID":articleID
 							},
 							success:function(data){
-								//alert("getCommentSuccess");
 								for(i=0;i<data['data'].length;i++){
 									displayComments(
 										data['data'][i]['author_id'],
@@ -251,13 +697,12 @@ $(function(){
 						responseContainer.parent().css("background-color","#FFFFFF");
 						responseContainer.children(".panel").remove();
 					}
-					responseContainer.slideToggle(); 
+					responseContainer.fadeToggle("fast"); 
 				});
 				$(".commentForm").submit(function(e){
 					e.preventDefault();
-					//alert("");
 					var content = $(this).find("#inputContent").val();
-					var commenterID = $(this).find("#commenterID").val();
+					var commenterID = userId;
 					var articleID = $(this).find(".articleID").attr("id");
 					var target = $(this);
 					$.ajax({
@@ -284,50 +729,70 @@ $(function(){
 						}	
 					},"json");
 				});
+				$(".edit").click(function(){
+					var target = $(this).parent().parent().find(".panel-body");
+					var btn = $(this);
+					var originText = target.text();
+					var originHeight = target.css("height");
+					target.empty();
+					target.append("<button type='button' class='btn btn-default btn-sm delBtn'>刪除貼文</button>");
+					target.append("<input type='textarea' class='form-control editArea' value='"+originText+"'>");
+					target.append("<button type='button' class='btn btn-primary btn-sm saveBtn'>儲存編輯</button>");
+					target.append("<button type='button' class='btn btn-default btn-sm canBtn'>取消</button>");
+					$(".editArea").css("height",originHeight);
+					$(this).css("display","none");
+					$(".canBtn").click(function(){
+						target.text(originText);
+						btn.css("display","inline-block");
+					});
+					$(".delBtn").click(function(){
+						var articleId = $(this).parent().parent().parent().attr("id");
+						var delBtn = $(this);
+						$.ajax({
+							type:"POST",
+							url:deleteArticleUrl,
+							data:{
+								"id":articleId
+							},
+							success:function(){
+								delBtn.parent().parent().parent().remove();
+							},
+							error:function(){
+								alert("Ajax error");
+							}
+						},"json");
+					});
+					$(".saveBtn").click(function(){
+						var articleId = $(this).parent().parent().parent().attr("id");
+						var newContent = $(this).parent().find(".editArea").val();
+						$.ajax({
+							type:"POST",
+							url: updateArticleUrl,
+							data:{
+								"id":articleId,
+								"content":newContent
+							},
+							success:function(){
+								target.text(newContent);
+								btn.css("display","inline-block");
+							},
+							error:function(){
+								alert("Ajax Error");
+							}
+						},"json");
+					});
+				});	
 			},
 			error : function(){
 
 			}
 		},"json");
 	});
-	$(".arrow").click(function(){
-		var responseContainer = $(this).parent().parent().parent().parent().find(".responseContainer");
-		var target = $(this);
-		if(responseContainer.css("display")=="none"){
-			responseContainer.parent().css("background-color","#FFE6E6");
-			var articleID = $(this).parent().attr("id");
-			$.ajax({
-				type:"POST",
-				url: getCommentsUrl,
-				data:{
-					"articleID":articleID
-				},
-				success:function(data){
-					for(i=0;i<data['data'].length;i++){
-						displayComments(
-							data['data'][i]['author_id'],	
-							data['data'][i]['content'],
-							data['data'][i]['created_at'],
-							responseContainer
-						);
-					}
-				},
-				error:function(){
-					alert("Getting Comment Failed");
-				}
-			},"json");
-		}
-		if(responseContainer.css("display")=="block"){
-			responseContainer.parent().css("background-color","#FFFFFF");
-			responseContainer.children(".panel").remove();
-		}
-		responseContainer.slideToggle(); 
-	});
 
 	$("#submitArticle").click(function(){
 		var title = $("#inputTitle").val();
 		var content =$("#inputDetail").val();
-		var authorId = $("#inputAuthor_id").val();
+		var authorId = userId;
 		var type = $("#selectType").val();
 		if(title == '' && content == ''){
 			$("#errorMsgContent").text("請輸入"+titleEmptyMsg+" , "+contentEmptyMsg);
@@ -394,13 +859,12 @@ $(function(){
 							responseContainer.parent().css("background-color","#FFFFFF");
 							responseContainer.children(".panel").remove();
 						}
-						responseContainer.slideToggle(); 
+						responseContainer.fadeToggle("fast"); 
 					});
 					$(".commentForm").submit(function(e){
 						e.preventDefault();
-						//alert("");
 						var content = $(this).find("#inputContent").val();
-						var commenterID = $(this).find("#commenterID").val();
+						var commenterID = userId;
 						var articleID = $(this).parent().parent().attr("id");
 						var target = $(this);
 						$.ajax({
@@ -427,6 +891,60 @@ $(function(){
 							}	
 						},"json");
 					});
+					
+					$(".edit").click(function(){
+						var target = $(this).parent().parent().find(".panel-body");
+						var btn = $(this);
+						var originText = target.text();
+						var originHeight = target.css("height");
+						target.empty();
+						target.append("<button type='button' class='btn btn-default btn-sm delBtn'>刪除貼文</button>");
+						target.append("<input type='textarea' class='form-control editArea' value='"+originText+"'>");
+						target.append("<button type='button' class='btn btn-primary btn-sm saveBtn'>儲存編輯</button>");
+						target.append("<button type='button' class='btn btn-default btn-sm canBtn'>取消</button>");
+						$(".editArea").css("height",originHeight);
+						$(this).css("display","none");
+						$(".canBtn").click(function(){
+							target.text(originText);
+							btn.css("display","inline-block");
+						});
+						$(".delBtn").click(function(){
+							var articleId = $(this).parent().parent().parent().attr("id");
+							var delBtn = $(this);
+							$.ajax({
+								type:"POST",
+								url:deleteArticleUrl,
+								data:{
+									"id":articleId
+								},
+								success:function(){
+									delBtn.parent().parent().parent().remove();
+								},
+								error:function(){
+									alert("Ajax error");
+								}
+							},"json");
+						});
+						$(".saveBtn").click(function(){
+							var articleId = $(this).parent().parent().parent().attr("id");
+							var newContent = $(this).parent().find(".editArea").val();
+							$.ajax({
+								type:"POST",
+								url: updateArticleUrl,
+								data:{
+									"id":articleId,
+									"content":newContent
+								},
+								success:function(){
+									target.text(newContent);
+									btn.css("display","inline-block");
+								},
+								error:function(){
+									alert("Ajax Error");
+								}
+							},"json");
+						});
+					});	
 				},
 				error:function(){
 					alert("Error");
@@ -436,63 +954,6 @@ $(function(){
 		}
 	});
 
-	$(".edit").click(function(){
-		var target = $(this).parent().parent().find(".panel-body");
-		var btn = $(this);
-		var originText = target.text();
-		var originHeight = target.css("height");
-		target.empty();
-		target.append("<button type='button' class='btn btn-default btn-sm delBtn'>刪除貼文</button>");
-		target.append("<input type='textarea' class='form-control editArea' value='"+originText+"'>");
-		target.append("<button type='button' class='btn btn-primary btn-sm saveBtn'>儲存編輯</button>");
-		target.append("<button type='button' class='btn btn-default btn-sm canBtn'>取消</button>");
-		$(".editArea").css("height",originHeight);
-		$(this).css("display","none");
-			$(".canBtn").click(function(){
-				target.text(originText);
-				btn.css("display","inline-block");
-			});
-			$(".delBtn").click(function(){
-				var articleId = $(this).parent().parent().parent().attr("id");
-				//alert(articleId);
-				var delBtn = $(this);
-				$.ajax({
-					type:"POST",
-					url:deleteArticleUrl,
-					data:{
-						"id":articleId
-					},
-					success:function(){
-						alert("Ajax Success");
-						delBtn.parent().parent().parent().parent().remove();
-					},
-					error:function(){
-						alert("Ajax error");
-					}
-				},"json");
-			});
-			$(".saveBtn").click(function(){
-				//alert("click");
-				var articleId = $(this).parent().parent().parent().attr("id");
-				var newContent = $(this).parent().find(".editArea").val();
-				//alert(articleId);
-				$.ajax({
-					type:"POST",
-					url: updateArticleUrl,
-					data:{
-						"id":articleId,
-						"content":newContent
-					},
-					success:function(){
-						target.text(newContent);
-						btn.css("display","inline-block");
-					},
-					error:function(){
-						alert("Ajax Error");
-					}
-				},"json");
-			});
-	});	
 });
 
 function getCurrentTime(){
@@ -508,27 +969,30 @@ function getCurrentTime(){
 }
 
 function showArticles(author,createdAt,articleId,title,content,target){
-	$(target).append("\
-		<div class='postTimeContainer'>\
-			<div class='articlePostTime'>\
-				<span class='author'>"+author+"</span>發布於"+createdAt+"\
-			</div>\
-		</div>"
-	);
+	var editBtn = "";
+	if(userId == author){
+		editBtn = "<div class='btnBox'>&nbsp;<button type='button' class='btn btn-primary btn-sm edit'>編輯貼文</button></div>";
+	}
 	$(target).append("\
 		<div class='articleContainer' id='"+articleId+"' >\
+			<div class='postTimeContainer'>\
+				<div class='articlePostTime'>\
+					<span class='author'>"+author+"</span>發布於"+createdAt+"\
+				</div>\
+			</div>\
 			<div class='panel panel-default articleBody'>\
 				<div class='panel-heading'>\
-					<h3 class='panel-title'>"+title+"</h3>\
+					<a href='"+perArticleUrl+"/"+articleId+"'><h3 class='panel-title'>"+title+"</h3></a>\
 				</div>\
 				<div class='panel-body'>"+content+"</div>\
+				"+editBtn+"\
 				<a class='moreBox'>\
 					<div class='moreBtn' id='"+articleId+"'>\
 						<div class='panel panel-default arrow'>&dArr;</div>\
 					</div>\
 				</a>\
 			</div>\
-			<div class='responseContainer'>\
+			<div class='responseContainer' id='"+articleId+"'>\
 				<form class='commentForm' route='createComment'>\
 					<label>回覆貼文</label>\
 					<input type='submit' class='btn btn-primary createComment' value='發表回覆'>\
@@ -542,20 +1006,30 @@ function showArticles(author,createdAt,articleId,title,content,target){
 }
 
 function insertArticle(author,currentTime,articleId,title,content,target){
+	var editBtn = "";
+	if(userId == author){
+		editBtn = "<div class='btnBox'>&nbsp;<button type='button' class='btn btn-primary btn-sm edit'>編輯貼文</button></div>";
+	}
 	$(target).after("\
 		<div class='articleContainer' id='"+articleId+"' >\
+			<div class='postTimeContainer'>\
+				<div class='articlePostTime'>\
+					<span class='author'>"+author+"</span>發布於"+currentTime+"\
+				</div>\
+			</div>\
 			<div class='panel panel-default articleBody'>\
 				<div class='panel-heading'>\
 					<h3 class='panel-title'>"+title+"</h3>\
 				</div>\
 				<div class='panel-body'>"+content+"</div>\
+				"+editBtn+"\
 				<a class='moreBox'>\
 					<div class='moreBtn' id='"+articleId+"'>\
 						<div class='panel panel-default arrow'>&dArr;</div>\
 					</div>\
 				</a>\
 			</div>\
-			<div class='responseContainer'>\
+			<div class='responseContainer' id='"+articleId+"'>\
 				<form class='commentForm' route='createComment'>\
 					<label>回覆貼文</label>\
 					<input type='submit' class='btn btn-primary createComment' value='發表回覆'>\
@@ -566,14 +1040,6 @@ function insertArticle(author,currentTime,articleId,title,content,target){
 			</div>\
 		</div>"
 	);
-	$(target).after("\
-		<div class='postTimeContainer'>\
-			<div class='articlePostTime'>\
-				<span class='author'>"+author+"</span>發布於"+currentTime+"\
-			</div>\
-		</div>"
-	);
-	
 }
 
 function displayComments(author,content,createdAt,target){

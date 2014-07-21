@@ -5,17 +5,37 @@ class ArticlesController extends BaseController{
 	public $restful = true;
 
 
-	public function getArticles(){
+	public function getArticles($item = 'forum'){
 		
 		$siteMap = App::make('SiteMap');
 		$siteMap->pushLocation('論壇',route('forum'));
+		$isLogin = Auth::check();
+		if($isLogin){
+			$user = Auth::user();
+			$userId = $user->id;
+			$userName = $user->name;
+			return View::make('forum/articles',array(
+				'isLogin' => true ,
+				'userId' => $userId ,
+				'userName' => $userName
+			));
+			
+		}else{
+			return View::make('forum/articles',array(
+				'isLogin' => false
+			));
+		}
+		
+	}
 
-		$clubArticles = Forum::where('article_type','C')->orderBy('created_at','desc')->paginate();
+	public function getDepartmentArticles(){
 		$departmentArticles = Forum::where('article_type','D')->orderBy('created_at','desc')->paginate();
-		return View::make('forum/articles',array(
-			'clubArticles' => $clubArticles ,
-			'departmentArticles' => $departmentArticles
-		));
+		return Response::json($departmentArticles);
+	}
+
+	public function getClubArticles(){
+		$departmentArticles = Forum::where('article_type','C')->orderBy('created_at','desc')->paginate();
+		return Response::json($departmentArticles);
 	}
 
 	public function postArticles(){
@@ -83,7 +103,6 @@ class ArticlesController extends BaseController{
 	public function newArticles(){
 		
 		$postArticles = Forum::where('article_type','P')->orderBy('created_at','desc')->paginate();
-		
 		return Response::json($postArticles);
 	}
 	public function popArticles(){
@@ -96,10 +115,13 @@ class ArticlesController extends BaseController{
 		
 		$id = Input::get('id');
 
-		$article = Forum::find($id);
-		$num = $article->comment->count();
-		foreach($article->comment as $comment){
-			$comment->delete();
+		$comments = Forum::find($id);
+		$num = $comments->comment->count();
+		if($num > 0 || true){
+			//Forum::find($id)->comment->delete();
+			foreach($comments->comment as $comment){
+				$comment->delete();
+			}
 		}
 		Forum::find($id)->delete();
 		$response = array(
@@ -127,11 +149,13 @@ class ArticlesController extends BaseController{
 	}
 
 	public function viewOneArticle($id){
-		
-		$article = Forum::where('id','=',$id)->firstOrFail();
-		
+		$siteMap = App::make('SiteMap');
+		$siteMap->pushLocation('論壇',route('forum'));
+		$article = Forum::find($id);
+
 		$comments = $article->comment;
-		return View::make('forum/perArticle',array('article' => $article , 'comments' => $comments));
+
+		return View::make('forum/perArticle',array('article'=>$article,'comments' => $comments));
 
 	}
 
@@ -139,3 +163,20 @@ class ArticlesController extends BaseController{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
