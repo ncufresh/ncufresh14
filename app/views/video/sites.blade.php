@@ -40,15 +40,14 @@
 	{{ Form::close() }}
 </div>
 
-@if(isset($introduction) )
-	<div id = "intro">{{nl2br($video->introduction)}}</div> <!--video introduction-->
-@endif
+<div id = "intro">{{nl2br($video->video_introduction)}}</div> <!--video introduction-->
+
 
 @foreach( $messages as $message)
 	<div id="user_message">
 		<img src="images\videoImages\messageBG.png" id="messageBG">
 		<img src="images\videoImages\messageCamera.png" id="messageBG2">
-		<a href="https://www.youtube.com/watch?v=ibWYROwadYs"><img src="images\videoImages\10453181_648726201876120_965403227_n.jpg" id="portrait"></a>		
+		<a href="http://localhost/ncufresh14/public/user/{{$message ->user->id}}"><img src="{{ route('personface',array('id' => $message->user_id )) }}" id="portrait"></a>		
 		<div id= "div_message" style="width:720px; height:170px;">{{nl2br($message["video_text"])}}</div>
 		<div id ="div_name"><font color = "#7DB7A1">{{ $message->user->name }}</font></div>
 	</div>

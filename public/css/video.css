@@ -206,8 +206,8 @@
 #portrait{
 	position:absolute;
 	top: 20px;
-	left: 10px;
-	width: 164px;
+	left: 30px;
+	width: 127px;
 	height:150px;
 }
 
@@ -220,7 +220,7 @@
 
 #div_name {
 	position:absolute;
-	left: 15px;
+	left: 74px;
 }
 
 #video_name {
