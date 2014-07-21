@@ -22,7 +22,7 @@ class AdminController extends BaseController {
 	public function runGitPull(){
 		SSH::run(array(
 			'cd '.base_path(),
-			'sudo git pill',
+			'sudo git pull',
 		));
 
 		return Redirect::route('dashboard')->with('alert-message', 'Done run git pull on '.base_path());
