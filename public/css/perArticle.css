@@ -1,0 +1,74 @@
+.author{
+	color: #458FFF;
+	font-size: 17px;
+}
+.articlePostTime{
+	position:absolute;
+	display: table;
+	right: 14%;
+	margin-top: 2%;
+}
+.edit{
+	position: relative;
+	float: right;
+	right: 10px;
+}
+.articleContainer{
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding: 2px;
+}
+.panel-title{
+	font-size: 25px;
+	color: #458FFF;
+}
+.btnBox{
+	height: 35px;
+}
+.createComment{
+	position: relative;
+	top: -2px;
+	left: 85%;
+}
+.commenterID{
+	margin-bottom: 5px;
+	width: 17%;
+}
+textarea.commentTextArea{
+	height: 5em;
+}
+.commentAuthorId{
+	font-weight: 800;
+	margin-left: 5px;
+}
+.commentContent{
+	display: block;
+	margin-left: 15px;
+	width: 95%;
+	word-break: break-word;
+}
+.commentTime{
+	position: relative;
+	float: right;
+	top: -20px;
+	right: 10px;	
+}
+.delBtn{
+	position: relative;
+	float: right;
+	bottom: 5px;
+}
+.editArea{
+	word-break:break-word; 
+}
+.saveBtn{
+	position: relative;
+	float: right;
+	top: 5px;
+}
+.canBtn{
+	position: relative;
+	float: right;
+	top: 5px;
+	right: 5px;
+}

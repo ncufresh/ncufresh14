@@ -176,6 +176,7 @@ Route::group(array('before' => 'auth'), function(){
 //Forum articles
 Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@getArticles'));
 
+Route::get('articles/{item?}',array('as' => 'forum' , 'uses' => 'ArticlesController@getArticles'))->where('item', '(forum|department|club)');
 
 Route::post('/getComments',array('as' => 'getComments' , 'uses' => 'ArticlesController@getComment'));
 
@@ -183,7 +184,11 @@ Route::post('/orderNew',array('as' => 'orderNew' , 'uses' =>'ArticlesController@
 
 Route::post('/orderPop',array('as' => 'orderPop' , 'uses' => 'ArticlesController@popArticles'));
 
-#Route::post('/deleteArticle',array('as' => 'deleteArticle' , 'uses' => 'ArticlesController@deleteArticle'));
+Route::get('perArticle/{id?}',array('as' => 'perArticle' , 'uses' => 'ArticlesController@viewOneArticle'));
+
+Route::post('/getDepartment',array('as' => 'getDepartmentArticle' , 'uses' => 'ArticlesController@getDepartmentArticles'));
+
+Route::post('/getClub',array('as' => 'getClubArticle' , 'uses' => 'ArticlesController@getClubArticles'));
 
 // Need login
 Route::group(array('before' => 'auth'), function(){
