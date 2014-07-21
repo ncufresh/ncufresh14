@@ -105,7 +105,7 @@ class GameshopController extends BaseController {
 		$im    = imagecreatetruecolor(510,600);//创建一的真彩色图像
 		$white = imagecolorallocatealpha($im, 255, 255, 255,127);//透明背景
 		imagefill ($im, 0, 0, $white);
-		$bg = imagecolorallocate($im, 0, 0, 0);//为一幅图像分配颜色
+		$bg = imagecolorallocate($im, 255, 255, 255);//为一幅图像分配颜色
 		ImageColorTransparent ($im,$bg);
 
 		$headImage = imagecreatefrompng(asset('images/gameShop/' . $EquipItem[0]->picture));
