@@ -21,7 +21,7 @@ class HomeController extends BaseController {
 		App::make('TransferData')->addData('calender-api-url', route('api.calender.index'));
 //		App::make('TransferData')->addData('calender-url', route('calender.index'));
 		$links = Link::orderBy('order', 'ASC')->get();
-		$announcements = Announcement::orderBy('pinned', 'DESC')->orderBy('created_at', 'DESC')->get()->take(10);
+		$announcements = Announcement::orderBy('pinned', 'DESC')->orderBy('created_at', 'DESC')->get()->take(7);
 		$now = \Carbon\Carbon::now();
 		$calenders = Calender::active()->get();
 		return View::make('index', array('links' => $links, 'announcements' => $announcements, 'now' => $now, 'calenders' => $calenders));

@@ -30,9 +30,8 @@ class AboutUsController extends BaseController {
 
 			$user = new AboutUs;
 			
-			$user->name = Input::get('id');
 		    $user->categories= Input::get('categories');
-		    $data->teamphoto= Input::get('teamphoto');
+		    $user->teamphoto= Input::get('teamphoto');
 		    $user->introduction= Input::get('introduction');
 		    if(Input::get('categories')==1){
 		    	$user->categoryName = "執行組";
@@ -55,7 +54,7 @@ class AboutUsController extends BaseController {
 
 			$user->save();
 
-		   return Redirect::to('About_us/list');
+		   return Redirect::route('About_us.list');
 
 	}
 
@@ -71,7 +70,7 @@ class AboutUsController extends BaseController {
 		if(Input::has('id')){
 		 $user = AboutUs::where('id', '=', $id)->delete();
 		 }
-		 return Redirect::to('About_us/list');
+		 return Redirect::route('About_us.list');
 
 	}
 
@@ -84,28 +83,28 @@ class AboutUsController extends BaseController {
 		$data->teamphoto= Input::get('teamphoto');
 		$data->introduction= Input::get('introduction');
 		  if(Input::get('categories')==1){
-		    	$user->categoryName = "執行組";
+		    	$data->categoryName = "執行組";
 		    }
 		    if(Input::get('categories')==2){
-		    	$user->categoryName = "程設組";
+		    	$data->categoryName = "程設組";
 		    }
 		    if(Input::get('categories')==3){
-		    	$user->categoryName = "美工組";
+		    	$data->categoryName = "美工組";
 		    }
 		    if(Input::get('categories')==4){
-		    	$user->categoryName = "影音組";
+		    	$data->categoryName = "影音組";
 		    }
 		    if(Input::get('categories')==5){
-		    	$user->categoryName = "企劃組";
+		    	$data->categoryName = "企劃組";
 		    }
 		    if(Input::get('categories')==6){
-		    	$user->categoryName = "幕後花絮";
+		    	$data->categoryName = "幕後花絮";
 		    }
 
 
 		 $data->save();
 	}
-		return Redirect::to('About_us/list');
+		return Redirect::route('About_us.list');
 	}
 
 	public function showlist(){

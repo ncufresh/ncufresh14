@@ -3,26 +3,25 @@
 @section('js_css')
 	{{ HTML::style('css/aboutus.css') }}
 	{{ HTML::script('js/aboutus.js') }}
-	{{ HTML::script('js/jquery.cycle2.carousel.js') }}
-	{{ HTML::script('js/jquery.cycle2.js') }}
+	
 @stop
 
 @section('content')
 
 <div id="container" class="container">
-				<div id="contentContainer" class="testR">
-	<div id="content" style="height:3000px; width:98% ;background-color:#FFF000; margin:10px;">
+				<div id="contentContainer">
+	<div id="content" style="width:98% ; margin:10px;">
 	</br>
 	
 
-			<a href="{{ route('About_us.add')}}">增新</a>
+			<a href="{{ route('About_us.toadd')}}">增新</a>
 			<ol id="leftlist">
 			分類　　名稱　　　　　　　　　　　　　　　　　　　　介紹
 			@foreach($lists as $list)
 			<p>
 			<li>
 
-			{{Form::open(array('url'=>'delete','method'=>'post'))}}
+			{{Form::open(array('url'=>'About_us/delete','method'=>'post'))}}
 			{{Form::hidden('id',$list->id)}}
 			<span class="list">{{$list->categoryName}}</span>
 			

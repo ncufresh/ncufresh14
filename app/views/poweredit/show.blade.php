@@ -14,10 +14,10 @@
 	@endif
 
 	<div align="center">
-		<button type="submit" ><a href="{{ route('poweredit.edit', array('id' => $poweredit->id)) }}">修改</a></button>
+		<button type="submit" ><a href="{{ route('admin.poweredit.edit', array('id' => $poweredit->id)) }}">修改</a></button>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		<button type="submit" ><a href="{{ route('poweredit.index') }}">返回</a></button>
-		{{ Form::open(array('route' => array('poweredit.destroy', $poweredit->id), 'method' => 'delete')) }}
+		<button type="submit" ><a href="{{ route('admin.poweredit.index') }}">返回</a></button>
+		{{ Form::open(array('route' => array('admin.poweredit.destroy', $poweredit->id), 'method' => 'delete')) }}
 			<button type="submit" >刪除</button>
 		{{ Form::close() }}
 	</div>
