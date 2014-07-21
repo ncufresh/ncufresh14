@@ -39,6 +39,7 @@ Route::get('user/{id}', array('as' => 'user.id', 'uses' => 'UserController@index
 //global function
 //announcement
 Route::resource('announcement', 'AnnouncementController', array('only' => array('index', 'show')));
+Route::get('person/{id}', array('as' => 'personface', 'uses' => 'HomeController@psersonImage'));
 
 //Route::resource('link', 'LinkController');
 
