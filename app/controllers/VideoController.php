@@ -9,6 +9,8 @@ class VideoController extends BaseController {
 		App::make('TransferData')->addData('like_video_url', route('video.rate')); //ajax
 		//App::make('TransferData')->addData('about_rate_url', route('video.aboutrate'))		;
 		//App::make('TransferData')->addData('change_intro_url', route('video.intro'));
+		App::make('SiteMap')->pushLocation('影音專區', route('video'));
+
 
 		$data = Message::paginate(10);
 
