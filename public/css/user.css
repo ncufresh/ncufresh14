@@ -24,6 +24,10 @@
 	height: 240px;
 }
 
+#user-img>img{
+	width: 100%;
+}
+
 .user-data-link{
 	width: 177px;
 	height: 36px;
@@ -51,7 +55,7 @@
 	float: left;
 	width: 545px;
 	height: 300px;
-	top: 45px;
+	top: 75px;
 	left: 90px;
 	position: relative;
 }

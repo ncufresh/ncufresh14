@@ -227,7 +227,8 @@ class AuthController extends BaseController {
 				$newUser->gender = Input::get('gender');
 				$newUser->save();
 				$this->postRegister($newUser);
-				return Redirect::intended('/');
+//				Auth::login($newUser);
+				return Redirect::to('/')->with('alert-message', '註冊成功,請由右上角登入');
 			}
 		}
 	}

@@ -1,43 +1,65 @@
-﻿/*#picture{
-	width:850px;
-	height:800px;
-	float: left;
-	position: absolute;
-	top:468px;
-	left:203px;
-}*/
+﻿
 #morecontent{
 
 	margin-left:925px;
-	margin-top:-801px; 
+	margin-top:-978px; 
 	width:7%;
-	height:615px;
+	height:765px;
 }
 #photo{
 	position: absolute;
-	top:467px;
-	left:192px;
-	width:5%;
-	height:610px;
+	margin-top:-976px;
+	margin-left:24px;
+	width:80px;
+	height:780px;
+	z-index: 1;
 }
 #page1{
 	width:932px;
-	margin-top:69px;
+	margin-top:96px;
 	margin-left: -1px;
-	height:800px;
+	height:986px;
 }
 #page2{
 	visibility: hidden;
 	width: 7%;
-	margin-top:-803px; 
+	margin-top:-979px; 
 	margin-left: 918px;
 	float: left;
-	height:762px;
+	height:986px;
+	z-index: 3;
 }
 #content{
 	width: 100%;
 	height: 867px;
-	/*overflow: hidden;*/
+	
+}
+.m_intro{
+	background-color: #000521;
+	position: absolute;
+	width: 500px;
+	height: 50px;
+	margin-top:-376px;
+	margin-left:329; 
+}
+.m_photo{
+	background-color: #515151;
+	position: absolute;
+	width: 500px;
+	height: 400px;
+	margin-top:-788px;
+	margin-left:331px; 
+}
+.close{
+	position: absolute;
+	margin-top:-857px;
+	margin-left:874px; 
+	opacity:1 !important;
+}
+.menu{
+	position: absolute;
+	margin-top:-876px;
+	margin-left: 156px; 
 }
 /*modal*/
 .photo{
@@ -65,35 +87,74 @@
 	width: 550px;
 	height: 80px;
 }
-
-.items{
-	margin:200px; 
-	width: 100%;
-	z-index: 3;
-	margin: 10px;
+#code{
+	position: absolute;
+	margin-top:-815px;
+	margin-left: 626px; 
+}
+#operate{
+	position: absolute;
+	margin-top:-573px;
+	margin-left: 483px;
+}
+#project{
+	position: absolute;
+	margin-top:-508px;
+	margin-left: 332px;  
+}
+#movie{
+	position: absolute;
+	margin-top:-590px;
+	margin-left: 735px;  
+}
+#draw{
+	position: absolute;
+	margin-top:-781px;
+	margin-left: 405px; 
+}
+#back{
+	position: absolute;
+	margin-top:-900px;
+	margin-left: 221px; 
 }
 .modal-lg{
-	width: 1000px; !important
+	width: 1000px !important;
 }
 
 #carousel-example-generic{
-	width: 600px;  !important
+	position: relative;
+	margin-left:211px;
+	margin-top: -560px; 
+	width: 458px  !important;
 }
-
 .a img{
-	height: 200px;
-	width: 200px;
+	height: 150px;
+	width: 150px;
 	margin: 5px;
+}
+.carousel-control.left{
+	background-image:url('http://localhost/ncufresh14/public/images/aboutus/lbotton.png') !important;
+	width: 8% !important;
+}
+.carousel-control.right{
+	left: 466px;
+	background-image:url('http://localhost/ncufresh14/public/images/aboutus/rbotton.png') !important;
+	width: 8% !important;
+}
+.carousel-control{
+	height: 50px;
+	top:202px;
+	left: -36px;
+	opacity:1 !important;
 }
 #scroll{
 	overflow: scroll;
-	height: 600px;
-	width: 300px;
+	height: 480px;
+	width: 237px;
 	overflow-x:hidden;
 	position: absolute;
-	top: 19px;
-	left: 646px;
-	margin: 10px;
+	margin-top: -420px;
+	margin-left: 700px;
 
 }
 

@@ -2,23 +2,69 @@
 	position:relative;
 	top:20px;
 	right:0px;
-	width:1100px;
+	width:1024px;
 	height:3000px
 }
 
 #main {
 	position:absolute;
-	top:0;
-	left:20;
+	top:40px;
+	left:63px;
+}
+
+#videoFrame {
+	position: absolute;
+	left: 2.5%;
+	width:95%;
+	height: 585px;
+}
+
+#introTop {
+	position: absolute;
+	top: 740px;
+	left:2.5%;
+	width: 95%;
+}
+
+#introTop2 {
+	position: absolute;
+	top:855px;
+	left: 2.5%;
+	width:95%;
+}
+
+#introMid {  /*包含了videoFrame底下的所有白色底*/
+	position: absolute;
+	top:580px;
+	left:2.5%;
+	width: 95%;
+	height:80%;
 }
 
 #intro {
 	position:absolute;
-	top:0px;
-	right:100px;
-	width:400px;
-	height: 450px;
+	top:740px;
+	left:40px;
+	width:1024px;
+	height: 115px;
 	}
+
+#messageBG {
+	position:absolute;
+	top: 20px;
+	left: 222px;
+	width:735px;
+    height:170px
+}
+
+#messageBG2 {
+	position:absolute;
+	top: 150px;
+	left: 178px;
+	width:780px;
+    height:40px
+}
+
 /*
 #attached1 {
 	position:absolute;
@@ -104,18 +150,18 @@
 
 #like {
 	position:absolute;
-	top:410px;
-	left:0px;
+	top:650px;
+	left:40px;	
 }
 #love {
 	position:absolute;
-	top:410px;
-	left:110px;
+	top:650px;
+	left:170px;
 }
 #message {  
 	position:absolute;
-	top:410px;
-	left:220px;
+	top:677px;
+	left:320px;
 }
 #div1 {      /*浮動視窗的位子*/
 	position:absolute;
@@ -124,74 +170,78 @@
 }
 #rating {
 	position: absolute;
-	top:370px;
-	left:350px;
-	height:30px;
-	width:100px;
+	top:680px;
+	left:530px;
 }
 
 #rating2 {
 	position: absolute;
-	top:370px;
-	left:460px;
-	height:30px;
-	width:100px;
+	top:680px;
+	left:675px;
 }
 
 #rating_number1 {
 	position: absolute;
-	top: 410px;
-	left:350px;
+	top: 670px;
+	left:550px;
 	height:30px;
 	width:100px;
 }
 
 #rating_number2 {
 	position: absolute;
-	top: 410px;
-	left:460px;
+	top: 670px;
+	left:720px;
 	height:30px;
 	width:100px;
 }
 /*////////////////////////////////////////////////////////////////////////////////*/
 #user_message {
 	position:relative;	
-	top:480px;
+	top:850px;
+	left: 2.5%;
 	width: 1200px;
-	height: 190px;
+	height: 210px;
 }
 #portrait{
 	position:absolute;
 	top: 20px;
-	left: 10px;	
+	left: 30px;
+	width: 127px;
 	height:150px;
 }
 
 #div_message {  
 	position:relative;
 	top:20px;
-	left:184px;
+	left:234px;
 	word-wrap:break-word;
 }
+
+#div_name {
+	position:absolute;
+	left: 74px;
+}
+
 #video_name {
 	position:absolute;
-	top:300px;
-	left:0px;
+	top:580px;
+	left:40px;
 	
 }
 
 #textarea {
-	position: relative;
+	/*position: relative;*/
 	top:80px;
-	width: 820px;
+	width: 100%;
 	height: 150px;
 	border: double;
 	resize:none;
 	color: #CC0099;
 }
 
-#submit {
+/*#submit {
 	position:relative;
 	top:65px;
 	right:53px;
-}
+}*/

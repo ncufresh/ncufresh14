@@ -24,7 +24,9 @@ class HomeController extends BaseController {
 		$announcements = Announcement::orderBy('pinned', 'DESC')->orderBy('created_at', 'DESC')->get()->take(7);
 		$now = \Carbon\Carbon::now();
 		$calenders = Calender::active()->get();
-		return View::make('index', array('links' => $links, 'announcements' => $announcements, 'now' => $now, 'calenders' => $calenders));
+		$articles = Forum::orderBy('comment_number','desc')->get()->take(5);
+		$video = Video::first();
+		return View::make('index', array('links' => $links, 'announcements' => $announcements, 'now' => $now, 'calenders' => $calenders, 'articles' => $articles, 'video' => $video));
 	}
 
 	public function errorPage(){
@@ -73,4 +75,11 @@ class HomeController extends BaseController {
 		return View::make('admin.index', array('function' => $function));
 	}
 
+	public function psersonImage($id) {
+		if ( File::exists(public_path() . '/img/person/' . $id . '.png') ) {
+			$data = File::get(public_path() . '/img/person/' . $id . '.png');
+		}
+		$data = File::get(public_path() . '/img/person/0.png');
+		return Response::make($data, 200, array('Content-Type' => 'image/png'));
+	}
 }

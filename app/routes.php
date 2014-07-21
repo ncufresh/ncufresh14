@@ -39,6 +39,7 @@ Route::get('user/{id}', array('as' => 'user.id', 'uses' => 'UserController@index
 //global function
 //announcement
 Route::resource('announcement', 'AnnouncementController', array('only' => array('index', 'show')));
+Route::get('person/{id}', array('as' => 'personface', 'uses' => 'HomeController@psersonImage'));
 
 //Route::resource('link', 'LinkController');
 
@@ -81,6 +82,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin_basic'), function(){
 		Route::get('users', array('as' => 'admin.users', 'uses' => 'AdminUsersController@index'));
 		Route::post('users/changeRole', array('as' => 'admin.changeRole', 'uses' => 'AdminUsersController@changeRole'));
 
+		Route::get('runGitPull', array('as' => 'admin.runGitPull', 'uses' => 'AdminController@runGitPull'));
 	});
 
 
@@ -201,6 +203,8 @@ Route::group(array('before' => 'auth'), function(){
 Route::get('nculife', array('as' => 'nculife.index', 'uses' => 'NcuLifeController@index'));
 
 Route::get('nculife/select', array('as' => 'nculife.select', 'uses' => 'NcuLifeController@select'));
+
+Route::get('nculife/selectPicture', array('as' => 'nculif.selectPicture', 'uses' => 'NcuLifeController@selectPicture'));
 
 Route::get('nculife/{item}', array('as' => 'nculife.item', 'uses' => 'NcuLifeController@item'))->where('item', '(food|live|go|inschool|outschool)');
 

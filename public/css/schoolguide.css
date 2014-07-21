@@ -20,7 +20,7 @@
     top: 22px;
     z-index:3;
 }
-li{
+.left_item{
     list-style-type: none;
     
 }

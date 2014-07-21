@@ -1,8 +1,11 @@
 <div id="auth_box">
 @if(Auth::check())
+	
 	<div id="auth_logined">
 	{{-- User has logined. show logout(?) --}}
-		<a id="logoutButton"href="{{ route('logout') }}"></a>
+		<a id="topUserButton" href="{{ route('user.self') }}"><img id="auth_person" src="{{ route('personface',array('id' => Auth::user()->id )) }}"/></a>
+		<a id="logoutButton" href="{{ route('logout') }}"></a>
+		<div id="auth_name">{{Auth::user()->name}}</div>
 	</div>
 @else
 	

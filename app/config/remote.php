@@ -29,12 +29,12 @@ return array(
 	'connections' => array(
 
 		'production' => array(
-			'host'      => '',
-			'username'  => '',
-			'password'  => '',
+			'host'      => 'ncufresh.ncu.edu.tw:32722',
+			'username'  => 'ncufresh14',
+			'password'  => 'frjeag03r34fmkd',
 			'key'       => '',
 			'keyphrase' => '',
-			'root'      => '/var/www',
+			'root'      => '/FRESH_WWW/ncufresh14',
 		),
 
 	),

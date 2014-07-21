@@ -11,16 +11,6 @@ $(document).ready(function(){
 	// 		'food' => '4',
 	// 		'dorm' => '5',
 	// 		'exercise'=>'6'
-
-		
-
-	$(".departments").show();
-	$(".school").hide();
-	$(".scence").hide();
-	$(".dorm").hide();
-	$(".eat").hide();
-	$(".exercise").hide();
-
 	$("#select").change(changeLeft);
 	$(".pointer").click(function(){
 		clickImg($(this).data('id'));
@@ -36,6 +26,49 @@ $(document).ready(function(){
 		$("#select").val(getTransferData('select'));
 	}
 
+	if($("#select").val()==1){
+				$(".departments").show();
+				$(".school").hide();
+				$(".scence").hide();
+				$(".dorm").hide();
+				$(".eat").hide();
+				$(".exercise").hide();
+			}else if($("#select").val()==2){
+				$(".school").show();
+				$(".dorm").hide();
+				$(".departments").hide();
+				$(".scence").hide();
+				$(".eat").hide();
+				$(".exercise").hide();
+			}else if($("#select").val()==3){
+				$(".scence").show();
+				$(".departments").hide();
+				$(".dorm").hide();
+				$(".school").hide();
+				$(".eat").hide();
+				$(".exercise").hide();
+			}else if($("#select").val()==4){
+				$(".exercise").show();
+				$(".dorm").hide();
+				$(".school").hide();
+				$(".departments").hide();
+				$(".scence").hide();
+				$(".eat").hide();
+			}else if($("#select").val()==5){
+				$(".eat").show();
+				$(".dorm").hide();
+				$(".school").hide();
+				$(".departments").hide();
+				$(".scence").hide();
+				$(".exercise").hide();
+			}else if ($("#select").val()==6){
+				$(".dorm").show();
+				$(".school").hide();
+				$(".departments").hide();
+				$(".scence").hide();
+				$(".eat").hide();
+				$(".exercise").hide();
+			}
 	function changeSelect($item){
 	
 		 // location.replace(burl+"/SchoolGuide/"+$item);
@@ -67,7 +100,6 @@ $(document).ready(function(){
 
 		$('#siteMapContainer').children().last().remove();
 		$.pushLocation(changeChinese[data[0]['categories']], '/SchoolGuide/'+change[data[0]['categories']]);
-		
 
 		for(var i=0; i<count; i++){
 			var name =data[i]['name'];
