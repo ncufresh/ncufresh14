@@ -29,6 +29,6 @@ class AdminController extends BaseController {
 			echo $line.PHP_EOL;
 		});
 
-//		return Redirect::route('dashboard')->with('alert-message', 'Done run git pull on '.base_path());
+		return Redirect::route('dashboard')->with('alert-message', 'Done run git pull on '.base_path());
 	}
 }
