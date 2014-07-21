@@ -109,9 +109,9 @@
 			<div id="vedioTop" class="textStyle">影片連結
 			</div>
 			<div id="vedioContent">
-				<div id="video-pic"></div>
+				<div id="video-pic"><a href="{{route('video')}}"><img src="http://img.youtube.com/vi/{{ $video->video_address }}/mqdefault.jpg"></a></div>
 				<div id="video-name"><span class="video-word">影片名稱：</span>{{ $video->video_name }}</div>
-				<div id="video-viewer"><span class="video-word">瀏覽人次：</span>0</div>
+				<div id="video-viewer"><span class="video-word">瀏覽人次：</span>{{ $video->video_population }}</div>
 				<div id="video-intro"><span class="video-word">內容簡介：</span>{{ $video->video_introduction }}</div>
 			</div>
 			<div id="vedioBottom">

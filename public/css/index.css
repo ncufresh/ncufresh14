@@ -256,6 +256,10 @@ body{
 	margin: 0 auto;
 }
 
+#video-pic>a>img{
+	width: 100%;
+}
+
 .video-word{
 	color: #FEC5E4;
 }
