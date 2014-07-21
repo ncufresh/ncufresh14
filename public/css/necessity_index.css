@@ -1,7 +1,6 @@
-#backgroundContent
+.backgroundContent
 {
 	width:100%;
-	background-color: FF9D37;
 	margin: 0 auto;
 }
 /*****************contentUp*********************/
@@ -31,17 +30,6 @@
 	background-color: FDFF73;
 	margin: 0 auto;
 
-}
-
-.contMidButton
-{
- 	width: 200px;
-	height: 80px;
-	background-color: 73FFBB;
-	position:relative; 
-	margin-left: 50px;
-	top: 10px;
-	float: left; 
 }
 
 
@@ -86,32 +74,12 @@
 {
 	width: 770px;
 	height: 150px;
-	background-color: 73B7FF;
+	/*background-color: 73B7FF;*/
 	position:relative; 
 	margin-left:15px;
 	top: 10px; 
 }
 
-#contDownLeftResearch
-{
-	width: 50px;
-	background-color: FF73FD;
-	position: relative;
-	margin-left:31px;
-	top: 10px; 
-	float: left;
-}
-
-#contDownLeftFreshman
-{
-	width: 50px;
-	background-color: FF73FD;
-	position: fixed;
-	margin-left:31px;
-	top: 10px; 
-	float: left;
-	display: none;
-}
 
 #contDownForm
 {
@@ -125,15 +93,13 @@
 
 .formStyleIntroduction
 {
-	width:770px;
-	height:150px;
 	border-style:ridge;
 	border-width:2px;
 	word-wrap: break-word;
 	margin: 0 auto;
 	font-size:15px;
 	font-weight: 100;
-
+	line-height:25px; 
 }
 
 .formStyleUpSide
