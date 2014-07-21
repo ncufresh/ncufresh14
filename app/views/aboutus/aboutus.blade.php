@@ -11,7 +11,7 @@
 	<img id="page1" src="{{asset('images/aboutus/page1.png')}}">
 	<img id="morecontent" src="{{asset('images/aboutus/morecontent.png')}}">
 	<img id="photo" src="{{asset('images/aboutus/photo.png')}}">
-	<div class="page2">
+	    <div class="page2">
 		<img id="page2" src="{{asset('images/aboutus/page2.png')}}">
 		<img id="code" data-id="2" class="items" src="{{asset('images/aboutus/code.png')}}">
 		<img id="draw" data-id="3" class="items" src="{{asset('images/aboutus/draw.png')}}">
