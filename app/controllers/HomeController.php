@@ -24,7 +24,9 @@ class HomeController extends BaseController {
 		$announcements = Announcement::orderBy('pinned', 'DESC')->orderBy('created_at', 'DESC')->get()->take(7);
 		$now = \Carbon\Carbon::now();
 		$calenders = Calender::active()->get();
-		return View::make('index', array('links' => $links, 'announcements' => $announcements, 'now' => $now, 'calenders' => $calenders));
+		$articles = Forum::orderBy('comment_number','desc')->get()->take(5);
+		$video = Video::first();
+		return View::make('index', array('links' => $links, 'announcements' => $announcements, 'now' => $now, 'calenders' => $calenders, 'articles' => $articles, 'video' => $video));
 	}
 
 	public function errorPage(){

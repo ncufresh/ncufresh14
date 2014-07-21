@@ -87,6 +87,20 @@
 			<div id="forumTop" class="textStyle">論壇高人氣文章
 			</div>
 			<div id="forumContent">
+				<div class="forum-head row">
+					<div class="col-sm-6">標題</div>
+					<div class="col-sm-2">人氣</div>
+					<div class="col-sm-4">發佈日期</div>
+				</div>
+				@foreach($articles as $article)
+				<a href="{{ route('home') }}">
+					<div class="forum-row row">
+						<div class="col-sm-6">{{ $article->title }}</div>
+						<div class="col-sm-2">{{ $article->comment_number }}</div>
+						<div class="col-sm-4">{{ $article->created_at->format('Y/m/d h:i') }}</div>
+					</div>
+				</a>
+				@endforeach
 			</div>
 			<div id="forumBottom">
 			</div>
@@ -95,8 +109,10 @@
 			<div id="vedioTop" class="textStyle">影片連結
 			</div>
 			<div id="vedioContent">
-				<div id="video-pic"><a href="{{ route('video') }}"><img src="images\youtube縮圖\deargod.jpg " id="videoHref"></a></div>
-
+				<div id="video-pic"></div>
+				<div id="video-name"><span class="video-word">影片名稱：</span>{{ $video->video_name }}</div>
+				<div id="video-viewer"><span class="video-word">瀏覽人次：</span>0</div>
+				<div id="video-intro"><span class="video-word">內容簡介：</span>{{ $video->video_introduction }}</div>
 			</div>
 			<div id="vedioBottom">
 			</div>
