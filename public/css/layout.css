@@ -41,11 +41,12 @@ body {
 
 #chat-log {
 	width: 230px;
-	min-height: 300px;
+	height: 300px;
 	background: url('../images/layout/chatroom/boxMiddle.png') repeat-y;
 	margin-left: 45px;
 	margin-top: -17px;
 	padding: 0px 12px 0px 13px;
+	overflow: auto;
 }
 
 .chat-row {
@@ -113,6 +114,7 @@ body {
 	background-size: 100%;
 	border-radius: 50%;
 	float: left;
+	z-index: 2;
 }
 
 #topSearchBar{
@@ -225,12 +227,13 @@ body {
 #auth_name {
 	top: 170px;
 	position: absolute;
-	left: 67px;
+	left: 57px;
 	text-align: center;
 	font-family: "微軟正黑體", "Microsoft JhengHei";
 	font-size: 20px;
 	color: white;
 	font-weight: bold;
+	width: 79px;
 }
 
 #bottomContainer{
@@ -377,8 +380,9 @@ body {
 #alert-messages{
 	position: fixed;
 	top: 30%;
-	width: 75%;
-	left: 12.5%;
+	width: 60%;
+	left: 20%;
+	text-align: center;
 	margin: 0 auto;
 	z-index: 100;
 }

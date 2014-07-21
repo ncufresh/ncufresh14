@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('css_js')
+@section('js_css')
 	{{ HTML::script('js/admin.js') }}
 
 @stop
@@ -40,6 +40,7 @@
 			<h3>危險管理區</h3>
 			<a href="{{ route('admin.group') }}"><button id="admin-user">群組管理</button></a>
 			<a href="{{ route('admin.users') }}"><button id="admin-user">會員管理</button></a>
+			<a href="{{ route('admin.runGitPull') }}" id="admin-git"><button id="admin-user">執行git pull(超級危險)</button></a>
 
 		</div>
 		@endif

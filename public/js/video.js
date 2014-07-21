@@ -84,7 +84,7 @@ $(function(){
   });
 */
   $("#message").click(function(){
-    $.jumpWindow('留言框', $("#div1").html());//green^2
+    $.jumpWindow('留言框', $("#div1").html(), '', {pop: false});//green^2
 
     $( "#videoPost" ).submit(function( event ) {
     if(getTransferData('login') == 0 ){

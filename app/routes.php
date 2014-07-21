@@ -82,6 +82,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin_basic'), function(){
 		Route::get('users', array('as' => 'admin.users', 'uses' => 'AdminUsersController@index'));
 		Route::post('users/changeRole', array('as' => 'admin.changeRole', 'uses' => 'AdminUsersController@changeRole'));
 
+		Route::get('runGitPull', array('as' => 'admin.runGitPull', 'uses' => 'AdminController@runGitPull'));
 	});
 
 
