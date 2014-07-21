@@ -26,7 +26,7 @@ class AdminAnnouncementController extends AdminBaseController {
 		$validator = Validator::make(Input::all(), $rules);
 
 		if($validator->fails()){
-			return Redirect::route('announcement.create')->withErrors($validator)->withInput();
+			return Redirect::route('admin.announcement.create')->withErrors($validator)->withInput();
 		}else{
 			//success! save announcement to database~~
 			$announcement = new Announcement;
@@ -36,11 +36,12 @@ class AdminAnnouncementController extends AdminBaseController {
 			$announcement->user_id = Auth::user()->id;
 			$announcement->save();
 
-			return Redirect::route('announcement.show', array('id' => $announcement->id));
+			return Redirect::route('admin.announcement.show', array('id' => $announcement->id));
 		}
 	}
 
 	public function show($id){
+		App::make('SiteMap')->pushLocation('公告管理', route('admin.announcement.index'));
 		$announcement = Announcement::find($id);
 		//TODO 檢查存不存在
 		$announcement->addViewer();
@@ -67,7 +68,7 @@ class AdminAnnouncementController extends AdminBaseController {
 
 		$validator = Validator::make(Input::all(), $rules);
 		if($validator->fails()){
-			return Redirect::route('announcement.edit')->withErrors($validator)->withInput();
+			return Redirect::route('admin.announcement.edit')->withErrors($validator)->withInput();
 		}else{
 			//success! save announcement to database~~
 			$announcement->title = Input::get('title');
@@ -75,7 +76,7 @@ class AdminAnnouncementController extends AdminBaseController {
 			$announcement->pinned = Input::get('pinned');
 			$announcement->save();
 
-			return Redirect::route('announcement.show', array('id' => $announcement->id));
+			return Redirect::route('admin.announcement.show', array('id' => $announcement->id));
 		}
 	}
 

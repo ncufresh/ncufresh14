@@ -16,7 +16,7 @@
 				combo = 0;
 				score = 0;
 				question_number = 0;
-                editStatus(data['user']);
+                editStatus(data['user']['power'],data['user']['gp']);
     			if ( data['user']['play'] == true ) {
 					$('#gameCampusMain').hide();
 					$('#gameCampusMap').show();
@@ -24,7 +24,7 @@
                     mapType[data['question']['type']].show();
 				}
                 else {
-                    alert('ne power.');
+                    noPowerDisplay();
                 }
     		});
     	});
@@ -32,7 +32,7 @@
         $('.gameCampusBuilding').each(function(index) {
             $(this).click(function(){
                 ajaxPost($('#gameCampusGameBox').attr('action'), {index: $(this).attr('index')}, function(data) {
-                    editStatus(data['user']);
+                    editStatus(data['user']['power'],data['user']['gp']);
                     $('.gameCampusType').each(function(index) {
                         $(this).hide();
                     });

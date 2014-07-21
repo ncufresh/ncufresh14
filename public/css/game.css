@@ -1,6 +1,7 @@
 #gameContainer {
 	width: 100%;
 	padding: 10px;
+	position: relative;
 }
 
 #userInfo {
@@ -411,7 +412,7 @@ gameCampus
 #gameCampusInfoExit {
 	width: 46px;
 	height: 46px;
-	top: 102px;
+	top: 50px;
 	left: 790px;
 	position: absolute;
 	background: url("../images/gameCampus/infoExit.png") no-repeat;
@@ -420,7 +421,7 @@ gameCampus
 #gameCampusInfoExit:hover {
 	width: 46px;
 	height: 46px;
-	top: 102px;
+	top: 50px;
 	left: 790px;
 	position: absolute;
 	background: url("../images/gameCampus/infoExitClick.png") no-repeat;
@@ -567,6 +568,10 @@ gameShop
 	position: relative;
 }
 
+.gameShopItemSelect {
+	background: url("../images/gameShop/itemBoxClick.png") no-repeat;
+}
+
 .gameShopItemText {
 	position: absolute;
 	width: 100%;
@@ -575,10 +580,19 @@ gameShop
 }
 
 .gameShopItemImage {
-	width: 100%;
-	height: 100px;
+	width: 96%;
+	top: 18px;
+	left: 2%;
 	position: absolute;
 }
+/*
+.gameShopItemImage:hover {
+	width: 96%;
+	top: 18px;
+	left: 2%;
+	position: absolute;
+	z-index: 1;
+}*/
 
 .gameShopItemBuyButton {
 	position: absolute;
@@ -589,7 +603,20 @@ gameShop
 	left: -5px;
 }
 
+.gameShopItemBuyButton:hover {
+	position: absolute;
+	background: url("../images/gameShop/buyClick.png") no-repeat;
+	width: 79px;
+	height: 30px;
+	top: 105px;
+	left: -5px;
+}
+
 .itemHadBuy {
+	background: url("../images/gameShop/buyed.png") no-repeat;
+}
+
+.itemHadBuy:hover {
 	background: url("../images/gameShop/buyed.png") no-repeat;
 }
 
@@ -615,33 +642,126 @@ gameShop
 
 .character {
 	position: absolute;
-	width: 180px;
-	height: 260px;
 }
 
 #characterHead {
-	background-color: rgba(255, 0, 0, 0.4);
-	
-
+	width: 145px;
+	height: 145px;
+	left: 57px;
 }
 
 #characterFace {
-	background-color: rgba(255, 255, 0, 0.4);
+	width: 78px;
+	height: 69px;
 }
 
 #characterBody {
-	background-color: rgba(255, 255, 255, 0.4);
+	width: 230px;
+	height: 152px;
+	top: 135px;
+	left: 16px;
 }
 
 #characterFoot {
-	background-color: rgba(0, 255, 0, 0.4);
+	width: 108px;
+	height: 51px;
+	top: 259px;
+	left: 79px;
 }
 
 #characterItem {
-	background-color: rgba(0, 255, 255, 0.4);
+	width: 68px;
+	height: 97px;
 }
 
 #characterMap {
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(255, 0, 0, 0.4);
+	width: 100%;
+	height: 100%;
 }
 
+#gmaeNoPowerContainer {
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+
+#gameNoPowerBox {
+	/*display: none;*/
+	width: 732px;
+	height: 322px;
+	background: url("../images/gameIndex/noPowerBox.png") no-repeat;
+	margin: 160px auto;
+	position: relative;
+	padding-top: 77px;
+}
+
+.gameNoPowerButton {
+	position: absolute;
+	background: url("../images/gameIndex/noPowerButton.png") no-repeat;
+	font-family: "微軟正黑體", "Microsoft JhengHei";
+	font-size: 30px;
+	color: white;
+	font-weight: bold;
+	padding: 5px;
+	text-align: center;
+	width: 143px;
+	height: 51px;
+}
+
+.gameNoPowerButton:hover {
+	position: absolute;
+	background: url("../images/gameIndex/noPowerButtonClick.png") no-repeat;
+	font-family: "微軟正黑體", "Microsoft JhengHei";
+	font-size: 30px;
+	color: white;
+	font-weight: bold;
+	padding: 5px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#gameNoPowerIKnow {
+	top: 190px;
+	left: 270px;
+}
+
+#gameNoPowerGoPower {
+	top: 190px;
+	left: 455px;
+}
+
+#gameNoPowerExit {
+	top: 10px;
+	left: 648px;
+	width: 46px;
+	height: 46px;
+	position: absolute;
+	background: url("../images/gameIndex/noPowerExit.png") no-repeat;
+}
+
+#gameNoPowerExit:hover {
+	top: 10px;
+	left: 648px;
+	width: 46px;
+	height: 46px;
+	position: absolute;
+	background: url("../images/gameIndex/noPowerExitClick.png") no-repeat;
+	cursor: pointer;
+}
+
+.gameNoPowerText {
+	width: 350px;
+	height: 40px;
+	font-family: "微軟正黑體", "Microsoft JhengHei";
+	font-size: 30px;
+	color: black;
+	font-weight: bold;
+	padding: 5px;
+	text-align: center;
+	margin-left: 250px;
+}

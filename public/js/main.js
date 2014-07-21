@@ -25,8 +25,8 @@ function pushLocation(name, url){
 }
 
 function popLocation(){
-	$('#site_map').children().last().remove();
-	window.history.back();
+	$.popLocation();
+
 }
 
 function changeURL(url){
@@ -60,7 +60,7 @@ $(function(){
 				$.alertMessage('帳號或密碼錯誤', {type: 'alert-danger'});
 			}else if(data['id'] != undefined){
 				$.alertMessage(data['name'] + ' 歡迎回來!');
-				setTimeout(function(){location.reload();}, 4000);
+				setTimeout(function(){location.reload();}, 2500);
 			}else{
 				$.alertMessage('帳號或密碼錯誤', 'alert-error');
 			}
@@ -70,21 +70,31 @@ $(function(){
 	});
 });
 
-$.pushLocation = function(name, url){
+$.pushLocation = function(name, url, options){
 	var bURL = getTransferData('burl');
 
 	var defaults = {
 		name: '頁面',
-		url: bURL
+		url: url,
+		full: false
 	};
 
 	var options = $.extend({}, defaults, options);
 
-	var siteMap = $('#site_map');
-	var aTag = $('<a></a>').text(name).attr('href', bURL + url);
-	var span = $('<span></span>').append(aTag).append('/');
-	siteMap.append(span)
-	changeURL(url);
+	if(options.full == false){
+		options.url = bURL + url;
+	}
+
+	var siteMap = $('#siteMapContainer');
+	var aTag = $('<a></a>').text(name).attr('href', options.url);
+	var li = $('<li class="site_map_item"></li>').append(aTag);
+	siteMap.append(li);
+	changeURL(options.url);
+};
+
+$.popLocation = function(){
+	$('#siteMapContainer').children().last().remove();
+	window.history.back();
 };
 
 $.alertMessage = function(text, options){
@@ -106,7 +116,8 @@ $.jumpWindow = function(head, body, foot, options){
 	var defaults = {
 		head: '',
 		body: '',
-		foot: ''
+		foot: '',
+		pop: true
 	};
 
 	options = $.extend({}, defaults, options);
@@ -115,9 +126,13 @@ $.jumpWindow = function(head, body, foot, options){
 	$('#jump-window-head').html(head);
 	$('#jump-window-body').html(body);
 	$('#jump-window-footer').html(foot);
-	$('#jump-window').modal('show');
+	$('#jump-window').modal('show').data('pop-location', options.pop);
 
 };
 $(function(){
-//	$('body').jScrollPane();
+	$('#jump-window').on('hide.bs.modal', function (e) {
+		if($(this).data('pop-location') == true){
+			$.popLocation();
+		}
+	});
 });

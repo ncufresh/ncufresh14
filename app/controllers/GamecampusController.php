@@ -2,12 +2,14 @@
 
 class GamecampusController extends BaseController {
 	public function index() {
+		App::make('SiteMap')->pushLocation('小遊戲', route('game'));
+		App::make('SiteMap')->pushLocation('認識中大', route('game.campus'));
 		if ( !Auth::check() ) {
 			return Redirect::to('/');	
 		}
 		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
 		$name = User::where('id', '=', $user["user_id"])->firstOrFail();
-		return View::make('game.campus', array('user' => $user, 'name' => $name));
+		return View::make('game.campus', array('user' => $user, 'name' => $name->name));
 	}
 
 	public function start() {

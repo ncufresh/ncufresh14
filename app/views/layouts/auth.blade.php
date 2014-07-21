@@ -1,8 +1,11 @@
 <div id="auth_box">
 @if(Auth::check())
+	
 	<div id="auth_logined">
 	{{-- User has logined. show logout(?) --}}
-		<a href="{{ route('logout') }}">Logout</a>
+		<a id="topUserButton" href="{{ route('user.self') }}"><img id="auth_person" src="{{ route('personface',array('id' => Auth::user()->id )) }}"/></a>
+		<a id="logoutButton" href="{{ route('logout') }}"></a>
+		<div id="auth_name">{{Auth::user()->name}}</div>
 	</div>
 @else
 	
@@ -11,10 +14,10 @@
 		{{-- Login form --}}
 		{{ Form::open(array('route' => 'login', 'id' => 'login-form')) }}
 		{{-- Form::label('email', '帳號') --}}
-		{{ Form::text('email', '帳號', array('id' => 'account')) }}
+		{{ Form::text('email', null, array('id' => 'account', 'placeholder' => '帳號')) }}
 		<br>
 		{{-- Form::label('密碼') --}}
-		{{ Form::password('password', array('id' => 'password')) }}
+		{{ Form::password('password', array('id' => 'password', 'placeholder' => '密碼')) }}
 		<br>
 		<a href="{{ route('register') }}"><div id="register"></div></a>
 		{{ Form::submit('', array('id' => 'submit')) }}

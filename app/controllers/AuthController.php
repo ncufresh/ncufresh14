@@ -23,7 +23,7 @@ class AuthController extends BaseController {
 
 			if (Auth::attempt(array('email' => $email, 'password' => $password))){
 				// Success login
-				return Redirect::intended();
+				return Redirect::intended('/');
 			}else{
 				// Fail login
 				return Redirect::home()->with('message', '帳號或密碼錯誤');
@@ -93,7 +93,7 @@ class AuthController extends BaseController {
 					//Test if email is in database.
 					if(User::where('email', '=', $userProfile->getProperty('email'))->exists()){
 						//Connect
-						$user = User::where('email', '=', $userProfile->getProrerty('email'))->first();
+						$user = User::where('email', '=', $userProfile->getProperty('email'))->first();
 
 						$facebookData = new FacebookData;
 						$facebookData->uid = $uid;
@@ -101,27 +101,38 @@ class AuthController extends BaseController {
 						$facebookData->save();
 
 						Auth::login($user);
-						return Redirect::intended();
+						return Redirect::intended('/');
+					}else if(Auth::check()){
+						//Connect with different email
+						$user = Auth::user();
+						$facebookData = new FacebookData;
+						$facebookData->uid = $uid;
+						$facebookData->user_id = $user->id;
+						$facebookData->save();
+
+						return Redirect::intended('/');
 					}else{
-						//New user to the system, create user!
-						$user = new User();
-						$user->name = $userProfile->getName();
-						$user->nick_name = $userProfile->getName();
-						$user->email = $userProfile->getProperty('email');
-						$user->high_school_id = 1;
-						$user->department_id = 1;
-						$user->grade = 1;
-						$user->password = 'facebook';
-						$user->save();
+							//New user to the system, create user!
+							$user = new User();
+							$user->name = $userProfile->getName();
+							$user->nick_name = $userProfile->getName();
+							$user->email = $userProfile->getProperty('email');
+							$user->high_school_id = HighSchool::first()->id;
+							$user->department_id = Department::first()->id;
+							$user->grade = 1;
+							$user->password = 'facebook';
+							$user->save();
 
-						$facebookData = new FacebookData;
-						$facebookData->uid = $uid;
-						$facebookData->user_id = $user->id;
+							$facebookData = new FacebookData;
+							$facebookData->uid = $uid;
+							$facebookData->user_id = $user->id;
 
-						$facebookData->save();
+							$facebookData->save();
 
-						Auth::login($user);
-						return Redirect::route('register.FB');
+							$this->postRegister($user);
+
+							Auth::login($user);
+							return Redirect::route('register.FB');
 					}
 				}else{
 					//Exist user. go Login.
@@ -140,7 +151,6 @@ class AuthController extends BaseController {
 			return Redirect::route('error')->with('message', 'There was an error communicating with Facebook');
 			//echo "ERROR4";
 		}
-		echo '<a href="/login/FB">login</a>';
 		return Redirect::to('/');
 	}
 
@@ -173,21 +183,19 @@ class AuthController extends BaseController {
 		if(Input::get('facebook-uid', '') == ''){
 			$rules = array(
 				'email' => 'required|unique:users|max:255|email|required_without:facebook-uid',
-				'name' => 'required_without:facebook-uid|max:10',
+				'name' => 'required|max:10',
 				'department_id' => 'required|exists:departments,system_id',
 				'grade' => 'required|in:1,2,3,4',
 				'high_school' => 'required',
-				'password' => 'required_without:facebook-uid|min:6',
-				're_password' => 'required_without:facebook-uid|same:password'
+				'password' => 'required|min:6',
+				're_password' => 'required|same:password'
 			);
 		}else{
 			$rules = array(
 				'name' => 'required_without:facebook-uid|max:10',
 				'department_id' => 'required|exists:departments,system_id',
 				'grade' => 'required|in:1,2,3,4',
-				'high_school' => 'required',
-				'password' => 'required_without:facebook-uid|min:6',
-				're_password' => 'required_without:facebook-uid|same:password'
+				'high_school' => 'required'
 			);
 		}
 
@@ -218,7 +226,9 @@ class AuthController extends BaseController {
 				$newUser->high_school_id = HighSchool::firstOrCreate(array('high_school_name' => Input::get('high_school')))->id;
 				$newUser->gender = Input::get('gender');
 				$newUser->save();
-				return Redirect::intended('/');
+				$this->postRegister($newUser);
+//				Auth::login($newUser);
+				return Redirect::to('/')->with('alert-message', '註冊成功,請由右上角登入');
 			}
 		}
 	}
@@ -232,6 +242,56 @@ class AuthController extends BaseController {
 		endforeach;
 
 		return Response::json($data);
+	}
+
+	public function postRegister($user){
+		$role = Role::orderBy('id', 'DESC')->first();
+		$user->roles()->sync(array($role->id));
+
+		/*
+			add game user
+		*/
+		$gameUser = new Game;
+		$gameUser->user_id = $user->id;
+		$gameUser->power = 5;
+		$gameUser->max_power = 5;
+		$gameUser->gp = 0;
+		$gameUser->head = 0;
+		$gameUser->face = 0;
+		$gameUser->body = 0;
+		$gameUser->foot = 0;
+		$gameUser->item = 0;
+		$gameUser->map = 0;
+		$gameUser->save();
+
+		$buy = new GameBuy;
+		$buy->user_id = $gameUser->id;
+		$buy->item_id = 1;
+		$buy->save();
+		$buy = new GameBuy;
+		$buy->user_id = $gameUser->id;
+		$buy->item_id = 7;
+		$buy->save();
+		$buy = new GameBuy;
+		$buy->user_id = $gameUser->id;
+		$buy->item_id = 13;
+		$buy->save();
+		$buy = new GameBuy;
+		$buy->user_id = $gameUser->id;
+		$buy->item_id = 19;
+		$buy->save();
+		$buy = new GameBuy;
+		$buy->user_id = $gameUser->id;
+		$buy->item_id = 25;
+		$buy->save();
+		$buy = new GameBuy;
+		$buy->user_id = $gameUser->id;
+		$buy->item_id = 31;
+		$buy->save();
+		/*
+			end
+		*/
+
 	}
 
 

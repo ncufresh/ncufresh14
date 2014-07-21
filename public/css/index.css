@@ -21,22 +21,22 @@
 
 #calender {
 	width: 228px;
-	height: 500px;
+	height: 394px;
 	margin-top: 23px;
 }
 
 #calenderTop {
 	width: 228px;
-	height: 64px;
+	height: 233px;
 	background: url("../images/index/calendertop.png") no-repeat;
 	padding-top: 32px;
 	padding-left: 51px;
-	color: gray;
+	color: #7b7b7b;
 }
 
 #calenderContent {
 	width: 200px;
-	height: 417px;
+	height: 122px;
 	margin-left: 28px;
 	background: url("../images/index/calendermid.png") repeat-y;
 }
@@ -48,17 +48,52 @@
 	background: url("../images/index/calenderbottom.png") no-repeat;
 }
 
+#calender-top-content{
+	width: 155px;
+	padding-top: 15px;
+}
+.calender-num{
+	text-align: center;
+	width: 100%;
+}
+
+#calender-month{
+	margin-top: 4px;
+}
+
+#calender-month-day{
+	margin-top: 17px;
+}
+
+.calender-row{
+	width: 140px;
+	cursor: pointer;
+	text-overflow: ellipsis;
+}
+
+.calender-row:hover{
+	color: #d3d3d3;
+}
+
 #links {
 	width: 200px;
 	margin-left: 28px;
 	margin-top: 10px;
 	background-color: #0aadd6;
-	color: white;
+	color: #b9f1ff;
+}
+
+#linkTop{
+	background: url("../images/index/linktop.png");
+	width: 200px;
+	height: 40px;
+	padding-left: 10px;
+	padding-top: 5px;
 }
 
 #linkContent {
 	width: 100%;
-	height: 250px;
+	height: 348px;
 	padding: 10px;
 }
 
@@ -66,6 +101,20 @@
 	background: url("../images/index/link.png") no-repeat;
 	width: 200px;
 	height: 63px;
+}
+
+#link-ul{
+	list-style-image: url("../images/index/linklist.png");
+}
+
+#link-ul>li>a{
+	color: #b9f1ff;
+}
+
+
+
+#link-ul>li>a:hover{
+	color: white;
 }
 
 #board {
@@ -77,33 +126,22 @@
 #boardTop {
 	background: url("../images/index/boardtop.png") no-repeat;
 	width: 700px;
-	height: 103px;
+	height: 164px;
 	padding-top: 70px;
 	padding-left: 30px;
+	color: #864500;
 }
 
-#boardMid1 {
-	background: url("../images/index/boardmid1.png") repeat-y;
+#boardMid {
+	background: url("../images/index/boardmid.png") repeat-y;
 	width: 700px;
-	height: 100px;
-}
-
-#boardMid2 {
-	background: url("../images/index/boardmid2.png") repeat-y;
-	width: 700px;
-	height: 100px;
-}
-
-#boardMid3 {
-	background: url("../images/index/boardmid3.png") repeat-y;
-	width: 700px;
-	height: 100px;
+	height: 188px;
 }
 
 #boardBottom {
 	background: url("../images/index/boardbottom.png") no-repeat;
 	width: 700px;
-	height: 52px;
+	height: 114px;
 }
 
 #boardContent {
@@ -112,7 +150,20 @@
 	height: 310px;
 	top: 100px;
 	left: 45px;
+	font-size: medium;
 }
+
+.announcement-row{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	cursor: pointer;
+	text-overflow: ellipsis;
+}
+
+.announcement-row:hover{
+	background-color: rgb(254, 219, 95);
+}
+
 #forum {
 	width: 450px;
 	float: left;
@@ -127,12 +178,27 @@
 	height: 43px;
 	padding-top: 12px;
 	padding-left: 26px;
+	color: #7b7b7b;
 }
 
 #forumContent {
 	background: #ffffff;
 	width: 450px;
 	height: 252px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+}
+
+.forum-row{
+	cursor: pointer;
+	color: #000000;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.forum-row:hover{
+	background-color: #c5c5c5;
 }
 
 #forumBottom {
@@ -154,7 +220,7 @@
 	height: 41px;
 	padding-top: 12px;
 	padding-left: 15px;
-	color: white;
+	color: #ffc4e4;
 }
 
 #vedioContent {
@@ -170,6 +236,10 @@
 	height: 40px;
 }
 
+body{
+	font-family: 'Microsoft JhengHei';
+}
+
 
 .textStyle {
 	/*font:  bold 5pt arial,sans-serif;*/
@@ -178,8 +248,18 @@
 	font-weight: bold;
 }
 
-#videoHref{
+#video-pic{
 	position: relative;
-	left: -10px;
-	width:220px;
+	background-color: #000000;
+	width: 190px;
+	height: 140px;
+	margin: 0 auto;
+}
+
+#video-pic>a>img{
+	width: 100%;
+}
+
+.video-word{
+	color: #FEC5E4;
 }

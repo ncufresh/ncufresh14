@@ -3,53 +3,68 @@ body {
 }
 
 #siteMapContainer {
-	margin-top: 40px;
-	background-color: rgba(200,200,200,0.6);
+	background-color: rgba(200,200,200,1);
 }
 
 #chat-room-container {
-	width: 200px;
+	width: 45px;
 	height: 360px;
 	position: fixed;
 	top: 100px;
 	right: 0px;
-	overflow: hidden;
 }
 
 #chat-room {
-	width: 200px;
+	width: 275px;
 	position: absolute;
-	right: -175px;
+	right: -230px;
 }
 
 #chat-room .container {
-	width: 175px;
-	background-color: yellow;
-	padding: 10px;
+	width: 230px;
 	float: left;
 }
 
 #chat-room-button {
-	background-color: red;
-	width: 25px;
-	height: 150px;
+	background: url('../images/layout/chatroom/clickme.png') no-repeat;
+	width: 45px;
+	height: 152px;
 	float: left;
 }
 
+#chat-log-top {
+	width: 230px;
+	height: 30px;
+	background: url('../images/layout/chatroom/boxHead.png') no-repeat;
+	margin-left: 45px;
+}
+
 #chat-log {
-	width: 100%;
-	min-height: 300px;
-	background-color: white;
+	width: 230px;
+	height: 300px;
+	background: url('../images/layout/chatroom/boxMiddle.png') repeat-y;
+	margin-left: 45px;
+	margin-top: -17px;
+	padding: 0px 12px 0px 13px;
+	overflow: auto;
 }
 
 .chat-row {
-	background-color: gray;
+	background-color: rgba(230, 230, 230, 0.4);
 }
 
 #chat-input {
-	top: 10px;
-	margin: 0px auto;
 	position: relative;
+	background: url('../images/layout/chatroom/input.png') no-repeat;
+	margin-left: 45px;
+	height: 64px;
+}
+
+#chat-message {
+	margin-top: 12px;
+	margin-left: 12px;
+	width: 206px;
+	height: 39px;
 }
 
 #globalContainer{
@@ -60,8 +75,14 @@ body {
 
 #topContainer{
 	width: 100%;
-	height: 250px;
-	margin-top: 55px;
+	height: 286px;
+	margin: 20px auto;
+}
+
+#topContent {
+	width: 100%;
+	height: 100%;
+	position: relative;
 }
 
 #topLeft{
@@ -84,15 +105,16 @@ body {
 }
 
 #topLogo{
-	position: relative;
-	width: 320px;
-	height: 320px;
-	top: -38px;
-	left: -40px;
-	background-image: url("../images/layout/logo.png");
+	position: absolute;
+	width: 286px;
+	height: 286px;
+	/*top: -20px;
+	left: 1px;*/
+	background: url("../images/layout/logo.png") no-repeat;
 	background-size: 100%;
-	background-repeat:no-repeat;
 	border-radius: 50%;
+	float: left;
+	z-index: 2;
 }
 
 #topSearchBar{
@@ -115,7 +137,7 @@ body {
 	margin-left: 80px;
 }
 
-#topNavBarLife:hover{
+#topNavBarLife:hover {
 	background-image: url("../images/layout/nculife2.png");
 	margin-left: 80px;
 }
@@ -181,7 +203,36 @@ body {
 
 #topBackground {
 	background: url("../images/layout/topback.png") no-repeat;
-	background-size: 100%
+	background-size: 100%;
+	width: 788px;
+	height: 250px;
+	position: absolute;
+	top: 18px;
+	left: 236px;
+}
+
+#topUserButton {
+	width: 102px;
+	height: 120px;
+	position: absolute;
+	top: 44px;
+	left: 44px;
+}
+
+#auth_person {
+	width: 102px;
+	height: 120px;
+}
+
+#auth_name {
+	top: 170px;
+	position: absolute;
+	left: 67px;
+	text-align: center;
+	font-family: "微軟正黑體", "Microsoft JhengHei";
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
 }
 
 #bottomContainer{
@@ -196,6 +247,8 @@ body {
 #auth_box {
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
+	position: relative;
 }
 
 #auth_logined {
@@ -204,6 +257,23 @@ body {
 	margin-top: 10px;
 	background: url("../images/layout/facebox2.png") no-repeat;
 	background-size: 100%;
+	position: relative;
+}
+
+#logoutButton {
+	width: 79px;
+	height: 22px;
+	background: url("../images/layout/logout.png") no-repeat;
+	background-size: 100%;
+	position: absolute;
+}
+
+#logoutButton:hover {
+	width: 79px;
+	height: 22px;
+	background: url("../images/layout/logoutClick.png") no-repeat;
+	background-size: 100%;
+	position: absolute;
 }
 
 #auth_nolgin {
@@ -309,8 +379,9 @@ body {
 #alert-messages{
 	position: fixed;
 	top: 30%;
-	width: 75%;
-	left: 12.5%;
+	width: 60%;
+	left: 20%;
+	text-align: center;
 	margin: 0 auto;
 	z-index: 100;
 }
@@ -319,30 +390,29 @@ body {
 	opacity: 0;
 }
 
-/*#jump-window{*/
-	/*position: absolute;*/
-	/*width: 100%;*/
-	/*height: 100%;*/
-	/*background-color: rgba(0, 0, 0, 0.4);*/
-	/*z-index: 90;*/
-/*}*/
+#topRobotContent {
+	width: 790px;
+	left: 234px;
+	position: relative;
+	margin-top: -48px;
+}
 
-/*#jump-window>.container{*/
-	/*max-width: 1024px;*/
-	/*min-height: 50%;*/
-	/*min-width: 80%;*/
-	/*height: auto;*/
-	/*background-color: green;*/
-/*}*/
-
-/*#jump-top{*/
-	/*width: 100%;*/
-	/*height: 50px;*/
-	/*background-color: blue;*/
-/*}*/
+#topRobot {
+	background: url("../images/layout/robot/1.png") no-repeat;
+	position: absolute;
+	width: 41px;
+	height: 95px;
+	top: 0px;
+	left: 0px;
+}
 
 body{
 	height: 100%;
+}
+
+.modal-content{
+	border-width: 13px;
+	border-color: #F8E566;
 }
 
 /** testing */
