@@ -814,6 +814,7 @@ $(function(){
 					"article_type":type
 				},
 				success:function(data){
+
 					$("#inputTitle").val("");
 					$("#inputAuthor_id").val("");
 					$("#inputDetail").val("");
@@ -1051,6 +1052,4 @@ function displayComments(author,content,createdAt,target){
 		</div>";
 	target.append(comment);
 } 
-
-
 

@@ -35,6 +35,7 @@
 					<div id="orderBox">
 						<input type="radio" name="orderBy" value="new" id="new" checked> 最新貼文
 						<input type="radio" name="orderBy" id="pop" value="pop"> 熱門貼文
+
 					</div>
 					<button class="btn btn-primary" id="createBtn">發表新文章</button>
 				</div>
@@ -104,5 +105,6 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+	
 	
 @stop	
