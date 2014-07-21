@@ -9,6 +9,8 @@ class VideoController extends BaseController {
 		App::make('TransferData')->addData('like_video_url', route('video.rate')); //ajax
 		//App::make('TransferData')->addData('about_rate_url', route('video.aboutrate'))		;
 		//App::make('TransferData')->addData('change_intro_url', route('video.intro'));
+		App::make('SiteMap')->pushLocation('影音專區', route('video'));
+
 
 		$data = Message::paginate(10);
 
@@ -17,16 +19,16 @@ class VideoController extends BaseController {
 
 		$videoRating1 = Video::find(1)->getRating()->where('video_rate', '=', '0')->count();//find 是找主鍵
 		$videoRating2 = Video::find(1)->getRating()->where('video_rate', '=', '1')->count();
-		$introduction = Video::find(1)->video_introduction;
+		$video = Video::find(1);
 
-		return View::make('video.sites', array('messages' => $data,'getLike' => $videoRating1 , 'getLove' =>$videoRating2 ,'introduction' =>$introduction
+		return View::make('video.sites', array('messages' => $data,'getLike' => $videoRating1 , 'getLove' =>$videoRating2 ,'video' =>$video
 			));
 	}
 
 	function removeXSS($val) {   //xss
 	  
 	   $val = preg_replace('/([\x00-\x08,\x0b-\x0c,\x0e-\x19])/', '', $val); 
-	 
+	   $search = '';
 	   $search .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
 	   $search .= '1234567890!@#$%^&*()'; 
 	   $search .= '~`";:?+/={}[]-_|\'\\'; 
@@ -98,6 +100,13 @@ class VideoController extends BaseController {
 		return ($jumiMessage->count());
 	}
 	
+	public function get_time(){// get the time of mesaage posted
+		$created_at = VideoMessage::where(Input::get('created_at'))->get();
+	}
+
+	public function get_portrait(){
+		//get user's portrait
+	}
 
 	public function post_index(){
 		$lines = substr_count( Input::get('video_text'), "\n" );
@@ -110,9 +119,8 @@ class VideoController extends BaseController {
 				if ($jumiMessage < 10){
 					$user = Auth::user();
 					$user = new message;
-					$user->user_id = Auth::user()->id;//TODO
-					$user->video_text = Input::get('video_text');
-					removeXSS(Input::get('video_text'));
+					$user->user_id = Auth::user()->id;
+					$user->video_text = $this->removeXSS(Input::get('video_text'));
 					$user->save();
 					return Redirect::route('video');
 				}else{
