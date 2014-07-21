@@ -9,7 +9,7 @@
 <div id="user-container">
 	<div id="user-top">
 		<div id="user-left">
-			<div id="user-img"></div>
+			<div id="user-img"><img src="{{ route('personface', array('id' => $user->id)) }}"> </div>
 			@if(Auth::check() && Auth::user()->id == $user->id && $user->getFacebookData == NULL)
 				<a href="{{ route('login.FB') }}"><div id="link-fb" class="user-data-link"></div></a>
 			@elseif($user->getFacebookData != NULL)
