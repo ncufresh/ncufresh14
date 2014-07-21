@@ -1,9 +1,362 @@
-.Logo{
-  	margin-top:-40px; 
-  	margin-left:200px;
+.ContentUp{
+  height: 205px;
+  /*background-color: FF73FD;*/
+  margin: 0 auto;
+}
+
+.Block{
+  position: absolute;
+  margin-top:-30px; 
+  margin-left:200px;
 }
 
 .Note1{
-  	margin-top:-310px; 
-  	margin-left:550px;
+	position: absolute;
+  margin-top:-120px; 
+  margin-left:550px;
+}
+
+/********************/
+
+.ContentMid{
+  height: 155px;
+  /*background-color: FF73FD;*/
+  margin: 0 auto;
+}
+
+.ButtonUpA{
+	position: absolute;
+  margin-top:0px; 
+  margin-left:50px;
+}
+
+.ButtonUpB{
+	position: absolute;
+  margin-top:0px; 
+  margin-left:400px;
+}
+
+.ButtonUpC{
+	position: absolute;
+  margin-top:0px; 
+  margin-left:750px;
+}
+
+/********************/
+
+.ContentDown{
+	position: relative;
+  /*background-color: FF73FD;*/
+}
+
+/*********************************/
+
+.ContentDownYR{
+	width: 105px;
+}
+.Left1R{
+	position: absolute;
+  margin-top:0px; 
+  margin-left:0px;
+  width: 135px;
+}
+
+.LeftMidR{
+	position: absolute;
+	background-color: fff192;
+  margin-top:20px; 
+  margin-left:0px;
+  width: 135px;
+  height: 370px;
+}
+
+.Left2R{
+	position: absolute;
+  margin-top:390px; 
+  margin-left:0px;
+  width: 135px;
+}
+
+.ResearchButtonA{
+	position: absolute;
+  margin-top:20px; 
+  margin-left:5px;
+  width: 120px;
+}
+
+
+.ResearchButtonB{
+	position: absolute;
+  margin-top:70px; 
+  margin-left:5px;
+  width: 120px;
+}
+
+.ResearchButtonC{
+	position: absolute;
+  margin-top:120px; 
+  margin-left:5px;
+  width: 120px;
+}
+
+.ResearchButtonD{
+	position: absolute;
+  margin-top:170px; 
+  margin-left:5px;
+  width: 120px;
+}
+
+.ResearchButtonE{
+	position: absolute;
+  margin-top:220px; 
+  margin-left:5px;
+  width: 120px;
+}
+
+.ResearchButtonF{
+	position: absolute;
+  margin-top:270px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+.ResearchButtonG{
+	position: absolute;
+  margin-top:320px; 
+  margin-left:5px;
+  width: 120px;
+}
+
+.ResearchButtonH{
+	position: absolute;
+  margin-top:370px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+/*********************************/
+
+.ContentDownYF{
+	width: 135px;
+}
+
+.Left1F{
+	position: absolute;
+  margin-top:0px; 
+  margin-left:0px;
+  width: 135px;
+}
+
+.LeftMidF{
+	position: absolute;
+	background-color: fff192;
+  margin-top:20px; 
+  margin-left:0px;
+  width: 135px;
+  height: 520px;
+}
+
+.Left2F{
+	position: absolute;
+  margin-top:540px; 
+  margin-left:0px;
+  width: 135px;
+}
+
+.FreshmanButtonA{
+	position: absolute;
+  margin-top:13px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+.FreshmanButtonB{
+	position: absolute;
+  margin-top:63px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+.FreshmanButtonC{
+	position: absolute;
+  margin-top:113px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+.FreshmanButtonD{
+	position: absolute;
+  margin-top:163px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+.FreshmanButtonE{
+	position: absolute;
+  margin-top:213px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+.FreshmanButtonF{
+	position: absolute;
+  margin-top:263px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+.FreshmanButtonG{
+	position: absolute;
+  margin-top:313px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+.FreshmanButtonH{
+	position: absolute;
+  margin-top:363px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+.FreshmanButtonI{
+	position: absolute;
+  margin-top:413px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+.FreshmanButtonJ{
+	position: absolute;
+  margin-top:463px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+.FreshmanButtonK{
+	position: absolute;
+  margin-top:513px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+/*********************************/
+
+.ContentDownBR{
+  margin-top: 30px;
+  margin-left: 160px;
+}
+
+.Research1{
+  position: relative;
+  margin-top:0px; 
+  margin-left:0px;
+  width: 850px;
+}
+
+.PaddingMid{
+  position: relative;
+  margin-top:0px; 
+  margin-left:4px;
+  width: 801.5px;
+  background-color: 8ef1e4;
+}
+
+.Research2{
+  position: relative;
+  margin-top:-90px; 
+  margin-left:670px;
+  width: 135px;
+}
+
+.IntroductionR{
+  width: 770px;
+  position:relative; 
+  top: 0px; 
+  left: 15px;
+}
+
+.Form{
+  width: 770px;
+  position:relative; 
+  left:15px;
+}
+
+/************************************/
+
+.ContentDownBF{
+	margin-top: 30px;
+  margin-left: 160px;
+}
+
+.Freshman1{
+  position: relative;
+  margin-top:0px; 
+  margin-left:4px;
+  width: 801px;
+}
+.Freshman2{
+  position: relative;
+  margin-top:-200px; 
+  margin-left:670px;
+  width: 135px;
+}
+
+.IntroductionF{
+  width: 770px;
+  position:relative; 
+  top: 22px; 
+  left: 15px;
+}
+
+/**********************/
+
+.ContentDownBD{
+  margin-top: 30px;
+  margin-left: 0 px;
+}
+
+.Download1{
+  position: relative;
+  margin-top:0px; 
+  margin-left:100px;
+  width: 800px;
+}
+.Download2{
+  position: relative;
+  margin-top:-83px; 
+  margin-left:760px;
+  width: 135px;
+}
+
+.IntroductionD{
+  width: 770px;
+  position:relative; 
+  top: 22px; 
+  left: 15px;
+}
+
+.DownloadMid{
+  position: relative;
+  margin-top:0px; 
+  margin-left:142px;
+  width: 724px;
+  background-color: 8ef1e4;
+  height: 600px;
+}
+
+.DownloadForm1{
+  width: 300px;
+  position:relative;
+  line-height: 50px; 
+  left:70px;
+  float:left;
+}
+
+.DownloadForm2{
+  width: 300px;
+  position:relative;
+  line-height: 50px; 
+  left:70px;
+  float:left;
 }
