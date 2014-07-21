@@ -25,7 +25,7 @@
 			<ol id="leftlist" style="font-size:20;">
 					@foreach($Schoolguides as $Schoolguide)
 					<!-- <img class = "line" src="{{ asset('images/SchoolGuide/line.png') }}"> -->
-					<img class = "board" src="{{ asset('images/SchoolGuide/board.png') }}">
+					<!-- <img class = "board" src="{{ asset('images/SchoolGuide/board.png') }}"> -->
 					<li class="left_item" data-place_id="{{ $Schoolguide->id }}">
 						{{ $Schoolguide->name }}
 					</li>

@@ -105,7 +105,7 @@ $(document).ready(function(){
 			var name =data[i]['name'];
 			var id=data[i]['id'];
 			var category = data[i]['categories'];
-			$("<img class ='board' src='"+burl+"/images/SchoolGuide/board.png'>").appendTo("#leftlist").data('place_id', id);
+			//$("<img class ='board' src='"+burl+"/images/SchoolGuide/board.png'>").appendTo("#leftlist").data('place_id', id);
 			$("<li class='left_item'>"+name+"</li>").appendTo("#leftlist").data('place_id', id);
 
 			if(category==1){
@@ -204,15 +204,7 @@ $(document).ready(function(){
 		.mouseleave(function(){
 		$(this).css({"z-index":"2"});
 	});
-	$(".board").mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/board-p.png");
-		})
-		.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/board.png");
-	});
-	$(".left_item").mouseover(function(){
-		$(this).css({"cursor":"pointer"});
-	});
+
     //=============================================================================
 	$("#Zhidao")
 	.mouseenter(function(){
