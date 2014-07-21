@@ -18,4 +18,13 @@ class AdminController extends BaseController {
 
 		return Response::json($data);
 	}
+
+	public function runGitPull(){
+		SSH::run(array(
+			'cd '.base_path(),
+			'sudo git pill',
+		));
+
+		return Redirect::route('dashboard')->with('alert-message', 'Done run git pull on '.base_path());
+	}
 }
