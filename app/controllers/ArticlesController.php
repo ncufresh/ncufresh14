@@ -2,9 +2,6 @@
 
 class ArticlesController extends BaseController{
 
-	public $restful = true;
-
-
 	public function getArticles($item = 'forum'){
 		
 		$siteMap = App::make('SiteMap');
@@ -29,16 +26,17 @@ class ArticlesController extends BaseController{
 	}
 
 	public function getDepartmentArticles(){
-		$departmentArticles = Forum::where('article_type','D')->orderBy('created_at','desc')->paginate();
+		$departmentArticles = Forum::where('article_type','D')->with('user')->orderBy('created_at','desc')->paginate();
 		return Response::json($departmentArticles);
 	}
 
 	public function getClubArticles(){
-		$departmentArticles = Forum::where('article_type','C')->orderBy('created_at','desc')->paginate();
+		$departmentArticles = Forum::where('article_type','C')->with('user')->orderBy('created_at','desc')->paginate();
 		return Response::json($departmentArticles);
 	}
 
 	public function postArticles(){
+		//login type?
 		$input = Input::all();
 		$rules = array(
 			'title' => 'required',
@@ -52,15 +50,24 @@ class ArticlesController extends BaseController{
 			
 			return Response::json($response);
 		}else{
-			Forum::create(array(
-				'title' => Input::get('title'),
-				'author_id' => Input::get('id'),
-				'article_type' => Input::get('article_type'),
-				'content' => Input::get('content'),
-				'comment_number' => 0
-			));
+			$forum = new Forum;
+			$forum->title = Input::get('title');
+			$forum->author_id = Auth::user()->id;
+			$forum->article_type = Input::get('article_type');		//check
+			$forum->content = Input::get('content');
+			$forum->comment_number = 0;
+			$forum->save();
+			// Forum::create(array(
+			// 	'title' => Input::get('title'),
+			// 	'author_id' => Auth::user()->id,
+			// 	'article_type' => Input::get('article_type'),
+			// 	'content' => Input::get('content'),
+			// 	'comment_number' => 0
+			// ));
 
-			$articleId = Forum::where('author_id',Input::get('id'))->orderBy('created_at','desc')->firstOrFail()->id;	
+			// $articleId = Forum::where('author_id',Input::get('id'))->with('user')->orderBy('created_at','desc')->firstOrFail()->id;	
+
+			$articleId = $forum->id;
 
 			$response = array('status' => 'success','msg' => 'successfully','articleId' => $articleId);
 	
@@ -72,7 +79,7 @@ class ArticlesController extends BaseController{
 	public function postComment(){
 			
 		$comment = Input::get('comment');
-		$author_id = Input::get('author_id');
+		$author_id = Auth::user()->id;
 		$article_id = Input::get('article_id');
 		
 		ForumComment::create(array(
@@ -96,30 +103,30 @@ class ArticlesController extends BaseController{
 	public function getComment(){
 		$id = Input::get('articleID');
 
-		$comments = ForumComment::where('article_id',$id)->paginate();
+		$comments = ForumComment::where('article_id',$id)->with('user')->paginate();
 
 		return Response::json($comments);
 	}
 	public function newArticles(){
 		
-		$postArticles = Forum::where('article_type','P')->orderBy('created_at','desc')->paginate();
+		$postArticles = Forum::where('article_type','P')->with('user')->orderBy('created_at','desc')->paginate();
 		return Response::json($postArticles);
 	}
 	public function popArticles(){
 		
-		$postArticles = Forum::where('article_type','P')->orderBy('comment_number','desc')->paginate();
+		$postArticles = Forum::where('article_type','P')->with('user')->orderBy('comment_number','desc')->paginate();
 
 		return Response::json($postArticles);
 	}
 	public function deleteArticle(){
 		
-		$id = Input::get('id');
+		$id = Input::get('id');	//whos?
 
-		$comments = Forum::find($id);
-		$num = $comments->comment->count();
+		$article = Forum::find($id);
+		$num = $article->comment->count();
 		if($num > 0 || true){
 			//Forum::find($id)->comment->delete();
-			foreach($comments->comment as $comment){
+			foreach($article->comment as $comment){
 				$comment->delete();
 			}
 		}
@@ -132,7 +139,7 @@ class ArticlesController extends BaseController{
 
 	public function updateArticle(){
 		
-		$id = Input::get('id');
+		$id = Input::get('id');		//whos?
 		$content = Input::get('content');
 		
 
@@ -156,7 +163,7 @@ class ArticlesController extends BaseController{
 		$comments = $article->comment;
 
 		return View::make('forum/perArticle',array('article'=>$article,'comments' => $comments));
-
+		//null
 	}
 
 

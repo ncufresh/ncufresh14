@@ -48,7 +48,7 @@ $(function(){
 		success:function(data){
 			for(i=0;i<data['data'].length;i++){
 				showArticles(
-					data['data'][i]['author_id'],
+					data['data'][i]['user']['name'],
 					data['data'][i]['created_at'],
 					data['data'][i]['id'],
 					data['data'][i]['title'],
@@ -105,7 +105,6 @@ $(function(){
 			$(".commentForm").submit(function(e){
 				e.preventDefault();
 				var content = $(this).find("#inputContent").val();
-				var commenterID = userId;
 				var articleID = $(this).find(".articleID").attr("id");
 				var target = $(this);
 				$.ajax({
@@ -113,7 +112,6 @@ $(function(){
 					url : createCommentUrl,
 					data : { 
 						"comment" : content ,
-						"author_id" : commenterID ,
 						"article_id" : articleID
 					},
 					success : function(data){
@@ -263,7 +261,6 @@ $(function(){
 					$(".commentForm").submit(function(e){
 						e.preventDefault();
 						var content = $(this).find("#inputContent").val();
-						var commenterID = userId;
 						var articleID = $(this).parent().parent().attr("id");
 						var target = $(this);
 						$.ajax({
@@ -271,7 +268,6 @@ $(function(){
 							url : createCommentUrl,
 							data : { 
 								"comment" : content ,
-								"author_id" : commenterID ,
 								"article_id" : articleID
 							},
 							success : function(data){
@@ -316,7 +312,7 @@ $(function(){
 									"id":articleId
 								},
 								success:function(){
-									delBtnparent().parent().parent().remove();
+									delBtn.parent().parent().parent().remove();
 								},
 								error:function(){
 									alert("Ajax error");
@@ -410,7 +406,6 @@ $(function(){
 					$(".commentForm").submit(function(e){
 						e.preventDefault();
 						var content = $(this).find("#inputContent").val();
-						var commenterID = userId;
 						var articleID = $(this).parent().parent().attr("id");
 						var target = $(this);
 						$.ajax({
@@ -418,7 +413,6 @@ $(function(){
 							url : createCommentUrl,
 							data : { 
 								"comment" : content ,
-								"author_id" : commenterID ,
 								"article_id" : articleID
 							},
 							success : function(data){
@@ -517,7 +511,7 @@ $(function(){
 				$("#Test1 .postTimeContainer").remove();
 				for(i=0;i<data['data'].length;i++){
 					showArticles(
-						data['data'][i]['author_id'],
+						data['data'][i]['user']['name'],
 						data['data'][i]['created_at'],
 						data['data'][i]['id'],
 						data['data'][i]['title'],
@@ -561,7 +555,6 @@ $(function(){
 				$(".commentForm").submit(function(e){
 					e.preventDefault();
 					var content = $(this).find("#inputContent").val();
-					var commenterID = userId;
 					var articleID = $(this).parent().parent().attr("id");
 					var target = $(this);
 					$.ajax({
@@ -569,7 +562,6 @@ $(function(){
 						url : createCommentUrl,
 						data : { 
 							"comment" : content ,
-							"author_id" : commenterID ,
 							"article_id" : articleID
 						},
 						success : function(data){
@@ -658,7 +650,7 @@ $(function(){
 				for(i=0;i<data['data'].length;i++){
 					
 					showArticles(
-						data['data'][i]['author_id'],
+						data['data'][i]['user']['name'],
 						data['data'][i]['created_at'],
 						data['data'][i]['id'],
 						data['data'][i]['title'],
@@ -702,7 +694,6 @@ $(function(){
 				$(".commentForm").submit(function(e){
 					e.preventDefault();
 					var content = $(this).find("#inputContent").val();
-					var commenterID = userId;
 					var articleID = $(this).find(".articleID").attr("id");
 					var target = $(this);
 					$.ajax({
@@ -710,7 +701,6 @@ $(function(){
 						url : createCommentUrl,
 						data : { 
 							"comment" : content ,
-							"author_id" : commenterID ,
 							"article_id" : articleID
 						},
 						success : function(data){
@@ -865,7 +855,6 @@ $(function(){
 					$(".commentForm").submit(function(e){
 						e.preventDefault();
 						var content = $(this).find("#inputContent").val();
-						var commenterID = userId;
 						var articleID = $(this).parent().parent().attr("id");
 						var target = $(this);
 						$.ajax({
@@ -873,7 +862,6 @@ $(function(){
 							url : createCommentUrl,
 							data : { 
 								"comment" : content ,
-								"author_id" : commenterID ,
 								"article_id" : articleID
 							},
 							success : function(data){
@@ -997,7 +985,6 @@ function showArticles(author,createdAt,articleId,title,content,target){
 				<form class='commentForm' route='createComment'>\
 					<label>回覆貼文</label>\
 					<input type='submit' class='btn btn-primary createComment' value='發表回覆'>\
-					<input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'>\
 					<input type='hidden' name='articleID' id='"+articleId+"' class='articleID'>\
 					<input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'>\
 				</form>\
@@ -1034,7 +1021,6 @@ function insertArticle(author,currentTime,articleId,title,content,target){
 				<form class='commentForm' route='createComment'>\
 					<label>回覆貼文</label>\
 					<input type='submit' class='btn btn-primary createComment' value='發表回覆'>\
-					<input type='text' name='commenterID' class='form-control commenterID' placeholder='Your ID' id='commenterID'>\
 					<input type='hidden' name='articleID' id='"+articleId+"' class='articleID'>\
 					<input type='textarea' name='comment' class='form-control commentTextArea' id='inputContent'>\
 				</form>\

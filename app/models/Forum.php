@@ -9,6 +9,8 @@ class Forum extends Eloquent{
 		return $this->hasMany('ForumComment','article_id','id');
 	}
 
-}
+	public function user(){
+		return $this->hasOne('User','id','author_id');
+	}
 
-?>
+}
