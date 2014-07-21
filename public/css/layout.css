@@ -74,8 +74,14 @@ body {
 
 #topContainer{
 	width: 100%;
-	height: 285px;
-	margin-top: 55px;
+	height: 286px;
+	margin: 20px auto;
+}
+
+#topContent {
+	width: 100%;
+	height: 100%;
+	position: relative;
 }
 
 #topLeft{
@@ -98,15 +104,15 @@ body {
 }
 
 #topLogo{
-	position: relative;
+	position: absolute;
 	width: 286px;
 	height: 286px;
-	top: -20px;
-	left: 1px;
-	background-image: url("../images/layout/logo.png");
+	/*top: -20px;
+	left: 1px;*/
+	background: url("../images/layout/logo.png") no-repeat;
 	background-size: 100%;
-	background-repeat:no-repeat;
 	border-radius: 50%;
+	float: left;
 }
 
 #topSearchBar{
@@ -195,7 +201,39 @@ body {
 
 #topBackground {
 	background: url("../images/layout/topback.png") no-repeat;
-	background-size: 100%
+	background-size: 100%;
+	width: 788px;
+	height: 250px;
+	position: absolute;
+	top: 18px;
+	left: 236px;
+}
+
+#topUserButton {
+	width: 102px;
+	height: 120px;
+	position: absolute;
+	top: 44px;
+	left: 44px;
+}
+
+#auth_person {
+	width: 102px;
+	height: 120px;
+	position: absolute;
+	top: 54px;
+	left: 44px;
+}
+
+#auth_name {
+	top: 170px;
+	position: absolute;
+	left: 67px;
+	text-align: center;
+	font-family: "微軟正黑體", "Microsoft JhengHei";
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
 }
 
 #bottomContainer{
@@ -210,6 +248,8 @@ body {
 #auth_box {
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
+	position: relative;
 }
 
 #auth_logined {
@@ -350,13 +390,20 @@ body {
 	opacity: 0;
 }
 
+#topRobotContent {
+	width: 790px;
+	left: 234px;
+	position: relative;
+	margin-top: -48px;
+}
+
 #topRobot {
 	background: url("../images/layout/robot/1.png") no-repeat;
 	position: absolute;
 	width: 41px;
 	height: 95px;
-	top: 244px;
-	left: 700px;
+	top: 0px;
+	left: 0px;
 }
 
 /*#jump-window{*/

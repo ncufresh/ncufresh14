@@ -60,7 +60,7 @@ $(function(){
 				$.alertMessage('帳號或密碼錯誤', {type: 'alert-danger'});
 			}else if(data['id'] != undefined){
 				$.alertMessage(data['name'] + ' 歡迎回來!');
-				setTimeout(function(){location.reload();}, 4000);
+				setTimeout(function(){location.reload();}, 2500);
 			}else{
 				$.alertMessage('帳號或密碼錯誤', 'alert-error');
 			}

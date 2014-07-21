@@ -73,4 +73,11 @@ class HomeController extends BaseController {
 		return View::make('admin.index', array('function' => $function));
 	}
 
+	public function psersonImage($id) {
+		if ( File::exists(public_path() . '/img/person/' . $id . '.png') ) {
+			$data = File::get(public_path() . '/img/person/' . $id . '.png');
+		}
+		$data = File::get(public_path() . '/img/person/0.png');
+		return Response::make($data, 200, array('Content-Type' => 'image/png'));
+	}
 }
