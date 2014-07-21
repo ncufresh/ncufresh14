@@ -268,7 +268,7 @@ $(document).ready(function(){
 			editStatus(parseInt(power)-1,parseInt(score)+parseInt(recentScore));
 			$('#content').hide();
 			$('#endScreen').show();
-			ajaxPost(getTransferData('renew-value-url'),{score:score},'');
+			ajaxPost(getTransferData('renew-value-url'),{score:score,mode:mode},'');
 
 			for(var i=0; i<blocknum; i++)
 				for(var j=0; j<blocknum; j++)
@@ -688,4 +688,70 @@ $(document).ready(function(){
 
 		$('#score').text("Total Score :   "+score);
 	} 
+
+	// function getHighScore(difficult, mode){
+	// 	ajaxPost(getTransferData('get-highscore-url'),{difficult: difficult, mode: mode}, order);
+	// }
+	
+	$('#rankButton').click(function(){
+		$('#endScreen').hide();
+		$('#rankBack').show();
+		$('#ranking').empty();
+		getHighScore(1);
+	});
+
+	$('.rM1').click(function(){
+		$('#ranking').empty();
+		getHighScore(1);
+	});
+	$('.rM2').click(function(){
+		$('#ranking').empty();
+		getHighScore(2);
+	});
+	$('.rM3').click(function(){
+		$('#ranking').empty();
+		getHighScore(3);
+	});
+	$('#cross').click(function(){
+		$('#rankBack').hide();
+		$('#endScreen').show();
+	});
+
+	
+	function getHighScore(mode)
+	{
+		$('.spin').spin('show');
+		ajaxGet(getTransferData('get-highscore-url'),{mode: mode}, order);
+		//$('.spin').spin('hide');
+	}
+
+	function order(data)
+	{
+		$('.spin').spin('hide');
+		var top = $('<div class="top row"></div>');
+		var left = $('<div class="left col-sm-6"></div>').appendTo(top);
+		var right = $('<div class="right col-sm-6"></div>').appendTo(top);
+
+		var title = $('<div class="title row"><div class="col-sm-3">排名</div><div class="col-sm-4">玩家</div><div class="col-sm-5">分數</div></div>');
+		title.appendTo(left);
+		title = $('<div class="title row"><div class="col-sm-3">排名</div><div class="col-sm-4">玩家</div><div class="col-sm-5">分數</div></div>');
+		title.appendTo(right);
+
+		for(index in data)
+		{
+			var row = $('<div class="row"></div>');
+			$('<div class="col-sm-3">第'+(parseInt(index)+1)+'名</div>').appendTo(row);
+			$('<div class="col-sm-4">'+data[index]['user']['name']+'</div>').appendTo(row);
+			$('<div class="col-sm-5">'+ data[index]['highscore'] +'</div>').appendTo(row);
+			if(index < 15)
+			{
+				row.appendTo(left);
+			}
+			else
+			{
+				row.appendTo(right);
+			}
+		}
+		top.appendTo('#ranking');
+	}
 });

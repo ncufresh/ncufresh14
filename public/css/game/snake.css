@@ -79,6 +79,7 @@
 	background-image: url("../../images/gameSnake/introduction.png");
 	display: none;
 }
+
 /*/////////////////////////////content/////////////////////////////////////////*/
 #content {	
 	width: 935px;
@@ -132,7 +133,6 @@ margin-left: -9px; }
 #brokenBody { position: absolute; }
 #brokenHead { position: absolute; }
 
-
 /*/////////////////////////////endScreen/////////////////////////////////////////*/
 #endScreen {
 	width: 935px;
@@ -151,5 +151,80 @@ margin-left: -9px; }
 }
 #again {
 	margin-top: 340px;
+	left: 12%;
+	float: left;
 	position: relative;
+}
+
+/*/////////////ranking//////////////////////*/
+#rankButton {
+	margin-top: 340px;
+	left: 23%;
+	float: left;
+	position: relative;
+}
+#rankBack {
+	width: 935px;
+	height: 617px;
+	margin: center;
+	text-align: center;
+	font-size: 25px;
+	font-family: "微軟正黑體";
+	background: #FF2C6C;
+	display: none;
+}
+.spin
+{
+	top: 400px;
+	left: 415px;
+	position: absolute;
+ 	background: white; /* outline */
+ 	z-index: 10;
+  	> *
+  	{
+  		background: #EEE; /* hand */
+ 	}
+}
+#cross {
+	top: 130px;
+	left: 930px;
+	float: right;
+	position: absolute;
+}
+.rankMode {
+	width: 95%;
+	height: 10%;
+	top: 110px;
+	margin: 0 auto;
+	background: white;
+	position: relative;
+}
+.rM1 {
+	height: 100%;
+	float:left;
+	background: url("../../images/gameSnake/m1.png") no-repeat;
+} 
+.rM2 {
+	height: 100%;
+	float:left;
+	background: url("../../images/gameSnake/m2.png") no-repeat;
+} 
+.rM3 {
+	height: 100%;
+	float:left;
+	background: url("../../images/gameSnake/m3.png") no-repeat;
+}
+#ranking {
+	width: 95%;
+	height: 70%;
+	top: 110px;
+	margin: 0 auto;
+	background: #BBFFEE;
+	position: relative;
+}
+.left {
+	border-right: 1px black solid;
+}
+.title {
+	border-bottom: 2px black solid;
 }

@@ -12,10 +12,11 @@ class GamePowerController extends BaseController
 		return View::make('game.power', array('user' => $user, 'name' => $name));
 	}
 
-	public function getDayQuest() 
+	public function getDayQuest()
 	{
 		$day = \Carbon\Carbon::now() -> dayOfWeek;
 		$dayQuest = GamePower::where('day', '=', $day)->get();
+		//dd($dayQuest);
 		return Response::json($dayQuest);
 	}
 
@@ -32,7 +33,7 @@ class GamePowerController extends BaseController
 		$user->power = $power;
 		$user->max_power = $max;
 		$user->save();
-	} 
+	}
 }
 
 ?>
