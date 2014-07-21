@@ -35,6 +35,14 @@
 		</script>
 
 		@yield('js_css')
+
+		@if(Session::has('alert-message'))
+			<script>
+				$(function(){
+					$.alertMessage('{{ Session::get('alert-message') }}');
+				});
+			</script>
+		@endif
 	</head>
 	<body data-user_id="@if(Auth::check()){{Auth::user()->id}}@else0@endif">
 		{{-- Transfer Data Section --}}
