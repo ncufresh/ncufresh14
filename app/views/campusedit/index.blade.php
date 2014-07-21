@@ -18,10 +18,10 @@
 				<td>{{ $campusedit->question }}</td>
 				<td>{{ $campusedit->type }}</td>
 				<td>{{ $campusedit->answer_id }}</td>
-				<td><a href="{{ route('campusedit.show', array('id' => $campusedit->id)) }}">修改</a></td>
+				<td><a href="{{ route('admin.campusedit.show', array('id' => $campusedit->id)) }}">修改</a></td>
 			</tr>
 		@endforeach
-			<tr>&nbsp&nbsp<a href="{{ route('campusedit.create') }}">新增</a></tr>
+			<tr>&nbsp&nbsp<a href="{{ route('admin.campusedit.create') }}">新增</a></tr>
 	</tbody>
 </table>
 @stop

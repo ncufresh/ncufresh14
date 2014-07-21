@@ -24,7 +24,7 @@ class GamePowerEditController extends BaseController
 
 		$validator = Validator::make(Input::all(), $rules);
 		if($validator->fails())
-			return Redirect::route('poweredit.create')->withErrors($validator)->withInput();
+			return Redirect::route('admin.poweredit.create')->withErrors($validator)->withInput();
 		else
 		{
 			$poweredit = new GamePower;
@@ -37,7 +37,7 @@ class GamePowerEditController extends BaseController
 			$poweredit->answer = Input::get('answer');
 			$poweredit->day = Input::get('day');
 			$poweredit->save();
-			return Redirect::route('poweredit.show', array('id' => $poweredit->id));
+			return Redirect::route('admin.poweredit.show', array('id' => $poweredit->id));
 		}
 	}
 
@@ -65,7 +65,7 @@ class GamePowerEditController extends BaseController
 
 		$validator = Validator::make(Input::all(), $rules);
 		if($validator->fails())
-			return Redirect::route('poweredit.edit')->withErrors($validator)->withInput();
+			return Redirect::route('admin.poweredit.edit')->withErrors($validator)->withInput();
 		else
 		{
 			$poweredit = GamePower::find($id);
@@ -78,12 +78,12 @@ class GamePowerEditController extends BaseController
 			$poweredit->answer = Input::get('answer');
 			$poweredit->day = Input::get('day');
 			$poweredit->save();
-			return Redirect::route('poweredit.show', array('id' => $poweredit->id));
+			return Redirect::route('admin.poweredit.show', array('id' => $poweredit->id));
 		}
 	}
 
 	public function destroy($id){
 		GamePower::destroy($id);
-		return Redirect::route('poweredit.index');
+		return Redirect::route('admin.poweredit.index');
 	}
 }

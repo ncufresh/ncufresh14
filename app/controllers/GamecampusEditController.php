@@ -19,7 +19,7 @@ class GamecampusEditController extends BaseController
 
 		$validator = Validator::make(Input::all(), $rules);
 		if($validator->fails())
-			return Redirect::route('campusedit.create')->withErrors($validator)->withInput();
+			return Redirect::route('admin.campusedit.create')->withErrors($validator)->withInput();
 		else
 		{
 			$campusedit = new GameCampus;
@@ -27,7 +27,7 @@ class GamecampusEditController extends BaseController
 			$campusedit->type = Input::get('type');
 			$campusedit->answer_id = Input::get('answer_id');
 			$campusedit->save();
-			return Redirect::route('campusedit.show', array('id' => $campusedit->id));
+			return Redirect::route('admin.campusedit.show', array('id' => $campusedit->id));
 		}
 	}
 
@@ -50,7 +50,7 @@ class GamecampusEditController extends BaseController
 
 		$validator = Validator::make(Input::all(), $rules);
 		if($validator->fails())
-			return Redirect::route('campusedit.edit')->withErrors($validator)->withInput();
+			return Redirect::route('admin.campusedit.edit')->withErrors($validator)->withInput();
 		else
 		{
 			$campusedit = GameCampus::find($id);
@@ -58,12 +58,12 @@ class GamecampusEditController extends BaseController
 			$campusedit->type = Input::get('type');
 			$campusedit->answer_id = Input::get('answer_id');
 			$campusedit->save();
-			return Redirect::route('campusedit.show', array('id' => $campusedit->id));
+			return Redirect::route('admin.campusedit.show', array('id' => $campusedit->id));
 		}
 	}
 
 	public function destroy($id){
 		GameCampus::destroy($id);
-		return Redirect::route('campusedit.index');
+		return Redirect::route('admin.campusedit.index');
 	}
 }

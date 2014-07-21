@@ -9,10 +9,10 @@
 	@endif
 
 	<div align="center">
-		<button type="submit" ><a href="{{ route('campusedit.edit', array('id' => $campusedit->id)) }}">修改</a></button>
+		<button type="submit" ><a href="{{ route('admin.campusedit.edit', array('id' => $campusedit->id)) }}">修改</a></button>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		<button type="submit" ><a href="{{ route('campusedit.index') }}">返回</a></button>
-		{{ Form::open(array('route' => array('campusedit.destroy', $campusedit->id), 'method' => 'delete')) }}
+		<button type="submit" ><a href="{{ route('admin.campusedit.index') }}">返回</a></button>
+		{{ Form::open(array('route' => array('admin.campusedit.destroy', $campusedit->id), 'method' => 'delete')) }}
 			<button type="submit" >刪除</button>
 		{{ Form::close() }}
 	</div>

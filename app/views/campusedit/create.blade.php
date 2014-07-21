@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-	{{ Form::open(array('route' => 'campusedit.store')) }}
+	{{ Form::open(array('route' => 'admin.campusedit.store')) }}
 	{{ Form::label('question', '題目') }}
 	{{ Form::text('question')}}
 	{{ Form::label('type', '類型') }}
@@ -10,9 +10,5 @@
 	{{ Form::text('answer_id')}}
 	{{ Form::submit('送出') }}
 	{{ Form::close() }}
-
-	<script>
-		CKEDITOR.replace('content', {filebrowserImageUploadUrl : '{{ route("imageUpload") }}'});
-	</script>
 
 @stop
