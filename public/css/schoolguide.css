@@ -20,10 +20,7 @@
     top: 22px;
     z-index:3;
 }
-li{
-    list-style-type: none;
-    
-}
+
 
 .introduction{
 	display:none;
@@ -95,12 +92,34 @@ html, body {
 
 }
 .left_item{
+    cursor: pointer;
+    list-style-type: none;
+    background-image:url('images/board.png') ;
     position: relative;
-    left: -17px;
+    left: -21px;
     top: 62px;
     z-index: 10;
-    width: 135px;
-    padding: 0px;
+    width: 138px;
+    height: 80px;
+    padding: 28px;
+    text-align: center;
+    font-family: "微軟正黑體";
+    color: white;
+    font-weight: 900;
+    text-shadow:3px 3px 3px #383838 ;
+}
+
+.left_item:hover{
+    cursor: pointer;
+    list-style-type: none;
+    background-image:url('images/board-p.png') ;
+    position: relative;
+    left: -21px;
+    top: 62px;
+    z-index: 10;
+    width: 138px;
+    height: 80px;
+    padding: 28px;
     text-align: center;
     font-family: "微軟正黑體";
     color: white;

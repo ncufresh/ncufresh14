@@ -2,6 +2,7 @@
 $(document).ready(function(){
 
 	var burl = getTransferData('burl');
+	var change = 1;
 	$(".menu").hide();
 	$(".close").hide();
 	$(".m_intro").hide();
@@ -13,7 +14,7 @@ $(document).ready(function(){
 	$("#photo").hide();
 
 	$("#morecontent").click(function(){
-
+		if(change==1){
 		$("#page1").animate({
 			width:'50px',
 			marginLeft:'32px',
@@ -31,12 +32,13 @@ $(document).ready(function(){
 	 $("#page2").css({"visibility":"visible"});
 	 $(".items").show(1000);
 	 $("#morecontent").hide(1);
+	}
 
 	});
 
 	$("#photo").click(function(){
 		
-		
+		if(change==1){
 		$("#page2").animate({
 			width:'5%',
 			marginLeft:'918px',
@@ -52,7 +54,7 @@ $(document).ready(function(){
 		$("#photo").hide(1);
 		$("#page1").css({"visibility":"visible"});
 		$(".items").hide(1);
-		
+	}
 	});
 
 	$(".items").click(function(){
@@ -60,9 +62,10 @@ $(document).ready(function(){
 	});
 
 	$(".close").click(function(){
-		$(".menu").hide();
+		change=1;
+		$(".menu").hide("slow");
 		$(this).hide();
-		$(".items").show();
+		$(".items").show("slow");
 		$(".m_intro").hide();
 		$(".m_photo").hide();
 		$("#carousel-example-generic").hide();
@@ -96,27 +99,29 @@ $(document).ready(function(){
 	function OpenModal(data){
 		var introduction = data['introduction'];
 		var teamphoto = data['teamphoto'];
-		
+			change=0;
 			$(".items").hide(1);
-			$(".close").show(1);
+			$(".close").show("slow");
 		if(data['id']!=6){
 			if(data['id']==1){
-			 $("#operate_menu").show(1);
+			 $("#operate_menu").show("slow");
 			}else if(data['id']==2){
-				$("#code_menu").show(1);
+				$("#code_menu").show("slow");
 			}else if(data['id']==3){
-				$("#draw_menu").show(1);
+				$("#draw_menu").show("slow");
 			}else if(data['id']==4){
-				$("#project_menu").show(1);
+				$("#project_menu").show("slow");
 			}else if(data['id']==5){
-				$("#movie_menu").show(1);
+				$("#movie_menu").show("slow");
 			}
-			$(".m_intro").show();
-			$(".m_photo").show();
+			$("<span>"+teamphoto+"</span>").appendTo(".m_photo");
+			$("<span>"+introduction+"</span>").appendTo(".m_intro");
+			$(".m_intro").show("slow");
+			$(".m_photo").show("slow");
 		}else{
-				$("#back_menu").show(1);
-				$("#carousel-example-generic").show();
-				$("#scroll").show();
+				$("#back_menu").show("slow");
+				$("#carousel-example-generic").show("slow");
+				$("#scroll").show("slow");
 			}
 	}
 	

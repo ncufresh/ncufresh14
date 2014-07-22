@@ -227,12 +227,13 @@ body {
 #auth_name {
 	top: 170px;
 	position: absolute;
-	left: 67px;
+	left: 57px;
 	text-align: center;
 	font-family: "微軟正黑體", "Microsoft JhengHei";
 	font-size: 20px;
 	color: white;
 	font-weight: bold;
+	width: 79px;
 }
 
 #bottomContainer{
@@ -405,6 +406,45 @@ body {
 	top: 0px;
 	left: 0px;
 }
+
+#freshButton {
+	background: url("../images/layout/freshButton.png") no-repeat;
+	position: absolute;
+	width: 106px;
+	height: 171px;
+	top: 230px;
+	left: 0px;
+}
+
+#freshButton:hover {
+	background: url("../images/layout/freshButtonClick.png") no-repeat;
+	position: absolute;
+	width: 106px;
+	height: 171px;
+	top: 230px;
+	left: 0px;
+}
+/*#jump-window{*/
+	/*position: absolute;*/
+	/*width: 100%;*/
+	/*height: 100%;*/
+	/*background-color: rgba(0, 0, 0, 0.4);*/
+	/*z-index: 90;*/
+/*}*/
+
+/*#jump-window>.container{*/
+	/*max-width: 1024px;*/
+	/*min-height: 50%;*/
+	/*min-width: 80%;*/
+	/*height: auto;*/
+	/*background-color: green;*/
+/*}*/
+
+/*#jump-top{*/
+	/*width: 100%;*/
+	/*height: 50px;*/
+	/*background-color: blue;*/
+/*}*/
 
 body{
 	height: 100%;

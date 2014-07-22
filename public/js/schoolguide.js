@@ -11,16 +11,6 @@ $(document).ready(function(){
 	// 		'food' => '4',
 	// 		'dorm' => '5',
 	// 		'exercise'=>'6'
-
-		
-
-	$(".departments").show();
-	$(".school").hide();
-	$(".scence").hide();
-	$(".dorm").hide();
-	$(".eat").hide();
-	$(".exercise").hide();
-
 	$("#select").change(changeLeft);
 	$(".pointer").click(function(){
 		clickImg($(this).data('id'));
@@ -36,6 +26,49 @@ $(document).ready(function(){
 		$("#select").val(getTransferData('select'));
 	}
 
+	if($("#select").val()==1){
+				$(".departments").show();
+				$(".school").hide();
+				$(".scence").hide();
+				$(".dorm").hide();
+				$(".eat").hide();
+				$(".exercise").hide();
+			}else if($("#select").val()==2){
+				$(".school").show();
+				$(".dorm").hide();
+				$(".departments").hide();
+				$(".scence").hide();
+				$(".eat").hide();
+				$(".exercise").hide();
+			}else if($("#select").val()==3){
+				$(".scence").show();
+				$(".departments").hide();
+				$(".dorm").hide();
+				$(".school").hide();
+				$(".eat").hide();
+				$(".exercise").hide();
+			}else if($("#select").val()==4){
+				$(".exercise").show();
+				$(".dorm").hide();
+				$(".school").hide();
+				$(".departments").hide();
+				$(".scence").hide();
+				$(".eat").hide();
+			}else if($("#select").val()==5){
+				$(".eat").show();
+				$(".dorm").hide();
+				$(".school").hide();
+				$(".departments").hide();
+				$(".scence").hide();
+				$(".exercise").hide();
+			}else if ($("#select").val()==6){
+				$(".dorm").show();
+				$(".school").hide();
+				$(".departments").hide();
+				$(".scence").hide();
+				$(".eat").hide();
+				$(".exercise").hide();
+			}
 	function changeSelect($item){
 	
 		 // location.replace(burl+"/SchoolGuide/"+$item);
@@ -67,13 +100,12 @@ $(document).ready(function(){
 
 		$('#siteMapContainer').children().last().remove();
 		$.pushLocation(changeChinese[data[0]['categories']], '/SchoolGuide/'+change[data[0]['categories']]);
-		
 
 		for(var i=0; i<count; i++){
 			var name =data[i]['name'];
 			var id=data[i]['id'];
 			var category = data[i]['categories'];
-			$("<img class ='board' src='"+burl+"/images/SchoolGuide/board.png'>").appendTo("#leftlist").data('place_id', id);
+			//$("<img class ='board' src='"+burl+"/images/SchoolGuide/board.png'>").appendTo("#leftlist").data('place_id', id);
 			$("<li class='left_item'>"+name+"</li>").appendTo("#leftlist").data('place_id', id);
 
 			if(category==1){
@@ -172,15 +204,7 @@ $(document).ready(function(){
 		.mouseleave(function(){
 		$(this).css({"z-index":"2"});
 	});
-	$(".board").mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/board-p.png");
-		})
-		.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/board.png");
-	});
-	$(".left_item").mouseover(function(){
-		$(this).css({"cursor":"pointer"});
-	});
+
     //=============================================================================
 	$("#Zhidao")
 	.mouseenter(function(){
