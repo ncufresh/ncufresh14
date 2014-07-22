@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 	$('#introduction').click(function() {
 		$('.intro').removeClass('introClick');
-			$('#introduction').hide();
+		$('#introduction').hide();
 	});
 
 	var difficult=0, mode=0;
@@ -34,6 +34,8 @@ $(document).ready(function(){
 	ajaxPost(getTransferData('get-power-url'),'', getData);
 	$('#start').click(function() 
 	{
+		$('.intro').removeClass('introClick');
+		$('#introduction').hide();
 		if(power>0)
 		{
 			if(difficult!=0&&mode!=0&&done==true)
