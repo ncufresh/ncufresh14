@@ -85,6 +85,8 @@ class NcuLifeController extends BaseController
 			$data->place = Input::get('place');;
 			$data->introduction = Input::get('introduction');
 			$data->local_id = Input::get('local_id');
+			$data->top = Input::get('top');
+			$data->left = Input::get('left');
 			$data->save();
 			$picture = new NcuLifePicture;
 			if(Input::has('picture_id'))

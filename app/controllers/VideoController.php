@@ -12,7 +12,7 @@ class VideoController extends BaseController {
 		App::make('SiteMap')->pushLocation('影音專區', route('video'));
 
 
-		$data = Message::paginate(10);
+		$data = Message::orderBy('id', 'DESC')->paginate(10);
 
 		//$videoID = VideoLike::where('video_id','=','');
 		$video=Video::where('id','=','');
@@ -99,14 +99,6 @@ class VideoController extends BaseController {
 		
 		return ($jumiMessage->count());
 	}
-	
-	public function get_time(){// get the time of mesaage posted
-		$created_at = VideoMessage::where(Input::get('created_at'))->get();
-	}
-
-	public function get_portrait(){
-		//get user's portrait
-	}
 
 	public function post_index(){
 		$lines = substr_count( Input::get('video_text'), "\n" );
@@ -140,7 +132,8 @@ class VideoController extends BaseController {
 				$like->video_id = Input::get('video_id');
 				$like->save();
 			}else{
-				return Redirect::route('video') -> withErrors(['你已經投過了！']);////TODO******************
+				$gg['a'] = -1;
+				return Response::json($gg);
 			}
 			
 			$videoRating1 = Video::find(Input::get('video_id'))->getRating()->where('video_rate', '=', '0')->count();
