@@ -178,6 +178,7 @@ Route::group(array('before' => 'auth'), function(){
 //Forum articles
 Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@getArticles'));
 
+Route::get('articles/{item?}',array('as' => 'forum' , 'uses' => 'ArticlesController@getArticles'))->where('item', '(forum|department|club)');
 
 Route::post('/getComments',array('as' => 'getComments' , 'uses' => 'ArticlesController@getComment'));
 
@@ -185,7 +186,11 @@ Route::post('/orderNew',array('as' => 'orderNew' , 'uses' =>'ArticlesController@
 
 Route::post('/orderPop',array('as' => 'orderPop' , 'uses' => 'ArticlesController@popArticles'));
 
-#Route::post('/deleteArticle',array('as' => 'deleteArticle' , 'uses' => 'ArticlesController@deleteArticle'));
+Route::get('perArticle/{id?}',array('as' => 'perArticle' , 'uses' => 'ArticlesController@viewOneArticle'));
+
+Route::post('/getDepartment',array('as' => 'getDepartmentArticle' , 'uses' => 'ArticlesController@getDepartmentArticles'));
+
+Route::post('/getClub',array('as' => 'getClubArticle' , 'uses' => 'ArticlesController@getClubArticles'));
 
 // Need login
 Route::group(array('before' => 'auth'), function(){
@@ -246,6 +251,9 @@ Route::group(array('before' => 'auth'), function(){
 // Necessity
 Route::get('necessity',array('as' => 'necessity.necessity_index', 'uses' => 'necessityController@index'));
 
+Route::get('necessity/{item}',array('as' => 'necessity.necessity_indexItem', 'uses' => 'necessityController@indexItem'))->where('item','(research|freshman|download)');
+
+
 Route::get('download/{id}',array('as' => 'downloadReturn', 'uses' => 'necessityController@returnDownload'));
 
 	
@@ -297,16 +305,19 @@ Route::get('About_us',array('as'=>'about','uses'=>'AboutUsController@index'));
 
 Route::get('About_us/modal',array('as'=>'About.modal','uses'=>'AboutUsController@getModalId'));
 
-Route::post('About_us/sure', array('as' => 'About_us.sure', 'uses' => 'AboutUsController@sure') );
+Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){
 
-Route::post('About_us/add', array('as' => 'About_us.add', 'uses' => 'AboutUsController@add') );
+	Route::post('About_us/sure', array('as' => 'About_us.sure', 'uses' => 'AboutUsController@sure') );
 
-Route::post('About_us/delete', array('as' => 'About_us.delete', 'uses' => 'AboutUsController@delete') );
+	Route::post('About_us/add', array('as' => 'About_us.add', 'uses' => 'AboutUsController@add') );
 
-Route::get('About_us/list',array('as'=>'About_us.list','uses'=>'AboutUsController@showlist'));
+	Route::post('About_us/delete', array('as' => 'About_us.delete', 'uses' => 'AboutUsController@delete') );
 
-Route::get('About_us/edit/{id}',array('as'=>'About_us.edit','uses'=>'AboutUsController@toedit'));
+	Route::get('About_us/list',array('as'=>'About_us.list','uses'=>'AboutUsController@showlist'));
 
-Route::get('About_us/add',array('as'=>'About_us.add','uses'=>'AboutUsController@toadd'));
+	Route::get('About_us/edit/{id}',array('as'=>'About_us.edit','uses'=>'AboutUsController@toedit'));
 
-Route::get('About_us/toadd',array('as'=>'About_us.toadd','uses'=>'AboutUsController@toadd'));
+	Route::get('About_us/add',array('as'=>'About_us.add','uses'=>'AboutUsController@toadd'));
+
+	Route::get('About_us/toadd',array('as'=>'About_us.toadd','uses'=>'AboutUsController@toadd'));
+});
