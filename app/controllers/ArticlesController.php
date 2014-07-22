@@ -42,46 +42,36 @@ class ArticlesController extends BaseController{
 			
 			return Response::json($response);
 		}else{
-
-			if((Entrust::can('forum_usage') && $articleType == P) || 
-				(Entrust::can('forum_unit') && ($articleType == D || $articleType == C))){
-				$forum = new Forum;
 			
-			$forum->title = Input::get('title');
-			
-			$forum->author_id = Auth::user()->id;
-			
-			$forum->article_type = $articleType		
-			
-			$forum->content = Input::get('content');
-			
-			$forum->comment_number = 0;
-			
-			$forum->save();
+			if((Entrust::can('forum_usage') && $articleType == P) || (Entrust::can('forum_unit') && ($articleType == D || $articleType == C))){
 				
-			$articleId = $forum->id;
+				$forum = new Forum;
+				$forum->title = Input::get('title');
+				$forum->author_id = Auth::user()->id;
+				$forum->article_type = $articleType	;
+				$forum->content = Input::get('content');
+				$forum->comment_number = 0;
+				$forum->save();
+				
+				$articleId = $forum->id;
 
-			$articleTitle = $forum->title;
+				$articleTitle = $forum->title;
 
-			$articleContent = $forum->content;
+				$articleContent = $forum->content;
 
-			$articleTime = $forum->created_at;
+				$articleTime = $forum->created_at;
 
-			$articleAuthor = $forum->user->name;
+				$articleAuthor = $forum->user->name;
 
-			$response = array(
-				'articleId' => $articleId , 
-				'articleTitle' => $articleTitle,
-				'articleContent' => $articleContent,
-				'articleTime' => $articleTime,
-				'articleAuthor' => $articleAuthor
-			);
-	
-			return Response::json($response);
+				$response = array(
+					'articleId' => $articleId , 
+					'articleTitle' => $articleTitle,
+					'articleContent' => $articleContent,
+					'articleTime' => $articleTime,
+					'articleAuthor' => $articleAuthor
+				);
+				return Response::json($response);
 			}
-
-			
-
 		}
 	}
 
