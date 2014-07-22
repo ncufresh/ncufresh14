@@ -157,7 +157,7 @@ Route::group(array('before' => 'auth'), function(){
 	Route::get('game/power', array('as' => 'game.power', 'uses' => 'GamePowerController@index'));
 	Route::post('game/power/getDayQuest', array('as' => 'game.power.getDayQuest', 'uses' => 'GamePowerController@getDayQuest'));
 	Route::post('game/power/getRecentPower', array('as' => 'game.power.getRecentPower', 'uses' => 'GamePowerController@getRecentPower'));
-	Route::post('game/power/renewValue', array('as' => 'game.power.renewValue', 'uses' => 'GamePowerController@renewValue'));
+	Route::post('game/power/renewValue', array('as' => 'game.power.renewValue', 'uses' => 'GamePowerController@renewValue', 'before' => 'csrf'));
 
 	Route::group(array('prefix' => 'admin', 'before' => 'manage_editor'), function(){
 		Route::resource('poweredit', 'GamePowerEditController');
