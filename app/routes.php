@@ -176,21 +176,21 @@ Route::group(array('before' => 'auth'), function(){
 
 //==========================================================================================
 //Forum articles
-Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@getArticles'));
+Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@init'));
 
-Route::get('articles/{item?}',array('as' => 'forum' , 'uses' => 'ArticlesController@getArticles'))->where('item', '(forum|department|club)');
+Route::get('articles/{item?}',array('as' => 'forum' , 'uses' => 'ArticlesController@init'))->where('item', '(forum|department|club)');
 
 Route::post('/getComments',array('as' => 'getComments' , 'uses' => 'ArticlesController@getComment'));
 
-Route::post('/orderNew',array('as' => 'orderNew' , 'uses' =>'ArticlesController@newArticles'));
+Route::post('/orderNew',array('as' => 'orderNew' , 'uses' =>'ArticlesController@getArticles'));
 
-Route::post('/orderPop',array('as' => 'orderPop' , 'uses' => 'ArticlesController@popArticles'));
+Route::post('/orderPop',array('as' => 'orderPop' , 'uses' => 'ArticlesController@getArticles'));
 
 Route::get('perArticle/{id?}',array('as' => 'perArticle' , 'uses' => 'ArticlesController@viewOneArticle'));
 
-Route::post('/getDepartment',array('as' => 'getDepartmentArticle' , 'uses' => 'ArticlesController@getDepartmentArticles'));
+Route::post('/getDepartment',array('as' => 'getDepartmentArticle' , 'uses' => 'ArticlesController@getArticles'));
 
-Route::post('/getClub',array('as' => 'getClubArticle' , 'uses' => 'ArticlesController@getClubArticles'));
+Route::post('/getClub',array('as' => 'getClubArticle' , 'uses' => 'ArticlesController@getArticles'));
 
 // Need login
 Route::group(array('before' => 'auth'), function(){
