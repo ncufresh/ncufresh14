@@ -10,6 +10,7 @@ $(function($)
 	var setLocationTimer = $.timer(setLocation);
 	var location=  700;
 	var timer = $.timer(function() {
+		console.log(side + ' ' + speed);
 		if ( arrive && handup ) {
 			$('#topRobot').css({
 				background: 'url("' + bURL + '/images/layout/robot/5.png") no-repeat'
@@ -31,9 +32,11 @@ $(function($)
 				arrive = false;
 			}
 			if ( left < 0 ) {
+				left = 0;
 				side = 'right';
 			}
 			else if ( left > 750 ) {
+				left = 750;
 				side = 'left';
 			}
 			if ( location < left ) {
