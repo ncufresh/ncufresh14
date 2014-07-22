@@ -22,10 +22,10 @@
 	margin-top: 20px;
 }
 #difficulty1:hover {
-	background: url("../../images/gameSnake/dlClick.png") no-repeat;
+	background: url("../../images/gameSnake/d1Click.png") no-repeat;
 }
 .difficulty1Click {
-	background: url("../../images/gameSnake/dlClick.png") no-repeat;
+	background: url("../../images/gameSnake/d1Click.png") no-repeat;
 }
 #difficulty2 {
 	width: 254px;
@@ -70,10 +70,10 @@
 	margin-top: 20px;
 }
 #mode1:hover {
-	background: url("../../images/gameSnake/mlClick.png") no-repeat;
+	background: url("../../images/gameSnake/m1Click.png") no-repeat;
 }
 .mode1Click {
-	background: url("../../images/gameSnake/mlClick.png") no-repeat;
+	background: url("../../images/gameSnake/m1Click.png") no-repeat;
 }
 #mode2 {
 	width: 254px;
