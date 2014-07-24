@@ -32,7 +32,6 @@ class AboutUsController extends BaseController {
 			
 		    $user->categories= Input::get('categories');
 		    $user->teamphoto= Input::get('teamphoto');
-		    $user->introduction= Input::get('introduction');
 		    if(Input::get('categories')==1){
 		    	$user->categoryName = "執行組";
 		    }
@@ -81,7 +80,6 @@ class AboutUsController extends BaseController {
 		$data = AboutUs::where('id', '=', $id)->first();
 		$data->categories= Input::get('categories');
 		$data->teamphoto= Input::get('teamphoto');
-		$data->introduction= Input::get('introduction');
 		  if(Input::get('categories')==1){
 		    	$data->categoryName = "執行組";
 		    }

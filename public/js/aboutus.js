@@ -146,7 +146,6 @@ $(document).ready(function(){
 	}
 
 	function OpenModal(data){
-		var introduction = data['introduction'];
 		var teamphoto = data['teamphoto'];
 			change=0;
 			$(".items").hide(1);
