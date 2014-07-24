@@ -28,10 +28,10 @@
 				<td>{{ $poweredit->correctans }}</td>
 				<td>{{ $poweredit->answer }}</td>
 				<td>{{ $poweredit->day }}</td>
-				<td><a href="{{ route('poweredit.show', array('id' => $poweredit->id)) }}">改個</a></td>
+				<td><a href="{{ route('admin.poweredit.show', array('id' => $poweredit->id)) }}">改個</a></td>
 			</tr>
 		@endforeach
-			<tr><a href="{{ route('poweredit.create') }}">新增</a></tr>
+			<tr><a href="{{ route('admin.poweredit.create') }}">新增</a></tr>
 	</tbody>
 </table>
 @stop

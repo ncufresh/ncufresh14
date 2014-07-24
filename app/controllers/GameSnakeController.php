@@ -7,6 +7,7 @@ class GameSnakeController extends BaseController
 	{
 		App::make('TransferData')->addData('renew-value-url', route('game.snake.renewValue'));
 		App::make('TransferData')->addData('get-power-url', route('game.snake.getPower'));
+		App::make('TransferData')->addData('get-highscore-url', route('game.snake.getHighScore'));
 		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
 		$name = Auth::user()->name;
 		return View::make('game.snake', array('user' => $user, 'name' => $name));
@@ -20,9 +21,29 @@ class GameSnakeController extends BaseController
 	{
 		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
 		$score = Input::get('score');
-		$user->gp = $user->gp + $score;
-		$user->power = $user->power - 1;
-		$user->save();
-	} 
+		$mode = Input::get('mode');
+
+		if($user->power > 0)
+		{
+			$user->gp = $user->gp + $score;
+			$user->power = $user->power - 1;
+			$user->save();
+
+			$snake = new GameSnake;
+			$snake->user_id = $user->id;
+			$snake->mode = $mode;
+			$snake->highscore = $score;
+			$snake->save();
+		}
+		// $highscore = GameSnake::modes($mode)->orderBy('highscore', 'DESC')->with('user')->take(10)->get();
+	}
+
+	public function getHighScore()
+	{
+		$mode = Input::get('mode');
+		$highscore = GameSnake::modes($mode)->orderBy('highscore', 'DESC')->with('user')->take(30)->get();
+		// return Response::json('highscore' => $highscore->toArray());
+		return Response::json( $highscore );
+	}
 
 }

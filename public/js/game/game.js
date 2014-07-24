@@ -6,5 +6,23 @@ function editStatus(power,gp) {
 }
 
 function noPowerDisplay() {
-
+	$('#gmaeNoPowerContainer').show();
+	$('#gameNoPowerIKnow').click(function() {
+		$('#gameNoPowerIKnow').off();
+		$('#gameNoPowerGoPower').off();
+		$('#gameNoPowerExit').off();
+		$('#gmaeNoPowerContainer').fadeOut();
+	});
+	$('#gameNoPowerGoPower').click(function() {
+		$('#gameNoPowerIKnow').off();
+		$('#gameNoPowerGoPower').off();
+		$('#gameNoPowerExit').off();
+		$('#gmaeNoPowerContainer').fadeOut();
+	});
+	$('#gameNoPowerExit').click(function() {
+		$('#gameNoPowerIKnow').off();
+		$('#gameNoPowerGoPower').off();
+		$('#gameNoPowerExit').off();
+		$('#gmaeNoPowerContainer').fadeOut();
+	});
 }

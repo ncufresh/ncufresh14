@@ -2,6 +2,8 @@
 
 class GameshopController extends BaseController {
 	public function index() {
+		App::make('SiteMap')->pushLocation('小遊戲', route('game'));
+		App::make('SiteMap')->pushLocation('商店系統', route('game.shop'));
 		if ( !Auth::check() ) {
 			return Redirect::to('/');	
 		}
@@ -15,6 +17,9 @@ class GameshopController extends BaseController {
 		$EquipItem[3] = Gameitem::where('id', '=', $user->foot)->firstOrFail();
 		$EquipItem[4] = Gameitem::where('id', '=', $user->item)->firstOrFail();
 		$EquipItem[5] = Gameitem::where('id', '=', $user->map)->firstOrFail();
+		
+		$this->createPersonImage();
+
 		return View::make('game.shop', array('user' => $user, 'name' => $name->name, 'shop' => $shop,
 						 'hadBuyItems'=>$hadBuyItems->toArray(), 'EquipItem' => $EquipItem));
 	}
@@ -86,5 +91,40 @@ class GameshopController extends BaseController {
 		$gameUser->save();
 		$data = array('user'=>$gameUser->toArray(), 'isBuy'=>$isBuy);
 		return Response::json($data);
+	}
+
+	public function createPersonImage() {
+		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
+		$EquipItem[0] = Gameitem::where('id', '=', $user->head)->firstOrFail();
+		$EquipItem[1] = Gameitem::where('id', '=', $user->face)->firstOrFail();
+		$EquipItem[2] = Gameitem::where('id', '=', $user->body)->firstOrFail();
+		$EquipItem[3] = Gameitem::where('id', '=', $user->foot)->firstOrFail();
+		$EquipItem[4] = Gameitem::where('id', '=', $user->item)->firstOrFail();
+		$EquipItem[5] = Gameitem::where('id', '=', $user->map)->firstOrFail();
+
+		$im    = imagecreatetruecolor(510,600);//创建一的真彩色图像
+		$white = imagecolorallocatealpha($im, 255, 255, 255,127);//透明背景
+		imagefill ($im, 0, 0, $white);
+		$bg = imagecolorallocate($im, 255, 255, 255);//为一幅图像分配颜色
+		ImageColorTransparent ($im,$bg);
+
+		$headImage = imagecreatefrompng(asset('images/gameShop/' . $EquipItem[0]->picture));
+		imagecopy( $im, $headImage, 114, 0, 0, 0, 289, 289);
+		$faceImage = imagecreatefrompng(asset('images/gameShop/' . $EquipItem[1]->picture));
+		imagecopy( $im, $faceImage, 37 + $EquipItem[0]->face_middle_x, $EquipItem[0]->face_middle_y - 70, 0, 0, 156, 137);
+		$bodyImage = imagecreatefrompng(asset('images/gameShop/' . $EquipItem[2]->picture));
+		imagecopy( $im, $bodyImage, 32, 270, 0, 0, 459, 303);
+		$footImage = imagecreatefrompng(asset('images/gameShop/' . $EquipItem[3]->picture));
+		imagecopy( $im, $footImage, 158, 518, 0, 0, 215, 102);
+		/*$itemImage = imagecreatefrompng(asset('images/gameShop/' . $EquipItem[4]->picture));
+		imagecopy($im,$itemImage,114,0,0,0,136,193);*/
+		/*$mapImage = imagecreatefrompng(asset('images/gameShop/' . $EquipItem[5]->picture));
+		imagecopy($im,$mapImage,114,0,0,0,156,137);*/
+		imagepng($im, 'img/person/' . Auth::user()['id'] . '.png');
+		imagedestroy($im);
+		imagedestroy($headImage);
+		imagedestroy($faceImage);
+		imagedestroy($bodyImage);
+		imagedestroy($footImage);
 	}
 }

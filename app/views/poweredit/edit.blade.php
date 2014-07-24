@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-	{{ Form::model($poweredit, array('route' => array('poweredit.update', $poweredit->id ), 'method' => 'PUT')) }}
+	{{ Form::model($poweredit, array('route' => array('admin.poweredit.update', $poweredit->id ), 'method' => 'PUT')) }}
 	{{ Form::label('question', '題目') }}
 	{{ Form::text('question')}}
 	{{ Form::label('qA', 'A') }}
@@ -20,9 +20,5 @@
 	{{ Form::select('day', array(1=>'1',2=>'2',3=>'3',4=>'4',5=>'5',6=>'6',7=>'7'))}}
 	{{ Form::submit('送出') }}
 	{{ Form::close() }}
-
-	<script>
-		CKEDITOR.replace('content', {filebrowserImageUploadUrl : '{{ route("imageUpload") }}'});
-	</script>
 
 @stop

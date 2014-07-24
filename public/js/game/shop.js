@@ -97,6 +97,10 @@
                 user_look[i].attr('itemId', init_equip[types[i]][0] );
                 user_look[i].attr('src', init_equip[types[i]][1] );
             }
+            user_look[1].css({
+                top: disply_item_data[user_look[0].attr('itemId')-1]['face_middle_y']/2 - 35 + 'px',
+                left: disply_item_data[user_look[0].attr('itemId')-1]['face_middle_x']/2 + 17 + 'px'
+            });
         });
 
         $('#gameShopItems').jScrollPane();

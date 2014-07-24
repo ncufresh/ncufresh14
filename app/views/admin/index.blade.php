@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('css_js')
+@section('js_css')
 	{{ HTML::script('js/admin.js') }}
 
 @stop
@@ -15,6 +15,9 @@
 				<a href="{{ route('necessity.necessity_backstage_research') }}"><button id="admin-link">新生必讀(研究生)文章管理</button></a>
 				<a href="{{ route('necessity.necessity_backstage_download') }}"><button id="admin-link">新生必讀(檔案區)文章管理</button></a>
 				<a href="{{ route('SchoolGuide.list') }}"><button id="admin-link">校園導覽文章管理</button></a>
+				<a href="{{ route('admin.poweredit.index') }}"><button id="admin-link">小遊戲能量補給站管理</button></a>
+				<a href="{{ route('admin.campusedit.index') }}"><button id="admin-link">小遊戲命運之輪管理</button></a>
+				<a href="{{ route('About_us.list') }}"><button id="admin-link">關於我們管理</button></a>
 			</div>
 		@endif
 {{-- manage_link manage_announcement manage_calender --}}
@@ -38,6 +41,7 @@
 			<h3>危險管理區</h3>
 			<a href="{{ route('admin.group') }}"><button id="admin-user">群組管理</button></a>
 			<a href="{{ route('admin.users') }}"><button id="admin-user">會員管理</button></a>
+			<a href="{{ route('admin.runGitPull') }}" id="admin-git"><button id="admin-user">執行git pull(超級危險)</button></a>
 
 		</div>
 		@endif

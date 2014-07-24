@@ -2,8 +2,10 @@
 
 @section('js_css')
 	{{ HTML::style('css/game.css') }}
+	{{ HTML::style('css/game/spin.css') }}
 	{{ HTML::style('css/game/snake.css') }}
 	{{ HTML::script('js/game/game.js') }}
+	{{ HTML::script('js/game/spin.js') }}
 	{{ HTML::script('js/game/snake.js') }}
 @stop
 
@@ -20,21 +22,33 @@
 				<div id="mode1"> <img src="..\\images\\gameSnake\\m1.png"> </div>
 				<div id="mode2"> <img src="..\\images\\gameSnake\\m2.png"> </div>	
 				<div id="mode3"> <img src="..\\images\\gameSnake\\m3.png"> </div>
-				<div id="intro"></div>
+				<div class="intro"></div>	
 			</div>
 			<div id="introduction"></div>
 		</div>
 	</div>
+	
 	<div id="content">
 		<div id="snakeContent"></div>
 		<div id="space"></id></div>
 	</div>
 
-	<div id="endScreen">
-		 <font size="20"><div id="score"></div></font>
-		<div id="again"> <img src="..\\images\\gameSnake\\again.png"> </div>
 
+	<div id="endScreen">
+		<font size="20"><div id="score"></div></font>
+		<div id="again"></div>
+		<div id="rankButton"></div>
 	</div>
 
+	<div id="rankBack">
+		<div id="cross"></div>
+		<div class="spin" data-spin="spin"></div>
+		<div class="rankMode row">
+			<div class="rM1 col-sm-4"></div>
+			<div class="rM2 col-sm-4"></div>
+			<div class="rM3 col-sm-4"></div>
+		</div>
+		<div id="ranking" style="overflow-y:scroll;overflow-x:hidden;"></div>
+	</div>
 
 @stop

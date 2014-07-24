@@ -10,7 +10,8 @@ class NcuLifeController extends BaseController
 
 	public function item($item)
 	{
-		App::make('TransferData')->addData('ncu_life_select_url', route('nculife.select'));	
+		App::make('TransferData')->addData('ncu_life_select_url', route('nculife.select'));
+		App::make('TransferData')->addData('ncu_life_selectpicture_url', route('nculif.selectPicture'));
 		App::make('SiteMap')->pushLocation('中大生活', route('nculife.index'));
 		$convert = array(
 			'food' => '食',
@@ -35,6 +36,13 @@ class NcuLifeController extends BaseController
 		return Response::json(array('result' => $result->toArray(), 'pictures' => $pictures->toArray(), 'local' => $local->toArray()));
 	}
 
+	public function selectPicture()
+	{
+		$num = Input::get('num', 1);
+		$pictures = NcuLifePicture::where('picture_id', '=', $num)->with('pictureAdmin')->get();
+		return Response::json(array('pictures' => $pictures->toArray()));
+	}
+
 	public function data()
 	{
 		return View::make('nculife.nculife_data',
@@ -53,8 +61,6 @@ class NcuLifeController extends BaseController
 		$data = NcuLifeModel::find($id);
 		$pictures = NcuLifeModel::find($id)->picture;
 		$local = NcuLifeModel::find($id)->local->first();
-		//dd($pictures);
-		//dd($pictures[0]->pictureAdmin->file_name);
 		return View::make('nculife.nculife_edit', array('nculife' => $data, 'pictures' => $pictures, 'local' => $local));
 	}
 
@@ -79,6 +85,8 @@ class NcuLifeController extends BaseController
 			$data->place = Input::get('place');;
 			$data->introduction = Input::get('introduction');
 			$data->local_id = Input::get('local_id');
+			$data->top = Input::get('top');
+			$data->left = Input::get('left');
 			$data->save();
 			$picture = new NcuLifePicture;
 			if(Input::has('picture_id'))

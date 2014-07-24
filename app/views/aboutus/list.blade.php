@@ -21,7 +21,7 @@
 			<p>
 			<li>
 
-			{{Form::open(array('url'=>'About_us/delete','method'=>'post'))}}
+			{{Form::open(array('route'=>'About_us.delete','method'=>'post'))}}
 			{{Form::hidden('id',$list->id)}}
 			<span class="list">{{$list->categoryName}}</span>
 			

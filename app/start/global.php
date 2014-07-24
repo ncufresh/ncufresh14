@@ -49,9 +49,11 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
-	App::make('SiteMap')->pushLocation('首頁', route('home'));
 	App::make('SiteMap')->pushLocation('錯誤頁面', route('error'));
-	return Response::view('errors.index', array('message' => '有事情發生了'), 404);
+	if(Config::get('app.debug') == false){
+		return Response::view('errors.index', array('message' => '有事情發生了'), 404);
+	}
+	return Response::view('errors.index', array('message' => '有事情發生了'.$exception->getMessage()), 404);
 });
 
 /*

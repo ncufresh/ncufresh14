@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-	{{ Form::open(array('route' => 'poweredit.store')) }}
+	{{ Form::open(array('route' => 'admin.poweredit.store')) }}
 	{{ Form::label('question', '題目') }}
 	{{ Form::text('question')}}
 	{{ Form::label('qA', 'A') }}
@@ -21,8 +21,5 @@
 	{{ Form::submit('送出') }}
 	{{ Form::close() }}
 
-	<script>
-		CKEDITOR.replace('content', {filebrowserImageUploadUrl : '{{ route("imageUpload") }}'});
-	</script>
 
 @stop

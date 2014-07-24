@@ -9,6 +9,8 @@
 	height: 81px;
 	margin-top: 450px;
 	margin-left: 180px;
+	/*margin-top: 450px;
+	margin-left: 180px;*/
 	float: left;
 	background: url("../../images/gamePower/start.png") no-repeat;
 }
@@ -50,15 +52,18 @@
 }
 
 #question {
-	width: 90%;
+	width: 92%;
+	height: 25%;
 	top: 5%;
-	left: 5%;
+	border-bottom: 3px #F8E566 solid;
+	margin: 0 auto;
 	position: relative;
 }
 
 .base {
 	margin-left: 5%;
 	width: 90%;
+	height: 8%;
 	border-radius: 15px;
 }
 
@@ -71,19 +76,19 @@
 }
 
 #qa {
-	top: 10%;
+	top: 7%;
 	position: relative;
 }
 #qb {
-	top: 13%;
+	top: 8%;
 	position: relative;
 }
 #qc {
-	top: 16%;
+	top: 9%;
 	position: relative;
 }
 #qd {
-	top: 19%;
+	top: 10%;
 	position: relative;
 }
 
@@ -91,7 +96,7 @@
 	width: 90%;
 	text-align: center;
 	margin-left: 5%;
-	margin-top: 140px;
+	margin-top: 80px;
 	font-size: 33px;
 	font-weight: bold;
 	background-color: #F8E566;
@@ -103,7 +108,7 @@
 #next {
 	width: 194px;
 	height: 81px;
-	margin-top: 20px;
+	margin-top: 15px;
 	margin-left: 340px;
 	background: url("../../images/gamePower/next.png") no-repeat;
 	display: none;
@@ -124,10 +129,12 @@
 	/*display: none;*/
 }
 #getPower {
+	width: 50%;
 	top: 100px;
 	font-family: "微軟正黑體";
 	font-weight: bolder ;
 	color: gray;
+	margin: 0 auto;
 	font-size: 25px;
 	position: relative;
 }
@@ -139,7 +146,7 @@
 #again {
 	width: 246px;
 	height: 81px;
-	margin-top: 100px;
+	margin-top: 5%;
 	margin-left: 340px;
 	background: url("../../images/gamePower/again.png") no-repeat;
 }
