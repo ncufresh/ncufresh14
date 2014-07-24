@@ -305,7 +305,7 @@ Route::get('About_us',array('as'=>'about','uses'=>'AboutUsController@index'));
 
 Route::get('About_us/modal',array('as'=>'About.modal','uses'=>'AboutUsController@getModalId'));
 
-Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){
+//Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){
 
 	Route::post('About_us/sure', array('as' => 'About_us.sure', 'uses' => 'AboutUsController@sure') );
 
@@ -320,4 +320,4 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){
 	Route::get('About_us/add',array('as'=>'About_us.add','uses'=>'AboutUsController@toadd'));
 
 	Route::get('About_us/toadd',array('as'=>'About_us.toadd','uses'=>'AboutUsController@toadd'));
-});
+//});

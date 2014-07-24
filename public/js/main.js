@@ -30,7 +30,9 @@ function popLocation(){
 }
 
 function changeURL(url){
-	history.pushState({data: 'data'}, "NCUFresh", url);
+	if(history.pushState){
+		history.pushState({data: 'data'}, "NCUFresh", url);
+	}
 }
 
 function test(){
@@ -45,7 +47,9 @@ function test(){
 $(window).on('popstate', function(event) {
 	var state = event.originalEvent.state;
 	if ( !state ) { return; }
-	location.reload();
+	if(history.pushState){
+		location.reload();
+	}
 });
 
 $(function(){
@@ -94,7 +98,9 @@ $.pushLocation = function(name, url, options){
 
 $.popLocation = function(){
 	$('#siteMapContainer').children().last().remove();
-	window.history.back();
+	if(history.pushState){
+		window.history.back();
+	}
 };
 
 $.alertMessage = function(text, options){

@@ -11,7 +11,7 @@
 		{{ HTML::script('js/jquery/jquery.timer.js') }}
 		{{ HTML::script('ckeditor/ckeditor.js') }}
 		{{ HTML::script('js/main.js') }}
-		{{ HTML::script('js/layout/chatroom.js') }}
+		{{-- HTML::script('js/layout/chatroom.js') --}}
 		{{ HTML::script('js/jquery/pace.min.js') }}
 		{{ HTML::style('css/bootstrap.min.css') }}
 		{{ HTML::style('css/jquery.jscrollpane.css') }}
@@ -22,21 +22,21 @@
 		
 		{{ HTML::script('js/layout/robot.js') }}
 
-		<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
 
-			@if(Request::server('SERVER_IP') == '140.115.184.136' && Config::get('app.debug') == false)
+		<!--[if IE 8]>
+		{{ HTML::style('css/ie.css') }}
+		<![endif]-->
 
-				ga('create', 'UA-10121863-1', 'auto');
-				ga('require', 'displayfeatures');
-				ga('send', 'pageview');
-			@endif
-		</script>
+		@if(Request::server('SERVER_IP') == '140.115.184.136' && Config::get('app.debug') == false)
+			{{ HTML::script('js/ga.js') }}
+		@endif
 
 		@yield('js_css')
+
 
 		@if(Session::has('alert-message'))
 			<script>

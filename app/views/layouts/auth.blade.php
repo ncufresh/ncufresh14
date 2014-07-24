@@ -19,9 +19,9 @@
 		{{-- Form::label('密碼') --}}
 		{{ Form::password('password', array('id' => 'password', 'placeholder' => '密碼')) }}
 		<br>
-		<a href="{{ route('register') }}"><div id="register"></div></a>
+		<a href="{{ route('register') }}" id="register"><div id="register1"></div></a>
 		{{ Form::submit('', array('id' => 'submit')) }}
-		<a href="{{ route('login.FB') }}"><div id="fblogin"></div></a>
+		<a href="{{ route('login.FB') }}" id="fblogin-a"><div id="fblogin"></div></a>
 		{{ Form::close() }}
 	</div>
 @endif
