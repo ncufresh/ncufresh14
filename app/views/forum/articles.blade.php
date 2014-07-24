@@ -14,16 +14,13 @@
 	@endif
 	</div>
 	<div>
-		<input type="hidden" name="orderPop" id="orderPopHidden" direct="{{URL::route('orderPop')}}">
-		<input type="hidden" name="orderNew" id="orderNewHidden" direct="{{URL::route('orderNew')}}">
-		<input type="hidden" id="getDepartment" direct="{{URL::route('getDepartmentArticle')}}">
-		<input type="hidden" id="getClub" direct="{{URL::route('getClubArticle')}}">
 		<input type="hidden" name="getComment" id="getComment" direct="{{URL::route('getComments')}}">
 		<input type="hidden" name="createComment" id="createComment" direct="{{URL::route('createComment')}}">
 		<input type="hidden" name="deleteArticle" id="deleteArticle" direct="{{URL::route('deleteArticle')}}">
 		<input type="hidden" name="updateArticle" id="updateArticle" direct="{{URL::route('updateArticle')}}">
 		<input type="hidden" name="newArticle" id="newArticle" direct="{{URL::route('newArticle')}}">
 		<input type="hidden" id="perArticle" direct="{{URL::route('perArticle')}}">
+		<input type="hidden" id="getArticles" direct="{{URL::route('getArticles')}}">
 		<ul class="nav nav-tabs" id="myTab">
 			<li><a href="#Test1" id="articleTab">討論區</a></li>
 			<li><a href="#Test2" id="departmentTab">系所</a></li>
@@ -35,7 +32,6 @@
 					<div id="orderBox">
 						<input type="radio" name="orderBy" value="new" id="new" checked> 最新貼文
 						<input type="radio" name="orderBy" id="pop" value="pop"> 熱門貼文
-
 					</div>
 					<button class="btn btn-primary" id="createBtn">發表新文章</button>
 				</div>
