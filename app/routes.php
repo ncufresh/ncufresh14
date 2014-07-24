@@ -181,15 +181,9 @@ Route::get('articles/{item?}',array('as' => 'forum' , 'uses' => 'ArticlesControl
 
 Route::post('/getComments',array('as' => 'getComments' , 'uses' => 'ArticlesController@getComment'));
 
-Route::post('/orderNew',array('as' => 'orderNew' , 'uses' =>'ArticlesController@getArticles'));
-
-Route::post('/orderPop',array('as' => 'orderPop' , 'uses' => 'ArticlesController@getArticles'));
-
 Route::get('perArticle/{id?}',array('as' => 'perArticle' , 'uses' => 'ArticlesController@viewOneArticle'));
 
-Route::post('/getDepartment',array('as' => 'getDepartmentArticle' , 'uses' => 'ArticlesController@getArticles'));
-
-Route::post('/getClub',array('as' => 'getClubArticle' , 'uses' => 'ArticlesController@getArticles'));
+Route::post('/getArticles',array('as' => 'getArticles' , 'uses' => 'ArticlesController@getArticles'));
 
 // Need login
 Route::group(array('before' => 'auth'), function(){

@@ -20,10 +20,27 @@
 	margin-bottom: 5px;
 }
 .articlePostTime{
-	position:absolute;
+	position: relative;
 	display: table;
-	right: 14%;
+	float: right;
 	margin-top: 2%;
+	margin-right: 15;
+}
+.personalImage{
+	width: 80;
+	margin: 10;
+	border: 1px solid #D4D4CA;
+	border-radius: 10;
+	float: left;
+}
+.content{
+	word-break: break-all;
+	width: 910;
+	float: left;
+	position: relative;
+}
+.clear{
+	clear:both;
 }
 .articleContainer{
 	border-radius: 5px;
