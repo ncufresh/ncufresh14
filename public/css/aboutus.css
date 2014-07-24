@@ -87,7 +87,9 @@
 	width: 550px;
 	height: 80px;
 }
+/* -----------------------------  */
 #code{
+
 	position: absolute;
 	margin-top:-815px;
 	margin-left: 626px; 
@@ -117,6 +119,7 @@
 	margin-top:-900px;
 	margin-left: 221px; 
 }
+/* -----------------------------  */
 .modal-lg{
 	width: 1000px !important;
 }
@@ -141,6 +144,15 @@
 	background-image:url('http://localhost/ncufresh14/public/images/aboutus/rbotton.png') !important;
 	width: 8% !important;
 }
+.carousel-control.left:hover{
+	background-image:url('http://localhost/ncufresh14/public/images/aboutus/lbotton-p.png') !important;
+	width: 8% !important;
+}
+.carousel-control.right:hover{
+	left: 466px;
+	background-image:url('http://localhost/ncufresh14/public/images/aboutus/rbotton-p.png') !important;
+	width: 8% !important;
+}
 .carousel-control{
 	height: 50px;
 	top:202px;
@@ -163,13 +175,13 @@
 }
  
 #scroll::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
     border-radius: 10px;
 }
  
 #scroll::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.7); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
 
 }
 

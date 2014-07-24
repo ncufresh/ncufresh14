@@ -61,6 +61,55 @@ $(document).ready(function(){
 		getID($(this).data('id'));
 	});
 
+	$("#operate")
+	.mouseenter(function(){
+		$(this).attr('src',burl+"/images/aboutus/operate-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',burl+"/images/aboutus/operate.png");
+	
+	});
+	$("#code")
+	.mouseenter(function(){
+		$(this).attr('src',burl+"/images/aboutus/code-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',burl+"/images/aboutus/code.png");
+	
+	});
+	$("#draw")
+	.mouseenter(function(){
+		$(this).attr('src',burl+"/images/aboutus/draw-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',burl+"/images/aboutus/draw.png");
+	
+	});
+	$("#movie")
+	.mouseenter(function(){
+		$(this).attr('src',burl+"/images/aboutus/movie-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',burl+"/images/aboutus/movie.png");
+	
+	});
+	$("#back")
+	.mouseenter(function(){
+		$(this).attr('src',burl+"/images/aboutus/back-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',burl+"/images/aboutus/back.png");
+	
+	});
+	$("#project")
+	.mouseenter(function(){
+		$(this).attr('src',burl+"/images/aboutus/project-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',burl+"/images/aboutus/project.png");
+	
+	});
+
 	$(".close").click(function(){
 		change=1;
 		$(".menu").hide("slow");
@@ -97,7 +146,6 @@ $(document).ready(function(){
 	}
 
 	function OpenModal(data){
-		var introduction = data['introduction'];
 		var teamphoto = data['teamphoto'];
 			change=0;
 			$(".items").hide(1);
