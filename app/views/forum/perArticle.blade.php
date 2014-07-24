@@ -7,11 +7,6 @@
 
 @section('content')
 
-	@if(Auth::check())
-		<input type="hidden" id="isLogin" login="1">
-	@else
-		<input type="hidden" id="isLogin" login="0">
-	@endif
 	<input type="hidden" id="createComment" direct="{{URL::route('createComment')}}">
 	<input type="hidden" name="deleteArticle" id="deleteArticle" direct="{{URL::route('deleteArticle')}}">
 	<input type="hidden" name="updateArticle" id="updateArticle" direct="{{URL::route('updateArticle')}}">
@@ -34,8 +29,12 @@
 				<div class="personalImageBox" >
 					<img class="personalImage" src="{{ route('personface', array('id' => $article -> author_id)) }}">
 				</div>
-				<div class="panel-body">{{ $article -> content }}</div>
-				<div class='btnBox'><button type="button" class="btn btn-primary btn-sm edit">編輯貼文 </button></div>
+				<div class="panel-body content">{{ $article -> content }}</div>
+				<div class='btnBox'>
+					@if(Auth::check() && Auth::user()->id == $article->author_id)
+						<button type="button" class="btn btn-primary btn-sm edit">編輯貼文 </button>
+					@endif
+				</div>
 			</div>
 			<div class="responseBox">
 				@if(Auth::check())
@@ -54,10 +53,18 @@
 			</div>
 			@foreach($comments as $comment)
 				<div class='panel panel-default'>
-					<span class="commentAuthorId"> {{$comment -> user ->name }}</span><br>
-					<img class="personalImage" src="{{ route('personface', array('id' => $comment -> author_id)) }}">
-					<span class='commentContent'> {{ $comment -> content }}</span><br>
-					<span class='commentTime'> {{ $comment -> created_at }}</span>
+					<div class='commentAuthorBox'>
+						<span class="commentAuthor"> {{$comment -> user ->name }}</span>
+					</div>
+					<div class='personImageBox'>
+						<img class="personalImageComment" src="{{ route('personface', array('id' => $comment -> author_id)) }}">
+					</div>
+					<div class="commentContentBox">
+						<span class='commentContent'> {{ $comment -> content }}</span>
+					</div>
+					<div class='commentTimeBox'>
+						<span class='commentTime'> {{ $comment -> created_at }}</span>
+					</div>
 				</div>
 			@endforeach
 		</div>

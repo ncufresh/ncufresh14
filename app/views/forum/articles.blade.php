@@ -5,15 +5,6 @@
 @stop
 @section('content')
 	<div>
-	@if($isLogin==1)
-		<input type="hidden" id="loginStatus" value="1">
-		<input type="hidden" id="userId" value="{{$userId}}">
-		<input type="hidden" id="userName" value="{{$userName}}">
-	@else
-		<input type="hidden" id="loginStatus" value="0">
-	@endif
-	</div>
-	<div>
 		<input type="hidden" name="getComment" id="getComment" direct="{{URL::route('getComments')}}">
 		<input type="hidden" name="createComment" id="createComment" direct="{{URL::route('createComment')}}">
 		<input type="hidden" name="deleteArticle" id="deleteArticle" direct="{{URL::route('deleteArticle')}}">

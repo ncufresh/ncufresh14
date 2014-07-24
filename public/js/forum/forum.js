@@ -20,10 +20,10 @@ var burl = '';
 
 $(function(){
 	burl = getTransferData('burl');
-	loginStatus = $("#loginStatus").val();
-	if(loginStatus==1){
-		userId = $("#userId").val();
-		userName = $("#userName").val();
+	loginStatus = $("#data_section").attr("data-login");
+	if(loginStatus == 1){
+		userId = $("#data_section").attr("data-user-id");
+		userName = $("#data_section").attr("data-user-name");
 	}
 	/***********************************************************/
 	newArticleUrl = $("#newArticle").attr("direct");
@@ -272,10 +272,6 @@ function getCurrentTime(){
 }
 
 function showArticles(authorName,authorId,createdAt,articleId,title,content,target){
-	var editBtn = "";
-	if(userId == authorId){
-		editBtn = "<div class='btnBox'>&nbsp;<button type='button' class='btn btn-primary btn-sm edit'>編輯貼文</button></div>";
-	}
 	$(target).append("\
 		<div class='articleContainer' id='"+articleId+"' >\
 			<div class='postTimeContainer'>\
@@ -290,18 +286,14 @@ function showArticles(authorName,authorId,createdAt,articleId,title,content,targ
 				<div class='personalImageBox' >\
 					<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
 				</div>\
-				<div class='panel-body'>"+content+"</div>\
-				"+editBtn+"\
+				<div class='panel-body content'>"+content+"</div>\
+				<div class='clear'></div>\
 			</div>\
 		</div>"
 	);
 }
 
 function insertArticle(authorName,authorId,currentTime,articleId,title,content,target){
-	var editBtn = "";
-	if(userId == authorId){
-		editBtn = "<div class='btnBox'>&nbsp;<button type='button' class='btn btn-primary btn-sm edit'>編輯貼文</button></div>";
-	}
 	$(target).after("\
 		<div class='articleContainer' id='"+articleId+"' >\
 			<div class='postTimeContainer'>\
@@ -316,8 +308,8 @@ function insertArticle(authorName,authorId,currentTime,articleId,title,content,t
 				<div class='personalImageBox' >\
 					<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
 				</div>\
-				<div class='panel-body'>"+content+"</div>\
-				"+editBtn+"\
+				<div class='panel-body content'>"+content+"</div>\
+				<div class='clear'></div>\
 			</div>\
 		</div>"
 	);

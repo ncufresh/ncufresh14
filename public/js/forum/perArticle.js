@@ -10,7 +10,7 @@ $(function(){
 
 	var articleId = $(".articleContainer").attr("id");
 
-	var loginStatus = $("#isLogin").attr("login");
+	var loginStatus = $("#data_section").attr("data-login");
 
 	createCommentUrl = $("#createComment").attr("direct");
 
@@ -179,12 +179,18 @@ function getCurrentTime(){
 function displayComments(authorName,authorId,content,createdAt,target){
 	var comment = "\
 		<div class='panel panel-default'>\
-			<span class='commentAuthorId'>"+authorName+"</span><br>\
-			<div class='personalImageBox' >\
-				<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
+			<div class='commentAuthorBox'>\
+				<span class='commentAuthor'>"+authorName+"</span>\
 			</div>\
-			<span class='commentContent'>"+content+"</span><br>\
-			<span class='commentTime'>"+createdAt+"</span>\
+			<div class='personalImageBox'>\
+				<img class='personalImageComment' src='"+burl+"/person/"+authorId+"'>\
+			</div>\
+			<div class='commentContentBox'>\
+				<span class='commentContent'>"+content+"</span>\
+			</div>\
+			<div class='commentTimeBox'>\
+				<span class='commentTime'>"+createdAt+"</span>\
+			</div>\
 		</div>";
 	target.append(comment);
 } 
