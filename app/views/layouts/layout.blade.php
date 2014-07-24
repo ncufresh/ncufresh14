@@ -11,7 +11,7 @@
 		{{ HTML::script('js/jquery/jquery.timer.js') }}
 		{{ HTML::script('ckeditor/ckeditor.js') }}
 		{{ HTML::script('js/main.js') }}
-		{{-- HTML::script('js/layout/chatroom.js') --}}
+		{{ HTML::script('js/layout/chatroom.js') }}
 		{{ HTML::script('js/jquery/pace.min.js') }}
 		{{ HTML::style('css/bootstrap.min.css') }}
 		{{ HTML::style('css/jquery.jscrollpane.css') }}
@@ -30,6 +30,12 @@
 		<!--[if IE 8]>
 		{{ HTML::style('css/ie.css') }}
 		<![endif]-->
+		<!--[if IE 9]>
+		{{ HTML::style('css/ie9.css') }}
+		<![endif]-->
+		@if(BrowserDetect::isIE())
+			{{ HTML::style('css/ie9.css') }}
+		@endif
 
 		@if(Request::server('SERVER_IP') == '140.115.184.136' && Config::get('app.debug') == false)
 			{{ HTML::script('js/ga.js') }}
@@ -71,6 +77,9 @@
 				</div>
 			</div>
 		</div>
+		@if(BrowserDetect::isIE())
+			<div id="ie-warning">請使用Chrome.Firefox以獲得更佳的瀏覽體驗</div>
+		@endif
 		<div id="globalContainer" class="container">
 			<div id="topContainer">
 				@include('layouts.top')
