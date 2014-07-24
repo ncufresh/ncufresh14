@@ -23,15 +23,18 @@ class GameSnakeController extends BaseController
 		$score = Input::get('score');
 		$mode = Input::get('mode');
 
-		$user->gp = $user->gp + $score;
-		$user->power = $user->power - 1;
-		$user->save();
+		if($user->power > 0)
+		{
+			$user->gp = $user->gp + $score;
+			$user->power = $user->power - 1;
+			$user->save();
 
-		$snake = new GameSnake;
-		$snake->user_id = Auth::user()['id'];
-		$snake->mode = $mode;
-		$snake->highscore = $score;
-		$snake->save();
+			$snake = new GameSnake;
+			$snake->user_id = $user->id;
+			$snake->mode = $mode;
+			$snake->highscore = $score;
+			$snake->save();
+		}
 		// $highscore = GameSnake::modes($mode)->orderBy('highscore', 'DESC')->with('user')->take(10)->get();
 	}
 

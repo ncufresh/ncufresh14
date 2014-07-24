@@ -121,6 +121,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Zizaco\Entrust\EntrustServiceProvider',
 		'BrainSocket\BrainSocketServiceProvider',
+		'Fitztrev\LaravelHtmlMinify\LaravelHtmlMinifyServiceProvider',
 
 
 	),

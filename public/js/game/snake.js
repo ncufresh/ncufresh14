@@ -1,55 +1,41 @@
 $(document).ready(function(){
 	var burl = getTransferData('burl');
-	$('#intro').click(function() {
-            $('#introduction').show();
-    });
+	$('.intro').click(function() {
+		$('.intro').addClass('introClick');
+		$('#introduction').show();
+	});
 
-    $('#introduction').click(function() {
-            $('#introduction').hide();
-    });
+	$('#introduction').click(function() {
+		$('.intro').removeClass('introClick');
+		$('#introduction').hide();
+	});
 
 	var difficult=0, mode=0;
-	$('#difficulty1').click(function(){		clickDifficult();	difficult=1;
-		$('#difficulty1').children().attr('src',''+burl+'/images/gameSnake/d1Click.png');
-	});
-	$('#difficulty2').click(function(){		clickDifficult();	difficult=2;
-		$('#difficulty2').children().attr('src',''+burl+'/images/gameSnake/d2Click.png');
-	});
-	$('#difficulty3').click(function(){		clickDifficult();	difficult=3;
-		$('#difficulty3').children().attr('src',''+burl+'/images/gameSnake/d3Click.png');
-	});
-	$('#mode1').click(function(){			clickMode();		mode=1;
-		$('#mode1').children().attr('src',''+burl+'/images/gameSnake/m1Click.png');
-	});
-	$('#mode2').click(function(){			clickMode();		mode=2;
-		$('#mode2').children().attr('src',''+burl+'/images/gameSnake/m2Click.png');
-	});
-	$('#mode3').click(function(){			clickMode();		mode=3;
-		$('#mode3').children().attr('src',''+burl+'/images/gameSnake/m3Click.png');
-	});
-	function clickDifficult()
+	$('#difficulty1').click(function(){	difficult=1; clickDifficult(difficult);	});
+	$('#difficulty2').click(function(){	difficult=2; clickDifficult(difficult);	});
+	$('#difficulty3').click(function(){	difficult=3; clickDifficult(difficult);	});
+	$('#mode1').click(function(){ mode=1;	clickMode(mode); });
+	$('#mode2').click(function(){ mode=2;	clickMode(mode); });
+	$('#mode3').click(function(){ mode=3;	clickMode(mode); });
+	function clickDifficult(d)
 	{
-		if(difficult==1)
-			$('#difficulty1').children().attr('src',''+burl+'/images/gameSnake/d1.png');
-		if(difficult==2)
-			$('#difficulty2').children().attr('src',''+burl+'/images/gameSnake/d2.png');
-		if(difficult==3)
-			$('#difficulty3').children().attr('src',''+burl+'/images/gameSnake/d3.png');
+		for(var i=1; i<4; i++)
+			$('#difficulty'+i+'').removeClass('difficulty'+i+'Click');
+		$('#difficulty'+d+'').addClass('difficulty'+d+'Click');
 	}
-	function clickMode()
+	function clickMode(m)
 	{
-		if(mode==1)
-			$('#mode1').children().attr('src',''+burl+'/images/gameSnake/m1.png');
-		if(mode==2)
-			$('#mode2').children().attr('src',''+burl+'/images/gameSnake/m2.png');
-		if(mode==3)
-			$('#mode3').children().attr('src',''+burl+'/images/gameSnake/m3.png');
+		for(var i=1; i<4; i++)
+			$('#mode'+i+'').removeClass('mode'+i+'Click');
+		$('#mode'+m+'').addClass('mode'+m+'Click');
 	}
 
 	var power,done=false,recentScore,waiting=false;
 	ajaxPost(getTransferData('get-power-url'),'', getData);
 	$('#start').click(function() 
 	{
+		$('.intro').removeClass('introClick');
+		$('#introduction').hide();
 		if(power>0)
 		{
 			if(difficult!=0&&mode!=0&&done==true)
@@ -399,11 +385,11 @@ $(document).ready(function(){
 	{
 		if(mode==2&&round!=1)
 		{
-			if(difficult==1 && timeCount%200==0)
+			if(difficult==1 && timeCount%333==0)
 				round -= 1;	
-			if(difficult==2 && timeCount%160==0)
+			if(difficult==2 && timeCount%266==0)
 				round -= 1; 				
-			if(difficult==3 && timeCount%120==0)
+			if(difficult==3 && timeCount%200==0)
 				round -= 1; 				
 		}
 	}
@@ -697,7 +683,7 @@ $(document).ready(function(){
 		$('#endScreen').hide();
 		$('#rankBack').show();
 		$('#ranking').empty();
-		getHighScore(1);
+		getHighScore(mode);
 	});
 
 	$('.rM1').click(function(){
@@ -717,20 +703,22 @@ $(document).ready(function(){
 		$('#endScreen').show();
 	});
 
-	
+
 	function getHighScore(mode)
 	{
 		$('.spin').spin('show');
+		for(var i=1; i<4; i++)
+			$('.rM'+i+'').removeClass('rM'+i+'Click');
+		$('.rM'+mode+'').addClass('rM'+mode+'Click');
 		ajaxGet(getTransferData('get-highscore-url'),{mode: mode}, order);
-		//$('.spin').spin('hide');
 	}
 
 	function order(data)
 	{
 		$('.spin').spin('hide');
 		var top = $('<div class="top row"></div>');
-		var left = $('<div class="left col-sm-6"></div>').appendTo(top);
-		var right = $('<div class="right col-sm-6"></div>').appendTo(top);
+		var left = $('<div class="left col-sm-5"></div>').appendTo(top);
+		var right = $('<div class="right col-sm-5 col-sm-offset-1"></div>').appendTo(top);
 
 		var title = $('<div class="title row"><div class="col-sm-3">排名</div><div class="col-sm-4">玩家</div><div class="col-sm-5">分數</div></div>');
 		title.appendTo(left);
@@ -740,7 +728,11 @@ $(document).ready(function(){
 		for(index in data)
 		{
 			var row = $('<div class="row"></div>');
-			$('<div class="col-sm-3">第'+(parseInt(index)+1)+'名</div>').appendTo(row);
+			
+			if(index>2)
+				$('<div class="col-sm-3"><img src="'+burl+'/images/gameSnake/'+(parseInt(index)+1)+'.png" width="30px" height="30px"></div>').appendTo(row);
+			else
+				$('<div class="col-sm-3">第'+(parseInt(index)+1)+'名</div>').appendTo(row);
 			$('<div class="col-sm-4">'+data[index]['user']['name']+'</div>').appendTo(row);
 			$('<div class="col-sm-5">'+ data[index]['highscore'] +'</div>').appendTo(row);
 			if(index < 15)

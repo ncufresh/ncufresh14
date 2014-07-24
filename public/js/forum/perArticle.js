@@ -1,37 +1,35 @@
 var createCommentUrl;
 var deleteArticleUrl;
 var updateArticleUrl;
+var articleListUrl;
 $(function(){
+	var articleId = $(".articleContainer").attr("id");
+	$("#errorMsgDialog").modal('toggle');
 	createCommentUrl = $("#createComment").attr("direct");
 	deleteArticleUrl = $("#deleteArticle").attr("direct");
 	updateArticleUrl = $("#updateArticle").attr("direct");
+	articleListUrl = $("#articleList").attr("direct");
 	var articleTitle = $("#articleTitle").attr("articleTitle");
-	var articleId = $("#articleId").attr("articleId");
 	$.pushLocation(articleTitle, '/perArticle/'+articleId, {full: false});
 	$(".commentForm").submit(function(e){
 		e.preventDefault();
 		var content = $(this).find("#inputContent").val();
-		var commenterID = $(this).find("#commenterID").val();
-		var articleID = $(this).find(".articleID").attr("id");
-		var target = $(this);
 		$.ajax({
 			type : "POST",
 			url : createCommentUrl,
 			data : { 
 				"comment" : content ,
-				"author_id" : commenterID ,
-				"article_id" : articleID
+				"article_id" : articleId
 			},
 			success : function(data){
-				var currentTime = getCurrentTime(); 
 				displayComments(
-					commenterID,
-					content,
-					currentTime,
-					target.parent().parent().find(".responseBox")
+					data.commentAuthor,
+					data.commentContent,
+					data.commentTime.date,
+					$(document).find(".responseBox")
 				);
-				target.find("#inputContent").val("");
-				target.find("#commenterID").val("");
+				$(document).find("#inputContent").val("");
+				$(document).find("#commenterID").val("");
 			},
 			error :function(){
 				alert("Error");
@@ -39,7 +37,7 @@ $(function(){
 		},"json");
 	});
 	$(".edit").click(function(){
-		var target = $(this).parent().parent().find(".panel-body");
+		var target = $(document).find(".panel-body");
 		var btn = $(this);
 		var originText = target.text();
 		var originHeight = target.css("height");
@@ -55,7 +53,6 @@ $(function(){
 				btn.css("display","inline-block");
 			});
 			$(".delBtn").click(function(){
-				var articleId = $(this).parent().parent().parent().attr("id");
 				var delBtn = $(this);
 				$.ajax({
 					type:"POST",
@@ -64,9 +61,7 @@ $(function(){
 						"id":articleId
 					},
 					success:function(){
-						alert("Ajax Success");
-						delBtn.parent().parent().parent().parent().remove();
-						history.go(-1);
+						window.location.href = articleListUrl;
 					},
 					error:function(){
 						alert("Ajax error");
@@ -74,10 +69,7 @@ $(function(){
 				},"json");
 			});
 			$(".saveBtn").click(function(){
-				//alert("click");
-				var articleId = $(this).parent().parent().parent().attr("id");
-				var newContent = $(this).parent().find(".editArea").val();
-				//alert(articleId);
+				var newContent = $(document).find(".editArea").val();
 				$.ajax({
 					type:"POST",
 					url: updateArticleUrl,
@@ -85,8 +77,8 @@ $(function(){
 						"id":articleId,
 						"content":newContent
 					},
-					success:function(){
-						target.text(newContent);
+					success:function(data){
+						target.text(data.newContent);
 						btn.css("display","inline-block");
 					},
 					error:function(){

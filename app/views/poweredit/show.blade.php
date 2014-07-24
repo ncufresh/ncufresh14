@@ -1,16 +1,16 @@
 @extends('layouts.layout')
 
 @section('content')
-	<p>題目 : {{ $poweredit->question }}</p>
-	<p>(A)：{{ $poweredit->qA }}</p>
-	<p>(B)：{{ $poweredit->qB }}</p>
-	<p>(C)：{{ $poweredit->qC }}</p>
-	<p>(D)：{{ $poweredit->qD }}</p>
-	<p>~解~：{{ $poweredit->correctans }}</p>
-	<p>解答：{{ $poweredit->answer }}</p>
-	<p>日期：{{ $poweredit->day }}</p>
+	<br>題目 : {{ $poweredit->question }}</br>
+	<br>(A)：{{ $poweredit->qA }}</br>
+	<br>(B)：{{ $poweredit->qB }}</br>
+	<br>(C)：{{ $poweredit->qC }}</br>
+	<br>(D)：{{ $poweredit->qD }}</br>
+	<br>~解~：{{ $poweredit->correctans }}</br>
+	<br>解答：{{ $poweredit->answer }}</br>
+	<br>日期：{{ $poweredit->day }}</br>
 	@if($poweredit->created_at != $poweredit->updated_at)
-		<p>最後修改：{{ $poweredit->updated_at }}</p>
+		<br>最後修改：{{ $poweredit->updated_at }}</br>
 	@endif
 
 	<div align="center">

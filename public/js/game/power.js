@@ -7,7 +7,7 @@ $(function()
     var dayQuest;
     var timer,count=0,returnC=0,powerreturncount;
     var done = false;
-    var get = false;
+    var token = '';
     ajaxPost(getTransferData('day-quest-url'),'', storeQuest);
     ajaxPost(getTransferData('recent-power-url'),'', getRecent);
 
@@ -20,7 +20,7 @@ $(function()
     });
 
     $('#start').click(function() {
-        if(done==true && get==true)
+        if(done==true)
         {
             $('#cover').hide();
             $('#startGame').show();
@@ -61,7 +61,7 @@ $(function()
             $('#getPower').text("回復電量 * " + returnCount);
             powerreturncount = recentPower;
             timer = $.timer(powerAnimate);
-            timer.set({ time:500, autostart:true });
+            timer.set({ time:1000, autostart:true });
         }
         else
             nextQuest();
@@ -79,7 +79,6 @@ $(function()
         count=0;
         returnC=0;
         done = false;
-        get = false; 
         ajaxPost(getTransferData('day-quest-url'),'', storeQuest);
         ajaxPost(getTransferData('recent-power-url'),'', getRecent);
         $('#cover').show();
@@ -88,12 +87,17 @@ $(function()
     function storeQuest(data)
     {
         done = true;
-        dayQuest = data;
+        token = data['token'];
+        dayQuest = data['questions'];
+        randomSelect(); 
+    }
+
+    function randomSelect()
+    {
         while(questCount<10)
         {
             var random = Math.random()*15;
             random -= random%1;
-
             choose=1;
             for(var i=0; i<questCount; i++)
                 if(quest[i]==random)
@@ -108,7 +112,6 @@ $(function()
 
     function getRecent(data)
     {
-        get = true;
         recentPower = data['recentPower'];
         maxPower = data['maxPower'];
     }
@@ -136,7 +139,7 @@ $(function()
             $('#correctAns').text("錯誤！正確答案為"+option);
         $('#correctAns').show();
         $('#next').show();
-        clickCount++;  
+        clickCount++; 
     }
 
     function returnPower(count)
@@ -167,11 +170,13 @@ $(function()
         if(returnCount==returnC)
         {
             timer.stop();
-            ajaxPost(getTransferData('renew-value-url'),{power:(parseInt(recentPower)+parseInt(returnCount)),max:maxPower},'');
+            ajaxPost(getTransferData('renew-value-url'),{power:returnCount, _token: token},'');
             $('#again').show();
-            editStatus((parseInt(recentPower)+parseInt(returnCount)));
+            var total = recentPower+returnCount;
+            if(total>=0 && total<=maxPower)
+                editStatus(total);
         }
-            
+        
         powerreturncount++;
         returnC++;
     }

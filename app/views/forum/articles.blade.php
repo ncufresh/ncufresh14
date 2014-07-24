@@ -68,17 +68,39 @@
 					</div>
 					<div id="formArticleTypeContainer">
 					{{ Form::label('article_type','文章分類') }}
-					{{ Form::select(
-						'article_type',
-						array(
-							'P' => '一般貼文' , 
-							'C' => '社團' , 
-							'D' => '系所'),
-						'',
-						array(
-							'class' => 'form-control',
-							'id' => 'selectType' ) 
-					) }}
+					@if(Entrust::can('forum_usage'))
+						{{ Form::select(
+							'article_type',
+							array('P' => '一般貼文' ),
+							'',
+							array(
+								'class' => 'form-control',
+								'id' => 'selectType' ) 
+						) }}
+					@elseif(Entrust::can('forum_unit'))
+						{{ Form::select(
+							'article_type',
+							array( 
+								'C' => '社團' , 
+								'D' => '系所'),
+							'',
+							array(
+								'class' => 'form-control',
+								'id' => 'selectType' ) 
+						) }}
+					@else
+						{{ Form::select(
+							'article_type',
+							array(
+								'P' => '一般貼文' , 
+								'C' => '社團' , 
+								'D' => '系所'),
+							'',
+							array(
+								'class' => 'form-control',
+								'id' => 'selectType' ) 
+						) }}
+					@endif
 					</div>
 					{{ Form::label('content','內容') }}
 					{{ Form::textarea('content','',array('class' => 'form-control' , 'id' => 'inputDetail')) }} <br>

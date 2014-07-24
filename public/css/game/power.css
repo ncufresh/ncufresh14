@@ -53,7 +53,7 @@
 
 #question {
 	width: 92%;
-	height: 20%;
+	height: 25%;
 	top: 5%;
 	border-bottom: 3px #F8E566 solid;
 	margin: 0 auto;
@@ -76,19 +76,19 @@
 }
 
 #qa {
-	top: 10%;
+	top: 7%;
 	position: relative;
 }
 #qb {
-	top: 13%;
+	top: 8%;
 	position: relative;
 }
 #qc {
-	top: 16%;
+	top: 9%;
 	position: relative;
 }
 #qd {
-	top: 19%;
+	top: 10%;
 	position: relative;
 }
 
@@ -96,7 +96,7 @@
 	width: 90%;
 	text-align: center;
 	margin-left: 5%;
-	margin-top: 140px;
+	margin-top: 80px;
 	font-size: 33px;
 	font-weight: bold;
 	background-color: #F8E566;

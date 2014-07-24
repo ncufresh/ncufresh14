@@ -1,5 +1,15 @@
 $(function(){
 	var bURL = getTransferData('burl');
+	var drag = $('#local').draggable({
+				containment: '#containment',
+				stop: function(){
+	        				var left = $('#local').css('left');
+	        				var top = $('#local').css('top');
+	        				$("#top").attr("value", top);
+	        				$("#left").attr("value", left);
+    					}
+        		});
+
 	$( "#ajax-local-form" ).submit(function(event){
 		event.preventDefault();
 		var formData = new FormData(this);
