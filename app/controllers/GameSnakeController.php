@@ -23,8 +23,8 @@ class GameSnakeController extends BaseController
 		$score = Input::get('score');
 		$mode = Input::get('mode');
 
-		if($user->power > 0){
-
+		if($user->power > 0)
+		{
 			$user->gp = $user->gp + $score;
 			$user->power = $user->power - 1;
 			$user->save();

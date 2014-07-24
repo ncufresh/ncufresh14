@@ -114,8 +114,7 @@ $(document).ready(function(){
 			}else if(data['id']==5){
 				$("#movie_menu").show("slow");
 			}
-			$("<span>"+teamphoto+"</span>").appendTo(".m_photo");
-			$("<span>"+introduction+"</span>").appendTo(".m_intro");
+			$("<span>"+teamphoto+"</span>").appendTo(".m_intro");
 			$(".m_intro").show("slow");
 			$(".m_photo").show("slow");
 		}else{

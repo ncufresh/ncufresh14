@@ -9,7 +9,7 @@
 #main {
 	position:absolute;
 	top:40px;
-	left:63px;
+	left:135px;
 }
 
 #videoFrame {
@@ -38,7 +38,7 @@
 	top:580px;
 	left:2.5%;
 	width: 95%;
-	height:80%;
+	height: 9.2%;
 }
 
 #intro {
@@ -49,12 +49,19 @@
 	height: 115px;
 	}
 
+#messageBGwhite{
+	position: absolute;
+	top:10px;
+	width: 972px;
+	height: 210px;
+}
+
 #messageBG {
 	position:absolute;
 	top: 20px;
 	left: 222px;
 	width:735px;
-    height:170px
+    height:170px;
 }
 
 #messageBG2 {
@@ -62,7 +69,7 @@
 	top: 150px;
 	left: 178px;
 	width:780px;
-    height:40px
+    height:40px;
 }
 
 /*
@@ -200,7 +207,7 @@
 	position:relative;	
 	top:850px;
 	left: 2.5%;
-	width: 1200px;
+	width: 100%;
 	height: 210px;
 }
 #portrait{
@@ -245,3 +252,9 @@
 	top:65px;
 	right:53px;
 }*/
+
+#pinewave {
+	position: absolute;
+	right: 1px;
+	bottom: 1px;
+}

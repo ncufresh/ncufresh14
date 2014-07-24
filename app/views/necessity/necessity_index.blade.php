@@ -29,41 +29,82 @@
 		<div class="ContentDown">
 				<!-- Research's Button -->
 			<div class="ContentDownYR">
+				
 					
 				<img class="Left1R" src="{{ asset('images/necessity/Left1.png') }}">
-				<img class="Left2R" src="{{ asset('images/necessity/Left2.png') }}">
-				<div class="LeftMidR" ></div>
-				<div>
-					<a href="#1"><img class="ResearchButtonA" src="{{ asset('images/necessity/ResearchButtonA1.png') }}"></a>
-					<a href="#2"><img class="ResearchButtonB" src="{{ asset('images/necessity/ResearchButtonB1.png') }}"></a>
-					<a href="#3"><img class="ResearchButtonC" src="{{ asset('images/necessity/ResearchButtonC1.png') }}"></a>
-					<a href="#4"><img class="ResearchButtonD" src="{{ asset('images/necessity/ResearchButtonD1.png') }}"></a>
-					<a href="#5"><img class="ResearchButtonE" src="{{ asset('images/necessity/ResearchButtonE1.png') }}"></a>
-					<a href="#6"><img class="ResearchButtonF" src="{{ asset('images/necessity/ResearchButtonF1.png') }}"></a>
-					<a href="#7"><img class="ResearchButtonG" src="{{ asset('images/necessity/ResearchButtonG1.png') }}"></a>
-					<a href="#8"><img class="ResearchButtonH" src="{{ asset('images/necessity/ResearchButtonH1.png') }}"></a>
+		
+				<div class="LeftMidR" >
+					<div>
+						<a href="#a1"><img class="ResearchButtonA" src="{{ asset('images/necessity/ResearchButtonA1.png') }}"></a>
+					</div>
+					<div>	
+						<a href="#a2"><img class="ResearchButtonB" src="{{ asset('images/necessity/ResearchButtonB1.png') }}"></a>
+					</div>
+					<div>
+						<a href="#a3"><img class="ResearchButtonC" src="{{ asset('images/necessity/ResearchButtonC1.png') }}"></a>
+					</div>
+					<div>
+						<a href="#a4"><img class="ResearchButtonD" src="{{ asset('images/necessity/ResearchButtonD1.png') }}"></a>
+					</div>
+					<div>
+						<a href="#a5"><img class="ResearchButtonE" src="{{ asset('images/necessity/ResearchButtonE1.png') }}"></a>
+					</div>
+					<div>
+						<a href="#a6"><img class="ResearchButtonF" src="{{ asset('images/necessity/ResearchButtonF1.png') }}"></a>
+					</div>
+					<div>		
+						<a href="#a7"><img class="ResearchButtonG" src="{{ asset('images/necessity/ResearchButtonG1.png') }}"></a>
+					</div>
+					<div>	
+						<a href="#a8"><img class="ResearchButtonH" src="{{ asset('images/necessity/ResearchButtonH1.png') }}"></a>
+					</div>
 				</div>
-
+				
+				<img class="Left2R" src="{{ asset('images/necessity/Left2.png') }}">
+			
 			</div>
 				<!-- Freshman's Button -->
 			<div class="ContentDownYF">
 
 				<img class="Left1F" src="{{ asset('images/necessity/Left1.png') }}">
-				<img class="Left2F" src="{{ asset('images/necessity/Left2.png') }}">
-				<div class="LeftMidF" ></div>
-				<div>
-					<a href="#1"><img class="FreshmanButtonA" src="{{ asset('images/necessity/FreshmanButtonA1.png') }}"></a>
-					<a href="#2"><img class="FreshmanButtonB" src="{{ asset('images/necessity/FreshmanButtonB1.png') }}"></a>
-					<a href="#3"><img class="FreshmanButtonC" src="{{ asset('images/necessity/FreshmanButtonC1.png') }}"></a>
-					<a href="#4"><img class="FreshmanButtonD" src="{{ asset('images/necessity/FreshmanButtonD1.png') }}"></a>
-					<a href="#5"><img class="FreshmanButtonE" src="{{ asset('images/necessity/FreshmanButtonE1.png') }}"></a>
-					<a href="#6"><img class="FreshmanButtonF" src="{{ asset('images/necessity/FreshmanButtonF1.png') }}"></a>
-					<a href="#7"><img class="FreshmanButtonG" src="{{ asset('images/necessity/FreshmanButtonG1.png') }}"></a>
-					<a href="#8"><img class="FreshmanButtonH" src="{{ asset('images/necessity/FreshmanButtonH1.png') }}"></a>
-					<a href="#9"><img class="FreshmanButtonI" src="{{ asset('images/necessity/FreshmanButtonI1.png') }}"></a>
-					<a href="#10"><img class="FreshmanButtonJ" src="{{ asset('images/necessity/FreshmanButtonJ1.png') }}"></a>
-					<a href="#11"><img class="FreshmanButtonK" src="{{ asset('images/necessity/FreshmanButtonK1.png') }}"></a> 
+				<div class="LeftMidF" >
+					<div>
+						<a href="#b1"><img class="FreshmanButtonA" src="{{ asset('images/necessity/FreshmanButtonA1.png') }}"></a>
+					</div>
+					<div>
+						<a href="#b2"><img class="FreshmanButtonB" src="{{ asset('images/necessity/FreshmanButtonB1.png') }}"></a>
+					</div>
+					<div>
+						<a href="#b3"><img class="FreshmanButtonC" src="{{ asset('images/necessity/FreshmanButtonC1.png') }}"></a>
+					</div>
+					<div>	
+						<a href="#b4"><img class="FreshmanButtonD" src="{{ asset('images/necessity/FreshmanButtonD1.png') }}"></a>
+					</div>
+					<div>	
+						<a href="#b5"><img class="FreshmanButtonE" src="{{ asset('images/necessity/FreshmanButtonE1.png') }}"></a>
+					</div>
+					<div>	
+						<a href="#b6"><img class="FreshmanButtonF" src="{{ asset('images/necessity/FreshmanButtonF1.png') }}"></a>
+					</div>
+					<div>	
+						<a href="#b7"><img class="FreshmanButtonG" src="{{ asset('images/necessity/FreshmanButtonG1.png') }}"></a>
+					</div>
+					<div>	
+						<a href="#b8"><img class="FreshmanButtonH" src="{{ asset('images/necessity/FreshmanButtonH1.png') }}"></a>
+					</div>
+					<div>	
+						<a href="#b9"><img class="FreshmanButtonI" src="{{ asset('images/necessity/FreshmanButtonI1.png') }}"></a>
+					</div>
+					<div>	
+						<a href="#b10"><img class="FreshmanButtonJ" src="{{ asset('images/necessity/FreshmanButtonJ1.png') }}"></a>
+					</div>
+					<div>	
+						<a href="#b11"><img class="FreshmanButtonK" src="{{ asset('images/necessity/FreshmanButtonK1.png') }}"></a> 
+					</div>
 				</div>
+				<img class="Left2F" src="{{ asset('images/necessity/Left2.png') }}">
+				
+					
 
 			</div>
 
@@ -107,7 +148,7 @@
 								</tr>
 							@foreach($necessityResearchData as $necessityresearchdata)
 								<tr >
-									<td class="formStyleSide" {{"id='".$necessityresearchdata->id."'" }}>{{$necessityresearchdata->item }}</td>
+									<td class="formStyleSide" {{"id='a".$necessityresearchdata->id."'" }}>{{$necessityresearchdata->item }}</td>
 									<td class="formStyleMid">{{$necessityresearchdata->explanation }}</td>
 									<td class="formStyleSide">{{$necessityresearchdata->organizer }}</td>
 								</tr>
@@ -170,7 +211,7 @@
 								</tr>
 							@foreach($necessityFreshmanData as $necessityfreshmandata)
 								<tr >
-									<td class="formStyleSide" {{"id='".$necessityfreshmandata->id."'" }}>{{$necessityfreshmandata->item }}</td>
+									<td class="formStyleSide" {{"id='b".$necessityfreshmandata->id."'" }}>{{$necessityfreshmandata->item }}</td>
 									<td class="formStyleMid">{{$necessityfreshmandata->explanation }}</td>
 									<td class="formStyleSide">{{$necessityfreshmandata->organizer }}</td>
 								</tr>

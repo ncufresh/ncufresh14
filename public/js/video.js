@@ -106,7 +106,7 @@ $(function(){
     if(getTransferData('login') == 0 ){
     $.alertMessage('請先登入！', {type: 'alert-danger'});
     event.preventDefault();
-    }  
+    }
 	  ajaxPost(url, data , rateFinish);
 	});  //like button
 
@@ -120,6 +120,9 @@ $(function(){
     ajaxPost(url, data , rateFinish);
 	});  //love button
   
+  $('#pinewave').click(function(){
+    window.location.href="http://radio.pinewave.tw/";
+  })
 
 /*
   function shit(){
@@ -131,9 +134,14 @@ $(function(){
 */
 
   function rateFinish(gg){
-    $("#rating_number1").text(gg['a']);
-    $("#rating_number2").text(gg['b']);
-  }   //vote完重整，讓rating 即時顯示
+    if (gg['a']==-1){
+      $.alertMessage('你已經投過了！', {type: 'alert-danger'});
+    }else{
+      $("#rating_number1").text(gg['a']);
+      $("#rating_number2").text(gg['b']);
+    }
+    
+  }   //vote完重整，讓rating 即時顯示 and alert tips:你已經投過了
 
   function LogInAlert(alert){
     alert("請先登入!");

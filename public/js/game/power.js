@@ -61,7 +61,7 @@ $(function()
             $('#getPower').text("回復電量 * " + returnCount);
             powerreturncount = recentPower;
             timer = $.timer(powerAnimate);
-            timer.set({ time:500, autostart:true });
+            timer.set({ time:1000, autostart:true });
         }
         else
             nextQuest();
