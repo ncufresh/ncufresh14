@@ -2,15 +2,15 @@ $(document).ready(function(){
 
 	var burl = getTransferData('burl');
 
-	var change = ['','department', 'administration', 'scence', 'food', 'dorm', 'exercise'];
+	var change = ['','department', 'administration', 'scence', 'exercise', 'food', 'dorm'];
 	var changeChinese = ['','系館', '行政', '中大十景', '運動', '飲食', '住宿'];
-	//change[2] = ;
-	// 'department' => '1',
-	// 		'administration' => '2',
-	// 		'scence' => '3',
-	// 		'food' => '4',
-	// 		'dorm' => '5',
-	// 		'exercise'=>'6'
+	window.addEventListener("keydown", checkKeyPressed, false);
+ 
+	function checkKeyPressed(e) {
+	    if (e.keyCode == "65") {
+	        alert("The 'a' key is pressed.");
+	    }
+	}
 	$("#select").change(changeLeft);
 	$(".pointer").click(function(){
 		clickImg($(this).data('id'));
