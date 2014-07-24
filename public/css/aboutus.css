@@ -35,7 +35,8 @@
 	
 }
 .m_intro{
-	background-color: #000521;
+
+	font-family:"微軟正黑體";
 	position: absolute;
 	width: 500px;
 	height: 50px;
@@ -57,6 +58,7 @@
 	opacity:1 !important;
 }
 .menu{
+	
 	position: absolute;
 	margin-top:-876px;
 	margin-left: 156px; 
