@@ -377,6 +377,10 @@ body {
 	background-size: 100%;
 }
 
+#login-form{
+	height: 300px;
+}
+
 #alert-messages{
 	position: fixed;
 	top: 30%;

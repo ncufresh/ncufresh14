@@ -11,7 +11,7 @@
 		{{ HTML::script('js/jquery/jquery.timer.js') }}
 		{{ HTML::script('ckeditor/ckeditor.js') }}
 		{{ HTML::script('js/main.js') }}
-		{{ HTML::script('js/layout/chatroom.js') }}
+		{{-- HTML::script('js/layout/chatroom.js') --}}
 		{{ HTML::script('js/jquery/pace.min.js') }}
 		{{ HTML::style('css/bootstrap.min.css') }}
 		{{ HTML::style('css/jquery.jscrollpane.css') }}
@@ -22,11 +22,21 @@
 		
 		{{ HTML::script('js/layout/robot.js') }}
 
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<!--[if IE 8]>
+		{{ HTML::style('css/ie.css') }}
+		<![endif]-->
+
 		@if(Request::server('SERVER_IP') == '140.115.184.136' && Config::get('app.debug') == false)
 			{{ HTML::script('js/ga.js') }}
 		@endif
 
 		@yield('js_css')
+
 
 		@if(Session::has('alert-message'))
 			<script>
