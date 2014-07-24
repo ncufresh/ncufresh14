@@ -19,7 +19,7 @@
 
 		{{Form::text('teamphoto',$users->teamphoto,array('id'=>$users->id))}}
 
-		{{Form::textarea('introduction',$users->introduction,array('id'=>$users->id))}}
+		<!-- {{Form::textarea('introduction',$users->introduction,array('id'=>$users->id))}} -->
 		
 		<button class="sure">確認</button>
 		{{Form::close()}}

@@ -22,7 +22,7 @@
 				<div id="mode1"> <img src="..\\images\\gameSnake\\m1.png"> </div>
 				<div id="mode2"> <img src="..\\images\\gameSnake\\m2.png"> </div>	
 				<div id="mode3"> <img src="..\\images\\gameSnake\\m3.png"> </div>
-				<div id="intro"></div>	
+				<div class="intro"></div>	
 			</div>
 			<div id="introduction"></div>
 		</div>
@@ -36,12 +36,12 @@
 
 	<div id="endScreen">
 		<font size="20"><div id="score"></div></font>
-		<div id="again"><img src="..\\images\\gameSnake\\again.png"></div>
-		<div id="rankButton"><img src="..\\images\\gameSnake\\rank.png"></div>
+		<div id="again"></div>
+		<div id="rankButton"></div>
 	</div>
 
 	<div id="rankBack">
-		<div id="cross"><img src="..\\images\\gameSnake\\cross.png"></div>
+		<div id="cross"></div>
 		<div class="spin" data-spin="spin"></div>
 		<div class="rankMode row">
 			<div class="rM1 col-sm-4"></div>

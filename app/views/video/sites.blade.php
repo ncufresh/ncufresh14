@@ -13,16 +13,13 @@
 <img src="images\videoImages\introLine.png" id="introTop">
 <img src="images\videoImages\introLine.png" id="introTop2">
 
-
 <div id="main">
-	<iframe width="896" height="504" src="//www.youtube.com/embed/{{ $video->video_address }}" frameborder="0" allowfullscreen></iframe>
+	<iframe width="750" height="500" src="//www.youtube.com/embed/{{ $video->video_address }}" frameborder="0" allowfullscreen></iframe>
 </div>
 
-
-
 <div id="video_name" style ="width:900px;height:100px;font-size:50px;"><font color="gray">{{$video ->video_name}}</font></div>
-<button id="like" type="button"  style = "background-color: transparent; border: 0;"><img src="images\videoImages\likeButton.png"><font size=>      喜歡</font></button>
-<button id="love" type="button"  style = "background-color: transparent; border: 0;"><img src="images\videoImages\loveButton.png">      超喜歡</button>
+<button id="like" type="button"  style = "background-color: transparent; border: 0;"><img src="images\videoImages\likeButton.png"><font color='gray'>        喜歡</font></button>
+<button id="love" type="button"  style = "background-color: transparent; border: 0;"><img src="images\videoImages\loveButton.png"><font color='gray'>        超喜歡</font></button>
 <button id="message" style="width:100px;height:30px;background-color: transparent; border: 0;"><img src="images\videoImages\messageButton.png"></button>
 
 <!-- 彈出視窗 -->
@@ -45,6 +42,7 @@
 
 @foreach( $messages as $message)
 	<div id="user_message">
+		<img src="images\videoImages\introMid.png" id="messageBGwhite">
 		<img src="images\videoImages\messageBG.png" id="messageBG">
 		<img src="images\videoImages\messageCamera.png" id="messageBG2">
 		<a href="{{ route('user.id', array('id' => $message ->user->id)) }}"><img src="{{ route('personface',array('id' => $message->user_id )) }}" id="portrait"></a>
@@ -52,10 +50,7 @@
 		<div id ="div_name"><font color = "#7DB7A1">{{ $message->user->name }}</font></div>
 	</div>
 @endforeach
-
-	
-
-
+<button id="pinewave" type="button"  style = "background-color: transparent; border: 0;"></button>
 </div> <!--frame div-->
 
 {{$messages->links();}} 

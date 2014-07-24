@@ -15,6 +15,8 @@
 #left_top {
 	width: 100%;
 	height: 83px;
+	position: relative;
+	z-index: 99;
 	background-image: url(../images/nculife/left_top.png);
 }
 
@@ -34,10 +36,15 @@
 	background-image: url(../images/nculife/place.png);
 }
 
+#place1 {
+	background-image: url(../images/nculife/prese_place.png);
+}
+
 #left_bottom {
 	width: 100%;
 	height: 88px;
 	margin-top: -15px;
+	position: relative;
 	background-image: url(../images/nculife/left_bottom.png);
 }
 
@@ -76,13 +83,17 @@
 }
 
 .select {
-	width: 50px;
-	height: 30px;
+	width: 29px;
+	height: 16px;
 	position: relative;
-	top: 10px;
-	left: 10px;
-	background-color: yellow;
+	top: 50px;
+	left: 30px;
+	background-image: url(../images/nculife/switchoff.png);
 	display: inline-block;
+}
+
+#select1 {
+	background-image: url(../images/nculife/switchon.png);
 }
 
 #img {
@@ -92,10 +103,11 @@
 }
 
 .img {
-	width: 545px;
-	height: 325px;
-	margin-top: 105px;
-	margin-left: 45px;
+	width: 585px;
+	height: 440px;
+	margin-top: 15px;
+	margin-left: 0px;
+	-webkit-mask-image: url(../images/nculife/photomask.png);
 }
 
 #containment {
