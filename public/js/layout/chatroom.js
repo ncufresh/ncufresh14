@@ -13,6 +13,7 @@ $(function(){
 		userId = 0;
 		userName = '遊客';
 	}
+	if("WebSocket" in window){
 
 	var path = $('#chat-room').data('chatroom-url');
 	app.BrainSocket = new BrainSocket(
@@ -78,5 +79,10 @@ $(function(){
 		$('#chat-log').append(divRow);
 		$('#chat-log').scrollTop($('#chat-log').height()*2)
 
+	}
+	}else{
+		$('#chat-room-button').click(function() {
+			$.alertMessage('想聊天請使用更佳的瀏覽器', {type: 'alert-warning'});
+		});
 	}
 });

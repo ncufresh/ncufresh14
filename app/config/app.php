@@ -122,6 +122,7 @@ return array(
 		'Zizaco\Entrust\EntrustServiceProvider',
 		'BrainSocket\BrainSocketServiceProvider',
 		'Fitztrev\LaravelHtmlMinify\LaravelHtmlMinifyServiceProvider',
+		'hisorange\BrowserDetect\Provider\BrowserDetectService',
 
 
 	),
@@ -191,6 +192,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Entrust'		  => 'Zizaco\Entrust\EntrustFacade',
 		'BrainSocket'     => 'BrainSocket\BrainSocketFacade',
+		'BrowserDetect' => 'hisorange\BrowserDetect\Facade\Parser',
 	),
 
 );

@@ -239,7 +239,7 @@
 				  		@foreach($necessityDownloadData as $necessitydownloaddata)
 							
 
-							@if( $n<=10 )		
+							@if( $n <= 10 )		
 						 	
 						 		<font size="5" face="微軟正黑體">{{	link_to_route('downloadReturn', $necessitydownloaddata -> name , array( 'id' =>  $necessitydownloaddata -> id ))}}</font>
 

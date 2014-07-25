@@ -15,7 +15,7 @@ class GameSnakeController extends BaseController
 	public function getPower()
 	{
 		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
-		return Response::json(array('power'=>$user->power, 'score'=>$user->gp));
+		return Response::json(array('power'=>$user->power, 'score'=>$user->gp, 'token' => csrf_token()));
 	}
 	public function renewValue()
 	{

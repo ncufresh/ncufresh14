@@ -56,16 +56,16 @@ $(function(){
             $('.ContentDownYR').css({  
             	
                 position: "absolute",
-                top:"10px",
-                left:"10px"
+                 top:"10px"
+                // left:"10px"
                 
             });
         } else {
              $('.ContentDownYR').css({
              	
                 position: "fixed",
-                top: "95px",
-                left:"173px"
+                top: "95px"
+                // left:"173px"
                 
              });
         }
@@ -76,15 +76,15 @@ $(function(){
             $('.ContentDownYF').css({  
                 
                 position: "absolute",
-                top:"10px",
-                left:"10px"
+                top:"15px"
+                // left:"10px"
             });
         } else {
              $('.ContentDownYF').css({
                 
                 position: "fixed",
-                top: "10px",
-                left:"173px"
+                top: "30px"
+                // left:"173px"
 
              });
         }

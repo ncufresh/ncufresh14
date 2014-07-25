@@ -5,20 +5,32 @@ class ArticlesController extends BaseController{
 	public function init($item = 'forum'){
 		
 		$siteMap = App::make('SiteMap');
+
 		$siteMap->pushLocation('論壇',route('forum'));
+
 		$isLogin = Auth::check();
+
 		if($isLogin){
+
 			$user = Auth::user();
+
 			$userId = $user->id;
+
 			$userName = $user->name;
+
 			return View::make('forum/articles',array(
+
 				'isLogin' => true ,
+
 				'userId' => $userId ,
+
 				'userName' => $userName
 			));
 			
 		}else{
+
 			return View::make('forum/articles',array(
+
 				'isLogin' => false
 			));
 		}
@@ -26,9 +38,11 @@ class ArticlesController extends BaseController{
 	}
 
 	public function postArticles(){
-		//login type?
+
 		$input = Input::all();
+
 		$articleType = Input::get('article_type');
+
 		$rules = array(
 			'title' => 'required',
 			'content' => 'required'
@@ -41,16 +55,23 @@ class ArticlesController extends BaseController{
 			$response = array('status' => 'fail','msg' => 'failed', 'input'=>$input);
 			
 			return Response::json($response);
-		}else{
+
+		}else if(Auth::check()){
 			
-			if((Entrust::can('forum_usage') && $articleType == P) || (Entrust::can('forum_unit') && ($articleType == D || $articleType == C))){
+			if((Entrust::can('forum_usage') && $articleType == "P") || (Entrust::can('forum_unit') && ($articleType == "D" || $articleType == "C"))){
 				
 				$forum = new Forum;
+
 				$forum->title = Input::get('title');
+
 				$forum->author_id = Auth::user()->id;
-				$forum->article_type = $articleType	;
+
+				$forum->article_type = $articleType;
+
 				$forum->content = Input::get('content');
+
 				$forum->comment_number = 0;
+
 				$forum->save();
 				
 				$articleId = $forum->id;
@@ -68,7 +89,8 @@ class ArticlesController extends BaseController{
 					'articleTitle' => $articleTitle,
 					'articleContent' => $articleContent,
 					'articleTime' => $articleTime,
-					'articleAuthor' => $articleAuthor
+					'articleAuthor' => $articleAuthor,
+					'authorId' => Auth::user()->id
 				);
 				return Response::json($response);
 			}
@@ -78,32 +100,55 @@ class ArticlesController extends BaseController{
 	public function postComment(){
 			
 		$content = Input::get('comment');
+
 		$author_id = Auth::user()->id;
-		$article_id = Input::get('article_id'); // Check ?
+
+		$article_id = Input::get('article_id');
+
+		$rule = array('comment' => 'required');
+
+		$validation = Validator::make(Input::all(),$rule);
 		
-		$comment = new ForumComment;
-		$comment->article_id = $article_id;
-		$comment->author_id = $author_id;
-		$comment->content = $content;
-		$comment->save();
+		if(Auth::check() && $validation -> passes()){
 
-		$commentAuthor = $comment->user->name;
-		$commentContent = $comment->content;
-		$commentTime = $comment->created_at;
+			$comment = new ForumComment;
 
-		$article = Forum::where('id','=',$article_id)->firstOrFail();
-		$commentNum = $article -> comment_number;
-		Forum::where('id','=',$article_id)->update(array('comment_number' => $commentNum+1)); 
+			$comment->article_id = $article_id;
 
-		$response = array(
-			'commentAuthor' => $commentAuthor,
-			'commentContent' => $commentContent,
-			'commentTime' => $commentTime
-		);
+			$comment->author_id = $author_id;
 
-		return Response::json($response);
+			$comment->content = $content;
+
+			$comment->save();
+
+			$commentAuthor = $comment->user->name;
+
+			$authorId = $comment->author_id;
+
+			$commentContent = $comment->content;
+
+			$commentTime = $comment->created_at;
+
+			$article = Forum::where('id','=',$article_id)->firstOrFail();
+
+			$commentNum = $article -> comment_number;
+
+			Forum::where('id','=',$article_id)->update(array('comment_number' => $commentNum+1)); 
+
+			$response = array(
+				'commentAuthor' => $commentAuthor,
+				'authorId' => $authorId,
+				'commentContent' => $commentContent,
+				'commentTime' => $commentTime
+			);
+
+			return Response::json($response);
+
+		}
+		
 	}
 	public function getComment(){
+
 		$id = Input::get('articleID');
 
 		$comments = ForumComment::where('article_id',$id)->with('user')->paginate();
@@ -146,41 +191,63 @@ class ArticlesController extends BaseController{
 
 		$article = Forum::find($id);
 
-		$num = $article->comment->count();
+		if(Auth::check() && $article->author_id == Auth::user()->id){
 
-		foreach($article->comment as $comment){
+			$num = $article->comment->count();
 
-			$comment->delete();
+			foreach($article->comment as $comment){
+
+				$comment->delete();
+			}
+
+			Forum::find($id)->delete();
+
+			$response = array(
+				'status' => 'success' , 
+				'msg' => 'successfully');	
+
+			return Response::json($response);
+
 		}
 
-		Forum::find($id)->delete();
-		$response = array(
-			'status' => 'success' , 
-			'msg' => 'successfully');	
-		return Response::json($response);
+		
 	}
 
 	public function updateArticle(){
 		
-		$id = Input::get('id');		//whos?
+		$id = Input::get('id');	
+
 		$content = Input::get('content');
 		
 		$article = Forum::find($id);
 
-		$article->content = $content;
+		$rules = array(
 
-		$article->save();
+			'content' => 'required'
+		);
 
-		$newContent = $article->content;
+		$validation = Validator::make(Input::all(),$rules);
 
-		$response = array('newContent' => $newContent);
+		if(Auth::check() && $article->author_id == Auth::user()->id && $validation->passes()){
+			
+			$article->content = $content;
 
-		return Response::json($response);
+			$article->save();
+
+			$newContent = $article->content;
+
+			$response = array('newContent' => $newContent);
+
+			return Response::json($response);
+		}
 	}
 
 	public function viewOneArticle($id){
+		
 		$siteMap = App::make('SiteMap');
+
 		$siteMap->pushLocation('論壇',route('forum'));
+
 		$article = Forum::find($id);
 
 		$comments = $article->comment;
@@ -190,7 +257,7 @@ class ArticlesController extends BaseController{
 		return View::make('forum/perArticle',array(
 			'article' => $article , 
 			'comments' => $comments , 
-			'author' => $articleAuthor
+			'author' => $articleAuthor,
 			)
 		);
 		//null
