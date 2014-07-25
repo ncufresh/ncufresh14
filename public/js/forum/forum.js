@@ -105,7 +105,11 @@ $(function(){
 		e.preventDefault();
 		pageLocation--;
 		switch(tabLocation){
-			case "new","pop":
+			case "new":
+				$("#Test1 .articleContainer").remove();	
+				getArticles(tabLocation,pageLocation,"#Test1");
+				break;
+			case "pop":
 				$("#Test1 .articleContainer").remove();	
 				getArticles(tabLocation,pageLocation,"#Test1");
 				break;
