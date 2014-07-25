@@ -63,14 +63,14 @@
 						<img data-id = "17" id="engineer-5" class="item departments" src="{{ asset('images/SchoolGuide/engineer-5.png') }}">
 						<img data-id = "3" id="G-1-4" class="item dorm" src="{{ asset('images/SchoolGuide/G-1-4.png') }}">
 						<img data-id = "10" id="park" class="item scence" src="{{ asset('images/SchoolGuide/park.png') }}">
-						<img data-id = "3" id="gym" class="item exercise" src="{{ asset('images/SchoolGuide/gym.png') }}">
-						<img data-id = "3" id="basketball" class="item exercise" src="{{ asset('images/SchoolGuide/basketball.png') }}">
-						<img data-id = "3" id="playground" class="item exercise" src="{{ asset('images/SchoolGuide/playground.png') }}">
-						<img data-id = "3" id="rock" class="item exercise" src="{{ asset('images/SchoolGuide/rock.png') }}">
-						<img data-id = "3" id="swimpool" class="item exercise" src="{{ asset('images/SchoolGuide/swimpool.png') }}">
-						<img data-id = "3" id="skate" class="item exercise" src="{{ asset('images/SchoolGuide/skate.png') }}">
-						<img data-id = "3" id="valley" class="item exercise" src="{{ asset('images/SchoolGuide/valley.png') }}">
-						<img data-id = "3" id="badminton" class="item exercise" src="{{ asset('images/SchoolGuide/badminton.png') }}">
+						<img data-id = "31" id="gym" class="item exercise" src="{{ asset('images/SchoolGuide/gym.png') }}">
+						<img data-id = "38" id="basketball" class="item exercise" src="{{ asset('images/SchoolGuide/basketball.png') }}">
+						<img data-id = "35" id="playground" class="item exercise" src="{{ asset('images/SchoolGuide/playground.png') }}">
+						<img data-id = "36" id="rock" class="item exercise" src="{{ asset('images/SchoolGuide/rock.png') }}">
+						<img data-id = "39	" id="swimpool" class="item exercise" src="{{ asset('images/SchoolGuide/swimpool.png') }}">
+						<img data-id = "32" id="skate" class="item exercise" src="{{ asset('images/SchoolGuide/skate.png') }}">
+						<img data-id = "37" id="valley" class="item exercise" src="{{ asset('images/SchoolGuide/valley.png') }}">
+						<img data-id = "33" id="badminton" class="item exercise" src="{{ asset('images/SchoolGuide/badminton.png') }}">
 						<img data-id = "8" id="lake" class="item scence" src="{{ asset('images/SchoolGuide/lake.png') }}">
 						<img data-id = "3" id="wood" class="item eat" src="{{ asset('images/SchoolGuide/wood.png') }}">
 						<img data-id = "21" id="science-4" class="item departments" src="{{ asset('images/SchoolGuide/science-4.png') }}">
