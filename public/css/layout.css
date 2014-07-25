@@ -377,6 +377,10 @@ body {
 	background-size: 100%;
 }
 
+#login-form{
+	height: 300px;
+}
+
 #alert-messages{
 	position: fixed;
 	top: 30%;
@@ -453,6 +457,15 @@ body{
 .modal-content{
 	border-width: 13px;
 	border-color: #F8E566;
+}
+
+#ie-warning{
+	position: fixed;
+	width: 100%;
+	text-align: center;
+	background-color: #000000;
+	color: #ffffff;
+	z-index: 100;
 }
 
 /** testing */

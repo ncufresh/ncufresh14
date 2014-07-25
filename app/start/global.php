@@ -99,5 +99,13 @@ App::missing(function($exception)
 	return Response::view('errors.index', array('message' => '找不到路徑'), 404);
 });
 
+App::before(function($request)
+{
+		if(BrowserDetect::isIEVersion(7, true)){
+		return View::make('ie.index');
+
+	}
+});
+
 
 require app_path().'/filters.php';

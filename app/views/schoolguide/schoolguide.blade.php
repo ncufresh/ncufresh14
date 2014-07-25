@@ -3,6 +3,7 @@
 @section('js_css')
 	{{ HTML::style('css/schoolguide.css') }}
 	{{HTML::script('js/schoolguide.js')}}
+
 @stop
 
 @section('content')
@@ -24,10 +25,8 @@
 			
 			<ol id="leftlist" style="font-size:20;">
 					@foreach($Schoolguides as $Schoolguide)
-					<!-- <img class = "line" src="{{ asset('images/SchoolGuide/line.png') }}"> -->
-					<!-- <img class = "board" src="{{ asset('images/SchoolGuide/board.png') }}"> -->
 					<li class="left_item" data-place_id="{{ $Schoolguide->id }}">
-						{{ $Schoolguide->name }}
+						<span class="name">{{ $Schoolguide->name }}</span>
 					</li>
 					@endforeach
 			</ol>
@@ -94,43 +93,6 @@
 				</div>
 			</div>
 			
-			
-					
-	
-	 <!-- 
-		@if(isset($old) && $old == true)
-			<div class="photo">
-				<div class="photocontainer">
-					
-					<div class="modal2">
-					<div class="close2" aria-label="離開"></div>
-					
-				  		<div class="content">
-							{{ $users->introduction }}
-				  		</div>
-				  	</div>
-				  </div>
-			 </div>
-		 @else
-			 <div class="photo">
-				<div class="photocontainer">
-					
-					<div class="modal2">
-					<div class="close2" aria-label="離開"></div>
-					
-				  		<div class="content">
-					
-				  		</div>
-				  	</div>
-				  </div>
-			 </div>
-		 @endif
 
-			 -->
-
-
-
-
-	
 
 @stop
