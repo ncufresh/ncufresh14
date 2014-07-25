@@ -31,7 +31,9 @@ class GamePowerController extends BaseController
 		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
 		$power = Input::get('power');
 		$total = $user->power + $power;
-		if($total>=0 && $total<=$user->max_power)
+		if($total>=$user->max_power)
+			$user->power = $user->max_power;
+		else if($total>=0 && $total<=$user->max_power)
 			$user->power = $total;
 		$user->save();
 	}
