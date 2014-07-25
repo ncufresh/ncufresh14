@@ -201,10 +201,18 @@ $(function(){
 					}else if(type == "C"){
 						insertPlace = "#clubIndex";
 					}
+
+					var dateTime = new Date(data.articleTime.date);
+					var currentTime = dateTime.getFullYear()
+										+"-"+(dateTime.getMonth()+1)
+										+"-"+dateTime.getDate()
+										+" "+dateTime.getHours()
+										+":"+dateTime.getMinutes()
+										+":"+dateTime.getSeconds();
 					insertArticle(
 						data.articleAuthor,
 						data.authorId,
-						data.articleTime.date,
+						currentTime,
 						data.articleId,
 						data.articleTitle,
 						data.articleContent.replace(/\n/g,"<br>"),

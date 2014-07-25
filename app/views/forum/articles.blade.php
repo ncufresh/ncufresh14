@@ -28,10 +28,10 @@
 				</div>
 			</div>
 			<div class="tab-pane" id="Test2">
-				<div id="departmentIndex">index</div>
+				<p>&nbsp;</p>
 			</div>
 			<div class="tab-pane" id="Test3">
-				<div id="clubIndex">index</div>
+				<p>&nbsp;</p>
 			</div>
 		</div>
 		<div class="paginationBox">
