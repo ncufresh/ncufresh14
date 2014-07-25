@@ -202,7 +202,6 @@ $(function(){
 					}else if(type == "C"){
 						insertPlace = "#clubIndex";
 					}
-					console.log(data);
 					insertArticle(
 						data.articleAuthor,
 						data.authorId,
@@ -275,8 +274,6 @@ function getArticles(type,page,target){
 			'articleType' : type,
 		},
 		success:function(data){
-			console.log(data);
-			pageGenerate(pageLocation,data.last_page);
 			for(i=0;i<data['data'].length;i++){
 				showArticles(
 					data['data'][i]['user']['name'],
@@ -288,6 +285,7 @@ function getArticles(type,page,target){
 					target
 				);
 			}
+			pageGenerate(pageLocation,data.last_page);
 		},
 		error:function(){
 			$.alertMessage('Getting Articles failed');

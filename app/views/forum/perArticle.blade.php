@@ -36,21 +36,7 @@
 					@endif
 				</div>
 			</div>
-			<div class="responseBox">
-				@if(Auth::check())
-					<form class="commentForm" route="createComment" >
-						{{ Form::label('comment','回覆貼文') }}
-						{{ Form::submit('發表回覆',array(
-							'type' => 'button' , 
-							'class' => 'btn btn-primary createComment'
-						)) }}
-						{{ Form::textarea('comment','',array(
-							'class' => 'form-control commentTextArea' , 
-							'id' => 'inputContent'
-						)) }}
-					</form>
-				@endif
-			</div>
+			
 			@foreach($comments as $comment)
 				<div class='panel panel-default'>
 					<div class='commentAuthorBox'>
@@ -67,6 +53,21 @@
 					</div>
 				</div>
 			@endforeach
+			<div class="responseBox">
+				@if(Auth::check())
+					<form class="commentForm" route="createComment" >
+						{{ Form::label('comment','回覆貼文') }}
+						{{ Form::textarea('comment','',array(
+							'class' => 'form-control commentTextArea' , 
+							'id' => 'inputContent'
+						)) }}
+						{{ Form::submit('發表回覆',array(
+							'type' => 'button' , 
+							'class' => 'btn btn-primary createComment'
+						)) }}
+					</form>
+				@endif
+			</div>
 		</div>
 	</div>
 
