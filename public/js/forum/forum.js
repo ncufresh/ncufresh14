@@ -193,7 +193,6 @@ $(function(){
 					$("#inputAuthor_id").val("");
 					$("#inputDetail").val("");
 					$('#myModal').modal('toggle');
-					var currentTime = getCurrentTime(); 
 					var insertPlace;
 					if(type == "P"){
 						insertPlace = "#toolBar";
