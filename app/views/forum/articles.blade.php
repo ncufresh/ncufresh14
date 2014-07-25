@@ -33,6 +33,8 @@
 			<div class="tab-pane" id="Test3">
 				<div id="clubIndex">index</div>
 			</div>
+		</div>
+		<div class="paginationBox">
 			
 		</div>
 	</div>

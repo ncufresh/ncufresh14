@@ -162,25 +162,20 @@ class ArticlesController extends BaseController{
 
 		$Articles;
 
-		if($articleType == "new"){
+		switch ($articleType) {
 
-			$Articles = Forum::where('article_type','P')->with('user')->orderBy('created_at','desc')->paginate(2);
-		}
-
-		if($articleType == "pop"){
-
-			$Articles = Forum::where('article_type','P')->with('user')->orderBy('comment_number','desc')->paginate(2);
-		}
-
-		if($articleType == "department"){
-
-			$Articles = Forum::where('article_type','D')->with('user')->orderBy('created_at','desc')->paginate(2);
-		}
-
-		if($articleType == "club"){
-
-			$Articles = Forum::where('article_type','C')->with('user')->orderBy('created_at','desc')->paginate(2);
-
+			case 'new':
+				$Articles = Forum::where('article_type','P')->with('user')->orderBy('created_at','desc')->paginate(5);
+				break;
+			case 'pop':
+				$Articles = Forum::where('article_type','P')->with('user')->orderBy('comment_number','desc')->paginate(5);
+				break;
+			case 'department':
+				$Articles = Forum::where('article_type','D')->with('user')->orderBy('created_at','desc')->paginate(5);
+				break;
+			case 'club':
+				$Articles = Forum::where('article_type','C')->with('user')->orderBy('created_at','desc')->paginate(5);
+				break;
 		}
 
 		return Response::json($Articles);
@@ -267,24 +262,6 @@ class ArticlesController extends BaseController{
 		);
 		//null
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
