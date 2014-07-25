@@ -147,10 +147,9 @@ Route::group(array('prefix' => 'admin', 'before' => 'manage_editor'), function()
 Route::group(array('before' => 'auth'), function(){
 	Route::get('game', array('as' => 'game', 'uses' => 'GameController@index'));
 	Route::get('game/snake', array('as' => 'game.snake', 'uses' => 'GameSnakeController@index'));
-	Route::post('game/snake/renewValue', array('as' => 'game.snake.renewValue', 'uses' => 'GameSnakeController@renewValue'));
 	Route::post('game/snake/getPower', array('as' => 'game.snake.getPower', 'uses' => 'GameSnakeController@getPower'));
-	Route::get('game/snake/getHighScore', array('as' => 'game.snake.getHighScore', 'uses' => 'GameSnakeController@getHighScore'));
-	
+	Route::post('game/snake/renewValue', array('as' => 'game.snake.renewValue', 'uses' => 'GameSnakeController@renewValue', 'before' => 'csrf'));
+	Route::post('game/snake/getHighScore', array('as' => 'game.snake.getHighScore', 'uses' => 'GameSnakeController@getHighScore', 'before' => 'csrf'));
 
 	Route::get('game/campus', array('as' => 'game.campus', 'uses' => 'GamecampusController@index'));
 	Route::get('game/destiny', array('as' => 'game.destiny', 'uses' => 'GamedestinyController@index'));
@@ -182,15 +181,9 @@ Route::get('articles/{item?}',array('as' => 'forum' , 'uses' => 'ArticlesControl
 
 Route::post('/getComments',array('as' => 'getComments' , 'uses' => 'ArticlesController@getComment'));
 
-Route::post('/orderNew',array('as' => 'orderNew' , 'uses' =>'ArticlesController@getArticles'));
-
-Route::post('/orderPop',array('as' => 'orderPop' , 'uses' => 'ArticlesController@getArticles'));
-
 Route::get('perArticle/{id?}',array('as' => 'perArticle' , 'uses' => 'ArticlesController@viewOneArticle'));
 
-Route::post('/getDepartment',array('as' => 'getDepartmentArticle' , 'uses' => 'ArticlesController@getArticles'));
-
-Route::post('/getClub',array('as' => 'getClubArticle' , 'uses' => 'ArticlesController@getArticles'));
+Route::post('/getArticles',array('as' => 'getArticles' , 'uses' => 'ArticlesController@getArticles'));
 
 // Need login
 Route::group(array('before' => 'auth'), function(){

@@ -14,12 +14,12 @@
 	    <div class="page2">
 		<img id="page2" src="{{asset('images/aboutus/page2.png')}}">
 		
-		<img id="operate" data-id="1" class="items" src="{{asset('images/aboutus/operate.png')}}">
-		<img id="code" data-id="2" class="items" src="{{asset('images/aboutus/code.png')}}">
+		<img id="operate" data-id="8" class="items" src="{{asset('images/aboutus/operate.png')}}">
+		<img id="code" data-id="9" class="items" src="{{asset('images/aboutus/code.png')}}">
 		<img id="draw" data-id="3" class="items" src="{{asset('images/aboutus/draw.png')}}">
-		<img id="project" data-id="4" class="items" src="{{asset('images/aboutus/project.png')}}">
-		<img id="movie" data-id="5" class="items" src="{{asset('images/aboutus/movie.png')}}">
-		<img id="back"  data-id="6" class="items" src="{{asset('images/aboutus/back.png')}}">
+		<img id="project" data-id="10" class="items" src="{{asset('images/aboutus/project.png')}}">
+		<img id="movie" data-id="4" class="items" src="{{asset('images/aboutus/movie.png')}}">
+		<img id="back"  data-id="11" class="items" src="{{asset('images/aboutus/back.png')}}">
 		
 		<img id="operate_menu" class="menu"src="{{asset('images/aboutus/operate_menu.png')}}">
 		<img id="code_menu" class="menu" src="{{asset('images/aboutus/code_menu.png')}}">

@@ -459,6 +459,15 @@ body{
 	border-color: #F8E566;
 }
 
+#ie-warning{
+	position: fixed;
+	width: 100%;
+	text-align: center;
+	background-color: #000000;
+	color: #ffffff;
+	z-index: 100;
+}
+
 /** testing */
 .testR{
 	background-color: rgba(255, 0, 0, 0.4);

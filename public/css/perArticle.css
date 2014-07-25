@@ -2,11 +2,19 @@
 	color: #458FFF;
 	font-size: 17px;
 }
+.personalImage{
+	width: 80;
+	margin: 10;
+	border: 1px solid #D4D4CA;
+	border-radius: 10;
+	float: left;
+}
 .articlePostTime{
-	position:absolute;
+	position: relative;
 	display: table;
-	right: 14%;
+	float: right;
 	margin-top: 2%;
+	margin-right: 15;
 }
 .edit{
 	position: relative;
@@ -22,8 +30,15 @@
 	font-size: 25px;
 	color: #458FFF;
 }
+.content{
+	word-break: break-all;
+	width: 910;
+	float: left;
+	position: relative;
+}
 .btnBox{
 	height: 35px;
+	clear:both;
 }
 .createComment{
 	position: relative;
@@ -37,21 +52,40 @@
 textarea.commentTextArea{
 	height: 5em;
 }
-.commentAuthorId{
+.commentAuthor{
 	font-weight: 800;
-	margin-left: 5px;
+	position: relative;
+	left: 10px;
+}
+.commentAuthorBox{
+	margin-bottom: 5px;
+	margin-top: 5px; 
 }
 .commentContent{
-	display: block;
-	margin-left: 15px;
-	width: 95%;
 	word-break: break-word;
 }
 .commentTime{
 	position: relative;
 	float: right;
-	top: -20px;
-	right: 10px;	
+	top: -25px;
+	right: 5px;
+}
+.personalImageComment{
+	width: 50px;
+	border: 1px solid #D4D4CA;
+	border-radius: 10px;
+	position: relative;
+}
+.personImageBox{
+	width: 5%;
+	left: 8;
+	position: relative;
+}
+.commentContentBox{
+	width: 90%;
+	position: relative;
+	top: -55px;
+	left: 70px;
 }
 .delBtn{
 	position: relative;
@@ -72,3 +106,4 @@ textarea.commentTextArea{
 	top: 5px;
 	right: 5px;
 }
+
