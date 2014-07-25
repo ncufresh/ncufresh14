@@ -34,7 +34,7 @@
 					<img id = "Buttom" src="{{ asset('images/SchoolGuide/Buttom.png') }}">
 					<div class="pointer">
 						<img data-id = "13" id="Zhidao" class="item school" src="{{ asset('images/SchoolGuide/Zhidao.png') }}">
-						<img data-id = "12" id="G14" class="item dorm" src="{{ asset('images/SchoolGuide/G14.png') }}">
+						<img data-id = "28" id="G14" class="item dorm" src="{{ asset('images/SchoolGuide/G14.png') }}">
 						<img data-id = "11" id="G14-ground" class="item scence" src="{{ asset('images/SchoolGuide/G14-ground.png') }}">
 						<img data-id = "3" id="B11" class="item dorm" src="{{ asset('images/SchoolGuide/B11.png') }}">
 						<img data-id = "3" id="B7" class="item dorm" src="{{ asset('images/SchoolGuide/B7.png') }}">

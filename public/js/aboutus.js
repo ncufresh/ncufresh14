@@ -20,6 +20,7 @@ $(document).ready(function(){
 			marginLeft:'32px',
 		},600,function(){
 			$("#photo").show();
+
 		});
 		
 		$("#page2").animate({
@@ -103,7 +104,6 @@ $(document).ready(function(){
 	function OpenModal(data){
 		var teamphoto = data['teamphoto'];
 			change=0;
-			console.log(data['id']);
 			$(".items").hide(1);
 			$(".close").show("slow");
 		if(data['id']!=6){

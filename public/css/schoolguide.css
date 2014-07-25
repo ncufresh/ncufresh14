@@ -9,6 +9,7 @@
 .name{
    
     width: 70px;
+     filter: dropshadow(color=#CCCCCC, offx=1, offy=1, Positive=1);
 }
 
 #picture{
@@ -86,6 +87,11 @@ html, body {
     color: white;
     font-weight: 900;
     text-shadow:3px 3px 3px #383838 ;
+    font-size: 20px;
+
+
+
+
 }
 
 .left_item:hover{
@@ -104,6 +110,7 @@ html, body {
     color: white;
     font-weight: 900;
     text-shadow:3px 3px 3px #383838 ;
+    font-size: 20px;
 }
 
 .modal-content{
