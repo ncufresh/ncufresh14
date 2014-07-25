@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	{{ HTML::style('css/necessity_index.css') }}
-	{{ HTML::style('css/necessity_image.css') }}
+		
+	{{ HTML::style('css/necessity/necessity_index.css') }}
 	{{ HTML::script('js/necessity/necessity.js')  }}
 @stop
 
@@ -96,10 +96,10 @@
 						<a href="#b9"><img class="FreshmanButtonI" src="{{ asset('images/necessity/FreshmanButtonI1.png') }}"></a>
 					</div>
 					<div>	
-						<a href="#b10"><img class="FreshmanButtonJ" src="{{ asset('images/necessity/FreshmanButtonJ1.png') }}"></a>
+						<a href="#b11"><img class="FreshmanButtonJ" src="{{ asset('images/necessity/FreshmanButtonJ1.png') }}"></a>
 					</div>
 					<div>	
-						<a href="#b11"><img class="FreshmanButtonK" src="{{ asset('images/necessity/FreshmanButtonK1.png') }}"></a> 
+						<a href="#b12"><img class="FreshmanButtonK" src="{{ asset('images/necessity/FreshmanButtonK1.png') }}"></a> 
 					</div>
 				</div>
 				<img class="Left2F" src="{{ asset('images/necessity/Left2.png') }}">

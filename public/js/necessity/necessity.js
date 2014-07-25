@@ -52,7 +52,7 @@ $(document).ready(function() {
 $(function(){
   
     $(window).scroll(function() {
-        if ( $(this).scrollTop() < 700){
+        if ( $(this).scrollTop() < 687){
             $('.ContentDownYR').css({  
             	
                 position: "absolute",
@@ -72,7 +72,7 @@ $(function(){
     });
 
      $(window).scroll(function() {
-        if ( $(this).scrollTop() < 770){
+        if ( $(this).scrollTop() < 757){
             $('.ContentDownYF').css({  
                 
                 position: "absolute",

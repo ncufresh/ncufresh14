@@ -3,91 +3,6 @@
 	width:100%;
 	margin: 0 auto;
 }
-/*****************contentUp*********************/
-#contentUp
-{
-	width: 800px;
-	height: 100px;
-	background-color: FCFF19;
-	margin: 0 auto;
-}
-
-#contUpRead
-{
-	width: 150px;
-	height: 100px;
-	background-color: 19FF1C;
-	position:relative; 
-	left:600px; 
-	
-}
-
-/*****************contentMid*********************/
-#contentMid
-{
-	width: 800px;
-	height: 100px;
-	background-color: FDFF73;
-	margin: 0 auto;
-
-}
-
-
-/*****************contentDown*********************/
-#contentDown
-{
-	width: 800px;
-	background-color: FEFF91;
-	margin: 0 auto;
-}
-
-#contDownSlideFreshman
-{
-	width: 800px;
-	background-color: CECDFF;
-	margin-left: 0px;
-	/*overflow: auto;*/
-	display: none;
-}
-
-#contDownSlideResearch
-{
-	width: 800px;
-	background-color: CECDFF;
-	margin-left: 0px;
-	/*overflow: auto;*/
-	
-}
-
-#contDownSlideDownload
-{
-	width: 800px;
-	background-color: CECDFF;
-	margin-left: 0px;
-	/*overflow: auto;*/
-	display: none;
-	
-}
-
-
-#contDownText
-{
-	width: 770px;
-	height: 150px;
-	/*background-color: 73B7FF;*/
-	position:relative; 
-	margin-left:15px;
-	top: 10px; 
-}
-
-
-#contDownForm
-{
-	width: 770px;
-	position:relative; 
-	margin-left:15px;
-	 
-}
 
 /*****************FormStyle*********************/
 
@@ -100,7 +15,6 @@
 	font-size:15px;
 	font-weight: 100;
 	line-height:25px; 
-	font-family: 微軟正黑體;
 }
 
 .formStyleUpSide
@@ -157,7 +71,357 @@
 	word-wrap: break-word;
 }
 
-/*********************others**********************/
+/*******************************************************/
+
+.ContentUp{
+  height: 205px;
+  /*background-color: FF73FD;*/
+  margin: 0 auto;
+}
+
+.Block{
+  position: absolute;
+  margin-top:-30px; 
+  margin-left:200px;
+}
+
+.Note1{
+	position: absolute;
+  margin-top:-120px; 
+  margin-left:550px;
+}
+
+/********************/
+
+.ContentMid{
+  height: 155px;
+  /*background-color: FF73FD;*/
+  margin: 0 auto;
+}
+
+.ButtonUpA{
+	position: absolute;
+  margin-top:0px; 
+  margin-left:50px;
+  cursor: pointer;
+}
+
+.ButtonUpB{
+	position: absolute;
+  margin-top:0px; 
+  margin-left:400px;
+  cursor: pointer;
+}
+
+.ButtonUpC{
+	position: absolute;
+  margin-top:0px; 
+  margin-left:750px;
+  cursor: pointer;
+}
+
+/********************/
+
+.ContentDown{
+	position: relative;
+  /*background-color: FF73FD;*/
+}
+
+/*********************************/
+
+.ContentDownYR{
+	width: 105px;
+  margin-left: 15px;
+}
+.Left1R{
+	position: relative;
+  width: 135px;
+  float:left;
+}
+
+.LeftMidR{
+  position:relative;
+	background-color: blue;
+  width: 135px;
+  float:left;
+}
+
+.Left2R{
+	position:relative;
+  width: 135px;
+  float:left;
+}
+
+.ResearchButtonA{
+	position: relative;
+  margin-top:0px; 
+  margin-left:5px;
+  width: 120px;
+}
+
+
+.ResearchButtonB{
+	position: relative;
+  margin-top:8px; 
+  margin-left:5px;
+  width: 120px;
+}
+
+.ResearchButtonC{
+	position: relative;
+  margin-top:8px; 
+  margin-left:5px;
+  width: 120px;
+}
+
+.ResearchButtonD{
+	position: relative;
+  margin-top:8px; 
+  margin-left:5px;
+  width: 120px;
+}
+
+.ResearchButtonE{
+	position: relative;
+  margin-top:8px; 
+  margin-left:5px;
+  width: 120px;
+}
+
+.ResearchButtonF{
+	position: relative;
+  margin-top:8px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+.ResearchButtonG{
+	position: relative;
+  margin-top:8px; 
+  margin-left:5px;
+  width: 120px;
+}
+
+.ResearchButtonH{
+	position: relative;
+  margin-top:8px; 
+ 	margin-left:5px;
+  width: 120px;
+}
+
+/*********************************/
+
+.ContentDownYF{
+	width: 135px;
+  margin-left: 10px;
+}
+
+.Left1F{
+  position:relative;
+  width: 125px;
+  margin-left:7px;
+}
+
+.LeftMidF{
+	position:relative;
+	background-color: fff192; 
+  width: 125px;
+  margin-left:7px;
+}
+
+.Left2F{
+	position:relative;
+  width: 125px;
+  margin-left:7px;
+}
+
+.FreshmanButtonA{
+	position:relative;
+ 	margin-left:5px;
+  width: 110px;
+}
+
+.FreshmanButtonB{
+	position:relative;
+ 	margin-left:5px;
+  width: 110px;
+}
+
+.FreshmanButtonC{
+	position:relative;
+ 	margin-left:5px;
+  width: 110px;
+}
+
+.FreshmanButtonD{
+	position:relative;
+ 	margin-left:5px;
+  width: 110px;
+}
+
+.FreshmanButtonE{
+	position:relative;
+ 	margin-left:5px;
+  width: 110px;
+}
+
+.FreshmanButtonF{
+	position:relative;
+ 	margin-left:5px;
+  width: 110px;
+}
+
+.FreshmanButtonG{
+	position:relative;
+ 	margin-left:5px;
+  width: 110px;
+}
+
+.FreshmanButtonH{
+	position:relative;
+ 	margin-left:5px;
+  width: 110px;
+}
+
+.FreshmanButtonI{
+	position:relative;
+ 	margin-left:5px;
+  width: 110px;
+}
+
+.FreshmanButtonJ{
+	position:relative;
+ 	margin-left:5px;
+  width: 110px;
+}
+
+.FreshmanButtonK{
+	position:relative;
+ 	margin-left:5px;
+  width: 110px;
+}
+
+/*********************************/
+
+.ContentDownBR{
+  margin-top: 30px;
+  margin-left: 160px;
+}
+
+.Research1{
+  position: relative;
+  margin-top:0px; 
+  margin-left:4px;
+  width: 846px;
+}
+
+.PaddingMid{
+  position: relative;
+  margin-top:0px; 
+  margin-left:4px;
+  width: 801.5px;
+  background-color: 8ef1e4;
+}
+
+.Research2{
+  position: relative;
+  margin-top:-90px; 
+  margin-left:670px;
+  width: 135px;
+}
+
+.IntroductionR{
+  width: 770px;
+  position:relative; 
+  top: 0px; 
+  left: 15px;
+}
+
+.Form{
+  width: 770px;
+  position:relative; 
+  left:15px;
+}
+
+/************************************/
+
+.ContentDownBF{
+	margin-top: 30px;
+  margin-left: 160px;
+}
+
+.Freshman1{
+  position: relative;
+  margin-top:0px; 
+  margin-left:4px;
+  width: 801px;
+}
+.Freshman2{
+  position: relative;
+  margin-top:-200px; 
+  margin-left:670px;
+  width: 135px;
+}
+
+.IntroductionF{
+  width: 770px;
+  position:relative; 
+  top: 22px; 
+  left: 15px;
+}
+
+/**********************/
+
+.ContentDownBD{
+  margin-top: 30px;
+  margin-left: 0 px;
+}
+
+.Download1{
+  position: relative;
+  margin-top:0px; 
+  margin-left:100px;
+  width: 800px;
+}
+.Download2{
+  position: relative;
+  margin-top:-83px; 
+  margin-left:760px;
+  width: 135px;
+}
+
+.IntroductionD{
+  width: 770px;
+  position:relative; 
+  top: 22px; 
+  left: 15px;
+}
+
+.DownloadMid{
+  position: relative;
+  margin-top:0px; 
+  margin-left:142px;
+  width: 724px;
+  background-color: 8ef1e4;
+  height: 600px;
+}
+
+.DownloadForm1{
+  width: 300px;
+  position:relative;
+  line-height: 50px; 
+  left:70px;
+  float:left;
+}
+
+.DownloadForm2{
+  width: 300px;
+  position:relative;
+  line-height: 50px; 
+  left:70px;
+  float:left;
+}
+
 
 
 
