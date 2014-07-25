@@ -5,12 +5,11 @@
 }
 
 #start {
+	cursor: pointer;
 	width: 246px;
 	height: 81px;
 	margin-top: 450px;
 	margin-left: 180px;
-	/*margin-top: 450px;
-	margin-left: 180px;*/
 	float: left;
 	background: url("../../images/gamePower/start.png") no-repeat;
 }
@@ -21,6 +20,7 @@
 
 /*/////////////////////////////introduction/////////////////////////////////////////*/
 #intro {
+	cursor: pointer;
 	width: 246px;
 	height: 81px;
 	margin-top: 450px;
@@ -76,18 +76,22 @@
 }
 
 #qa {
+	cursor: pointer;
 	top: 7%;
 	position: relative;
 }
 #qb {
+	cursor: pointer;
 	top: 8%;
 	position: relative;
 }
 #qc {
+	cursor: pointer;
 	top: 9%;
 	position: relative;
 }
 #qd {
+	cursor: pointer;
 	top: 10%;
 	position: relative;
 }
@@ -106,6 +110,7 @@
 }
 
 #next {
+	cursor: pointer;
 	width: 194px;
 	height: 81px;
 	margin-top: 15px;
@@ -144,6 +149,7 @@
 	margin-left: 60px;
 }
 #again {
+	cursor: pointer;
 	width: 246px;
 	height: 81px;
 	margin-top: 5%;
