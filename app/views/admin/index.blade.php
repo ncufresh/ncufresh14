@@ -16,7 +16,7 @@
 				<a href="{{ route('necessity.necessity_backstage_download') }}"><button id="admin-link">新生必讀(檔案區)文章管理</button></a>
 				<a href="{{ route('SchoolGuide.list') }}"><button id="admin-link">校園導覽文章管理</button></a>
 				<a href="{{ route('admin.poweredit.index') }}"><button id="admin-link">小遊戲能量補給站管理</button></a>
-				<a href="{{ route('admin.campusedit.index') }}"><button id="admin-link">小遊戲命運之輪管理</button></a>
+				<a href="{{ route('admin.campusedit.index') }}"><button id="admin-link">小遊戲認識中大管理</button></a>
 				<a href="{{ route('About_us.list') }}"><button id="admin-link">關於我們管理</button></a>
 			</div>
 		@endif
