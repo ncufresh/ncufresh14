@@ -233,13 +233,18 @@ class ArticlesController extends BaseController{
 
 		if(Auth::check() && $article->author_id == Auth::user()->id && $validation->passes()){
 			
-			$article->content = htmlspecialchars($content);
+			if(Entrust::hasRole('Developer')){
 
+				$article->content = $content;
+
+			}else{
+
+				$article->content = htmlspecialchars($content);
+			}
+			
 			$article->save();
 
 			$newContent = nl2br($article->content);
-
-
 
 			$response = array('newContent' => $newContent);
 
