@@ -1,0 +1,47 @@
+#contentContainer{
+	background-image: url('../images/ie/back.png');
+	width: 936px;
+	height: 528px;
+	position: relative;
+	margin: 0 auto;
+}
+#buttons{
+	background-color: green;
+	width: 207px;
+	height: 59px;
+	position: absolute;
+	top: 256px;
+	left: 370px;
+}
+.button{
+	float: left;
+	width: 46px;
+	height: 45px;
+	margin: 5px 11px 11px;
+}
+#button-chrome{
+	background-image: url('../images/ie/chrome.png');
+	width: 47px;
+	height: 45px;
+}
+#button-chrome:hover{
+	background-image: url('../images/ie/chrome-h.png');
+}
+
+#button-firefox{
+	background-image: url('../images/ie/firefox.png');
+	width: 47px;
+	height: 45px;
+}
+#button-firefox:hover{
+	background-image: url('../images/ie/firefox-h.png');
+}
+
+#button-opera{
+	background-image: url('../images/ie/opera.png');
+	width: 41px;
+	height: 45px;
+}
+#button-opera:hover{
+	background-image: url('../images/ie/opera-h.png');
+}
