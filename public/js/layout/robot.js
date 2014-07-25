@@ -31,9 +31,11 @@ $(function($)
 				arrive = false;
 			}
 			if ( left < 0 ) {
+				left = 0;
 				side = 'right';
 			}
 			else if ( left > 750 ) {
+				left = 750;
 				side = 'left';
 			}
 			if ( location < left ) {
