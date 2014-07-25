@@ -6,7 +6,10 @@
     height:700px;
 
 }
-
+.name{
+   
+    width: 70px;
+}
 
 #picture{
 	width: 100%;
@@ -21,30 +24,6 @@
     z-index:3;
 }
 
-
-.introduction{
-	display:none;
-
-}
-
-.categories{
-	display:none;
-	width:20px;
-}
-
-.name{
-	display:none;
-}
-
-.photocontainer{
-	position: absolute;
-    left: 0;
-    top:0;
-    width: 100%;
-    height: 700px;
-    background-color: rgba(0,0,0,0.9);
-    z-index: 10;
-}
 
 html, body {
     margin: 0;
@@ -99,9 +78,9 @@ html, body {
     left: -21px;
     top: 62px;
     z-index: 10;
-    width: 138px;
-    height: 80px;
-    padding: 28px;
+    width: 143px;
+    height: 70px;
+    padding-top: 28px;
     text-align: center;
     font-family: "微軟正黑體";
     color: white;
@@ -117,8 +96,8 @@ html, body {
     left: -21px;
     top: 62px;
     z-index: 10;
-    width: 138px;
-    height: 80px;
+    width: 143px;
+    height: 70px;
     padding: 28px;
     text-align: center;
     font-family: "微軟正黑體";

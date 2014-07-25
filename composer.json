@@ -9,7 +9,8 @@
 		"zizaco/entrust": "dev-master",
 		"laravelbook/ardent": "2.*",
 		"brainboxlabs/brain-socket": "v1.0.0",
-		"fitztrev/laravel-html-minify": "1.*"
+		"fitztrev/laravel-html-minify": "1.*",
+		"hisorange/browser-detect": "1.*"
 	},
 	"require-dev": {
 		"barryvdh/laravel-ide-helper": "1.*",
