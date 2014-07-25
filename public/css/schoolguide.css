@@ -81,7 +81,7 @@ html, body {
     z-index: 10;
     width: 143px;
     height: 70px;
-    padding-top: 28px;
+    padding-top: 31px;
     text-align: center;
     font-family: "微軟正黑體";
     color: white;
@@ -104,7 +104,7 @@ html, body {
     z-index: 10;
     width: 143px;
     height: 70px;
-    padding: 28px;
+    padding-top: 31px;
     text-align: center;
     font-family: "微軟正黑體";
     color: white;
@@ -127,7 +127,7 @@ html, body {
 }
 .robot{
     position: absolute;
-    top: -101px;
+    top: -112px;
     left: 666px;
     width: 100px;
 }
