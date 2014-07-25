@@ -4,6 +4,8 @@ class GamePowerController extends BaseController
 {
 	public function index() 
 	{
+		App::make('SiteMap')->pushLocation('小遊戲', route('game'));
+		App::make('SiteMap')->pushLocation('電池補給站', route('game.power'));
 		App::make('TransferData')->addData('day-quest-url', route('game.power.getDayQuest'));
 		App::make('TransferData')->addData('recent-power-url', route('game.power.getRecentPower'));
 		App::make('TransferData')->addData('renew-value-url', route('game.power.renewValue'));
@@ -15,7 +17,7 @@ class GamePowerController extends BaseController
 	public function getDayQuest()
 	{
 		$day = \Carbon\Carbon::now() -> dayOfWeek;
-		$dayQuest = GamePower::where('day', '=', $day)->get();
+		$dayQuest = GamePower::orderByRaw("RAND()")->take(10)->get();
 		return Response::json(array('questions' => $dayQuest->toArray(), 'token' => csrf_token()));
 	}
 

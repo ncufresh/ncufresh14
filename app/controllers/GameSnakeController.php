@@ -5,6 +5,8 @@ class GameSnakeController extends BaseController
 
 	public function index()
 	{
+		App::make('SiteMap')->pushLocation('小遊戲', route('game'));
+		App::make('SiteMap')->pushLocation('貪食松鼠', route('game.snake'));
 		App::make('TransferData')->addData('renew-value-url', route('game.snake.renewValue'));
 		App::make('TransferData')->addData('get-power-url', route('game.snake.getPower'));
 		App::make('TransferData')->addData('get-highscore-url', route('game.snake.getHighScore'));
