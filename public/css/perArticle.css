@@ -51,6 +51,7 @@
 }
 textarea.commentTextArea{
 	height: 5em;
+	resize: none;
 }
 .commentAuthor{
 	font-weight: 800;
@@ -94,6 +95,7 @@ textarea.commentTextArea{
 }
 .editArea{
 	word-break:break-word; 
+	resize: none;
 }
 .saveBtn{
 	position: relative;
