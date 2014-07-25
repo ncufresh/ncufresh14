@@ -9,12 +9,12 @@ $(document).ready(function(){
 	var event = window.attachEvent ? 'onclick' : 'keydown';
 	addEvent(event, function(event){
 			if(event.keyCode=="65"){
-				
+
 			}
 	});
  
 	$("#select").change(changeLeft);
-	$(".pointer").click(function(){
+	$(".pointer img").click(function(){
 		clickImg($(this).data('id'));
 		changePhoto($(this).data('id'));
 	});
