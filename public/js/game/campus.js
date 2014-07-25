@@ -32,6 +32,9 @@
         $('.gameCampusBuilding').each(function(index) {
             $(this).click(function(){
                 ajaxPost($('#gameCampusGameBox').attr('action'), {index: $(this).attr('index')}, function(data) {
+                    if ( data['isRight'] == false ) {
+                        alert('GG');
+                    }
                     editStatus(data['user']['power'],data['user']['gp']);
                     $('.gameCampusType').each(function(index) {
                         $(this).hide();

@@ -64,6 +64,12 @@ class GamecampusController extends BaseController {
 			$gameUser->save();
 			return Response::json(array('user' => $gameUser->toArray(), 'isRight' => true, 'score' => $score, 'question' => $question));
 		}
+		else {
+			Session::forget('index');
+			Session::put('index', $questionID + 1);
+			$gameUser = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
+			return Response::json(array('user' => $gameUser->toArray(), 'isRight' => false, 'score' => $score, 'question' => $question));
+		}
 		$gameUser = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
 		$gameUser->gp += $score;
 		$gameUser->save();
