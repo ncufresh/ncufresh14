@@ -50,7 +50,7 @@ $(function(){
 				},
 
 				success : function(data){
-
+					console.log(data);
 					displayComments(
 						data.commentAuthor,
 						data.authorId,
@@ -77,7 +77,7 @@ $(function(){
 
 		var btn = $(this);
 
-		var originText = target.text();
+		var originText = target.html();
 
 		var originHeight = target.css("height");
 
@@ -85,7 +85,7 @@ $(function(){
 
 		target.append("<button type='button' class='btn btn-default btn-sm delBtn'>刪除貼文</button>");
 
-		target.append("<input type='textarea' class='form-control editArea' value='"+originText+"'>");
+		target.append("<textarea class='form-control editArea'>"+originText.replace(/<br>/g,'')+"</textarea>");
 
 		target.append("<button type='button' class='btn btn-primary btn-sm saveBtn'>儲存編輯</button>");
 
@@ -96,7 +96,9 @@ $(function(){
 		$(this).css("display","none");
 
 		$(".canBtn").click(function(){
-			target.text(originText);
+
+			target.html(originText);
+
 			btn.css("display","inline-block");
 
 		});
@@ -149,7 +151,7 @@ $(function(){
 					},
 
 					success:function(data){
-						target.text(data.newContent);
+						target.html(data.newContent);
 						btn.css("display","inline-block");
 					},
 

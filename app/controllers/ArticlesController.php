@@ -62,13 +62,13 @@ class ArticlesController extends BaseController{
 				
 				$forum = new Forum;
 
-				$forum->title = Input::get('title');
+				$forum->title = htmlspecialchars(Input::get('title'));
 
 				$forum->author_id = Auth::user()->id;
 
 				$forum->article_type = $articleType;
 
-				$forum->content = Input::get('content');
+				$forum->content = htmlspecialchars(Input::get('content'));
 
 				$forum->comment_number = 0;
 
@@ -117,7 +117,7 @@ class ArticlesController extends BaseController{
 
 			$comment->author_id = $author_id;
 
-			$comment->content = $content;
+			$comment->content = htmlspecialchars($content);
 
 			$comment->save();
 
@@ -138,7 +138,7 @@ class ArticlesController extends BaseController{
 			$response = array(
 				'commentAuthor' => $commentAuthor,
 				'authorId' => $authorId,
-				'commentContent' => $commentContent,
+				'commentContent' => nl2br($commentContent),
 				'commentTime' => $commentTime
 			);
 
@@ -164,22 +164,23 @@ class ArticlesController extends BaseController{
 
 		if($articleType == "new"){
 
-			$Articles = Forum::where('article_type','P')->with('user')->orderBy('created_at','desc')->paginate();
+			$Articles = Forum::where('article_type','P')->with('user')->orderBy('created_at','desc')->paginate(2);
 		}
 
 		if($articleType == "pop"){
 
-			$Articles = Forum::where('article_type','P')->with('user')->orderBy('comment_number','desc')->paginate();
+			$Articles = Forum::where('article_type','P')->with('user')->orderBy('comment_number','desc')->paginate(2);
 		}
 
 		if($articleType == "department"){
 
-			$Articles = Forum::where('article_type','D')->with('user')->orderBy('created_at','desc')->paginate();
+			$Articles = Forum::where('article_type','D')->with('user')->orderBy('created_at','desc')->paginate(2);
 		}
 
 		if($articleType == "club"){
 
-			$Articles = Forum::where('article_type','C')->with('user')->orderBy('created_at','desc')->paginate();
+			$Articles = Forum::where('article_type','C')->with('user')->orderBy('created_at','desc')->paginate(2);
+
 		}
 
 		return Response::json($Articles);
@@ -218,6 +219,8 @@ class ArticlesController extends BaseController{
 		$id = Input::get('id');	
 
 		$content = Input::get('content');
+
+		//$content = str_replace("<br>", "&#10;", $content); 
 		
 		$article = Forum::find($id);
 
@@ -230,11 +233,13 @@ class ArticlesController extends BaseController{
 
 		if(Auth::check() && $article->author_id == Auth::user()->id && $validation->passes()){
 			
-			$article->content = $content;
+			$article->content = htmlspecialchars($content);
 
 			$article->save();
 
-			$newContent = $article->content;
+			$newContent = nl2br($article->content);
+
+
 
 			$response = array('newContent' => $newContent);
 

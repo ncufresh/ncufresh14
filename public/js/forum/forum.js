@@ -38,16 +38,17 @@ $(function(){
 		},
 		success:function(data){
 			for(i=0;i<data['data'].length;i++){
+				
 				showArticles(
 					data['data'][i]['user']['name'],
 					data['data'][i]['author_id'],
 					data['data'][i]['created_at'],
 					data['data'][i]['id'],
 					data['data'][i]['title'],
-					data['data'][i]['content'],
+					data['data'][i]['content'].replace(/\n/g,"<br>"),
 					"#Test1"
 				);
-			}	
+			}
 		},
 		error:function(){
 			alert("ERROR");
@@ -83,13 +84,14 @@ $(function(){
 				},
 				success : function(data){
 					for(i=0;i<data['data'].length;i++){
+						//console.log(data);
 						showArticles(
 							data['data'][i]['user']['name'],
 							data['data'][i]['author_id'],
 							data['data'][i]['created_at'],
 							data['data'][i]['id'],
 							data['data'][i]['title'],
-							data['data'][i]['content'],
+							data['data'][i]['content'].replace(/\n/g,"<br>"),
 							"#Test3"
 						);
 					}
@@ -124,7 +126,7 @@ $(function(){
 							data['data'][i]['created_at'],
 							data['data'][i]['id'],
 							data['data'][i]['title'],
-							data['data'][i]['content'],
+							data['data'][i]['content'].replace(/\n/g,"<br>"),
 							"#Test2"
 						);
 					}
@@ -162,7 +164,7 @@ $(function(){
 						data['data'][i]['created_at'],
 						data['data'][i]['id'],
 						data['data'][i]['title'],
-						data['data'][i]['content'],
+						data['data'][i]['content'].replace(/\n/g,"<br>"),
 						"#Test1"
 					);	
 				}	
@@ -190,7 +192,7 @@ $(function(){
 						data['data'][i]['created_at'],
 						data['data'][i]['id'],
 						data['data'][i]['title'],
-						data['data'][i]['content'],
+						data['data'][i]['content'].replace(/\n/g,"<br>"),
 						"#Test1"
 					);
 				}
@@ -245,7 +247,7 @@ $(function(){
 						data.articleTime.date,
 						data.articleId,
 						data.articleTitle,
-						data.articleContent,
+						data.articleContent.replace(/\n/g,"<br>"),
 						insertPlace
 					);	
 				},

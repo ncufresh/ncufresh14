@@ -29,7 +29,7 @@
 				<div class="personalImageBox" >
 					<img class="personalImage" src="{{ route('personface', array('id' => $article -> author_id)) }}">
 				</div>
-				<div class="panel-body content">{{ $article -> content }}</div>
+				<div class="panel-body content">{{ nl2br($article -> content) }}</div>
 				<div class='btnBox'>
 					@if(Auth::check() && Auth::user()->id == $article->author_id)
 						<button type="button" class="btn btn-primary btn-sm edit">編輯貼文 </button>
@@ -60,7 +60,7 @@
 						<img class="personalImageComment" src="{{ route('personface', array('id' => $comment -> author_id)) }}">
 					</div>
 					<div class="commentContentBox">
-						<span class='commentContent'> {{ $comment -> content }}</span>
+						<span class='commentContent'> {{ nl2br($comment -> content) }}</span>
 					</div>
 					<div class='commentTimeBox'>
 						<span class='commentTime'> {{ $comment -> created_at }}</span>
