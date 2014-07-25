@@ -1,5 +1,4 @@
 $(function(){
-
 	var LorP = 'Picture';
 	var canDrag = false;
 	var drag = $('#1').draggable({
@@ -10,13 +9,19 @@ $(function(){
 
 	$('#place').jScrollPane();
 
+	$('#introductionbox').jScrollPane();
+
+	$('.place1').addClass("placeClick");
+
+	$('.img').addClass("imgMask");
+
 	$('.place').click(function(){
 		var num = $(this).data("num");
+		var id = $(this).data("id");
 		var formURL = getTransferData('ncu_life_select_url');
 		var data = {num: num};
-		var id = $(this).data("id");
-		$('.place').css("background-image", "url(../images/nculife/place.png)");
-		$('#place' + id).css("background-image", "url(../images/nculife/prese_place.png)");
+		$('.place').removeClass("placeClick");
+		$('.place' + id).addClass("placeClick");
 		canDrag = false;
 		DragLocal();
 		ajaxGet(formURL, data, changeIntroductionAndImage);
@@ -53,7 +58,8 @@ $(function(){
 	});
 
 	function changeIntroductionAndImage(data){
-		$('#introduction').html(data['result']['introduction']);
+		$('#introductionbox2').html(data['result']['introduction']);
+		$('#introductionbox').jScrollPane();
 		$('#buttom').data("num", data['result']['id']);
 		if(LorP == 'Picture')
 		{
@@ -68,6 +74,7 @@ $(function(){
 			}
 			$('#picture').append('<div id="img"></div>');
 			$('#img').append('<img id="1" class="img" class="img" src="' + bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name +'">');
+			$('.img').addClass("imgMask");
 			drag = $('#1').draggable({
 					containment: '#containment'
         			});
@@ -96,6 +103,7 @@ $(function(){
 			}
 			$('#picture').append('<div id="img"></div>');
 			$('#img').append('<img id="1" class="img" src="' + bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name +'">');
+			$('.img').addClass("imgMask");
 			drag = $('#1').draggable({
 					containment: '#containment'
         			});
@@ -111,7 +119,16 @@ $(function(){
 			});
 			LorP = 'Picture';
 		}
-		$('#change').attr('src', bURL + "/images/nculife/buttom_left.png")
+		var length = data['local'].length;
+		if(length == 1)
+		{
+			$('#buttom').show();
+			$('#change').attr('src', bURL + "/images/nculife/buttom_left.png")
+		}
+		else if(length == 0)
+		{
+			$('#buttom').hide();
+		}
 	}
 
 	function changePicture(data){
@@ -126,6 +143,7 @@ $(function(){
 		}
 		$('#picture').append('<div id="img"></div>');
 		$('#img').append('<img id="1" class="img" src="' + bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name +'">');
+		$('.img').addClass("imgMask");
 		$('#change').attr('src', bURL + "/images/nculife/buttom_left.png")
 		drag = $('#1').draggable({
 				containment: '#containment'
@@ -150,12 +168,11 @@ $(function(){
 		$('#border').css("width", "545px").css("height", "325px").css("margin-top", "150px").css("margin-left", "45px").css("overflow", "hidden");
 		$('#border').append('<img id="1" class="img" src="' + bURL + "/img/uploadImage/" + data['local'][0].file_name +'">');
 		$('#1').css("width", "783px").css("height", "522px").css("margin-top", "0px").css("margin-left", "0px").css("top", data['result']['top']).css("left", data['result']['left']);
-		$('.img').css('-webkit-mask-image', 'null');
 		$('#picture').append('<div id="containment"></div>');
 		$('#change').attr('src', bURL + "/images/nculife/buttom_right.png")
 		drag = $('#1').draggable({
 				containment: '#containment'
-        		});
+	        	});
 		DragLocal();
 	}
 
