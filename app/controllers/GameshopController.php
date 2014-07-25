@@ -29,14 +29,15 @@ class GameshopController extends BaseController {
 			$EquipItem[5] = new Gameitem;
 			$EquipItem[5]->id = 0;
 		}
-		$this->createPersonImage();
+		//$this->createPersonImage();
 
 		return View::make('game.shop', array('user' => $user, 'name' => $name->name, 'shop' => $shop,
 						 'hadBuyItems'=>$hadBuyItems->toArray(), 'EquipItem' => $EquipItem));
 	}
 
 	public function changeType() {
-		$game_user_id = 1;
+		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
+		$game_user_id = $user->id;
 		$type = Input::get("type");
 		$shop = Gameitem::where('type', '=', $type)->get();
 		$hadBuy[0] = false;
@@ -100,6 +101,7 @@ class GameshopController extends BaseController {
 			$gameUser->map = $userWant[5];
 		}
 		$gameUser->save();
+		$this->createPersonImage();
 		$data = array('user'=>$gameUser->toArray(), 'isBuy'=>$isBuy);
 		return Response::json($data);
 	}
