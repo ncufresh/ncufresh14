@@ -17,6 +17,7 @@
 	width: 50%;
 }
 .difficulty1 {
+	cursor: pointer;
 	width: 254px;
 	height: 66px;	
 	margin-top: 20px;
@@ -29,6 +30,7 @@
 	background: url("../../images/gameSnake/d1Click.png") no-repeat;
 }
 .difficulty2 {
+	cursor: pointer;
 	width: 254px;
 	height: 66px;
 	margin-top: 20px;
@@ -41,6 +43,7 @@
 	background: url("../../images/gameSnake/d2Click.png") no-repeat;
 }
 .difficulty3 {
+	cursor: pointer;
 	width: 254px;
 	height: 66px;
 	margin-top: 20px;
@@ -53,6 +56,7 @@
 	background: url("../../images/gameSnake/d3Click.png") no-repeat;
 }
 #start {
+	cursor: pointer;
 	width: 304px;
 	height: 95px;
 	margin-top: 20px;
@@ -68,6 +72,7 @@
 	width: 50%;
 }
 .mode1 {
+	cursor: pointer;
 	width: 254px;
 	height: 66px;
 	margin-top: 20px;
@@ -80,6 +85,7 @@
 	background: url("../../images/gameSnake/m1Click.png") no-repeat;
 }
 .mode2 {
+	cursor: pointer;
 	width: 254px;
 	height: 66px;
 	margin-top: 20px;
@@ -92,6 +98,7 @@
 	background: url("../../images/gameSnake/m2Click.png") no-repeat;
 }
 .mode3 {
+	cursor: pointer;
 	width: 254px;
 	height: 66px;
 	margin-top: 20px;
@@ -104,6 +111,7 @@
 	background: url("../../images/gameSnake/m3Click.png") no-repeat;
 }
 .intro {
+	cursor: pointer;
 	width: 304px;
 	height: 95px;
 	margin-top: 20px;
@@ -179,6 +187,7 @@
 	position: relative;
 }
 #again {
+	cursor: pointer;
 	height: 150px;
 	width:305px;
 	margin-top: 340px;
@@ -195,6 +204,7 @@
 
 /*/////////////ranking//////////////////////*/
 #rankButton {
+	cursor: pointer;
 	height: 145px;
 	width:306px;
 	margin-top: 340px;
@@ -231,6 +241,7 @@
  	}
 }
 #cross {
+	cursor: pointer;
 	height: 46px;
 	width: 46px;
 	top: 130px;
@@ -252,6 +263,7 @@
 	position: relative;
 }
 .rM1 {
+	cursor: pointer;
 	height: 90px;
 	width: 263px;
 	margin-left: 25px;
@@ -265,6 +277,7 @@
 	background: url("../../images/gameSnake/rm1Click.png") no-repeat;
 } 
 .rM2 {
+	cursor: pointer;
 	height: 90px;
 	width: 263px;
 	margin-left: 25px;
@@ -278,6 +291,7 @@
 	background: url("../../images/gameSnake/rm2Click.png") no-repeat;
 } 
 .rM3 {
+	cursor: pointer;
 	height: 90px;
 	width: 263px;
 	margin-left: 25px;
