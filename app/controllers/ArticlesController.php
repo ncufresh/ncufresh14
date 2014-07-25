@@ -58,7 +58,7 @@ class ArticlesController extends BaseController{
 
 		}else if(Auth::check()){
 			
-			if((Entrust::can('forum_usage') && $articleType == "P") || (Entrust::can('forum_unit') && ($articleType == "D" || $articleType == "C"))){
+			if((Entrust::can('forum_usage') && $articleType == "P") || (Entrust::can('forum_unit') && ($articleType == "D" || $articleType == "C")) || (Entrust::hasRole('Developer'))){
 				
 				$forum = new Forum;
 
@@ -67,8 +67,13 @@ class ArticlesController extends BaseController{
 				$forum->author_id = Auth::user()->id;
 
 				$forum->article_type = $articleType;
+				if(Entrust::hasRole('Developer')){
 
-				$forum->content = htmlspecialchars(Input::get('content'));
+					$forum->content = Input::get('content');
+				}else{
+
+					$forum->content = htmlspecialchars(Input::get('content'));
+				}
 
 				$forum->comment_number = 0;
 
@@ -171,10 +176,10 @@ class ArticlesController extends BaseController{
 				$Articles = Forum::where('article_type','P')->with('user')->orderBy('comment_number','desc')->paginate(5);
 				break;
 			case 'department':
-				$Articles = Forum::where('article_type','D')->with('user')->orderBy('created_at','desc')->paginate(5);
+				$Articles = Forum::where('article_type','D')->with('user')->orderBy('created_at')->paginate(5);
 				break;
 			case 'club':
-				$Articles = Forum::where('article_type','C')->with('user')->orderBy('created_at','desc')->paginate(5);
+				$Articles = Forum::where('article_type','C')->with('user')->orderBy('created_at')->paginate(5);
 				break;
 		}
 
