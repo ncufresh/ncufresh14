@@ -178,5 +178,13 @@ $(document).ready(function(){
 		$(this).attr('src',burl+"/images/aboutus/project.png");
 	
 	});
+		$(".close")
+	.mouseenter(function(){
+		$(this).attr('src',burl+"/images/aboutus/close-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',burl+"/images/aboutus/close.png");
+	
+	});
 	
 });

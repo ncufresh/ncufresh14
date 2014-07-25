@@ -8,7 +8,9 @@ $(document).ready(function(){
 	var addEvent =  window.attachEvent||window.addEventListener;
 	var event = window.attachEvent ? 'onclick' : 'keydown';
 	addEvent(event, function(event){
-			alert(String.fromCharCode(e.which));
+			if(event.keyCode=="65"){
+				
+			}
 	});
  
 	$("#select").change(changeLeft);
