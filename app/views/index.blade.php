@@ -93,7 +93,7 @@
 					<div class="col-sm-4">發佈日期</div>
 				</div>
 				@foreach($articles as $article)
-				<a href="{{ route('home') }}">
+				<a href="{{ route('perArticle', array('id' => $article->id)) }}">
 					<div class="forum-row row">
 						<div class="col-sm-6">{{ $article->title }}</div>
 						<div class="col-sm-2">{{ $article->comment_number }}</div>

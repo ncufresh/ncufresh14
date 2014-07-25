@@ -59,7 +59,76 @@ $(document).ready(function(){
 
 	$(".items").click(function(){
 		getID($(this).data('id'));
+
 	});
+
+	
+
+	$(".close").click(function(){
+		change=1;
+		$(".menu").hide("slow");
+		$(this).hide();
+		$(".items").show("slow");
+		$(".m_intro").hide();
+		$(".m_photo").hide();
+		$("#carousel-example-generic").hide();
+		$("#scroll").hide();
+	});
+
+	$(".close").mouseover(function(){
+		$(this).css({"cursor":"pointer"});
+	
+	});
+
+	$(".items").mouseover(function(){
+		$(this).css({"cursor":"pointer"});
+
+
+	});
+	$(".a").mouseover(function(){
+		$(this).css({"cursor":"pointer"});
+	});
+	
+	$('.carousel').carousel({
+  interval: 3000
+	});
+
+	function getID(id){
+		var url = getTransferData('about_modal');
+		var data = {id: id};
+		
+		ajaxGet(url,data,OpenModal);
+	}
+
+	function OpenModal(data){
+		var teamphoto = data['teamphoto'];
+			change=0;
+			console.log(data['id']);
+			$(".items").hide(1);
+			$(".close").show("slow");
+		if(data['id']!=6){
+			if(data['id']==8){
+			 $("#operate_menu").show("slow");
+			}else if(data['id']==9){
+				$("#code_menu").show("slow");
+			}else if(data['id']==3){
+				$("#draw_menu").show("slow");
+			}else if(data['id']==10){
+				$("#project_menu").show("slow");
+			}else if(data['id']==4){
+				$("#movie_menu").show("slow");
+			}
+			$(".m_intro").children().remove();
+			$("<span>"+teamphoto+"</span>").appendTo(".m_intro");
+			$(".m_intro").show("slow");
+			$(".m_photo").show("slow");
+		}else{
+				
+				$("#back_menu").show("slow");
+				$("#carousel-example-generic").show("slow");
+				$("#scroll").show("slow");
+			}
+	}
 
 	$("#operate")
 	.mouseenter(function(){
@@ -109,67 +178,5 @@ $(document).ready(function(){
 		$(this).attr('src',burl+"/images/aboutus/project.png");
 	
 	});
-
-	$(".close").click(function(){
-		change=1;
-		$(".menu").hide("slow");
-		$(this).hide();
-		$(".items").show("slow");
-		$(".m_intro").hide();
-		$(".m_photo").hide();
-		$("#carousel-example-generic").hide();
-		$("#scroll").hide();
-	});
-
-	$(".close").mouseover(function(){
-		$(this).css({"cursor":"pointer"});
-	
-	});
-
-	$(".items").mouseover(function(){
-		$(this).css({"cursor":"pointer"});
-
-
-	});
-	$(".a").mouseover(function(){
-		$(this).css({"cursor":"pointer"});
-	});
-	
-	$('.carousel').carousel({
-  interval: 3000
-	});
-
-	function getID(id){
-		var url = getTransferData('about_modal');
-		var data = {id: id};
-		ajaxGet(url,data,OpenModal);
-	}
-
-	function OpenModal(data){
-		var teamphoto = data['teamphoto'];
-			change=0;
-			$(".items").hide(1);
-			$(".close").show("slow");
-		if(data['id']!=6){
-			if(data['id']==1){
-			 $("#operate_menu").show("slow");
-			}else if(data['id']==2){
-				$("#code_menu").show("slow");
-			}else if(data['id']==3){
-				$("#draw_menu").show("slow");
-			}else if(data['id']==4){
-				$("#project_menu").show("slow");
-			}else if(data['id']==5){
-				$("#movie_menu").show("slow");
-			}
-			$("<span>"+teamphoto+"</span>").appendTo(".m_intro");
-			$(".m_intro").show("slow");
-			$(".m_photo").show("slow");
-		}else{
-				$("#back_menu").show("slow");
-				$("#carousel-example-generic").show("slow");
-				$("#scroll").show("slow");
-			}
-	}
 	
 });
