@@ -180,9 +180,9 @@ class SchoolGuideController extends BaseController {
 			'department' => '1',
 			'administration' => '2',
 			'scence' => '3',
-			'food' => '4',
-			'dorm' => '5',
-			'exercise'=>'6'
+			'food' => '5',
+			'dorm' => '6',
+			'exercise'=>'4'
 		);	
 		$categories = $value[$item];
 		App::make('TransferData')->addData('value', '2');

@@ -1,15 +1,15 @@
 ﻿
 #morecontent{
-
-	margin-left:925px;
-	margin-top:-978px; 
-	width:7%;
+	position: absolute;
+	left:1076px;
+	top:479px; 
+	width:6%;
 	height:765px;
 }
 #photo{
 	position: absolute;
-	margin-top:-976px;
-	margin-left:24px;
+	top:486px;
+	left:183px;
 	width:80px;
 	height:780px;
 	z-index: 1;
@@ -21,13 +21,14 @@
 	height:986px;
 }
 #page2{
+	position: relative;
 	visibility: hidden;
 	width: 7%;
 	margin-top:-979px; 
 	margin-left: 918px;
 	float: left;
 	height:986px;
-	z-index: 3;
+	z-index: 0;
 }
 #content{
 	width: 100%;
@@ -40,28 +41,32 @@
 	position: absolute;
 	width: 500px;
 	height: 50px;
-	margin-top:-376px;
-	margin-left:329; 
+	top:1095px;
+	left:490px; 
+	z-index: 5;
 }
 .m_photo{
 	background-color: #515151;
 	position: absolute;
 	width: 500px;
 	height: 400px;
-	margin-top:-788px;
-	margin-left:331px; 
+	top:689px;
+	left:490px; 
+	z-index: 5;
 }
 .close{
 	position: absolute;
-	margin-top:-857px;
-	margin-left:874px; 
+	top:612px;
+	left:1027px; 
 	opacity:1 !important;
+	z-index: 5;
 }
 .menu{
-	
+
 	position: absolute;
-	margin-top:-876px;
-	margin-left: 156px; 
+	top:600px;
+	left: 315px; 
+	z-index: 5;
 }
 /*modal*/
 .photo{
@@ -93,33 +98,39 @@
 #code{
 
 	position: absolute;
-	margin-top:-815px;
-	margin-left: 626px; 
+	top:613px;
+	left: 770px; 
+	z-index: 5;
 }
 #operate{
 	position: absolute;
-	margin-top:-573px;
-	margin-left: 483px;
+	top:892px;
+	left: 646px;
+	z-index: 5;
 }
 #project{
 	position: absolute;
-	margin-top:-508px;
-	margin-left: 332px;  
+	top:956px;
+	left: 492;  
+	z-index: 5;
 }
 #movie{
 	position: absolute;
-	margin-top:-590px;
-	margin-left: 735px;  
+	top:876px;
+	left: 901px;  
+	z-index: 5;
 }
 #draw{
 	position: absolute;
-	margin-top:-781px;
-	margin-left: 405px; 
+	top:681px;
+	left: 566px;
+	z-index: 5; 
 }
 #back{
 	position: absolute;
-	margin-top:-900px;
-	margin-left: 221px; 
+	top:565px;
+	left: 382px;
+	z-index: 5; 
 }
 /* -----------------------------  */
 .modal-lg{
