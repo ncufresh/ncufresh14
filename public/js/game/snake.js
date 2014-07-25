@@ -31,11 +31,13 @@ $(document).ready(function(){
 	}
 
 	var power,done=false,recentScore,waiting=false;
+	var token='';
 	ajaxPost(getTransferData('get-power-url'),'', getData);
 	$('#start').click(function() 
 	{
 		$('.intro').removeClass('introClick');
 		$('#introduction').hide();
+
 		if(power>0)
 		{
 			if(difficult!=0&&mode!=0&&done==true)
@@ -129,6 +131,7 @@ $(document).ready(function(){
 		done = true;
 		power=data['power'];
 		recentScore=data['score'];
+		token = data['token'];
 	}
 
 	function initial()
@@ -254,7 +257,7 @@ $(document).ready(function(){
 			editStatus(parseInt(power)-1,parseInt(score)+parseInt(recentScore));
 			$('#content').hide();
 			$('#endScreen').show();
-			ajaxPost(getTransferData('renew-value-url'),{score:score,mode:mode},'');
+			ajaxPost(getTransferData('renew-value-url'),{score:score,mode:mode, _token: token},'');
 
 			for(var i=0; i<blocknum; i++)
 				for(var j=0; j<blocknum; j++)
@@ -263,21 +266,8 @@ $(document).ready(function(){
 			$('#again').click(function() {
 				done=false;
 				get=false;
-				
 				$('#endScreen').hide();
-				if(difficult==1)
-					$('#difficulty1').children().attr('src',''+burl+'/images/gameSnake/d1Click.png');
-				if(difficult==2)
-					$('#difficulty2').children().attr('src',''+burl+'/images/gameSnake/d2Click.png');
-				if(difficult==3)
-					$('#difficulty3').children().attr('src',''+burl+'/images/gameSnake/d3Click.png');
-				if(mode==1)
-					$('#mode1').children().attr('src',''+burl+'/images/gameSnake/m1Click.png');
-				if(mode==2)
-					$('#mode2').children().attr('src',''+burl+'/images/gameSnake/m2Click.png');
-				if(mode==3)
-					$('#mode3').children().attr('src',''+burl+'/images/gameSnake/m3Click.png');
-					$('#cover').show();
+				$('#cover').show();
 				ajaxPost(getTransferData('get-power-url'),'', getData);
 			});
 		}
@@ -675,10 +665,6 @@ $(document).ready(function(){
 		$('#score').text("Total Score :   "+score);
 	} 
 
-	// function getHighScore(difficult, mode){
-	// 	ajaxPost(getTransferData('get-highscore-url'),{difficult: difficult, mode: mode}, order);
-	// }
-	
 	$('#rankButton').click(function(){
 		$('#endScreen').hide();
 		$('#rankBack').show();
@@ -710,7 +696,7 @@ $(document).ready(function(){
 		for(var i=1; i<4; i++)
 			$('.rM'+i+'').removeClass('rM'+i+'Click');
 		$('.rM'+mode+'').addClass('rM'+mode+'Click');
-		ajaxGet(getTransferData('get-highscore-url'),{mode: mode}, order);
+		ajaxPost(getTransferData('get-highscore-url'),{mode: mode, _token: token}, order);
 	}
 
 	function order(data)
@@ -732,7 +718,7 @@ $(document).ready(function(){
 			if(index>2)
 				$('<div class="col-sm-3"><img src="'+burl+'/images/gameSnake/'+(parseInt(index)+1)+'.png" width="30px" height="30px"></div>').appendTo(row);
 			else
-				$('<div class="col-sm-3">第'+(parseInt(index)+1)+'名</div>').appendTo(row);
+				$('<div class="col-sm-3"><img src="'+burl+'/images/gameSnake/'+(parseInt(index)+1)+'.png" width="40px" height="30px"></div>').appendTo(row);
 			$('<div class="col-sm-4">'+data[index]['user']['name']+'</div>').appendTo(row);
 			$('<div class="col-sm-5">'+ data[index]['highscore'] +'</div>').appendTo(row);
 			if(index < 15)

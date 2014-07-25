@@ -1,0 +1,10 @@
+/* layout */
+#container{
+	background-color: rgb(200, 200, 200) !important;
+}
+.announcement-row{
+	width: 650px !important;
+}
+#calender-month-day{
+	margin-top: 5px !important;
+}

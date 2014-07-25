@@ -4,16 +4,9 @@ var contentEmptyMsg = "文章內容";
 var commentEmptyMsg = "留言內容";
 var notLoginMsg = "您尚未登入會員哦！";
 /****Variables to store the url**************************************************/
-var orderNewUrl;
-//var getCommentsUrl;
-//var createCommentUrl;
-var orderPopUrl;
-//var deleteArticleUrl;
-//var updateArticleUrl;
 var newArticleUrl;
 var perArticleUrl;
-var getDepartmentUrl;
-var getClubUrl;
+var getArticlesUrl;
 /****Store current user's information*********************************************/
 var loginStatus;
 var userId;
@@ -27,22 +20,19 @@ var burl = '';
 
 $(function(){
 	burl = getTransferData('burl');
-	loginStatus = $("#loginStatus").val();
-	if(loginStatus==1){
-		userId = $("#userId").val();
-		userName = $("#userName").val();
+	loginStatus = $("#data_section").attr("data-login");
+	if(loginStatus == 1){
+		userId = $("#data_section").attr("data-user-id");
+		userName = $("#data_section").attr("data-user-name");
 	}
 	/***********************************************************/
-	orderNewUrl = $("#orderNewHidden").attr("direct");
-	orderPopUrl = $("#orderPopHidden").attr("direct");
 	newArticleUrl = $("#newArticle").attr("direct");
 	perArticleUrl = $("#perArticle").attr("direct");
-	getDepartmentUrl = $("#getDepartment").attr("direct");
-	getClubUrl = $("#getClub").attr("direct");
+	getArticlesUrl = $("#getArticles").attr("direct");
 	/************************************************************/
 	$.ajax({
 		type:"POST",
-		url:orderNewUrl,
+		url:getArticlesUrl,
 		data:{
 			'articleType' : "new"
 		},
@@ -50,6 +40,7 @@ $(function(){
 			for(i=0;i<data['data'].length;i++){
 				showArticles(
 					data['data'][i]['user']['name'],
+					data['data'][i]['author_id'],
 					data['data'][i]['created_at'],
 					data['data'][i]['id'],
 					data['data'][i]['title'],
@@ -86,7 +77,7 @@ $(function(){
 			});
 			$.ajax({
 				type : "POST",
-				url : getClubUrl ,
+				url : getArticlesUrl ,
 				data : {
 					"articleType" : "club"
 				},
@@ -94,6 +85,7 @@ $(function(){
 					for(i=0;i<data['data'].length;i++){
 						showArticles(
 							data['data'][i]['user']['name'],
+							data['data'][i]['author_id'],
 							data['data'][i]['created_at'],
 							data['data'][i]['id'],
 							data['data'][i]['title'],
@@ -120,7 +112,7 @@ $(function(){
 			});
 			$.ajax({
 				type : "POST",
-				url : getDepartmentUrl ,
+				url : getArticlesUrl ,
 				data : {
 					"articleType" : "department"
 				},
@@ -128,6 +120,7 @@ $(function(){
 					for(i=0;i<data['data'].length;i++){
 						showArticles(
 							data['data'][i]['user']['name'],
+							data['data'][i]['author_id'],
 							data['data'][i]['created_at'],
 							data['data'][i]['id'],
 							data['data'][i]['title'],
@@ -155,7 +148,7 @@ $(function(){
 	$("#new").change(function(){
 		$.ajax({
 			type : "POST",
-			url : orderNewUrl,
+			url : getArticlesUrl,
 			data : {
 				"articleType" : "new"
 			},
@@ -165,6 +158,7 @@ $(function(){
 				for(i=0;i<data['data'].length;i++){
 					showArticles(
 						data['data'][i]['user']['name'],
+						data['data'][i]['author_id'],
 						data['data'][i]['created_at'],
 						data['data'][i]['id'],
 						data['data'][i]['title'],
@@ -181,7 +175,7 @@ $(function(){
 	$("#pop").change(function(){
 		$.ajax({
 			type : "POST",
-			url : orderPopUrl,
+			url : getArticlesUrl,
 			data : {
 				"articleType" : "pop"
 			},
@@ -192,6 +186,7 @@ $(function(){
 					
 					showArticles(
 						data['data'][i]['user']['name'],
+						data['data'][i]['author_id'],
 						data['data'][i]['created_at'],
 						data['data'][i]['id'],
 						data['data'][i]['title'],
@@ -246,6 +241,7 @@ $(function(){
 					console.log(data);
 					insertArticle(
 						data.articleAuthor,
+						data.authorId,
 						data.articleTime.date,
 						data.articleId,
 						data.articleTitle,
@@ -275,59 +271,48 @@ function getCurrentTime(){
 	return currentTime;
 }
 
-function showArticles(author,createdAt,articleId,title,content,target){
-	var editBtn = "";
-	if(userId == author){
-		editBtn = "<div class='btnBox'>&nbsp;<button type='button' class='btn btn-primary btn-sm edit'>編輯貼文</button></div>";
-	}
+function showArticles(authorName,authorId,createdAt,articleId,title,content,target){
 	$(target).append("\
 		<div class='articleContainer' id='"+articleId+"' >\
 			<div class='postTimeContainer'>\
 				<div class='articlePostTime'>\
-					<span class='author'>"+author+"</span>發布於"+createdAt+"\
+					<span class='author'>"+authorName+"</span>發布於"+createdAt+"\
 				</div>\
 			</div>\
 			<div class='panel panel-default articleBody'>\
 				<div class='panel-heading'>\
 					<a href='"+perArticleUrl+"/"+articleId+"'><h3 class='panel-title'>"+title+"</h3></a>\
 				</div>\
-				<div class='panel-body'>"+content+"</div>\
-				"+editBtn+"\
+				<div class='personalImageBox' >\
+					<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
+				</div>\
+				<div class='panel-body content'>"+content+"</div>\
+				<div class='clear'></div>\
 			</div>\
 		</div>"
 	);
 }
 
-function insertArticle(author,currentTime,articleId,title,content,target){
-	var editBtn = "";
-	if(userId == author){
-		editBtn = "<div class='btnBox'>&nbsp;<button type='button' class='btn btn-primary btn-sm edit'>編輯貼文</button></div>";
-	}
+function insertArticle(authorName,authorId,currentTime,articleId,title,content,target){
 	$(target).after("\
 		<div class='articleContainer' id='"+articleId+"' >\
 			<div class='postTimeContainer'>\
 				<div class='articlePostTime'>\
-					<span class='author'>"+author+"</span>發布於"+currentTime+"\
+					<span class='author'>"+authorName+"</span>發布於"+currentTime+"\
 				</div>\
 			</div>\
 			<div class='panel panel-default articleBody'>\
 				<div class='panel-heading'>\
 					<a href='"+perArticleUrl+"/"+articleId+"'><h3 class='panel-title'>"+title+"</h3></a>\
 				</div>\
-				<div class='panel-body'>"+content+"</div>\
-				"+editBtn+"\
+				<div class='personalImageBox' >\
+					<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
+				</div>\
+				<div class='panel-body content'>"+content+"</div>\
+				<div class='clear'></div>\
 			</div>\
 		</div>"
 	);
 }
 
-function displayComments(author,content,createdAt,target){
-	var comment = "\
-		<div class='panel panel-default'>\
-			<span class='commentAuthorId'>"+author+"</span><br>\
-			<span class='commentContent'>"+content+"</span><br>\
-			<span class='commentTime'>"+createdAt+"</span>\
-		</div>";
-	target.append(comment);
-} 
 
