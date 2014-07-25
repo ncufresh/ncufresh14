@@ -413,20 +413,22 @@ body {
 
 #freshButton {
 	background: url("../images/layout/freshButton.png") no-repeat;
-	position: absolute;
+	position: fixed;
 	width: 106px;
 	height: 171px;
-	top: 230px;
+	top: 400px;
 	left: 0px;
+	z-index: 2;
 }
 
 #freshButton:hover {
 	background: url("../images/layout/freshButtonClick.png") no-repeat;
-	position: absolute;
+	position: fixed;
 	width: 106px;
 	height: 171px;
-	top: 230px;
+	top: 400px;
 	left: 0px;
+	z-index: 2;
 }
 /*#jump-window{*/
 	/*position: absolute;*/

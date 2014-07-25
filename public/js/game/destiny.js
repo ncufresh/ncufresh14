@@ -1,12 +1,12 @@
 (function($)
 {
-	jQuery.fn.rotate = function(degrees) {
+	/*jQuery.fn.rotate = function(degrees) {
 	    $(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
 	                 '-moz-transform' : 'rotate('+ degrees +'deg)',
 	                 '-ms-transform' : 'rotate('+ degrees +'deg)',
 	                 'transform' : 'rotate('+ degrees +'deg)'});
 	    return $(this);
-	};
+	};*/
 	var rotateStart = [-6, 13, 38, 57, 83, 105, 129, 151, 175, 196, 222, 243, 267, 287, 309, 3290];
 	var rotateEnd = [5, 30, 52, 75, 98, 122, 144, 169 , 190, 212, 235, 259, 280, 301, 322, 346];
 	var giftTexts = ['獲得 500 GP', '獲得 500 GP', '獲得 1000 GP', '獲得 2500 GP', '獲得 隨機裝備',
