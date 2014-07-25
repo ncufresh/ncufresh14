@@ -4,13 +4,13 @@ $(document).ready(function(){
 
 	var change = ['','department', 'administration', 'scence', 'exercise', 'food', 'dorm'];
 	var changeChinese = ['','系館', '行政', '中大十景', '運動', '飲食', '住宿'];
-	window.addEventListener("keydown", checkKeyPressed, false);
+	// window.addEventListener("keydown", checkKeyPressed, false);
  
-	function checkKeyPressed(e) {
-	    if (e.keyCode == "65") {
-	        alert("The 'a' key is pressed.");
-	    }
-	}
+	// function checkKeyPressed(e) {
+	//     if (e.keyCode == "65") {
+	//         alert("The 'a' key is pressed.");
+	//     }
+	// }
 	$("#select").change(changeLeft);
 	$(".pointer").click(function(){
 		clickImg($(this).data('id'));
