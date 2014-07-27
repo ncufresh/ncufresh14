@@ -106,7 +106,7 @@ $(document).ready(function(){
 			change=0;
 			$(".items").hide(1);
 			$(".close").show("slow");
-		if(data['id']!=6){
+		if(data['id']!=11){
 			if(data['id']==8){
 			 $("#operate_menu").show("slow");
 			}else if(data['id']==9){
