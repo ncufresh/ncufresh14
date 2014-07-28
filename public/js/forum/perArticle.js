@@ -50,18 +50,25 @@ $(function(){
 				},
 
 				success : function(data){
-					console.log(data);
-					displayComments(
-						data.commentAuthor,
-						data.authorId,
-						data.commentContent,
-						data.commentTime.date,
-						$(document).find(".responseBox")
-					);
+					if(data.washing == true){
 
-					$(document).find("#inputContent").val("");
+						$("#errorMsgContent").text("您的留言時間間隔太短啦");
 
-					$(document).find("#commenterID").val("");
+						$("#errorMsgDialog").modal('toggle');
+					}else{
+
+						displayComments(
+							data.commentAuthor,
+							data.authorId,
+							data.commentContent,
+							data.commentTime.date,
+							$(document).find(".responseBox")
+						);
+
+						$(document).find("#inputContent").val("");
+
+						$(document).find("#commenterID").val("");
+					}
 				},
 				error :function(){
 
