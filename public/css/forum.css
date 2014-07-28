@@ -144,8 +144,11 @@ textarea.commentTextArea{
 	top: -47px;
 	left: 610px;
 }
-
-
+#scrollTop{
+	position: fixed;
+	top: 70%;
+	left:88%;
+}
 
 
 
