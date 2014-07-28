@@ -59,8 +59,9 @@ $(function()
             returnCount = returnPower(correctCount);
             $('#getPower').text("回復電量 * " + returnCount);
             powerreturncount = recentPower;
+            ajaxPost(getTransferData('renew-value-url'),{power:returnCount, _token: token},'');
             timer = $.timer(powerAnimate);
-            timer.set({ time:1000, autostart:true });
+            timer.set({ time:500, autostart:true });
         }
         else
             nextQuest();
@@ -148,7 +149,6 @@ $(function()
         if(returnCount==returnC)
         {
             timer.stop();
-            ajaxPost(getTransferData('renew-value-url'),{power:returnCount, _token: token},'');
             $('#again').show();
             var total = parseInt(recentPower)+parseInt(returnCount);
             if(total>=0 && total<=maxPower)
