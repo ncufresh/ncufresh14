@@ -227,6 +227,11 @@ $(function(){
 		}
 	});
 
+	//Scroll the page to Top while click
+	$("#scrollTop").click(function(){
+		$("body").animate({ scrollTop: 0 }, 'slow');
+	});
+
 });
 
 function showArticles(authorName,authorId,createdAt,articleId,title,content,target){
