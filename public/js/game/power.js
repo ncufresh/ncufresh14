@@ -1,9 +1,8 @@
 $(function()
 {
     var burl = getTransferData('burl');
-    var questCount=0,correct,correctCount=0,choose,option,click,clickCount=0,id=0;
+    var correct,correctCount=0,choose,option,click,clickCount=0,id=0;
     var recentPower = 0,maxPower,returnCount = 0;
-    var quest = new Array(10);
     var dayQuest;
     var timer,count=0,returnC=0,powerreturncount;
     var done = false;
@@ -34,7 +33,7 @@ $(function()
             click = $(this).data('getclick');
             $(this).addClass('target');
             for(var i=1; i<5; i++)
-                if(i==dayQuest[quest[clickCount]]['correctans'])
+                if(i==dayQuest[clickCount]['correctans'])
                 {
                     if(i==1){
                         option = $('#qa').data('option');}
@@ -72,7 +71,6 @@ $(function()
 
      $('#again').click(function() {
         $('#endScreen').hide();
-        questCount=0;
         clickCount=0;
         correctCount=0;
         id=0;
@@ -89,43 +87,25 @@ $(function()
         done = true;
         token = data['token'];
         dayQuest = data['questions'];
-        randomSelect(); 
-    }
-
-    function randomSelect()
-    {
-        while(questCount<10)
-        {
-            var random = Math.random()*15;
-            random -= random%1;
-            choose=1;
-            for(var i=0; i<questCount; i++)
-                if(quest[i]==random)
-                    choose=0;
-            if(choose==1)
-            {
-                quest[questCount]=random;
-                questCount++;
-            } 
-        }
     }
 
     function getRecent(data)
     {
         recentPower = data['recentPower'];
         maxPower = data['maxPower'];
+        console.log(recentPower+" "+maxPower);
     }
 
     function nextQuest()
     {
         click = 0;
-        correct = dayQuest[quest[clickCount]]['correctans'];
+        correct = dayQuest[clickCount]['correctans'];
 
-        $('#question').text("Q" + (clickCount+1) + "：" + dayQuest[quest[clickCount]]['question']);
-        $('#qa').text("(A)  " + dayQuest[quest[clickCount]]['qA']);
-        $('#qb').text("(B)  " + dayQuest[quest[clickCount]]['qB']);
-        $('#qc').text("(C)  " + dayQuest[quest[clickCount]]['qC']);
-        $('#qd').text("(D)  " + dayQuest[quest[clickCount]]['qD']);
+        $('#question').text("Q" + (clickCount+1) + "：" + dayQuest[clickCount]['question']);
+        $('#qa').text("(A)  " + dayQuest[clickCount]['qA']);
+        $('#qb').text("(B)  " + dayQuest[clickCount]['qB']);
+        $('#qc').text("(C)  " + dayQuest[clickCount]['qC']);
+        $('#qd').text("(D)  " + dayQuest[clickCount]['qD']);
     }
 
     function showAnswer()
@@ -161,7 +141,6 @@ $(function()
 
         return hi;
     }
-
 
     function powerAnimate()
     {
