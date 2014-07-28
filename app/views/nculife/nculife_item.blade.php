@@ -45,7 +45,6 @@
 			</div>
 			<div id="select">
 				<div id="buttom" data-num="{{$nculifes[0]->id}}">
-					<img id="change" src="{{ asset('images/nculife/buttom_left.png') }}">
 				</div>
 			</div>
 		</div>
