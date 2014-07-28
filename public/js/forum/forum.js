@@ -19,6 +19,8 @@ var burl = '';
 
 $(function(){
 
+	$("#articleTab").parent().addClass("active");
+
 	burl = getTransferData('burl');
 	loginStatus = $("#data_section").attr("data-login");
 
