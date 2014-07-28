@@ -25,7 +25,12 @@
 						    	editStatus(data['user']['power'],data['user']['gp']);
 					    		$('#destinyStart').show();
 					    		$('#startPage').hide();
-					    		$('#bonusText').text(giftTexts[data['gift']-1]);
+					    		if ( data['gift'] == 8 ) {
+					    			$('#bonusText').text('獲得' + data['randomGp'] + ' GP');
+					    		}
+					    		else {
+					    			$('#bonusText').text(giftTexts[data['gift']-1]);
+					    		}
 					    		$('#bounsPage').fadeIn();
 						    }
 					    });
