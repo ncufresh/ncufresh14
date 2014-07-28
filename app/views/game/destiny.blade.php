@@ -2,6 +2,7 @@
 
 @section('js_css')
 	{{ HTML::style('css/game.css') }}
+	{{ HTML::script('js/game/jQueryRotateCompressed.js') }}
 	{{ HTML::script('js/game/game.js') }}
 	{{ HTML::script('js/game/destiny.js') }}
 @stop

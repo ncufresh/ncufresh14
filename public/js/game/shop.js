@@ -58,7 +58,16 @@
                             left: disply_item_data[user_look[0].attr('itemId')-1]['face_middle_x']/2 + 17 + 'px'
                         });
                     }
+                    for ( var j = 4; j < 6; j++ ) {
+                        if ( user_look[j].attr('itemId') == 0 ) {
+                            user_look[j].hide();
+                        }
+                        else {
+                            user_look[j].show();
+                        }
+                    }
                 });
+                
             });
         }
         function buyClick() {
@@ -76,7 +85,10 @@
             user_look[index] = $(this);
             init_equip[types[index]] = [ user_look[index].attr('itemId'), user_look[index].attr('src') ];
         });
-        
+        for ( var j = 4; j < 6; j++ ) {
+            if ( Equip_items[j]['id'] == 0 )
+                user_look[j].hide();
+        }
 
         $('#characterEquipButton').click(function() {
             var user_want = new Array(6);
@@ -84,7 +96,7 @@
                 user_want[i] = user_look[i].attr('itemId');
             }
             ajaxPost($(this).attr('action'), {user_want: user_want}, function(data) {
-                console.log(data);
+                //console.log(data);
                 for ( var i = 0; i < 6; i++ ) {
                     if ( !data['isBuy'][i] ) {
                         alert('你還沒買喔~' + types[i]);

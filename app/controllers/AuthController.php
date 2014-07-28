@@ -256,10 +256,10 @@ class AuthController extends BaseController {
 		$gameUser->power = 5;
 		$gameUser->max_power = 5;
 		$gameUser->gp = 0;
-		$gameUser->head = 0;
-		$gameUser->face = 0;
-		$gameUser->body = 0;
-		$gameUser->foot = 0;
+		$gameUser->head = 1;
+		$gameUser->face = 7;
+		$gameUser->body = 13;
+		$gameUser->foot = 19;
 		$gameUser->item = 0;
 		$gameUser->map = 0;
 		$gameUser->save();

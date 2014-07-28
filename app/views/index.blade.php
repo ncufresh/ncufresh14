@@ -75,9 +75,9 @@
 					@else
 					<div class="col-sm-1"></div>
 					@endif
-					<div class="col-sm-6">{{ $announcement->title }}</div>
+					<div class="col-sm-6 announcement-title">{{ $announcement->title }}</div>
 					<div class="col-sm-2">{{ $announcement->viewer }}</div>
-					<div class="col-sm-3">{{ $announcement->created_at->format('Y/m/d h:i'); }}</div>
+					<div class="col-sm-3 announcement-time">{{ $announcement->created_at->format('Y/m/d h:i'); }}</div>
 				</div>
 				@endforeach
 				<a href="{{ route('announcement.index') }}">閱讀更多</a>

@@ -22,72 +22,73 @@
 			<div id="gameCampusGameBox" action="{{ URL::to('game/campus/check') }}">
 				<img id="gameCampusMapBack" src="{{ asset('images/SchoolGuide/Buttom.png') }}">
 				<div class="gameCampusType" id="gameCampusType0">系館
-					<div class="gameCampusBuilding" style="top: 0px;left: 0px;" index="0"><img src="{{ asset('images/SchoolGuide/science-5.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 50px;left: 0px;" index="1"><img src="{{ asset('images/SchoolGuide/literary.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/engineer-1.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 150px;left: 0px;" index="3"><img src="{{ asset('images/SchoolGuide/engineer-2.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 150px;left: 0px;" index="4"><img src="{{ asset('images/SchoolGuide/engineer-3.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 150px;left: 0px;" index="5"><img src="{{ asset('images/SchoolGuide/engineer-4.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 150px;left: 0px;" index="6"><img src="{{ asset('images/SchoolGuide/engineer-5.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 150px;left: 0px;" index="7"><img src="{{ asset('images/SchoolGuide/science-4.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 150px;left: 0px;" index="8"><img src="{{ asset('images/SchoolGuide/science-3.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 150px;left: 0px;" index="9"><img src="{{ asset('images/SchoolGuide/science-2.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 150px;left: 0px;" index="10"><img src="{{ asset('images/SchoolGuide/science-1.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 150px;left: 0px;" index="11"><img src="{{ asset('images/SchoolGuide/math.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 150px;left: 0px;" index="12"><img src="{{ asset('images/SchoolGuide/management-1.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 150px;left: 0px;" index="13"><img src="{{ asset('images/SchoolGuide/management-2.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 150px;left: 0px;" index="14"><img src="{{ asset('images/SchoolGuide/Hakkas.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 150px;left: 0px;" index="15"><img src="{{ asset('images/SchoolGuide/electric.png') }}"></div>
+					<div class="gameCampusBuilding" id="science_5" index="0"></div>
+					<div class="gameCampusBuilding" id="literary" index="1"></div>
+					<div class="gameCampusBuilding" id="engineer_1" index="2"></div>
+					<div class="gameCampusBuilding" id="engineer_2" index="3"></div>
+					<div class="gameCampusBuilding" id="engineer_3" index="4"></div>
+					<div class="gameCampusBuilding" id="engineer_4" index="5"></div>
+					<div class="gameCampusBuilding" id="engineer_5" index="6"></div>
+					<div class="gameCampusBuilding" id="science_4" index="7"></div>
+					<div class="gameCampusBuilding" id="science_3" index="8"></div>
+					<div class="gameCampusBuilding" id="science_2" index="9"></div>
+					<div class="gameCampusBuilding" id="science_1" index="10"></div>
+					<div class="gameCampusBuilding" id="math" index="11"></div>
+					<div class="gameCampusBuilding" id="management_1" index="12"></div>
+					<div class="gameCampusBuilding" id="management_2" index="13"></div>
+					<div class="gameCampusBuilding" id="Hakkas" index="14"></div>
+					<div class="gameCampusBuilding" id="electric" index="15"></div>
 				</div>
 				<div class="gameCampusType" id="gameCampusType1">行政
-					<div class="gameCampusBuilding" style="top: 0px;left: 0px;" index="0"><img src="{{ asset('images/SchoolGuide/Zhidao.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 50px;left: 0px;" index="1"><img src="{{ asset('images/SchoolGuide/art.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/schoolh.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="3"><img src="{{ asset('images/SchoolGuide/administration.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="4"><img src="{{ asset('images/SchoolGuide/library.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="5"><img src="{{ asset('images/SchoolGuide/oldlibrary.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="6"><img src="{{ asset('images/SchoolGuide/blackbox.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="7"><img src="{{ asset('images/SchoolGuide/mbuilding.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="8"><img src="{{ asset('images/SchoolGuide/clibrary.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="9"><img src="{{ asset('images/SchoolGuide/outerspace.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="10"><img src="{{ asset('images/SchoolGuide/ncu.png') }}"></div>
+					<div class="gameCampusBuilding" id="Zhidao" index="0"></div>
+					<div class="gameCampusBuilding" id="art" index="1"></div>
+					<div class="gameCampusBuilding" id="building" index="2"></div>
+					<div class="gameCampusBuilding" id="schoolh" index="3"></div>
+					<div class="gameCampusBuilding" id="administration" index="4"></div>
+					<div class="gameCampusBuilding" id="library" index="5"></div>
+					<div class="gameCampusBuilding" id="oldlibrary" index="6"></div>
+					<div class="gameCampusBuilding" id="blackbox" index="7"></div>
+					<div class="gameCampusBuilding" id="mbuilding" index="8"></div>
+					<div class="gameCampusBuilding" id="clibrary" index="9"></div>
+					<div class="gameCampusBuilding" id="outerspace" index="10"></div>
+					<div class="gameCampusBuilding" id="ncu" index="11"></div>
 				</div>
 				<div class="gameCampusType" id="gameCampusType2">中大十景
-					<div class="gameCampusBuilding" style="top: 0px;left: 0px;" index="0"><img src="{{ asset('images/SchoolGuide/G14-ground.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 50px;left: 0px;" index="1"><img src="{{ asset('images/SchoolGuide/door.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/monument.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/tree.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/tai.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/park.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/lake.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/flower.png') }}"></div>
+					<div class="gameCampusBuilding" id="G14_ground" index="0"></div>
+					<div class="gameCampusBuilding" id="door" index="1"></div>
+					<div class="gameCampusBuilding" id="monument" index="2"></div>
+					<div class="gameCampusBuilding" id="tree" index="3"></div>
+					<div class="gameCampusBuilding" id="tai" index="4"></div>
+					<div class="gameCampusBuilding" id="park" index="5"></div>
+					<div class="gameCampusBuilding" id="lake" index="6"></div>
+					<div class="gameCampusBuilding" id="flower" index="7"></div>
 				</div>
 				<div class="gameCampusType" id="gameCampusType3">運動
-					<div class="gameCampusBuilding" style="top: 0px;left: 0px;" index="0"><img src="{{ asset('images/SchoolGuide/gym.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 50px;left: 0px;" index="1"><img src="{{ asset('images/SchoolGuide/basketball.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/playground.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/rock.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/swimpool.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/skate.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/valley.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img src="{{ asset('images/SchoolGuide/badminton.png') }}"></div>
+					<div class="gameCampusBuilding" id="gym" index="0"></div>
+					<div class="gameCampusBuilding" id="basketball" index="1"></div>
+					<div class="gameCampusBuilding" id="playground" index="2"></div>
+					<div class="gameCampusBuilding" id="rock" index="3"></div>
+					<div class="gameCampusBuilding" id="swimpool" index="4"></div>
+					<div class="gameCampusBuilding" id="skate" index="5"></div>
+					<div class="gameCampusBuilding" id="valley" index="6"></div>
+					<div class="gameCampusBuilding" id="badminton" index="7"></div>
 				</div>
 				<div class="gameCampusType" id="gameCampusType4">飲食
-					<div class="gameCampusBuilding" style="top: 0px;left: 0px;" index="0"><img src="{{ asset('images/SchoolGuide/wood.png') }}"></div>
+					<div class="gameCampusBuilding" id="wood" index="0"></div>
 				</div>
 				<div class="gameCampusType" id="gameCampusType5">住宿
-					<div class="gameCampusBuilding" style="top: 0px;left: 0px;" index="0"><img  src="{{ asset('images/SchoolGuide/G14.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 50px;left: 0px;" index="1"><img  src="{{ asset('images/SchoolGuide/B11.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img  src="{{ asset('images/SchoolGuide/B7.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img  src="{{ asset('images/SchoolGuide/B6.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img  src="{{ asset('images/SchoolGuide/B13.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img  src="{{ asset('images/SchoolGuide/B5.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img  src="{{ asset('images/SchoolGuide/International.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img  src="{{ asset('images/SchoolGuide/B3.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img  src="{{ asset('images/SchoolGuide/G-1-4.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img  src="{{ asset('images/SchoolGuide/Graduate.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img  src="{{ asset('images/SchoolGuide/B9.png') }}"></div>
-					<div class="gameCampusBuilding" style="top: 100px;left: 0px;" index="2"><img  src="{{ asset('images/SchoolGuide/B12.png') }}"></div>
+					<div class="gameCampusBuilding" id="B11" index="0"></div>
+					<div class="gameCampusBuilding" id="B7" index="1"></div>
+					<div class="gameCampusBuilding" id="B6" index="2"></div>
+					<div class="gameCampusBuilding" id="B13" index="3"></div>
+					<div class="gameCampusBuilding" id="B5" index="4">></div>
+					<div class="gameCampusBuilding" id="International" index="5"></div>
+					<div class="gameCampusBuilding" id="B3" index="6"></div>
+					<div class="gameCampusBuilding" id="G14" index="7"></div>
+					<div class="gameCampusBuilding" id="G_1_4" index="8"></div>
+					<div class="gameCampusBuilding" id="B9" index="9"></div>
+					<div class="gameCampusBuilding" id="B12" index="10"></div>
+					<div class="gameCampusBuilding" id="Graduate" index="11"></div>
 				</div>
 				<div id="gameCampusQuestion"></div>
 			</div>
