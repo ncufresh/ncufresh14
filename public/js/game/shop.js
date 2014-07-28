@@ -34,12 +34,15 @@
     	});
     	function buyItem(id, button) {
     		ajaxPost($('#gameShopItems').attr('action'), {itemId: id}, function(data) {
-                if ( data['isBuy'] ) {
-                    button.addClass('itemHadBuy');
-                    editStatus(data['user']['power'], data['user']['gp']);
-                }
-                else {
-                    alert('you do not have enough money.');
+                if( data['hadbuy'] == 0 ) {
+                    if ( data['isBuy'] ) {
+                        button.addClass('itemHadBuy');
+                        editStatus(data['user']['power'], data['user']['gp']);
+                        $.alertMessage('購買成功!', {type: 'alert-danger'});
+                    }
+                    else {
+                        $.alertMessage('你GP不夠喔！', {type: 'alert-danger'});
+                    }
                 }
 			});
     	};
@@ -99,7 +102,8 @@
                 //console.log(data);
                 for ( var i = 0; i < 6; i++ ) {
                     if ( !data['isBuy'][i] ) {
-                        alert('你還沒買喔~' + types[i]);
+                        var words = ['頭盔', '表情', '身體', '下肢', '道具', '地圖碎片'];
+                        $.alertMessage('你還沒買' + words[i] + '喔~', {type: 'alert-danger'});
                     }
                 }
             });
@@ -112,6 +116,9 @@
             user_look[1].css({
                 top: disply_item_data[user_look[0].attr('itemId')-1]['face_middle_y']/2 - 35 + 'px',
                 left: disply_item_data[user_look[0].attr('itemId')-1]['face_middle_x']/2 + 17 + 'px'
+            });
+            $('.gameShopItem').each(function(index) {
+                $(this).removeClass('gameShopItemSelect');
             });
         });
 

@@ -24,6 +24,18 @@
 	width: 12px;
 	height: 100%;
 	border-radius: 10px;
+	visibility: hidden;
+}
+
+.jspVerticalBar:hover
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 12px;
+	height: 100%;
+	border-radius: 10px;
+	visibility: visible;
 }
 
 .jspHorizontalBar
@@ -34,6 +46,7 @@
 	width: 100%;
 	height: 16px;
 	background: red;
+	display: none !important;
 }
 
 .jspCap
