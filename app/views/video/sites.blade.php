@@ -38,20 +38,22 @@
 </div>
 
 <div id = "intro">{{nl2br($video->video_introduction)}}</div> <!--video introduction-->
+<button id="pinewave" type="button"  style = "background-color: transparent; border: 0;"></button>
 
+</div> <!--frame div-->
 
 @foreach( $messages as $message)
+<div id="frame2">
 	<div id="user_message">
-		<img src="images/videoImages/introMid.png" id="messageBGwhite">
-		<img src="images/videoImages/messageBG.png" id="messageBG">
-		<img src="images/videoImages/messageCamera.png" id="messageBG2">
-		<a href="{{ route('user.id', array('id' => $message ->user->id)) }}"><img src="{{ route('personface',array('id' => $message->user_id )) }}" id="portrait"></a>
-		<div id= "div_message" style="width:720px; height:170px;">{{nl2br($message["video_text"])}}</div>
-		<div id ="div_name"><font color = "#7DB7A1">{{ $message->user->name }}</font></div>
-	</div>
+	<img src="images/videoImages/introMid.png" id="messageBGwhite">
+	<img src="images/videoImages/messageBG.png" id="messageBG">
+	<img src="images/videoImages/messageCamera.png" id="messageBG2">
+	<a href="{{ route('user.id', array('id' => $message ->user->id)) }}"><img src="{{ route('personface',array('id' => $message->user_id )) }}" id="portrait"></a>
+	<div id= "div_message" style="width:720px; height:170px;">{{nl2br($message["video_text"])}}</div>
+	<div id ="div_name"><font color = "#7DB7A1">{{ $message->user->name }}</font></div>
+	</div> 
+</div>
 @endforeach
-<button id="pinewave" type="button"  style = "background-color: transparent; border: 0;"></button>
-</div> <!--frame div-->
 
 {{$messages->links();}} 
 @if($errors -> any())
