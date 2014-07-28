@@ -36,6 +36,7 @@
 	padding: 35px;
 	margin-bottom: -15px;
 	background-image: url(../images/nculife/place.png);
+	cursor: pointer;
 }
 
 .place:hover {
@@ -115,6 +116,7 @@
 	left: 30px;
 	background-image: url(../images/nculife/switchoff.png);
 	display: inline-block;
+	cursor: pointer;
 }
 
 #select1 {
@@ -158,6 +160,7 @@
 	width: 150px;
 	margin-top: 1%;
 	margin-left: 40%;
+	cursor: pointer;
 }
 
 img.ui-state-disabled.ui-draggable-disabled { opacity : 1;}
