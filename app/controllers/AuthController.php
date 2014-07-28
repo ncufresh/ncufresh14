@@ -280,14 +280,6 @@ class AuthController extends BaseController {
 		$buy->user_id = $gameUser->id;
 		$buy->item_id = 19;
 		$buy->save();
-		$buy = new GameBuy;
-		$buy->user_id = $gameUser->id;
-		$buy->item_id = 25;
-		$buy->save();
-		$buy = new GameBuy;
-		$buy->user_id = $gameUser->id;
-		$buy->item_id = 31;
-		$buy->save();
 		/*
 			end
 		*/
