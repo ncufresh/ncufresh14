@@ -130,6 +130,21 @@ textarea.commentTextArea{
 	top: 5px;
 	right: 5px;
 }
+#currentPage{
+	position: relative;
+	font-weight: 800;
+	color: #3E5AAF;
+	top: 45px;
+	left: 370px;
+}
+#totalPage{
+	position: relative;
+	font-weight: 800;
+	color: #3E5AAF;
+	top: -47px;
+	left: 610px;
+}
+
 
 
 

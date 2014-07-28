@@ -28,11 +28,13 @@
 				</div>
 			</div>
 			<div class="tab-pane" id="Test2">
-				<div id="departmentIndex">index</div>
+				<p>&nbsp;</p>
 			</div>
 			<div class="tab-pane" id="Test3">
-				<div id="clubIndex">index</div>
+				<p>&nbsp;</p>
 			</div>
+		</div>
+		<div class="paginationBox">
 			
 		</div>
 	</div>
@@ -55,7 +57,19 @@
 					</div>
 					<div id="formArticleTypeContainer">
 					{{ Form::label('article_type','文章分類') }}
-					@if(Entrust::can('forum_usage'))
+					@if(Entrust::hasRole('Developer'))
+					{{ Form::select(
+						'article_type',
+						array(
+						'P' => '一般貼文' ,
+						'C' => '社團' ,
+						'D' => '系所'),
+						'',
+						array(
+						'class' => 'form-control',
+						'id' => 'selectType' )
+						) }}
+					@elseif(Entrust::can('forum_usage'))
 						{{ Form::select(
 							'article_type',
 							array('P' => '一般貼文' ),
@@ -68,18 +82,6 @@
 						{{ Form::select(
 							'article_type',
 							array( 
-								'C' => '社團' , 
-								'D' => '系所'),
-							'',
-							array(
-								'class' => 'form-control',
-								'id' => 'selectType' ) 
-						) }}
-					@else
-						{{ Form::select(
-							'article_type',
-							array(
-								'P' => '一般貼文' , 
 								'C' => '社團' , 
 								'D' => '系所'),
 							'',

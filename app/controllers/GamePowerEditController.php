@@ -2,7 +2,7 @@
 class GamePowerEditController extends BaseController 
 {
 	public function index(){
-		$poweredit = GamePower::all();
+		$poweredit = GamePower::orderBy('id', 'ASC')->get();
 		return View::make('poweredit.index', array('poweredits' => $poweredit));
 	}
 

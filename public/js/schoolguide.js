@@ -4,15 +4,19 @@ $(document).ready(function(){
 
 	var change = ['','department', 'administration', 'scence', 'exercise', 'food', 'dorm'];
 	var changeChinese = ['','系館', '行政', '中大十景', '運動', '飲食', '住宿'];
-	window.addEventListener("keydown", checkKeyPressed, false);
+
+	var addEvent =  window.attachEvent||window.addEventListener;
+	var event = window.attachEvent ? 'onclick' : 'keydown';
+	addEvent(event, function(event){
+			
+				if(String.fromCharCode(event.which)=="A" && String.fromCharCode(event.which)=="S" ){
+					alert("213321");
+				}
+			
+	});
  
-	function checkKeyPressed(e) {
-	    if (e.keyCode == "65") {
-	        alert("The 'a' key is pressed.");
-	    }
-	}
 	$("#select").change(changeLeft);
-	$(".pointer").click(function(){
+	$(".pointer img").click(function(){
 		clickImg($(this).data('id'));
 		changePhoto($(this).data('id'));
 	});
@@ -81,8 +85,7 @@ $(document).ready(function(){
 		//    url += '/'+$id;
 		// }
 		//  window.location.href=url;
-	}
-	
+	}	
 
 	function changeLeft(){
 		var url = getTransferData('guide_left_url');// var url = $(this).data('url');

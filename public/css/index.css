@@ -164,6 +164,16 @@
 	background-color: rgb(254, 219, 95);
 }
 
+.announcement-title{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.announcement-time{
+	font-size: small;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 #forum {
 	width: 450px;
 	float: left;

@@ -379,30 +379,31 @@ gameCampus
 }
 
 #gameCampusMapBack {
-	width: 750px;
-	height: 500px;
+	width: 669px;
+	height: 459px;
 	position: absolute;
-	top: 50px;
-	left: 100px;
+	top: 96px;
+	left: 155px;
 }
 
 .gameCampusType {
 	display: none;
+	position: relative;
+	width: 100%;
+	height: 617px;
 }
 
 #gameCampusQuestion {
-	width: 100%;
+	width: 881px;
 	height: 50px;
-	margin: 460px auto 0px auto;
+	top: 540px;
+	left: 25px;
 	background-color: white;
 	position: absolute;
 	padding: 10px;
 }
 
 .gameCampusBuilding {
-	width: 50px;
-	height: 50px;
-	/*background-color: red;*/
 	position: absolute;
 }
 
@@ -683,7 +684,6 @@ gameShop
 }
 
 #characterMap {
-	background-color: rgba(255, 0, 0, 0.4);
 	width: 100%;
 	height: 100%;
 }
@@ -772,4 +772,1060 @@ gameShop
 	padding: 5px;
 	text-align: center;
 	margin-left: 250px;
+}
+
+/*
+
+//	gameCampusBuildings
+
+*/
+
+/*departments*/
+
+#science_5 {
+    top: 366px;
+    left: 723px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/science-5.png") no-repeat;
+    width: 73px;
+    height: 81px;
+}
+
+#literary {
+    top: 369px;
+    left: 461px;
+    z-index: 2  ;
+    background: url("../images/SchoolGuide/literary.png") no-repeat;
+    width: 81px;
+    height: 64px;
+}
+
+#engineer_1 {
+    top: 254px;
+    left: 386px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/engineer-1.png") no-repeat;
+    width: 99px;
+    height: 65px;
+}
+
+#engineer_2 {
+    top: 216px;
+    left: 430px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/engineer-2.png") no-repeat;
+    width: 88px;
+    height: 64px;
+}
+
+#engineer_3 {
+    top: 146px;
+    left: 545px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/engineer-3.png") no-repeat;
+    width: 85px;
+    height: 40px;
+}
+
+#engineer_4 {
+    top: 116px;
+    left: 610px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/engineer-4.png") no-repeat;
+    width: 71px;
+    height: 50px;
+}
+
+#engineer_5 {
+    top: 91px;
+    left: 524px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/engineer-5.png") no-repeat;
+    width: 110px;
+    height: 46px;
+}
+
+#science_4 {
+    top: 312px;
+    left: 745px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/science-4.png") no-repeat;
+    width: 75px;
+    height: 75px;
+}
+
+#science_2 {
+    top: 270px;
+    left: 616px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/science-2.png") no-repeat;
+    width: 60px;
+    height: 85px;
+}
+
+#science_3 {
+    top: 310px;
+    left: 666px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/science-3.png") no-repeat;
+    width: 66px;
+    height: 61px;
+}
+
+#science_1 {
+    top: 328px;
+    left: 309px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/science-1.png") no-repeat;
+    width: 82px;
+    height: 76px;
+}
+
+#math {
+    top: 351px;
+    left: 666px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/math.png") no-repeat;
+    width: 51px;
+    height: 49px;
+}
+
+#management_1 {
+    top: 376px;
+    left: 581px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/management-1.png") no-repeat;
+    width: 64px;
+    height: 75px;
+}
+
+#management_2 {
+    top: 390px;
+    left: 665px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/management-2.png") no-repeat;
+    width: 94px;
+    height: 54px;
+}
+
+#Hakkas {
+    top: 229px;
+    left: 752px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/Hakkas.png") no-repeat;
+    width: 75px;
+    height: 54px;
+}
+
+#electric {
+    top: 222px;
+    left: 686px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/electric.png") no-repeat;
+    width: 77px;
+    height: 60px;
+}
+
+/*school*/
+
+#Zhidao {
+    top: 285px;
+    left: 238px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/Zhidao.png") no-repeat;
+    width: 49px;
+    height: 49px;
+}
+
+#art {
+    top: 376px;
+    left: 186px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/art.png") no-repeat;
+    width: 71px;
+    height: 52px;
+}
+
+#building {
+    top: 403px;
+    left: 204px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/building.png") no-repeat;
+    width: 84px;
+    height: 38px;
+}
+
+#schoolh {
+    top: 396px;
+    left: 274px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/schoolh.png") no-repeat;
+    width: 70px;
+    height: 35px;
+}
+
+#administration {
+    top: 381px;
+    left: 379px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/administration.png") no-repeat;
+    width: 58px;
+    height: 45px;
+}
+
+#library {
+    top: 334px;
+    left: 405px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/library.png") no-repeat;
+    width: 63px;
+    height: 65px;
+}
+
+#oldlibrary {
+    top: 320px;
+    left: 431px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/oldlibrary.png") no-repeat;
+    width: 64px;
+    height: 53px;
+}
+
+#blackbox {
+    top: 393px;
+    left: 442px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/blackbox.png") no-repeat;
+    width: 84px;
+    height: 56px;
+}
+
+#mbuilding {
+    top: 331px;
+    left: 606px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/mbuilding.png") no-repeat;
+    width: 70px;
+    height: 56px;
+}
+
+#clibrary {
+    top: 396px;
+    left: 541px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/clibrary.png") no-repeat;
+    width: 43px;
+    height: 48px;
+}
+
+#outerspace {
+    top: 73px;
+    left: 524px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/outerspace.png") no-repeat;
+    width: 47px;
+    height: 67px;
+}
+
+#ncu {
+    top: 455px;
+    left: 581px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/ncu.png") no-repeat;
+    width: 56px;
+    height: 55px;
+}
+
+/**/
+
+#G14_ground {
+    top: 322px;
+    left: 250px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/G14_ground.png") no-repeat;
+    width: 25px;
+    height: 21px;
+}
+
+#door {
+    top: 500px;
+    left: 284px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/door.png") no-repeat;
+    width: 44px;
+    height: 24px;
+}
+
+#monument {
+    top: 385px;
+    left: 341px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/monument.png") no-repeat;
+    width: 24px;
+    height: 54px;
+}
+
+#tree {
+    top: 317px;
+    left: 380px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/tree.png") no-repeat;
+    width: 38x;
+    height: 27px;
+}
+
+#tai {
+    top: 361px;
+    left: 512px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/tai.png") no-repeat;
+    width: 29px;
+    height: 27px;
+}
+
+#park {
+    top: 199px;
+    left: 464px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/park.png") no-repeat;
+    width: 40px;
+    height: 24px;
+}
+
+#lake {
+    top: 299px;
+    left: 723px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/lake.png") no-repeat;
+    width: 24px;
+    height: 20px;
+}
+
+#flower {
+    top: 355px;
+    left: 552px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/flower.png") no-repeat;
+    width: 23px;
+    height: 21px;
+}
+
+/*exercise*/
+
+#gym {
+    top: 209px;
+    left: 545px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/gym.png") no-repeat;
+    width: 80px;
+    height: 51px;
+}
+
+#basketball {
+    top: 209px;
+    left: 667px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/basketball.png") no-repeat;
+    width: 23px;
+    height: 23px;
+}
+
+#playground {
+    top: 190px;
+    left: 548px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/playground.png") no-repeat;
+    width: 106px;
+    height: 40px;
+}
+
+#rock {
+    top: 205px;
+    left: 648px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/rock.png") no-repeat;
+    width: 21px;
+    height: 23px;
+}
+
+#swimpool {
+    top: 192px;
+    left: 711px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/swimpool.png") no-repeat;
+    width: 69px;
+    height: 48px;
+}
+
+#skate {
+    top: 246px;
+    left: 634px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/skate.png") no-repeat;
+    width: 27px;
+    height: 27px;
+}
+
+#valley {
+    top: 220px;
+    left: 522px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/valley.png") no-repeat;
+    width: 19px;
+    height: 19px;
+}
+
+#badminton {
+    top: 242px;
+    left: 616px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/badminton.png") no-repeat;
+    width: 24px;
+    height: 27px;
+}
+
+/*eat*/
+
+#wood {
+    top: 376px;
+    left: 581px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/wood.png") no-repeat;
+    width: 29px;
+    height: 22px;
+}
+
+/*dorm*/
+
+#B11 {
+    top: 333px;
+    left: 180px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/B11.png") no-repeat;
+    width: 64px;
+    height: 33px;
+}
+
+#B7 {
+    top: 345px;
+    left: 159px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/B7.png") no-repeat;
+    width: 57px;
+    height: 50px;
+}
+
+#B6 {
+    top: 365px;
+    left: 171px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/B6.png") no-repeat;
+    width: 44px;
+    height: 36px;
+}
+
+#B13 {
+    top: 412px;
+    left: 180px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/B13.png") no-repeat;
+    width: 57px;
+    height: 56px;
+}
+
+#B5 {
+    top: 335px;
+    left: 241px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/B5.png") no-repeat;
+    width: 65px;
+    height: 61px;
+}
+
+#International {
+    top: 301px;
+    left: 276px;
+    z-index:2;
+    background: url("../images/SchoolGuide/International.png") no-repeat;
+    width: 66px;
+    height: 63px;
+}
+
+#B3 {
+    top: 257px;
+    left: 274px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/B3.png") no-repeat;
+    width: 40px;
+    height: 41px;
+}
+
+#G14 {
+    top: 306px;
+    left: 196px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/G14.png") no-repeat;
+    width: 58px;
+    height: 38px;
+}
+
+#G_1_4 {
+    top: 210px;
+    left: 358px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/G_1_4.png") no-repeat;
+    width: 67px;
+    height: 65px;
+}
+
+#B9 {
+    top: 503px;
+    left: 535px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/B9.png") no-repeat;
+    width: 103px;
+    height: 45px;
+}
+
+#B12 {
+    top: 472px;
+    left: 633px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/B12.png") no-repeat;
+    width: 51px;
+    height: 65px;
+}
+
+#Graduate {
+    top: 414px;
+    left: 621px;
+    z-index: 3;
+    background: url("../images/SchoolGuide/Graduate.png") no-repeat;
+    width: 94px;
+    height: 75px;
+}
+
+/*  hover  */
+
+#science_5:hover {
+    top: 366px;
+    left: 723px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/science-5-p.png") no-repeat;
+    width: 73px;
+    height: 81px;
+}
+
+#literary:hover {
+    top: 369px;
+    left: 461px;
+    z-index: 2  ;
+    background: url("../images/SchoolGuide/literary-p.png") no-repeat;
+    width: 81px;
+    height: 64px;
+}
+
+#engineer_1:hover {
+    top: 254px;
+    left: 386px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/engineer-1-p.png") no-repeat;
+    width: 99px;
+    height: 65px;
+}
+
+#engineer_2:hover {
+    top: 216px;
+    left: 430px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/engineer-2-p.png") no-repeat;
+    width: 88px;
+    height: 64px;
+}
+
+#engineer_3:hover {
+    top: 146px;
+    left: 545px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/engineer-3-p.png") no-repeat;
+    width: 85px;
+    height: 40px;
+}
+
+#engineer_4:hover {
+    top: 116px;
+    left: 610px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/engineer-4-p.png") no-repeat;
+    width: 71px;
+    height: 50px;
+}
+
+#engineer_5:hover {
+    top: 91px;
+    left: 524px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/engineer-5-p.png") no-repeat;
+    width: 110px;
+    height: 46px;
+}
+
+#science_4:hover {
+    top: 312px;
+    left: 745px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/science-4-p.png") no-repeat;
+    width: 75px;
+    height: 75px;
+}
+
+#science_2:hover {
+    top: 270px;
+    left: 616px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/science-2-p.png") no-repeat;
+    width: 60px;
+    height: 85px;
+}
+
+#science_3:hover {
+    top: 310px;
+    left: 666px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/science-3-p.png") no-repeat;
+    width: 66px;
+    height: 61px;
+}
+
+#science_1:hover {
+    top: 328px;
+    left: 309px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/science-1-p.png") no-repeat;
+    width: 82px;
+    height: 76px;
+}
+
+#math:hover {
+    top: 351px;
+    left: 666px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/math-p.png") no-repeat;
+    width: 51px;
+    height: 49px;
+}
+
+#management_1:hover {
+    top: 376px;
+    left: 581px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/management-1-p.png") no-repeat;
+    width: 64px;
+    height: 75px;
+}
+
+#management_2:hover {
+    top: 390px;
+    left: 665px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/management-2-p.png") no-repeat;
+    width: 94px;
+    height: 54px;
+}
+
+#Hakkas:hover {
+    top: 229px;
+    left: 752px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/Hakkas-p.png") no-repeat;
+    width: 75px;
+    height: 54px;
+}
+
+#electric:hover {
+    top: 222px;
+    left: 686px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/electric-p.png") no-repeat;
+    width: 77px;
+    height: 60px;
+}
+
+/*school*/
+
+#Zhidao:hover {
+    top: 285px;
+    left: 238px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/Zhidao-p.png") no-repeat;
+    width: 49px;
+    height: 49px;
+}
+
+#art:hover {
+    top: 376px;
+    left: 186px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/art-p.png") no-repeat;
+    width: 71px;
+    height: 52px;
+}
+
+#building:hover {
+    top: 403px;
+    left: 204px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/building-p.png") no-repeat;
+    width: 84px;
+    height: 38px;
+}
+
+#schoolh:hover {
+    top: 396px;
+    left: 274px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/schoolh-p.png") no-repeat;
+    width: 70px;
+    height: 35px;
+}
+
+#administration:hover {
+    top: 381px;
+    left: 379px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/administration-p.png") no-repeat;
+    width: 58px;
+    height: 45px;
+}
+
+#library:hover {
+    top: 334px;
+    left: 405px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/library-p.png") no-repeat;
+    width: 63px;
+    height: 65px;
+}
+
+#oldlibrary:hover {
+    top: 320px;
+    left: 431px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/oldlibrary-p.png") no-repeat;
+    width: 64px;
+    height: 53px;
+}
+
+#blackbox:hover {
+    top: 393px;
+    left: 442px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/blackbox-p.png") no-repeat;
+    width: 84px;
+    height: 56px;
+}
+
+#mbuilding:hover {
+    top: 331px;
+    left: 606px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/mbuilding-p.png") no-repeat;
+    width: 70px;
+    height: 56px;
+}
+
+#clibrary:hover {
+    top: 396px;
+    left: 541px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/clibrary-p.png") no-repeat;
+    width: 43px;
+    height: 48px;
+}
+
+#outerspace:hover {
+    top: 73px;
+    left: 524px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/outerspace-p.png") no-repeat;
+    width: 47px;
+    height: 67px;
+}
+
+#ncu:hover {
+    top: 455px;
+    left: 581px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/ncu-p.png") no-repeat;
+    width: 56px;
+    height: 55px;
+}
+
+/**/
+
+#G14_ground:hover {
+    top: 322px;
+    left: 250px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/G14_ground-p.png") no-repeat;
+    width: 25px;
+    height: 21px;
+}
+
+#door:hover {
+    top: 500px;
+    left: 284px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/door-p.png") no-repeat;
+    width: 44px;
+    height: 24px;
+}
+
+#monument:hover {
+    top: 385px;
+    left: 341px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/monument-p.png") no-repeat;
+    width: 24px;
+    height: 54px;
+}
+
+#tree:hover {
+    top: 317px;
+    left: 380px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/tree-p.png") no-repeat;
+    width: 38x;
+    height: 27px;
+}
+
+#tai:hover {
+    top: 361px;
+    left: 512px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/tai-p.png") no-repeat;
+    width: 29px;
+    height: 27px;
+}
+
+#park:hover {
+    top: 199px;
+    left: 464px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/park-p.png") no-repeat;
+    width: 40px;
+    height: 24px;
+}
+
+#lake:hover {
+    top: 299px;
+    left: 723px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/lake-p.png") no-repeat;
+    width: 24px;
+    height: 20px;
+}
+
+#flower:hover {
+    top: 355px;
+    left: 552px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/flower-p.png") no-repeat;
+    width: 23px;
+    height: 21px;
+}
+
+/*exercise*/
+
+#gym:hover {
+    top: 209px;
+    left: 545px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/gym-p.png") no-repeat;
+    width: 80px;
+    height: 51px;
+}
+
+#basketball:hover {
+    top: 209px;
+    left: 667px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/basketball-p.png") no-repeat;
+    width: 23px;
+    height: 23px;
+}
+
+#playground:hover {
+    top: 190px;
+    left: 548px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/playground-p.png") no-repeat;
+    width: 106px;
+    height: 40px;
+}
+
+#rock:hover {
+    top: 205px;
+    left: 648px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/rock-p.png") no-repeat;
+    width: 21px;
+    height: 23px;
+}
+
+#swimpool:hover {
+    top: 192px;
+    left: 711px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/swimpool-p.png") no-repeat;
+    width: 69px;
+    height: 48px;
+}
+
+#skate:hover {
+    top: 246px;
+    left: 634px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/skate-p.png") no-repeat;
+    width: 27px;
+    height: 27px;
+}
+
+#valley:hover {
+    top: 220px;
+    left: 522px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/valley-p.png") no-repeat;
+    width: 19px;
+    height: 19px;
+}
+
+#badminton:hover {
+    top: 242px;
+    left: 616px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/badminton-p.png") no-repeat;
+    width: 24px;
+    height: 27px;
+}
+
+/*eat*/
+
+#wood:hover {
+    top: 376px;
+    left: 581px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/wood-p.png") no-repeat;
+    width: 29px;
+    height: 22px;
+}
+
+/*dorm*/
+
+#B11:hover {
+    top: 333px;
+    left: 180px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/B11-p.png") no-repeat;
+    width: 64px;
+    height: 33px;
+}
+
+#B7:hover {
+    top: 345px;
+    left: 159px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/B7-p.png") no-repeat;
+    width: 57px;
+    height: 50px;
+}
+
+#B6:hover {
+    top: 365px;
+    left: 171px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/B6-p.png") no-repeat;
+    width: 44px;
+    height: 36px;
+}
+
+#B13:hover {
+    top: 412px;
+    left: 180px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/B13-p.png") no-repeat;
+    width: 57px;
+    height: 56px;
+}
+
+#B5:hover {
+    top: 335px;
+    left: 241px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/B5-p.png") no-repeat;
+    width: 65px;
+    height: 61px;
+}
+
+#International:hover {
+    top: 301px;
+    left: 276px;
+    z-index:2;
+    background: url("../images/SchoolGuide/International-p.png") no-repeat;
+    width: 66px;
+    height: 63px;
+}
+
+#B3:hover {
+    top: 257px;
+    left: 274px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/B3-p.png") no-repeat;
+    width: 40px;
+    height: 41px;
+}
+
+#G14:hover {
+    top: 306px;
+    left: 196px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/G14-p.png") no-repeat;
+    width: 58px;
+    height: 38px;
+}
+
+#G_1_4:hover {
+    top: 210px;
+    left: 358px;
+    z-index: 2;
+    background: url("../images/SchoolGuide/G-1-4-p.png") no-repeat;
+    width: 67px;
+    height: 65px;
+}
+
+#B9:hover {
+    top: 503px;
+    left: 535px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/B9-p.png") no-repeat;
+    width: 103px;
+    height: 45px;
+}
+
+#B12:hover {
+    top: 472px;
+    left: 633px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/B12-p.png") no-repeat;
+    width: 51px;
+    height: 65px;
+}
+
+#Graduate:hover {
+    top: 414px;
+    left: 621px;
+    z-index: 5;
+    background: url("../images/SchoolGuide/Graduate-p.png") no-repeat;
+    width: 94px;
+    height: 75px;
 }
