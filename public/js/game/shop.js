@@ -34,12 +34,14 @@
     	});
     	function buyItem(id, button) {
     		ajaxPost($('#gameShopItems').attr('action'), {itemId: id}, function(data) {
-                if ( data['isBuy'] ) {
-                    button.addClass('itemHadBuy');
-                    editStatus(data['user']['power'], data['user']['gp']);
-                }
-                else {
-                    alert('you do not have enough money.');
+                if( data['hadbuy'] == 0 ) {
+                    if ( data['isBuy'] ) {
+                        button.addClass('itemHadBuy');
+                        editStatus(data['user']['power'], data['user']['gp']);
+                    }
+                    else {
+                        alert('you do not have enough money.');
+                    }
                 }
 			});
     	};
@@ -112,6 +114,9 @@
             user_look[1].css({
                 top: disply_item_data[user_look[0].attr('itemId')-1]['face_middle_y']/2 - 35 + 'px',
                 left: disply_item_data[user_look[0].attr('itemId')-1]['face_middle_x']/2 + 17 + 'px'
+            });
+            $('.gameShopItem').each(function(index) {
+                $(this).removeClass('gameShopItemSelect');
             });
         });
 
