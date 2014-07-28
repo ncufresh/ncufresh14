@@ -93,7 +93,6 @@ $(function()
     {
         recentPower = data['recentPower'];
         maxPower = data['maxPower'];
-        console.log(recentPower+" "+maxPower);
     }
 
     function nextQuest()
