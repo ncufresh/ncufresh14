@@ -91,7 +91,7 @@ $(function()
 
     function getRecent(data)
     {
-        recentPower = data['recentPower'];
+        recentPower = parseInt(data['recentPower']);
         maxPower = parseInt(data['maxPower']);
     }
 
