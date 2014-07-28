@@ -165,7 +165,7 @@ $(document).ready(function(){
 				headChange(coordx,coordy);
 			else
 			{
-				snakes[1] = $('<div id="snakebody" class="allPicture"><img src="'+burl+'/images/gameSnake/body.png" width="30px" height="25px"></div>');
+				snakes[1] = $('<div id="snakebody" class="allPicture"></div>');
 				snakes[1].appendTo(Box[coordx][coordy+i]);
 			}
 			snakespath[snakespathnum][0] = coordx;
@@ -190,23 +190,23 @@ $(document).ready(function(){
 	{
 		if(snakeDirection==37) // move left
 		{
-			bombpicture = $('<div id="head" class="allPicture"><img src="'+burl+'/images/gameSnake/headLeft.png"  width="35px" height="30px" "></div>');
+			bombpicture = $('<div id="headLeft" class="head"></div>');
 			bombpicture.appendTo( Box[x][y] );
 		}
 		else if (snakeDirection==38) // move up
 		{
-			bombpicture = $('<div id="head" class="allPicture"><img src="'+burl+'/images/gameSnake/headUp.png"  width="30px" height="30px" "></div>');
+			bombpicture = $('<div id="headUp" class="head"></div>');
 			bombpicture.appendTo( Box[x][y] );
 		}
 		else if (snakeDirection==39) // move right
 		{
-		 	bombpicture = $('<div id="head" class="allPicture"><img src="'+burl+'/images/gameSnake/headRight.png"  width="35px" height="30px" "></div>');
+		 	bombpicture = $('<div id="headRight" class="head"></div>');
 			bombpicture.appendTo( Box[x][y] );
 
 		}
 		else if (snakeDirection==40) // move down
 		{	
-			bombpicture = $('<div id="head" class="allPicture"><img src="'+burl+'/images/gameSnake/headDown.png"  width="30px" height="30px" "></div>');
+			bombpicture = $('<div id="headDown" class="head"></div>');
 			bombpicture.appendTo( Box[x][y] );
 		}
 
@@ -331,11 +331,11 @@ $(document).ready(function(){
 		{
 			for(var i=0; i<snakespathnum; i++)
 			{
-				bombpicture = $('<div id="brokenBody" class="allPicture"><img src="'+burl+'/images/gameSnake/brokenBody.png"  width="30px" height="25px" "></div>');
+				bombpicture = $('<div id="brokenBody" class="allPicture"></div>');
 				bombpicture.appendTo( Box[ snakespath[i][0] ][ snakespath[i][1] ] );
 			}
 			Box[ snakespath[0][0] ][ snakespath[0][1] ].empty();
-			bombpicture = $('<div id="brokenHead" class="allPicture"><img src="'+burl+'/images/gameSnake/brokenHead.png"  width="30px" height="25px" "></div>');
+			bombpicture = $('<div id="brokenHead" class="allPicture"></div>');
 			bombpicture.appendTo( Box[ snakespath[0][0] ][ snakespath[0][1] ] );
 		}
 			
@@ -362,7 +362,7 @@ $(document).ready(function(){
 				else if(i!=snakespathnum)
 				{
 					Box[ snakespath[i][0] ][ snakespath[i][1] ].empty();
-					snakes[1] = $('<div id="snakebody" class="allPicture"><img src="'+burl+'/images/gameSnake/body.png" width="30px" height="25px"></div>');
+					snakes[1] = $('<div id="snakebody" class="allPicture"></div>');
 					snakes[1].appendTo(Box[ snakespath[i][0] ][ snakespath[i][1] ]);
 				}
 				else
@@ -436,12 +436,12 @@ $(document).ready(function(){
 			{
 				if(mode!=3)
 				{
-					echinacea = $('<div id="red" class="allPicture"><img src="'+burl+'/images/gameSnake/red.png"  width="30px" height="25px" "></div>');
+					echinacea = $('<div id="red" class="allPicture"></div>');
 					echinacea.appendTo(Box[rx][ry]);				
 				}
 				else
 				{
-					bombpicture = $('<div id="bomb3" class="allPicture"><img src="'+burl+'/images/gameSnake/bomb3.png"  width="30px" height="25px" "></div>');
+					bombpicture = $('<div id="bomb3" class="allPicture"></div>');
 					bombpicture.appendTo(Box[rx][ry]);
 					bombEx[bombcount]=3;
 				}
@@ -482,17 +482,17 @@ $(document).ready(function(){
 		if(correct==1)
 		{	// 0.60, 0.20, 0.12, 0.05, 0.02, 0.01
 			if(0<=echina && echina<60) // yellow
-				echinacea = $('<div id="yellow" class="allPicture"><img src="'+burl+'/images/gameSnake/yellow.png" width="30px" height="25px" "></div>');
+				echinacea = $('<div id="yellow" class="allPicture"></div>');
 			else if(60<=echina && echina<80) // green
-				echinacea = $('<div id="white" class="allPicture"><img src="'+burl+'/images/gameSnake/white.png" width="30px" height="25px" "></div>');
+				echinacea = $('<div id="white" class="allPicture"></div>');
 			else if(80<=echina && echina<92) // brown
-				echinacea = $('<div id="green" class="allPicture"><img src="'+burl+'/images/gameSnake/green.png" width="30px" height="25px" "></div>');
+				echinacea = $('<div id="green" class="allPicture"></div>');
 			else if(92<=echina && echina<97) // purple
-				echinacea = $('<div id="blue" class="allPicture"><img src="'+burl+'/images/gameSnake/blue.png" width="30px" height="25px" "></div>');
+				echinacea = $('<div id="blue" class="allPicture"></div>');
 			else if(97<=echina && echina<99) // blue
-				echinacea = $('<div id="purple" class="allPicture"><img src="'+burl+'/images/gameSnake/purple.png" width="30px" height="25px" "></div>');
+				echinacea = $('<div id="purple" class="allPicture"></div>');
 			else // muliticolor
-				echinacea = $('<div id="muliticolor" class="allPicture"><img src="'+burl+'/images/gameSnake/muliticolor.png" width="30px" height="25px" "></div>');
+				echinacea = $('<div id="muliticolor" class="allPicture"></div>');
 			echinacea.appendTo(Box[x][y]);
 
 			point[0] = x;
@@ -509,13 +509,13 @@ $(document).ready(function(){
 			if(bombEx[i]==3)
 			{
 				bombEx[i]--;
-				bombpicture = $('<div id="bomb2" class="allPicture"><img src="'+burl+'/images/gameSnake/bomb2.png"  width="30px" height="25px" "></div>');
+				bombpicture = $('<div id="bomb2" class="allPicture"></div>');
 				bombpicture.appendTo(Box[bomb[i][0]][bomb[i][1]]);
 			}
 			else if(bombEx[i]==2)
 			{
 				bombEx[i]--;
-				bombpicture = $('<div id="bomb1" class="allPicture"><img src="'+burl+'/images/gameSnake/bomb1.png"  width="30px" height="25px" "></div>');
+				bombpicture = $('<div id="bomb1" class="allPicture"></div>');
 				bombpicture.appendTo(Box[bomb[i][0]][bomb[i][1]]);
 			}
 			else if(bombEx[i]==1)
@@ -558,7 +558,7 @@ $(document).ready(function(){
 					pointEchinacea();
 				}
 				
-				bombpicture = $('<div id="exbomb" class="allPicture"><img src="'+burl+'/images/gameSnake/exbomb.png"  width="30px" height="25px" "></div>');
+				bombpicture = $('<div id="exbomb" class="allPicture"></div>');
 				bombpicture.appendTo(Box[x+i][y+j]);
 
 				// get the smallest broken dot of the snake
@@ -581,7 +581,7 @@ $(document).ready(function(){
 		{
 			for(var i=live; i<snakespathnum; i++)
 			{
-				bombpicture = $('<div id="brokenBody" class="allPicture"><img src="'+burl+'/images/gameSnake/brokenBody.png"  width="30px" height="25px" "></div>');
+				bombpicture = $('<div id="brokenBody" class="allPicture"></div>');
 				bombpicture.appendTo(Box[snakespath[i][0]][snakespath[i][1]]);
 				brokenBefore[brokenBeforeCount][0] = snakespath[i][0];
 				brokenBefore[brokenBeforeCount][1] = snakespath[i][1];
@@ -593,11 +593,11 @@ $(document).ready(function(){
 				lose=1;
 				for(var j=0; j<snakespathnum; j++)
 				{
-					bombpicture = $('<div id="brokenBody" class="allPicture"><img src="'+burl+'/images/gameSnake/brokenBody.png"  width="30px" height="25px" "></div>');
+					bombpicture = $('<div id="brokenBody" class="allPicture"></div>');
 					bombpicture.appendTo( Box[snakespath[j][0] ][ snakespath[j][1] ] );
 				}
 				Box[ snakespath[0][0] ][ snakespath[0][1] ].empty();
-				bombpicture = $('<div id="brokenHead" class="allPicture"><img src="'+burl+'/images/gameSnake/brokenHead.png"  width="30px" height="25px" "></div>');
+				bombpicture = $('<div id="brokenHead" class="allPicture"></div>');
 				bombpicture.appendTo( Box[ snakespath[0][0] ][ snakespath[0][1] ] );
 			}
 			snakespathnum = live;
