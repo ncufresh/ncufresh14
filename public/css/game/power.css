@@ -11,10 +11,12 @@
 	margin-top: 450px;
 	margin-left: 180px;
 	float: left;
-	background: url("../../images/gamePower/start.png") no-repeat;
+	background: url("../../images/gamePower/coverButton.png") no-repeat;
+	background-position: 0px 0px;
 }
 #start:hover {
-	background: url("../../images/gamePower/startClick.png") no-repeat;
+	background: url("../../images/gamePower/coverButton.png") no-repeat;
+	background-position: -250px 0px;
 }
 
 
@@ -26,10 +28,12 @@
 	margin-top: 450px;
 	margin-right: 180px;
 	float: right;
-	background: url("../../images/gamePower/intro.png") no-repeat;
+	background: url("../../images/gamePower/coverButton.png") no-repeat;
+	background-position: 0px -85px;
 }
 #intro:hover {
-	background: url("../../images/gamePower/introClick.png") no-repeat;
+	background: url("../../images/gamePower/coverButton.png") no-repeat;
+	background-position: -250px -85px;
 }
 #introduction {
 	width: 776px;
@@ -115,13 +119,15 @@
 	height: 81px;
 	margin-top: 15px;
 	margin-left: 340px;
-	background: url("../../images/gamePower/next.png") no-repeat;
+	background: url("../../images/gamePower/endButton.png") no-repeat;
+	background-position: 0px 0px;
 	display: none;
 }
 #next:hover {
 	width: 194px;
 	height: 81px;
-	background: url("../../images/gamePower/nextClick.png") no-repeat;
+	background: url("../../images/gamePower/endButton.png") no-repeat;
+	background-position: -250px 0px;
 }
 
 /*/////////////////////////////endScreen/////////////////////////////////////////*/
@@ -131,7 +137,6 @@
 	background-image: url("../../images/gamePower/endScreen.png");
 	text-align: center;
 	display: none;
-	/*display: none;*/
 }
 #getPower {
 	width: 50%;
@@ -154,10 +159,12 @@
 	height: 81px;
 	margin-top: 5%;
 	margin-left: 340px;
-	background: url("../../images/gamePower/again.png") no-repeat;
+	background: url("../../images/gamePower/endButton.png") no-repeat;
+	background-position: 0px -85px;
 }
 #again:hover {
 	width: 246px;
 	height: 81px;
-	background: url("../../images/gamePower/againClick.png") no-repeat;
+	background: url("../../images/gamePower/endButton.png") no-repeat;
+	background-position: -250px -85px;
 }
