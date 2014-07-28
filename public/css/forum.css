@@ -150,26 +150,34 @@ textarea.commentTextArea{
 	left:88%;
 }
 
+#myTab li{
+	background-color: #666666;
+}
 
+#myTab{
+	background-color: #666666;
+	height: 43px;
+}
+.nav-tabs>li>a {
+	border-radius: 0px 0px 0px 0px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+	background-color:#668ECC;
+	border: 1px solid #668ECC;
+	margin-right: 0px;
+	color: #FFFFFF;
+}
+.nav-tabs>li>a{
+	margin-right: 0px;
+	color: #FFFFFF;
+}
+.nav-tabs>li>a:hover{
+	background-color:#668ECC;
+	margin-right: 0px;
+	border: 1px solid #668ECC;
+	color: #FFFFFF;
+}
 
 
 
