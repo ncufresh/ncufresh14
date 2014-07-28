@@ -17,7 +17,8 @@
 	height: 83px;
 	position: relative;
 	z-index: 99;
-	background-image: url(../images/nculife/left_top.png);
+	background-image: url(../images/nculife/item_img.png);
+	background-position: 0px 0px;
 }
 
 #place {
@@ -35,7 +36,8 @@
 	text-align: center;
 	padding: 35px;
 	margin-bottom: -15px;
-	background-image: url(../images/nculife/place.png);
+	background-image: url(../images/nculife/item_img.png);
+	background-position: 0px -96px;
 	cursor: pointer;
 }
 
@@ -47,11 +49,13 @@
 	text-align: center;
 	padding: 35px;
 	margin-bottom: -15px;
-	background-image: url(../images/nculife/prese_place.png);
+	background-image: url(../images/nculife/item_img.png);
+	background-position: 0px -256px;
 }
 
 .placeClick {
-	background-image: url(../images/nculife/prese_place.png);
+	background-image: url(../images/nculife/item_img.png);
+	background-position: 0px -256px;
 }
 
 #left_bottom {
@@ -59,7 +63,8 @@
 	height: 88px;
 	margin-top: -15px;
 	position: relative;
-	background-image: url(../images/nculife/left_bottom.png);
+	background-image: url(../images/nculife/item_img.png);
+	background-position: 0px -448px;
 }
 
 #right {
@@ -76,7 +81,8 @@
 	font-size: 20px;
 	font-family: "微軟正黑體";
 	padding: 20px 30px;
-	background-image: url(../images/nculife/introduction.png);
+	background-image: url(../images/nculife/item_img.png);
+	background-position: -224px 0px;
 }
 
 #introductionbox {
@@ -96,7 +102,8 @@
 	height: 527px;
 	margin-top: -25px;
 	overflow: hidden;
-	background-image: url(../images/nculife/picture.png);
+	background-image: url(../images/nculife/item_img.png);
+	background-position: -224px -448px;
 }
 
 #picture_select {
@@ -114,13 +121,15 @@
 	position: relative;
 	top: 50px;
 	left: 30px;
-	background-image: url(../images/nculife/switchoff.png);
+	background-image: url(../images/nculife/item_img.png);
+	background-position: 0px -608px;
 	display: inline-block;
 	cursor: pointer;
 }
 
 #select1 {
-	background-image: url(../images/nculife/switchon.png);
+	background-image: url(../images/nculife/item_img.png);
+	background-position: -64px -608px;
 }
 
 #img {
@@ -161,6 +170,8 @@
 	margin-top: 1%;
 	margin-left: 40%;
 	cursor: pointer;
+	background-image: url(../images/nculife/item_img.png);
+	background-position: 0px -544px;
 }
 
 img.ui-state-disabled.ui-draggable-disabled { opacity : 1;}

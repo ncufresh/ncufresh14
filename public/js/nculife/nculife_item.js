@@ -52,14 +52,18 @@ $(function(){
 		var id = $(this).data("id");
 		var formURL = getTransferData('ncu_life_selectpicture_url');
 		var data = {num: num};
-		$('.select').css("background-image", "url(../images/nculife/switchoff.png)");
-		$('#select' + id).css("background-image", "url(../images/nculife/switchon.png)");
+		$('.select').css("background-image", "url(../images/nculife/item_img.png)");
+		$('.select').css("background-position", "0px -608px");
+		$('#select' + id).css("background-image", "url(../images/nculife/item_img.png)");
+		$('#select' + id).css("background-position", "-64px -608px");
 		ajaxGet(formURL, data, selectPicture);
 	});
 
 	function changeIntroductionAndImage(data){
 		$('#introductionbox2').html(data['result']['introduction']);
 		$('#introductionbox').jScrollPane();
+		$('.jspPane').css("top", "0px");
+		$('.jspDrag').css("top", "0px");
 		$('#buttom').data("num", data['result']['id']);
 		if(LorP == 'Picture')
 		{
@@ -84,8 +88,10 @@ $(function(){
 				var formURL = getTransferData('ncu_life_selectpicture_url');
 				var data = {num: num};
 				var id = $(this).data("id");
-				$('.select').css("background-image", "url(../images/nculife/switchoff.png)");
-				$('#select' + id).css("background-image", "url(../images/nculife/switchon.png)");
+				$('.select').css("background-image", "url(../images/nculife/item_img.png)");
+				$('.select').css("background-position", "0px -608px");
+				$('#select' + id).css("background-image", "url(../images/nculife/item_img.png)");
+				$('#select' + id).css("background-position", "-64px -608px");
 				ajaxGet(formURL, data, selectPicture);
 			});
 			LorP = 'Picture';
@@ -113,8 +119,10 @@ $(function(){
 				var formURL = getTransferData('ncu_life_selectpicture_url');
 				var data = {num: num};
 				var id = $(this).data("id");
-				$('.select').css("background-image", "url(../images/nculife/switchoff.png)");
-				$('#select' + id).css("background-image", "url(../images/nculife/switchon.png)");
+				$('.select').css("background-image", "url(../images/nculife/item_img.png)");
+				$('.select').css("background-position", "0px -608px");
+				$('#select' + id).css("background-image", "url(../images/nculife/item_img.png)");
+				$('#select' + id).css("background-position", "-64px -608px");
 				ajaxGet(formURL, data, selectPicture);
 			});
 			LorP = 'Picture';
@@ -123,7 +131,6 @@ $(function(){
 		if(length == 1)
 		{
 			$('#buttom').show();
-			$('#change').attr('src', bURL + "/images/nculife/buttom_left.png")
 		}
 		else if(length == 0)
 		{
@@ -144,18 +151,21 @@ $(function(){
 		$('#picture').append('<div id="img"></div>');
 		$('#img').append('<img id="1" class="img" src="' + bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name +'">');
 		$('.img').addClass("imgMask");
-		$('#change').attr('src', bURL + "/images/nculife/buttom_left.png")
+		$('#buttom').css("background-image", "url(../images/nculife/item_img.png)");
+		$('#buttom').css("background-position", "0px -544px");
 		drag = $('#1').draggable({
 				containment: '#containment'
         		});
 		DragLocal();
 		$('.select').click(function(){
-		var num = $(this).data("num");
+			var num = $(this).data("num");
 			var formURL = getTransferData('ncu_life_selectpicture_url');
 			var data = {num: num};
 			var id = $(this).data("id");
-			$('.select').css("background-image", "url(../images/nculife/switchoff.png)");
-			$('#select' + id).css("background-image", "url(../images/nculife/switchon.png)");
+			$('.select').css("background-image", "url(../images/nculife/item_img.png)");
+			$('.select').css("background-position", "0px -608px");
+			$('#select' + id).css("background-image", "url(../images/nculife/item_img.png)");
+			$('#select' + id).css("background-position", "-64px -608px");
 			ajaxGet(formURL, data, selectPicture);
 		});
 	}
@@ -169,7 +179,8 @@ $(function(){
 		$('#border').append('<img id="1" class="img" src="' + bURL + "/img/uploadImage/" + data['local'][0].file_name +'">');
 		$('#1').css("width", "783px").css("height", "522px").css("margin-top", "0px").css("margin-left", "0px").css("top", data['result']['top']).css("left", data['result']['left']);
 		$('#picture').append('<div id="containment"></div>');
-		$('#change').attr('src', bURL + "/images/nculife/buttom_right.png")
+		$('#buttom').css("background-image", "url(../images/nculife/item_img.png)");
+		$('#buttom').css("background-position", "0px -576px");
 		drag = $('#1').draggable({
 				containment: '#containment'
 	        	});
@@ -189,10 +200,5 @@ $(function(){
 		{
 			drag.draggable('disable');
 		}
-	}
-
-	function PlaceButtom()
-	{
-
 	}
 })
