@@ -38,9 +38,10 @@
                     if ( data['isBuy'] ) {
                         button.addClass('itemHadBuy');
                         editStatus(data['user']['power'], data['user']['gp']);
+                        $.alertMessage('購買成功!', {type: 'alert-danger'});
                     }
                     else {
-                        alert('you do not have enough money.');
+                        $.alertMessage('你GP不夠喔！', {type: 'alert-danger'});
                     }
                 }
 			});
@@ -101,7 +102,8 @@
                 //console.log(data);
                 for ( var i = 0; i < 6; i++ ) {
                     if ( !data['isBuy'][i] ) {
-                        alert('你還沒買喔~' + types[i]);
+                        var words = ['頭盔', '表情', '身體', '下肢', '道具', '地圖碎片'];
+                        $.alertMessage('你還沒買' + words[i] + '喔~', {type: 'alert-danger'});
                     }
                 }
             });
