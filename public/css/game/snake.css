@@ -21,49 +21,60 @@
 	width: 254px;
 	height: 66px;	
 	margin-top: 20px;
-	background: url("../../images/gameSnake/d1.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: 0px 0px;
 }
 .difficulty1:hover {
-	background: url("../../images/gameSnake/d1Click.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px 0px;
 }
 .difficulty1Click {
-	background: url("../../images/gameSnake/d1Click.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px 0px;
 }
 .difficulty2 {
 	cursor: pointer;
 	width: 254px;
 	height: 66px;
 	margin-top: 20px;
-	background: url("../../images/gameSnake/d2.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: 0px -70px;
 }
 .difficulty2:hover {
-	background: url("../../images/gameSnake/d2Click.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px -70px;
 }
 .difficulty2Click {
-	background: url("../../images/gameSnake/d2Click.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px -70px;
 }
 .difficulty3 {
 	cursor: pointer;
 	width: 254px;
 	height: 66px;
 	margin-top: 20px;
-	background: url("../../images/gameSnake/d3.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: 0px -140px;
 }
 .difficulty3:hover {
-	background: url("../../images/gameSnake/d3Click.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px -140px;
 }
 .difficulty3Click {
-	background: url("../../images/gameSnake/d3Click.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px -140px;
 }
 #start {
 	cursor: pointer;
 	width: 304px;
 	height: 95px;
 	margin-top: 20px;
-	background: url("../../images/gameSnake/start.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: 0px -210px;
 }
 #start:hover {
-	background: url("../../images/gameSnake/startClick.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px -210px;
 }
 /*/////////////Mode//////////////////////*/
 .Mode {
@@ -76,52 +87,64 @@
 	width: 254px;
 	height: 66px;
 	margin-top: 20px;
-	background: url("../../images/gameSnake/m1.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: 0px -310px;
 }
 .mode1:hover {
-	background: url("../../images/gameSnake/m1Click.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px -310px;
 }
 .mode1Click {
-	background: url("../../images/gameSnake/m1Click.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px -310px;
 }
 .mode2 {
 	cursor: pointer;
 	width: 254px;
 	height: 66px;
 	margin-top: 20px;
-	background: url("../../images/gameSnake/m2.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: 0px -380px;
 }
 .mode2:hover {
-	background: url("../../images/gameSnake/m2Click.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px -380px;
 }
 .mode2Click {
-	background: url("../../images/gameSnake/m2Click.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px -380px;
 }
 .mode3 {
 	cursor: pointer;
 	width: 254px;
 	height: 66px;
 	margin-top: 20px;
-	background: url("../../images/gameSnake/m3.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: 0px -450px;
 }
 .mode3:hover {
-	background: url("../../images/gameSnake/m3Click.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px -450px;
 }
 .mode3Click {
-	background: url("../../images/gameSnake/m3Click.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px -450px;
 }
 .intro {
 	cursor: pointer;
 	width: 304px;
 	height: 95px;
 	margin-top: 20px;
-	background: url("../../images/gameSnake/intro.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: 0px -520px;
 }
 .intro:hover {
-	background: url("../../images/gameSnake/introClick.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px -520px;
 }
 .introClick {
-	background: url("../../images/gameSnake/introClick.png") no-repeat;
+	background: url("../../images/gameSnake/coverButton.png") no-repeat;
+	background-position: -330px -520px;
 }
 #introduction {
 	width: 776px;
@@ -162,14 +185,126 @@
 	width: 32px;
 	height: 20px;
 }
-#head { 
+/*/////////////head//////////////////////*/
+.head { 
 	z-index: 100;
+	position: absolute; 
+	margin-top: -18px;
 }
-
+#headLeft {
+	width: 35px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: 0px 0px;
+} 
+#headUp {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -35px 0px;
+} 
+#headRight {
+	width: 35px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -70px 0px;
+} 
+#headDown {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -105px 0px;
+} 
+/*/////////////allPicture//////////////////////*/
 .allPicture { 
 	position: absolute; 
 	margin-top: -18px;
 }
+#snakebody {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -135px 0px;
+} 
+#brokenHead {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -165px 0px;
+} 
+#brokenBody {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -195px 0px;
+} 
+#exbomb {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -225px 0px;
+} 
+#bomb1 {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -210px -35px;
+} 
+#bomb2 {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -240px -35px;
+} 
+#bomb3 {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -270px -35px;
+} 
+#red {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: 0px -35px;
+} 
+#yellow {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -30px -35px;
+} 
+#white {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -60px -35px;
+} 
+#green {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -90px -35px;
+} 
+#blue {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -120px -35px;
+} 
+#purple {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -150px -35px;
+} 
+#muliticolor {
+	width: 30px;
+	height: 30px;
+	background: url("../../images/gameSnake/contentButton.png") no-repeat;
+	background-position: -180px -35px;
+} 
+
 /*/////////////////////////////endScreen/////////////////////////////////////////*/
 #endScreen {
 	width: 935px;
@@ -194,12 +329,14 @@
 	left: 12%;
 	float: left;
 	position: relative;
-	background: url("../../images/gameSnake/again.png") no-repeat;
+	background: url("../../images/gameSnake/endButton.png") no-repeat;
+	background-position: 0px 0px;
 }
 #again:hover {
 	height: 150px;
 	width:305px;
-	background: url("../../images/gameSnake/againClick.png") no-repeat;
+	background: url("../../images/gameSnake/endButton.png") no-repeat;
+	background-position: -310px 0px;
 }
 
 /*/////////////ranking//////////////////////*/
@@ -211,12 +348,14 @@
 	left: 23%;
 	float: left;
 	position: relative;
-	background: url("../../images/gameSnake/rank.png") no-repeat;
+	background: url("../../images/gameSnake/endButton.png") no-repeat;
+	background-position: 0px -150px;
 }
 #rankButton:hover {
 	height: 145px;
 	width:306px;
-	background: url("../../images/gameSnake/rankClick.png") no-repeat;
+	background: url("../../images/gameSnake/endButton.png") no-repeat;
+	background-position: -310px -150px;
 }
 #rankBack {
 	width: 935px;
@@ -248,17 +387,18 @@
 	left: 920px;
 	float: right;
 	position: absolute;
-	background: url("../../images/gameSnake/cross.png") no-repeat;
+	background: url("../../images/gameSnake/rankButton.png") no-repeat;
+	background-position: 0px -300px;
 }
 #cross:hover {
 	height: 46px;
 	width: 46px;
-	background: url("../../images/gameSnake/crossClick.png") no-repeat;
+	background: url("../../images/gameSnake/rankButton.png") no-repeat;
+	background-position: -100px -300px;
 }
 .rankMode {
 	width: 95%;
-	top: 110px;
-	top: 85px;
+	top: 80px;
 	margin: 0 auto;
 	position: relative;
 }
@@ -268,13 +408,16 @@
 	width: 263px;
 	margin-left: 25px;
 	float:left;
-	background: url("../../images/gameSnake/rm1.png") no-repeat;
+	background: url("../../images/gameSnake/rankButton.png") no-repeat;
+	background-position: 0px 0px;
 } 
 .rM1:hover {
-	background: url("../../images/gameSnake/rm1Click.png") no-repeat;
+	background: url("../../images/gameSnake/rankButton.png") no-repeat;
+	background-position: -270px 0px;
 } 
 .rM1Click {
-	background: url("../../images/gameSnake/rm1Click.png") no-repeat;
+	background: url("../../images/gameSnake/rankButton.png") no-repeat;
+	background-position: -270px 0px;
 } 
 .rM2 {
 	cursor: pointer;
@@ -282,13 +425,16 @@
 	width: 263px;
 	margin-left: 25px;
 	float:left;
-	background: url("../../images/gameSnake/rm2.png") no-repeat;
+	background: url("../../images/gameSnake/rankButton.png") no-repeat;
+	background-position: 0px -100px;
 }
 .rM2:hover {
-	background: url("../../images/gameSnake/rm2Click.png") no-repeat;
+	background: url("../../images/gameSnake/rankButton.png") no-repeat;
+	background-position: -270px -100px;
 } 
 .rM2Click {
-	background: url("../../images/gameSnake/rm2Click.png") no-repeat;
+	background: url("../../images/gameSnake/rankButton.png") no-repeat;
+	background-position: -270px -100px;
 } 
 .rM3 {
 	cursor: pointer;
@@ -296,13 +442,16 @@
 	width: 263px;
 	margin-left: 25px;
 	float:left;
-	background: url("../../images/gameSnake/rm3.png") no-repeat;
+	background: url("../../images/gameSnake/rankButton.png") no-repeat;
+	background-position: 0px -200px;
 }
 .rM3:hover {
-	background: url("../../images/gameSnake/rm3Click.png") no-repeat;
+	background: url("../../images/gameSnake/rankButton.png") no-repeat;
+	background-position: -270px -200px;
 } 
 .rM3Click {
-	background: url("../../images/gameSnake/rm3Click.png") no-repeat;
+	background: url("../../images/gameSnake/rankButton.png") no-repeat;
+	background-position: -270px -200px;
 } 
 #ranking {
 	width: 95%;

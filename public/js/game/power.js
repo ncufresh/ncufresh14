@@ -2,7 +2,7 @@ $(function()
 {
     var burl = getTransferData('burl');
     var correct,correctCount=0,choose,option,click,clickCount=0,id=0;
-    var recentPower = 0,maxPower,returnCount = 0;
+    var recentPower = 0,maxPower = 0,returnCount = 0;
     var dayQuest;
     var timer,count=0,returnC=0,powerreturncount;
     var done = false;
@@ -91,9 +91,8 @@ $(function()
 
     function getRecent(data)
     {
-        recentPower = data['recentPower'];
-        maxPower = data['maxPower'];
-        console.log(recentPower+" "+maxPower);
+        recentPower = parseInt(data['recentPower']);
+        maxPower = parseInt(data['maxPower']);
     }
 
     function nextQuest()

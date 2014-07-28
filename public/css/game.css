@@ -273,6 +273,7 @@
 	width: 242px;
 	height: 77px;
 	background: url("../images/gameDestiny/again.png") no-repeat;
+	/*background-position: 0px 0px;*/
 	position: absolute;
 }
 
@@ -282,6 +283,7 @@
 	width: 242px;
 	height: 77px;
 	background: url("../images/gameDestiny/againclick.png") no-repeat;
+	/*background-position: 0px -96px;*/
 	position: absolute;
 }
 
@@ -486,7 +488,7 @@ gameShop
 #characterLook {
 	float: left;
 	width: 255px;
-	height: 300px;
+	height: 301px;
 	margin: 20px 10px 0px 21px;
 	position: relative;
 }
@@ -507,8 +509,8 @@ gameShop
 .gameShopTypeButton {
 	float: left;
 	width: 80px;
-	height: 47px;
-	margin: 0px 0px 0px 0px;
+	height: 35px;
+	margin: 12px 0px 0px 0px;
 	text-align: center;
 }
 
@@ -592,6 +594,7 @@ gameShop
 	width: 96%;
 	top: 18px;
 	left: 2%;
+	height: 80%;
 	position: absolute;
 }
 /*
@@ -657,11 +660,13 @@ gameShop
 	width: 145px;
 	height: 145px;
 	left: 57px;
+	z-index: 3;
 }
 
 #characterFace {
 	width: 78px;
 	height: 69px;
+	z-index: 4;
 }
 
 #characterBody {
@@ -669,6 +674,7 @@ gameShop
 	height: 152px;
 	top: 135px;
 	left: 16px;
+	z-index: 2;
 }
 
 #characterFoot {
@@ -676,11 +682,13 @@ gameShop
 	height: 51px;
 	top: 259px;
 	left: 79px;
+	z-index: 1;
 }
 
 #characterItem {
 	width: 68px;
 	height: 97px;
+	z-index: 1;
 }
 
 #characterMap {

@@ -47,6 +47,13 @@ class ArticlesController extends BaseController{
 			'title' => 'required',
 			'content' => 'required'
 		);
+
+		if($this->isWashing("article")){
+
+			$response = array('washing' => true );
+
+			return Response::json($response);
+		}
 		
 		$validation = Validator::make($input,$rules);
 
@@ -111,6 +118,13 @@ class ArticlesController extends BaseController{
 		$article_id = Input::get('article_id');
 
 		$rule = array('comment' => 'required');
+
+		if($this->isWashing("comment")){
+
+			$response = array('washing' => true );
+
+			return Response::json($response);
+		}
 
 		$validation = Validator::make(Input::all(),$rule);
 		
@@ -272,6 +286,89 @@ class ArticlesController extends BaseController{
 		);
 		//null
 	}
+
+	//prevent user push to much Input in a short period
+	public function isWashing($inputType){
+
+		session_start();
+
+		if($inputType == "article"){
+
+
+			if(isset($_SESSION['lastArticleTime']) && !empty($_SESSION['lastArticleTime'])){
+
+
+				
+				$currentTime = new DateTime();
+
+				$currentTime = $currentTime->format('Y-m-d H:i:s');
+
+				$pastTime = $_SESSION['lastArticleTime'];
+
+				$totalInterval = round(abs(strtotime($pastTime) - strtotime($currentTime)));
+
+				if($totalInterval < 60){
+
+					$_SESSION['lastArticleTime'] = $currentTime;
+					
+					return true;
+
+				}else{
+					$_SESSION['lastArticleTime'] = $currentTime;
+
+					return false;
+				}
+
+			}else{
+
+				$currentTime = new DateTime();
+
+				$currentTime = $currentTime->format('Y-m-d H:i:s');
+
+				$_SESSION['lastArticleTime'] = $currentTime;
+
+				return false;
+			}
+
+		}else if($inputType == "comment"){
+
+			if(isset($_SESSION['lastCommentTime']) && !empty($_SESSION['lastCommentTime'])){
+
+				$currentTime = new DateTime();
+
+				$currentTime = $currentTime->format('Y-m-d H:i:s');
+
+				$pastTime = $_SESSION['lastCommentTime'];
+
+				$totalInterval = round(abs(strtotime($pastTime) - strtotime($currentTime)));
+
+				if($totalInterval < 5){
+
+					$_SESSION['lastCommentTime'] = $currentTime;
+
+					return true;
+
+				}else{
+
+					$_SESSION['lastCommentTime'] = $currentTime;
+
+					return false;
+				}
+
+
+			}else{
+
+				$currentTime = new DateTime();
+
+				$currentTime = $currentTime->format('Y-m-d H:i:s');
+
+				$_SESSION['lastCommentTime'] = $currentTime;
+
+				return false;
+			}
+		}
+	}
+
 
 
 

@@ -20,7 +20,13 @@ class GamedestinyController extends BaseController {
 			$user->save();
 			$user["play"] = true;
 			$giftType = $this->getGift();
-			return Response::json(array('user' => $user->toArray(), 'gift' => $giftType));
+			$randomGp = 0;
+			if ( $giftType == 8 ) {
+				$randomGp = rand(250, 2500);
+				$user->gp += $randomGp;
+				$user->save();
+			}
+			return Response::json(array('user' => $user->toArray(), 'gift' => $giftType, 'randomGp' => $randomGp));
 		}
 		$user["play"] = false;
 		return Response::json($user);
@@ -38,7 +44,7 @@ class GamedestinyController extends BaseController {
 			$probCount += $probaility[$index];
 		}
 		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
-		switch ( $index ) {
+		switch ( $index + 1 ) {
 			case 1:
 				$user->gp += 500;
 				$user->save();
@@ -164,8 +170,7 @@ class GamedestinyController extends BaseController {
 				$user->save();
 				break;
 			case 12:
-				$user->gp += rand(250, 2500);
-				$user->save();
+				//do nothing here.
 				break;
 			case 13:
 				$user->gp += 250;

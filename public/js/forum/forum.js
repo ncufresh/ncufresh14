@@ -19,6 +19,8 @@ var burl = '';
 
 $(function(){
 
+	$("#articleTab").parent().addClass("active");
+
 	burl = getTransferData('burl');
 	loginStatus = $("#data_section").attr("data-login");
 
@@ -189,35 +191,44 @@ $(function(){
 				},
 				success:function(data){
 
-					$("#inputTitle").val("");
-					$("#inputAuthor_id").val("");
-					$("#inputDetail").val("");
-					$('#myModal').modal('toggle');
-					var insertPlace;
-					if(type == "P"){
-						insertPlace = "#toolBar";
-					}else if(type == "D"){
-						insertPlace = "#departmentIndex";
-					}else if(type == "C"){
-						insertPlace = "#clubIndex";
-					}
+					if(data.washing == true){
 
-					var dateTime = new Date(data.articleTime.date);
-					var currentTime = dateTime.getFullYear()
-										+"-"+(dateTime.getMonth()+1)
-										+"-"+dateTime.getDate()
-										+" "+dateTime.getHours()
-										+":"+dateTime.getMinutes()
-										+":"+dateTime.getSeconds();
-					insertArticle(
-						data.articleAuthor,
-						data.authorId,
-						currentTime,
-						data.articleId,
-						data.articleTitle,
-						data.articleContent.replace(/\n/g,"<br>"),
-						insertPlace
-					);	
+						$("#errorMsgContent").text("您的發文時間間隔太短啦!");
+
+						$("#errorMsgDialog").modal('toggle');
+
+					}else{
+
+						$("#inputTitle").val("");
+						$("#inputAuthor_id").val("");
+						$("#inputDetail").val("");
+						$('#myModal').modal('toggle');
+						var insertPlace;
+						if(type == "P"){
+							insertPlace = "#toolBar";
+						}else if(type == "D"){
+							insertPlace = "#departmentIndex";
+						}else if(type == "C"){
+							insertPlace = "#clubIndex";
+						}
+
+						var dateTime = new Date(data.articleTime.date);
+						var currentTime = dateTime.getFullYear()
+											+"-"+(dateTime.getMonth()+1)
+											+"-"+dateTime.getDate()
+											+" "+dateTime.getHours()
+											+":"+dateTime.getMinutes()
+											+":"+dateTime.getSeconds();
+						insertArticle(
+							data.articleAuthor,
+							data.authorId,
+							currentTime,
+							data.articleId,
+							data.articleTitle,
+							data.articleContent.replace(/\n/g,"<br>"),
+							insertPlace
+						);
+					}	
 				},
 				error:function(){
 					alert("Error");
@@ -225,6 +236,11 @@ $(function(){
 			},"json");
 
 		}
+	});
+
+	//Scroll the page to Top while click
+	$("#scrollTop").click(function(){
+		$("body").animate({ scrollTop: 0 }, 'slow');
 	});
 
 });

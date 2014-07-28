@@ -101,7 +101,7 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
-	        <div class="modal fade" id="errorMsgDialog">
+	<div class="modal fade" id="errorMsgDialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -116,6 +116,10 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+
+
+	<a id="scrollTop"><img src="images/forum/top.png"></a>
+
 	
 	
 @stop	
