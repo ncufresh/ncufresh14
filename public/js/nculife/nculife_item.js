@@ -165,7 +165,7 @@ $(function(){
 		$('#img').remove();
 		$('#picture').append('<div id="img"></div>');
 		$('#img').append('<div id="border"></div>');
-		$('#border').css("width", "545px").css("height", "325px").css("margin-top", "150px").css("margin-left", "45px").css("overflow", "hidden");
+		$('#border').css("width", "515px").css("height", "317px").css("margin-top", "170px").css("margin-left", "60px").css("overflow", "hidden");
 		$('#border').append('<img id="1" class="img" src="' + bURL + "/img/uploadImage/" + data['local'][0].file_name +'">');
 		$('#1').css("width", "783px").css("height", "522px").css("margin-top", "0px").css("margin-left", "0px").css("top", data['result']['top']).css("left", data['result']['left']);
 		$('#picture').append('<div id="containment"></div>');
