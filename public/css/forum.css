@@ -1,9 +1,4 @@
 /* Defined CSS Style for Forum */
-#createBtn{
-	position:relative;
-	left: 88%;
-	top: -10px;
-}
 #createForm{
 	padding: 10px 20px 0px 20px;
 }
@@ -51,17 +46,19 @@
 }
 .panel-title{
 	font-size: 25px;
-	color: #458FFF;
+	color: #FFFFFF;
+	text-decoration: none;
 }
 .author{
-	color: #458FFF;
+	color: #FFFFFF;
 	font-size: 17px;
 }
 #orderBox{
 	display:table;
 	position:relative;
-	left: 71%;
-	top: 17px;
+	left: 69%;
+	top: 37px;
+	border: 0px;
 }
 .responseContainer{
 	display:none;
@@ -146,9 +143,18 @@ textarea.commentTextArea{
 }
 #scrollTop{
 	position: fixed;
-	top: 70%;
-	left:88%;
+	width: 80px;
+	height: 50px;
+	bottom: 310px;
+	left: 17px;
+	background-image: url(../images/forum/forum_button.png);
+	background-position: 0px -128px;
 }
+
+#scrollTop:hover{
+	background-position: 0px -192px;
+}
+
 
 #myTab li{
 	background-color: #666666;
@@ -178,7 +184,37 @@ textarea.commentTextArea{
 	border: 1px solid #668ECC;
 	color: #FFFFFF;
 }
+.forumTitleBox{
+	background-image: url(../images/forum/forum_title.png);
+	background-position: 0px 0px;
+}
+.departmentTitleBox{
+	background-image: url(../images/forum/forum_title.png);
+	background-position: 0px -64px;
+}
+.clubTitleBox{
+	background-image: url(../images/forum/forum_title.png);
+	background-position: 0px -128px;
+}
+.modal-content{
+	border-width: 5px;
+	border-color: #666666;
+}
+#createBtn{
+	background-image: url(../images/forum/forum_button.png);
+	background-position: 0px 0px;
+	width: 150px;
+	height: 61px;
+	position:relative;
+	left: 85%;
+	top: -10px;
+	background-color: transparent;
+	border-color: transparent;
 
+}
+#createBtn:hover{
+	background-position: 0px -64px;
+}
 
 
 

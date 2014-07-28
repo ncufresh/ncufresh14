@@ -276,7 +276,7 @@ function insertArticle(authorName,authorId,currentTime,articleId,title,content,t
 				</div>\
 			</div>\
 			<div class='panel panel-default articleBody'>\
-				<div class='panel-heading'>\
+				<div class='panel-heading forumTitleBox'>\
 					<a href='"+perArticleUrl+"/"+articleId+"'><h3 class='panel-title'>"+title+"</h3></a>\
 				</div>\
 				<div class='personalImageBox' >\
@@ -297,6 +297,7 @@ function getArticles(type,page,target){
 			'articleType' : type,
 		},
 		success:function(data){
+
 			for(i=0;i<data['data'].length;i++){
 				showArticles(
 					data['data'][i]['user']['name'],
@@ -309,6 +310,21 @@ function getArticles(type,page,target){
 				);
 			}
 			pageGenerate(pageLocation,data.last_page);
+
+			if(type == "new" || type == "pop"){
+				$("#Test1 .panel-heading").each(function(){
+					$(this).addClass("forumTitleBox");
+				});
+			}else if( type == "department"){
+				$("#Test2 .panel-heading").each(function(){
+					$(this).addClass("departmentTitleBox");
+				});
+			}else if(type == "club"){
+				$("#Test3 .panel-heading").each(function(){
+					$(this).addClass("clubTitleBox");
+				});
+			}
+			
 		},
 		error:function(){
 			$.alertMessage('Getting Articles failed');
