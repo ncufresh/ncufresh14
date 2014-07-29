@@ -18,7 +18,7 @@
 	position: relative;
 	z-index: 99;
 	background-image: url(../images/nculife/item_img.png);
-	background-position: 0px 0px;
+	background-position: 3px 0px;
 }
 
 #place {
@@ -37,15 +37,16 @@
 	padding: 35px;
 	margin-bottom: -15px;
 	background-image: url(../images/nculife/item_img.png);
-	background-position: 0px -96px;
+	background-position: 3px -93px;
 	cursor: pointer;
 }
 
 .place:hover {
 	width: 100%;
 	height: 155px;
-	font-size: 30px;
+	font-size: 25px;
 	font-family: "微軟正黑體";
+	font-weight: bold;
 	text-align: center;
 	padding: 35px;
 	margin-bottom: -15px;
@@ -64,7 +65,7 @@
 	margin-top: -15px;
 	position: relative;
 	background-image: url(../images/nculife/item_img.png);
-	background-position: 0px -448px;
+	background-position: 3px -448px;
 }
 
 #right {
@@ -110,7 +111,7 @@
 	width: 100%;
 	height: 50px;
 	position: relative;
-	top: 360px;
+	top: 349px;
 	left: 55px;
 	z-index: 999;
 }
@@ -139,14 +140,10 @@
 }
 
 .img {
-	width: 585px;
-	height: 440px;
-	margin-top: 15px;
-	margin-left: 0px;
-}
-
-.imgMask {
-	-webkit-mask-image: url(../images/nculife/photomask.png);
+	width: 550px;
+	height: 411px;
+	margin-top: 45px;
+	margin-left: 43px;
 }
 
 #containment {
