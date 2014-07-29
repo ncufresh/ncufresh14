@@ -4,6 +4,7 @@
     left: 0px;
     width: 100%;
 }
+
 .name{
    
     width: 70px;
@@ -42,6 +43,16 @@ html, body {
     left: 116px;
     top:69px;
     z-index: 0;
+}
+
+#fixmapLine {
+    width: 12px;
+    height: 64px;
+    position: absolute;
+    top: 26px;
+    left: 603px;
+    display: none;
+    background: url('images/SchoolGuide/line.png') no-repeat;
 }
 
 #Buttom{
