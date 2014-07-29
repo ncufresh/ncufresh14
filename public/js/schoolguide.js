@@ -666,8 +666,18 @@ $(document).ready(function(){
 		$(this).attr('src',burl+"/images/SchoolGuide/flower.png");
 	});
 
-		
-		
-		
-			
+	$(window).scroll(function() {
+		console.log($(this).scrollTop());
+        if ( $(this).scrollTop() < 439 ){
+            $('#fixMap').css({  
+                position: "absolute",
+                top:"0px"
+            });
+        } else {
+             $('#fixMap').css({
+				position: "fixed",
+				top:"-30px"
+             });
+        }
+    });
 });
