@@ -24,7 +24,7 @@
 						<input type="radio" name="orderBy" value="new" id="new" checked> 最新貼文
 						<input type="radio" name="orderBy" id="pop" value="pop"> 熱門貼文
 					</div>
-					<button class="btn btn-primary" id="createBtn">發表新文章</button>
+					<button class="btn btn-primary" id="createBtn"></button>
 				</div>
 			</div>
 			<div class="tab-pane" id="Test2">
@@ -118,7 +118,7 @@
 	</div><!-- /.modal -->
 
 
-	<a id="scrollTop"><img src="images/forum/top.png"></a>
+	<a id="scrollTop"><img ></a>
 
 	
 	

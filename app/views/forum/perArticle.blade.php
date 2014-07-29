@@ -61,7 +61,7 @@
 							'class' => 'form-control commentTextArea' , 
 							'id' => 'inputContent'
 						)) }}
-						{{ Form::submit('發表回覆',array(
+						{{ Form::submit('',array(
 							'type' => 'button' , 
 							'class' => 'btn btn-primary createComment'
 						)) }}

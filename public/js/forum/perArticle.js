@@ -57,11 +57,24 @@ $(function(){
 						$("#errorMsgDialog").modal('toggle');
 					}else{
 
+						var dateTime = new Date(data.commentTime.date);
+
+						if(isNaN(dateTime.getFullYear())){
+							currentTime = data.commentTime.date;
+						}else{
+							var currentTime = dateTime.getFullYear()
+											+"-"+(dateTime.getMonth()+1)
+											+"-"+dateTime.getDate()
+											+" "+dateTime.getHours()
+											+":"+dateTime.getMinutes()
+											+":"+dateTime.getSeconds();
+						}
+						
 						displayComments(
 							data.commentAuthor,
 							data.authorId,
 							data.commentContent,
-							data.commentTime.date,
+							currentTime,
 							$(document).find(".responseBox")
 						);
 
@@ -201,5 +214,5 @@ function displayComments(authorName,authorId,content,createdAt,target){
 				<span class='commentTime'>"+createdAt+"</span>\
 			</div>\
 		</div>";
-	target.append(comment);
+	target.before(comment);
 } 
