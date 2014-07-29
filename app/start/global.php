@@ -57,6 +57,9 @@ App::error(function(Exception $exception, $code)
 		$message->from('system@ncufresh.ncu.edu.tw', '系統自動發信')->subject('大一生活知訊網-爆炸拉');;
 
 		$message->to('andy199310@gmail.com');
+		$message->to('inin610719@hotmail.com');
+		$message->to('abc50604@yahoo.com.tw');
+//		$message->to('andy199310@gmail.com');  //++
 
 	});
 
