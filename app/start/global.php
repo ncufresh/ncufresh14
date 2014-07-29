@@ -69,7 +69,7 @@ App::error(function(Exception $exception, $code)
 
 App::down(function()
 {
-	if (App::environment('local')) {
+	if (App::environment('local') || Request::server('SERVER_NAME') == 'ncufresh14.weigreen.com') {
 		//local mode
 		return NULL;
 	}
