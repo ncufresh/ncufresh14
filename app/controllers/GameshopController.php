@@ -70,8 +70,8 @@ class GameshopController extends BaseController {
 
 	public function equip() {
 		$userWant = Input::get('user_want');
-		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
-		$game_user_id = $user->id;
+		$gameUser = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
+		$game_user_id = $gameUser->id;
 		for ( $i = 0; $i < 6; $i++ ) {
 			$hadBuyItems = GameBuy::whereRaw('user_id = ? and item_id = ?', array($game_user_id, $userWant[$i]) )->count();
 			if ( $hadBuyItems != 0 ) {
@@ -81,7 +81,6 @@ class GameshopController extends BaseController {
 				$isBuy[$i] = false;
 			}
 		}
-		$gameUser = Game::find($game_user_id);
 		if ( $isBuy[0] ) {
 			$gameUser->head = $userWant[0];
 		}
@@ -126,24 +125,24 @@ class GameshopController extends BaseController {
 		ImageColorTransparent ($im,$bg);
 
 		if ( $user->map != 0) {
-			$mapImage = imagecreatefrompng(asset('images/gameShop/' . $EquipItem[5]->picture));
+			$mapImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[5]->picture));
 			imagecopy( $im, $mapImage, 0, 0, 45, 0, 510, 600);
 		}
 
-		$footImage = imagecreatefrompng(asset('images/gameShop/' . $EquipItem[3]->picture));
+		$footImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[3]->picture));
 		imagecopy( $im, $footImage, 158, 518, 0, 0, 215, 102);
 
-		$bodyImage = imagecreatefrompng(asset('images/gameShop/' . $EquipItem[2]->picture));
+		$bodyImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[2]->picture));
 		imagecopy( $im, $bodyImage, 32, 270, 0, 0, 459, 303);
 
-		$headImage = imagecreatefrompng(asset('images/gameShop/' . $EquipItem[0]->picture));
+		$headImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[0]->picture));
 		imagecopy( $im, $headImage, 114, 0, 0, 0, 289, 289);
 
-		$faceImage = imagecreatefrompng(asset('images/gameShop/' . $EquipItem[1]->picture));
+		$faceImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[1]->picture));
 		imagecopy( $im, $faceImage, 37 + $EquipItem[0]->face_middle_x, $EquipItem[0]->face_middle_y - 70, 0, 0, 156, 137);
 		
 		if ( $user->item != 0) {
-			$itemImage = imagecreatefrompng(asset('images/gameShop/' . $EquipItem[4]->picture));
+			$itemImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[4]->picture));
 			imagecopy( $im, $itemImage, 0, 0, 0, 0, 136, 193);
 		}
 		
