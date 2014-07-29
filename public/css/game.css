@@ -314,6 +314,30 @@ gameCampus
 	position: relative;
 }
 
+#gameCampusLifeBox {
+	width: 153px;
+	height: 46px;
+	top: 30px;
+	left: 750px;
+	position: absolute;
+}
+
+.gameCampusLife {
+	float: left;
+	width: 46px;
+	height: 46px;
+	background: url("../images/gameCampus/O.png") no-repeat;
+	margin-left: 5px;
+}
+
+.gameCampusLifeWrong {
+	float: left;
+	width: 46px;
+	height: 46px;
+	background: url("../images/gameCampus/X.png") no-repeat;
+	margin-left: 5px;
+}
+
 #gameCampusMapButton {
 	width: 201px;
 	height: 135px;
