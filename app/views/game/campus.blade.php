@@ -21,6 +21,11 @@
 		<div id="gameCampusMap">
 			<div id="gameCampusGameBox" action="{{ URL::to('game/campus/check') }}">
 				<img id="gameCampusMapBack" src="{{ asset('images/SchoolGuide/Buttom.png') }}">
+				<div id="gameCampusLifeBox">
+					<div class="gameCampusLife"></div>
+					<div class="gameCampusLife"></div>
+					<div class="gameCampusLife"></div>
+				</div>
 				<div class="gameCampusType" id="gameCampusType0">系館
 					<div class="gameCampusBuilding" id="science_5" index="0"></div>
 					<div class="gameCampusBuilding" id="literary" index="1"></div>

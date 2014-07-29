@@ -52,28 +52,32 @@ class GamecampusController extends BaseController {
 		$questions = Session::get('questions');
 		$questionID = Session::get('index');
 		$score = Session::get('score');
-		$question = $questions[$questionID+1];
-		if ( Input::get('index') == $questions[$questionID]['answer_id']) {
-			$score++;
-			Session::forget('score');
-			Session::put('score', $score);
-			Session::forget('index');
-			Session::put('index', $questionID + 1);
-			$gameUser = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
-			$gameUser->gp += $score;
-			$gameUser->save();
-			return Response::json(array('user' => $gameUser->toArray(), 'isRight' => true, 'score' => $score, 'question' => $question));
-		}
-		else {
-			Session::forget('index');
-			Session::put('index', $questionID + 1);
-			$gameUser = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
-			return Response::json(array('user' => $gameUser->toArray(), 'isRight' => false, 'score' => $score, 'question' => $question));
-		}
+		$life = Session::get('life');
 		$gameUser = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
+		if ( $questionID <= 8 ) {
+			$question = $questions[$questionID+1];
+			if ( Input::get('index') == $questions[$questionID]['answer_id']) {
+				if ( $life > 0 ) {
+					$score++;
+					Session::forget('score');
+					Session::put('score', $score);
+				}
+				Session::forget('index');
+				Session::put('index', $questionID + 1);
+				return Response::json(array('user' => $gameUser->toArray(), 'isRight' => true, 'score' => $score, 'question' => $question));
+			}
+			else {
+				$life--;
+				Session::forget('life');
+				Session::put('life', $life);
+				Session::forget('index');
+				Session::put('index', $questionID + 1);
+				return Response::json(array('user' => $gameUser->toArray(), 'isRight' => false, 'score' => $score, 'question' => $question));
+			}
+		}
 		$gameUser->gp += $score;
 		$gameUser->save();
-		return Response::json(array('user' => $gameUser->toArray(), 'isRight' => false, 'score' => $score, 'question' => $question));
+		return Response::json(array('user' => $gameUser->toArray(), 'isRight' => false, 'score' => $score, 'question' => ''));
 	}
 
 }
