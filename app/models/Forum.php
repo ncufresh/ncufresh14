@@ -2,7 +2,7 @@
 
 class Forum extends Eloquent{
 	public $table = 'forum_articles';
-	public $per_page = 5;
+	public $per_page = 10;
 	public static $unguarded = true;
 
 	public function comment(){

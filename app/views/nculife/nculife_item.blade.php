@@ -2,7 +2,7 @@
 
 @section('js_css')
 	{{ HTML::style('css/nculife_item.css') }}
-	{{ HTML::script('js/nculife/nculife.js') }}
+	{{ HTML::script('js/nculife/nculife_item.js') }}
 @stop
 
 @section('content')
@@ -13,17 +13,23 @@
 			<div id="place">
 			<?php $i=1 ?>
 			@foreach ($nculifes as $nculife)
-				<div id="place{{$i}}" class="place" data-id="{{$i++}}" data-num="{{$nculife->id}}">
+				<div class="place{{$i}} place" data-id="{{$i++}}" data-num="{{$nculife->id}}">
 					{{$nculife->place}}
 				</div>
 			@endforeach
+				<div style="height:18px;">
+				</div>
 			</div>
 			<div id="left_bottom">
 			</div>
 		</div>
 		<div id="right">
 			<div id="introduction">
-				{{$nculifes[0]->introduction}}
+				<div id="introductionbox">
+					<div id="introductionbox2">
+						{{$nculifes[0]->introduction}}
+					</div>
+				</div>
 			</div>
 			<div id="picture">
 				<div id="picture_select">
@@ -39,7 +45,6 @@
 			</div>
 			<div id="select">
 				<div id="buttom" data-num="{{$nculifes[0]->id}}">
-					<img id="change" src="{{ asset('images/nculife/buttom_left.png') }}">
 				</div>
 			</div>
 		</div>

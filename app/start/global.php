@@ -31,7 +31,9 @@ ClassLoader::addDirectories(array(
 |
 */
 
-Log::useFiles(storage_path().'/logs/laravel.log');
+$logFile = 'laravel.log';
+
+Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 
 /*
 |--------------------------------------------------------------------------
@@ -50,9 +52,19 @@ App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
 	App::make('SiteMap')->pushLocation('錯誤頁面', route('error'));
+
 	if(Config::get('app.debug') == false){
 		return Response::view('errors.index', array('message' => '有事情發生了'), 404);
 	}
+	Mail::queue('emails.error', array('now' => \Carbon\Carbon::now()->toDateTimeString(), 'exception' => $exception), function($message){
+		$message->from('system@ncufresh.ncu.edu.tw', '系統自動發信')->subject('大一生活知訊網-爆炸拉');;
+
+		$message->to('andy199310@gmail.com');
+		$message->to('inin610719@hotmail.com');
+		$message->to('abc50604@yahoo.com.tw');
+//		$message->to('andy199310@gmail.com');  //++
+
+	});
 	return Response::view('errors.index', array('message' => '有事情發生了'.$exception->getMessage()), 404);
 });
 
@@ -69,7 +81,7 @@ App::error(function(Exception $exception, $code)
 
 App::down(function()
 {
-	if (App::environment('local')) {
+	if (App::environment('local') || Request::server('SERVER_NAME') == 'ncufresh14.weigreen.com') {
 		//local mode
 		return NULL;
 	}
@@ -101,7 +113,7 @@ App::missing(function($exception)
 
 App::before(function($request)
 {
-		if(BrowserDetect::isIEVersion(7, true)){
+	if(BrowserDetect::isIEVersion(7, true)){
 		return View::make('ie.index');
 
 	}

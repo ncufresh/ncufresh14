@@ -50,18 +50,38 @@ $(function(){
 				},
 
 				success : function(data){
+					if(data.washing == true){
 
-					displayComments(
-						data.commentAuthor,
-						data.authorId,
-						data.commentContent,
-						data.commentTime.date,
-						$(document).find(".responseBox")
-					);
+						$("#errorMsgContent").text("您的留言時間間隔太短啦");
 
-					$(document).find("#inputContent").val("");
+						$("#errorMsgDialog").modal('toggle');
+					}else{
 
-					$(document).find("#commenterID").val("");
+						var dateTime = new Date(data.commentTime.date);
+
+						if(isNaN(dateTime.getFullYear())){
+							currentTime = data.commentTime.date;
+						}else{
+							var currentTime = dateTime.getFullYear()
+											+"-"+(dateTime.getMonth()+1)
+											+"-"+dateTime.getDate()
+											+" "+dateTime.getHours()
+											+":"+dateTime.getMinutes()
+											+":"+dateTime.getSeconds();
+						}
+						
+						displayComments(
+							data.commentAuthor,
+							data.authorId,
+							data.commentContent,
+							currentTime,
+							$(document).find(".responseBox")
+						);
+
+						$(document).find("#inputContent").val("");
+
+						$(document).find("#commenterID").val("");
+					}
 				},
 				error :function(){
 
@@ -77,7 +97,7 @@ $(function(){
 
 		var btn = $(this);
 
-		var originText = target.text();
+		var originText = target.html();
 
 		var originHeight = target.css("height");
 
@@ -85,7 +105,7 @@ $(function(){
 
 		target.append("<button type='button' class='btn btn-default btn-sm delBtn'>刪除貼文</button>");
 
-		target.append("<input type='textarea' class='form-control editArea' value='"+originText+"'>");
+		target.append("<textarea class='form-control editArea'>"+originText.replace(/<br>/g,'')+"</textarea>");
 
 		target.append("<button type='button' class='btn btn-primary btn-sm saveBtn'>儲存編輯</button>");
 
@@ -96,7 +116,9 @@ $(function(){
 		$(this).css("display","none");
 
 		$(".canBtn").click(function(){
-			target.text(originText);
+
+			target.html(originText);
+
 			btn.css("display","inline-block");
 
 		});
@@ -149,7 +171,7 @@ $(function(){
 					},
 
 					success:function(data){
-						target.text(data.newContent);
+						target.html(data.newContent);
 						btn.css("display","inline-block");
 					},
 
@@ -192,5 +214,5 @@ function displayComments(authorName,authorId,content,createdAt,target){
 				<span class='commentTime'>"+createdAt+"</span>\
 			</div>\
 		</div>";
-	target.append(comment);
+	target.before(comment);
 } 

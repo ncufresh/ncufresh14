@@ -20,6 +20,7 @@ $(document).ready(function(){
 			marginLeft:'32px',
 		},600,function(){
 			$("#photo").show();
+
 		});
 		
 		$("#page2").animate({
@@ -103,10 +104,9 @@ $(document).ready(function(){
 	function OpenModal(data){
 		var teamphoto = data['teamphoto'];
 			change=0;
-			console.log(data['id']);
 			$(".items").hide(1);
 			$(".close").show("slow");
-		if(data['id']!=6){
+		if(data['id']!=11){
 			if(data['id']==8){
 			 $("#operate_menu").show("slow");
 			}else if(data['id']==9){
@@ -176,6 +176,14 @@ $(document).ready(function(){
 	})
 	.mouseleave(function(){
 		$(this).attr('src',burl+"/images/aboutus/project.png");
+	
+	});
+		$(".close")
+	.mouseenter(function(){
+		$(this).attr('src',burl+"/images/aboutus/close-p.png");
+	})
+	.mouseleave(function(){
+		$(this).attr('src',burl+"/images/aboutus/close.png");
 	
 	});
 	

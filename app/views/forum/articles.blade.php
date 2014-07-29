@@ -24,15 +24,17 @@
 						<input type="radio" name="orderBy" value="new" id="new" checked> 最新貼文
 						<input type="radio" name="orderBy" id="pop" value="pop"> 熱門貼文
 					</div>
-					<button class="btn btn-primary" id="createBtn">發表新文章</button>
+					<button class="btn btn-primary" id="createBtn"></button>
 				</div>
 			</div>
 			<div class="tab-pane" id="Test2">
-				<div id="departmentIndex">index</div>
+				<p>&nbsp;</p>
 			</div>
 			<div class="tab-pane" id="Test3">
-				<div id="clubIndex">index</div>
+				<p>&nbsp;</p>
 			</div>
+		</div>
+		<div class="paginationBox">
 			
 		</div>
 	</div>
@@ -55,7 +57,19 @@
 					</div>
 					<div id="formArticleTypeContainer">
 					{{ Form::label('article_type','文章分類') }}
-					@if(Entrust::can('forum_usage'))
+					@if(Entrust::hasRole('Developer'))
+					{{ Form::select(
+						'article_type',
+						array(
+						'P' => '一般貼文' ,
+						'C' => '社團' ,
+						'D' => '系所'),
+						'',
+						array(
+						'class' => 'form-control',
+						'id' => 'selectType' )
+						) }}
+					@elseif(Entrust::can('forum_usage'))
 						{{ Form::select(
 							'article_type',
 							array('P' => '一般貼文' ),
@@ -75,18 +89,6 @@
 								'class' => 'form-control',
 								'id' => 'selectType' ) 
 						) }}
-					@else
-						{{ Form::select(
-							'article_type',
-							array(
-								'P' => '一般貼文' , 
-								'C' => '社團' , 
-								'D' => '系所'),
-							'',
-							array(
-								'class' => 'form-control',
-								'id' => 'selectType' ) 
-						) }}
 					@endif
 					</div>
 					{{ Form::label('content','內容') }}
@@ -99,7 +101,7 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
-	        <div class="modal fade" id="errorMsgDialog">
+	<div class="modal fade" id="errorMsgDialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -114,6 +116,10 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+
+
+	<a id="scrollTop"><img ></a>
+
 	
 	
 @stop	

@@ -1,44 +1,67 @@
-#frame {
+#frame {	
 	position:relative;
 	top:20px;
 	right:0px;
 	width:1024px;
-	height:3000px
+	height:870px
+}
+
+#frame2{
+	position: relative;
+	top:20px;
+	height: 210px;
+}
+
+.pagination{
+	position: relative;
+	top:15px;
+	left: 2.5%;
 }
 
 #main {
 	position:absolute;
 	top:40px;
 	left:135px;
+
 }
 
 #videoFrame {
 	position: absolute;
 	left: 2.5%;
-	width:95%;
-	height: 585px;
+	width:972px;
+	height:585px;	
+	background-image:url(../images/videoImages/merge.png);
+	background-position: 0px 0px;
 }
 
 #introTop {
 	position: absolute;
 	top: 740px;
 	left:2.5%;
-	width: 95%;
+	width: 972px;
+	height: 16px;
+	background-image:url(../images/videoImages/merge.png);
+	background-position: 0px -928px;
 }
 
 #introTop2 {
 	position: absolute;
 	top:855px;
 	left: 2.5%;
-	width:95%;
+	width:972px;
+	height: 16px;
+	background-image:url(../images/videoImages/merge.png);
+	background-position: 0px -928px;
 }
-
-#introMid {  /*包含了videoFrame底下的所有白色底*/
+	
+#introMid { 
 	position: absolute;
 	top:580px;
 	left:2.5%;
-	width: 95%;
-	height: 9.2%;
+	width: 972px;
+	height:300px ;
+	background-image:url(../images/videoImages/merge.png);
+	background-position: 0px -960px;
 }
 
 #intro {
@@ -54,6 +77,10 @@
 	top:10px;
 	width: 972px;
 	height: 210px;
+
+	background-image:url(../images/videoImages/merge.png);
+	background-position: 0px -1280px;
+
 }
 
 #messageBG {
@@ -62,6 +89,8 @@
 	left: 222px;
 	width:735px;
     height:170px;
+    background-image:url(../images/videoImages/merge.png);
+	background-position: 0px -1504px;
 }
 
 #messageBG2 {
@@ -70,6 +99,8 @@
 	left: 178px;
 	width:780px;
     height:40px;
+    background-image:url(../images/videoImages/merge.png);
+	background-position: 0px -1696px;
 }
 
 /*
@@ -155,16 +186,74 @@
 */
 /*////////////////////////////////////////////////////////////////////////////////*/
 
-#like {
+#like_img {
 	position:absolute;
 	top:650px;
 	left:40px;	
+	width: 73px;
+	height: 73px;
+	background-image:url(../images/videoImages/merge.png);
+	background-position: 0px -640px;
 }
-#love {
+
+#like_img:hover {
+	position:absolute;
+	top:650px;
+	left:40px;	
+	width: 73px;
+	height: 73px;
+	background-image:url(../images/videoImages/merge.png);
+	background-position: -96px -640px;
+}
+
+#c_huan {
+	position: absolute;
+	top:682px;
+	left:120px;
+}
+
+#love_img {
 	position:absolute;
 	top:650px;
 	left:170px;
+	width: 73px;
+	height: 73px;
+	background-image:url(../images/videoImages/merge.png);
+	background-position: 0px -736px;
 }
+
+#love_img:hover {
+	position:absolute;
+	top:650px;
+	left:170px;
+	width: 73px;
+	height: 73px;
+	background-image:url(../images/videoImages/merge.png);
+	background-position: -96px -736px;
+}
+
+#chau_c_huan {
+	position: absolute;
+	top: 682px;
+	left: 250px;
+}
+
+#pinktriangle {
+	left: 20px;
+	width: 64px;
+	height: 32px;
+	background-image:url(../images/videoImages/merge.png);
+	background-position: -96px -832px;
+}
+
+#pinktriangle:hover {
+	left: 20px;
+	width: 64px;
+	height: 32px;
+	background-image:url(../images/videoImages/merge.png);
+	background-position: 0px -832px;
+}
+
 #message {  
 	position:absolute;
 	top:677px;
@@ -179,12 +268,20 @@
 	position: absolute;
 	top:680px;
 	left:530px;
+	width: 23px;
+	height: 19px;
+	background-image:url(../images/videoImages/merge.png);
+	background-position: 0px -864px;
 }
 
 #rating2 {
 	position: absolute;
 	top:680px;
 	left:675px;
+	width: 23px;
+	height: 19px;
+	background-image:url(../images/videoImages/merge.png);
+	background-position: 0px -896px;
 }
 
 #rating_number1 {
@@ -205,7 +302,7 @@
 /*////////////////////////////////////////////////////////////////////////////////*/
 #user_message {
 	position:relative;	
-	top:850px;
+	top:0px;
 	left: 2.5%;
 	width: 100%;
 	height: 210px;
