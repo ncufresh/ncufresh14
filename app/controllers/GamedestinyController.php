@@ -29,7 +29,7 @@ class GamedestinyController extends BaseController {
 			return Response::json(array('user' => $user->toArray(), 'gift' => $giftType, 'randomGp' => $randomGp));
 		}
 		$user["play"] = false;
-		return Response::json($user);
+		return Response::json(array('user' => $user->toArray()));
 	}
 
 	private function getGift()

@@ -33,7 +33,7 @@
             $(this).click(function(){
                 ajaxPost($('#gameCampusGameBox').attr('action'), {index: $(this).attr('index')}, function(data) {
                     if ( data['isRight'] == false ) {
-                        alert('GG');
+                        $.alertMessage('你答錯囉~');
                     }
                     editStatus(data['user']['power'],data['user']['gp']);
                     $('.gameCampusType').each(function(index) {
