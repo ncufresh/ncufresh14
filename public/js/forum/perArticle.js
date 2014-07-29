@@ -159,7 +159,12 @@ $(function(){
 
 		$(".saveBtn").click(function(){
 
-			var newContent = $(document).find(".editArea").val();
+			var newContent = '';
+			if(type == 'D' || type == 'C'){
+				newContent = CKEDITOR.instances.editArea.getData();
+			}else{
+				newContent = $(document).find(".editArea").val();
+			}
 
 			if( newContent == ""){
 
