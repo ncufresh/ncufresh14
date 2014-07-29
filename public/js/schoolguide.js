@@ -668,13 +668,21 @@ $(document).ready(function(){
 
 	$(window).scroll(function() {
 		console.log($(this).scrollTop());
+		console.log($('#bigcontent').height());
         if ( $(this).scrollTop() < 439 ){
             $('#fixMap').css({
 				position: "absolute",
                 top:"0px"
             });
             $('#fixmapLine').hide();
-        } else {
+        }
+        else if ( $(document).height() - 715 > 439 && $(this).scrollTop() > $(document).height() - 715 ) {
+        	$('#fixMap').css({
+				position: "absolute",
+                top: $('#bigcontent').height() - 680 + 'px'
+            });
+        }
+        else {
              $('#fixMap').css({
 				position: "fixed",
 				top:"-30px"
