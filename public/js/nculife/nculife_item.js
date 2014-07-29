@@ -79,6 +79,8 @@ $(function(){
 			$('#picture').append('<div id="img"></div>');
 			$('#img').append('<img id="1" class="img" class="img" src="' + bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name +'">');
 			$('.img').addClass("imgMask");
+			$('#buttom').css("background-image", "url(../images/nculife/item_img.png)");
+			$('#buttom').css("background-position", "0px -544px");
 			drag = $('#1').draggable({
 					containment: '#containment'
         			});
@@ -110,6 +112,8 @@ $(function(){
 			$('#picture').append('<div id="img"></div>');
 			$('#img').append('<img id="1" class="img" src="' + bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name +'">');
 			$('.img').addClass("imgMask");
+			$('#buttom').css("background-image", "url(../images/nculife/item_img.png)");
+			$('#buttom').css("background-position", "0px -544px");
 			drag = $('#1').draggable({
 					containment: '#containment'
         			});
