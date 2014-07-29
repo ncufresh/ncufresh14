@@ -35,6 +35,9 @@
                     if ( data['isRight'] == false ) {
                         $.alertMessage('你答錯囉~');
                     }
+                    else {
+                        $.alertMessage('你答對囉~');
+                    }
                     editStatus(data['user']['power'],data['user']['gp']);
                     $('.gameCampusType').each(function(index) {
                         $(this).hide();
