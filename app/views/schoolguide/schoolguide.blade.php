@@ -30,8 +30,9 @@
 					</li>
 					@endforeach
 			</ol>
-			<div id="fixMap">
 
+			<div id="fixMap">
+				<img id = "fixmapLine" src="{{ asset('images/SchoolGuide/line.png') }}">
 				<img id = "map" src="{{ asset('images/SchoolGuide/map.png') }}">
 				<img id = "Buttom" src="{{ asset('images/SchoolGuide/Buttom.png') }}">
 				<div class="pointer">
