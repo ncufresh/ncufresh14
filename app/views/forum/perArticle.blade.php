@@ -13,6 +13,8 @@
 	<input type="hidden" id="articleList" direct="{{URL::route('forum')}}">
 	<input type="hidden" id="articleId" articleId="{{$article->id}}">
 	<input type="hidden" id="articleTitle" articleTitle="{{$article->title}}">
+	<input type="hidden" id="articleType" articleType="{{$article->article_type}}">
+	<input type="hidden" id="imageURL" direct="{{URL::route('imageUpload')}}">
 	<div class="fullArticleBox">
 		<div class="postTimeContainer">
 			<div class="articlePostTime">
