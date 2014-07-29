@@ -2,7 +2,6 @@
 
 @section('js_css')
 	{{ HTML::style('css/nculife_index.css') }}
-	{{ HTML::script('js/nculife/nculife_index.js') }}
 @stop
 
 @section('content')
