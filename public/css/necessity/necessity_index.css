@@ -74,51 +74,115 @@
 /*******************************************************/
 
 .ContentUp{
-  height: 205px;
+  height: 230px;
   /*background-color: FF73FD;*/
-  margin: 0 auto;
+  /*margin: 0 auto;*/
 }
 
 .Block{
   position: absolute;
+  width: 243px;
+  height: 256px;
   margin-top:-30px; 
   margin-left:200px;
+  background-image: url(../../images/necessity/image.png);
+  background-position: 0px 0px;
 }
 
 .Note1{
 	position: absolute;
-  margin-top:-120px; 
+  width: 510px;
+  height: 320px;
+  margin-top:-64px; 
   margin-left:550px;
+  background-image: url(../../images/necessity/image.png);
+  background-position: -288px 0px;
+}
+
+.Note1:hover{
+  position: absolute;
+  width: 510px;
+  height: 320px;
+  margin-top:-64px; 
+  margin-left:550px;
+  background-image: url(../../images/necessity/image.png);
+  background-position: -800px 0px;
 }
 
 /********************/
 
 .ContentMid{
-  height: 155px;
+  height: 135px;
   /*background-color: FF73FD;*/
   margin: 0 auto;
 }
 
 .ButtonUpA{
 	position: absolute;
+  margin-top:3px; 
+  margin-left:53px;
+  cursor: pointer;
+  background-image: url(../../images/necessity/image.png);
+  background-position: 0px -320px;
+  width: 218px;
+  height: 156px;
+}
+
+.ButtonUpA:hover{
+  position: absolute;
   margin-top:0px; 
   margin-left:50px;
   cursor: pointer;
+  background-image: url(../../images/necessity/image.png);
+  background-position: -224px -320px;
+  width: 218px;
+  height: 156px;
 }
 
 .ButtonUpB{
 	position: absolute;
+  margin-top:3px; 
+  margin-left:403px;
+  cursor: pointer;
+  background-image: url(../../images/necessity/image.png);
+  background-position: -448px -320px;
+  width: 218px;
+  height: 156px;
+}
+
+.ButtonUpB:hover{
+  position: absolute;
   margin-top:0px; 
   margin-left:400px;
   cursor: pointer;
+  background-image: url(../../images/necessity/image.png);
+  background-position: -672px -320px;
+  width: 218px;
+  height: 156px;
 }
 
 .ButtonUpC{
 	position: absolute;
+  margin-top:3px; 
+  margin-left:753px;
+  cursor: pointer;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-928px -320px;
+  width: 218px;
+  height: 156px;
+}
+
+.ButtonUpC:hover{
+  position: absolute;
   margin-top:0px; 
   margin-left:750px;
   cursor: pointer;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-1152px -320px;
+  width: 218px;
+  height: 156px;
 }
+
 
 /********************/
 
@@ -135,170 +199,432 @@
 }
 .Left1R{
 	position: relative;
-  width: 135px;
   float:left;
+  background-image: url(../../images/necessity/image.png);
+  background-position:0px -1184px;
+  width: 140px;
+  height: 22px;
 }
 
 .LeftMidR{
   position:relative;
 	background-color: #fff192;
-  width: 135px;
+  width: 130px;
   float:left;
 }
 
 .Left2R{
 	position:relative;
-  width: 135px;
   float:left;
+  background-image: url(../../images/necessity/image.png);
+  background-position:0px -1248px;
+  width: 130px;
+  height: 40px;
 }
 
 .ResearchButtonA{
 	position: relative;
   margin-top:0px; 
-  margin-left:5px;
+  margin-left:3px;
   width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:0px -928px;
+  width: 120px;
+  height: 39px;
 }
 
+.ResearchButtonA:hover{
+  position: relative;
+  margin-top:0px; 
+  margin-left:3px;
+  width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:0px -992px;
+  width: 120px;
+  height: 39px;
+}
 
 .ResearchButtonB{
 	position: relative;
   margin-top:8px; 
-  margin-left:5px;
+  margin-left:3px;
   width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-128px -928px;
+  width: 120px;
+  height: 39px;
+}
+
+.ResearchButtonB:hover{
+  position: relative;
+  margin-top:8px; 
+  margin-left:3px;
+  width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-128px -992px;
+  width: 120px;
+  height: 39px;
 }
 
 .ResearchButtonC{
 	position: relative;
   margin-top:8px; 
-  margin-left:5px;
+  margin-left:3px;
   width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-256px -928px;
+  width: 120px;
+  height: 39px;
+}
+
+.ResearchButtonC:hover{
+  position: relative;
+  margin-top:8px; 
+  margin-left:3px;
+  width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-256px -992px;
+  width: 120px;
+  height: 39px;
 }
 
 .ResearchButtonD{
 	position: relative;
   margin-top:8px; 
-  margin-left:5px;
+  margin-left:3px;
   width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-384px -928px;
+  width: 120px;
+  height: 39px;
 }
 
+.ResearchButtonD:hover{
+  position: relative;
+  margin-top:8px; 
+  margin-left:3px;
+  width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-384px -992px;
+  width: 120px;
+  height: 39px;
+}
 .ResearchButtonE{
 	position: relative;
   margin-top:8px; 
-  margin-left:5px;
+  margin-left:3px;
   width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-640px -928px;
+  width: 120px;
+  height: 39px;
+}
+
+.ResearchButtonE:hover{
+  position: relative;
+  margin-top:8px; 
+  margin-left:3px;
+  width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-512px -992px;
+  width: 120px;
+  height: 39px;
 }
 
 .ResearchButtonF{
 	position: relative;
   margin-top:8px; 
- 	margin-left:5px;
+ 	margin-left:3px;
   width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-512px -928px;
+  width: 120px;
+  height: 39px;
+}
+
+.ResearchButtonF:hover{
+  position: relative;
+  margin-top:8px; 
+  margin-left:3px;
+  width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-640px -992px;
+  width: 120px;
+  height: 39px;
 }
 
 .ResearchButtonG{
 	position: relative;
   margin-top:8px; 
-  margin-left:5px;
+  margin-left:3px;
   width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-768px -928px;
+  width: 120px;
+  height: 39px;
+}
+
+.ResearchButtonG:hover{
+  position: relative;
+  margin-top:8px; 
+  margin-left:3px;
+  width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-768px -992px;
+  width: 120px;
+  height: 39px;
 }
 
 .ResearchButtonH{
 	position: relative;
   margin-top:8px; 
- 	margin-left:5px;
+ 	margin-left:3px;
   width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-896px -928px;
+  width: 120px;
+  height: 39px;
+}
+
+.ResearchButtonH:hover{
+  position: relative;
+  margin-top:8px; 
+  margin-left:3px;
+  width: 120px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-896px -992px;
+  width: 120px;
+  height: 39px;
 }
 
 /*********************************/
 
 .ContentDownYF{
-	width: 135px;
-  margin-left: 10px;
+	width: 105px;
+  margin-left: 15px;
 }
 
 .Left1F{
   position:relative;
-  width: 125px;
-  margin-left:7px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:0px -1184px;
+  width: 140px;
+  height: 22px;
+  float:left;
 }
 
 .LeftMidF{
 	position:relative;
 	background-color: #fff192; 
-  width: 125px;
-  margin-left:7px;
+  width: 130px;
+  float:left;
 }
 
 .Left2F{
 	position:relative;
-  width: 125px;
-  margin-left:7px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:0px -1248px;
+  width: 136px;
+  height: 40px;
+  float:left;
 }
 
 .FreshmanButtonA{
 	position:relative;
- 	margin-left:5px;
-  width: 110px;
+ 	margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:0px -1056px;
+  width: 120px;
+  height: 48px;
+}
+
+.FreshmanButtonA:hover{
+  position:relative;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:0px -1120px;
+  width: 120px;
+  height: 48px;
 }
 
 .FreshmanButtonB{
 	position:relative;
- 	margin-left:5px;
-  width: 110px;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-128px -1056px;
+  width: 120px;
+  height: 48px;
+}
+
+.FreshmanButtonB:hover{
+  position:relative;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-128px -1120px;
+  width: 120px;
+  height: 48px;
 }
 
 .FreshmanButtonC{
 	position:relative;
- 	margin-left:5px;
-  width: 110px;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-256px -1056px;
+  width: 120px;
+  height: 48px;
+}
+
+.FreshmanButtonC:hover{
+  position:relative;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-256px -1120px;
+  width: 120px;
+  height: 48px;
 }
 
 .FreshmanButtonD{
 	position:relative;
- 	margin-left:5px;
-  width: 110px;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-384px -1056px;
+  width: 120px;
+  height: 48px;
+}
+
+.FreshmanButtonD:hover{
+  position:relative;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-384px -1120px;
+  width: 120px;
+  height: 48px;
 }
 
 .FreshmanButtonE{
 	position:relative;
- 	margin-left:5px;
-  width: 110px;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-512px -1056px;
+  width: 120px;
+  height: 48px;
+}
+
+.FreshmanButtonE:hover{
+  position:relative;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-512px -1120px;
+  width: 120px;
+  height: 48px;
 }
 
 .FreshmanButtonF{
 	position:relative;
- 	margin-left:5px;
-  width: 110px;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-640px -1056px;
+  width: 120px;
+  height: 48px;;
+}
+
+.FreshmanButtonF:hover{
+  position:relative;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-640px -1120px;
+  width: 120px;
+  height: 48px;;
 }
 
 .FreshmanButtonG{
 	position:relative;
- 	margin-left:5px;
-  width: 110px;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-768px -1056px;
+  width: 120px;
+  height: 48px;
+}
+
+.FreshmanButtonG:hover{
+  position:relative;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-768px -1120px;
+  width: 120px;
+  height: 48px;
 }
 
 .FreshmanButtonH{
 	position:relative;
- 	margin-left:5px;
-  width: 110px;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-896px -1056px;
+  width: 120px;
+  height: 48px;
+}
+
+.FreshmanButtonH:hover{
+  position:relative;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-896px -1120px;
+  width: 120px;
+  height: 48px;
 }
 
 .FreshmanButtonI{
 	position:relative;
- 	margin-left:5px;
-  width: 110px;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-1024px -1056px;
+  width: 120px;
+  height: 48px;
+}
+
+.FreshmanButtonI:hover{
+  position:relative;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-1024px -1120px;
+  width: 120px;
+  height: 48px;
 }
 
 .FreshmanButtonJ{
 	position:relative;
- 	margin-left:5px;
-  width: 110px;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-1152px -1056px;
+  width: 120px;
+  height: 48px;
+}
+
+.FreshmanButtonJ:hover{
+  position:relative;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-1152px -1120px;
+  width: 120px;
+  height: 48px;
 }
 
 .FreshmanButtonK{
 	position:relative;
- 	margin-left:5px;
-  width: 110px;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-1280px -1056px;
+  width: 120px;
+  height: 48px;
+}
+
+.FreshmanButtonK:hover{
+  position:relative;
+  margin-left:9px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-1280px -1120px;
+  width: 120px;
+  height: 48px;
 }
 
 /*********************************/
@@ -312,7 +638,10 @@
   position: relative;
   margin-top:0px; 
   margin-left:4px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:0px -480px;
   width: 846px;
+  height: 118px;
 }
 
 .PaddingMid{
@@ -327,7 +656,10 @@
   position: relative;
   margin-top:-90px; 
   margin-left:670px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-1184px -672px;
   width: 135px;
+  height: 132px;
 }
 
 .IntroductionR{
@@ -354,13 +686,19 @@
   position: relative;
   margin-top:0px; 
   margin-left:4px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:0px -608px;
   width: 801px;
+  height: 101px;
 }
 .Freshman2{
   position: relative;
-  margin-top:-200px; 
+  margin-top:-160px; 
   margin-left:670px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-1024px -640px;
   width: 135px;
+  height: 226px;
 }
 
 .IntroductionF{
@@ -381,13 +719,19 @@
   position: relative;
   margin-top:0px; 
   margin-left:100px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:0px -736px;
   width: 800px;
+  height: 129px;
 }
 .Download2{
   position: relative;
-  margin-top:-83px; 
-  margin-left:760px;
-  width: 135px;
+  margin-top:-100px; 
+  margin-left:750px;
+  background-image: url(../../images/necessity/image.png);
+  background-position:-832px -736px;
+  width: 157px;
+  height: 143px;
 }
 
 .IntroductionD{
