@@ -307,9 +307,7 @@ class ArticlesController extends BaseController{
 
 				$totalInterval = round(abs(strtotime($pastTime) - strtotime($currentTime)));
 
-				if($totalInterval < 60){
-
-					$_SESSION['lastArticleTime'] = $currentTime;
+				if($totalInterval < 1){
 					
 					return true;
 
@@ -343,8 +341,6 @@ class ArticlesController extends BaseController{
 				$totalInterval = round(abs(strtotime($pastTime) - strtotime($currentTime)));
 
 				if($totalInterval < 5){
-
-					$_SESSION['lastCommentTime'] = $currentTime;
 
 					return true;
 

@@ -58,13 +58,18 @@ $(function(){
 					}else{
 
 						var dateTime = new Date(data.commentTime.date);
-						var currentTime = dateTime.getFullYear()
+
+						if(isNaN(dateTime.getFullYear())){
+							currentTime = data.commentTime.date;
+						}else{
+							var currentTime = dateTime.getFullYear()
 											+"-"+(dateTime.getMonth()+1)
 											+"-"+dateTime.getDate()
 											+" "+dateTime.getHours()
 											+":"+dateTime.getMinutes()
 											+":"+dateTime.getSeconds();
-
+						}
+						
 						displayComments(
 							data.commentAuthor,
 							data.authorId,
