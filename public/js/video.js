@@ -157,8 +157,4 @@ $(function(){
     $('#intro').text(intro["video_introduction"]);
   }
 */
-
-  
-
-
 });

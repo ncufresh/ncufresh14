@@ -29,28 +29,14 @@
 				<div class="personalImageBox" >
 					<img class="personalImage" src="{{ route('personface', array('id' => $article -> author_id)) }}">
 				</div>
-				<div class="panel-body content">{{ $article -> content }}</div>
+				<div class="panel-body content">{{ nl2br($article -> content) }}</div>
 				<div class='btnBox'>
 					@if(Auth::check() && Auth::user()->id == $article->author_id)
 						<button type="button" class="btn btn-primary btn-sm edit">編輯貼文 </button>
 					@endif
 				</div>
 			</div>
-			<div class="responseBox">
-				@if(Auth::check())
-					<form class="commentForm" route="createComment" >
-						{{ Form::label('comment','回覆貼文') }}
-						{{ Form::submit('發表回覆',array(
-							'type' => 'button' , 
-							'class' => 'btn btn-primary createComment'
-						)) }}
-						{{ Form::textarea('comment','',array(
-							'class' => 'form-control commentTextArea' , 
-							'id' => 'inputContent'
-						)) }}
-					</form>
-				@endif
-			</div>
+			
 			@foreach($comments as $comment)
 				<div class='panel panel-default'>
 					<div class='commentAuthorBox'>
@@ -60,13 +46,28 @@
 						<img class="personalImageComment" src="{{ route('personface', array('id' => $comment -> author_id)) }}">
 					</div>
 					<div class="commentContentBox">
-						<span class='commentContent'> {{ $comment -> content }}</span>
+						<span class='commentContent'> {{ nl2br($comment -> content) }}</span>
 					</div>
 					<div class='commentTimeBox'>
 						<span class='commentTime'> {{ $comment -> created_at }}</span>
 					</div>
 				</div>
 			@endforeach
+			<div class="responseBox">
+				@if(Auth::check())
+					<form class="commentForm" route="createComment" >
+						{{ Form::label('comment','回覆貼文') }}
+						{{ Form::textarea('comment','',array(
+							'class' => 'form-control commentTextArea' , 
+							'id' => 'inputContent'
+						)) }}
+						{{ Form::submit('',array(
+							'type' => 'button' , 
+							'class' => 'btn btn-primary createComment'
+						)) }}
+					</form>
+				@endif
+			</div>
 		</div>
 	</div>
 
