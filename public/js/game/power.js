@@ -64,8 +64,10 @@ $(function()
             timer.set({ time:500, autostart:true });
         }
         else
+        {
             nextQuest();
-        ajaxPost(getTransferData('recent-power-url'),'', getRecent);
+            ajaxPost(getTransferData('recent-power-url'),'', getRecent);
+        }
         $('#correctAns').empty();
         $('#next').hide();
     });
@@ -129,10 +131,12 @@ $(function()
             hi = 0;
         else if(count < 7)
             hi = 1;
-        else if(count < 9)
+        else if(count < 8)
             hi = 2;
-        else if(count < 10)
+        else if(count < 9)
             hi = 3;
+        else if(count < 10)
+            hi = 4;
         else if(count == 10)
             hi = maxPower;
 
