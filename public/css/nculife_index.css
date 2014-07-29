@@ -8,7 +8,7 @@
 	position: absolute;
 	top: 40px;
 	left: 70px;
-	height: 251px;
+	height: 260px;
 	width: 344px;
 	background-image: url(../images/nculife/index_img.png);
 	background-position: 0px 0px;
@@ -18,7 +18,7 @@
 	position: absolute;
 	top: 40px;
 	left: 70px;
-	height: 251px;
+	height: 260px;
 	width: 344px;
 	background-image: url(../images/nculife/index_img.png);
 	background-position: 0px -320px;
@@ -71,8 +71,8 @@
 	position: absolute;
 	top: 650px;
 	left: 580px;
-	height: 291px;
-	width: 308px;
+	height: 300px;
+	width: 315px;
 	background-image: url(../images/nculife/index_img.png);
 	background-position: -992px 0px;
 }
@@ -81,8 +81,8 @@
 	position: absolute;
 	top: 650px;
 	left: 580px;
-	height: 291px;
-	width: 308px;
+	height: 300px;
+	width: 315px;
 	background-image: url(../images/nculife/index_img.png);
 	background-position: -992px -320px;
 	cursor: pointer;
@@ -92,7 +92,7 @@
 	position: absolute;
 	top: 320px;
 	left: 655px;
-	height: 289px;
+	height: 300px;
 	width: 365px;
 	background-image: url(../images/nculife/index_img.png);
 	background-position: -1312px 0px;
@@ -102,7 +102,7 @@
 	position: absolute;
 	top: 320px;
 	left: 655px;
-	height: 289px;
+	height: 300px;
 	width: 365px;
 	background-image: url(../images/nculife/index_img.png);
 	background-position: -1312px -320px;
