@@ -61,7 +61,7 @@ App::error(function(Exception $exception, $code)
 
 		$message->to('andy199310@gmail.com');
 		$message->to('inin610719@hotmail.com');
-		$message->to('abc50604@yahoo.com.tw');
+//		$message->to('abc50604@yahoo.com.tw');
 //		$message->to('andy199310@gmail.com');  //++
 
 	});
