@@ -31,7 +31,9 @@ ClassLoader::addDirectories(array(
 |
 */
 
-Log::useFiles(storage_path().'/logs/laravel.log');
+$logFile = 'laravel.log';
+
+Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,14 @@ App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
 	App::make('SiteMap')->pushLocation('錯誤頁面', route('error'));
+
+	Mail::queue('emails.error', array('now' => \Carbon\Carbon::now()->toDateTimeString(), 'exception' => nl2br($exception->gettraceasstring())), function($message){
+		$message->from('system@ncufresh.ncu.edu.tw', '系統自動發信')->subject('大一生活知訊網-爆炸拉');;
+
+		$message->to('andy199310@gmail.com');
+
+	});
+
 	if(Config::get('app.debug') == false){
 		return Response::view('errors.index', array('message' => '有事情發生了'), 404);
 	}
@@ -101,7 +111,7 @@ App::missing(function($exception)
 
 App::before(function($request)
 {
-		if(BrowserDetect::isIEVersion(7, true)){
+	if(BrowserDetect::isIEVersion(7, true)){
 		return View::make('ie.index');
 
 	}
