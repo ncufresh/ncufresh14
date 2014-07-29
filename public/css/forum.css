@@ -19,10 +19,11 @@
 	display: table;
 	float: right;
 	margin-top: 2%;
-	margin-right: 15;
+	margin-right: 15px;
 }
 .personalImage{
-	width: 80;
+	width: 80px;
+	height: 80px
 	margin: 10;
 	border: 1px solid #D4D4CA;
 	border-radius: 10;
@@ -30,7 +31,7 @@
 }
 .content{
 	word-break: break-all;
-	width: 910;
+	width: 910px;
 	float: left;
 	position: relative;
 }
@@ -153,6 +154,7 @@ textarea.commentTextArea{
 
 #scrollTop:hover{
 	background-position: 0px -192px;
+	cursor: pointer;
 }
 
 
@@ -197,8 +199,9 @@ textarea.commentTextArea{
 	background-position: 0px -128px;
 }
 .modal-content{
+	border-style: solid;
 	border-width: 5px;
-	border-color: #666666;
+	border-color: #666666 #4C4C4C;
 }
 #createBtn{
 	background-image: url(../images/forum/forum_button.png);
@@ -215,7 +218,9 @@ textarea.commentTextArea{
 #createBtn:hover{
 	background-position: 0px -64px;
 }
-
+.pager li>a:hover{
+	cursor: pointer;
+}
 
 
 

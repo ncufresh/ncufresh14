@@ -213,12 +213,17 @@ $(function(){
 						}
 
 						var dateTime = new Date(data.articleTime.date);
-						var currentTime = dateTime.getFullYear()
+						if(isNaN(dateTime.getFullYear())){
+
+							var currentTime = data.articleTime.date;
+						}else{
+							var currentTime = dateTime.getFullYear()
 											+"-"+(dateTime.getMonth()+1)
 											+"-"+dateTime.getDate()
 											+" "+dateTime.getHours()
 											+":"+dateTime.getMinutes()
 											+":"+dateTime.getSeconds();
+						}
 						insertArticle(
 							data.articleAuthor,
 							data.authorId,
