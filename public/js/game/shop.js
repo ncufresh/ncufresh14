@@ -100,11 +100,19 @@
             }
             ajaxPost($(this).attr('action'), {user_want: user_want}, function(data) {
                 //console.log(data);
+                var success = true;
                 for ( var i = 0; i < 6; i++ ) {
                     if ( !data['isBuy'][i] ) {
                         var words = ['頭盔', '表情', '身體', '下肢', '道具', '地圖碎片'];
                         $.alertMessage('你還沒買' + words[i] + '喔~', {type: 'alert-danger'});
+                        success = false;
                     }
+                }
+                if ( success ) {
+                    $.alertMessage('成功裝備!', {type: 'alert-danger'});
+                }
+                else {
+                    $.alertMessage('其餘裝備成功裝備!', {type: 'alert-danger'});
                 }
             });
         });
