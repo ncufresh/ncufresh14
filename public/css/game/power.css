@@ -11,11 +11,11 @@
 	margin-top: 450px;
 	margin-left: 180px;
 	float: left;
-	background: url("../../images/gamePower/coverButton.png") no-repeat;
+	background: url("../../images/gamePower/button.png") no-repeat;
 	background-position: 0px 0px;
 }
 #start:hover {
-	background: url("../../images/gamePower/coverButton.png") no-repeat;
+	background: url("../../images/gamePower/button.png") no-repeat;
 	background-position: -250px 0px;
 }
 
@@ -28,11 +28,11 @@
 	margin-top: 450px;
 	margin-right: 180px;
 	float: right;
-	background: url("../../images/gamePower/coverButton.png") no-repeat;
+	background: url("../../images/gamePower/button.png") no-repeat;
 	background-position: 0px -85px;
 }
 #intro:hover {
-	background: url("../../images/gamePower/coverButton.png") no-repeat;
+	background: url("../../images/gamePower/button.png") no-repeat;
 	background-position: -250px -85px;
 }
 #introduction {
@@ -119,15 +119,15 @@
 	height: 81px;
 	margin-top: 15px;
 	margin-left: 340px;
-	background: url("../../images/gamePower/endButton.png") no-repeat;
-	background-position: 0px 0px;
+	background: url("../../images/gamePower/button.png") no-repeat;
+	background-position: -500px 0px;
 	display: none;
 }
 #next:hover {
 	width: 194px;
 	height: 81px;
-	background: url("../../images/gamePower/endButton.png") no-repeat;
-	background-position: -250px 0px;
+	background: url("../../images/gamePower/button.png") no-repeat;
+	background-position: -750px 0px;
 }
 
 /*/////////////////////////////endScreen/////////////////////////////////////////*/
@@ -159,12 +159,12 @@
 	height: 81px;
 	margin-top: 5%;
 	margin-left: 340px;
-	background: url("../../images/gamePower/endButton.png") no-repeat;
-	background-position: 0px -85px;
+	background: url("../../images/gamePower/button.png") no-repeat;
+	background-position: -500px -85px;
 }
 #again:hover {
 	width: 246px;
 	height: 81px;
-	background: url("../../images/gamePower/endButton.png") no-repeat;
-	background-position: -250px -85px;
+	background: url("../../images/gamePower/button.png") no-repeat;
+	background-position: -750px -85px;
 }
