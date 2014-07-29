@@ -11,7 +11,7 @@
 			{{Form::select('item', array('food' => '食', 'live' => '住', 'go' => '行', 'inschool' => '活', 'outschool' => '樂'))}}
 		</div>
 		<div>地方:
-			{{Form::text('place')}}
+			{{Form::textarea('place')}}
 		</div>
 		<div>簡介:
 			{{Form::textarea('introduction')}}
@@ -33,6 +33,7 @@
 		</div>
 	</div>
 	<script>
+		CKEDITOR.replace('place', {filebrowserImageUploadUrl : '{{ route("imageUpload") }}'});
 		CKEDITOR.replace('introduction', {filebrowserImageUploadUrl : '{{ route("imageUpload") }}'});
 	</script>
 @stop
