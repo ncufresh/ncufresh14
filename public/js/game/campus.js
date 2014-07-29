@@ -21,7 +21,7 @@
 					$('#gameCampusMain').hide();
 					$('#gameCampusMap').show();
 					$('#gameCampusQuestion').text('Q' + (question_number+1) + ': ' + data['question']['question']);
-                    mapType[data['question']['type']].show();
+                    mapType[data['question']['type']-1].show();
 				}
                 else {
                     noPowerDisplay();
@@ -42,7 +42,7 @@
                     question_number++;
                     if ( question_number < 10 ) {
                         $('#gameCampusQuestion').text('Q' + (question_number+1) + ': ' + data['question']['question']);
-                        mapType[data['question']['type']].show();
+                        mapType[data['question']['type']-1].show();
                     }
                     else {
                         $('#gameCampusMap').hide();
