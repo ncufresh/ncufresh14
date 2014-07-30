@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+	$("#modal-back").hide();
 	var burl = getTransferData('burl');
 
 	var change = ['','department', 'administration', 'scence', 'exercise', 'food', 'dorm'];
@@ -9,11 +9,24 @@ $(document).ready(function(){
 	var event = window.attachEvent ? 'onclick' : 'keydown';
 	addEvent(event, function(event){
 			
-				if(String.fromCharCode(event.which)=="A" && String.fromCharCode(event.which)=="S" ){
-					alert("213321");
+				if(event.keyCode=="65"){
+				
 				}
 			
 	});
+
+	// $("#tollbar").appendTo("#chat-room-container");
+
+	//  var $scrollingDiv = $("#tollbar");
+ 
+	//   $(window).scroll(function(){ 
+	//    $scrollingDiv
+	//     .css({"margin-top": "200px"});   
+	//   });
+
+	//  $("#tollbar").click(function(){
+	 	
+	//  });
  
 	$("#select").change(changeLeft);
 	$(".pointer img").click(function(){
@@ -667,7 +680,4 @@ $(document).ready(function(){
 	});
 
 		
-		
-		
-			
 });

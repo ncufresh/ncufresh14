@@ -3,7 +3,6 @@
 @section('js_css')
 	{{ HTML::style('css/schoolguide.css') }}
 	{{HTML::script('js/schoolguide.js')}}
-
 @stop
 
 @section('content')
@@ -92,7 +91,8 @@
 						<img data-id = "3" id="B12" class="item dorm" src="{{ asset('images/SchoolGuide/B12.png') }}">
 				</div>
 			</div>
-			
+
+		
 
 
 @stop
