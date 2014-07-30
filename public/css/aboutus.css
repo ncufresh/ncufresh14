@@ -5,6 +5,7 @@
 	margin-top:-113px; 
 	width:7%;
 	height:765px;
+	cursor:pointer;
 }
 #photo{
 	position: relative;
@@ -13,6 +14,7 @@
 	width:64px;
 	height:780px;
 	z-index: 1;
+	cursor:pointer;
 }
 #page1{
 	width:932px;

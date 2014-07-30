@@ -5,7 +5,7 @@
 }
 
 #user-top{
-	width: 947px;
+	width: 946px;
 	height: 386px;
 	background-image: url('../images/user/top-back.png');
 }
@@ -14,13 +14,13 @@
 	position: relative;
 	width: 190px;
 	height: 320px;
-	top: 70px;
-	left: 50px;
+	top: 67px;
+	left: 57px;
 	float: left;
 }
 
 #user-img{
-	width: 190px;
+	width: 184px;
 	height: 240px;
 }
 
@@ -81,47 +81,15 @@
 	margin-right: 5px;
 }
 
-#user-bottom{
-	width: 947px;
-	height: 386px;
-	background-image: url('../images/user/bottom-back.png');
-}
-
-#bottom-talk{
-	position: relative;
-	top: 47px;
-	left: 43px;
-	width: 245px;
-	height: 219px;
-	background-image: url('../images/user/bottom-talk.png');
-}
-
-#bottom-talk>div{
-	width: 210px;
-	text-align: center;
-	top: 60px;
-	left: 5px;
-	position: relative;
-	-webkit-transform: rotate(-12deg);
-	-moz-transform: rotate(-12deg);
-	-o-transform: rotate(-12deg);
-	-ms-transform: rotate(-12deg);
-	transform: rotate(-12deg);
-}
-
 #bottom-game{
-	width: 162px;
-	height: 32px;
+	width: 122px;
+	height: 23px;
 	position: relative;
-	left: 550px;
-	top: 90px;
+	left: 790px;
+	top: 340px;
 	background-image: url('../images/user/bottom-game.png');
 }
 
 #bottom-game:hover{
 	background-image: url('../images/user/bottom-game-h.png');
 }
-
-
-
-/*162 32*/

@@ -16,10 +16,10 @@
 
 	<div id="startGame">
 		<div id="question" style="overflow:auto" text-align="left" ></div>
-		<div class="base" style="overflow:auto" id="qa" data-getclick="1" data-option="(A)"></div>
-		<div class="base" style="overflow:auto" id="qb" data-getclick="2" data-option="(B)"></div>
-		<div class="base" style="overflow:auto" id="qc" data-getclick="3" data-option="(C)"></div>
-		<div class="base" style="overflow:auto" id="qd" data-getclick="4" data-option="(D)"></div>
+		<div class="base" id="qa" data-getclick="1" data-option="(A)"></div>
+		<div class="base" id="qb" data-getclick="2" data-option="(B)"></div>
+		<div class="base" id="qc" data-getclick="3" data-option="(C)"></div>
+		<div class="base" id="qd" data-getclick="4" data-option="(D)"></div>
 		<div id="correctAns"></div>
 		<div id="next"></div>
 	</div>

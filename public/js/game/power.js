@@ -1,9 +1,8 @@
 $(function()
 {
     var burl = getTransferData('burl');
-    var questCount=0,correct,correctCount=0,choose,option,click,clickCount=0,id=0;
-    var recentPower = 0,maxPower,returnCount = 0;
-    var quest = new Array(10);
+    var correct,correctCount=0,choose,option,click,clickCount=0,id=0;
+    var recentPower = 0,maxPower = 0,returnCount = 0;
     var dayQuest;
     var timer,count=0,returnC=0,powerreturncount;
     var done = false;
@@ -34,7 +33,7 @@ $(function()
             click = $(this).data('getclick');
             $(this).addClass('target');
             for(var i=1; i<5; i++)
-                if(i==dayQuest[quest[clickCount]]['correctans'])
+                if(i==dayQuest[clickCount]['correctans'])
                 {
                     if(i==1){
                         option = $('#qa').data('option');}
@@ -60,19 +59,21 @@ $(function()
             returnCount = returnPower(correctCount);
             $('#getPower').text("回復電量 * " + returnCount);
             powerreturncount = recentPower;
+            ajaxPost(getTransferData('renew-value-url'),{power:returnCount, _token: token},'');
             timer = $.timer(powerAnimate);
-            timer.set({ time:1000, autostart:true });
+            timer.set({ time:500, autostart:true });
         }
         else
+        {
             nextQuest();
-        ajaxPost(getTransferData('recent-power-url'),'', getRecent);
+            ajaxPost(getTransferData('recent-power-url'),'', getRecent);
+        }
         $('#correctAns').empty();
         $('#next').hide();
     });
 
      $('#again').click(function() {
         $('#endScreen').hide();
-        questCount=0;
         clickCount=0;
         correctCount=0;
         id=0;
@@ -89,43 +90,24 @@ $(function()
         done = true;
         token = data['token'];
         dayQuest = data['questions'];
-        randomSelect(); 
-    }
-
-    function randomSelect()
-    {
-        while(questCount<10)
-        {
-            var random = Math.random()*15;
-            random -= random%1;
-            choose=1;
-            for(var i=0; i<questCount; i++)
-                if(quest[i]==random)
-                    choose=0;
-            if(choose==1)
-            {
-                quest[questCount]=random;
-                questCount++;
-            } 
-        }
     }
 
     function getRecent(data)
     {
-        recentPower = data['recentPower'];
-        maxPower = data['maxPower'];
+        recentPower = parseInt(data['recentPower']);
+        maxPower = parseInt(data['maxPower']);
     }
 
     function nextQuest()
     {
         click = 0;
-        correct = dayQuest[quest[clickCount]]['correctans'];
+        correct = dayQuest[clickCount]['correctans'];
 
-        $('#question').text("Q" + (clickCount+1) + "：" + dayQuest[quest[clickCount]]['question']);
-        $('#qa').text("(A)  " + dayQuest[quest[clickCount]]['qA']);
-        $('#qb').text("(B)  " + dayQuest[quest[clickCount]]['qB']);
-        $('#qc').text("(C)  " + dayQuest[quest[clickCount]]['qC']);
-        $('#qd').text("(D)  " + dayQuest[quest[clickCount]]['qD']);
+        $('#question').text("Q" + (clickCount+1) + "：" + dayQuest[clickCount]['question']);
+        $('#qa').text("(A)  " + dayQuest[clickCount]['qA']);
+        $('#qb').text("(B)  " + dayQuest[clickCount]['qB']);
+        $('#qc').text("(C)  " + dayQuest[clickCount]['qC']);
+        $('#qd').text("(D)  " + dayQuest[clickCount]['qD']);
     }
 
     function showAnswer()
@@ -149,10 +131,12 @@ $(function()
             hi = 0;
         else if(count < 7)
             hi = 1;
-        else if(count < 9)
+        else if(count < 8)
             hi = 2;
-        else if(count < 10)
+        else if(count < 9)
             hi = 3;
+        else if(count < 10)
+            hi = 4;
         else if(count == 10)
             hi = maxPower;
 
@@ -162,7 +146,6 @@ $(function()
         return hi;
     }
 
-
     function powerAnimate()
     {
         $('#power').empty();
@@ -170,11 +153,10 @@ $(function()
         if(returnCount==returnC)
         {
             timer.stop();
-            ajaxPost(getTransferData('renew-value-url'),{power:returnCount, _token: token},'');
             $('#again').show();
-            var total = recentPower+returnCount;
+            var total = parseInt(recentPower)+parseInt(returnCount);
             if(total>=0 && total<=maxPower)
-                editStatus(total);
+                editStatus(parseInt(total));
         }
         
         powerreturncount++;

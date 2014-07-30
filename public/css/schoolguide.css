@@ -17,9 +17,9 @@
     top: 0px;
     left: 0px;
     width: 100%;
-    height:700px;
-
+    min-height: 670px;
 }
+
 .name{
    
     width: 70px;
@@ -37,6 +37,7 @@
     left: 157px;
     top: 22px;
     z-index:3;
+
 }
 
 
@@ -45,13 +46,31 @@ html, body {
     min-height: 100%;
 }
 
+#fixMap {
+    position: fixed;
+    width: 100%;
+    height: 618px;
+}
+
 #map{
-    width: 865px;
-    height: 600px;
+    width: 835px;
+    height: 632px;
     position: absolute;
-    left: 116px;
-    top:69px;
+    left: 133px;
+    top:59px;
     z-index: 0;
+     background-position:0px -895px;
+     background-image:url('../images/SchoolGuide/RhowChain.png');
+}
+
+#fixmapLine {
+    width: 12px;
+    height: 64px;
+    position: absolute;
+    top: 26px;
+    left: 603px;
+    display: none;
+    background: url('../images/SchoolGuide/line.png') no-repeat;
 }
 
 #Buttom{
@@ -61,6 +80,8 @@ html, body {
     height: 459px;
     width: 669px;
     z-index: 1; 
+    background-position:-1568px -412px;
+   background-image:url('../images/SchoolGuide/RhowChain.png');
 }
 
 #object{
@@ -68,6 +89,10 @@ html, body {
     left: 10px;
     top: 0px;
     z-index: 1;
+    background-position:-928px -983px;
+    background-image:url('../images/SchoolGuide/RhowChain.png');
+    width: 637px;
+    height: 75px;
 }
 .one{
     border: 2px solid #000;
@@ -83,12 +108,13 @@ html, body {
      top: 118px;
      z-index: 2;
      margin-top: -49px;
+      background-position:-735px -96px;
 
 }
 .left_item{
     cursor: pointer;
     list-style-type: none;
-    background-image:url('images/board.png') ;
+    background-image:url('../images/board.png') ;
     position: relative;
     left: -21px;
     top: 62px;
@@ -107,11 +133,14 @@ html, body {
 
 
 }
+.item{
+    background-image:url('../images/SchoolGuide/RhowChain.png');
+}
 
 .left_item:hover{
     cursor: pointer;
     list-style-type: none;
-    background-image:url('images/board-p.png') ;
+    background-image:url('../images/board-p.png') ;
     position: relative;
     left: -21px;
     top: 62px;
@@ -144,12 +173,15 @@ html, body {
     top: -112px;
     left: 666px;
     width: 100px;
+    background-position:-960px -727px;
+    background-image:url('../images/SchoolGuide/RhowChain.png');
 }
 #Zhidao{
     position: absolute;
     top:335px;
     left: 338px;
     z-index: 2;
+    background-position: -799px -737px;
 }
 
 #G14{
@@ -157,6 +189,7 @@ html, body {
     top:356px;
     left: 296px;
     z-index: 2;
+     background-position:-608px -290px;
 
 }
 #G14-ground{
@@ -164,6 +197,7 @@ html, body {
     top:372px;
     left: 350px;
     z-index: 2;
+     background-position:-511px -291px;
 }
 
 #B11{
@@ -171,6 +205,7 @@ html, body {
     top:383px;
     left: 280px;
     z-index: 2;
+     background-position:-384px -1px;
 
 }
 
@@ -179,6 +214,7 @@ html, body {
     top:395px;
     left: 259px;
     z-index: 2;
+     background-position:-1152px -2px;
 
 }
 #B6{
@@ -186,6 +222,7 @@ html, body {
     top:415px;
     left: 271px;
     z-index: 2;
+     background-position:-1024px -1px;
 
 }
 
@@ -194,6 +231,7 @@ html, body {
     top:426px;
     left: 286px;
     z-index: 2;
+    background-position:-225px -2px;
 
 }
 #building{
@@ -201,6 +239,7 @@ html, body {
     top:453px;
     left: 304px;
     z-index: 2;
+     background-position:-992px -98px;
 
 }
 #B13{
@@ -208,6 +247,7 @@ html, body {
     top:462px;
     left: 280px;
     z-index: 3;
+     background-position:-640px -2px;
 
 }
 #schoolh{
@@ -215,6 +255,7 @@ html, body {
     top:446px;
     left: 374px;
     z-index: 2;
+    background-position:-1022px -514px;
 
 }
 #door{
@@ -222,6 +263,7 @@ html, body {
     top:550px;
     left: 384px;
     z-index: 2;
+     background-position:-64px -194px;
 
 }
 #monument{
@@ -229,6 +271,7 @@ html, body {
     top:435px;
     left: 441px;
     z-index: 2;
+    background-position:-225px -480px;
 
 }
 
@@ -237,6 +280,7 @@ html, body {
     top:385px;
     left: 341px;
     z-index: 3;
+     background-position:-896px -2px;
 
 }
 
@@ -245,6 +289,7 @@ html, body {
     top:351px;
     left: 376px;
     z-index:2;
+    background-position:-288px -386px;
 
 }
 
@@ -253,6 +298,7 @@ html, body {
     top:307px;
     left: 374px;
     z-index: 2;
+    background-position:-768px -2px;
 }
 
 #science-1{
@@ -260,6 +306,7 @@ html, body {
     top:378px;
     left: 409px;
     z-index: 3;
+    background-position:-1210px -483px;
 
 }
 #administration{
@@ -267,13 +314,14 @@ html, body {
     top:431px;
     left: 479px;
     z-index: 3;
-
+    background-position:-64px -2px;
 }
 #library{
     position: absolute;
     top:384px;
     left: 505px;
     z-index: 3;
+    background-position:-480px -386px;
 
 }
 
@@ -282,6 +330,7 @@ html, body {
     top:367px;
     left: 480px;
     z-index: 2;
+    background-position:-543px -740px;
 
 }
 #oldlibrary{
@@ -289,13 +338,14 @@ html, body {
     top:370px;
     left: 531px;
     z-index: 2;
-
+    background-position:-93px -578px;
 }
 #tai{
     position: absolute;
     top:411px;
     left: 612px;
     z-index: 2;
+    background-position:-359px -739px;
 
 }
 
@@ -304,6 +354,7 @@ html, body {
     top:443px;
     left: 542px;
     z-index: 3;
+     background-position:-480px -98px;
 
 }
 
@@ -312,6 +363,7 @@ html, body {
     top:419px;
     left: 561px;
     z-index: 2  ;
+    background-position:-640px -386px;
 
 }
 #engineer-1{
@@ -319,6 +371,7 @@ html, body {
     top:304px;
     left: 486px;
     z-index: 2;
+     background-position:-448px -194px;
 
 }
 #engineer-2{
@@ -326,6 +379,7 @@ html, body {
     top:266px;
     left: 530px;
     z-index: 2;
+     background-position:-672px -194px;
 
 }
 #G-1-4{
@@ -333,20 +387,30 @@ html, body {
     top:260px;
     left: 458px;
     z-index: 2;
+     background-position:-416px -290px;
 
+}
+#G5{ 
+     position: absolute;
+    top:260px;
+    left: 458px;
+    z-index: 2;
+     background-position:-704px -290px;
 }
 #engineer-3{
     position: absolute;
     top:196px;
     left: 645px;
     z-index: 2;
+     background-position:-895px -193px;
 
 }
 #engineer-4{
     position: absolute;
     top:166px;
     left: 710px;
-    z-index: 3;
+    z-index: 5;
+     background-position:-1088px -194px;
 
 }
 #engineer-5{
@@ -354,6 +418,7 @@ html, body {
     top:141px;
     left: 624px;
     z-index: 3;
+     background-position:-128px -289px; 
 
 }
 #park{
@@ -361,6 +426,7 @@ html, body {
     top:249px;
     left: 564px;
     z-index: 2;
+    background-position:-608px -481px;
 
 }
 #gym{
@@ -368,6 +434,7 @@ html, body {
     top:259px;
     left: 645px;
     z-index: 2;
+    background-position:-1021px -289px;
 
 }
 #basketball{
@@ -375,6 +442,7 @@ html, body {
     top:259px;
     left: 767px;
     z-index: 3;
+     background-position:-352px -98px;
 
 }
 #playground{
@@ -382,6 +450,7 @@ html, body {
     top:240px;
     left: 648px;
     z-index: 2;
+    background-position:-802px -571px;
 
 }
 #rock{
@@ -389,6 +458,7 @@ html, body {
     top:255px;
     left: 748px;
     z-index: 3;
+    background-position:-224px -579px;
 
 }
 #swimpool{
@@ -396,13 +466,14 @@ html, body {
     top:242px;
     left: 811px;
     z-index: 3;
-
+    background-position:-159px -738px;
 }
 #skate{
     position: absolute;
     top:296px;
     left: 734px;
     z-index: 3;
+    background-position:-32px -736px;
 
 }
 #valley{
@@ -410,6 +481,7 @@ html, body {
     top:270px;
     left: 622px;
     z-index: 3;
+    background-position:-640px -739px;
 
 }
 #badminton{
@@ -417,6 +489,7 @@ html, body {
     top:292px;
     left: 716px;
     z-index: 3;
+     background-position:-298px -109.5px;
 
 }
 #wood{
@@ -424,6 +497,7 @@ html, body {
     top:426px;
     left: 681px;
     z-index: 3;
+    background-position:-417px -739px;
 
 }
 #science-2{
@@ -431,6 +505,7 @@ html, body {
     top:320px;
     left: 716px;
     z-index: 3;
+    background-position:-320px -577px;
 
 }
 #science-3{
@@ -438,6 +513,7 @@ html, body {
     top:360px;
     left: 766px;
     z-index: 3;
+    background-position:-479px -578px;  
 
 }
 #mbuilding{
@@ -445,6 +521,7 @@ html, body {
     top:381px;
     left: 706px;
     z-index: 3;
+    background-position:-97px -479px;
 
 }
 #math{
@@ -452,6 +529,7 @@ html, body {
     top:401px;
     left: 766px;
     z-index: 3;
+    background-position:-1153px -386px;
 
 }
 #management-1{
@@ -459,6 +537,7 @@ html, body {
     top:426px;
     left: 681px;
     z-index: 3;
+    background-position:-832px -384px;
 
 }
 #management-2{
@@ -466,6 +545,7 @@ html, body {
     top:440px;
     left: 765px;
     z-index: 3;
+    background-position:-992px -385px;
 
 }
 #clibrary{
@@ -473,6 +553,7 @@ html, body {
     top:446px;
     left: 641px;
     z-index: 3;
+     background-position:-1152px -97px;
 
 }
 #Graduate{
@@ -480,13 +561,14 @@ html, body {
     top:464px;
     left: 721px;
     z-index: 3;
-
+    background-position:-832px -290px;
 }
 #Hakkas{
     position: absolute;
     top:279px;
     left: 852px;
     z-index: 2;
+    background-position:-93px -386px;
 
 }
 #electric{
@@ -494,6 +576,7 @@ html, body {
     top:272px;
     left: 786px;
     z-index: 3;
+     background-position:-224px -194px;
 
 }
 #outerspace{
@@ -501,6 +584,7 @@ html, body {
     top:123px;
     left: 624px;
     z-index: 2;
+    background-position:-476px -482px;
 }
 
 #flower{
@@ -508,7 +592,7 @@ html, body {
     top:405px;
     left: 652px;
     z-index: 3;
-
+     background-position:-287px -291px;
 }
 
 #ncu{
@@ -516,13 +600,14 @@ html, body {
     top:505px;
     left: 681px;
     z-index: 3;
-
+    background-position:-320px -481px;
 }
 #B9{
     position: absolute;
     top:553px;
     left: 635px;
     z-index: 3;
+     background-position:-128px -98px;
 
 }
 
@@ -531,6 +616,7 @@ html, body {
     top:362px;
     left: 845px;
     z-index: 3;
+    background-position:-636px -577px;
 
 }
 #science-5{
@@ -538,6 +624,7 @@ html, body {
     top:416px;
     left: 823px;
     z-index: 3;
+    background-position:-831px -577px;
 
 }
 #lake{
@@ -545,6 +632,7 @@ html, body {
     top:349px;
     left: 823px;
     z-index: 3;
+    background-position:-384px -386px;  
 
 }
 #B12{
@@ -552,5 +640,22 @@ html, body {
     top:522px;
     left: 733px;
     z-index: 3;
+     background-position:-512px -2px;
+
+}
+#tennis{
+     position: absolute;
+    top:522px;
+    left: 733px;
+    z-index: 3;
+     background-position:-705px -737px;
+
+}
+#pool{
+    position: absolute;
+    top:349px;
+    left: 823px;
+    z-index: 3;
+    background-position:-384px -386px;  
 
 }

@@ -24,10 +24,8 @@
 				<div class="user-data" id="user-data-email"><img src="{{ asset('images/user/user-data-email.png') }}">{{ $user->email }}</div>
 			</div>
 		</div>
-	</div>
-	<div id="user-bottom">
-		<div id="bottom-talk"><div>{{ $talk->string }}</div></div>
 		<a href="{{ route('game') }}"><div id="bottom-game"></div></a>
 	</div>
+	
 </div>
 @stop

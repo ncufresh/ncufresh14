@@ -8,8 +8,21 @@
 	position: absolute;
 	top: 40px;
 	left: 70px;
-	height: 251px;
+	height: 260px;
 	width: 344px;
+	background-image: url(../images/nculife/index_img.png);
+	background-position: 0px 0px;
+}
+
+#item1:hover {
+	position: absolute;
+	top: 40px;
+	left: 70px;
+	height: 260px;
+	width: 344px;
+	background-image: url(../images/nculife/index_img.png);
+	background-position: 0px -320px;
+	cursor: pointer;
 }
 
 #item2 {
@@ -17,7 +30,20 @@
 	top: 330px;
 	left: 320px;
 	height: 291px;
-	width: 308px;
+	width: 280px;
+	background-image: url(../images/nculife/index_img.png);
+	background-position: -352px 0px;
+}
+
+#item2:hover {
+	position: absolute;
+	top: 330px;
+	left: 320px;
+	height: 291px;
+	width: 280px;
+	background-image: url(../images/nculife/index_img.png);
+	background-position: -352px -320px;
+	cursor: pointer;
 }
 
 #item3 {
@@ -25,34 +51,70 @@
 	top: 20px;
 	left: 510px;
 	height: 289px;
-	width: 365px;
+	width: 350px;
+	background-image: url(../images/nculife/index_img.png);
+	background-position: -640px 0px;
+}
+
+#item3:hover {
+	position: absolute;
+	top: 20px;
+	left: 510px;
+	height: 289px;
+	width: 350px;
+	background-image: url(../images/nculife/index_img.png);
+	background-position: -640px -320px;
+	cursor: pointer;
 }
 
 #item4 {
 	position: absolute;
 	top: 650px;
 	left: 580px;
-	height: 291px;
-	width: 308px;
+	height: 300px;
+	width: 315px;
+	background-image: url(../images/nculife/index_img.png);
+	background-position: -992px 0px;
+}
+
+#item4:hover {
+	position: absolute;
+	top: 650px;
+	left: 580px;
+	height: 300px;
+	width: 315px;
+	background-image: url(../images/nculife/index_img.png);
+	background-position: -992px -320px;
+	cursor: pointer;
 }
 
 #item5 {
 	position: absolute;
 	top: 320px;
 	left: 655px;
-	height: 289px;
+	height: 300px;
 	width: 365px;
+	background-image: url(../images/nculife/index_img.png);
+	background-position: -1312px 0px;
+}
+
+#item5:hover {
+	position: absolute;
+	top: 320px;
+	left: 655px;
+	height: 300px;
+	width: 365px;
+	background-image: url(../images/nculife/index_img.png);
+	background-position: -1312px -320px;
+	cursor: pointer;
 }
 
 #robot {
 	position: absolute;
-	top: 505px;
+	top: 470px;
 	left: 100px;
 	height: 464px;
-	width: 238px;
-}
-
-.picture {
-	width: 100%;
-	height: 100%;
+	width: 250px;
+	background-image: url(../images/nculife/index_img.png);
+	background-position: 0px -640px;
 }

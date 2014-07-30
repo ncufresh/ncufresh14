@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	{{ HTML::style('css/necessity_index.css') }}
-	{{ HTML::style('css/necessity_image.css') }}
+		
+	{{ HTML::style('css/necessity/necessity_index.css') }}
 	{{ HTML::script('js/necessity/necessity.js')  }}
 @stop
 
@@ -11,19 +11,18 @@
 		
 		<div class="ContentUp">
 			
-			<img class="Block" src="{{ asset('images/necessity/Block.png') }}">	
-			<a target="_blank" href="http://140.115.185.138/ncuosafresh/finddorm.php">
-				<img class="Note1" src="{{ asset('images/necessity/Note1.png') }}">
-			</a>
+			<div class="Block">
 
-		</div>
+			</div>	
+				<a target="_blank" href="http://140.115.185.138/ncuosafresh/finddorm.php">
+				 	<div class="Note1"></div>
+				</a>
+			</div>
 				
 		<div class="ContentMid">
-			
-			<img id="buttonA" class="ButtonUpA" src="{{ asset('images/necessity/ButtonUpA1.png') }}">
-			<img id="buttonB" class="ButtonUpB" src="{{ asset('images/necessity/ButtonUpB1.png') }}">
-			<img id="buttonC" class="ButtonUpC" src="{{ asset('images/necessity/ButtonUpC1.png') }}">
-		
+			<div id="buttonA" class="ButtonUpA"></div>
+			<div id="buttonB" class="ButtonUpB"></div>
+			<div id="buttonC" class="ButtonUpC"></div>
 		</div>
 
 		<div class="ContentDown">
@@ -31,78 +30,78 @@
 			<div class="ContentDownYR">
 				
 					
-				<img class="Left1R" src="{{ asset('images/necessity/Left1.png') }}">
+				<div class="Left1R"></div>
 		
 				<div class="LeftMidR" >
 					<div>
-						<a href="#a1"><img class="ResearchButtonA" src="{{ asset('images/necessity/ResearchButtonA1.png') }}"></a>
+						<a href="#a1"><div class="ResearchButtonA"></div></a>
 					</div>
 					<div>	
-						<a href="#a2"><img class="ResearchButtonB" src="{{ asset('images/necessity/ResearchButtonB1.png') }}"></a>
+						<a href="#a2"><div class="ResearchButtonB"></div></a>
 					</div>
 					<div>
-						<a href="#a3"><img class="ResearchButtonC" src="{{ asset('images/necessity/ResearchButtonC1.png') }}"></a>
+						<a href="#a3"><div class="ResearchButtonC"></div></a>
 					</div>
 					<div>
-						<a href="#a4"><img class="ResearchButtonD" src="{{ asset('images/necessity/ResearchButtonD1.png') }}"></a>
+						<a href="#a4"><div class="ResearchButtonD"></div></a>
 					</div>
 					<div>
-						<a href="#a5"><img class="ResearchButtonE" src="{{ asset('images/necessity/ResearchButtonE1.png') }}"></a>
+						<a href="#a5"><div class="ResearchButtonE"></div></a>
 					</div>
 					<div>
-						<a href="#a6"><img class="ResearchButtonF" src="{{ asset('images/necessity/ResearchButtonF1.png') }}"></a>
+						<a href="#a6"><div class="ResearchButtonF"></div></a>
 					</div>
 					<div>		
-						<a href="#a7"><img class="ResearchButtonG" src="{{ asset('images/necessity/ResearchButtonG1.png') }}"></a>
+						<a href="#a7"><div class="ResearchButtonG"></div></a>
 					</div>
 					<div>	
-						<a href="#a8"><img class="ResearchButtonH" src="{{ asset('images/necessity/ResearchButtonH1.png') }}"></a>
+						<a href="#a8"><div class="ResearchButtonH"></div></a>
 					</div>
 				</div>
 				
-				<img class="Left2R" src="{{ asset('images/necessity/Left2.png') }}">
+				<div class="Left2R"></div>
 			
 			</div>
 				<!-- Freshman's Button -->
 			<div class="ContentDownYF">
 
-				<img class="Left1F" src="{{ asset('images/necessity/Left1.png') }}">
+				<div class="Left1F"></div>
 				<div class="LeftMidF" >
 					<div>
-						<a href="#b1"><img class="FreshmanButtonA" src="{{ asset('images/necessity/FreshmanButtonA1.png') }}"></a>
+						<a href="#b1"><div class="FreshmanButtonA"></div></a>
 					</div>
 					<div>
-						<a href="#b2"><img class="FreshmanButtonB" src="{{ asset('images/necessity/FreshmanButtonB1.png') }}"></a>
+						<a href="#b2"><div class="FreshmanButtonB"></div></a>
 					</div>
 					<div>
-						<a href="#b3"><img class="FreshmanButtonC" src="{{ asset('images/necessity/FreshmanButtonC1.png') }}"></a>
+						<a href="#b3"><div class="FreshmanButtonC"></div></a>
 					</div>
 					<div>	
-						<a href="#b4"><img class="FreshmanButtonD" src="{{ asset('images/necessity/FreshmanButtonD1.png') }}"></a>
+						<a href="#b4"><div class="FreshmanButtonD"></div></a>
 					</div>
 					<div>	
-						<a href="#b5"><img class="FreshmanButtonE" src="{{ asset('images/necessity/FreshmanButtonE1.png') }}"></a>
+						<a href="#b5"><div class="FreshmanButtonE"></div></a>
 					</div>
 					<div>	
-						<a href="#b6"><img class="FreshmanButtonF" src="{{ asset('images/necessity/FreshmanButtonF1.png') }}"></a>
+						<a href="#b6"><div class="FreshmanButtonF"></div></a>
 					</div>
 					<div>	
-						<a href="#b7"><img class="FreshmanButtonG" src="{{ asset('images/necessity/FreshmanButtonG1.png') }}"></a>
+						<a href="#b7"><div class="FreshmanButtonG"></div></a>
 					</div>
 					<div>	
-						<a href="#b8"><img class="FreshmanButtonH" src="{{ asset('images/necessity/FreshmanButtonH1.png') }}"></a>
+						<a href="#b8"><div class="FreshmanButtonH"></div></a>
 					</div>
 					<div>	
-						<a href="#b9"><img class="FreshmanButtonI" src="{{ asset('images/necessity/FreshmanButtonI1.png') }}"></a>
+						<a href="#b9"><div class="FreshmanButtonI"></div></a>
 					</div>
 					<div>	
-						<a href="#b10"><img class="FreshmanButtonJ" src="{{ asset('images/necessity/FreshmanButtonJ1.png') }}"></a>
+						<a href="#b11"><div class="FreshmanButtonJ"></div></a>
 					</div>
 					<div>	
-						<a href="#b11"><img class="FreshmanButtonK" src="{{ asset('images/necessity/FreshmanButtonK1.png') }}"></a> 
+						<a href="#b12"><div class="FreshmanButtonK"></div></a> 
 					</div>
 				</div>
-				<img class="Left2F" src="{{ asset('images/necessity/Left2.png') }}">
+				<div class="Left2F"></div>
 				
 					
 
@@ -114,7 +113,7 @@
 				<!-- Research's Form -->
 				<div class="ContentDownBR" >
 
-					<img class="Research1" src="{{ asset('images/necessity/Research1.png') }}">
+					<div class="Research1"></div>
 					<div class="PaddingMid" >
 						<div class="IntroductionR" >
 							<table>
@@ -157,7 +156,7 @@
 						</div>
 
 					</div>
-					<img class="Research2" src="{{ asset('images/necessity/Research2.png') }}">
+					<div class="Research2"></div>
 					
 				</div>
 
@@ -166,8 +165,8 @@
 				<div>
 					<div class="ContentDownBF" >
 
-					<img class="Freshman1" src="{{ asset('images/necessity/Freshman1.png') }}">
-					<div class="PaddingMid" >
+					<div class="Freshman1"></div>
+					<div class="PaddingMid">
 						<div class="IntroductionF" >
 							<table>
                           	<th class="formStyleIntroduction" >
@@ -220,7 +219,7 @@
 						</div>
 
 					</div>
-					<img class="Freshman2" src="{{ asset('images/necessity/Freshman2.png') }}">
+					<div class="Freshman2"></div>
 					
 				</div>
 
@@ -229,7 +228,7 @@
 				<div>
 					<div class="ContentDownBD" >
 
-					<img class="Download1" src="{{ asset('images/necessity/download1.png') }}">
+					<div class="Download1"></div>
 					<div class="DownloadMid" >
 				
 						<div class="DownloadForm1">
@@ -277,7 +276,7 @@
 						</div>
 
 					</div>
-					<img class="Download2" src="{{ asset('images/necessity/download2.png') }}">
+					<div class="Download2"></div>
 					
 				</div>
 

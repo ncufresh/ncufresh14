@@ -121,7 +121,6 @@ $(document).ready(function(){
 			var name =data[i]['name'];
 			var id=data[i]['id'];
 			var category = data[i]['categories'];
-			//$("<img class ='board' src='"+burl+"/images/SchoolGuide/board.png'>").appendTo("#leftlist").data('place_id', id);
 			$("<li class='left_item'>"+name+"</li>").appendTo("#leftlist").data('place_id', id);
 
 			if(category==1){
@@ -169,7 +168,7 @@ $(document).ready(function(){
 			}
 
 		}
-		//$("<img class ='item2' src='"+burl+"/images/SchoolGuide/item2.png'>").appendTo("#leftlist").data('place_id', id);
+		//$("<img class ='item2' background-position='"+burl+"/images/SchoolGuide/item2.png'>").appendTo("#leftlist").data('place_id', id);
 
 		makeLeftCanClick();
 	}
@@ -196,7 +195,7 @@ $(document).ready(function(){
 	function showPhoto(data){
 		var introduction =data['introduction'];
 		$.pushLocation(data['name'], '/SchoolGuide/'+change[data['categories']]+'/'+data['id'])
-		$.jumpWindow("",introduction+"<img class='robot' src='"+burl+"/images/SchoolGuide/robot.png'>","");
+		$.jumpWindow("",introduction+"<img class='robot' background-position='-960px -727px'>","");
 	
 	}
 
@@ -224,460 +223,509 @@ $(document).ready(function(){
     //=============================================================================
 	$("#Zhidao")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/Zhidao-p.png");
+		$(this).attr('background-position',"-735px -735px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/Zhidao.png");
+		$(this).attr('background-position',"-799px -737px");
 	
 	});
 
 	$("#G14")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/G14-P.png");
+		$(this).attr('background-position',"-544px -288px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/G14.png");
+		$(this).attr('background-position',"-608px -290px");
 	
 	});
+	$("#G5")
+	.mouseenter(function(){
+		$(this).attr('background-position',"-672px -288px");
+	})
+	.mouseleave(function(){
+		$(this).attr('background-position',"-704px -290px");
+	
+	});
+
 
 
 	$("#G14-ground")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/G14-ground-p.png");
+		$(this).attr('background-position',"-480px -288px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/G14-ground.png");
+		$(this).attr('background-position',"-511px -291px");
 	
 	});
+
 		$("#B11")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B11-P.png");
+		$(this).attr('background-position',"-319px 0px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B11.png");
+		$(this).attr('background-position',"-384px -1px");
 	
 	});
 		$("#B7")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B7-P.png");
+		$(this).attr('background-position',"-1088px 0px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B7.png");
+		$(this).attr('background-position',"-1152px -2px");
 	
 	});
 		$("#B6")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B6-P.png");
+		$(this).attr('background-position',"-960px 0px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B6.png");
+		$(this).attr('background-position',"-1024px -128px");
 	
 	});
 
 	$("#art")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/art-p.png");
+		$(this).attr('background-position',"-128px 0px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/art.png");
+		$(this).attr('background-position',"-225px -2px");
 	
 	});
 
 	$("#building")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/building-p.png");
+		$(this).attr('background-position',"-896px -96px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/building.png");
+		$(this).attr('background-position',"-992px -98px");
 	
 	});
 
 	$("#B13")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B13-P.png");
+		$(this).attr('background-position',"-576px 0px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B13.png");
+		$(this).attr('background-position',"-640px -2px");
 	
 	});
 
 	$("#schoolh")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/schoolh-p.png");
+		$(this).attr('background-position',"-927px -512px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/schoolh.png");
+		$(this).attr('background-position',"-1022px -514px");
 	
 	});
 		$("#door")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/door-p.png");
+		$(this).attr('background-position',"0px -192px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/door.png");
+		$(this).attr('background-position',"-64px -194px");
 	
 	});
 		$("#monument")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/monument-p.png");
+		$(this).attr('background-position',"-191px -481px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/monument.png");
+		$(this).attr('background-position',"-225px -480px");
 	
 	});
 		$("#B5")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B5-P.png");
+		$(this).attr('background-position',"-832px 0px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B5.png");
+		$(this).attr('background-position',"-896px -2px");
 	
 	});
 
 		$("#International")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/International-P.png");
+		$(this).attr('background-position',"-192px -384px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/International.png");
+		$(this).attr('background-position',"-288px -386px");
 	
 	});
 
 		$("#B3")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B3-P.png");
+		$(this).attr('background-position',"-704px 0px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B3.png");
+		$(this).attr('background-position',"-768px -2px");
 	
 	});
 
 		$("#science-1")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/science-1-p.png");
+		$(this).attr('background-position',"-1118px -481px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/science-1.png");
+		$(this).attr('background-position',"-1210px -483px");
 	
 	});
 		$("#administration")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/administration-p.png");
+		$(this).attr('background-position',"0px 0px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/administration.png");
+		$(this).attr('background-position',"-64px -2px");
 	
 	});
 
 		$("#library")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/library-p.png");
+		$(this).attr('background-position',"-416px -384px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/library.png");
+		$(this).attr('background-position',"-480px -386px");
 	
 	});
 			$("#tree")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/tree-p.png");
+		$(this).attr('background-position',"-480px -739px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/tree.png");
+		$(this).attr('background-position',"-543px -740px");
 	
 	});
 			$("#oldlibrary")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/oldlibrary-p.png");
+		$(this).attr('background-position',"-1px -576px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/oldlibrary.png");
+		$(this).attr('background-position',"-93px -578px");
 	
 	});
 			$("#tai")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/tai-p.png");
+		$(this).attr('background-position',"-257px -737px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/tai.png");
+		$(this).attr('background-position',"-359px -739px");
 	
 	});
 
 			$("#blackbox")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/blackbox-p.png");
+		$(this).attr('background-position',"-384px -96px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/blackbox.png");
+		$(this).attr('background-position',"-480px -98px");
 	
 	});
 			$("#literary")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/literary-p.png");
+		$(this).attr('background-position',"-544px -384px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/literary.png");
+		$(this).attr('background-position',"-640px -386px");
 	
 	});
 	$("#engineer-1")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/engineer-1-p.png");
+		$(this).attr('background-position',"-320px -192px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/engineer-1.png");
+		$(this).attr('background-position',"-448px -194px");
 	
 	});
 	$("#engineer-2")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/engineer-2-p.png");
+		$(this).attr('background-position',"-576px -192px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/engineer-2.png");
+		$(this).attr('background-position',"-672px -194px");
 	
 	});
 			
 	$("#engineer-3")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/engineer-3-p.png");
+		$(this).attr('background-position',"-799px -191px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/engineer-3.png");
+		$(this).attr('background-position',"-895px -193px");
 	
 	});
 	$("#engineer-4")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/engineer-4-p.png");
+		$(this).attr('background-position',"-992px -192px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/engineer-4.png");
+		$(this).attr('background-position',"-1088px -194px");
 	
 	});
 	$("#engineer-5")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/engineer-5-p.png");
+		$(this).attr('background-position',"0px -288px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/engineer-5.png");
+		$(this).attr('background-position',"-128px -289px");
 	
 	});
 	$("#park")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/park-p.png");
+		$(this).attr('background-position',"-546px -480px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/park.png");
+		$(this).attr('background-position',"-608px -481px");
 	
 	});
 	$("#gym")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/gym-p.png");
+		$(this).attr('background-position',"-928px -288px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/gym.png");
+		$(this).attr('background-position',"-1021px -289px");
 	
 	});
 
 	$("#G-1-4")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/G-1-4-P.png");
+		$(this).attr('background-position',"-320px -288px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/G-1-4.png");
+		$(this).attr('background-position',"-416px -290px");
 	
 	});
 
 	$("#basketball")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/basketball-p.png");
+		$(this).attr('background-position',"-320px -96px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/basketball.png");
+		$(this).attr('background-position',"-352px -98px");
 	
 	});
 	$("#playground")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/playground-p.png");
+		$(this).attr('background-position',"-672px -515px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/playground.png");
+		$(this).attr('background-position',"-802px -571px");
 	
 	});
 		
 		$("#rock")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/rock-p.png");
+		$(this).attr('background-position',"-192px -577px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/rock.png");
+		$(this).attr('background-position',"-224px -579px");
 	
 	});
 		
 		$("#swimpool")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/swimpool-p.png");
+		$(this).attr('background-position',"-64px -736px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/swimpool.png");
+		$(this).attr('background-position',"-159px -738px");
+	
+	});
+		$("#pool")
+	.mouseenter(function(){
+		$(this).attr('background-position',"-1121px -738px");
+	})
+	.mouseleave(function(){
+		$(this).attr('background-position',"-384px -386px");
 	
 	});
 
 			$("#skate")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/skate-p.png");
+		$(this).attr('background-position',"0px -734px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/skate.png");
+		$(this).attr('background-position',"-32px -736px");
 	
 	});
 			$("#valley")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/valley-p.png");
+		$(this).attr('background-position',"-608px -737px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/valley.png");
+		$(this).attr('background-position',"-640px -739px");
 	
 	});
 	$("#badminton")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/badminton-p.png");
+		$(this).attr('background-position',"-256px -96px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/badminton.png");
+		$(this).attr('background-position',"-298px -109.5px");
 	
 	});
 	$("#wood")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/wood-p.png");
+		$(this).attr('background-position',"-384px -737px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/wood.png");
+		$(this).attr('background-position',"-417px -739px");
 	});
 	$("#science-2")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/science-2-p.png");
+		$(this).attr('background-position',"-255px -575px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/science-2.png");
+		$(this).attr('background-position',"-320px -577px");
 	});
 	$("#science-3")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/science-3-p.png");
+		$(this).attr('background-position',"-384px -576px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/science-3.png");
+		$(this).attr('background-position',"-479px -578px");
+	});
+	$("#tennis")
+	.mouseenter(function(){
+		$(this).attr('background-position',"-672px -735px");
+	})
+	.mouseleave(function(){
+		$(this).attr('background-position',"-705px -737px");
 	});
 	$("#mbuilding")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/mbuilding-p.png");
+		$(this).attr('background-position',"0px -480px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/mbuilding.png");
+		$(this).attr('background-position',"-97px -479px");
 	});
 	$("#math")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/math-p.png");
+		$(this).attr('background-position',"-1088px -384px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/math.png");
+		$(this).attr('background-position',"-1153px -386px");
 	});
 	$("#management-1")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/management-1-p.png");
+		$(this).attr('background-position',"-736px -384px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/management-1.png");
+		$(this).attr('background-position',"-832px -384px");
 	});
 	$("#management-2")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/management-2-p.png");
+		$(this).attr('background-position',"-896px -384px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/management-2.png");
+		$(this).attr('background-position',"-992px -385px");
 	});
 	$("#clibrary")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/clibrary-p.png");
+		$(this).attr('background-position',"-1088px -96px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/clibrary.png");
+		$(this).attr('background-position',"-1152px -97px");
 	});
 	$("#Graduate")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/Graduate-P.png");
+		$(this).attr('background-position',"-736px -288px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/Graduate.png");
+		$(this).attr('background-position',"-832px -290px");
 	});
 	$("#Hakkas")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/Hakkas-P.png");
+		$(this).attr('background-position',"0px -384px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/Hakkas.png");
+		$(this).attr('background-position',"-93px -386px");
 	});
 	$("#electric")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/electric-p.png");
+		$(this).attr('background-position',"-181px -192px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/electric.png");
+		$(this).attr('background-position',"-224px -194px");
 	});
 	$("#outerspace")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/outerspace-p.png");
+		$(this).attr('background-position',"-383px -480px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/outerspace.png");
+		$(this).attr('background-position',"-476px -482px");
 	});
 
 	$("#ncu")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/ncu-p.png");
+		$(this).attr('background-position',"-256px -480px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/ncu.png");
+		$(this).attr('background-position',"-320px");
 	});
 	$("#B9")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B9-P.png");
+		$(this).attr('background-position',"0px -96px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B9.png");
+		$(this).attr('background-position',"-128px -98px");
 	});
 	$("#B12")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B12-P.png");
+		$(this).attr('background-position',"-448px 0px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/B12.png");
+		$(this).attr('background-position',"-512px -2px");
 	});
 	$("#lake")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/lake-p.png");
+		$(this).attr('background-position',"-352px -384px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/lake.png");
+		$(this).attr('background-position',"-384px -386px");
 	});
 	$("#science-5")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/science-5-p.png");
+		$(this).attr('background-position',"-736px -575px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/science-5.png");
+		$(this).attr('background-position',"-831px -577px");
 	});
 	$("#science-4")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/science-4-p.png");
+		$(this).attr('background-position',"-542px -575px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/science-4.png");
+		$(this).attr('background-position',"-636px -577px");
 	});
 	$("#flower")
 	.mouseenter(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/flower-p.png");
+		$(this).attr('background-position',"-256px -288px");
 	})
 	.mouseleave(function(){
-		$(this).attr('src',burl+"/images/SchoolGuide/flower.png");
+		$(this).attr('background-position',"-287px -291px");
 	});
 
+	$(window).scroll(function() {
+		console.log($(this).scrollTop());
+		console.log($('#bigcontent').height());
+        if ( $(this).scrollTop() < 439 ){
+            $('#fixMap').css({
+				position: "absolute",
+                top:"0px"
+            });
+            $('#fixmapLine').hide();
+        }
+        else if ( $(document).height() - 715 > 439 && $(this).scrollTop() > $(document).height() - 715 ) {
+        	$('#fixMap').css({
+				position: "absolute",
+                top: $('#bigcontent').height() - 680 + 'px'
+            });
+        }
+        else {
+             $('#fixMap').css({
+				position: "fixed",
+				top:"-30px"
+             });
+             $('#fixmapLine').show();
+        }
+    });
 		
 });

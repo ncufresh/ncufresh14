@@ -34,12 +34,15 @@
     	});
     	function buyItem(id, button) {
     		ajaxPost($('#gameShopItems').attr('action'), {itemId: id}, function(data) {
-                if ( data['isBuy'] ) {
-                    button.addClass('itemHadBuy');
-                    editStatus(data['user']['power'], data['user']['gp']);
-                }
-                else {
-                    alert('you do not have enough money.');
+                if( data['hadbuy'] == 0 ) {
+                    if ( data['isBuy'] ) {
+                        button.addClass('itemHadBuy');
+                        editStatus(data['user']['power'], data['user']['gp']);
+                        $.alertMessage('購買成功!');
+                    }
+                    else {
+                        $.alertMessage('你GP不夠喔！');
+                    }
                 }
 			});
     	};
@@ -58,7 +61,16 @@
                             left: disply_item_data[user_look[0].attr('itemId')-1]['face_middle_x']/2 + 17 + 'px'
                         });
                     }
+                    for ( var j = 4; j < 6; j++ ) {
+                        if ( user_look[j].attr('itemId') == 0 ) {
+                            user_look[j].hide();
+                        }
+                        else {
+                            user_look[j].show();
+                        }
+                    }
                 });
+                
             });
         }
         function buyClick() {
@@ -76,7 +88,10 @@
             user_look[index] = $(this);
             init_equip[types[index]] = [ user_look[index].attr('itemId'), user_look[index].attr('src') ];
         });
-        
+        for ( var j = 4; j < 6; j++ ) {
+            if ( Equip_items[j]['id'] == 0 )
+                user_look[j].hide();
+        }
 
         $('#characterEquipButton').click(function() {
             var user_want = new Array(6);
@@ -84,11 +99,20 @@
                 user_want[i] = user_look[i].attr('itemId');
             }
             ajaxPost($(this).attr('action'), {user_want: user_want}, function(data) {
-                console.log(data);
+                //console.log(data);
+                var success = true;
                 for ( var i = 0; i < 6; i++ ) {
                     if ( !data['isBuy'][i] ) {
-                        alert('你還沒買喔~' + types[i]);
+                        var words = ['頭盔', '表情', '身體', '下肢', '道具', '地圖碎片'];
+                        $.alertMessage('你還沒買' + words[i] + '喔~');
+                        success = false;
                     }
+                }
+                if ( success ) {
+                    $.alertMessage('成功裝備!', {type: 'alert-danger'});
+                }
+                else {
+                    $.alertMessage('其餘裝備成功裝備!');
                 }
             });
         });
@@ -100,6 +124,9 @@
             user_look[1].css({
                 top: disply_item_data[user_look[0].attr('itemId')-1]['face_middle_y']/2 - 35 + 'px',
                 left: disply_item_data[user_look[0].attr('itemId')-1]['face_middle_x']/2 + 17 + 'px'
+            });
+            $('.gameShopItem').each(function(index) {
+                $(this).removeClass('gameShopItemSelect');
             });
         });
 
