@@ -17,7 +17,7 @@
 	<iframe width="750" height="500" src="//www.youtube.com/embed/{{ $video->video_address }}" frameborder="0" allowfullscreen></iframe>
 </div>
 
-<div id="video_name" style ="width:900px;height:100px;font-size:50px;"><font color="gray">{{$video ->video_name}}</font></div>
+<div id="video_name" style ="width:900px;height:100px;font-size:32px;"><font color="gray">{{$video ->video_name}}</font></div>
 <button id="like" type="button"  style = "background-color: transparent; border: 0;"><div id="like_img"></div><div id="c_huan"><font color='gray'>喜歡</font></div></button>
 <button id="love" type="button"  style = "background-color: transparent; border: 0;"><div id="love_img"></div><div id="chau_c_huan"><font color='gray'>超喜歡</font></div></button>
 <button id="message" style="width:100px;height:30px;background-color: transparent; border: 0;"><div id="pinktriangle"></div></button>
