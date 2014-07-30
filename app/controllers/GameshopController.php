@@ -134,18 +134,30 @@ class GameshopController extends BaseController {
 			imagecopy( $im, $mapImage, 0, 0, 45, 0, 510, 600);
 		}
 
-		$footImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[3]->picture));
-		imagecopy( $im, $footImage, 158, 518, 0, 0, 215, 102);
+		if ( $user->head != 42 ) {
+			$footImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[3]->picture));
+			imagecopy( $im, $footImage, 158, 518, 0, 0, 215, 102);
 
-		$bodyImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[2]->picture));
-		imagecopy( $im, $bodyImage, 32, 270, 0, 0, 459, 303);
+			$bodyImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[2]->picture));
+			imagecopy( $im, $bodyImage, 32, 270, 0, 0, 459, 303);
 
-		$headImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[0]->picture));
-		imagecopy( $im, $headImage, 114, 0, 0, 0, 289, 289);
+			$headImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[0]->picture));
+			imagecopy( $im, $headImage, 114, 0, 0, 0, 289, 289);
 
-		$faceImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[1]->picture));
-		imagecopy( $im, $faceImage, 37 + $EquipItem[0]->face_middle_x, $EquipItem[0]->face_middle_y - 70, 0, 0, 156, 137);
-		
+			$faceImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[1]->picture));
+			imagecopy( $im, $faceImage, 37 + $EquipItem[0]->face_middle_x, $EquipItem[0]->face_middle_y - 70, 0, 0, 156, 137);
+
+			imagedestroy($headImage);
+			imagedestroy($faceImage);
+			imagedestroy($bodyImage);
+			imagedestroy($footImage);
+		}
+		else {
+			$specialImage = imagecreatefrompng(public_path('images/gameShop/special/real-special.png'));
+			imagecopy( $im, $specialImage, 2, 40, 0, 0, 506, 532);
+			imagedestroy($specialImage);
+		}
+
 		if ( $user->item != 0) {
 			$itemImage = imagecreatefrompng(public_path('images/gameShop/' . $EquipItem[4]->picture));
 			imagecopy( $im, $itemImage, 0, 0, 0, 0, 136, 193);
@@ -153,9 +165,6 @@ class GameshopController extends BaseController {
 		
 		imagepng($im, 'img/person/' . Auth::user()['id'] . '.png');
 		imagedestroy($im);
-		imagedestroy($headImage);
-		imagedestroy($faceImage);
-		imagedestroy($bodyImage);
-		imagedestroy($footImage);
+		
 	}
 }
