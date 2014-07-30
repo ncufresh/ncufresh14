@@ -113,7 +113,7 @@ App::missing(function($exception)
 
 App::before(function($request)
 {
-	if(BrowserDetect::isIEVersion(7, true) || true){
+	if(BrowserDetect::isIEVersion(7, true)){
 		return View::make('ie.index');
 
 	}
