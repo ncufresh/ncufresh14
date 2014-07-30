@@ -9,7 +9,7 @@
 	float: left;
 	margin-left: 78px;
 	margin-top: 65px;
-	width: 208px;
+	width: 220px;
 }
 
 #left_top {
@@ -26,6 +26,7 @@
 	height: 715px;
 	overflow: auto;
 	margin-top: -10px;
+	outline: none;
 }
 
 .place {
@@ -92,6 +93,7 @@
 	margin-top: 2px;
 	margin-left: 10px;
 	overflow: auto;
+	outline: none;
 }
 
 #introductionbox2 {
@@ -169,6 +171,22 @@
 	cursor: pointer;
 	background-image: url(../images/nculife/item_img.png);
 	background-position: 0px -544px;
+}
+
+.jspVerticalBar {
+	opacity: 0;
+	-o-transition: opacity 1s linear;
+    -webkit-transition: opacity 1s linear;
+    -moz-transition: opacity 1s linear;
+    transition:  opacity 1s linear;
+}
+
+.jspVerticalBar:hover {
+	opacity: 1;
+	-o-transition: opacity 1s linear;
+    -webkit-transition: opacity 1s linear;
+    -moz-transition: opacity 1s linear;
+    transition:  opacity 1s linear;
 }
 
 img.ui-state-disabled.ui-draggable-disabled { opacity : 1;}
