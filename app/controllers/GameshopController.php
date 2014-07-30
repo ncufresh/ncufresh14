@@ -29,10 +29,11 @@ class GameshopController extends BaseController {
 			$EquipItem[5] = new Gameitem;
 			$EquipItem[5]->id = 0;
 		}
+		$special = Gameitem::where('id', '=', 42)->firstOrFail();
 		//$this->createPersonImage();
 
 		return View::make('game.shop', array('user' => $user, 'name' => $name->name, 'shop' => $shop,
-						 'hadBuyItems'=>$hadBuyItems->toArray(), 'EquipItem' => $EquipItem));
+						 'hadBuyItems'=>$hadBuyItems->toArray(), 'EquipItem' => $EquipItem, 'special' => $special ));
 	}
 
 	public function changeType() {
@@ -47,19 +48,23 @@ class GameshopController extends BaseController {
 				$hadBuy[$i] = true;
 			}
 		}
-		return Response::json(array('shop'=>$shop->toArray(),'hadBuyItems'=>$hadBuy));
+		return Response::json(array('shop'=>$shop->toArray(), 'hadBuyItems'=>$hadBuy ));
 	}
 
 	public function buy() {
+		$itemID = Input::get("itemId");
 		$gameuser = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
-		$item = Gameitem::where('id', '=', Input::get("itemId"))->firstOrFail();
-		$hadbuy = GameBuy::whereRaw('user_id = ? and item_id = ?', array($gameuser->id, Input::get("itemId")) )->count();
+		$item = Gameitem::where('id', '=', $itemID)->firstOrFail();
+		$hadbuy = GameBuy::whereRaw('user_id = ? and item_id = ?', array($gameuser->id, $itemID) )->count();
 		$isBuy = false;
 		if ( $gameuser->gp >= $item->costgp && $hadbuy == 0 ) {
 			$buy = new GameBuy;
 			$buy->user_id = $gameuser->id;
 		    $buy->item_id = $item->id;
 			$buy->save();
+			if ( $itemID == 28 ) {
+				$gameuser->max_power = 6;
+			}
 			$gameuser->gp = $gameuser->gp - $item->costgp;
 			$gameuser->save();
 			$isBuy = true;

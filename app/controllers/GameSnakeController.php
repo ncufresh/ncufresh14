@@ -27,7 +27,18 @@ class GameSnakeController extends BaseController
 
 		if($user->power > 0)
 		{
-			$user->gp = $user->gp + $score;
+			
+			$muti = 1;
+			$hadbuy = GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, 29) )->count();
+			if ( $hadbuy != 0 ) {	//had buy ATM
+				$muti = 1.25;
+			}
+			$hadbuy = GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, 29) )->count();
+			if ( $hadbuy != 0 ) {	//had buy ATM
+				$muti = 1.5;
+			}
+
+			$user->gp = $user->gp + $score * $muti;
 			$user->power = $user->power - 1;
 			$user->save();
 

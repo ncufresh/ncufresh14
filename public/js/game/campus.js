@@ -16,6 +16,9 @@
             life_img[index] = $(this);
         });
     	$("#gameCampusStartButton").click(function() {
+            $(".gameCampusLife").each(function(index) {
+                $(this).removeClass('gameCampusLifeWrong');
+            });
     		ajaxPost($(this).attr("action"), '', function(data) {
     			life = 3;
 				combo = 0;
