@@ -53,9 +53,6 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 	App::make('SiteMap')->pushLocation('錯誤頁面', route('error'));
 
-	if(Config::get('app.debug') == false){
-		return Response::view('errors.index', array('message' => '有事情發生了'), 404);
-	}
 	Mail::queue('emails.error', array('now' => \Carbon\Carbon::now()->toDateTimeString(), 'exception' => $exception), function($message){
 		$message->from('system@ncufresh.ncu.edu.tw', '系統自動發信')->subject('大一生活知訊網-爆炸拉');;
 
@@ -65,6 +62,10 @@ App::error(function(Exception $exception, $code)
 //		$message->to('andy199310@gmail.com');  //++
 
 	});
+
+	if(Config::get('app.debug') == false){
+		return Response::view('errors.index', array('message' => '有事情發生了'), 404);
+	}
 	return Response::view('errors.index', array('message' => '有事情發生了'.$exception->getMessage()), 404);
 });
 
