@@ -3,6 +3,8 @@
 @section('js_css')
 	{{ HTML::style('css/aboutus.css') }}
 	{{ HTML::script('js/aboutus.js') }}
+	{{ HTML::script('js/crash.js') }}
+
 @stop
 
 @section('content')

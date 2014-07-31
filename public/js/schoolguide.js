@@ -118,6 +118,7 @@ $(document).ready(function(){
 		$.pushLocation(changeChinese[data[0]['categories']], '/SchoolGuide/'+change[data[0]['categories']]);
 
 		for(var i=0; i<count; i++){
+			var id=data[i]['id'];
 			var name =data[i]['name'];
 			var id=data[i]['id'];
 			var category = data[i]['categories'];

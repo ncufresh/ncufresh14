@@ -129,7 +129,6 @@ $(document).ready(function(){
 				$("#scroll").show("slow");
 			}
 	}
-
 	$("#operate")
 	.mouseenter(function(){
 		$(this).attr('src',burl+"/images/aboutus/operate-p.png");
