@@ -11,7 +11,14 @@
 		var score = 0;
 		var question_number = 0;
         var now_question_number = 0;
+        var life_img = new Array(3);
+        $(".gameCampusLife").each(function(index) {
+            life_img[index] = $(this);
+        });
     	$("#gameCampusStartButton").click(function() {
+            $(".gameCampusLife").each(function(index) {
+                $(this).removeClass('gameCampusLifeWrong');
+            });
     		ajaxPost($(this).attr("action"), '', function(data) {
     			life = 3;
 				combo = 0;
@@ -40,6 +47,10 @@
                     ajaxPost($('#gameCampusGameBox').attr('action'), {index: $(this).attr('index')}, function(data) {
                         if ( data['isRight'] == false ) {
                             $.alertMessage('你答錯囉~');
+                            if ( life > 0 ) {
+                                life_img[3-life].addClass('gameCampusLifeWrong');
+                                life--;
+                            }
                         }
                         else {
                             $.alertMessage('你答對囉~');
@@ -62,6 +73,7 @@
                 now_question_number++;
             });
         });
+
     	$('#gameCampusAgain').click(function() {
     		$('#gameCampusMain').show();
     		$('#gameCampusEnd').hide();

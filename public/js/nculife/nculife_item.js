@@ -13,7 +13,9 @@ $(function(){
 
 	$('.place1').addClass("placeClick");
 
-	$('.img').addClass("imgMask");
+	// $(window).load(function(){
+ //  		$(".jspVerticalBar").css("opacity", "0");
+	// });
 
 	$('.place').click(function(){
 		var num = $(this).data("num");
@@ -78,7 +80,6 @@ $(function(){
 			}
 			$('#picture').append('<div id="img"></div>');
 			$('#img').append('<img id="1" class="img" class="img" src="' + bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name +'">');
-			$('.img').addClass("imgMask");
 			$('#buttom').css("background-image", "url(../images/nculife/item_img.png)");
 			$('#buttom').css("background-position", "0px -544px");
 			drag = $('#1').draggable({
@@ -111,7 +112,6 @@ $(function(){
 			}
 			$('#picture').append('<div id="img"></div>');
 			$('#img').append('<img id="1" class="img" src="' + bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name +'">');
-			$('.img').addClass("imgMask");
 			$('#buttom').css("background-image", "url(../images/nculife/item_img.png)");
 			$('#buttom').css("background-position", "0px -544px");
 			drag = $('#1').draggable({
@@ -154,7 +154,6 @@ $(function(){
 		}
 		$('#picture').append('<div id="img"></div>');
 		$('#img').append('<img id="1" class="img" src="' + bURL + "/img/uploadImage/" + data['pictures'][0]['picture_admin'].file_name +'">');
-		$('.img').addClass("imgMask");
 		$('#buttom').css("background-image", "url(../images/nculife/item_img.png)");
 		$('#buttom').css("background-position", "0px -544px");
 		drag = $('#1').draggable({

@@ -1,3 +1,6 @@
+body{
+	background-color: #F26466;
+}
 #contentContainer{
 	background-image: url('../images/ie/back.png');
 	width: 936px;
@@ -6,7 +9,6 @@
 	margin: 0 auto;
 }
 #buttons{
-	background-color: green;
 	width: 207px;
 	height: 59px;
 	position: absolute;

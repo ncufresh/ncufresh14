@@ -3,7 +3,7 @@ var deleteArticleUrl;
 var updateArticleUrl;
 var articleListUrl;
 var burl = '';
-
+var uploadURL = '';
 $(function(){
 
 	burl = getTransferData('burl');
@@ -19,6 +19,8 @@ $(function(){
 	updateArticleUrl = $("#updateArticle").attr("direct");
 
 	articleListUrl = $("#articleList").attr("direct");
+
+	uploadURL = $("#imageURL").attr("direct");
 
 	var articleTitle = $("#articleTitle").attr("articleTitle");
 
@@ -101,15 +103,23 @@ $(function(){
 
 		var originHeight = target.css("height");
 
+		var type = $("#articleType").attr("articleType");
+
 		target.empty();
 
-		target.append("<button type='button' class='btn btn-default btn-sm delBtn'>刪除貼文</button>");
+		if(type == 'P'){
+			target.append("<button type='button' class='btn btn-default btn-sm delBtn'>刪除貼文</button>");
+		}
 
-		target.append("<textarea class='form-control editArea'>"+originText.replace(/<br>/g,'')+"</textarea>");
+		target.append("<textarea class='form-control editArea' id='editArea'>"+originText.replace(/<br>/g,'')+"</textarea>");
 
 		target.append("<button type='button' class='btn btn-primary btn-sm saveBtn'>儲存編輯</button>");
 
 		target.append("<button type='button' class='btn btn-default btn-sm canBtn'>取消</button>");
+
+		if(type == 'D' || type == 'C'){
+			CKEDITOR.replace('editArea', {filebrowserImageUploadUrl : uploadURL});
+		}
 
 		$(".editArea").css("height",originHeight);
 
@@ -149,7 +159,12 @@ $(function(){
 
 		$(".saveBtn").click(function(){
 
-			var newContent = $(document).find(".editArea").val();
+			var newContent = '';
+			if(type == 'D' || type == 'C'){
+				newContent = CKEDITOR.instances.editArea.getData();
+			}else{
+				newContent = $(document).find(".editArea").val();
+			}
 
 			if( newContent == ""){
 

@@ -250,7 +250,45 @@ $(function(){
 
 });
 
+function splitContent(articleContent){
+
+	var contnetArray = articleContent.split("<br>");
+
+	var subContent = "<div class='subContent'>"
+						+contnetArray[0]+"<br>"
+						+contnetArray[1]+"<br>"
+						+contnetArray[2]+"<br>"
+						+contnetArray[3]+"<br>"
+						+contnetArray[4]+"<br>"
+						+contnetArray[5]+"<br>"
+						+contnetArray[6]+"<br>"
+						+contnetArray[7]+"<br>"
+						+"</div>";
+
+	return subContent;
+}
+
+function countLines(str){
+	return str.split("<br>").length;
+}
+
 function showArticles(authorName,authorId,createdAt,articleId,title,content,target){
+
+	var multiContent = "";
+
+	if(countLines(content) > 10){
+
+		multiContent = splitContent(content) 
+						+ "<div class='originContent'>"
+							+content
+						+"</div>\
+						<span class='more'><a>觀看全文</a></span>";
+
+	}else{
+
+		multiContent = "<div class='subContent'>"+content+"</div>";
+	}
+
 	$(target).append("\
 		<div class='articleContainer' id='"+articleId+"' >\
 			<div class='postTimeContainer'>\
@@ -265,14 +303,37 @@ function showArticles(authorName,authorId,createdAt,articleId,title,content,targ
 				<div class='personalImageBox' >\
 					<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
 				</div>\
-				<div class='panel-body content'>"+content+"</div>\
+				<div class='panel-body content'>"+multiContent+"</div>\
 				<div class='clear'></div>\
 			</div>\
 		</div>"
 	);
+
+	$(".more").click(function(e){
+		e.preventDefault();
+		$(this).parent().parent().find(".subContent").remove();
+		$(this).parent().parent().find(".originContent").fadeIn("fast");
+		$(this).remove();
+	});
 }
 
 function insertArticle(authorName,authorId,currentTime,articleId,title,content,target){
+
+	var multiContent = "";
+
+	if(countLines(content) > 10){
+
+		multiContent = splitContent(content) 
+						+ "<div class='originContent'>"
+							+content
+						+"</div>\
+						<span class='more'><a>觀看全文</a></span>";
+
+	}else{
+
+		multiContent = "<div class='subContent'>"+content+"</div>";
+	}
+
 	$(target).after("\
 		<div class='articleContainer' id='"+articleId+"' >\
 			<div class='postTimeContainer'>\
@@ -287,11 +348,18 @@ function insertArticle(authorName,authorId,currentTime,articleId,title,content,t
 				<div class='personalImageBox' >\
 					<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
 				</div>\
-				<div class='panel-body content'>"+content+"</div>\
+				<div class='panel-body content'>"+multiContent+"</div>\
 				<div class='clear'></div>\
 			</div>\
 		</div>"
 	);
+
+	$(".more").click(function(e){
+		e.preventDefault();
+		$(this).parent().parent().find(".subContent").remove();
+		$(this).parent().parent().find(".originContent").fadeIn("fast");
+		$(this).remove();
+	});
 }
 
 function getArticles(type,page,target){

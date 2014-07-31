@@ -247,7 +247,7 @@ class ArticlesController extends BaseController{
 
 		if(Auth::check() && $article->author_id == Auth::user()->id && $validation->passes()){
 			
-			if(Entrust::hasRole('Developer')){
+			if(Entrust::hasRole('Developer') || Entrust::can('forum_unit')){
 
 				$article->content = $content;
 

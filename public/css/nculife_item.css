@@ -9,7 +9,7 @@
 	float: left;
 	margin-left: 78px;
 	margin-top: 65px;
-	width: 208px;
+	width: 220px;
 }
 
 #left_top {
@@ -18,7 +18,7 @@
 	position: relative;
 	z-index: 99;
 	background-image: url(../images/nculife/item_img.png);
-	background-position: 0px 0px;
+	background-position: 3px 0px;
 }
 
 #place {
@@ -26,6 +26,7 @@
 	height: 715px;
 	overflow: auto;
 	margin-top: -10px;
+	outline: none;
 }
 
 .place {
@@ -37,15 +38,16 @@
 	padding: 35px;
 	margin-bottom: -15px;
 	background-image: url(../images/nculife/item_img.png);
-	background-position: 0px -96px;
+	background-position: 3px -93px;
 	cursor: pointer;
 }
 
 .place:hover {
 	width: 100%;
 	height: 155px;
-	font-size: 30px;
+	font-size: 25px;
 	font-family: "微軟正黑體";
+	font-weight: bold;
 	text-align: center;
 	padding: 35px;
 	margin-bottom: -15px;
@@ -64,7 +66,7 @@
 	margin-top: -15px;
 	position: relative;
 	background-image: url(../images/nculife/item_img.png);
-	background-position: 0px -448px;
+	background-position: 3px -448px;
 }
 
 #right {
@@ -91,6 +93,7 @@
 	margin-top: 2px;
 	margin-left: 10px;
 	overflow: auto;
+	outline: none;
 }
 
 #introductionbox2 {
@@ -110,7 +113,7 @@
 	width: 100%;
 	height: 50px;
 	position: relative;
-	top: 360px;
+	top: 349px;
 	left: 55px;
 	z-index: 999;
 }
@@ -139,14 +142,10 @@
 }
 
 .img {
-	width: 585px;
-	height: 440px;
-	margin-top: 15px;
-	margin-left: 0px;
-}
-
-.imgMask {
-	-webkit-mask-image: url(../images/nculife/photomask.png);
+	width: 550px;
+	height: 411px;
+	margin-top: 45px;
+	margin-left: 43px;
 }
 
 #containment {
@@ -172,6 +171,22 @@
 	cursor: pointer;
 	background-image: url(../images/nculife/item_img.png);
 	background-position: 0px -544px;
+}
+
+.jspVerticalBar {
+	opacity: 0;
+	-o-transition: opacity 1s linear;
+    -webkit-transition: opacity 1s linear;
+    -moz-transition: opacity 1s linear;
+    transition:  opacity 1s linear;
+}
+
+.jspVerticalBar:hover {
+	opacity: 1;
+	-o-transition: opacity 1s linear;
+    -webkit-transition: opacity 1s linear;
+    -moz-transition: opacity 1s linear;
+    transition:  opacity 1s linear;
 }
 
 img.ui-state-disabled.ui-draggable-disabled { opacity : 1;}

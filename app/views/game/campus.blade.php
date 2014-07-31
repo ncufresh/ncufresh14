@@ -8,7 +8,7 @@
 
 @section('game_content')
 	<div id="gameCampusContainer">	
-		<div id="gameCampusInfo">我是說明!
+		<div id="gameCampusInfo">
 			<div id="gameCampusInfoExit"></div>
 		</div>
 
@@ -21,7 +21,12 @@
 		<div id="gameCampusMap">
 			<div id="gameCampusGameBox" action="{{ URL::to('game/campus/check') }}">
 				<img id="gameCampusMapBack" src="{{ asset('images/SchoolGuide/Buttom.png') }}">
-				<div class="gameCampusType" id="gameCampusType0">系館
+				<div id="gameCampusLifeBox">
+					<div class="gameCampusLife"></div>
+					<div class="gameCampusLife"></div>
+					<div class="gameCampusLife"></div>
+				</div>
+				<div class="gameCampusType" id="gameCampusType0"><!--系館-->
 					<div class="gameCampusBuilding" id="science_5" index="0"></div>
 					<div class="gameCampusBuilding" id="literary" index="1"></div>
 					<div class="gameCampusBuilding" id="engineer_1" index="2"></div>
@@ -39,7 +44,7 @@
 					<div class="gameCampusBuilding" id="Hakkas" index="14"></div>
 					<div class="gameCampusBuilding" id="electric" index="15"></div>
 				</div>
-				<div class="gameCampusType" id="gameCampusType1">行政
+				<div class="gameCampusType" id="gameCampusType1"><!--行政-->
 					<div class="gameCampusBuilding" id="Zhidao" index="0"></div>
 					<div class="gameCampusBuilding" id="art" index="1"></div>
 					<div class="gameCampusBuilding" id="building" index="2"></div>
@@ -53,7 +58,7 @@
 					<div class="gameCampusBuilding" id="outerspace" index="10"></div>
 					<div class="gameCampusBuilding" id="ncu" index="11"></div>
 				</div>
-				<div class="gameCampusType" id="gameCampusType2">中大十景
+				<div class="gameCampusType" id="gameCampusType2"><!--中大十景-->
 					<div class="gameCampusBuilding" id="G14_ground" index="0"></div>
 					<div class="gameCampusBuilding" id="door" index="1"></div>
 					<div class="gameCampusBuilding" id="monument" index="2"></div>
@@ -63,7 +68,7 @@
 					<div class="gameCampusBuilding" id="lake" index="6"></div>
 					<div class="gameCampusBuilding" id="flower" index="7"></div>
 				</div>
-				<div class="gameCampusType" id="gameCampusType3">運動
+				<div class="gameCampusType" id="gameCampusType3"><!--運動-->
 					<div class="gameCampusBuilding" id="gym" index="0"></div>
 					<div class="gameCampusBuilding" id="basketball" index="1"></div>
 					<div class="gameCampusBuilding" id="playground" index="2"></div>
@@ -73,10 +78,10 @@
 					<div class="gameCampusBuilding" id="valley" index="6"></div>
 					<div class="gameCampusBuilding" id="badminton" index="7"></div>
 				</div>
-				<div class="gameCampusType" id="gameCampusType4">飲食
+				<div class="gameCampusType" id="gameCampusType4"><!--飲食-->
 					<div class="gameCampusBuilding" id="wood" index="0"></div>
 				</div>
-				<div class="gameCampusType" id="gameCampusType5">住宿
+				<div class="gameCampusType" id="gameCampusType5"><!--住宿-->
 					<div class="gameCampusBuilding" id="B11" index="0"></div>
 					<div class="gameCampusBuilding" id="B7" index="1"></div>
 					<div class="gameCampusBuilding" id="B6" index="2"></div>

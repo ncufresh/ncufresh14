@@ -24,7 +24,21 @@
 			<img class="character" src="{{asset("images/gameShop/" . $EquipItem[2]["picture"] )}}" id="characterBody" alt="body" itemId="{{$EquipItem[2]["id"]}}"/>
 			<img class="character" src="{{asset("images/gameShop/" . $EquipItem[3]["picture"] )}}" id="characterFoot" alt="foot" itemId="{{$EquipItem[3]["id"]}}"/>
 			<img class="character" src="{{asset("images/gameShop/" . $EquipItem[4]["picture"] )}}" id="characterItem" alt="item" itemId="{{$EquipItem[4]["id"]}}"/>
-			<img class="character" alt="" src="{{asset("images/gameShop/" . $EquipItem[5]["picture"] )}}" id="characterMap"  alt="map"  itemId="{{$EquipItem[5]["id"]}}"/>
+			<img class="character" src="{{asset("images/gameShop/" . $EquipItem[5]["picture"] )}}" id="characterMap"  alt="map"  itemId="{{$EquipItem[5]["id"]}}"/>
+			@foreach( $hadBuyItems as $buyItem )
+				<?php $isBuy = false; ?>
+				@if ( $buyItem["item_id"] == $special["id"])
+					<?php
+						$isBuy = true; 
+						break;
+					?>
+				@endif
+			@endforeach
+			@if ( $isBuy == true )
+				<img class="character" src="{{asset("images/gameShop/special/real-special.png" )}}" id="characterSpecial"  alt="special"  itemId="{{$special["id"]}}"/>
+			@else
+				<img class="character" src="{{asset("images/gameShop/special/special.png" )}}" id="characterSpecial"  alt="special"  itemId="{{$special["id"]}}"/>
+			@endif
 			<div id="characterEquipButton" action="{{ URL::to('game/shop/equip') }}"></div>
 			<div id="characterReturnButton"></div>
 		</div>
@@ -38,29 +52,51 @@
 				<div class="gameShopTypeButton" id="gameShopTypeMap" action="{{ URL::to('game/shop/type') }}"></div>
 			</div>
 			<div id="gameShopItems" action="{{ URL::to('game/shop/buy') }}">
-				@foreach( $shop as $item )
-					@if ( $EquipItem[0]["id"] == $item["id"] )
-						<div class="gameShopItem gameShopItemSelect">
-					@else
-						<div class="gameShopItem">
-					@endif
-						<img class="gameShopItemImage" src="{{asset("images/gameShop/" . $item["picture"] )}}" itemId="{{$item["id"]}}"/>
-						<div class="gameShopItemText">{{ $item["costgp"] }}</div>
-						@foreach( $hadBuyItems as $buyItem )
-							<?php $isBuy = false; ?>
-							@if ( $buyItem["item_id"] == $item["id"])
-								<?php
-									$isBuy = true; 
-									break;
-								?>
-							@endif
-						@endforeach
-						@if ( $isBuy == true )
-							<div class="gameShopItemBuyButton itemHadBuy" item="{{$item["id"]}}"></div>
-						@else
-							<div class="gameShopItemBuyButton" item="{{$item["id"]}}"></div>
+				<!--special-->
+				<div class="gameShopItemSpecial">
+					<img id="gameShopItemImageSpecial" src="{{asset("images/gameShop/special/half.png" )}}" itemId="{{$special["id"]}}"/>
+					<div class="gameShopItemText">{{$special["costgp"]}}</div>
+					@foreach( $hadBuyItems as $buyItem )
+						<?php $isBuy = false; ?>
+						@if ( $buyItem["item_id"] == $special["id"])
+							<?php
+								$isBuy = true; 
+								break;
+							?>
 						@endif
-					</div>
+					@endforeach
+					@if ( $isBuy == true )
+						<div class="gameShopItemBuyButtonSpecial itemHadBuy" item="{{$special["id"]}}"></div>
+					@else
+						<div class="gameShopItemBuyButtonSpecial" item="{{$special["id"]}}"></div>
+					@endif
+				</div>
+
+				@foreach( $shop as $item )
+					@if ( $item["id"] != $special["id"] )
+						@if ( $EquipItem[0]["id"] == $item["id"] )
+							<div class="gameShopItem gameShopItemSelect">
+						@else
+							<div class="gameShopItem">
+						@endif
+								<img class="gameShopItemImage" src="{{asset("images/gameShop/" . $item["picture"] )}}" itemId="{{$item["id"]}}"/>
+								<div class="gameShopItemText">{{ $item["costgp"] }}</div>
+								@foreach( $hadBuyItems as $buyItem )
+									<?php $isBuy = false; ?>
+									@if ( $buyItem["item_id"] == $item["id"])
+										<?php
+											$isBuy = true; 
+											break;
+										?>
+									@endif
+								@endforeach
+								@if ( $isBuy == true )
+									<div class="gameShopItemBuyButton itemHadBuy" item="{{$item["id"]}}"></div>
+								@else
+									<div class="gameShopItemBuyButton" item="{{$item["id"]}}"></div>
+								@endif
+							</div>
+					@endif
 				@endforeach
 			</div>
 		</div>

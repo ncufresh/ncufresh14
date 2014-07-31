@@ -705,7 +705,7 @@ $(document).ready(function(){
 
 	$(window).scroll(function() {
 		console.log($(this).scrollTop());
-		console.log($('#bigcontent').height());
+		console.log($(document).height());
         if ( $(this).scrollTop() < 439 ){
             $('#fixMap').css({
 				position: "absolute",
@@ -713,7 +713,7 @@ $(document).ready(function(){
             });
             $('#fixmapLine').hide();
         }
-        else if ( $(document).height() - 715 > 439 && $(this).scrollTop() > $(document).height() - 715 ) {
+        else if ( $(document).height() > 715  && $(this).scrollTop() > $(document).height() - 715 ) {
         	$('#fixMap').css({
 				position: "absolute",
                 top: $('#bigcontent').height() - 680 + 'px'

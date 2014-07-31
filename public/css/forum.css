@@ -42,9 +42,6 @@
 	border-radius: 5px;
 	margin-bottom: 10px;
 }
-.arrow{
-	text-align: center;
-}
 .panel-title{
 	font-size: 25px;
 	color: #FFFFFF;
@@ -63,10 +60,6 @@
 }
 .responseContainer{
 	display:none;
-}
-.moreBox{
-	position: relative;
-	top: 22px;
 }
 .articleBody{
 	margin-bottom: 10px;
@@ -221,7 +214,15 @@ textarea.commentTextArea{
 .pager li>a:hover{
 	cursor: pointer;
 }
-
-
+.originContent{
+	display: none;
+}
+.more{
+	position: relative;
+	left: 92%;
+}
+.more:hover{
+	cursor: pointer;
+}
 
 
