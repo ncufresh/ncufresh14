@@ -18,6 +18,7 @@ var pageLocation = 1;
 var burl = '';
 var initType = '';
 var initPage ='';
+var initTab ='#Test1';
 
 $(function(){
 
@@ -38,27 +39,27 @@ $(function(){
 	initType = $("#initType").attr("direct");
 	initPage = $("#initPage").attr("direct");
 
-	getArticles(initType,initPage,"#Test1");
 
-	switch(initType){
-		case "new":
-			$("#articleTab").parent().addClass("active");
-			break;
-		case "pop":
-			$("#articleTab").parent().addClass("active");
-			break;
-		case "department":
-			$("#departmentTab").parent().addClass("active");
-			break;
-		case "club":
-			$("#clubTab").parent().addClass("active");
-			break;
+	if(initType =="new"){
+		$("#articleTab").parent().addClass("active");
+		initTab = "#Test1";
+	}else if(initType =="pop"){
+		$("#articleTab").parent().addClass("active");
+		initTab = "#Test1";
+	}else if(initType =="department"){
+		$("#departmentTab").parent().addClass("active");
+		initTab = "#Test2";
+	}else if(initType =="club"){
+		$("#clubTab").parent().addClass("active");
+		initTab = "#Test3";
 	}
+	$(initTab).css('display','block');
+	getArticles(initType,initPage,initTab);
 
 	$("#articleTab").click(function(e){
 
 		e.preventDefault();
-
+		$("#Test1").css('display','block');
 		tabLocation = "new";
 		pageLocation = 1;
 
@@ -66,13 +67,16 @@ $(function(){
 
 		getArticles(tabLocation,pageLocation,"#Test1");
 		
-	
+		
 		$("#Test2 .articleContainer").each(function(){
 			$(this).remove();
 		});
+		$("#Test2").css('display','none');
 		$("#Test3 .articleContainer").each(function(){
 			$(this).remove();
 		});
+
+		$("#Test3").css('display','none');
 
 		$(this).tab('show');
 	});
@@ -94,6 +98,10 @@ $(function(){
 
 	$("#clubTab").click(function(e){
 		if(tabLocation != "club"){
+			$("#Test3").css('display','block');
+			$("#Test3 .articleContainer").each(function(){
+				$(this).remove();
+			});
 
 			tabLocation = "club";
 			pageLocation = 1;
@@ -104,12 +112,20 @@ $(function(){
 			$("#Test2 .articleContainer").each(function(){
 				$(this).remove();
 			});
+
+			$("#Test1").css('display','none');
+
+			$("#Test2").css('display','none');
 			getArticles(tabLocation,pageLocation,"#Test3");
 		}
 	});
 
 	$("#departmentTab").click(function(e){
 		if(tabLocation != "department"){
+			$("#Test2").css('display','block');
+			$("#Test2 .articleContainer").each(function(){
+				$(this).remove();
+			});
 			tabLocation = "department";
 			pageLocation = 1;
 			e.preventDefault();
@@ -117,6 +133,8 @@ $(function(){
 			$("#Test3 .articleContainer").each(function(){
 				$(this).remove();
 			});
+			$("#Test1").css('display','none');
+			$("#Test3").css('display','none');
 			getArticles(tabLocation,pageLocation,"#Test2");
 		}
 	});
