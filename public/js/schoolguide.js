@@ -117,11 +117,11 @@ $(document).ready(function(){
 		$('#siteMapContainer').children().last().remove();
 		$.pushLocation(changeChinese[data[0]['categories']], '/SchoolGuide/'+change[data[0]['categories']]);
 
-		for(var i=0; i<count; i++){
-			var id=data[i]['id'];
+		for(var i=0; i<count-1; i++){
 			var name =data[i]['name'];
 			var id=data[i]['id'];
 			var category = data[i]['categories'];
+		
 			$("<li class='left_item'>"+name+"</li>").appendTo("#leftlist").data('place_id', id);
 
 			if(category==1){

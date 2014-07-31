@@ -224,3 +224,9 @@ li{
 	margin: 10px;
 
 }
+canvas{
+   z-index: 20;
+   position: fixed;
+   left: 0;
+   top: 0;
+}
