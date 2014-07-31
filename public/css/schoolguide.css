@@ -62,7 +62,7 @@ html, body {
     left: 133px;
     top:59px;
     z-index: 0;
-     background-position:0px -895px;
+     background-position:0px 0px;
      background-image:url('../images/SchoolGuide/RhowChain.png');
 }
 
@@ -83,7 +83,7 @@ html, body {
     height: 459px;
     width: 669px;
     z-index: 1; 
-    background-position:-1568px -412px;
+    background-position:-864px 0px;
    background-image:url('../images/SchoolGuide/RhowChain.png');
 }
 
@@ -92,9 +92,9 @@ html, body {
     left: 10px;
     top: 0px;
     z-index: 1;
-    background-position:-928px -983px;
+    background-position:-864px -512px;
     background-image:url('../images/SchoolGuide/RhowChain.png');
-    width: 637px;
+    width: 644px;
     height: 75px;
 }
 .one{
@@ -106,18 +106,19 @@ html, body {
 
 }
 .board{
-     position: relative;
-     left: -21px;
-     top: 118px;
-     z-index: 2;
-     margin-top: -49px;
-      background-position:-735px -96px;
+    position: relative;
+    left: -21px;
+    top: 118px;
+    z-index: 2;
+    margin-top: -49px;
+    background-position:-735px -96px;
 
 }
 .left_item{
     cursor: pointer;
     list-style-type: none;
-    background-image:url('../images/board.png') ;
+    background-position:-1536px -0px;
+    background-image:url('../images/SchoolGuide/RhowChain.png');
     position: relative;
     left: -21px;
     top: 62px;
@@ -143,7 +144,7 @@ html, body {
 .left_item:hover{
     cursor: pointer;
     list-style-type: none;
-    background-image:url('../images/board-p.png') ;
+    background-position:-1536px -96px;
     position: relative;
     left: -21px;
     top: 62px;
@@ -176,7 +177,7 @@ html, body {
     top: -112px;
     left: 666px;
     width: 100px;
-    background-position:-960px -727px;
+    background-position:-1536px -192px;
     background-image:url('../images/SchoolGuide/RhowChain.png');
 }
 #Zhidao{
@@ -184,7 +185,12 @@ html, body {
     top:335px;
     left: 338px;
     z-index: 2;
-    background-position: -799px -737px;
+    background-position: -0px -640px;
+    width: 49px;
+    height: 49px;
+}
+#Zhidao:hover{
+    background-position: -64px -640px;
 }
 
 #G14{
@@ -192,15 +198,29 @@ html, body {
     top:356px;
     left: 296px;
     z-index: 2;
-     background-position:-608px -290px;
-
+    background-position:-128px -640px;
+    width: 58px;
+    height: 38px;
 }
+
+#G14:hover{
+    z-index: 2;
+    background-position:-192px -640px;
+}
+
 #G14-ground{
     position: absolute;
     top:372px;
     left: 350px;
     z-index: 2;
-     background-position:-511px -291px;
+    background-position:-256px -640px;
+    width: 25px;
+    height: 21px;
+}
+
+#G14-ground:hover{
+    z-index: 2;
+    background-position:-320px -640px;
 }
 
 #B11{
@@ -208,8 +228,14 @@ html, body {
     top:383px;
     left: 280px;
     z-index: 2;
-     background-position:-384px -1px;
+    background-position:-384px -640px;
+    width: 64px;
+    height: 33px;
+}
 
+#B11:hover{
+    z-index: 2;
+    background-position:-448px -640px;
 }
 
 #B7{
@@ -217,16 +243,28 @@ html, body {
     top:395px;
     left: 259px;
     z-index: 2;
-     background-position:-1152px -2px;
-
+    background-position:-512px -640px;
+    width: 57px;
+    height: 50px;
 }
+
+#B7:hover{
+    z-index: 2;
+    background-position:-576px -640px;
+}
+
 #B6{
     position: absolute;
     top:415px;
     left: 271px;
     z-index: 2;
-     background-position:-1024px -1px;
-
+    background-position:-640px -640px;
+    width: 44px;
+    height: 36px;
+}
+#B6:hover{
+    z-index: 2;
+    background-position:-704px -640px;
 }
 
 #art{
@@ -234,49 +272,89 @@ html, body {
     top:426px;
     left: 286px;
     z-index: 2;
-    background-position:-225px -2px;
-
+    background-position:-768px -640px;
+    width: 71px;
+    height: 52px;
 }
+
+#art:hover{
+    z-index: 2;
+    background-position:-864px -640px;
+}
+
 #building{
     position: absolute;
     top:453px;
     left: 304px;
     z-index: 2;
-     background-position:-992px -98px;
-
+    background-position:-960px -640px;
+    width: 84px;
+    height: 38px;
 }
+
+#building:hover{
+    z-index: 2;
+    background-position:-1056px -640px;
+}
+
 #B13{
     position: absolute;
     top:462px;
     left: 280px;
     z-index: 3;
-     background-position:-640px -2px;
-
+    background-position:-1152px -640px;
+    width: 57px;
+    height: 56px;
 }
+
+#B13:hover{
+    z-index: 3;
+    background-position:-1216px -640px;
+}
+
 #schoolh{
     position: absolute;
     top:446px;
     left: 374px;
     z-index: 2;
-    background-position:-1022px -514px;
-
+    background-position:-1280px -640px;
+    width: 70px;
+    height: 35px;
 }
+
+#schoolh:hover{
+    z-index: 2;
+    background-position:-1376px -640px;
+}
+
 #door{
     position: absolute;
     top:550px;
     left: 384px;
     z-index: 2;
-     background-position:-64px -194px;
-
+    background-position:-1472px -640px;
+    width: 44px;
+    height: 24px;
 }
+#door:hover{
+    z-index: 2;
+    background-position:-1536px -640px;
+}
+
 
 #monument{
     position: absolute;
     top:435px;
     left: 441px;
     z-index: 2;
-    background-position:-225px -480px;
+    background-position:-1600px -640px;
+    width: 24px;
+    height: 54px;
+}
 
+#monument:hover{
+    z-index: 2;
+    background-position:-1664px -640px;
 }
 
 #B5{
@@ -284,8 +362,14 @@ html, body {
     top:385px;
     left: 341px;
     z-index: 3;
-     background-position:-896px -2px;
+    background-position:-0px -768px;
+    width: 65px;
+    height: 51px;
+}
 
+#B5:hover{
+    z-index: 3;
+    background-position:-96px -768px;
 }
 
 #International{
@@ -293,8 +377,14 @@ html, body {
     top:351px;
     left: 376px;
     z-index:2;
-    background-position:-288px -386px;
+    background-position:-192px -768px;
+    width: 66px;
+    height: 63px;
+}
 
+#International:hover{
+    z-index:2;
+    background-position:-288px -768px;
 }
 
 #B3{
@@ -302,7 +392,14 @@ html, body {
     top:307px;
     left: 374px;
     z-index: 2;
-    background-position:-768px -2px;
+    background-position:-384px -768px;
+    width: 40px;
+    height: 41px;
+}
+
+#B3:hover{
+    z-index: 2;
+    background-position:-480px -768px;
 }
 
 #science-1{
@@ -310,23 +407,44 @@ html, body {
     top:378px;
     left: 409px;
     z-index: 3;
-    background-position:-1210px -483px;
-
+    background-position:-576px -768px;
+    width: 82px;
+    height: 76px;
 }
+
+#science-1:hover{
+    z-index: 3;
+    background-position:-672px -768px;
+}
+
 #administration{
     position: absolute;
     top:431px;
     left: 479px;
     z-index: 3;
-    background-position:-64px -2px;
+    background-position:-768px -768px;
+    width: 58px;
+    height: 45px;
 }
+
+#administration:hover{
+    z-index: 3;
+    background-position:-864px -768px;
+}
+
 #library{
     position: absolute;
     top:384px;
     left: 505px;
     z-index: 3;
-    background-position:-480px -386px;
+    background-position:-960px -768px;
+    width: 63px;
+    height: 65px;
+}
 
+#library:hover{
+    z-index: 3;
+    background-position:-1056px -768px;
 }
 
 #tree{
@@ -334,23 +452,44 @@ html, body {
     top:367px;
     left: 480px;
     z-index: 2;
-    background-position:-543px -740px;
-
+    background-position:-1152px -768px;
+    width: 37px;
+    height: 28px;
 }
+
+#tree:hover{
+    z-index: 2;
+    background-position:-1248px -768px;
+}
+
 #oldlibrary{
     position: absolute;
     top:370px;
     left: 531px;
     z-index: 2;
-    background-position:-93px -578px;
+    background-position:-1344px -768px;
+    width: 64px;
+    height: 53px;
 }
+
+#oldlibrary:hover{
+    z-index: 2;
+    background-position:-1440px -768px;
+}
+
 #tai{
     position: absolute;
     top:411px;
     left: 612px;
     z-index: 2;
-    background-position:-359px -739px;
+    background-position:-1536px -768px;
+    width: 29px;
+    height: 27px;
+}
 
+#tai:hover{
+    z-index: 2;
+    background-position:-1632px -768px;
 }
 
 #blackbox{
@@ -358,8 +497,14 @@ html, body {
     top:443px;
     left: 542px;
     z-index: 3;
-     background-position:-480px -98px;
+    background-position:-0px -896px;
+    width: 84px;
+    height: 56px;
+}
 
+#blackbox:hover{
+    z-index: 3;
+    background-position:-96px -896px;
 }
 
 #literary{
@@ -367,228 +512,439 @@ html, body {
     top:419px;
     left: 561px;
     z-index: 2  ;
-    background-position:-640px -386px;
-
+    background-position:-192px -896px;
+    width: 81px;
+    height: 64px;
 }
+
+#literary:hover{
+    z-index: 2  ;
+    background-position:-288px -896px;
+}
+
 #engineer-1{
     position: absolute;
     top:304px;
     left: 486px;
     z-index: 2;
-     background-position:-448px -194px;
-
+    background-position:-384px -896px;
+    width: 99px;
+    height: 65px;
 }
+
+#engineer-1:hover{
+    z-index: 2;
+    background-position:-576px -896px;
+}
+
 #engineer-2{
     position: absolute;
     top:266px;
     left: 530px;
     z-index: 2;
-     background-position:-672px -194px;
-
+    background-position:-768px -896px;
+    width: 89px;
+    height: 67px;
 }
+
+#engineer-2:hover{
+    z-index: 2;
+    background-position:-864px -896px;
+}
+
 #G-1-4{
     position: absolute;
     top:260px;
     left: 458px;
     z-index: 2;
-     background-position:-416px -290px;
-
+    background-position:-960px -896px;
+    width: 66px;
+    height: 65px;
 }
+
+#G-1-4:hover{
+    z-index: 2;
+    background-position:-1056px -896px;
+}
+
 #G5{ 
      position: absolute;
     top:260px;
     left: 458px;
     z-index: 2;
-     background-position:-704px -290px;
+    background-position:-1152px -896px;
+    width: 30px;
+    height: 31px;
 }
+
+#G5:hover{
+    z-index: 2;
+    background-position:-1248px -896px;
+}
+
 #engineer-3{
     position: absolute;
     top:196px;
     left: 645px;
     z-index: 2;
-     background-position:-895px -193px;
-
+    background-position:-1344px -896px;
+    width: 85px;
+    height: 40px;
 }
+
+#engineer-3:hover{
+    z-index: 2;
+    background-position:-1440px -896px;
+}
+
 #engineer-4{
     position: absolute;
     top:166px;
     left: 710px;
     z-index: 5;
-     background-position:-1088px -194px;
-
+    background-position:-1536px -896px;
+    width: 71px;
+    height: 50px;
 }
+
+#engineer-4:hover{
+    z-index: 5;
+    background-position:-1632px -896px;
+}
+
 #engineer-5{
     position: absolute;
     top:141px;
     left: 624px;
     z-index: 3;
-     background-position:-128px -289px; 
-
+    background-position:-0px -1024px;
+    width: 110px;
+    height: 46px;
 }
+
+#engineer-5:hover{
+    z-index: 3;
+    background-position:-192px -1024px;
+}
+
 #park{
     position: absolute;
     top:249px;
     left: 564px;
     z-index: 2;
-    background-position:-608px -481px;
-
+    background-position:-384px -1024px;
+    width: 40px;
+    height: 24px;
 }
+
+#park:hover{
+    z-index: 2;
+    background-position:-480px -1024px;
+}
+
 #gym{
     position: absolute;
     top:259px;
     left: 645px;
     z-index: 2;
-    background-position:-1021px -289px;
-
+    background-position:-576px -1024px;
+    width: 80px;
+    height: 51px;
 }
+
+#gym:hover{
+    z-index: 2;
+    background-position:-672px -1024px;
+    width: 79px;
+    height: 51px;
+}
+
 #basketball{
     position: absolute;
     top:259px;
     left: 767px;
     z-index: 3;
-     background-position:-352px -98px;
-
+    background-position:-768px -1024px;
+    width: 23px;
+    height: 23px;
 }
+
+#basketball:hover{
+    z-index: 3;
+    background-position:-864px -1024px;
+}
+
 #playground{
     position: absolute;
     top:240px;
     left: 648px;
     z-index: 2;
-    background-position:-802px -571px;
-
+    background-position:-960px -1024px;
+    width: 106px;
+    height: 40px;
 }
+
+#playground:hover{
+    z-index: 2;
+    background-position:-1152px -1024px;
+}
+
 #rock{
     position: absolute;
     top:255px;
     left: 748px;
     z-index: 3;
-    background-position:-224px -579px;
-
+    background-position:-1344px -1024px;
+    width: 21px;
+    height: 23px;
 }
+
+#rock:hover{
+    z-index: 3;
+    background-position:-1440px -1024px;
+}
+
 #swimpool{
     position: absolute;
     top:242px;
     left: 811px;
     z-index: 3;
-    background-position:-159px -738px;
+    background-position:-1536px -1024px;
+    width: 69px;
+    height: 48px;
 }
+
+#swimpool:hover{
+    z-index: 3;
+    background-position:-1632px -1024px;
+}
+
 #skate{
     position: absolute;
     top:296px;
     left: 734px;
     z-index: 3;
-    background-position:-32px -736px;
-
+    background-position:-0px -1152px;
+    width: 27px;
+    height: 27px;
 }
+
+#skate:hover{
+    z-index: 3;
+    background-position:-96px -1152px;
+}
+
 #valley{
     position: absolute;
     top:270px;
     left: 622px;
     z-index: 3;
-    background-position:-640px -739px;
-
+    background-position:-192px -1152px;
+    width: 19px;
+    height: 19px;
 }
+
+#valley:hover{
+    z-index: 3;
+    background-position:-288px -1152px;
+}
+
 #badminton{
     position: absolute;
     top:292px;
     left: 716px;
     z-index: 3;
-     background-position:-298px -109.5px;
-
+    background-position:-384px -1152px;
+    width: 24px;
+    height: 27px;
 }
+
+#badminton:hover{
+    z-index: 3;
+    background-position:-480px -1152px;
+}
+
 #wood{
     position: absolute;
     top:426px;
     left: 681px;
     z-index: 3;
-    background-position:-417px -739px;
-
+    background-position:-576px -1152px;
+    width: 29px;
+    height: 22px;
 }
+
+#wood:hover{
+    z-index: 3;
+    background-position:-672px -1152px;
+}
+
 #science-2{
     position: absolute;
     top:320px;
     left: 716px;
     z-index: 3;
-    background-position:-320px -577px;
-
+    background-position:-768px -1152px;
+    width: 60px;
+    height: 85px;
 }
+
+#science-2:hover{
+    z-index: 3;
+    background-position:-864px -1152px;
+}
+
 #science-3{
     position: absolute;
     top:360px;
     left: 766px;
     z-index: 3;
-    background-position:-479px -578px;  
-
+    background-position:-960px -1152px;
+    width: 66px;
+    height: 61px;
 }
+
+#science-3:hover{
+    z-index: 3;
+    background-position:-1056px -1152px;
+}
+
 #mbuilding{
     position: absolute;
     top:381px;
     left: 706px;
     z-index: 3;
-    background-position:-97px -479px;
-
+    background-position:-1152px -1152px;
+    width: 70px;
+    height: 56px;
 }
+
+#mbuilding:hover{
+    z-index: 3;
+    background-position:-1248px -1152px;
+}
+
 #math{
     position: absolute;
     top:401px;
     left: 766px;
     z-index: 3;
-    background-position:-1153px -386px;
-
+    background-position:-1344px -1152px;
+    width: 51px;
+    height: 49px;
 }
+
+#math:hover{
+    z-index: 3;
+    background-position:-1440px -1152px;
+}
+
 #management-1{
     position: absolute;
     top:426px;
     left: 681px;
     z-index: 3;
-    background-position:-832px -384px;
-
+    background-position:-1536px -1152px;
+    width: 64px;
+    height: 75px;
 }
+
+#management-1:hover{
+    z-index: 3;
+    background-position:-1632px -1152px;
+}
+
 #management-2{
     position: absolute;
     top:440px;
     left: 765px;
     z-index: 3;
-    background-position:-992px -385px;
-
+    background-position:-0px -1280px;
+    width: 94px;
+    height: 54px;
 }
+
+#management-2:hover{
+    position: absolute;
+    top:440px;
+    left: 765px;
+    z-index: 3;
+    background-position:-96px -1280px;
+}
+
 #clibrary{
     position: absolute;
     top:446px;
     left: 641px;
     z-index: 3;
-     background-position:-1152px -97px;
-
+    background-position:-192px -1280px;
+    width: 43px;
+    height: 48px;
 }
+
+#clibrary:hover{
+    z-index: 3;
+    background-position:-288px -1280px;
+}
+
 #Graduate{
     position: absolute;
     top:464px;
     left: 721px;
     z-index: 3;
-    background-position:-832px -290px;
+    background-position:-384px -1280px;
+    width: 94px;
+    height: 57px;
 }
+
+#Graduate:hover{
+    z-index: 3;
+    background-position:-480px -1280px;
+}
+
 #Hakkas{
     position: absolute;
     top:279px;
     left: 852px;
     z-index: 2;
-    background-position:-93px -386px;
-
+    background-position:-576px -1280px;
+    width: 75px;
+    height: 54px;
 }
+
+#Hakkas:hover{
+    z-index: 2;
+    background-position:-672px -1280px;
+}
+
 #electric{
     position: absolute;
     top:272px;
     left: 786px;
     z-index: 3;
-     background-position:-224px -194px;
-
+    background-position:-768px -1280px;
+    width: 77px;
+    height: 60px;
 }
+
+#electric:hover{
+    z-index: 3;
+    background-position:-864px -1280px;
+}
+
 #outerspace{
     position: absolute;
     top:123px;
     left: 624px;
     z-index: 2;
-    background-position:-476px -482px;
+    background-position:-960px -1280px;
+    width: 47px;
+    height: 67px;
+}
+
+#outerspace:hover{
+    z-index: 2;
+    background-position:-1056px -1280px;
 }
 
 #flower{
@@ -596,7 +952,14 @@ html, body {
     top:405px;
     left: 652px;
     z-index: 3;
-     background-position:-287px -291px;
+    background-position:-1152px -1280px;
+    width: 23px;
+    height: 21px;
+}
+
+#flower:hover{
+    z-index: 3;
+    background-position:-1248px -1280px;
 }
 
 #ncu{
@@ -604,15 +967,29 @@ html, body {
     top:505px;
     left: 681px;
     z-index: 3;
-    background-position:-320px -481px;
+    background-position:-1344px -1280px;
+    width: 54px;
+    height: 51px;
 }
+
+#ncu:hover{
+    z-index: 3;
+    background-position:-1440px -1280px;
+}
+
 #B9{
     position: absolute;
     top:553px;
     left: 635px;
     z-index: 3;
-     background-position:-128px -98px;
+    background-position:-0px -1408px;
+    width: 103px;
+    height: 43px;
+}
 
+#B9:hover{
+    z-index: 3;
+    background-position:-96px -1408px;
 }
 
 #science-4{
@@ -620,46 +997,87 @@ html, body {
     top:362px;
     left: 845px;
     z-index: 3;
-    background-position:-636px -577px;
-
+    background-position:-1536px -1280px;
+    width: 75px;
+    height: 75px;
 }
+
+#science-4:hover{
+    z-index: 3;
+    background-position:-1632px -1280px;
+}
+
 #science-5{
     position: absolute;
     top:416px;
     left: 823px;
     z-index: 3;
-    background-position:-831px -577px;
-
+    background-position:-384px -1408px;
+    width: 73px;
+    height: 81px;
 }
+
+#science-5:hover{
+    z-index: 3;
+    background-position:-480px -1408px;
+}
+
 #lake{
     position: absolute;
     top:349px;
     left: 823px;
     z-index: 3;
-    background-position:-384px -386px;  
-
+    background-position:-576px -1408px;  
+    width: 24px;
+    height: 20px;
 }
+
+#lake:hover{
+    z-index: 3;
+    background-position:-672px -1408px;
+}
+
 #B12{
     position: absolute;
     top:522px;
     left: 733px;
     z-index: 3;
-     background-position:-512px -2px;
-
+    background-position:-768px -1408px;
+    width: 51px;
+    height: 65px;
 }
+
+#B12:hover{
+    z-index: 3;
+    background-position:-864px -1408px;
+}
+
 #tennis{
-     position: absolute;
+    position: absolute;
     top:522px;
     left: 733px;
     z-index: 3;
-     background-position:-705px -737px;
-
+    background-position:-960px -1408px;
+    width: 17px;
+    height: 16px;
 }
+
+#tennis:hover{
+    z-index: 3;
+    background-position:-1056px -1408px;
+}
+
 #pool{
     position: absolute;
     top:349px;
     left: 823px;
     z-index: 3;
-    background-position:-384px -386px;  
+    background-position:-1152px -1408px;  
+    width: 20px;
+    height: 22px;
+}
 
+#pool:hover{
+    z-index: 3;
+    background-position:-1248 -1408px;  
 }
