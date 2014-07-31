@@ -11,7 +11,10 @@
     font-family: "微軟正黑體";
     padding-left: 7px;
 }*/
-
+.modal-body{
+    font-family: "微軟正黑體";
+    font-weight: 900px;
+}
 #bigcontent{
     position: relative;
     top: 0px;
@@ -266,6 +269,7 @@ html, body {
      background-position:-64px -194px;
 
 }
+
 #monument{
     position: absolute;
     top:435px;
