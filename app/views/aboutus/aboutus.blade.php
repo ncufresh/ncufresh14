@@ -47,19 +47,22 @@
 
   <div class="carousel-inner">
 	    <div class="item active" id="first">
-	      <img src="{{ asset('images/SchoolGuide/map.png') }}" alt="..">
+	      <!-- <img src="{{ asset('images/SchoolGuide/map.png') }}" alt=".."> -->
+	      <img src="http://placehold.it/600x400&amp;text=Second+Slide">
 	      <div class="carousel-caption">
 	        ...
 	      </div>
 	    </div>
 	    <div class="item" id="second">
-	      <img src="{{ asset('images/SchoolGuide/map.png') }}" alt="...">
+	     <!--  <img src="{{ asset('images/SchoolGuide/map.png') }}" alt="..."> -->
+	     <img src="http://placehold.it/600x400&amp;text=Second+Slide">
 	      <div class="carousel-caption">
 	        ...
 	      </div>
 	    </div>
 	    <div class="item" id="third">
-	      <img src="{{ asset('images/SchoolGuide/map.png') }}" alt="...">
+	      <!-- <img src="{{ asset('images/SchoolGuide/map.png') }}" alt="..."> -->
+	      <img src="http://placehold.it/600x400&amp;text=Second+Slide">
 	      <div class="carousel-caption">
 	        ...
 	      </div>
