@@ -3,13 +3,12 @@
 @section('js_css')
 	{{ HTML::style('css/schoolguide.css') }}
 	{{HTML::script('js/schoolguide.js')}}
-
 @stop
 
 @section('content')
 
 <div id="bigcontent">
-	<img id = "object" src="{{ asset('images/SchoolGuide/object.png') }}">
+	<div id = "object">
 			
 
 		<div id="option">
@@ -32,69 +31,72 @@
 			</ol>
 
 			<div id="fixMap">
-				<img id = "fixmapLine" src="{{ asset('images/SchoolGuide/line.png') }}">
-				<img id = "map" src="{{ asset('images/SchoolGuide/map.png') }}">
-				<img id = "Buttom" src="{{ asset('images/SchoolGuide/Buttom.png') }}">
+				<div id = "fixmapLine" src="{{ asset('images/SchoolGuide/line.png') }}"></div>
+				<div id = "map"></div>
+				<div id = "Buttom"></div>
 				<div class="pointer">
-					<img data-id = "13" id="Zhidao" class="item school" src="{{ asset('images/SchoolGuide/Zhidao.png') }}">
-					<img data-id = "28" id="G14" class="item dorm" src="{{ asset('images/SchoolGuide/G14.png') }}">
-					<img data-id = "11" id="G14-ground" class="item scence" src="{{ asset('images/SchoolGuide/G14-ground.png') }}">
-					<img data-id = "3" id="B11" class="item dorm" src="{{ asset('images/SchoolGuide/B11.png') }}">
-					<img data-id = "3" id="B7" class="item dorm" src="{{ asset('images/SchoolGuide/B7.png') }}">
-					<img data-id = "3" id="B6" class="item dorm" src="{{ asset('images/SchoolGuide/B6.png') }}">
-					<img data-id = "3" id="B13" class="item dorm" src="{{ asset('images/SchoolGuide/B13.png') }}">
-					<img data-id = "3" id="art" class="item school" src="{{ asset('images/SchoolGuide/art.png') }}">
-					<img data-id = "3" id="building" class="item school" src="{{ asset('images/SchoolGuide/building.png') }}">
-					<img data-id = "3" id="schoolh" class="item school" src="{{ asset('images/SchoolGuide/schoolh.png') }}">
-					<img data-id = "2" id="door" class="item scence" src="{{ asset('images/SchoolGuide/door.png') }}">
-					<img data-id = "30" id="monument" class="item scence" src="{{ asset('images/SchoolGuide/monument.png') }}">
-					<img data-id = "3" id="B5" class="item dorm" src="{{ asset('images/SchoolGuide/B5.png') }}">
-					<img data-id = "3" id="International" class="item dorm" src="{{ asset('images/SchoolGuide/International.png') }}">
-					<img data-id = "3" id="B3" class="item dorm" src="{{ asset('images/SchoolGuide/B3.png') }}">
-					<img data-id = "22" id="science-5" class="item departments" src="{{ asset('images/SchoolGuide/science-5.png') }}">
-					<img data-id = "3" id="administration" class="item school" src="{{ asset('images/SchoolGuide/administration.png') }}">
-					<img data-id = "3" id="library" class="item school" src="{{ asset('images/SchoolGuide/library.png') }}">
-					<img data-id = "3" id="tree" class="item scence" src="{{ asset('images/SchoolGuide/tree.png') }}">
-					<img data-id = "3" id="oldlibrary" class="item school" src="{{ asset('images/SchoolGuide/oldlibrary.png') }}">
-					<img data-id = "3" id="tai" class="item scence" src="{{ asset('images/SchoolGuide/tai.png') }}">
-					<img data-id = "3" id="blackbox" class="item school" src="{{ asset('images/SchoolGuide/blackbox.png') }}">
-					<img data-id = "12" id="literary" class="item departments" src="{{ asset('images/SchoolGuide/literary.png') }}">
-					<img data-id = "13" id="engineer-1" class="item departments" src="{{ asset('images/SchoolGuide/engineer-1.png') }}">
-					<img data-id = "14" id="engineer-2" class="item departments" src="{{ asset('images/SchoolGuide/engineer-2.png') }}">
-					<img data-id = "15" id="engineer-3" class="item departments" src="{{ asset('images/SchoolGuide/engineer-3.png') }}">
-					<img data-id = "16" id="engineer-4" class="item departments" src="{{ asset('images/SchoolGuide/engineer-4.png') }}">
-					<img data-id = "17" id="engineer-5" class="item departments" src="{{ asset('images/SchoolGuide/engineer-5.png') }}">
-					<img data-id = "3" id="G-1-4" class="item dorm" src="{{ asset('images/SchoolGuide/G-1-4.png') }}">
-					<img data-id = "10" id="park" class="item scence" src="{{ asset('images/SchoolGuide/park.png') }}">
-					<img data-id = "31" id="gym" class="item exercise" src="{{ asset('images/SchoolGuide/gym.png') }}">
-					<img data-id = "38" id="basketball" class="item exercise" src="{{ asset('images/SchoolGuide/basketball.png') }}">
-					<img data-id = "35" id="playground" class="item exercise" src="{{ asset('images/SchoolGuide/playground.png') }}">
-					<img data-id = "36" id="rock" class="item exercise" src="{{ asset('images/SchoolGuide/rock.png') }}">
-					<img data-id = "39	" id="swimpool" class="item exercise" src="{{ asset('images/SchoolGuide/swimpool.png') }}">
-					<img data-id = "32" id="skate" class="item exercise" src="{{ asset('images/SchoolGuide/skate.png') }}">
-					<img data-id = "37" id="valley" class="item exercise" src="{{ asset('images/SchoolGuide/valley.png') }}">
-					<img data-id = "33" id="badminton" class="item exercise" src="{{ asset('images/SchoolGuide/badminton.png') }}">
-					<img data-id = "8" id="lake" class="item scence" src="{{ asset('images/SchoolGuide/lake.png') }}">
-					<img data-id = "3" id="wood" class="item eat" src="{{ asset('images/SchoolGuide/wood.png') }}">
-					<img data-id = "21" id="science-4" class="item departments" src="{{ asset('images/SchoolGuide/science-4.png') }}">
-					<img data-id = "20" id="science-3" class="item departments" src="{{ asset('images/SchoolGuide/science-3.png') }}">
-					<img data-id = "19" id="science-2" class="item departments" src="{{ asset('images/SchoolGuide/science-2.png') }}">
-					<img data-id = "18" id="science-1" class="item departments" src="{{ asset('images/SchoolGuide/science-1.png') }}">
-					<img data-id = "3" id="mbuilding" class="item school" src="{{ asset('images/SchoolGuide/mbuilding.png') }}">
-					<img data-id = "27" id="math" class="item departments" src="{{ asset('images/SchoolGuide/math.png') }}">
-					<img data-id = "23" id="management-1" class="item departments" src="{{ asset('images/SchoolGuide/management-1.png') }}">
-					<img data-id = "26" id="management-2" class="item departments" src="{{ asset('images/SchoolGuide/management-2.png') }}">
-					<img data-id = "3" id="clibrary" class="item school" src="{{ asset('images/SchoolGuide/clibrary.png') }}">
-					<img data-id = "3" id="Graduate" class="item dorm" src="{{ asset('images/SchoolGuide/Graduate.png') }}">
-					<img data-id = "24" id="Hakkas" class="item departments" src="{{ asset('images/SchoolGuide/Hakkas.png') }}">
-					<img data-id = "25" id="electric" class="item departments" src="{{ asset('images/SchoolGuide/electric.png') }}">
-					<img data-id = "3" id="outerspace" class="item school" src="{{ asset('images/SchoolGuide/outerspace.png') }}">
-					<img data-id = "9" id="flower" class="item scence" src="{{ asset('images/SchoolGuide/flower.png') }}">
-					<img data-id = "3" id="ncu" class="item school" src="{{ asset('images/SchoolGuide/ncu.png') }}">
-					<img data-id = "3" id="B9" class="item dorm" src="{{ asset('images/SchoolGuide/B9.png') }}">
-					<img data-id = "3" id="B12" class="item dorm" src="{{ asset('images/SchoolGuide/B12.png') }}">
+					<div data-id = "13" id="Zhidao" title="志道樓" class="item school" ></div>
+					<div data-id = "28" id="G14" title="女十四" class="item dorm" ></div>
+					<div data-id = "28" id="tennis" title="網球場" class="item exercise" ></div>
+					<div data-id = "28" id="G5" title="女五" class="item dorm" ></div>
+					<div data-id = "11" id="G14-ground" title="女十四廣場" class="item scence" ></div>	
+					<div data-id = "3" id="B11" title="男十一" class="item dorm"></div>
+					<div data-id = "3" id="B7" title="男七" class="item dorm"></div>
+					<div data-id = "3" id="B6" title="男六" class="item dorm"></div>
+					<div data-id = "3" id="B13" title="男十三" class="item dorm"></div>
+					<div data-id = "3" id="art" title="游藝館" class="item school"></div>
+					<div data-id = "3" id="building" title="" class="item school"></div>
+					<div data-id = "3" id="schoolh" title="校史館" class="item school"></div>
+					<div data-id = "2" id="door" title="中大路上" class="item scence"></div>
+					<div data-id = "30" id="monument" title="筆墨紙硯" class="item scence"></div>
+					<div data-id = "3" id="B5" title="男五" class="item dorm"></div>
+					<div data-id = "3" id="International" title="國際宿舍" class="item dorm"></div>
+					<div data-id = "3" id="B3" title="男三" class="item dorm"></div>
+					<div data-id = "22" id="science-5" title="科五館" class="item departments"></div>
+					<div data-id = "3" id="administration" title="行政大樓" class="item school"></div>
+					<div data-id = "3" id="library" title="總圖書館" class="item school"></div>
+					<div data-id = "3" id="tree" title="國泰樹" class="item scence"></div>
+					<div data-id = "3" id="oldlibrary" title="舊圖書館" class="item school"></div>
+					<div data-id = "3" id="tai" title="太極銅雕" class="item scence"></div>
+					<div data-id = "3" id="blackbox" title="黑盒子" class="item school"></div>
+					<div data-id = "12" id="literary" title="文院" class="item departments"></div>
+					<div data-id = "13" id="engineer-1" title="工程一館" class="item departments"></div>
+					<div data-id = "14" id="engineer-2" title="工程二館" class="item departments"></div>
+					<div data-id = "15" id="engineer-3" title="工程三館" class="item departments"></div>
+					<div data-id = "16" id="engineer-4" title="工程四館" class="item departments"></div>
+					<div data-id = "17" id="engineer-5" title="工程五館" class="item departments"></div>
+					<div data-id = "3" id="G-1-4" title="女一~四" class="item dorm"></div>
+					<div data-id = "10" id="park" title="松苑廣場" class="item scence"></div>
+					<div data-id = "31" id="gym" title="依仁堂" class="item exercise"></div>
+					<div data-id = "38" id="basketball" title="籃球場" class="item exercise"></div>
+					<div data-id = "35" id="playground" title="操場" class="item exercise"></div>
+					<div data-id = "36" id="rock" title="攀岩場" class="item exercise"></div>
+					<div data-id = "39	" id="swimpool" title="游泳池" class="item exercise"></div>
+					<div data-id = "32" id="skate" title="溜冰場" class="item exercise"></div>
+					<div data-id = "37" id="valley" title="排球場" class="item exercise"></div>
+					<div data-id = "33" id="badminton" title="羽球場" class="item exercise"></div>
+					<div data-id = "8" id="lake" title="中大湖" class="item scence"></div>
+					<div data-id = "3" id="wood" title="小木屋" class="item eat"></div>
+					<div data-id = "21" id="science-4" title="科學四館" class="item departments"></div>
+					<div data-id = "20" id="science-3" title="科學三館" class="item departments"></div>
+					<div data-id = "19" id="science-2" title="科學二館" class="item departments"></div>
+					<div data-id = "18" id="science-1" title="科學一館" class="item departments"></div>
+					<div data-id = "3" id="mbuilding" title="綜教館" class="item school"></div>
+					<div data-id = "27" id="math" title="鴻經管" class="item departments"></div>
+					<div data-id = "23" id="management-1" title="志希館" class="item departments"></div>
+					<div data-id = "26" id="management-2" title="館二" class="item departments"></div>
+					<div data-id = "3" id="clibrary" title="國鼎圖書館" class="item school"></div>
+					<div data-id = "3" id="Graduate" title="研究生宿舍" class="item dorm"></div>
+					<div data-id = "24" id="Hakkas" title="客家系院" class="item departments"></div>
+					<div data-id = "25" id="electric" title="國鼎光電大樓" class="item departments"></div>
+					<div data-id = "3" id="outerspace" title="太空遙測研究中心" class="item school"></div>
+					<div data-id = "9" id="flower" title="百花川" class="item scence"></div>
+					<div data-id = "3" id="ncu" title="國際事務處" class="item school"></div>
+					<div data-id = "3" id="B9" title="男九" class="item dorm"></div>
+					<div data-id = "3" id="B12" title="男十二" class="item dorm"></div>
 
 				</div>
+
 
 			</div>
 			<div style="height: 85px;"></div>

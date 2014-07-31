@@ -5,6 +5,7 @@
 	margin-top:-113px; 
 	width:7%;
 	height:765px;
+	cursor:pointer;
 }
 #photo{
 	position: relative;
@@ -13,6 +14,7 @@
 	width:64px;
 	height:780px;
 	z-index: 1;
+	cursor:pointer;
 }
 #page1{
 	width:932px;
@@ -71,7 +73,7 @@
 }
 .menu{
 
-	position: absolute;
+	position: relative;
 	top:-874px;
 	left: 156px; 
 	z-index: 5;
@@ -146,10 +148,12 @@
 }
 
 #carousel-example-generic{
-	position: relative;
-	margin-left:211px;
-	margin-top: -560px; 
+	position: absolute;
+	left:391px;
+	top: 760px; 
 	width: 458px  !important;
+	z-index: 5;
+
 }
 .a img{
 	height: 150px;
@@ -186,8 +190,9 @@
 	width: 237px;
 	overflow-x:hidden;
 	position: absolute;
-	margin-top: -420px;
-	margin-left: 700px;
+	top: 684px;
+	left:883px;
+	z-index: 5;
 
 }
 
