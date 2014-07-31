@@ -59,7 +59,7 @@ $(function(){
 	$("#articleTab").click(function(e){
 
 		e.preventDefault();
-
+		$("#Test1").css('display','block');
 		tabLocation = "new";
 		pageLocation = 1;
 
@@ -67,13 +67,16 @@ $(function(){
 
 		getArticles(tabLocation,pageLocation,"#Test1");
 		
-	
+		
 		$("#Test2 .articleContainer").each(function(){
 			$(this).remove();
 		});
+		$("#Test2").css('display','none');
 		$("#Test3 .articleContainer").each(function(){
 			$(this).remove();
 		});
+
+		$("#Test3").css('display','none');
 
 		$(this).tab('show');
 	});
@@ -95,6 +98,10 @@ $(function(){
 
 	$("#clubTab").click(function(e){
 		if(tabLocation != "club"){
+			$("#Test3").css('display','block');
+			$("#Test3 .articleContainer").each(function(){
+				$(this).remove();
+			});
 
 			tabLocation = "club";
 			pageLocation = 1;
@@ -105,12 +112,20 @@ $(function(){
 			$("#Test2 .articleContainer").each(function(){
 				$(this).remove();
 			});
+
+			$("#Test1").css('display','none');
+
+			$("#Test2").css('display','none');
 			getArticles(tabLocation,pageLocation,"#Test3");
 		}
 	});
 
 	$("#departmentTab").click(function(e){
 		if(tabLocation != "department"){
+			$("#Test2").css('display','block');
+			$("#Test2 .articleContainer").each(function(){
+				$(this).remove();
+			});
 			tabLocation = "department";
 			pageLocation = 1;
 			e.preventDefault();
@@ -118,6 +133,8 @@ $(function(){
 			$("#Test3 .articleContainer").each(function(){
 				$(this).remove();
 			});
+			$("#Test1").css('display','none');
+			$("#Test3").css('display','none');
 			getArticles(tabLocation,pageLocation,"#Test2");
 		}
 	});
