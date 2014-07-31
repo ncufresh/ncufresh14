@@ -2,7 +2,7 @@
 
 class ArticlesController extends BaseController{
 
-	public function init($item = 'forum'){
+	public function init($type = 'new', $page = 1){
 		
 		$siteMap = App::make('SiteMap');
 
@@ -24,7 +24,11 @@ class ArticlesController extends BaseController{
 
 				'userId' => $userId ,
 
-				'userName' => $userName
+				'userName' => $userName ,
+
+				'type' => $type ,
+
+				'page' => $page
 			));
 			
 		}else{
@@ -266,7 +270,7 @@ class ArticlesController extends BaseController{
 		}
 	}
 
-	public function viewOneArticle($id){
+	public function viewOneArticle($id,$type = "N",$page = "N"){
 		
 		$siteMap = App::make('SiteMap');
 
@@ -277,13 +281,24 @@ class ArticlesController extends BaseController{
 		$comments = $article->comment;
 
 		$articleAuthor = $article->user->name;
-
-		return View::make('forum/perArticle',array(
-			'article' => $article , 
-			'comments' => $comments , 
-			'author' => $articleAuthor,
-			)
-		);
+		if($page == ""  && $type == null){
+			return View::make('forum/perArticle',array(
+				'article' => $article , 
+				'comments' => $comments , 
+				'author' => $articleAuthor
+				)
+			);
+		}else{
+			return View::make('forum/perArticle',array(
+				'article' => $article , 
+				'comments' => $comments , 
+				'author' => $articleAuthor,
+				'type' => $type,
+				'page' => $page
+				)
+			);
+		}
+		
 		//null
 	}
 

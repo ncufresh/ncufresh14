@@ -177,11 +177,11 @@ Route::group(array('before' => 'auth'), function(){
 //Forum articles
 Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@init'));
 
-Route::get('articles/{item?}',array('as' => 'forum' , 'uses' => 'ArticlesController@init'))->where('item', '(forum|department|club)');
+Route::get('articles/{type?}/{page?}',array('as' => 'forum' , 'uses' => 'ArticlesController@init'));
 
 Route::post('/getComments',array('as' => 'getComments' , 'uses' => 'ArticlesController@getComment'));
 
-Route::get('perArticle/{id?}',array('as' => 'perArticle' , 'uses' => 'ArticlesController@viewOneArticle'));
+Route::get('perArticle/{id?}/{type?}/{page?}',array('as' => 'perArticle' , 'uses' => 'ArticlesController@viewOneArticle'));
 
 Route::post('/getArticles',array('as' => 'getArticles' , 'uses' => 'ArticlesController@getArticles'));
 

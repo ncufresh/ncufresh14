@@ -12,6 +12,8 @@
 		<input type="hidden" name="newArticle" id="newArticle" direct="{{URL::route('newArticle')}}">
 		<input type="hidden" id="perArticle" direct="{{URL::route('perArticle')}}">
 		<input type="hidden" id="getArticles" direct="{{URL::route('getArticles')}}">
+		<input type="hidden" id="initType" direct="{{$type}}">
+		<input type="hidden" id="initPage" direct="{{$page}}">
 		<ul class="nav nav-tabs" id="myTab">
 			<li><a href="#Test1" id="articleTab">討論區</a></li>
 			<li><a href="#Test2" id="departmentTab">系所</a></li>

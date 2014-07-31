@@ -4,7 +4,22 @@ var updateArticleUrl;
 var articleListUrl;
 var burl = '';
 var uploadURL = '';
+var previousPage = '';
+var previousType = '';
+
 $(function(){
+
+	previousType = $("#previousType").attr("direct");
+
+	previousPage = $("#previousPage").attr("direct");
+
+	window.onpopstate=function()
+	{
+		if(previousType != "N" && previousPage != "N"){
+
+			window.location.href = articleListUrl+"/"+previousType+"/"+previousPage;
+		}
+	}
 
 	burl = getTransferData('burl');
 
