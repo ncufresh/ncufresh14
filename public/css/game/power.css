@@ -157,10 +157,11 @@
 	cursor: pointer;
 	width: 246px;
 	height: 81px;
-	margin-top: 5%;
-	margin-left: 340px;
+	bottom: 140px;
+	left: 385px;
 	background: url("../../images/gamePower/button.png") no-repeat;
 	background-position: -500px -85px;
+	position: absolute;
 }
 #again:hover {
 	width: 246px;

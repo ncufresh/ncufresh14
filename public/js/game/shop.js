@@ -52,6 +52,9 @@
                         button.addClass('itemHadBuy');
                         editStatus(data['user']['power'], data['user']['gp']);
                         $.alertMessage('購買成功!');
+                        if ( id == 42 ) {
+                            $('#characterSpecial').attr('src', bURL + 'images/gameShop/special/real-special.png');
+                        }
                     }
                     else {
                         $.alertMessage('你GP不夠喔！');
