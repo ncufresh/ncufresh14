@@ -4,20 +4,22 @@
 		
 	{{ HTML::style('css/necessity/necessity_index.css') }}
 	{{ HTML::script('js/necessity/necessity.js')  }}
+	{{ HTML::script('js/necessity/ouchKonami.js')  }}
 @stop
 
 @section('content')
+
 	<div class="backgroundContent">	
 		
 		<div class="ContentUp">
 			
 			<div class="Block">
-
 			</div>	
 				<a target="_blank" href="http://140.115.185.138/ncuosafresh/finddorm.php">
 				 	<div class="Note1"></div>
 				</a>
 			</div>
+			<div class="What"></div>
 				
 		<div class="ContentMid">
 			<div id="buttonA" class="ButtonUpA"></div>
@@ -113,7 +115,14 @@
 				<!-- Research's Form -->
 				<div class="ContentDownBR" >
 
-					<div class="Research1"></div>
+					<div class="Research1">
+						<font color="#8ef1e4" size="5"><br><br> &nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;請輸入rex</font></div>
 					<div class="PaddingMid" >
 						<div class="IntroductionR" >
 							<table>
