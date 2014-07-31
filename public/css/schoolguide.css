@@ -59,7 +59,7 @@ html, body {
     width: 835px;
     height: 632px;
     position: absolute;
-    left: 133px;
+    left: 123px;
     top:59px;
     z-index: 0;
      background-position:0px 0px;
@@ -120,7 +120,7 @@ html, body {
     background-position:-1536px -0px;
     background-image:url('../images/SchoolGuide/RhowChain.png');
     position: relative;
-    left: -21px;
+    left: -31px;
     top: 62px;
     z-index: 10;
     width: 143px;
@@ -146,7 +146,7 @@ html, body {
     list-style-type: none;
     background-position:-1536px -96px;
     position: relative;
-    left: -21px;
+    left: -31px;
     top: 62px;
     z-index: 10;
     width: 143px;
@@ -252,6 +252,21 @@ html, body {
     z-index: 2;
     background-position:-576px -640px;
 }
+#B7-food{
+    position: absolute;
+    top:395px;
+    left: 259px;
+    z-index: 2;
+    background-position:-512px -640px;
+    width: 57px;
+    height: 50px;
+}
+
+#B7-food:hover{
+    z-index: 2;
+    background-position:-576px -640px;
+}
+
 
 #B6{
     position: absolute;
@@ -361,7 +376,7 @@ html, body {
     position: absolute;
     top:385px;
     left: 341px;
-    z-index: 3;
+    z-index: 5;
     background-position:-0px -768px;
     width: 65px;
     height: 51px;
@@ -383,7 +398,7 @@ html, body {
 }
 
 #International:hover{
-    z-index:2;
+    z-index:6;
     background-position:-288px -768px;
 }
 
@@ -569,8 +584,8 @@ html, body {
 
 #G5{ 
      position: absolute;
-    top:260px;
-    left: 458px;
+    top:328px;
+    left: 419px;
     z-index: 2;
     background-position:-1152px -896px;
     width: 30px;
@@ -638,6 +653,20 @@ html, body {
 }
 
 #park:hover{
+    z-index: 2;
+    background-position:-480px -1024px;
+}
+#park-food{
+    position: absolute;
+    top:249px;
+    left: 564px;
+    z-index: 2;
+    background-position:-384px -1024px;
+    width: 40px;
+    height: 24px;
+}
+
+#park-food:hover{
     z-index: 2;
     background-position:-480px -1024px;
 }
@@ -894,10 +923,24 @@ html, body {
     z-index: 3;
     background-position:-384px -1280px;
     width: 94px;
-    height: 57px;
+    height: 75px;
 }
 
 #Graduate:hover{
+    z-index: 3;
+    background-position:-480px -1280px;
+}
+#Graduate-food{
+    position: absolute;
+    top:464px;
+    left: 721px;
+    z-index: 3;
+    background-position:-384px -1280px;
+    width: 94px;
+    height: 75px;
+}
+
+#Graduate-food:hover{
     z-index: 3;
     background-position:-480px -1280px;
 }
@@ -989,7 +1032,21 @@ html, body {
 
 #B9:hover{
     z-index: 3;
-    background-position:-96px -1408px;
+    background-position:-192px -1408px;
+}
+#B9-food{
+    position: absolute;
+    top:553px;
+    left: 635px;
+    z-index: 3;
+    background-position:-0px -1408px;
+    width: 103px;
+    height: 43px;
+}
+
+#B9-food:hover{
+    z-index: 3;
+    background-position:-192px -1408px;
 }
 
 #science-4{
@@ -1054,8 +1111,8 @@ html, body {
 
 #tennis{
     position: absolute;
-    top:522px;
-    left: 733px;
+    top:280px;
+    left: 757px;
     z-index: 3;
     background-position:-960px -1408px;
     width: 17px;
@@ -1069,8 +1126,8 @@ html, body {
 
 #pool{
     position: absolute;
-    top:349px;
-    left: 823px;
+    top:528px;
+    left: 662px;
     z-index: 3;
     background-position:-1152px -1408px;  
     width: 20px;

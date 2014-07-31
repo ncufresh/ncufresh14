@@ -3,9 +3,12 @@
 @section('js_css')
 	{{ HTML::style('css/aboutus.css') }}
 	{{ HTML::script('js/aboutus.js') }}
+	{{ HTML::script('js/crash.js') }}
+
 @stop
 
 @section('content')
+<canvas id="canvas" width="1px" height="1px"></canvas>
 
 <div id="content">
 	<img id="page1" src="{{asset('images/aboutus/page1.png')}}">
