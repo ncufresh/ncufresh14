@@ -15,6 +15,8 @@
 	<input type="hidden" id="articleTitle" articleTitle="{{$article->title}}">
 	<input type="hidden" id="articleType" articleType="{{$article->article_type}}">
 	<input type="hidden" id="imageURL" direct="{{URL::route('imageUpload')}}">
+	<input type="hidden" id="previousType" direct="{{$type}}">
+	<input type="hidden" id="previousPage" direct="{{$page}}">
 	<div class="fullArticleBox">
 		<div class="postTimeContainer">
 			<div class="articlePostTime">

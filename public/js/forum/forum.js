@@ -16,10 +16,10 @@ var tabLocation = "new";
 var pageLocation = 1;
 
 var burl = '';
+var initType = '';
+var initPage ='';
 
 $(function(){
-
-	$("#articleTab").parent().addClass("active");
 
 	burl = getTransferData('burl');
 	loginStatus = $("#data_section").attr("data-login");
@@ -35,7 +35,25 @@ $(function(){
 	getArticlesUrl = $("#getArticles").attr("direct");
 	/************************************************************/
 
-	getArticles(tabLocation,pageLocation,"#Test1");
+	initType = $("#initType").attr("direct");
+	initPage = $("#initPage").attr("direct");
+
+	getArticles(initType,initPage,"#Test1");
+
+	switch(initType){
+		case "new":
+			$("#articleTab").parent().addClass("active");
+			break;
+		case "pop":
+			$("#articleTab").parent().addClass("active");
+			break;
+		case "department":
+			$("#departmentTab").parent().addClass("active");
+			break;
+		case "club":
+			$("#clubTab").parent().addClass("active");
+			break;
+	}
 
 	$("#articleTab").click(function(e){
 
@@ -207,9 +225,9 @@ $(function(){
 						if(type == "P"){
 							insertPlace = "#toolBar";
 						}else if(type == "D"){
-							insertPlace = "#departmentIndex";
+							insertPlace = "#Test2";
 						}else if(type == "C"){
-							insertPlace = "#clubIndex";
+							insertPlace = "#Test3";
 						}
 
 						var dateTime = new Date(data.articleTime.date);
@@ -272,7 +290,7 @@ function countLines(str){
 	return str.split("<br>").length;
 }
 
-function showArticles(authorName,authorId,createdAt,articleId,title,content,target){
+function showArticles(authorName,authorId,createdAt,articleId,title,content,target,type,page){
 
 	var multiContent = "";
 
@@ -298,7 +316,7 @@ function showArticles(authorName,authorId,createdAt,articleId,title,content,targ
 			</div>\
 			<div class='panel panel-default articleBody'>\
 				<div class='panel-heading'>\
-					<a href='"+perArticleUrl+"/"+articleId+"'><h3 class='panel-title'>"+title+"</h3></a>\
+					<a href='"+perArticleUrl+"/"+articleId+"/"+type+"/"+page+"'><h3 class='panel-title'>"+title+"</h3></a>\
 				</div>\
 				<div class='personalImageBox' >\
 					<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
@@ -333,26 +351,47 @@ function insertArticle(authorName,authorId,currentTime,articleId,title,content,t
 
 		multiContent = "<div class='subContent'>"+content+"</div>";
 	}
-
-	$(target).after("\
-		<div class='articleContainer' id='"+articleId+"' >\
-			<div class='postTimeContainer'>\
-				<div class='articlePostTime'>\
-					<span class='author'>"+authorName+"</span>發布於"+currentTime+"\
+	if(target =="#toolBar"){
+		$(target).after("\
+			<div class='articleContainer' id='"+articleId+"' >\
+				<div class='postTimeContainer'>\
+					<div class='articlePostTime'>\
+						<span class='author'>"+authorName+"</span>發布於"+currentTime+"\
+					</div>\
 				</div>\
-			</div>\
-			<div class='panel panel-default articleBody'>\
-				<div class='panel-heading forumTitleBox'>\
-					<a href='"+perArticleUrl+"/"+articleId+"'><h3 class='panel-title'>"+title+"</h3></a>\
+				<div class='panel panel-default articleBody'>\
+					<div class='panel-heading forumTitleBox'>\
+						<a href='"+perArticleUrl+"/"+articleId+"'><h3 class='panel-title'>"+title+"</h3></a>\
+					</div>\
+					<div class='personalImageBox' >\
+						<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
+					</div>\
+					<div class='panel-body content'>"+multiContent+"</div>\
+					<div class='clear'></div>\
 				</div>\
-				<div class='personalImageBox' >\
-					<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
+			</div>"
+		);
+	}else{
+		$(target).append("\
+			<div class='articleContainer' id='"+articleId+"' >\
+				<div class='postTimeContainer'>\
+					<div class='articlePostTime'>\
+						<span class='author'>"+authorName+"</span>發布於"+currentTime+"\
+					</div>\
 				</div>\
-				<div class='panel-body content'>"+multiContent+"</div>\
-				<div class='clear'></div>\
-			</div>\
-		</div>"
-	);
+				<div class='panel panel-default articleBody'>\
+					<div class='panel-heading forumTitleBox'>\
+						<a href='"+perArticleUrl+"/"+articleId+"'><h3 class='panel-title'>"+title+"</h3></a>\
+					</div>\
+					<div class='personalImageBox' >\
+						<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
+					</div>\
+					<div class='panel-body content'>"+multiContent+"</div>\
+					<div class='clear'></div>\
+				</div>\
+			</div>"
+		);
+	}
 
 	$(".more").click(function(e){
 		e.preventDefault();
@@ -379,7 +418,9 @@ function getArticles(type,page,target){
 					data['data'][i]['id'],
 					data['data'][i]['title'],
 					data['data'][i]['content'].replace(/\n/g,"<br>"),
-					target
+					target,
+					type,
+					page
 				);
 			}
 			pageGenerate(pageLocation,data.last_page);
