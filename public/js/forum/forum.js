@@ -18,6 +18,7 @@ var pageLocation = 1;
 var burl = '';
 var initType = '';
 var initPage ='';
+var initTab ='#Test1';
 
 $(function(){
 
@@ -38,22 +39,22 @@ $(function(){
 	initType = $("#initType").attr("direct");
 	initPage = $("#initPage").attr("direct");
 
-	getArticles(initType,initPage,"#Test1");
 
-	switch(initType){
-		case "new":
-			$("#articleTab").parent().addClass("active");
-			break;
-		case "pop":
-			$("#articleTab").parent().addClass("active");
-			break;
-		case "department":
-			$("#departmentTab").parent().addClass("active");
-			break;
-		case "club":
-			$("#clubTab").parent().addClass("active");
-			break;
+	if(initType =="new"){
+		$("#articleTab").parent().addClass("active");
+		initTab = "#Test1";
+	}else if(initType =="pop"){
+		$("#articleTab").parent().addClass("active");
+		initTab = "#Test1";
+	}else if(initType =="department"){
+		$("#departmentTab").parent().addClass("active");
+		initTab = "#Test2";
+	}else if(initType =="club"){
+		$("#clubTab").parent().addClass("active");
+		initTab = "#Test3";
 	}
+	$(initTab).css('display','block');
+	getArticles(initType,initPage,initTab);
 
 	$("#articleTab").click(function(e){
 
