@@ -195,6 +195,7 @@ $(function(){
 		}
 	});
 
+
 	$("#createBtn").click(function(){
 		if(loginStatus != 1){
 			$("#errorMsgContent").text(notLoginMsg);
@@ -285,6 +286,7 @@ $(function(){
 	$("#scrollTop").click(function(){
 		$("body").animate({ scrollTop: 0 }, 'slow');
 	});
+
 
 });
 
@@ -468,39 +470,72 @@ function getArticles(type,page,target){
 
 function pageGenerate(current,last){
 	var pager="";
-	if(current == 1 && last != 1){
-
-		pager = "<span id='currentPage'>第 1 頁</span>\
-				<ul class='pager'>\
-					<li><a id='nextPage'>Next</a></li>\
-				</ul>\
-				<span id='totalPage'>共 "+last+" 頁</span>\
-				";
-
-	}else if(current == 1 && last == 1){
-
-		pager = "";
-
-	}else if(current == last && last != 1){
-
-		pager = "<span id='currentPage'>最後一頁</span>\
-				<ul class='pager'>\
-					<li><a id='previousPage'>Previous</a></li>\
-				</ul>\
-				<span id='totalPage'>共 "+last+" 頁</span>\
-				";
-
+	if(last<=9){
+		for(i = 0; i < last; i++ ){
+			if((i+1) == current){
+				pager = pager + "<li class='active'><a class='page'>"+(i+1)+"</a></li>";
+			}else{
+				pager = pager + "<li class='disable'><a class='page'>"+(i+1)+"</a></li>";
+			}
+		}
 	}else{
-
-		pager = "<span id='currentPage'>第 "+current+" 頁</span>\
-				<ul class='pager'>\
-					<li><a id='previousPage'>Previous</a></li>\
-					<li><a id='nextPage'>Next</a></li>\
-				</ul>\
-				<span id='totalPage'>共 "+last+" 頁</span>\
-				";
-
+		if(current <= 5){
+			for(i = 0; i < 9; i++ ){
+				if((i+1) == current){
+					pager = pager + "<li class='active'><a class='page'>"+(i+1)+"</a></li>";
+				}else{
+					pager = pager + "<li class='disable'><a class='page'>"+(i+1)+"</a></li>";
+				}
+			}
+		}else if(current >= (last-4)){
+			for(i = 0; i < 9; i++){
+				if((last-8+i) == current){
+					pager = pager + "<li class='active'><a class='page'>"+(last-8+i)+"</a></li>";
+				}else{
+					pager = pager + "<li class='disable'><a class='page'>"+(last-8+i)+"</a></li>";
+				}
+			}
+		}else{
+			for(i = 0; i < 9; i++){
+				if((current-4+i) == current){
+					pager = pager + "<li class='active'><a class='page'>"+(current-4+i)+"</a></li>";
+				}else{
+					pager = pager + "<li class='disable'><a class='page'>"+(current-4+i)+"</a></li>";
+				}
+			}
+		}
 	}
-	$(".paginationBox").html(pager);
+	
+	pager = "<li><a id='previousPage'>&laquo;</a></li>" 
+			+ pager 
+			+ "<li><a id='nextPage'>&raquo;</a></li>";
+	$(".pagination").html(pager);
+
+	$(".page").click(function(e){
+		e.preventDefault();
+		pageLocation = $(this).html();
+		switch(tabLocation){
+			case "new":
+				$("#Test1 .articleContainer").remove();	
+				getArticles(tabLocation,pageLocation,"#Test1");
+				break;
+			case "pop":
+				$("#Test1 .articleContainer").remove();	
+				getArticles(tabLocation,pageLocation,"#Test1");
+				break;
+			case "department":
+				$("#Test2 .articleContainer").each(function(){
+					$(this).remove();
+				});
+				getArticles(tabLocation,pageLocation,"#Test2");
+				break;
+			case "club":
+				$("#Test3 .articleContainer").each(function(){
+					$(this).remove();
+				});
+				getArticles(tabLocation,pageLocation,"#Test3");
+				break;
+		}
+	});
 }
 

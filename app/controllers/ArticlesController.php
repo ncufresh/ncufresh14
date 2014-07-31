@@ -35,7 +35,9 @@ class ArticlesController extends BaseController{
 
 			return View::make('forum/articles',array(
 
-				'isLogin' => false
+				'isLogin' => false,
+				'type' => $type ,
+				'page' => $page
 			));
 		}
 		
@@ -322,7 +324,7 @@ class ArticlesController extends BaseController{
 
 				$totalInterval = round(abs(strtotime($pastTime) - strtotime($currentTime)));
 
-				if($totalInterval < 1){
+				if($totalInterval < 60){
 					
 					return true;
 
