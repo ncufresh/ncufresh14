@@ -92,7 +92,7 @@
 .Note1{
 	position: absolute;
   width: 510px;
-  height: 320px;
+  height: 300px;
   margin-top:-64px; 
   margin-left:550px;
   background-image: url(../../images/necessity/image.png);
@@ -102,13 +102,22 @@
 .Note1:hover{
   position: absolute;
   width: 510px;
-  height: 320px;
+  height: 300px;
   margin-top:-64px; 
   margin-left:550px;
   background-image: url(../../images/necessity/image.png);
   background-position: -800px 0px;
 }
 
+.What{
+  position: absolute;
+/*  width: 70px;
+  height: 70px;*/
+  margin-top:-315px; 
+  margin-left:700px;
+  background-image: url(../../images/necessity/What.png);
+  background-position: 0px 0px;
+}
 /********************/
 
 .ContentMid{
