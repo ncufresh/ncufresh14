@@ -49,9 +49,11 @@ $(function(){
 	}else if(initType =="department"){
 		$("#departmentTab").parent().addClass("active");
 		initTab = "#Test2";
+		$("#Test1").css('display','none');
 	}else if(initType =="club"){
 		$("#clubTab").parent().addClass("active");
 		initTab = "#Test3";
+		$("#Test1").css('display','none');
 	}
 	$(initTab).css('display','block');
 	getArticles(initType,initPage,initTab);
