@@ -121,7 +121,7 @@
 
 
 	<a id="scrollTop"><img ></a>
-
-	
-	
+	<div id='pageBox'>
+	<ul class="pagination"></ul>
+	</div>
 @stop	
