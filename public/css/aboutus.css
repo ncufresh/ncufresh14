@@ -1,6 +1,6 @@
 ﻿#about-content {
 	width: 1004px;
-	height: 1017px;
+	height: 986px;;
 	margin: 10px;
 	/*background: blue;*/
 	overflow: hidden;
@@ -71,6 +71,7 @@
 	float: left;
 	margin-right: -99px;
 	left: 1004px;
+	z-index: 1;
 }
 
 #button2:hover {
