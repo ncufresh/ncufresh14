@@ -86,12 +86,12 @@
 	width: 109px;
 	height: 59px;
 	background: url("../images/gameIndex/images.png") no-repeat;
-	background-position: -0px -576px;
+	background-position: -256px -576px;
 	margin: 0px 10px 0px 0px;
 }
 
 #gameShop:hover {
-	background-position: -128px -576px;
+	background-position: -384px -576px;
 }
 
 #gameRoom {
@@ -99,12 +99,12 @@
 	width: 110px;
 	height: 59px;
 	background: url("../images/gameIndex/images.png") no-repeat;
-	background-position: -256px -576px;
+	background-position: -0px -576px;
 	margin: 0px 10px 0px 0px;
 }
 
 #gameRoom:hover {
-	background-position: -384px -576px;
+	background-position: -128px -576px;
 	cursor: pointer;
 }
 
