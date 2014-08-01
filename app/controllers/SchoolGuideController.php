@@ -13,17 +13,7 @@ class SchoolGuideController extends BaseController {
 
 		return Redirect::route('schoolguide.item', array('item' => 'department'));
 
-
-		// return View::make('schoolguide.schoolguide',
-		// 	array('Schoolguides'=>Schoolguide::where('categories', '=', '1')->orderBy('id','DESC')->get()));
-
 	}
-
-	// public function getselect(){
-	// 	$id=Input::get('id');
-	// 	$data = Schoolguide::find($id);
-	// 	return Response::json($data);
-	// }
 
 	public function getItem(){
 		$placeId = Input::get('id');
@@ -54,7 +44,7 @@ class SchoolGuideController extends BaseController {
 
 		$user = Schoolguide::find($id);
 		App::make('TransferData')->addData('select', $user->categories);
-
+		App::make('TransferData')->addData('intro', $user->introduction);
 		
 		App::make('SiteMap')->pushLocation($user->categoryName, route('schoolguide.item', array('id' => $id)));
 		App::make('SiteMap')->pushLocation($user->name, route('schoolguide.item', array('id' => $id)));

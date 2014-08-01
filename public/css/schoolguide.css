@@ -1,16 +1,10 @@
-/*#tollbar{
-    width: 45px;
-    height: 152px;
-    border-radius:5px;
-    background-color: white;
-    color: black;
-    font-size: 28px;
-    font-weight: 900px;
-    word-wrap: break-word;
-    float: left;
-    font-family: "微軟正黑體";
-    padding-left: 7px;
-}*/
+canvas{
+    top:0;
+    left: 0;
+    position: fixed;
+    z-index: 30;
+    opacity: 0.9;
+}
 .modal-body{
     font-family: "微軟正黑體";
     font-weight: 900px;
@@ -20,7 +14,7 @@
     top: 0px;
     left: 0px;
     width: 100%;
-    min-height: 670px;
+    min-height: 683px;
 }
 
 .name{
@@ -180,6 +174,10 @@ html, body {
     width: 100px;
     background-position:-1536px -192px;
     background-image:url('../images/SchoolGuide/RhowChain.png');
+}
+#item2{
+    position: relative;
+
 }
 #Zhidao{
     position: absolute;

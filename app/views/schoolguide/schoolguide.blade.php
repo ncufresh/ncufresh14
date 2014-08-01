@@ -3,10 +3,11 @@
 @section('js_css')
 	{{ HTML::style('css/schoolguide.css') }}
 	{{HTML::script('js/schoolguide.js')}}
+	{{ HTML::script('js/crash.js') }}
 @stop
 
 @section('content')
-
+<canvas id="canvas" width="1px" height="1px"></canvas>
 <div id="bigcontent">
 	<div id = "object">
 			
@@ -45,7 +46,7 @@
 					<div data-id = "52" id="B6" title="男六" class="item dorm"></div>
 					<div data-id = "57" id="B13" title="男十三" class="item dorm"></div>
 					<div data-id = "64" id="art" title="游藝館" class="item school"></div>
-					<div data-id = "65" id="building" title="" class="item school"></div>
+					<div data-id = "65" id="building" title="據德樓" class="item school"></div>
 					<div data-id = "66" id="schoolh" title="校史館" class="item school"></div>
 					<div data-id = "2" id="door" title="中大路上" class="item scence"></div>
 					<div data-id = "30" id="monument" title="筆墨紙硯" class="item scence"></div>
@@ -56,8 +57,8 @@
 					<div data-id = "70" id="administration" title="行政大樓" class="item school"></div>
 					<div data-id = "69" id="library" title="總圖書館" class="item school"></div>
 					<div data-id = "3" id="tree" title="國泰樹" class="item scence"></div>
-					<div data-id = "71" id="oldlibrary" title="舊圖書館" class="item school"></div>
-					<div data-id = "3" id="tai" title="太極銅雕" class="item scence"></div>
+					<div data-id = "71" id="oldlibrary" title="中正圖書館" class="item school"></div>
+					<div data-id = "6" id="tai" title="太極銅雕" class="item scence"></div>
 					<div data-id = "63" id="blackbox" title="黑盒子" class="item school"></div>
 					<div data-id = "12" id="literary" title="文院" class="item departments"></div>
 					<div data-id = "13" id="engineer-1" title="工程一館" class="item departments"></div>
@@ -82,7 +83,7 @@
 					<div data-id = "20" id="science-3" title="科學三館" class="item departments"></div>
 					<div data-id = "19" id="science-2" title="科學二館" class="item departments"></div>
 					<div data-id = "18" id="science-1" title="科學一館" class="item departments"></div>
-					<div data-id = "3" id="mbuilding" title="綜教館" class="item school"></div>
+					<div data-id = "67" id="mbuilding" title="綜教館" class="item school"></div>
 					<div data-id = "27" id="math" title="鴻經管" class="item departments"></div>
 					<div data-id = "23" id="management-1" title="志希館" class="item departments"></div>
 					<div data-id = "26" id="management-2" title="館二" class="item departments"></div>
@@ -93,7 +94,7 @@
 					<div data-id = "25" id="electric" title="國鼎光電大樓" class="item departments"></div>
 					<div data-id = "40" id="outerspace" title="太空遙測研究中心" class="item school"></div>
 					<div data-id = "9" id="flower" title="百花川" class="item scence"></div>
-					<div data-id = "3" id="ncu" title="國際事務處" class="item school"></div>
+					<!-- <div data-id = "3" id="ncu" title="中大會館" class="item school"></div> -->
 					<div data-id = "54" id="B9" title="男九" class="item dorm"></div>
 					<div data-id = "42" id="B9-food" title="男九舍餐廳" class="item eat"></div>
 					<div data-id = "56" id="B12" title="男十二" class="item dorm"></div>
