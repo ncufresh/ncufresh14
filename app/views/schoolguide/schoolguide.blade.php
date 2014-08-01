@@ -21,7 +21,7 @@
 				<option value="6" data-id="dorm">住宿</option>
 			</select>
 		</div>
-			
+	</div>
 			<ol id="leftlist" style="font-size:20;">
 					@foreach($Schoolguides as $Schoolguide)
 					<li class="left_item" data-place_id="{{ $Schoolguide->id }}">
@@ -29,7 +29,6 @@
 					</li>
 					@endforeach
 			</ol>
-
 			<div id="fixMap">
 				<div id = "fixmapLine" src="{{ asset('images/SchoolGuide/line.png') }}"></div>
 				<div id = "map"></div>

@@ -37,16 +37,20 @@ $(document).ready(function(){
 
 	function Draw(x, y, isDown) {
 	    if (isDown) {
-	        ctx.beginPath();
-	        ctx.strokeStyle = "white";
-	        ctx.lineWidth = 10;
-	        ctx.lineJoin = "round";
-	        ctx.moveTo(lastX, lastY);
-	        ctx.lineTo(x, y);
-	        ctx.closePath();
-	        ctx.stroke();
+	        // ctx.beginPath();
+	        // ctx.strokeStyle = "white";
+	        // ctx.lineWidth = 10;
+	        // ctx.lineJoin = "round";
+	        // ctx.moveTo(lastX, lastY);
+	        // ctx.lineTo(x, y);
+	        // ctx.closePath();
+	        // ctx.stroke();
+	        // context.beginPath();
+	        // ctx.arc(x,y,50,50,2*Math.PI);
+	        // ctx.clip();
+	        ctx.clearRect(x,y,50,50);
 	    }
-	    lastX = x; lastY = y;
+	    // lastX = x; lastY = y;
 	}
 
 		function fog(){
