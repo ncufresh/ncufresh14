@@ -486,7 +486,8 @@ gameShop
 	height: 664px;
 	padding: 10px;
 	margin: 0px auto;
-	background: url("../images/gameShop/background.png") no-repeat;
+	background: url("../images/gameShop/images.png") no-repeat;
+	background-position: 0px 0px;
 }
 
 #characterLook {
@@ -516,60 +517,61 @@ gameShop
 	height: 35px;
 	margin: 12px 0px 0px 0px;
 	text-align: center;
+	background: url("../images/gameShop/images.png") no-repeat;
 }
 
 #gameShopTypeHead {
-	background: url("../images/gameShop/head.png") no-repeat;
+	background-position: 0px -672px;
 }
 
 #gameShopTypeHead:hover {
-	background: url("../images/gameShop/headclick.png") no-repeat;
+	background-position: -96px -672px;
 	cursor: pointer;
 }
 
 #gameShopTypeFace {
-	background: url("../images/gameShop/face.png") no-repeat;
+	background-position: -192px -672px;
 }
 
 #gameShopTypeFace:hover {
-	background: url("../images/gameShop/faceclick.png") no-repeat;
+	background-position: -288px -672px;
 	cursor: pointer;
 }
 
 #gameShopTypeBody {
-	background: url("../images/gameShop/body.png") no-repeat;
+	background-position: -384px -672px;
 }
 
 #gameShopTypeBody:hover {
-	background: url("../images/gameShop/bodyclick.png") no-repeat;
+	background-position: -480px -672px;
 	cursor: pointer;
 }
 
 #gameShopTypeFoot {
-	background: url("../images/gameShop/foot.png") no-repeat;
+	background-position: -576px -672px;
 }
 
 #gameShopTypeFoot:hover {
-	background: url("../images/gameShop/footclick.png") no-repeat;
+	background-position: -672px -672px;
 	cursor: pointer;
 }
 
 #gameShopTypeItem {
-	background: url("../images/gameShop/item.png") no-repeat;
+	background-position: -768px -672px;
 }
 
 #gameShopTypeItem:hover {
-	background: url("../images/gameShop/itemclick.png") no-repeat;
+	background-position: -864px -672px;
 	cursor: pointer;
 }
 
 #gameShopTypeMap {
-	background: url("../images/gameShop/map.png") no-repeat;
+	background-position: -0px -736px;
 	width: 119px;
 }
 
 #gameShopTypeMap:hover {
-	background: url("../images/gameShop/mapclick.png") no-repeat;
+	background-position: -128px -736px;
 	cursor: pointer;
 }
 
@@ -584,12 +586,13 @@ gameShop
 	width: 112px;
 	height: 129px;
 	margin: 20px 7px 20px 11px;
-	background: url("../images/gameShop/itembox.png") no-repeat;
+	background: url("../images/gameShop/images.png") no-repeat;
+	background-position: 0px -796px;
 	position: relative;
 }
 
 .gameShopItemSelect {
-	background: url("../images/gameShop/itemBoxClick.png") no-repeat;
+	background-position: -128px -796px;
 }
 
 .gameShopItemSpecial {
@@ -602,7 +605,7 @@ gameShop
 }
 
 .gameShopItemSelectSpecial {
-	background: url("../images/gameShop/special/itemBoxClick.png") no-repeat;
+	background: url("../images/gameShop/special/itemboxclick.png") no-repeat;
 }
 
 .gameShopItemText {
@@ -643,7 +646,8 @@ gameShop
 
 .gameShopItemBuyButton {
 	position: absolute;
-	background: url("../images/gameShop/buy.png") no-repeat;
+	background: url("../images/gameShop/images.png") no-repeat;
+	background-position: -256px -736px;
 	width: 79px;
 	height: 30px;
 	top: 105px;
@@ -652,7 +656,8 @@ gameShop
 
 .gameShopItemBuyButtonSpecial {
 	position: absolute;
-	background: url("../images/gameShop/buy.png") no-repeat;
+	background: url("../images/gameShop/images.png") no-repeat;
+	background-position: -256px -736px;
 	width: 79px;
 	height: 30px;
 	top: 274px;
@@ -660,22 +665,21 @@ gameShop
 }
 
 .gameShopItemBuyButtonSpecial:hover {
-	background: url("../images/gameShop/buyClick.png") no-repeat;
+	background-position: -384px -736px;
 	cursor: pointer;
 }
 
 .gameShopItemBuyButton:hover {
-	background: url("../images/gameShop/buyClick.png") no-repeat;
+	background-position: -384px -736px;
 	cursor: pointer;
 }
 
 .itemHadBuy {
-	background: url("../images/gameShop/buyed.png") no-repeat;
+	background-position: -512px -736px;
 }
 
 .itemHadBuy:hover {
-	background: url("../images/gameShop/buyed.png") no-repeat;
-	cursor: pointer;
+	background-position: -512px -736px;
 }
 
 #characterEquipButton {
@@ -684,12 +688,13 @@ gameShop
 	top: 320px;
 	left: 10px;
 	position: absolute;
-	background: url("../images/gameShop/equip.png") no-repeat;
+	background: url("../images/gameShop/images.png") no-repeat;
+	background-position: 0px -960px;
 
 }
 
 #characterEquipButton:hover {
-	background: url("../images/gameShop/equipclick.png") no-repeat;
+	background-position: -96px -960px;
 	cursor: pointer;
 }
 
@@ -699,12 +704,13 @@ gameShop
 	top: 320px;
 	left: 145px;
 	position: absolute;
-	background: url("../images/gameShop/return.png") no-repeat;
+	background: url("../images/gameShop/images.png") no-repeat;
+	background-position: -192px -960px;
 
 }
 
 #characterReturnButton:hover {
-	background: url("../images/gameShop/returnclick.png") no-repeat;
+	background-position: -288px -960px;
 	cursor: pointer;
 }
 
