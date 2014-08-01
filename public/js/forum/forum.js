@@ -16,10 +16,11 @@ var tabLocation = "new";
 var pageLocation = 1;
 
 var burl = '';
+var initType = '';
+var initPage ='';
+var initTab ='#Test1';
 
 $(function(){
-
-	$("#articleTab").parent().addClass("active");
 
 	burl = getTransferData('burl');
 	loginStatus = $("#data_section").attr("data-login");
@@ -35,12 +36,32 @@ $(function(){
 	getArticlesUrl = $("#getArticles").attr("direct");
 	/************************************************************/
 
-	getArticles(tabLocation,pageLocation,"#Test1");
+	initType = $("#initType").attr("direct");
+	initPage = $("#initPage").attr("direct");
+
+
+	if(initType =="new"){
+		$("#articleTab").parent().addClass("active");
+		initTab = "#Test1";
+	}else if(initType =="pop"){
+		$("#articleTab").parent().addClass("active");
+		initTab = "#Test1";
+	}else if(initType =="department"){
+		$("#departmentTab").parent().addClass("active");
+		initTab = "#Test2";
+		$("#Test1").css('display','none');
+	}else if(initType =="club"){
+		$("#clubTab").parent().addClass("active");
+		initTab = "#Test3";
+		$("#Test1").css('display','none');
+	}
+	$(initTab).css('display','block');
+	getArticles(initType,initPage,initTab);
 
 	$("#articleTab").click(function(e){
 
 		e.preventDefault();
-
+		$("#Test1").css('display','block');
 		tabLocation = "new";
 		pageLocation = 1;
 
@@ -48,13 +69,16 @@ $(function(){
 
 		getArticles(tabLocation,pageLocation,"#Test1");
 		
-	
+		
 		$("#Test2 .articleContainer").each(function(){
 			$(this).remove();
 		});
+		$("#Test2").css('display','none');
 		$("#Test3 .articleContainer").each(function(){
 			$(this).remove();
 		});
+
+		$("#Test3").css('display','none');
 
 		$(this).tab('show');
 	});
@@ -76,6 +100,10 @@ $(function(){
 
 	$("#clubTab").click(function(e){
 		if(tabLocation != "club"){
+			$("#Test3").css('display','block');
+			$("#Test3 .articleContainer").each(function(){
+				$(this).remove();
+			});
 
 			tabLocation = "club";
 			pageLocation = 1;
@@ -86,12 +114,20 @@ $(function(){
 			$("#Test2 .articleContainer").each(function(){
 				$(this).remove();
 			});
+
+			$("#Test1").css('display','none');
+
+			$("#Test2").css('display','none');
 			getArticles(tabLocation,pageLocation,"#Test3");
 		}
 	});
 
 	$("#departmentTab").click(function(e){
 		if(tabLocation != "department"){
+			$("#Test2").css('display','block');
+			$("#Test2 .articleContainer").each(function(){
+				$(this).remove();
+			});
 			tabLocation = "department";
 			pageLocation = 1;
 			e.preventDefault();
@@ -99,6 +135,8 @@ $(function(){
 			$("#Test3 .articleContainer").each(function(){
 				$(this).remove();
 			});
+			$("#Test1").css('display','none');
+			$("#Test3").css('display','none');
 			getArticles(tabLocation,pageLocation,"#Test2");
 		}
 	});
@@ -157,6 +195,7 @@ $(function(){
 		}
 	});
 
+
 	$("#createBtn").click(function(){
 		if(loginStatus != 1){
 			$("#errorMsgContent").text(notLoginMsg);
@@ -207,9 +246,9 @@ $(function(){
 						if(type == "P"){
 							insertPlace = "#toolBar";
 						}else if(type == "D"){
-							insertPlace = "#departmentIndex";
+							insertPlace = "#Test2";
 						}else if(type == "C"){
-							insertPlace = "#clubIndex";
+							insertPlace = "#Test3";
 						}
 
 						var dateTime = new Date(data.articleTime.date);
@@ -248,6 +287,7 @@ $(function(){
 		$("body").animate({ scrollTop: 0 }, 'slow');
 	});
 
+
 });
 
 function splitContent(articleContent){
@@ -272,7 +312,7 @@ function countLines(str){
 	return str.split("<br>").length;
 }
 
-function showArticles(authorName,authorId,createdAt,articleId,title,content,target){
+function showArticles(authorName,authorId,createdAt,articleId,title,content,target,type,page){
 
 	var multiContent = "";
 
@@ -298,7 +338,7 @@ function showArticles(authorName,authorId,createdAt,articleId,title,content,targ
 			</div>\
 			<div class='panel panel-default articleBody'>\
 				<div class='panel-heading'>\
-					<a href='"+perArticleUrl+"/"+articleId+"'><h3 class='panel-title'>"+title+"</h3></a>\
+					<a href='"+perArticleUrl+"/"+articleId+"/"+type+"/"+page+"'><h3 class='panel-title'>"+title+"</h3></a>\
 				</div>\
 				<div class='personalImageBox' >\
 					<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
@@ -333,26 +373,47 @@ function insertArticle(authorName,authorId,currentTime,articleId,title,content,t
 
 		multiContent = "<div class='subContent'>"+content+"</div>";
 	}
-
-	$(target).after("\
-		<div class='articleContainer' id='"+articleId+"' >\
-			<div class='postTimeContainer'>\
-				<div class='articlePostTime'>\
-					<span class='author'>"+authorName+"</span>發布於"+currentTime+"\
+	if(target =="#toolBar"){
+		$(target).after("\
+			<div class='articleContainer' id='"+articleId+"' >\
+				<div class='postTimeContainer'>\
+					<div class='articlePostTime'>\
+						<span class='author'>"+authorName+"</span>發布於"+currentTime+"\
+					</div>\
 				</div>\
-			</div>\
-			<div class='panel panel-default articleBody'>\
-				<div class='panel-heading forumTitleBox'>\
-					<a href='"+perArticleUrl+"/"+articleId+"'><h3 class='panel-title'>"+title+"</h3></a>\
+				<div class='panel panel-default articleBody'>\
+					<div class='panel-heading forumTitleBox'>\
+						<a href='"+perArticleUrl+"/"+articleId+"'><h3 class='panel-title'>"+title+"</h3></a>\
+					</div>\
+					<div class='personalImageBox' >\
+						<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
+					</div>\
+					<div class='panel-body content'>"+multiContent+"</div>\
+					<div class='clear'></div>\
 				</div>\
-				<div class='personalImageBox' >\
-					<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
+			</div>"
+		);
+	}else{
+		$(target).append("\
+			<div class='articleContainer' id='"+articleId+"' >\
+				<div class='postTimeContainer'>\
+					<div class='articlePostTime'>\
+						<span class='author'>"+authorName+"</span>發布於"+currentTime+"\
+					</div>\
 				</div>\
-				<div class='panel-body content'>"+multiContent+"</div>\
-				<div class='clear'></div>\
-			</div>\
-		</div>"
-	);
+				<div class='panel panel-default articleBody'>\
+					<div class='panel-heading forumTitleBox'>\
+						<a href='"+perArticleUrl+"/"+articleId+"'><h3 class='panel-title'>"+title+"</h3></a>\
+					</div>\
+					<div class='personalImageBox' >\
+						<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
+					</div>\
+					<div class='panel-body content'>"+multiContent+"</div>\
+					<div class='clear'></div>\
+				</div>\
+			</div>"
+		);
+	}
 
 	$(".more").click(function(e){
 		e.preventDefault();
@@ -379,7 +440,9 @@ function getArticles(type,page,target){
 					data['data'][i]['id'],
 					data['data'][i]['title'],
 					data['data'][i]['content'].replace(/\n/g,"<br>"),
-					target
+					target,
+					type,
+					page
 				);
 			}
 			pageGenerate(pageLocation,data.last_page);
@@ -407,39 +470,72 @@ function getArticles(type,page,target){
 
 function pageGenerate(current,last){
 	var pager="";
-	if(current == 1 && last != 1){
-
-		pager = "<span id='currentPage'>第 1 頁</span>\
-				<ul class='pager'>\
-					<li><a id='nextPage'>Next</a></li>\
-				</ul>\
-				<span id='totalPage'>共 "+last+" 頁</span>\
-				";
-
-	}else if(current == 1 && last == 1){
-
-		pager = "";
-
-	}else if(current == last && last != 1){
-
-		pager = "<span id='currentPage'>最後一頁</span>\
-				<ul class='pager'>\
-					<li><a id='previousPage'>Previous</a></li>\
-				</ul>\
-				<span id='totalPage'>共 "+last+" 頁</span>\
-				";
-
+	if(last<=9){
+		for(i = 0; i < last; i++ ){
+			if((i+1) == current){
+				pager = pager + "<li class='active'><a class='page'>"+(i+1)+"</a></li>";
+			}else{
+				pager = pager + "<li class='disable'><a class='page'>"+(i+1)+"</a></li>";
+			}
+		}
 	}else{
-
-		pager = "<span id='currentPage'>第 "+current+" 頁</span>\
-				<ul class='pager'>\
-					<li><a id='previousPage'>Previous</a></li>\
-					<li><a id='nextPage'>Next</a></li>\
-				</ul>\
-				<span id='totalPage'>共 "+last+" 頁</span>\
-				";
-
+		if(current <= 5){
+			for(i = 0; i < 9; i++ ){
+				if((i+1) == current){
+					pager = pager + "<li class='active'><a class='page'>"+(i+1)+"</a></li>";
+				}else{
+					pager = pager + "<li class='disable'><a class='page'>"+(i+1)+"</a></li>";
+				}
+			}
+		}else if(current >= (last-4)){
+			for(i = 0; i < 9; i++){
+				if((last-8+i) == current){
+					pager = pager + "<li class='active'><a class='page'>"+(last-8+i)+"</a></li>";
+				}else{
+					pager = pager + "<li class='disable'><a class='page'>"+(last-8+i)+"</a></li>";
+				}
+			}
+		}else{
+			for(i = 0; i < 9; i++){
+				if((current-4+i) == current){
+					pager = pager + "<li class='active'><a class='page'>"+(current-4+i)+"</a></li>";
+				}else{
+					pager = pager + "<li class='disable'><a class='page'>"+(current-4+i)+"</a></li>";
+				}
+			}
+		}
 	}
-	$(".paginationBox").html(pager);
+	
+	pager = "<li><a id='previousPage'>&laquo;</a></li>" 
+			+ pager 
+			+ "<li><a id='nextPage'>&raquo;</a></li>";
+	$(".pagination").html(pager);
+
+	$(".page").click(function(e){
+		e.preventDefault();
+		pageLocation = $(this).html();
+		switch(tabLocation){
+			case "new":
+				$("#Test1 .articleContainer").remove();	
+				getArticles(tabLocation,pageLocation,"#Test1");
+				break;
+			case "pop":
+				$("#Test1 .articleContainer").remove();	
+				getArticles(tabLocation,pageLocation,"#Test1");
+				break;
+			case "department":
+				$("#Test2 .articleContainer").each(function(){
+					$(this).remove();
+				});
+				getArticles(tabLocation,pageLocation,"#Test2");
+				break;
+			case "club":
+				$("#Test3 .articleContainer").each(function(){
+					$(this).remove();
+				});
+				getArticles(tabLocation,pageLocation,"#Test3");
+				break;
+		}
+	});
 }
 

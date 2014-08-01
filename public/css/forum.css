@@ -121,20 +121,7 @@ textarea.commentTextArea{
 	top: 5px;
 	right: 5px;
 }
-#currentPage{
-	position: relative;
-	font-weight: 800;
-	color: #3E5AAF;
-	top: 45px;
-	left: 370px;
-}
-#totalPage{
-	position: relative;
-	font-weight: 800;
-	color: #3E5AAF;
-	top: -47px;
-	left: 610px;
-}
+
 #scrollTop{
 	position: fixed;
 	width: 92px;
@@ -211,7 +198,7 @@ textarea.commentTextArea{
 #createBtn:hover{
 	background-position: 0px -64px;
 }
-.pager li>a:hover{
+.pagination li>a:hover{
 	cursor: pointer;
 }
 .originContent{
@@ -223,6 +210,9 @@ textarea.commentTextArea{
 }
 .more:hover{
 	cursor: pointer;
+}
+#pageBox{
+	text-align: center;
 }
 
 

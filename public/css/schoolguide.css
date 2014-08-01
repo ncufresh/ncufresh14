@@ -50,7 +50,8 @@ html, body {
 }
 
 #fixMap {
-    position: fixed;
+    position: absolute;
+    top: 0px;
     width: 100%;
     height: 618px;
 }
@@ -89,7 +90,7 @@ html, body {
 
 #object{
     position: absolute;
-    left: 10px;
+
     top: 0px;
     z-index: 1;
     background-position:-864px -512px;

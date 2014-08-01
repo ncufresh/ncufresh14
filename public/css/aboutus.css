@@ -1,232 +1,307 @@
-﻿
-#morecontent{
-	position: relative;
-	margin-left:-1px;
-	margin-top:-113px; 
-	width:7%;
-	height:765px;
-	cursor:pointer;
-}
-#photo{
-	position: relative;
-	margin-left:-48px;
-	margin-top:-88px;
-	width:64px;
-	height:780px;
-	z-index: 1;
-	cursor:pointer;
-}
-#page1{
-	width:932px;
-	margin-top:96px;
-	margin-left: -1px;
-	height:986px;
-}
-.page2{
-	position: relative;
-}
-#page2{
-	position: absolute;
-	visibility: hidden;
-	width: 7%;
-	margin-top:-979px; 
-	margin-left: 918px;
-	float: left;
-	height:986px;
-	z-index: 0;
-}
-#content{
-	width: 100%;
-	height: 1053px;
-	
-}
-.m_intro{
-
-	font-family:"微軟正黑體";
-	font-size: 18px;
-	color: white;
-	font-weight: 900;
-	text-shadow:3px 3px 3px #383838 ;
-	position: absolute;
-	width: 500px;
-	height: 50px;
-	top:-347px;
-	left:338px; 
-	z-index: 5;
-}
-.m_photo{
-	background-color: #515151;
-	position: absolute;
-	width: 500px;
-	height: 400px;
-	top:-773px;
-	left:340px; 
-	z-index: 5;
-}
-.close{
-	position: absolute;
-	top:-847px;
-	left:882px; 
-	opacity:1 !important;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-	z-index: 5;
-}
-.menu{
-
-	position: relative;
-	top:-874px;
-	left: 156px; 
-	z-index: 5;
-}
-/*modal*/
-.photo{
-	background-color:#33CCFF;
-	position: absolute;
-	top: 200px;
-	left: 200px;
-	width: 550px;
-	height: 400px;
-}
-.team{
-	background-color:#333366;
-	position: absolute;
-	top:500px;
-	left: 700px;
-	width: 50px;
-	height: 100px;
-
-}
-.teamintro{
-	background-color:#990033;
-	position: absolute;
-	top: 500px;
-	left: 200px;
-	width: 550px;
-	height: 80px;
-}
-/* -----------------------------  */
-#code{
-
-	position: absolute;
-	top:-847px;
-	left: 566px; 
-	z-index: 5;
-}
-#operate{
-	position: absolute;
-	top:-536px;
-	left: 465px;
-	z-index: 5;
-}
-#project{
-	position: absolute;
-	top:-471px;
-	left: 315px;  
-	z-index: 5;
-}
-#movie{
-	position: absolute;
-	top:-552px;
-	left: 719px;  
-	z-index: 5;
-}
-#draw{
-	position: absolute;
-	top:-751px	;
-	left: 385px;
-	z-index: 5; 
-}
-#back{
-	position: absolute;
-	top:-900px;
-	left: 234px;
-	z-index: 5; 
-}
-/* -----------------------------  */
-.modal-lg{
-	width: 1000px !important;
-}
-
-#carousel-example-generic{
-	position: absolute;
-	left:391px;
-	top: 760px; 
-	width: 458px  !important;
-	z-index: 5;
-
-}
-.a img{
-	height: 150px;
-	width: 150px;
-	margin: 5px;
-}
-.carousel-control.left{
-	background-image:url('http://localhost/ncufresh14/public/images/aboutus/lbotton.png') !important;
-	width: 8% !important;
-}
-.carousel-control.right{
-	left: 466px;
-	background-image:url('http://localhost/ncufresh14/public/images/aboutus/rbotton.png') !important;
-	width: 8% !important;
-}
-.carousel-control.left:hover{
-	background-image:url('http://localhost/ncufresh14/public/images/aboutus/lbotton-p.png') !important;
-	width: 8% !important;
-}
-.carousel-control.right:hover{
-	left: 466px;
-	background-image:url('http://localhost/ncufresh14/public/images/aboutus/rbotton-p.png') !important;
-	width: 8% !important;
-}
-.carousel-control{
-	height: 50px;
-	top:202px;
-	left: -36px;
-	opacity:1 !important;
-}
-#scroll{
-	overflow: scroll;
-	height: 480px;
-	width: 237px;
-	overflow-x:hidden;
-	position: absolute;
-	top: 684px;
-	left:883px;
-	z-index: 5;
-
-}
-
-#scroll::-webkit-scrollbar {
-    width: 12px;
-}
- 
-#scroll::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
-    border-radius: 10px;
-}
- 
-#scroll::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
-
-}
-
-li{
-    list-style-type: none;
-}
-.photointro{
-	width: 600px;
-	height:50px;
-	position: relative;
-	top:35px;
-	left:0px;
-	background-color:#990033;
+﻿#about-content {
+	width: 1004px;
+	height: 1017px;
 	margin: 10px;
-
+	/*background: blue;*/
+	overflow: hidden;
+	position: relative;
 }
-canvas{
-   z-index: 20;
-   position: fixed;
-   left: 0;
-   top: 0;
+
+#page1 {
+	position: absolute;
+	width: 930px;
+	height: 1017px;
+	background: url("../images/aboutus/page1.png") no-repeat;
+	float: left;
+	margin-left: -21;
+	overflow: hidden;
+	display: inline;
+}
+
+#page1-content {
+	width: 771px;
+	height: 525px;
+	/*background: white;*/
+	margin: 140px 0px 0px 90px;
+}
+
+#page1-photo {
+	width: 640px;
+	height: 360px;
+	background: yellow;
+	margin: 0px auto;
+}
+
+#page1-text {
+	font-family: "微軟正黑體", "Microsoft JhengHei";
+	font-size: 18px;
+	/*color: white;*/
+	font-weight: bold;
+}
+
+#page2 {
+	position: absolute;
+	width: 0px;/*1036*/
+	height: 986px;
+	background: url("../images/aboutus/page2.png") no-repeat;
+	float: right;
+	overflow: hidden;
+	left: 1103px;
+}
+
+#button1 {
+	position: absolute;
+	width: 95px;
+	height: 779px;
+	background: url("../images/aboutus/morecontent.png") no-repeat;
+	float: left;
+	left: 909px;
+}
+
+#button1:hover {
+	background: url("../images/aboutus/morecontent-p.png") no-repeat;
+	cursor: pointer;
+}
+
+#button2 {
+	position: absolute;
+	width: 99px;
+	height: 787px;
+	background: url("../images/aboutus/photo.png") no-repeat;
+	float: left;
+	margin-right: -99px;
+	left: 1004px;
+}
+
+#button2:hover {
+	background: url("../images/aboutus/photo-p.png") no-repeat;
+	cursor: pointer;
+}
+
+#page2-content {
+	position: relative;
+	width: 770px;
+	height: 670px;
+	top: 50px;
+	left: 206px;
+}
+
+.items {
+	position: absolute;
+}
+
+.items:hover {
+	position: absolute;
+	z-index: 1;
+	cursor: pointer;
+}
+
+#photos {
+	width: 231px;
+	height: 239px;
+	top: 50px;
+	left: 50px;
+	background: url("../images/aboutus/back.png") no-repeat;
+}
+
+#photos:hover {
+	background: url("../images/aboutus/back-p.png") no-repeat;
+	cursor: pointer;
+}
+
+#execute {
+	width: 281px;
+	height: 288px;
+	top: 340px;
+	left: 275px;
+	background: url("../images/aboutus/operate.png") no-repeat;
+}
+
+#execute:hover {
+	background: url("../images/aboutus/operate-p.png") no-repeat;
+	cursor: pointer;
+}
+
+#Design {
+	width: 244px;
+	height: 248px;
+	top: 124px;
+	left: 241px;
+	background: url("../images/aboutus/draw.png") no-repeat;
+}
+
+#Design:hover {
+	background: url("../images/aboutus/draw-p.png") no-repeat;
+	cursor: pointer;
+}
+
+#Media {
+	width: 171px;
+	height: 174px;
+	top: 325px;
+	left: 532px;
+	background: url("../images/aboutus/movie.png") no-repeat;
+}
+
+#Media:hover {
+	background: url("../images/aboutus/movie-p.png") no-repeat;
+	cursor: pointer;
+}
+
+#Program {
+	width: 186px;
+	height: 181px;
+	top: 129px;
+	left: 482px;
+	background: url("../images/aboutus/code.png") no-repeat;
+}
+
+#Program:hover {
+	background: url("../images/aboutus/code-p.png") no-repeat;
+	cursor: pointer;
+}
+
+#Project {
+	width: 168px;
+	height: 167px;
+	top: 408px;
+	left: 122px;
+	background: url("../images/aboutus/project.png") no-repeat;
+}
+
+#Project:hover {
+	background: url("../images/aboutus/project-p.png") no-repeat;
+	cursor: pointer;
+}
+
+.contents {
+	display: none;
+	position: absolute;
+	top: 107px;
+	left: 195px;
+	z-index: 3;
+}
+
+#photos-back {
+	width: 802px;
+	height: 574px;
+	background: url("../images/aboutus/back_menu.png") no-repeat;
+}
+
+#execute-back {
+	width: 790px;
+	height: 576px;
+	background: url("../images/aboutus/operate_menu.png") no-repeat;
+}
+
+#Design-back {
+	width: 814px;
+	height: 591px;
+	background: url("../images/aboutus/draw_menu.png") no-repeat;
+}
+
+#Media-back {
+	width: 802px;
+	height: 588px;
+	background: url("../images/aboutus/movie_menu.png") no-repeat;
+}
+
+#Program-back {
+	width: 790px;
+	height: 577px;
+	background: url("../images/aboutus/code_menu.png") no-repeat;
+}
+
+#Project-back {
+	width: 802px;
+	height: 574px;
+	background: url("../images/aboutus/project_menu.png") no-repeat;
+}
+
+.content-close {
+	width: 46px;
+	height: 46px;
+	margin-left: 735px;
+	margin-top: 10px;
+	background: url("../images/aboutus/close.png") no-repeat;
+}
+
+.content-close:hover {
+	background: url("../images/aboutus/close-p.png") no-repeat;
+	cursor: pointer;
+}
+
+.each-content {
+	width: 750px;
+	height: 476px;
+	margin: 29px auto;
+}
+
+.each-photo {
+	background: yellow;
+	width: 640px;
+	height: 360px;
+	margin: 0px auto;
+}
+
+
+#display-photo {
+	background: yellow;
+	width: 640px;
+	height: 360px;
+	margin: 10px auto;
+}
+
+#prelook {
+	width: 100%;
+	height: 108px;
+}
+
+
+#left-button {
+	width: 37px;
+	height: 54px;
+	float: left;
+	margin-top: 25px;
+	background: url("../images/aboutus/lbotton.png") no-repeat;
+}
+
+#left-button:hover {
+	background: url("../images/aboutus/lbotton-p.png") no-repeat;
+}
+
+#prelook-box {
+	width: 675px;
+	height: 108px;
+	background: yellow;
+	margin: 0px auto;
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+
+#prelook-inbox {
+	position: absolute;
+	background: white;
+	width: 5000px;
+	height: 108px;
+	padding: 9px;
+}
+
+#right-button {
+	width: 37px;
+	height: 54px;
+	float: left;
+	margin-top: 25px;
+	background: url("../images/aboutus/rbotton.png") no-repeat;
+}
+
+#right-button:hover {
+	background: url("../images/aboutus/rbotton-p.png") no-repeat;
+}
+
+.prelook-photos {
+	width: 160px;
+	height: 90px;
+	background: blue;
 }
