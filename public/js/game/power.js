@@ -1,6 +1,161 @@
 $(function()
 {
     var burl = getTransferData('burl');
+    $.konami({
+        code: [89, 79], //[49, 57, 54, 89, 79],
+        interval: 1000,
+        complete: function()
+        {
+            var timeCount;
+            var timer = $.timer(tick);
+            var hclick;
+            var findEmpty;
+            var randomSelect;
+            var place = new Array(9);
+                for(var i=0; i<9; i++)
+                    place[i]=i;
+            var start,clickPic,win;
+            $('#cover').hide();
+            $('#hcover').show();
+
+            $('.picture').each(function(index) 
+            {
+                $(this).click(function()
+                {
+                    hclick = $(this).data('getclick');
+                });
+            })
+
+            $('#hstart').click(function()
+            {
+                $('#hcover').hide();
+                $('#hstartGame').show();
+                init();
+            });
+
+            function init()
+            {
+                timeCount = 0;
+                findEmpty = 8;
+                start = false;
+                clickPic = false;
+                win = true;
+                randomSelect = 0;
+                for(var i=0; i<9; i++)
+                {
+                    $('.c'+i+'').css({
+                        background: 'url("'+burl+'/images/gamePower/p1'+i+'.png")',
+                    });
+                    // $('.c'+i+'').css({
+                    //     background: 'url("'+burl+'/images/gamePower/photo.png")',
+                    //     backgroundPosition: ''+(i*199)+'px 0px'
+                    // });
+                    console.log($('.c'+i+''));
+                }
+                timer.set({ time:10, autostart:true });
+                clicking();
+            }   
+            
+            function tick()
+            {
+                var min = 0,sec = 0;
+                timeCount++;
+                if(timeCount<200)
+                    randomTurn();
+                else if(timeCount%100==0)
+                {
+                    var rtime = timeCount-2;
+                    start = true;
+                    $('#timing').empty();
+                    if(timeCount>=6000)
+                        min = ((rtime)/6000) - ((rtime)/6000)%1;
+                    sec = (rtime-min*6000)/100-((rtime-min*6000)/100)%1;
+                    $('#timing').text(min+"分"+sec+"秒");
+                }
+                
+            }
+
+            function randomTurn()
+            {
+                var ran = Math.random()*9;
+                ran = ran-ran%1;
+                doOrNot(ran);
+            }
+
+            function clicking()
+            {
+                $('.c').each(function(index) 
+                {
+                    $(this).click(function()
+                    {
+                        doOrNot(index);
+                    });
+                })
+            }
+
+            function doOrNot(index)
+            {
+                if(index==0 && (findEmpty==1 || findEmpty==3))
+                    clickPic = true;
+                else if(index==1 && (findEmpty==0 || findEmpty==2 || findEmpty==4))
+                    clickPic = true;
+                else if(index==2 && (findEmpty==1 || findEmpty==5))
+                    clickPic = true;
+                else if(index==3 && (findEmpty==0 || findEmpty==4 || findEmpty==6))
+                    clickPic = true;
+                else if(index==4 && (findEmpty==1 || findEmpty==3 || findEmpty==5 || findEmpty==7))
+                    clickPic = true;
+                else if(index==5 && (findEmpty==2 || findEmpty==4 || findEmpty==8))
+                    clickPic = true;
+                else if(index==6 && (findEmpty==3 || findEmpty==7))
+                    clickPic = true;
+                else if(index==7 && (findEmpty==4 || findEmpty==6 || findEmpty==8))
+                    clickPic = true;
+                else if(index==8 && (findEmpty==5 || findEmpty==7))
+                    clickPic = true;
+                moveOrNot(index);
+            }
+
+            function moveOrNot(index)
+            {
+                if(clickPic==true)
+                {
+                    var buffer = place[index];
+                    place[index] = place[findEmpty];
+                    place[findEmpty] = buffer;
+                    // $('.c'+findEmpty+'').css({
+                    //     background: 'url("'+burl+'/images/gamePower/photo.png")',
+                    //     backgroundPosition: ''+(place[findEmpty]*199)+'px 0px'
+                    // });
+                    $('.c'+findEmpty+'').css({ background: 'url("'+burl+'/images/gamePower/p1'+place[findEmpty]+'.png") no-repeat' });
+                    $('.c'+index+'').css({ background: 'url("'+burl+'/images/gamePower/p18.png")' });
+                    findEmpty = index;
+                    if(start==true)
+                       winOrNot();
+                    clickPic = false;
+                }
+            }
+
+            function winOrNot()
+            {
+                win=true;
+                for(var i=0; i<9; i++)
+                    if(place[i]!=i)
+                        win = false;
+                if(win==true)
+                {
+                    timer.stop();
+                    $('#hstartGame').hide();
+                    $('#hendScreen').show();
+                }
+            }
+
+            
+
+        }
+    });
+
+    var burl = getTransferData('burl');
     var correct,correctCount=0,choose,option,click,clickCount=0,id=0;
     var recentPower = 0,maxPower = 0,returnCount = 0;
     var dayQuest;
