@@ -9,7 +9,8 @@
 	height: 103px;
 	margin: 0px auto;
 	padding: 22px;
-	background: url("../images/gameIndex/userback.png") no-repeat;
+	background: url("../images/gameIndex/images.png") no-repeat;
+	background-position: 0px 0px;
 }
 
 #gameMain {
@@ -20,11 +21,13 @@
 #gameMenu {
 	width: 935px;
 	height: 419px;
-	background: url("../images/gameIndex/background.png") no-repeat;
+	background: url("../images/gameIndex/images.png") no-repeat;
+	background-position: 0px -128px;
 }
 
 #gameSnakeButton {
-	background: url("../images/gameIndex/snake.png") no-repeat;
+	background: url("../images/gameIndex/images.png") no-repeat;
+	background-position: 0px -640px;
 	width: 201px;
 	height: 160px;
 	float: left;
@@ -32,17 +35,13 @@
 }
 
 #gameSnakeButton:hover {
-	background: url("../images/gameIndex/snakeclick.png") no-repeat;
-	width: 201px;
-	height: 160px;
-	float: left;
-	top: 50px;
-	margin: 20px 0px 0px 245px;
+	background-position: -256px -640px;
 	cursor: pointer;
 }
 
 #gameCampusButton {
-	background: url("../images/gameIndex/campus.png") no-repeat;
+	background: url("../images/gameIndex/images.png") no-repeat;
+	background-position: -512px -640px;
 	width: 201px;
 	height: 166px;
 	float: left;
@@ -50,16 +49,13 @@
 }
 
 #gameCampusButton:hover {
-	background: url("../images/gameIndex/campusclick.png") no-repeat;
-	width: 201px;
-	height: 166px;
-	float: left;
-	margin: 14px 0px 0px 40px;
+	background-position: -768px -640px;
 	cursor: pointer;
 }
 
 #gameDestinyButton {
-	background: url("../images/gameIndex/destiny.png") no-repeat;
+	background: url("../images/gameIndex/images.png") no-repeat;
+	background-position: -0px -832px;
 	width: 201px;
 	height: 154px;
 	float: left;
@@ -67,16 +63,13 @@
 }
 
 #gameDestinyButton:hover {
-	background: url("../images/gameIndex/destinyclick.png") no-repeat;
-	width: 201px;
-	height: 154px;
-	float: left;
-	margin: 45px 0px 0px 244px;
+	background-position: -256px -832px;
 	cursor: pointer;
 }
 
 #gamePowerButton {
-	background: url("../images/gameIndex/power.png") no-repeat;
+	background: url("../images/gameIndex/images.png") no-repeat;
+	background-position: -512px -832px;
 	width: 201px;
 	height: 164px;
 	float: left;
@@ -84,11 +77,7 @@
 }
 
 #gamePowerButton:hover {
-	background: url("../images/gameIndex/powerclick.png") no-repeat;
-	width: 201px;
-	height: 164px;
-	float: left;
-	margin: 35px 0px 0px 41px;
+	background-position: -768px -832px;
 	cursor: pointer;
 }
 
@@ -96,37 +85,26 @@
 	float: left;
 	width: 109px;
 	height: 59px;
-	background: url("../images/gameIndex/shop.png") no-repeat;
-	background-size: 100%;
+	background: url("../images/gameIndex/images.png") no-repeat;
+	background-position: -256px -576px;
 	margin: 0px 10px 0px 0px;
 }
 
 #gameShop:hover {
-	float: left;
-	width: 109px;
-	height: 59px;
-	background: url("../images/gameIndex/shopclick.png") no-repeat;
-	background-size: 100%;
-	margin: 0px 10px 0px 0px;
-	cursor: pointer;
+	background-position: -384px -576px;
 }
 
 #gameRoom {
 	float: left;
 	width: 110px;
 	height: 59px;
-	background: url("../images/gameIndex/gameroom.png") no-repeat;
-	background-size: 100%;
+	background: url("../images/gameIndex/images.png") no-repeat;
+	background-position: -0px -576px;
 	margin: 0px 10px 0px 0px;
 }
 
 #gameRoom:hover {
-	float: left;
-	width: 110px;
-	height: 59px;
-	background: url("../images/gameIndex/gameroomclick.png") no-repeat;
-	background-size: 100%;
-	margin: 0px 10px 0px 0px;
+	background-position: -128px -576px;
 	cursor: pointer;
 }
 
@@ -138,27 +116,27 @@
 	float: left;
 	width: 49px;
 	height: 30px;
-	background: url("../images/gameIndex/name.png") no-repeat;
+	background: url("../images/gameIndex/images.png") no-repeat;
+	background-position: -512px -576px;
 	margin: 13px 10px 0px 133px;
-	background-size: 100%;
 }
 
 #userPowerImage {
 	float: left;
 	width: 49px;
 	height: 30px;
-	background: url("../images/gameIndex/powertext.png") no-repeat;
+	background: url("../images/gameIndex/images.png") no-repeat;
+	background-position: -576px -576px;
 	margin: 13px 10px 0px 0px;
-	background-size: 100%;
 }
 
 #userGpImage {
 	float: left;
 	width: 49px;
 	height: 30px;
-	background: url("../images/gameIndex/gp.png") no-repeat;
+	background: url("../images/gameIndex/images.png") no-repeat;
+	background-position: -640 -576px;
 	margin: 13px 10px 0px 0px;
-	background-size: 100%;
 }
 
 #powerBox {
@@ -184,9 +162,10 @@
 */
 
 #gameDestinyContainer {
-	width: 100%;
+	width: 935px;
 	height: 617px;
-	background: url("../images/gameDestiny/background.png") no-repeat;
+	background: url("../images/gameDestiny/images.png") no-repeat;
+	background-position: 0px 0px;
 }
 
 #gameDestinyLeft {
@@ -220,7 +199,8 @@
 	top: 210px;
 	left: 56px;
 	position: absolute;
-	background: url("../images/gameDestiny/rotatebox.png") no-repeat;
+	background: url("../images/gameDestiny/images.png") no-repeat;
+	background-position: 0px -640px;
 }
 
 #rotatePointer {
@@ -229,7 +209,8 @@
 	top: 356px;
 	left: 224px;
 	position: absolute;
-	background: url("../images/gameDestiny/pointer.png") no-repeat;
+	background: url("../images/gameDestiny/images.png") no-repeat;
+	background-position: -384px -640px;
 }
 
 #destinyStart {
@@ -237,17 +218,13 @@
 	left: 50px;
 	width: 242px;
 	height: 77px;
-	background: url("../images/gameDestiny/start.png") no-repeat;
+	background: url("../images/gameDestiny/images.png") no-repeat;
+	background-position: -448px -640px;
 	position: absolute;
 }
 
 #destinyStart:hover {
-	top: 300px;
-	left: 50px;
-	width: 242px;
-	height: 77px;
-	background: url("../images/gameDestiny/startclick.png") no-repeat;
-	position: absolute;
+	background-position: -704px -640px;
 	cursor: pointer;
 }
 
@@ -256,7 +233,8 @@
 	left: 50px;
 	width: 184px;
 	height: 99px;
-	background: url("../images/gameDestiny/powersub.png") no-repeat;
+	background: url("../images/gameDestiny/images.png") no-repeat;
+	background-position: -384px -828px;
 	position: absolute;
 }
 
@@ -269,7 +247,8 @@
 	left: 36px;
 	width: 265px;
 	height: 207px;
-	background: url("../images/gameDestiny/bonusbox.png") no-repeat;
+	background: url("../images/gameDestiny/images.png") no-repeat;
+	background-position: -580px -828px;
 	position: absolute;
 	padding: 25px;
 }
@@ -279,8 +258,8 @@
 	left: 50px;
 	width: 242px;
 	height: 77px;
-	background: url("../images/gameDestiny/again.png") no-repeat;
-	/*background-position: 0px 0px;*/
+	background: url("../images/gameDestiny/images.png") no-repeat;
+	background-position: -448px -736px;
 	position: absolute;
 }
 
@@ -289,8 +268,8 @@
 	left: 50px;
 	width: 242px;
 	height: 77px;
-	background: url("../images/gameDestiny/againclick.png") no-repeat;
-	/*background-position: 0px -96px;*/
+	background: url("../images/gameDestiny/images.png") no-repeat;
+	background-position: -704px -736px;
 	position: absolute;
 	cursor: pointer;
 }
@@ -334,7 +313,8 @@ gameCampus
 	float: left;
 	width: 46px;
 	height: 46px;
-	background: url("../images/gameCampus/O.png") no-repeat;
+	background: url("../images/gameCampus/images.png") no-repeat;
+	background-position: 0px 0px;
 	margin-left: 5px;
 }
 
@@ -342,7 +322,8 @@ gameCampus
 	float: left;
 	width: 46px;
 	height: 46px;
-	background: url("../images/gameCampus/X.png") no-repeat;
+	background: url("../images/gameCampus/images.png") no-repeat;
+	background-position: -64px 0px;
 	margin-left: 5px;
 }
 
@@ -351,17 +332,13 @@ gameCampus
 	height: 135px;
 	top: 402px;
 	left: 87px;
-	background: url("../images/gameCampus/mapButton.png") no-repeat;
+	background: url("../images/gameCampus/images.png") no-repeat;
+	background-position: -128px 0px;
 	position: absolute;
 }
 
 #gameCampusMapButton:hover {
-	width: 201px;
-	height: 135px;
-	top: 402px;
-	left: 87px;
-	background: url("../images/gameCampus/mapButtonClick.png") no-repeat;
-	position: absolute;
+	background-position: -384px 0px;
 	cursor: pointer;
 }
 
@@ -370,17 +347,13 @@ gameCampus
 	height: 138px;
 	top: 399px;
 	left: 379px;
-	background: url("../images/gameCampus/startButton.png") no-repeat;
+	background: url("../images/gameCampus/images.png") no-repeat;
+	background-position: -640px 0px;
 	position: absolute;
 }
 
 #gameCampusStartButton:hover {
-	width: 191px;
-	height: 138px;
-	top: 399px;
-	left: 379px;
-	background: url("../images/gameCampus/startButtonClick.png") no-repeat;
-	position: absolute;
+	background-position: -0px -160px;
 	cursor: pointer;
 }
 
@@ -389,17 +362,13 @@ gameCampus
 	height: 151px;
 	top: 386px;
 	left: 675px;
-	background: url("../images/gameCampus/infoButton.png") no-repeat;
+	background: url("../images/gameCampus/images.png") no-repeat;
+	background-position: -192px -160px;
 	position: absolute;
 }
 
 #gameCampusInfoButton:hover {
-	width: 191px;
-	height: 151px;
-	top: 386px;
-	left: 675px;
-	background: url("../images/gameCampus/infoButtonClick.png") no-repeat;
-	position: absolute;
+	background-position: -384px -160px;
 	cursor: pointer;
 }
 
@@ -465,16 +434,12 @@ gameCampus
 	top: 50px;
 	left: 790px;
 	position: absolute;
-	background: url("../images/gameCampus/infoExit.png") no-repeat;
+	background: url("../images/gameCampus/images.png") no-repeat;
+	background-position: -576px -160px;
 }
 
 #gameCampusInfoExit:hover {
-	width: 46px;
-	height: 46px;
-	top: 50px;
-	left: 790px;
-	position: absolute;
-	background: url("../images/gameCampus/infoExitClick.png") no-repeat;
+	background-position: -640px -160px;
 	cursor: pointer;
 }
 
@@ -482,8 +447,7 @@ gameCampus
 	display: none;
 	width: 935px;
 	height: 617px;
-	/*background: url("../images/gameCampus/endBackground.png") no-repeat;*/
-	background: url("../images/gameCampus/test.png") no-repeat;
+	background: url("../images/gameCampus/endBackground.png") no-repeat;
 	position: relative;
 }
 
@@ -503,14 +467,12 @@ gameCampus
 	top: 403px;
 	left: 320px;
 	position: absolute;
-	background: url("../images/gameCampus/again.png") no-repeat;
+	background: url("../images/gameCampus/images.png") no-repeat;
+	background-position: 0px -320px;
 }
 
 #gameCampusAgain:hover {
-	width: 298px;
-	height: 139px;
-	background: url("../images/gameCampus/againClick.png") no-repeat;
-	cursor: pointer;
+	background-position: -320px -320px;
 	cursor: pointer;
 }
 
@@ -524,7 +486,8 @@ gameShop
 	height: 664px;
 	padding: 10px;
 	margin: 0px auto;
-	background: url("../images/gameShop/background.png") no-repeat;
+	background: url("../images/gameShop/images.png") no-repeat;
+	background-position: 0px 0px;
 }
 
 #characterLook {
@@ -554,60 +517,61 @@ gameShop
 	height: 35px;
 	margin: 12px 0px 0px 0px;
 	text-align: center;
+	background: url("../images/gameShop/images.png") no-repeat;
 }
 
 #gameShopTypeHead {
-	background: url("../images/gameShop/head.png") no-repeat;
+	background-position: 0px -672px;
 }
 
 #gameShopTypeHead:hover {
-	background: url("../images/gameShop/headclick.png") no-repeat;
+	background-position: -96px -672px;
 	cursor: pointer;
 }
 
 #gameShopTypeFace {
-	background: url("../images/gameShop/face.png") no-repeat;
+	background-position: -192px -672px;
 }
 
 #gameShopTypeFace:hover {
-	background: url("../images/gameShop/faceclick.png") no-repeat;
+	background-position: -288px -672px;
 	cursor: pointer;
 }
 
 #gameShopTypeBody {
-	background: url("../images/gameShop/body.png") no-repeat;
+	background-position: -384px -672px;
 }
 
 #gameShopTypeBody:hover {
-	background: url("../images/gameShop/bodyclick.png") no-repeat;
+	background-position: -480px -672px;
 	cursor: pointer;
 }
 
 #gameShopTypeFoot {
-	background: url("../images/gameShop/foot.png") no-repeat;
+	background-position: -576px -672px;
 }
 
 #gameShopTypeFoot:hover {
-	background: url("../images/gameShop/footclick.png") no-repeat;
+	background-position: -672px -672px;
 	cursor: pointer;
 }
 
 #gameShopTypeItem {
-	background: url("../images/gameShop/item.png") no-repeat;
+	background-position: -768px -672px;
 }
 
 #gameShopTypeItem:hover {
-	background: url("../images/gameShop/itemclick.png") no-repeat;
+	background-position: -864px -672px;
 	cursor: pointer;
 }
 
 #gameShopTypeMap {
-	background: url("../images/gameShop/map.png") no-repeat;
+	background-position: -0px -736px;
 	width: 119px;
 }
 
 #gameShopTypeMap:hover {
-	background: url("../images/gameShop/mapclick.png") no-repeat;
+	background-position: -128px -736px;
 	cursor: pointer;
 }
 
@@ -622,12 +586,13 @@ gameShop
 	width: 112px;
 	height: 129px;
 	margin: 20px 7px 20px 11px;
-	background: url("../images/gameShop/itembox.png") no-repeat;
+	background: url("../images/gameShop/images.png") no-repeat;
+	background-position: 0px -796px;
 	position: relative;
 }
 
 .gameShopItemSelect {
-	background: url("../images/gameShop/itemBoxClick.png") no-repeat;
+	background-position: -128px -796px;
 }
 
 .gameShopItemSpecial {
@@ -640,7 +605,7 @@ gameShop
 }
 
 .gameShopItemSelectSpecial {
-	background: url("../images/gameShop/special/itemBoxClick.png") no-repeat;
+	background: url("../images/gameShop/special/itemboxclick.png") no-repeat;
 }
 
 .gameShopItemText {
@@ -681,7 +646,8 @@ gameShop
 
 .gameShopItemBuyButton {
 	position: absolute;
-	background: url("../images/gameShop/buy.png") no-repeat;
+	background: url("../images/gameShop/images.png") no-repeat;
+	background-position: -256px -736px;
 	width: 79px;
 	height: 30px;
 	top: 105px;
@@ -690,7 +656,8 @@ gameShop
 
 .gameShopItemBuyButtonSpecial {
 	position: absolute;
-	background: url("../images/gameShop/buy.png") no-repeat;
+	background: url("../images/gameShop/images.png") no-repeat;
+	background-position: -256px -736px;
 	width: 79px;
 	height: 30px;
 	top: 274px;
@@ -698,22 +665,21 @@ gameShop
 }
 
 .gameShopItemBuyButtonSpecial:hover {
-	background: url("../images/gameShop/buyClick.png") no-repeat;
+	background-position: -384px -736px;
 	cursor: pointer;
 }
 
 .gameShopItemBuyButton:hover {
-	background: url("../images/gameShop/buyClick.png") no-repeat;
+	background-position: -384px -736px;
 	cursor: pointer;
 }
 
 .itemHadBuy {
-	background: url("../images/gameShop/buyed.png") no-repeat;
+	background-position: -512px -736px;
 }
 
 .itemHadBuy:hover {
-	background: url("../images/gameShop/buyed.png") no-repeat;
-	cursor: pointer;
+	background-position: -512px -736px;
 }
 
 #characterEquipButton {
@@ -722,12 +688,13 @@ gameShop
 	top: 320px;
 	left: 10px;
 	position: absolute;
-	background: url("../images/gameShop/equip.png") no-repeat;
+	background: url("../images/gameShop/images.png") no-repeat;
+	background-position: 0px -960px;
 
 }
 
 #characterEquipButton:hover {
-	background: url("../images/gameShop/equipclick.png") no-repeat;
+	background-position: -96px -960px;
 	cursor: pointer;
 }
 
@@ -737,12 +704,13 @@ gameShop
 	top: 320px;
 	left: 145px;
 	position: absolute;
-	background: url("../images/gameShop/return.png") no-repeat;
+	background: url("../images/gameShop/images.png") no-repeat;
+	background-position: -192px -960px;
 
 }
 
 #characterReturnButton:hover {
-	background: url("../images/gameShop/returnclick.png") no-repeat;
+	background-position: -288px -960px;
 	cursor: pointer;
 }
 
@@ -814,7 +782,8 @@ gameShop
 	/*display: none;*/
 	width: 732px;
 	height: 322px;
-	background: url("../images/gameIndex/noPowerBox.png") no-repeat;
+	background: url("../images/gameIndex/noPower.png") no-repeat;
+	background-position: 0px 0px;
 	margin: 160px auto;
 	position: relative;
 	padding-top: 77px;
@@ -822,7 +791,8 @@ gameShop
 
 .gameNoPowerButton {
 	position: absolute;
-	background: url("../images/gameIndex/noPowerButton.png") no-repeat;
+	background: url("../images/gameIndex/noPower.png") no-repeat;
+	background-position: 0px -384px;
 	font-family: "微軟正黑體", "Microsoft JhengHei";
 	font-size: 30px;
 	color: white;
@@ -834,15 +804,7 @@ gameShop
 }
 
 .gameNoPowerButton:hover {
-	position: absolute;
-	background: url("../images/gameIndex/noPowerButtonClick.png") no-repeat;
-	font-family: "微軟正黑體", "Microsoft JhengHei";
-	font-size: 30px;
-	color: white;
-	font-weight: bold;
-	padding: 5px;
-	text-align: center;
-	cursor: pointer;
+	background-position: -192px -384px;
 	cursor: pointer;
 }
 
@@ -862,17 +824,12 @@ gameShop
 	width: 46px;
 	height: 46px;
 	position: absolute;
-	background: url("../images/gameIndex/noPowerExit.png") no-repeat;
+	background: url("../images/gameIndex/noPower.png") no-repeat;
+	background-position: -384px -384px;
 }
 
 #gameNoPowerExit:hover {
-	top: 10px;
-	left: 648px;
-	width: 46px;
-	height: 46px;
-	position: absolute;
-	background: url("../images/gameIndex/noPowerExitClick.png") no-repeat;
-	cursor: pointer;
+	background-position: -448px -384px;
 	cursor: pointer;
 }
 
