@@ -19,7 +19,7 @@
 		{{ HTML::script('js/jquery/jquery.timer.js') }}
 		{{ HTML::script('ckeditor/ckeditor.js') }}
 		{{ HTML::script('js/main.js') }}
-		{{ HTML::script('js/layout/chatroom.js') }}
+		{{ HTML::script('js/layout/chatroom.min.js') }}
 		{{ HTML::script('js/jquery/pace.min.js') }}
 		{{ HTML::style('css/bootstrap.min.css') }}
 		{{ HTML::style('css/jquery.jscrollpane.css') }}
