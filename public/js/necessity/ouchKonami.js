@@ -9,8 +9,7 @@ $(document).ready(function() {
  //    //}
     
     $.konami({
-	// code:                   [82,69,88,72,85,65,78,71],
-	code:                   [82,69,88],
+	code:                   [82,69,88,72,85,65,78,71],
 	interval:		100,
     complete:		function(){
 		//do your thing.

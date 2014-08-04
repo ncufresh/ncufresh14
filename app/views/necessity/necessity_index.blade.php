@@ -2,9 +2,9 @@
 
 @section('js_css')
 		
-	{{ HTML::style('css/necessity/necessity_index.css') }}
-	{{ HTML::script('js/necessity/necessity.js')  }}
-	{{ HTML::script('js/necessity/ouchKonami.js')  }}
+	{{ HTML::style('css/necessity/necessity_index.min.css') }}
+	{{ HTML::script('js/necessity/necessity.min.js')  }}
+	{{ HTML::script('js/necessity/ouchKonami.min.js')  }}
 @stop
 
 @section('content')
@@ -122,7 +122,7 @@
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;請輸入rex</font></div>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;請輸入rexhuang</font></div>
 					<div class="PaddingMid" >
 						<div class="IntroductionR" >
 							<table>
