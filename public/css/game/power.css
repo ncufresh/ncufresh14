@@ -1,3 +1,102 @@
+#hcover {
+	width: 935px;
+	height: 617px;
+	background-image: url("../../images/gamePower/hcover.png");
+	display: none;
+}
+#allPicU {
+	width: 900px;
+	height: 150px;
+	top: 75px;
+	left: 45px;
+	position: relative;
+}
+#allPicD {
+	width: 900px;
+	height: 150px;
+	top: 120px;
+	left: 45px;
+	position: relative;
+}
+.picture {
+	width: 150px;
+	height: 150px;
+	margin-left: 15px;
+	border: 1px black solid;
+	float: left;
+}
+#p0 { background-image: url("../../images/gamePower/allPic.png"); background-position: 0px 0px; }
+#p1 { background-image: url("../../images/gamePower/allPic.png"); background-position: 150px 0px; }
+#p2 { background-image: url("../../images/gamePower/allPic.png"); background-position: 300px 0px; }
+#p3 { background-image: url("../../images/gamePower/allPic.png"); background-position: 450px 0px; }
+#p4 { background-image: url("../../images/gamePower/allPic.png"); background-position: 600px 0px; }
+#p5 { background-image: url("../../images/gamePower/allPic.png"); background-position: 0px 150px; }
+#p6 { background-image: url("../../images/gamePower/allPic.png"); background-position: 150px 150px; }
+#p7 { background-image: url("../../images/gamePower/allPic.png"); background-position: 300px 150px; }
+#p8 { background-image: url("../../images/gamePower/allPic.png"); background-position: 450px 150px; }
+#p9 { background-image: url("../../images/gamePower/allPic.png"); background-position: 600px 150px; }
+#hstart {
+	cursor: pointer;
+	width: 246px;
+	height: 81px;
+	margin-top: 180px;
+	margin-left: 345px;
+	float: left;
+	background: url("../../images/gamePower/button.png") no-repeat;
+	background-position: 0px 0px;
+}
+#hstart:hover {
+	background: url("../../images/gamePower/button.png") no-repeat;
+	background-position: -250px 0px;
+}
+#hstartGame {
+	width: 935px;
+	height: 617px;
+	background-color: pink;
+	display: none;
+}
+#gameContent {
+	width: 600px;
+	height: 600px;
+	left: 50px;
+	top: 8px;
+	border: 2px black solid;
+	position: relative;
+}
+.r1 { width: 597px;	height: 197px; margin-left: 1px; margin-top: 2px; }
+.r2 { width: 597px;	height: 197px; margin-left: 1px; }
+.r3 { width: 597px;	height: 197px; margin-left: 1px; }
+.c0 { width: 198px;	height: 198px; cursor: pointer; }
+.c1 { width: 198px;	height: 198px; cursor: pointer; }
+.c2 { width: 198px;	height: 198px; cursor: pointer; }
+.c3 { width: 198px;	height: 198px; cursor: pointer; }
+.c4 { width: 198px;	height: 198px; cursor: pointer; }
+.c5 { width: 198px;	height: 198px; cursor: pointer; }
+.c6 { width: 198px;	height: 198px; cursor: pointer; }
+.c7 { width: 198px;	height: 198px; cursor: pointer; }
+.c8 { width: 198px;	height: 198px; cursor: pointer; }
+#timing {
+	left: 725px;
+	top: 330px;
+	font-size: 45px;
+	position: absolute;
+}
+#artwork {
+	width: 233px;
+	height: 85px;
+	top: 500px;
+	left: 725px;
+	position: absolute;
+	background: url("../../images/gamePower/artwork.png") no-repeat;
+}
+#hendScreen {
+	width: 935px;
+	height: 617px;
+	background: url("../../images/gamePower/endScreen.png") no-repeat;
+	display: none;
+}
+
+/*/////////////////////////////cover/////////////////////////////////////////*/
 #cover {
 	width: 935px;
 	height: 617px;
