@@ -96,8 +96,7 @@ $(function(){
 		$("#Test1 .articleContainer").remove();
 		getArticles(tabLocation,pageLocation,"#Test1");
 	});
-
-
+	//Nav-Tab : show type of Club articles
 	$("#clubTab").click(function(e){
 		if(tabLocation != "club"){
 			$("#Test3").css('display','block');
@@ -121,7 +120,7 @@ $(function(){
 			getArticles(tabLocation,pageLocation,"#Test3");
 		}
 	});
-
+	//Nav-Tab : show type of Drpartment articles
 	$("#departmentTab").click(function(e){
 		if(tabLocation != "department"){
 			$("#Test2").css('display','block');
@@ -140,34 +139,38 @@ $(function(){
 			getArticles(tabLocation,pageLocation,"#Test2");
 		}
 	});
-
+	//Pagination: Go To Previous Page
 	$(document).on("click","#previousPage",function(e){
 		e.preventDefault();
-		pageLocation--;
-		switch(tabLocation){
-			case "new":
-				$("#Test1 .articleContainer").remove();	
-				getArticles(tabLocation,pageLocation,"#Test1");
-				break;
-			case "pop":
-				$("#Test1 .articleContainer").remove();	
-				getArticles(tabLocation,pageLocation,"#Test1");
-				break;
-			case "department":
-				$("#Test2 .articleContainer").each(function(){
-					$(this).remove();
-				});
-				getArticles(tabLocation,pageLocation,"#Test2");
-				break;
-			case "club":
-				$("#Test3 .articleContainer").each(function(){
-					$(this).remove();
-				});
-				getArticles(tabLocation,pageLocation,"#Test3");
-				break;
+		if(pageLocation == 1){
+			alert("Are you Serious?\n這麼想去異次元空間？");
+		}else{
+			pageLocation--;
+			switch(tabLocation){
+				case "new":
+					$("#Test1 .articleContainer").remove();	
+					getArticles(tabLocation,pageLocation,"#Test1");
+					break;
+				case "pop":
+					$("#Test1 .articleContainer").remove();	
+					getArticles(tabLocation,pageLocation,"#Test1");
+					break;
+				case "department":
+					$("#Test2 .articleContainer").each(function(){
+						$(this).remove();
+					});
+					getArticles(tabLocation,pageLocation,"#Test2");
+					break;
+				case "club":
+					$("#Test3 .articleContainer").each(function(){
+						$(this).remove();
+					});
+					getArticles(tabLocation,pageLocation,"#Test3");
+					break;
+			}
 		}
 	});
-	
+	//Pagination: Go To Next Page
 	$(document).on("click","#nextPage",function(e){
 		e.preventDefault();
 		pageLocation++;
@@ -195,7 +198,7 @@ $(function(){
 		}
 	});
 
-
+	//Btn for clicking to show New-Article-Form
 	$("#createBtn").click(function(){
 		if(loginStatus != 1){
 			$("#errorMsgContent").text(notLoginMsg);
@@ -205,7 +208,7 @@ $(function(){
 			$('#myModal').modal('toggle');
 		}
 	});
-
+	//Submit the article to controller and append on Page
 	$("#submitArticle").click(function(){
 		var title = $("#inputTitle").val();
 		var content =$("#inputDetail").val();
@@ -505,10 +508,13 @@ function pageGenerate(current,last){
 			}
 		}
 	}
-	
-	pager = "<li><a id='previousPage'>&laquo;</a></li>" 
+	if(current == last){
+		pager = "<li><a id='previousPage'>&laquo;</a></li>" + pager ;
+	}else{
+		pager = "<li><a id='previousPage'>&laquo;</a></li>" 
 			+ pager 
 			+ "<li><a id='nextPage'>&raquo;</a></li>";
+	}
 	$(".pagination").html(pager);
 
 	$(".page").click(function(e){

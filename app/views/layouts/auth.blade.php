@@ -7,7 +7,7 @@
 		<div id="auth_logined_cover">
 		<a id="topUserButton" href="{{ route('user.self') }}"></a>
 		<a id="logoutButton" href="{{ route('logout') }}"></a>
-		<div id="auth_name">{{Auth::user()->name}}</div>
+		<div id="auth_name">{{{ Auth::user()->name }}}</div>
 		
 		</div>
 	</div>

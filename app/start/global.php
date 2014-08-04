@@ -53,7 +53,7 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 	App::make('SiteMap')->pushLocation('錯誤頁面', route('error'));
 
-	Mail::queue('emails.error', array('now' => \Carbon\Carbon::now()->toDateTimeString(), 'exception' => $exception), function($message){
+	Mail::queue('emails.error', array('now' => \Carbon\Carbon::now()->toDateTimeString(), 'exception' => $exception->getMessage()), function($message){
 		$message->from('system@ncufresh.ncu.edu.tw', '系統自動發信')->subject('大一生活知訊網-爆炸拉');;
 
 		$message->to('andy199310@gmail.com');

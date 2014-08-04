@@ -159,6 +159,10 @@
 	cursor: pointer;
 	text-overflow: ellipsis;
 }
+.announcement-row>.col-sm-6{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
 .announcement-row:hover{
 	background-color: rgb(254, 219, 95);
@@ -205,6 +209,13 @@
 	color: #000000;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	height: 40px;
+	overflow: hidden;
+}
+
+.forum-title{
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .forum-row:hover{

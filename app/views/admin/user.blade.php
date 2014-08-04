@@ -10,8 +10,8 @@
 		@foreach($users as $user)
 			<div class="user-row" data-sid="{{ $user->id }}">
 				<div class="user-id col-sm-1">{{ $user->id }}</div>
-				<div class="user-id col-sm-2">{{ $user->name }}</div>
-				<div class="user-id col-sm-4">{{ $user->email }}</div>
+				<div class="user-id col-sm-2">{{{ $user->name }}}</div>
+				<div class="user-id col-sm-4">{{{ $user->email }}}</div>
 				<div class="user-id col-sm-5">
 					{{ Form::open(array('route' => 'admin.changeRole')) }}
 					{{ Form::hidden('id', $user->id) }}
