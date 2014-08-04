@@ -250,7 +250,7 @@ function displayComments(authorName,authorId,content,createdAt,target){
 				<img class='personalImageComment' src='"+burl+"/person/"+authorId+"'>\
 			</div>\
 			<div class='commentContentBox'>\
-				<span class='commentContent'>"+content+"</span>\
+				<span class='commentContent'>"+hyperLinkSwitch(content)+"</span>\
 			</div>\
 			<div class='commentTimeBox'>\
 				<span class='commentTime'>"+createdAt+"</span>\
@@ -258,3 +258,11 @@ function displayComments(authorName,authorId,content,createdAt,target){
 		</div>";
 	target.before(comment);
 } 
+
+function hyperLinkSwitch(str){
+
+	str = str.replace("lt;a ","<a");
+	str = str.replace("gt;",">");
+	str = str.replace("lt;/a","</a");
+	return str;
+}

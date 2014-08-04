@@ -73,6 +73,8 @@ class ArticlesController extends BaseController{
 			
 			if((Entrust::can('forum_usage') && $articleType == "P") || (Entrust::can('forum_unit') && ($articleType == "D" || $articleType == "C")) || (Entrust::hasRole('Developer'))){
 				
+				$content = Input::get('content');
+
 				$forum = new Forum;
 
 				$forum->title = htmlspecialchars(Input::get('title'));
@@ -80,13 +82,25 @@ class ArticlesController extends BaseController{
 				$forum->author_id = Auth::user()->id;
 
 				$forum->article_type = $articleType;
+
 				if(Entrust::hasRole('Developer')){
 
-					$forum->content = Input::get('content');
+					$content = $content;
+
+					$content = preg_replace("#https://([\S]+?)#Uis", '<a href="https://\\1">\\1 </a>', $content );
+
+					$content = preg_replace("#http://([\S]+?)#Uis", '<a href="http://\\1">\\1 </a>', $content );
+
 				}else{
 
-					$forum->content = htmlspecialchars(Input::get('content'));
+					$content = htmlspecialchars($content);
+
+					$content = preg_replace("#https://([\S]+?)#Uis", '<a href="https://\\1">\\1 </a>', $content );
+
+					$content = preg_replace("#http://([\S]+?)#Uis", '<a href="http://\\1">\\1 </a>', $content );
 				}
+
+				$forum->content = $content;
 
 				$forum->comment_number = 0;
 
@@ -119,6 +133,8 @@ class ArticlesController extends BaseController{
 			
 		$content = Input::get('comment');
 
+		//$content = preg_replace("#http://([\S]+?)#Uis", '\\<a href="http://\\1">\\1 \\</a\\>', $content);
+
 		$author_id = Auth::user()->id;
 
 		$article_id = Input::get('article_id');
@@ -142,7 +158,11 @@ class ArticlesController extends BaseController{
 
 			$comment->author_id = $author_id;
 
-			$comment->content = htmlspecialchars($content);
+			$content = htmlspecialchars($content);
+
+			$content = preg_replace("#https://([\S]+?)#Uis", '<a href="https://\\1">\\1 </a>', $content );
+
+			$comment->content = preg_replace("#http://([\S]+?)#Uis", '<a href="http://\\1">\\1 </a>', $content );
 
 			$comment->save();
 

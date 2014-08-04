@@ -367,7 +367,7 @@ function showArticles(authorName,authorId,createdAt,articleId,title,content,targ
 		$(this).remove();
 	});
 }
-
+//<div class='panel-body content'>"+multiContent+"</div>\
 function insertArticle(authorName,authorId,currentTime,articleId,title,content,target){
 
 	var multiContent = "";
@@ -404,6 +404,7 @@ function insertArticle(authorName,authorId,currentTime,articleId,title,content,t
 				</div>\
 			</div>"
 		);
+		//$(".articleContainer #"+articleId).find(".content").html(multiContent+"Test");
 	}else{
 		$(target).append("\
 			<div class='articleContainer' id='"+articleId+"' >\
@@ -433,7 +434,15 @@ function insertArticle(authorName,authorId,currentTime,articleId,title,content,t
 		$(this).remove();
 	});
 }
+/*
+function hyperLinkSwitch(str){
 
+	str = str.replace("&lt;a","<a");
+	str = str.replace("&gt;",">");
+	str = str.replace("&lt;/a&gt;","</a>");
+	return str;
+}
+*/
 function getArticles(type,page,target){
     $.ajax({
 		type:"POST",
