@@ -143,7 +143,7 @@ $(function(){
 	$(document).on("click","#previousPage",function(e){
 		e.preventDefault();
 		if(pageLocation == 1){
-			alert("Are you Serious?\n這麼想去異次元空間？");
+			$("#bonusMsgDialog").modal('toggle');
 		}else{
 			pageLocation--;
 			switch(tabLocation){
@@ -222,6 +222,12 @@ $(function(){
 		}else if(title !='' && content ==''){
 			$("#errorMsgContent").text("請輸入"+contentEmptyMsg);
 			$("#errorMsgDialog").modal('toggle');
+		}else if(title.length >= 20){
+			$("#errorMsgContent").text("標題長度上限為20字哦!");
+			$("#errorMsgDialog").modal('toggle');
+		}else if(content.length >= 500){
+			$("#errorMsgContent").text("文章長度上限為500字哦!");
+			$("#errorMsgDialog").modal('toggle');
 		}else{
 			$.ajax({
 				type:"POST",
@@ -290,7 +296,7 @@ $(function(){
 		$("body").animate({ scrollTop: 0 }, 'slow');
 	});
 
-
+	//bonusStart();
 });
 
 function splitContent(articleContent){
@@ -544,4 +550,60 @@ function pageGenerate(current,last){
 		}
 	});
 }
+
+function bonusStart(){
+
+	var boundaryHeight = document.documentElement.clientHeight;
+
+	var boundaryWidth = document.documentElement.clientWidth;
+
+	var bonusTarget = document.getElementById("scrollTop");
+
+	var targetWidth = $("#scrollTop").width();
+
+	var targetHeight = $("#scrollTop").height();
+
+	var timeInterval = 10;
+
+	var vectorX = -100;
+
+	var vectorY = -100;
+
+	function scrollTopMove(){
+
+		dimension = bonusTarget.getBoundingClientRect();
+
+		positionLeft = dimension.left;
+
+		positionTop = dimension.top;
+
+		if((positionLeft <= 0 )||((positionLeft+targetWidth) >= boundaryWidth)){
+
+			vectorX = vectorX * (-1);
+		}
+
+		if((positionTop <= 0 )||((positionTop+targetHeight) >= boundaryHeight)){
+
+			vectorY = vectorY * (-1);
+		}
+		
+		positionLeft += vectorX/timeInterval;
+
+		positionTop += vectorY/timeInterval;
+
+		bonusTarget.style.left = positionLeft + "px";
+
+		bonusTarget.style.top = positionTop + "px";
+	}
+
+	var move = setInterval(scrollTopMove, timeInterval);
+}
+
+
+
+
+
+
+
+
 

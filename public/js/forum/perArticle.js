@@ -53,6 +53,18 @@ $(function(){
 
 			$("#errorMsgDialog").modal('toggle');
 
+		}else if(loginStatus == "0"){
+
+			$("#errorMsgContent").text("請登入會員");
+
+			$("#errorMsgDialog").modal('toggle');
+
+		}else if(content.length > 200){
+
+			$("#errorMsgContent").text("留言字數上線為200字哦");
+
+			$("#errorMsgDialog").modal('toggle');
+
 		}else if(loginStatus == "1"){
 
 			$.ajax({
