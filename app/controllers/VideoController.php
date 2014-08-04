@@ -113,6 +113,7 @@ class VideoController extends BaseController {
 					$user = new Message;
 					$user->user_id = Auth::user()->id;
 					$user->video_text = $this->removeXSS(Input::get('video_text'));
+					$user->video_text = htmlspecialchars(Input::get('video_text'));
 					$user->save();
 					return Redirect::route('video');
 				}else{
