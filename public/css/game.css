@@ -436,7 +436,7 @@ gameCampus
 #gameCampusInfoExit {
 	width: 46px;
 	height: 46px;
-	top: 50px;
+	top: 100px;
 	left: 790px;
 	position: absolute;
 	background: url("../images/gameCampus/images.png") no-repeat;
@@ -463,7 +463,7 @@ gameCampus
 	top: 107px;
 	font-weight: bold;
 	position: relative;
-	left: 530px;
+	text-align: center;
 }
 
 #gameCampusAgain {
