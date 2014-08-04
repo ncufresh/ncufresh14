@@ -4,32 +4,13 @@ $(document).ready(function(){
 
 	var change = ['','department', 'administration', 'scence', 'exercise', 'food', 'dorm'];
 	var changeChinese = ['','系館', '行政', '中大十景', '運動', '飲食', '住宿'];
+ 	
+ 	$(".left_item").hover(function(){
+ 		console.log($(this).data('place_id'));
+ 	});
 
-	var addEvent =  window.attachEvent||window.addEventListener;
-	var event = window.attachEvent ? 'onclick' : 'keydown';
-	addEvent(event, function(event){
-			
-				if(event.keyCode=="65"){
-				
-				}
-			
-	});
-
-	// $("#tollbar").appendTo("#chat-room-container");
-
-	//  var $scrollingDiv = $("#tollbar");
- 
-	//   $(window).scroll(function(){ 
-	//    $scrollingDiv
-	//     .css({"margin-top": "200px"});   
-	//   });
-
-	//  $("#tollbar").click(function(){
-	 	
-	//  });
- 
 	$("#select").change(changeLeft);
-	$(".pointer img").click(function(){
+	$(".pointer div").click(function(){
 		clickImg($(this).data('id'));
 		changePhoto($(this).data('id'));
 	});
@@ -37,7 +18,7 @@ $(document).ready(function(){
 
 	if(getTransferData('value') == '1'){
 		$("#select").val(getTransferData('select'));
-		$.jumpWindow("","","");
+		$.jumpWindow("",getTransferData('intro')+"<img class='robot' backgroundPosition='-960px -727px'>","");
 	}
 	if(getTransferData('value') == '2'){
 		$("#select").val(getTransferData('select'));
@@ -117,12 +98,15 @@ $(document).ready(function(){
 		$('#siteMapContainer').children().last().remove();
 		$.pushLocation(changeChinese[data[0]['categories']], '/SchoolGuide/'+change[data[0]['categories']]);
 
-		for(var i=0; i<count-1; i++){
+		for(var i=0; i<count; i++){
 			var name =data[i]['name'];
 			var id=data[i]['id'];
 			var category = data[i]['categories'];
 		
 			$("<li class='left_item'>"+name+"</li>").appendTo("#leftlist").data('place_id', id);
+			if(i=count-1){
+				$("<img class='item2' backgroundPosition='-960px -727px'>").appendTo("#leftlist");
+			}
 
 			if(category==1){
 				$(".departments").show();
@@ -191,6 +175,7 @@ $(document).ready(function(){
 		var url = getTransferData('guide_right_url');// var url = $(this).data('url');
 		var data = {id: id};
 		ajaxGet(url, data, showPhoto);
+		ajaxGet(url, data, Photo);
 	}
 
 	function showPhoto(data){
@@ -224,8 +209,6 @@ $(document).ready(function(){
     //=============================================================================
 
 	$(window).scroll(function() {
-		console.log($(this).scrollTop());
-		console.log($(document).height());
         if ( $(this).scrollTop() < 439 ){
             $('#fixMap').css({
 				position: "absolute",
