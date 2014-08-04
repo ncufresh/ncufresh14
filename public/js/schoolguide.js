@@ -18,7 +18,7 @@ $(document).ready(function(){
 
 	if(getTransferData('value') == '1'){
 		$("#select").val(getTransferData('select'));
-		$.jumpWindow("",getTransferData('intro')+"<img class='robot' backgroundPosition='-960px -727px'>","");
+		$.jumpWindow("",getTransferData('intro')+"<div class='robot' backgroundPosition='-1536px -192px'>","");
 	}
 	if(getTransferData('value') == '2'){
 		$("#select").val(getTransferData('select'));
@@ -105,7 +105,7 @@ $(document).ready(function(){
 		
 			$("<li class='left_item'>"+name+"</li>").appendTo("#leftlist").data('place_id', id);
 			if(i=count-1){
-				$("<img class='item2' backgroundPosition='-960px -727px'>").appendTo("#leftlist");
+				$("<div class='item2' backgroundPosition='-1536px -352px'>").appendTo("#leftlist");
 			}
 
 			if(category==1){
@@ -153,7 +153,6 @@ $(document).ready(function(){
 			}
 
 		}
-		//$("<img class ='item2' backgroundPosition='"+burl+"/images/SchoolGuide/item2.png'>").appendTo("#leftlist").data('place_id', id);
 
 		makeLeftCanClick();
 	}
@@ -181,7 +180,7 @@ $(document).ready(function(){
 	function showPhoto(data){
 		var introduction =data['introduction'];
 		$.pushLocation(data['name'], '/SchoolGuide/'+change[data['categories']]+'/'+data['id'])
-		$.jumpWindow("",introduction+"<img class='robot' backgroundPosition='-960px -727px'>","");
+		$.jumpWindow("",introduction+"<div class='robot' backgroundPosition='-1536px -192px'>","");
 	
 	}
 

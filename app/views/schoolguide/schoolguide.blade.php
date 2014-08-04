@@ -8,6 +8,10 @@
 
 @section('content')
 <canvas id="canvas" width="1px" height="1px"></canvas>
+<button id="clear">clear all</button>
+<div id="egg">
+	<div id="close">X</div>
+</div>
 <div id="bigcontent">
 	<div id = "object">
 			

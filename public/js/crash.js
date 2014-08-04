@@ -20,10 +20,22 @@ $(document).ready(function(){
 			canvas.width  = screen.width;
 			canvas.height = screen.height;
 			$("body").css({"overflow-y":"hidden"});
+			$("#egg").css({"width":screen.width,"height":screen.height});
+			$("#close").show();
 			draw();
+			$("#clear").show();
 			}
 	});
 
+	$("#clear").hide();
+	$("#close").hide();
+	$("#close").click(function(){
+		$("#egg").hide();
+	});
+	$("#clear").click(function(){
+		ctx.clearRect(0,0,canvas.width,canvas.height);
+		$(this).hide();
+	});
 	$('#canvas').mousedown(function (e) {
         mousePressed = true;
         Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
