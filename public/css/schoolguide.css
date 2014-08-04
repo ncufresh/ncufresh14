@@ -23,7 +23,7 @@ h1{
 }
 #title2{
     position: relative;
-    top: -70px;
+    top: -135px;
     left: 750px;
 }
 .part1{
@@ -39,7 +39,6 @@ h1{
 .arrow{
     width: 50px;
     height: 50px;
-    position:relative;
     font-size: 50;
     font-weight: 900;
     animation:mymove 3s infinite;
