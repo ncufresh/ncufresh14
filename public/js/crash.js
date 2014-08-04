@@ -20,10 +20,32 @@ $(document).ready(function(){
 			canvas.width  = screen.width;
 			canvas.height = screen.height;
 			$("body").css({"overflow-y":"hidden"});
+			$("#canvas").css({"z-index":"30"});
+			$("#egg").show();
+			$("#part1").show();
+			$("#part2").show();
+			$("#close").show();
+			$(".arrow").show();
+			$("#egg").css({"width":screen.width,"height":screen.height});
 			draw();
+			$("#clear").show(20000);
 			}
 	});
-
+	$(".arrow").hide();
+	$("#close").hide();
+	$("#part1").hide();
+	$("#part2").hide();
+	$("#clear").hide();
+	$("#close").click(function(){
+		$("#egg").hide();
+		$("#part1").hide();
+		$("#part2").hide();
+	});
+	$("#clear").click(function(){
+		ctx.clearRect(0,0,canvas.width,canvas.height);
+		$("#canvas").css({"z-index":"0"});
+		$(this).hide();
+	});
 	$('#canvas').mousedown(function (e) {
         mousePressed = true;
         Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
