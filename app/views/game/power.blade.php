@@ -68,10 +68,8 @@
 			</div>
 		</div>
 		<div id="timing"></div>
-		<div id="artwork"></div>
+		<div id="hagain"></div>
+		<div id="finish"></div>
 	</div>
 
-	<div id="hendScreen">
-
-	</div>
 @stop
