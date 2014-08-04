@@ -69,7 +69,7 @@
 					<div data-id = "22" id="science-5" title="科五館" class="item departments"></div>
 					<div data-id = "70" id="administration" title="行政大樓" class="item school"></div>
 					<div data-id = "69" id="library" title="總圖書館" class="item school"></div>
-					<div data-id = "3" id="tree" title="國泰樹" class="item scence"></div>
+					<div data-id = "5" id="tree" title="國泰樹" class="item scence"></div>
 					<div data-id = "71" id="oldlibrary" title="中正圖書館" class="item school"></div>
 					<div data-id = "6" id="tai" title="太極銅雕" class="item scence"></div>
 					<div data-id = "63" id="blackbox" title="黑盒子" class="item school"></div>

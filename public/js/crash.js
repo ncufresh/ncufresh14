@@ -13,21 +13,21 @@ $(document).ready(function(){
 	
 
 	$.konami({
-		code:  			[83],
+		code:  			[83,69,86,69,78],
 		interval:		100,
 	    complete:	function(){
 		  	var canvas = document.getElementsByTagName('canvas')[0];
 			canvas.width  = screen.width;
 			canvas.height = screen.height;
+			draw();
 			$("body").css({"overflow-y":"hidden"});
 			$("#canvas").css({"z-index":"30"});
-			$("#egg").show();
-			$("#part1").show();
-			$("#part2").show();
-			$("#close").show();
-			$(".arrow").show();
+			$("#egg").show(1000);
+			$("#part1").show(1000);
+			$("#part2").show(1000);
+			$("#close").show(1000);
+			$(".arrow").show(1000);
 			$("#egg").css({"width":screen.width,"height":screen.height});
-			draw();
 			$("#clear").show(20000);
 			}
 	});
