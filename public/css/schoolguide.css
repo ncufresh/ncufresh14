@@ -146,8 +146,9 @@ html, body {
     height: 64px;
     position: absolute;
     top: 26px;
-    left: 603px;
+    left: 593px;
     display: none;
+    background-image:url('../images/SchoolGuide/RhowChain.png');
     background-position: -1600px -352px;
 }
 
