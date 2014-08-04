@@ -588,11 +588,16 @@ function bonusStart(){
 		if((positionLeft <= 0 )||((positionLeft+targetWidth) >= boundaryWidth)){
 
 			vectorX = vectorX * (-1);
+
+			$("#myTab , #freshButton, #createBtn , .articleContainer , #orderBox , #chat-room-button , #topContent").effect("shake",{times:0.5,direction:"left",distance:20},100);
+
 		}
 
 		if((positionTop <= 0 )||((positionTop+targetHeight) >= boundaryHeight)){
 
 			vectorY = vectorY * (-1);
+
+			$("#myTab , #freshButton, #createBtn , .articleContainer, #orderBox , #chat-room-button , #topContent").effect("shake",{times:0.5,direction:"up",distance:20},100);
 		}
 		
 		positionLeft += vectorX/timeInterval;

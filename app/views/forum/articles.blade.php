@@ -2,6 +2,8 @@
 @section('js_css')
 	{{ HTML::style('css/forum.css') }}
 	{{ HTML::script('js/forum/forum.js') }}
+	{{ HTML::script('js/forum/jquery-ui.js') }}
+	{{ HTML::style('css/jquery-ui.css') }}
 @stop
 @section('content')
 	<div>
