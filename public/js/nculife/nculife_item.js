@@ -12,11 +12,7 @@ $(function(){
 	$('#introductionbox').jScrollPane();
 
 	$('.place1').addClass("placeClick");
-
-	// $(window).load(function(){
- //  		$(".jspVerticalBar").css("opacity", "0");
-	// });
-
+	
 	$('.place').click(function(){
 		var num = $(this).data("num");
 		var id = $(this).data("id");
