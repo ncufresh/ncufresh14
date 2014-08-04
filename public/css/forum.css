@@ -214,5 +214,11 @@ textarea.commentTextArea{
 #pageBox{
 	text-align: center;
 }
-
+#stop{
+	width: 120;
+	height: 50;
+	position: fixed;
+	top: 1%;
+	left: 1%;
+}
 

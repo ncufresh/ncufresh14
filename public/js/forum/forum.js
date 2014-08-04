@@ -296,7 +296,9 @@ $(function(){
 		$("body").animate({ scrollTop: 0 }, 'slow');
 	});
 
-	//bonusStart();
+	$("#start").click(function(){
+		bonusStart();
+	});
 });
 
 function splitContent(articleContent){
@@ -565,9 +567,15 @@ function bonusStart(){
 
 	var timeInterval = 10;
 
-	var vectorX = -100;
+	var vectorX = -200;
 
-	var vectorY = -100;
+	var vectorY = -200;
+
+	origin = bonusTarget.getBoundingClientRect();
+
+	originLeft = origin.left;
+
+	originTop = origin.top;
 
 	function scrollTopMove(){
 
@@ -596,7 +604,21 @@ function bonusStart(){
 		bonusTarget.style.top = positionTop + "px";
 	}
 
+	$("#globalContainer").append("<button type='button' class='btn btn-primary' id='stop'>Stop</button>");
+
 	var move = setInterval(scrollTopMove, timeInterval);
+
+	$("#stop").click(function(){
+
+		$(this).remove();
+
+		clearInterval(move);
+
+		bonusTarget.style.left = originLeft + "px";
+
+		bonusTarget.style.top = originTop + "px";
+
+	});
 }
 
 
