@@ -37,8 +37,6 @@ $(function(){
 	$('#chat-message').keypress(function(event) {
 
 		if(event.keyCode == 13){
-
-			console.log(($.now() - lastSend)/1000);
 			if($.now() - lastSend >= 10000){
 				lastSend = $.now();
 				app.BrainSocket.message('generic.event',
