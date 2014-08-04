@@ -9,6 +9,7 @@ class SchoolGuideController extends BaseController {
 		App::make('TransferData')->addData('guide_right_url', route('Guide.one'));
 		App::make('TransferData')->addData('guide_map',route('Guide.map'));
 		App::make('TransferData')->addData('guide_select',route('Guide.select'));
+		App::make('TransferData')->addData('guide_good',route('Guide.good'));
 		App::make('SiteMap')->pushLocation('校園導覽', route('SchoolGuide'));
 
 		return Redirect::route('schoolguide.item', array('item' => 'department'));
@@ -109,7 +110,17 @@ class SchoolGuideController extends BaseController {
 		 return Redirect::route('SchoolGuide.list');
 
 	}
+	public function goodadd(){
 
+		$id=  Input::get('id');
+		$good=Input::get('good');
+		$data = good::where('id', '=', $id)->first();
+		$data->count = $good +1;
+		$data -> save();
+
+		return Redirect::route('schoolguide.item');
+
+	}
 	public function sure(){
 
 		$id=  Input::get('id');

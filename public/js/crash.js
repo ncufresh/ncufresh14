@@ -83,5 +83,9 @@ $(document).ready(function(){
 		  }
 		   img.src = burl+'/images/SchoolGuide/fog.jpeg';
 	}
+
+	$(".good").click(function(){
+		ajaxPost(getTransferData('guide_good'),{good:good},'');
+	});
 	
 });
