@@ -2,6 +2,7 @@
 
 @section('js_css')
 	{{ HTML::style('css/nculife_index.css') }}
+	{{ HTML::script('js/nculife/nculife_Konami.js') }}
 @stop
 
 @section('content')
