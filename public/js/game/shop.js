@@ -176,7 +176,9 @@
                 for ( var i = 0; i < 6; i++ ) {
                     if ( !data['isBuy'][i] ) {
                         var words = ['頭盔', '表情', '身體', '下肢', '道具', '地圖碎片'];
-                        $.alertMessage('你還沒買' + words[i] + '喔~');
+                        if ( user_want[i] != 0 ) {
+                            $.alertMessage('你還沒買' + words[i] + '喔~');
+                        }
                         success = false;
                         user_look[i].attr('itemId', init_equip[types[i]][0] );
                         user_look[i].attr('src', init_equip[types[i]][1] );
@@ -216,8 +218,13 @@
                 specialequip = false;
             }
             for ( var i = 4; i < 6; i++ ) {
-                user_look[i].attr('itemId', init_equip[types[i]][0] );
-                user_look[i].attr('src', init_equip[types[i]][1] );
+                if ( init_equip[types[i]][0] != 0 ) {
+                    user_look[i].attr('itemId', init_equip[types[i]][0] );
+                    user_look[i].attr('src', init_equip[types[i]][1] );
+                }
+                else {
+                    user_look[i].hide();
+                }
             }
             $('.gameShopItem').each(function(index) {
                 $(this).removeClass('gameShopItemSelect');
