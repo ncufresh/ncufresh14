@@ -4,7 +4,7 @@ class AboutUsController extends BaseController {
 
 
 	public function index(){
-
+		App::make('SiteMap')->pushLocation('關於我們', route('about'));
 		App::make('TransferData')->addData('about_modal',route('About.modal'));
 
 			return View::make('aboutus.aboutus');		
