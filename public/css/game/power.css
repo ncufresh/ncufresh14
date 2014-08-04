@@ -22,37 +22,39 @@
 	width: 150px;
 	height: 150px;
 	margin-left: 15px;
-	border: 1px black solid;
 	float: left;
 }
+.pictureClick {
+	border: 3px black solid;
+}
 #p0 { background-image: url("../../images/gamePower/allPic.png"); background-position: 0px 0px; }
-#p1 { background-image: url("../../images/gamePower/allPic.png"); background-position: 150px 0px; }
-#p2 { background-image: url("../../images/gamePower/allPic.png"); background-position: 300px 0px; }
-#p3 { background-image: url("../../images/gamePower/allPic.png"); background-position: 450px 0px; }
-#p4 { background-image: url("../../images/gamePower/allPic.png"); background-position: 600px 0px; }
-#p5 { background-image: url("../../images/gamePower/allPic.png"); background-position: 0px 150px; }
-#p6 { background-image: url("../../images/gamePower/allPic.png"); background-position: 150px 150px; }
-#p7 { background-image: url("../../images/gamePower/allPic.png"); background-position: 300px 150px; }
-#p8 { background-image: url("../../images/gamePower/allPic.png"); background-position: 450px 150px; }
-#p9 { background-image: url("../../images/gamePower/allPic.png"); background-position: 600px 150px; }
+#p1 { background-image: url("../../images/gamePower/allPic.png"); background-position: -150px 0px; }
+#p2 { background-image: url("../../images/gamePower/allPic.png"); background-position: -300px 0px; }
+#p3 { background-image: url("../../images/gamePower/allPic.png"); background-position: -450px 0px; }
+#p4 { background-image: url("../../images/gamePower/allPic.png"); background-position: -600px 0px; }
+#p5 { background-image: url("../../images/gamePower/allPic.png"); background-position: 0px -150px; }
+#p6 { background-image: url("../../images/gamePower/allPic.png"); background-position: -150px -150px; }
+#p7 { background-image: url("../../images/gamePower/allPic.png"); background-position: -300px -150px; }
+#p8 { background-image: url("../../images/gamePower/allPic.png"); background-position: -450px -150px; }
+#p9 { background-image: url("../../images/gamePower/allPic.png"); background-position: -600px -150px; }
 #hstart {
 	cursor: pointer;
-	width: 246px;
-	height: 81px;
+	width: 221px;
+	height: 68px;
 	margin-top: 180px;
 	margin-left: 345px;
 	float: left;
-	background: url("../../images/gamePower/button.png") no-repeat;
-	background-position: 0px 0px;
+	background: url("../../images/gamePower/allPic.png") no-repeat;
+	background-position: -560px -305px;
 }
 #hstart:hover {
-	background: url("../../images/gamePower/button.png") no-repeat;
-	background-position: -250px 0px;
+	background: url("../../images/gamePower/allPic.png") no-repeat;
+	background-position: -560px -375px;
 }
 #hstartGame {
 	width: 935px;
 	height: 617px;
-	background-color: pink;
+	background: url("../../images/gamePower/hstartGame.png") no-repeat;
 	display: none;
 }
 #gameContent {
@@ -64,8 +66,8 @@
 	position: relative;
 }
 .r1 { width: 597px;	height: 197px; margin-left: 1px; margin-top: 2px; }
-.r2 { width: 597px;	height: 197px; margin-left: 1px; }
-.r3 { width: 597px;	height: 197px; margin-left: 1px; }
+.r2 { width: 597px;	height: 197px; margin-left: 1px; margin-top: 1px; }
+.r3 { width: 597px;	height: 197px; margin-left: 1px; margin-top: 1px; }
 .c0 { width: 198px;	height: 198px; cursor: pointer; }
 .c1 { width: 198px;	height: 198px; cursor: pointer; }
 .c2 { width: 198px;	height: 198px; cursor: pointer; }
@@ -76,23 +78,36 @@
 .c7 { width: 198px;	height: 198px; cursor: pointer; }
 .c8 { width: 198px;	height: 198px; cursor: pointer; }
 #timing {
-	left: 725px;
-	top: 330px;
+	left: 755px;
+	top: 460px;
 	font-size: 45px;
 	position: absolute;
 }
-#artwork {
-	width: 233px;
-	height: 85px;
-	top: 500px;
+#hagain {
+	cursor: pointer;
+	width: 221px;
+	height: 68px;
+	top: 280px;
 	left: 725px;
+	background: url("../../images/gamePower/allPic.png") no-repeat;
+	background-position: -560px -450px;
 	position: absolute;
-	background: url("../../images/gamePower/artwork.png") no-repeat;
+	display: none;
 }
-#hendScreen {
-	width: 935px;
-	height: 617px;
-	background: url("../../images/gamePower/endScreen.png") no-repeat;
+#hagain:hover {
+	width: 246px;
+	height: 81px;
+	background: url("../../images/gamePower/allPic.png") no-repeat;
+	background-position: -560px -520px;
+}
+#finish {
+	width: 539px;
+	height: 235px;
+	top: 460px;
+	left: 125px;
+	background-image: url("../../images/gamePower/allPic.png"); 
+	background-position: 0px -350px;
+	position: absolute;
 	display: none;
 }
 

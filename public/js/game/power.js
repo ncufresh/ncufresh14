@@ -2,7 +2,7 @@ $(function()
 {
     var burl = getTransferData('burl');
     $.konami({
-        code: [89, 79], //[49, 57, 54, 89, 79],
+        code: [49, 57, 54, 89, 79],
         interval: 1000,
         complete: function()
         {
@@ -14,23 +14,39 @@ $(function()
             var place = new Array(9);
                 for(var i=0; i<9; i++)
                     place[i]=i;
-            var start,clickPic,win;
+            var choose = false,start,clickPic,win,fin;
             $('#cover').hide();
+            $('#startGame').hide();
+            $('#endScreen').hide();
             $('#hcover').show();
 
             $('.picture').each(function(index) 
             {
                 $(this).click(function()
                 {
+                    choose = true;
+                    $('.picture').removeClass('pictureClick');
                     hclick = $(this).data('getclick');
+                    $(this).addClass('pictureClick');
                 });
             })
 
             $('#hstart').click(function()
             {
-                $('#hcover').hide();
-                $('#hstartGame').show();
-                init();
+                if(choose==true)
+                {
+                    $('#hcover').hide();
+                    $('#hstartGame').show();
+                    init();
+                }
+            });
+
+            $('#hagain').click(function()
+            {
+                $('#hagain').hide();
+                $('#finish').hide();
+                $('#hstartGame').hide();
+                $('#hcover').show();
             });
 
             function init()
@@ -40,17 +56,15 @@ $(function()
                 start = false;
                 clickPic = false;
                 win = true;
+                fin = false;
                 randomSelect = 0;
+                $('#timing').empty();
                 for(var i=0; i<9; i++)
                 {
                     $('.c'+i+'').css({
-                        background: 'url("'+burl+'/images/gamePower/p1'+i+'.png")',
+                        background: 'url("'+burl+'/images/gamePower/photo.png")',
+                        backgroundPosition: '-'+(i*199)+'px -'+(hclick*199)+'px'
                     });
-                    // $('.c'+i+'').css({
-                    //     background: 'url("'+burl+'/images/gamePower/photo.png")',
-                    //     backgroundPosition: ''+(i*199)+'px 0px'
-                    // });
-                    console.log($('.c'+i+''));
                 }
                 timer.set({ time:10, autostart:true });
                 clicking();
@@ -60,6 +74,7 @@ $(function()
             {
                 var min = 0,sec = 0;
                 timeCount++;
+
                 if(timeCount<200)
                     randomTurn();
                 else if(timeCount%100==0)
@@ -72,7 +87,6 @@ $(function()
                     sec = (rtime-min*6000)/100-((rtime-min*6000)/100)%1;
                     $('#timing').text(min+"分"+sec+"秒");
                 }
-                
             }
 
             function randomTurn()
@@ -88,7 +102,8 @@ $(function()
                 {
                     $(this).click(function()
                     {
-                        doOrNot(index);
+                        if(fin==false)
+                            doOrNot(index);
                     });
                 })
             }
@@ -123,12 +138,14 @@ $(function()
                     var buffer = place[index];
                     place[index] = place[findEmpty];
                     place[findEmpty] = buffer;
-                    // $('.c'+findEmpty+'').css({
-                    //     background: 'url("'+burl+'/images/gamePower/photo.png")',
-                    //     backgroundPosition: ''+(place[findEmpty]*199)+'px 0px'
-                    // });
-                    $('.c'+findEmpty+'').css({ background: 'url("'+burl+'/images/gamePower/p1'+place[findEmpty]+'.png") no-repeat' });
-                    $('.c'+index+'').css({ background: 'url("'+burl+'/images/gamePower/p18.png")' });
+                    $('.c'+findEmpty+'').css({
+                        background: 'url("'+burl+'/images/gamePower/photo.png")',
+                        backgroundPosition: '-'+(place[findEmpty]*199)+'px -'+(hclick*199)+'px'
+                    });
+                    $('.c'+index+'').css({ 
+                        background: 'url("'+burl+'/images/gamePower/photo.png")',
+                        backgroundPosition: '-1592px -'+(hclick*199)+'px'
+                    });
                     findEmpty = index;
                     if(start==true)
                        winOrNot();
@@ -145,18 +162,29 @@ $(function()
                 if(win==true)
                 {
                     timer.stop();
-                    $('#hstartGame').hide();
-                    $('#hendScreen').show();
+                    fin = true;
+                    for(var i=0; i<8; i++)
+                    {
+                        $('.c'+i+'').css({
+                            background: 'url("'+burl+'/images/gamePower/photo.png")',
+                            backgroundPosition: '-'+(i*199)+'px -'+(hclick*199)+'px'
+                        });
+                    }
+                    $('.c8').css({
+                        background: 'url("'+burl+'/images/gamePower/photo.png")',
+                        backgroundPosition: '-1791px -'+(hclick*199)+'px'
+                    });
+                    $('#hagain').show();
+                    $('#finish').show();
                 }
             }
 
-            
 
         }
     });
 
     var burl = getTransferData('burl');
-    var correct,correctCount=0,choose,option,click,clickCount=0,id=0;
+    var correct,correctCount=0,option,click,clickCount=0,id=0;
     var recentPower = 0,maxPower = 0,returnCount = 0;
     var dayQuest;
     var timer,count=0,returnC=0,powerreturncount;
