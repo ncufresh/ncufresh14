@@ -7,8 +7,9 @@
 @stop
 
 @section('game_content')
-	<div id="gameCampusContainer">	
-		<div id="gameCampusInfo">
+	<div id="gameCampusContainer">
+			<div id="gameCampusInfo">
+			<div id="gameCampusInfoImage"></div>
 			<div id="gameCampusInfoExit"></div>
 		</div>
 
