@@ -11,7 +11,7 @@ $.konami({
         var IE = document.all?true:false;
         var gametarget, current = 0;
         var timer = null;
-        var gamebuf = new Array(1000);
+        var gamebuf = new Array(10000);
         function getMouseXY(e) {
             if (IE) {
                 msx = event.clientX;
@@ -51,13 +51,13 @@ $.konami({
             span.style.width="25px";
             span.style.height="25px";
             span.style.position="fixed";
-            span.style.left="100px";
-            span.style.top="100px";
+            span.style.left="0px";
+            span.style.top="0px";
             span.style.zIndex="16";
             span.style.background="url(images/nculife/snake.png)";
             span.appendChild(text);
             parent.appendChild(span);
-            return {x:100, y:100, ref:span};
+            return {x:0, y:0, ref:span};
         }
         function createSnake(length){
             if(isNaN(length) || length <= 1 || length > 10000)
@@ -82,33 +82,39 @@ $.konami({
                 code:                   [70, 79, 79, 68],
                 interval:       1000,
                 complete:       function(){
-                    function createObj(parent){
-                        var span=document.createElement("span");
-                        var text=document.createTextNode(snaketext);
-                        span.style.width="25px";
-                        span.style.height="25px";
-                        span.style.position="fixed";
-                        span.style.left="100px";
-                        span.style.top="100px";
-                        span.style.zIndex="16";
-                        span.style.background="url(images/nculife/snake.png)";
-                        span.appendChild(text);
-                        parent.appendChild(span);
-                        return {x:100, y:100, ref:span};
+                    function createObj(parent, length){
+                        var j = length;
+                        for( var i = 0; i < j; i++)
+                        {
+                            var left = gamebuf[i]['x'];
+                            var top = gamebuf[i]['y'];
+                            var span=document.createElement("span");
+                            var text=document.createTextNode(snaketext);
+                            span.style.width="25px";
+                            span.style.height="25px";
+                            span.style.position="fixed";
+                            span.style.left=left;
+                            span.style.top=top;
+                            span.style.zIndex="16";
+                            span.style.background="url(images/nculife/snake.png)";
+                            span.appendChild(text);
+                            parent.appendChild(span);
+                            return {x:left, y:top, ref:span};
+                        }
                     }
-                    function createSnake(length){
+                    function addSnake(length){
                         if(isNaN(length) || length <= 1 || length > 10000)
                             return;
                         var parent = document.getElementById("game");
                         parent.innerHTML = "";
                         for( var i = 0; i < length; i++)
-                            gamebuf[i] = createObj(parent);
+                            gamebuf[i] = createObj(parent,length);
                         current = 0;
                         totalstars = length;
                         gametarget = gamebuf;
                     }
                     snakelength++;
-                    createSnake(snakelength);
+                    addSnake(snakelength);
                 }
             });
         }
