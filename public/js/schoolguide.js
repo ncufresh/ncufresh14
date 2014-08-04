@@ -6,7 +6,7 @@ $(document).ready(function(){
 	var changeChinese = ['','系館', '行政', '中大十景', '運動', '飲食', '住宿'];
  	
  	$(".left_item").hover(function(){
- 		console.log($(this).data('place_id'));
+ 		//console.log($(this).data('place_id'));
  	});
 
 	$("#select").change(changeLeft);
@@ -104,9 +104,6 @@ $(document).ready(function(){
 			var category = data[i]['categories'];
 		
 			$("<li class='left_item'>"+name+"</li>").appendTo("#leftlist").data('place_id', id);
-			if(i=count-1){
-				$("<div class='item2' backgroundPosition='-1536px -352px'>").appendTo("#leftlist");
-			}
 
 			if(category==1){
 				$(".departments").show();
@@ -153,7 +150,7 @@ $(document).ready(function(){
 			}
 
 		}
-
+		$("<div class='item2' backgroundPosition='-1536px -352px'>").appendTo("#leftlist");
 		makeLeftCanClick();
 	}
 

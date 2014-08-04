@@ -11,6 +11,58 @@ canvas{
     top:0;
     left: 0;
 }
+h1{
+    font-size: 50;
+    color: white;
+    font-weight: 1500;
+}
+#title1{
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+#title2{
+    position: relative;
+    top: -70px;
+    left: 750px;
+}
+.part1{
+    position: relative;
+    top: -10px;
+    left: 0px;
+}
+.part2{
+    position: relative;
+    top: -80px;
+    left: 750px;
+}
+.arrow{
+    width: 50px;
+    height: 50px;
+    position:relative;
+    font-size: 50;
+    font-weight: 900;
+    animation:mymove 3s infinite;
+    -webkit-animation:mymove 5s infinite; /* Safari and Chrome */
+}
+
+@keyframes mymove
+{
+0%   {top:0px; left:0px; color:red;}
+25%  {top:50px; left:0px; color:blue;}
+50%  {top:0px; left:0px; color:yellow;}
+75%  {top:50px; left:0px; color:green;}
+100% {top:0px; left:0px; color:red;}
+}
+
+@-webkit-keyframes mymove /* Safari and Chrome */
+{
+0%   {top:0px; left:0px; color:red;}
+25%  {top:50px; left:0px; color:blue;}
+50%  {top:0px; left:0px; color:yellow;}
+75%  {top:50px; left:0px; color:green;}
+100% {top:0px; left:0px; color:red;}
+}
 #close{
     position: absolute;
     color: white;
@@ -20,6 +72,7 @@ canvas{
     top:20px;
     width:11px;
     cursor: pointer;
+    z-index: 28;
 }
 #egg{
     background-color: #000;
@@ -29,6 +82,7 @@ canvas{
     top:0;
     left: 0;
     z-index: 25;
+    
 
 }
 .modal-body{
@@ -202,11 +256,14 @@ html, body {
     background-position:-1536px -192px;
     background-image:url('../images/SchoolGuide/RhowChain.png');
 }
-#item2{
+.item2{
     position: relative;
+    background-image:url('../images/SchoolGuide/RhowChain.png');
     background-position: -1536px -352px;
-    width:102px;
-    height:38px;
+    height:102px;
+    width:38px;
+    left: 18px;
+    top:48px;
 
 }
 #Zhidao{

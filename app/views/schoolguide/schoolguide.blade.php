@@ -10,7 +10,15 @@
 <canvas id="canvas" width="1px" height="1px"></canvas>
 <button id="clear">clear all</button>
 <div id="egg">
-	<div id="close">X</div>
+	<div id="close" title="click to close">X</div>
+	<div class="part1 arrow">↓</div>
+		<div id="part1">
+			<h1 id="title1">最佳夫妻同心協力組合</h1>
+		</div>
+	<div class="part2 arrow">↓</div>
+		<div id="part2">
+			<h1 id="title2">最佳永久性福組合</h1>
+		</div>
 </div>
 <div id="bigcontent">
 	<div id = "object">
@@ -33,9 +41,10 @@
 						<span class="name">{{ $Schoolguide->name }}</span>
 					</li>
 					@endforeach
+					<div class='item2' backgroundPosition='-1536px -352px'>
 			</ol>
 			<div id="fixMap">
-				<div id = "fixmapLine" src="{{ asset('images/SchoolGuide/line.png') }}"></div>
+				<div id = "fixmapLine"></div>
 				<div id = "map"></div>
 				<div id = "Buttom"></div>
 				<div class="pointer">
