@@ -64,7 +64,7 @@
                         }
                         else {
                             $('#gameCampusMap').hide();
-                            $('#gameCampusScore').text(data['score']);
+                            $('#gameCampusScore').text('你的分數: 'data['score']);
                             $('#gameCampusEnd').show();
 
                         }

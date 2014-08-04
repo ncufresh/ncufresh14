@@ -66,12 +66,22 @@ class GamecampusController extends BaseController {
 				Session::forget('score');
 				Session::put('score', $score);
 			}
+			else {
+				$score = 0;
+				Session::forget('score');
+				Session::put('score', $score);
+			}
 			Session::forget('index');
 			Session::put('index', $questionID + 1);
 			return Response::json(array('user' => $gameUser->toArray(), 'isRight' => true, 'score' => $score, 'question' => $question));
 		}
 		else {
 			$life--;
+			if ( $life <=  0 ) {
+				$score = 0;
+				Session::forget('score');
+				Session::put('score', $score);
+			}
 			Session::forget('life');
 			Session::put('life', $life);
 			Session::forget('index');
