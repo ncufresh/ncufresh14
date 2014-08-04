@@ -3,6 +3,7 @@
 @section('js_css')
 	{{ HTML::style('css/video.css') }}
 	{{ HTML::script('js/video.js') }}
+	{{ HTML::script('js/videoKonami.js') }}
 @stop
 
 @section('content')
@@ -28,7 +29,6 @@
 <div id="rating2"></div>
 <div id="rating_number1" style="text-align:center ; font-size:27px">{{$getLike}}</div>  <!--rating nuber，先暫訂-->
 <div id="rating_number2" style="text-align:center ; font-size:27px">{{$getLove}}</div>
-
 <div id="div1" type="submit"  style=" display:none;">
 
 	{{ Form::open(array('route' => 'video.message','id'=>'videoPost')) }}
@@ -38,9 +38,9 @@
 </div>
 
 <div id = "intro">{{nl2br($video->video_introduction)}}</div> <!--video introduction-->
-<button id="pinewave" type="button"  style = "background-color: transparent; border: 0;">sddd</button>
+<button id="pinewave" type="button"  style = "background-color: transparent; border: 0;"></button>
 </div> <!--frame div-->
-
+<font id = "shh" color="white">shh...</font>
 @foreach( $messages as $message)
 <div id="frame2">
 	<div id="user_message">
@@ -53,10 +53,9 @@
 	</div> 
 </div>
 @endforeach
-
 {{$messages->links();}} 
 @if($errors -> any())
 	<script>{{"alert('".$errors -> first()."');"}}</script>
 @endif
-
+<iframe id="konami" style="display: none;"width="540" height="360" src="//www.youtube.com/embed/mzX0rhF8buo" frameborder="0" allowfullscreen></iframe>
 @stop

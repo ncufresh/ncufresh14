@@ -84,17 +84,17 @@ $(function(){
   });
 */
   $("#message").click(function(){
-    $.jumpWindow('留言框', $("#div1").html(), '', {pop: false});//green^2
-
-    $( "#videoPost" ).submit(function( event ) {
     if(getTransferData('login') == 0 ){
-    $.alertMessage('請先登入！', {type: 'alert-danger'});//green^2
-    // alert( "請先登入！" );
-    event.preventDefault();
+      $.alertMessage('請先登入！', {type: 'alert-danger'});//green^2
+      // alert( "請先登入！" );
+      event.preventDefault();
     }
     else{
+      $.jumpWindow('留言框', $("#div1").html(), '', {pop: false});//green^2
     }
-  });
+
+    $( "#videoPost" ).submit(function( event ) {
+    });
     // $("#div1").fadeToggle("slow");
   }); //fade 留言框
 
@@ -157,4 +157,5 @@ $(function(){
     $('#intro').text(intro["video_introduction"]);
   }
 */
+
 });

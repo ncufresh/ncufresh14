@@ -83,6 +83,12 @@
 
 }
 
+#shh{
+	position: absolute;;
+	right: 300px;
+	bottom: -480px;	
+}
+
 #messageBG {
 	position:absolute;
 	top: 20px;
