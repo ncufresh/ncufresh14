@@ -27,10 +27,12 @@ $(document).ready(function(){
 			$("#part2").show(1000);
 			$("#close").show(1000);
 			$(".arrow").show(1000);
+			$(".arrow").show(1000);
 			$("#egg").css({"width":screen.width,"height":screen.height});
-			$("#clear").show(20000);
+			$("#clear").show(1);
 			}
 	});
+	$(".arrow").hide();
 	$(".arrow").hide();
 	$("#close").hide();
 	$("#part1").hide();
@@ -72,13 +74,14 @@ $(document).ready(function(){
 	}
 
 		function draw() {
-		  var ctx = document.getElementById('canvas').getContext('2d');
 		  var img = new Image();
-		  img.src = burl+'/images/SchoolGuide/fog.jpeg'; 
 		  img.onload = function(){
 		   ctx.drawImage(img, 0, 0,canvas.width,canvas.height);
-		   ctx.stroke();
-		  };
+		   ctx.strokeStyle = "black"
+		   ctx.font = "bold 50px Arial";
+		   ctx.fillText("click left mouse to clear the screen",300,100);
+		  }
+		   img.src = burl+'/images/SchoolGuide/fog.jpeg';
 	}
 	
 });
