@@ -8,40 +8,88 @@ canvas{
 #clear{
     z-index: 30;
     position: fixed;
-    top:0;
-    left: 0;
+    top:600px;
+    left: 1250px;
 }
 #title1{
     font-size: 50;
     color: white;
     font-weight: 1500;
-    position: relative;
+    position: absolute;
     top: 0px;
-    left: 0px;
+    left: 32px;
 }
 #title2{
     font-size: 50;
     color: white;
     font-weight: 1500;
-    position: relative;
-    top: -135px;
-    left: 750px;
+    position: absolute;
+    top: 0px;
+    left: 805px;
 }
-.part1{
-    position: relative;
-    top: -10px;
+#pineapple{
+    position: fixed;
+    top: 100px;
     left: 0px;
+    width: 300px;
+    height: 500px;
+    background-image:url('../images/SchoolGuide/EGG.png');
+    background-position: 0px 0px;
+
 }
-.part2{
-    position: relative;
-    top: -80px;
-    left: 750px;
+#vicky{
+    position: fixed;
+    top: 100px;
+    left: 300px;
+    width: 300px;
+    height: 500px;
+    background-image:url('../images/SchoolGuide/EGG.png');
+    background-position:-300px 0px;
 }
+#wan{
+    position: fixed;
+    top: 100px;
+    left: 704px;
+    background-image:url('../images/SchoolGuide/EGG.png');
+    background-position:0px -500px;
+    width: 500px;
+    height: 500px;
+}
+#vs{
+    position: fixed;
+    top: 303px;
+    left: 576px;
+    background-image:url('../images/SchoolGuide/EGG.png');
+    background-position:-600px 0px;
+    width: 143px;
+    height: 78px;
+    z-index: 26;
+}
+#hand{
+     position: fixed;
+    top: 100px;
+    left: 1100px;
+    background-image:url('../images/SchoolGuide/EGG.png');
+    background-position:-500px -500px;
+    width: 300px;
+    height:500px;
+}
+#pointer1{
+    position: fixed;
+    top: -10px;
+    left: 120px;
+}
+/*#pointer2{
+    position: fixed;
+    top: -10px;
+    left: 836px;
+}*/
 .arrow{
     width: 50px;
     height: 50px;
-    font-size: 50;
+    font-size: 25;
     font-weight: 900;
+    z-index: 35;
     animation:mymove 3s infinite;
     -webkit-animation:mymove 3s infinite; /* Safari and Chrome */
 }

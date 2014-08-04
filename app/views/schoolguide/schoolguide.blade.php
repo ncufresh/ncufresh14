@@ -7,17 +7,23 @@
 @stop
 
 @section('content')
-<canvas id="canvas" width="1px" height="1px"></canvas>
+<canvas id="canvas" width="1px" height="1px">
+</canvas>
+<div class="arrow" id="pointer1">↓ here start</div>
 <button id="clear">clear all</button>
+
 <div id="egg">
 	<div id="close" title="click to close">X</div>
-	<div class="part1 arrow">↓</div>
 		<div id="part1">
 			<h1 id="title1">最佳夫妻同心協力組合</h1>
+			<span id="pineapple"></span>
+			<span id="vicky"></span>
 		</div>
-	<div class="part2 arrow">↓</div>
 		<div id="part2">
+			<div id="vs"></div>
 			<h1 id="title2">最佳永久性福組合</h1>
+			<span id="wan"></span>
+			<span id="hand"></span>
 		</div>
 </div>
 <div id="bigcontent">
