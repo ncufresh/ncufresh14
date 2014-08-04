@@ -103,6 +103,8 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+
+	<!-- To Show Error Message -->
 	<div class="modal fade" id="errorMsgDialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -119,9 +121,30 @@
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 
+	<!-- Btn for Go to Top of the page -->
+	<a id="scrollTop"></a>
 
-	<a id="scrollTop"><img ></a>
+	<!-- To store pagination -->
 	<div id='pageBox'>
-	<ul class="pagination"></ul>
+		<ul class="pagination"></ul>
 	</div>
+
+	<!-- Warning : alert users that they are facing a risk -->
+	<div class="modal fade" id="bonusMsgDialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title">目前位置：頁碼 1</h4>
+				</div>
+				<div class="modal-body" id="bonusMsgContent">&nbsp;你確定這樣的行為是對的嗎？
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">我錯了</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">是啊</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
 @stop	

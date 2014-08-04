@@ -9,7 +9,7 @@ class GameshopController extends BaseController {
 		}
 		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
 		$name = User::where('id', '=', $user["user_id"])->firstOrFail();
-		$shop = Gameitem::where('type', '=', 0)->get();
+		$shop = Gameitem::where('type', '=', 0)->orderBy('id', 'ASC')->get();
 		$hadBuyItems = GameBuy::where('user_id', '=', $user->id)->get();
 		$EquipItem[0] = Gameitem::where('id', '=', $user->head)->firstOrFail();
 		$EquipItem[1] = Gameitem::where('id', '=', $user->face)->firstOrFail();
@@ -40,7 +40,7 @@ class GameshopController extends BaseController {
 		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
 		$game_user_id = $user->id;
 		$type = Input::get("type");
-		$shop = Gameitem::where('type', '=', $type)->get();
+		$shop = Gameitem::where('type', '=', $type)->orderBy('id', 'ASC')->get();
 		$hadBuy[0] = false;
 		for ( $i = 0; $i < $shop->count(); $i++ ) {
 			$hadBuy[$i] = false;

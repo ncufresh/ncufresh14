@@ -80,6 +80,7 @@ textarea.commentTextArea{
 }
 .commentContent{
 	word-break: break-word;
+	font-size: 1.2em;
 }
 .commentTime{
 	position: relative;

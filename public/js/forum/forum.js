@@ -96,8 +96,7 @@ $(function(){
 		$("#Test1 .articleContainer").remove();
 		getArticles(tabLocation,pageLocation,"#Test1");
 	});
-
-
+	//Nav-Tab : show type of Club articles
 	$("#clubTab").click(function(e){
 		if(tabLocation != "club"){
 			$("#Test3").css('display','block');
@@ -121,7 +120,7 @@ $(function(){
 			getArticles(tabLocation,pageLocation,"#Test3");
 		}
 	});
-
+	//Nav-Tab : show type of Drpartment articles
 	$("#departmentTab").click(function(e){
 		if(tabLocation != "department"){
 			$("#Test2").css('display','block');
@@ -140,34 +139,38 @@ $(function(){
 			getArticles(tabLocation,pageLocation,"#Test2");
 		}
 	});
-
+	//Pagination: Go To Previous Page
 	$(document).on("click","#previousPage",function(e){
 		e.preventDefault();
-		pageLocation--;
-		switch(tabLocation){
-			case "new":
-				$("#Test1 .articleContainer").remove();	
-				getArticles(tabLocation,pageLocation,"#Test1");
-				break;
-			case "pop":
-				$("#Test1 .articleContainer").remove();	
-				getArticles(tabLocation,pageLocation,"#Test1");
-				break;
-			case "department":
-				$("#Test2 .articleContainer").each(function(){
-					$(this).remove();
-				});
-				getArticles(tabLocation,pageLocation,"#Test2");
-				break;
-			case "club":
-				$("#Test3 .articleContainer").each(function(){
-					$(this).remove();
-				});
-				getArticles(tabLocation,pageLocation,"#Test3");
-				break;
+		if(pageLocation == 1){
+			$("#bonusMsgDialog").modal('toggle');
+		}else{
+			pageLocation--;
+			switch(tabLocation){
+				case "new":
+					$("#Test1 .articleContainer").remove();	
+					getArticles(tabLocation,pageLocation,"#Test1");
+					break;
+				case "pop":
+					$("#Test1 .articleContainer").remove();	
+					getArticles(tabLocation,pageLocation,"#Test1");
+					break;
+				case "department":
+					$("#Test2 .articleContainer").each(function(){
+						$(this).remove();
+					});
+					getArticles(tabLocation,pageLocation,"#Test2");
+					break;
+				case "club":
+					$("#Test3 .articleContainer").each(function(){
+						$(this).remove();
+					});
+					getArticles(tabLocation,pageLocation,"#Test3");
+					break;
+			}
 		}
 	});
-	
+	//Pagination: Go To Next Page
 	$(document).on("click","#nextPage",function(e){
 		e.preventDefault();
 		pageLocation++;
@@ -195,7 +198,7 @@ $(function(){
 		}
 	});
 
-
+	//Btn for clicking to show New-Article-Form
 	$("#createBtn").click(function(){
 		if(loginStatus != 1){
 			$("#errorMsgContent").text(notLoginMsg);
@@ -205,7 +208,7 @@ $(function(){
 			$('#myModal').modal('toggle');
 		}
 	});
-
+	//Submit the article to controller and append on Page
 	$("#submitArticle").click(function(){
 		var title = $("#inputTitle").val();
 		var content =$("#inputDetail").val();
@@ -218,6 +221,12 @@ $(function(){
 			$("#errorMsgDialog").modal('toggle');
 		}else if(title !='' && content ==''){
 			$("#errorMsgContent").text("請輸入"+contentEmptyMsg);
+			$("#errorMsgDialog").modal('toggle');
+		}else if(title.length >= 20){
+			$("#errorMsgContent").text("標題長度上限為20字哦!");
+			$("#errorMsgDialog").modal('toggle');
+		}else if(content.length >= 500){
+			$("#errorMsgContent").text("文章長度上限為500字哦!");
 			$("#errorMsgDialog").modal('toggle');
 		}else{
 			$.ajax({
@@ -287,7 +296,7 @@ $(function(){
 		$("body").animate({ scrollTop: 0 }, 'slow');
 	});
 
-
+	//bonusStart();
 });
 
 function splitContent(articleContent){
@@ -505,10 +514,13 @@ function pageGenerate(current,last){
 			}
 		}
 	}
-	
-	pager = "<li><a id='previousPage'>&laquo;</a></li>" 
+	if(current == last){
+		pager = "<li><a id='previousPage'>&laquo;</a></li>" + pager ;
+	}else{
+		pager = "<li><a id='previousPage'>&laquo;</a></li>" 
 			+ pager 
 			+ "<li><a id='nextPage'>&raquo;</a></li>";
+	}
 	$(".pagination").html(pager);
 
 	$(".page").click(function(e){
@@ -538,4 +550,60 @@ function pageGenerate(current,last){
 		}
 	});
 }
+
+function bonusStart(){
+
+	var boundaryHeight = document.documentElement.clientHeight;
+
+	var boundaryWidth = document.documentElement.clientWidth;
+
+	var bonusTarget = document.getElementById("scrollTop");
+
+	var targetWidth = $("#scrollTop").width();
+
+	var targetHeight = $("#scrollTop").height();
+
+	var timeInterval = 10;
+
+	var vectorX = -100;
+
+	var vectorY = -100;
+
+	function scrollTopMove(){
+
+		dimension = bonusTarget.getBoundingClientRect();
+
+		positionLeft = dimension.left;
+
+		positionTop = dimension.top;
+
+		if((positionLeft <= 0 )||((positionLeft+targetWidth) >= boundaryWidth)){
+
+			vectorX = vectorX * (-1);
+		}
+
+		if((positionTop <= 0 )||((positionTop+targetHeight) >= boundaryHeight)){
+
+			vectorY = vectorY * (-1);
+		}
+		
+		positionLeft += vectorX/timeInterval;
+
+		positionTop += vectorY/timeInterval;
+
+		bonusTarget.style.left = positionLeft + "px";
+
+		bonusTarget.style.top = positionTop + "px";
+	}
+
+	var move = setInterval(scrollTopMove, timeInterval);
+}
+
+
+
+
+
+
+
+
 

@@ -38,8 +38,7 @@
 </div>
 
 <div id = "intro">{{nl2br($video->video_introduction)}}</div> <!--video introduction-->
-<button id="pinewave" type="button"  style = "background-color: transparent; border: 0;"></button>
-
+<button id="pinewave" type="button"  style = "background-color: transparent; border: 0;">sddd</button>
 </div> <!--frame div-->
 
 @foreach( $messages as $message)

@@ -12,7 +12,7 @@ $(function($)
 	var timer = $.timer(function() {
 		if ( arrive && handup ) {
 			$('#topRobot').css({
-				background: 'url("' + bURL + '/images/layout/robot/5.png") no-repeat'
+				background: 'url("' + bURL + '/images/layout/robot/'+ side +'5.png") no-repeat'
 			});
 			speed = 8;
 		}
@@ -21,7 +21,7 @@ $(function($)
 				speed +=0.8;
 			}
 			$('#topRobot').css({
-				background: 'url("' + bURL + '/images/layout/robot/' + imageIndex + '.png") no-repeat',
+				background: 'url("' + bURL + '/images/layout/robot/' + side + imageIndex + '.png") no-repeat',
 				left: left + 'px'
 			});
 			if ( Math.abs(location - left) < 10 ) {

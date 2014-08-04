@@ -1,6 +1,6 @@
 #contentContainer {
 	width: 100%;
-	height: 910px;
+	height: 1110px;
 	background-color: rgba(200,200,200,0.6);
 }
 
@@ -93,7 +93,7 @@
 
 #linkContent {
 	width: 100%;
-	height: 348px;
+	height: 540px;
 	padding: 10px;
 }
 
@@ -109,6 +109,7 @@
 
 #link-ul>li>a{
 	color: #b9f1ff;
+	font-size: 18px;
 }
 
 
@@ -135,7 +136,7 @@
 #boardMid {
 	background: url("../images/index/boardmid.png") repeat-y;
 	width: 700px;
-	height: 188px;
+	height: 280px;
 }
 
 #boardBottom {
@@ -147,7 +148,7 @@
 #boardContent {
 	position: absolute;
 	width: 610px;
-	height: 310px;
+	height: 402px;
 	top: 100px;
 	left: 45px;
 	font-size: medium;
@@ -157,6 +158,10 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 	cursor: pointer;
+	text-overflow: ellipsis;
+}
+.announcement-row>.col-sm-6{
+	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
@@ -194,7 +199,7 @@
 #forumContent {
 	background: #ffffff;
 	width: 450px;
-	height: 252px;
+	height: 352px;
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 10px;
@@ -205,6 +210,13 @@
 	color: #000000;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	height: 40px;
+	overflow: hidden;
+}
+
+.forum-title{
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .forum-row:hover{
@@ -236,7 +248,7 @@
 #vedioContent {
 	background: #dc2a8a;
 	width: 220px;
-	height: 300px;
+	height: 400px;
 	padding: 10px;
 }
 

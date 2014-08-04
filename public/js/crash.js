@@ -1,9 +1,16 @@
 $(document).ready(function(){
 	
+	var burl = getTransferData('burl');
+
 	var mousePressed = false;
 	var lastX, lastY;
 	var ctx = document.getElementById("canvas").getContext("2d");
-	 
+	
+	var img = new Image();   // Create new img element
+	img.addEventListener("load", function() {
+	  // execute drawImage statements here
+	}, false);
+	
 
 	$.konami({
 		code:  			[83],
@@ -13,10 +20,32 @@ $(document).ready(function(){
 			canvas.width  = screen.width;
 			canvas.height = screen.height;
 			$("body").css({"overflow-y":"hidden"});
-			fog();
+			$("#canvas").css({"z-index":"30"});
+			$("#egg").show();
+			$("#part1").show();
+			$("#part2").show();
+			$("#close").show();
+			$(".arrow").show();
+			$("#egg").css({"width":screen.width,"height":screen.height});
+			draw();
+			$("#clear").show(20000);
 			}
 	});
-
+	$(".arrow").hide();
+	$("#close").hide();
+	$("#part1").hide();
+	$("#part2").hide();
+	$("#clear").hide();
+	$("#close").click(function(){
+		$("#egg").hide();
+		$("#part1").hide();
+		$("#part2").hide();
+	});
+	$("#clear").click(function(){
+		ctx.clearRect(0,0,canvas.width,canvas.height);
+		$("#canvas").css({"z-index":"0"});
+		$(this).hide();
+	});
 	$('#canvas').mousedown(function (e) {
         mousePressed = true;
         Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
@@ -37,23 +66,19 @@ $(document).ready(function(){
 
 	function Draw(x, y, isDown) {
 	    if (isDown) {
-	        ctx.beginPath();
-	        ctx.strokeStyle = "white";
-	        ctx.lineWidth = 10;
-	        ctx.lineJoin = "round";
-	        ctx.moveTo(lastX, lastY);
-	        ctx.lineTo(x, y);
-	        ctx.closePath();
-	        ctx.stroke();
+	    	ctx.beginPath();    
+	        ctx.clearRect(x,y,20,20);
 	    }
-	    lastX = x; lastY = y;
 	}
 
-		function fog(){
-			
-			ctx.fillStyle = "#dd0000";
-			ctx.fillRect(0,0,canvas.width,canvas.height);
-		}
-
+		function draw() {
+		  var ctx = document.getElementById('canvas').getContext('2d');
+		  var img = new Image();
+		  img.src = burl+'/images/SchoolGuide/fog.jpeg'; 
+		  img.onload = function(){
+		   ctx.drawImage(img, 0, 0,canvas.width,canvas.height);
+		   ctx.stroke();
+		  };
+	}
 	
 });

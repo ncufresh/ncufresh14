@@ -64,7 +64,7 @@
                         }
                         else {
                             $('#gameCampusMap').hide();
-                            $('#gameCampusScore').text(data['score']);
+                            $('#gameCampusScore').text('你的分數: ' + data['score']);
                             $('#gameCampusEnd').show();
 
                         }
@@ -81,13 +81,13 @@
 
     	$('#gameCampusInfoButton').click(function() {
     		$('#gameCampusInfo').fadeIn();
-    		$('#gameCampusMain').hide();
+    		//$('#gameCampusMain').hide();
     		
     	});
 
     	$('#gameCampusInfoExit').click(function() {
     		$('#gameCampusInfo').hide();
-    		$('#gameCampusMain').show();
+    		//$('#gameCampusMain').show();
     		
     	});
     });

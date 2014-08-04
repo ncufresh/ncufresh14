@@ -37,6 +37,8 @@
 	font-size: 18px;
 	/*color: white;*/
 	font-weight: bold;
+	width: 640px;
+	margin: 0px auto;
 }
 
 #page2 {
@@ -67,16 +69,21 @@
 	position: absolute;
 	width: 99px;
 	height: 787px;
+	float: left;
+	margin-right: -99px;
+	left: 1004px;
+	z-index: 5;
+}
+
+#button2-image {
+	position: absolute;
+	width: 99px;
+	height: 787px;
 	background: url("../images/aboutus/photo.png") no-repeat;
 	float: left;
 	margin-right: -99px;
 	left: 1004px;
-	z-index: 1;
-}
-
-#button2:hover {
-	background: url("../images/aboutus/photo-p.png") no-repeat;
-	cursor: pointer;
+	z-index: 0;
 }
 
 #page2-content {
@@ -245,6 +252,16 @@
 	margin: 0px auto;
 }
 
+.each-words {
+	width: 520px;
+	height: 110px;
+	margin: 10px;
+	font-family: "微軟正黑體", "Microsoft JhengHei";
+	font-size: 18px;
+	/*color: white;*/
+	font-weight: bold;
+	margin-left: 54px;
+}
 
 #display-photo {
 	background: yellow;

@@ -4,32 +4,13 @@ $(document).ready(function(){
 
 	var change = ['','department', 'administration', 'scence', 'exercise', 'food', 'dorm'];
 	var changeChinese = ['','系館', '行政', '中大十景', '運動', '飲食', '住宿'];
+ 	
+ 	$(".left_item").hover(function(){
+ 		//console.log($(this).data('place_id'));
+ 	});
 
-	var addEvent =  window.attachEvent||window.addEventListener;
-	var event = window.attachEvent ? 'onclick' : 'keydown';
-	addEvent(event, function(event){
-			
-				if(event.keyCode=="65"){
-				
-				}
-			
-	});
-
-	// $("#tollbar").appendTo("#chat-room-container");
-
-	//  var $scrollingDiv = $("#tollbar");
- 
-	//   $(window).scroll(function(){ 
-	//    $scrollingDiv
-	//     .css({"margin-top": "200px"});   
-	//   });
-
-	//  $("#tollbar").click(function(){
-	 	
-	//  });
- 
 	$("#select").change(changeLeft);
-	$(".pointer img").click(function(){
+	$(".pointer div").click(function(){
 		clickImg($(this).data('id'));
 		changePhoto($(this).data('id'));
 	});
@@ -37,7 +18,7 @@ $(document).ready(function(){
 
 	if(getTransferData('value') == '1'){
 		$("#select").val(getTransferData('select'));
-		$.jumpWindow("","","");
+		$.jumpWindow("",getTransferData('intro')+"<div class='robot' backgroundPosition='-1536px -192px'>","");
 	}
 	if(getTransferData('value') == '2'){
 		$("#select").val(getTransferData('select'));
@@ -117,7 +98,7 @@ $(document).ready(function(){
 		$('#siteMapContainer').children().last().remove();
 		$.pushLocation(changeChinese[data[0]['categories']], '/SchoolGuide/'+change[data[0]['categories']]);
 
-		for(var i=0; i<count-1; i++){
+		for(var i=0; i<count; i++){
 			var name =data[i]['name'];
 			var id=data[i]['id'];
 			var category = data[i]['categories'];
@@ -169,8 +150,7 @@ $(document).ready(function(){
 			}
 
 		}
-		//$("<img class ='item2' backgroundPosition='"+burl+"/images/SchoolGuide/item2.png'>").appendTo("#leftlist").data('place_id', id);
-
+		$("<div class='item2' backgroundPosition='-1536px -352px'>").appendTo("#leftlist");
 		makeLeftCanClick();
 	}
 
@@ -191,12 +171,13 @@ $(document).ready(function(){
 		var url = getTransferData('guide_right_url');// var url = $(this).data('url');
 		var data = {id: id};
 		ajaxGet(url, data, showPhoto);
+		ajaxGet(url, data, Photo);
 	}
 
 	function showPhoto(data){
 		var introduction =data['introduction'];
 		$.pushLocation(data['name'], '/SchoolGuide/'+change[data['categories']]+'/'+data['id'])
-		$.jumpWindow("",introduction+"<img class='robot' backgroundPosition='-960px -727px'>","");
+		$.jumpWindow("",introduction+"<div class='robot' backgroundPosition='-1536px -192px'>","");
 	
 	}
 
@@ -224,8 +205,6 @@ $(document).ready(function(){
     //=============================================================================
 
 	$(window).scroll(function() {
-		console.log($(this).scrollTop());
-		console.log($(document).height());
         if ( $(this).scrollTop() < 439 ){
             $('#fixMap').css({
 				position: "absolute",

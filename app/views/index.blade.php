@@ -29,7 +29,7 @@
 							<span>今日沒事</span>
 						@else
 							@foreach($calenders as $calender)
-							<li class="calender-row" data-id="{{ $calender->id }}">{{ $calender->title }}</li>
+							<li class="calender-row" data-id="{{ $calender->id }}">{{{ $calender->title }}}</li>
 							@endforeach
 						@endif
 					</ol>
@@ -44,7 +44,7 @@
 				<ul id="link-ul">
 				@foreach($links as $link)
 					<li>
-						<a href="{{ $link->url }}">{{ $link->display_name }}</a>
+						<a href="{{ $link->url }}" target="_blank">{{{ $link->display_name }}}</a>
 					</li>
 				@endforeach
 				</ul>
@@ -75,7 +75,7 @@
 					@else
 					<div class="col-sm-1"></div>
 					@endif
-					<div class="col-sm-6 announcement-title">{{ $announcement->title }}</div>
+					<div class="col-sm-6 announcement-title">{{{ $announcement->title }}}</div>
 					<div class="col-sm-2">{{ $announcement->viewer }}</div>
 					<div class="col-sm-3 announcement-time">{{ $announcement->created_at->format('Y/m/d h:i'); }}</div>
 				</div>
@@ -95,7 +95,7 @@
 				@foreach($articles as $article)
 				<a href="{{ route('perArticle', array('id' => $article->id)) }}">
 					<div class="forum-row row">
-						<div class="col-sm-6">{{ $article->title }}</div>
+						<div class="col-sm-6 forum-title">{{{ $article->title }}}</div>
 						<div class="col-sm-2">{{ $article->comment_number }}</div>
 						<div class="col-sm-4">{{ $article->created_at->format('Y/m/d h:i') }}</div>
 					</div>

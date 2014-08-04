@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
-{{ HTML::style('css/necessity/necessity.css') }}
-{{ HTML::script('js/necessity.js')  }}
+{{ HTML::style('css/necessity/necessity.min.css') }}
+{{ HTML::script('js/necessity.min.js')  }}
 
 @section('content')
 		

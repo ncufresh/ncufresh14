@@ -61,6 +61,10 @@ body {
 	height: 64px;
 }
 
+.chat-message {
+	word-break: break-all;
+}
+
 #chat-message {
 	margin-top: 12px;
 	margin-left: 12px;
@@ -131,56 +135,57 @@ body {
 	float: left;
 	margin-left: 20px;
 	margin-top: 50px;
+	background-image: url("../images/layout/images.png");
 }
 
 #topNavBarLife {
-	background-image: url("../images/layout/nculife.png");
+	background-position: 0px 0px;
 	margin-left: 80px;
 }
 
 #topNavBarLife:hover {
-	background-image: url("../images/layout/nculife2.png");
+	background-position: -64px 0px;
 	margin-left: 80px;
 }
 
 #topNavBarFourm {
-	background-image: url("../images/layout/forum.png");
+	background-position: -128px 0px;
 }
 
 #topNavBarFourm:hover {
-	background-image: url("../images/layout/forum2.png");
+	background-position: -192px 0px;
 }
 
 #topNavBarRead {
-	background-image: url("../images/layout/read.png");
+	background-position: -256px 0px;
 }
 
 #topNavBarRead:hover {
-	background-image: url("../images/layout/read2.png");
+	background-position: -320px 0px;
 }
 
 #topNavBarCampus {
-	background-image: url("../images/layout/campus.png");
+	background-position: -384px 0px;
 }
 
 #topNavBarCampus:hover {
-	background-image: url("../images/layout/campus2.png");
+	background-position: -448px 0px;
 }
 
 #topNavBarVideo {
-	background-image: url("../images/layout/video.png");
+	background-position: -512px 0px;
 }
 
 #topNavBarVideo:hover {
-	background-image: url("../images/layout/video2.png");
+	background-position: -576px 0px;
 }
 
 #topNavBarAbout {
-	background-image: url("../images/layout/about.png");
+	background-position: -640px 0px;
 }
 
 #topNavBarAbout:hover {
-	background-image: url("../images/layout/about2.png");
+	background-position: -704px 0px;
 }
 
 
@@ -203,8 +208,8 @@ body {
 }
 
 #topBackground {
-	background: url("../images/layout/topback.png") no-repeat;
-	background-size: 100%;
+	background: url("../images/layout/images.png") no-repeat;
+	background-position: 0px -160px;
 	width: 788px;
 	height: 250px;
 	position: absolute;
@@ -277,17 +282,13 @@ body {
 #logoutButton {
 	width: 79px;
 	height: 22px;
-	background: url("../images/layout/logout.png") no-repeat;
-	background-size: 100%;
+	background: url("../images/layout/images.png") no-repeat;
+	background-position: 0px -448px;
 	position: absolute;
 }
 
 #logoutButton:hover {
-	width: 79px;
-	height: 22px;
-	background: url("../images/layout/logoutClick.png") no-repeat;
-	background-size: 100%;
-	position: absolute;
+	background-position: 0px -480px;
 }
 
 #auth_nolgin {
@@ -325,49 +326,34 @@ body {
 }
 
 #auth_box #submit {
-	width: 26%;
-	height: 9%;
-	left: 29%;
-	top: 54px;
+	width: 49px;
+	height: 15px;
+	left: 55px;
+	top: 51px;
 	position: relative;
-	background: url("../images/layout/login1.png") no-repeat;
-	background-size: 100%;
+	background: url("../images/layout/images.png") no-repeat;
+	background-position: -128px -448px;
 	border: 0px;
 	float: left;
 }
 
 #auth_box #submit:hover {
-	width: 26%;
-	height: 9%;
-	left: 29%;
-	top: 54px;
-	position: relative;
-	background: url("../images/layout/login2.png") no-repeat;
-	background-size: 100%;
-	border: 0px;
-	float: left;
+	background-position: -128px -480px;
 }
 
 #auth_box #register {
-	width: 26%;
-	height: 9%;
-	left: 19%;
-	top: 54px;
+	width: 49px;
+	height: 15px;
+	left: 36px;
+	top: 51px;
 	position: relative;
-	background: url("../images/layout/register.png") no-repeat;
-	background-size: 100%;
+	background: url("../images/layout/images.png") no-repeat;
+	background-position: -192px -448px;
 	float: left;
 }
 
 #auth_box #register:hover{
-	width: 26%;
-	height: 9%;
-	left: 19%;
-	top: 54px;
-	position: relative;
-	background: url("../images/layout/register2.png") no-repeat;
-	background-size: 100%;
-	float: left;
+	background-position: -192px -480px;
 }
 
 #auth_box #fblogin {
@@ -376,18 +362,12 @@ body {
 	left: 28%;
 	top: 73px;
 	position: relative;
-	background: url("../images/layout/fblogin1.png") no-repeat;
-	background-size: 100%;
+	background: url("../images/layout/images.png") no-repeat;
+	background-position: -256px -448px;
 }
 
 #auth_box #fblogin:hover{
-	width: 45%;
-	height: 6%;
-	left: 28%;
-	top: 73px;
-	position: relative;
-	background: url("../images/layout/fblogin2.png") no-repeat;
-	background-size: 100%;
+	background-position: -256px -480px;
 }
 
 #login-form{
@@ -416,7 +396,7 @@ body {
 }
 
 #topRobot {
-	background: url("../images/layout/robot/1.png") no-repeat;
+	background: url("../images/layout/robot/right1.png") no-repeat;
 	position: absolute;
 	width: 41px;
 	height: 95px;
@@ -425,23 +405,18 @@ body {
 }
 
 #freshButton {
-	background: url("../images/layout/freshButton.png") no-repeat;
+	background: url("../images/layout/images.png") no-repeat;
 	position: fixed;
 	width: 106px;
 	height: 171px;
 	top: 400px;
 	left: 0px;
 	z-index: 2;
+	background-position: -384px -448px;
 }
 
 #freshButton:hover {
-	background: url("../images/layout/freshButtonClick.png") no-repeat;
-	position: fixed;
-	width: 106px;
-	height: 171px;
-	top: 400px;
-	left: 0px;
-	z-index: 2;
+	background-position: -512px -448px;
 }
 /*#jump-window{*/
 	/*position: absolute;*/
