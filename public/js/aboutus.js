@@ -19,6 +19,9 @@ $(document).ready(function(){
 		$('#button2').animate({
 			left: '0px'
 		});
+		$('#button2-image').animate({
+			left: '0px'
+		});
 	});
 	$('#button2').click(function() {
 		$('#page1').animate({
@@ -32,6 +35,9 @@ $(document).ready(function(){
 			left: '909px'
 		});
 		$('#button2').animate({
+			left: '1004px'
+		});
+		$('#button2-image').animate({
 			left: '1004px'
 		});
 	});
@@ -66,5 +72,15 @@ $(document).ready(function(){
 				left: left + 'px'
 			});
 		}
+	});
+	$('#button2').mouseenter(function() {
+		$('#button2-image').css({
+			background: 'url("images/aboutus/photo-p.png") no-repeat'
+		});
+	});
+	$('#button2').mouseleave(function() {
+		$('#button2-image').css({
+			background: 'url("images/aboutus/photo.png") no-repeat'
+		});
 	});
 });
