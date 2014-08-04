@@ -11,17 +11,18 @@ canvas{
     top:0;
     left: 0;
 }
-h1{
+#title1{
     font-size: 50;
     color: white;
     font-weight: 1500;
-}
-#title1{
     position: relative;
     top: 0px;
     left: 0px;
 }
 #title2{
+    font-size: 50;
+    color: white;
+    font-weight: 1500;
     position: relative;
     top: -135px;
     left: 750px;
@@ -42,7 +43,7 @@ h1{
     font-size: 50;
     font-weight: 900;
     animation:mymove 3s infinite;
-    -webkit-animation:mymove 5s infinite; /* Safari and Chrome */
+    -webkit-animation:mymove 3s infinite; /* Safari and Chrome */
 }
 
 @keyframes mymove
