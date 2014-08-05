@@ -18,10 +18,10 @@ class GamedestinyController extends BaseController {
 		if ( $user->power > 0 ) {
 			$user->power = $user->power - 1;
 			$user->save();
-			$user["play"] = true;
 			$giftType = $this->getGift($user);
+			$user["play"] = true;
 			$randomGp = 0;	//?
-			if ( $giftType == 8 ) {
+			if ( $giftType == 11 ) {
 				$randomGp = rand(250, 2500);
 				$user->gp += $randomGp;
 				$user->save();
@@ -193,6 +193,7 @@ class GamedestinyController extends BaseController {
 				$user->save();
 				break;
 		}
-		return $giftsType[$index + 1];
+		return $index;
+//		return $giftsType[$index + 1];
 	}
 }
