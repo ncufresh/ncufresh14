@@ -120,7 +120,7 @@ Route::get('SchoolGuide/clickImg', array('as' => 'Guide.map', 'uses' => 'SchoolG
 
 Route::get('SchoolGuide/select', array('as' => 'Guide.select', 'uses' => 'SchoolGuideController@getselect') );
 
-//Route::get('SchoolGuide/good', array('as' => 'Guide.good', 'uses' => 'SchoolGuideController@goodadd') );
+Route::post('SchoolGuide/good', array('as' => 'Guide.good', 'uses' => 'SchoolGuideController@goodadd') );
 
 Route::get('SchoolGuide/{item}', array('as' => 'schoolguide.item', 'uses' => 'SchoolGuideController@item'))->where('item', '(department|administration|scence|food|dorm|exercise)');
 

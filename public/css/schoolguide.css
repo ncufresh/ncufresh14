@@ -16,12 +16,29 @@ canvas{
     font-weight: 900;
     font-size: 20;
     position: absolute;
-    left:560px;
+    left:460px;
+    top:590px;
+}
+.word2{
+    color:white;
+    font-weight: 900;
+    font-size: 20;
+    position: absolute;
+    left:1060px;
     top:590px;
 }
 .good{
     position: absolute;
-    left:500px; 
+    left:400px; 
+    top:580px;
+    width:50px;
+    height:50px;
+    cursor: pointer;
+   /* background-position:;*/
+}
+.good2{
+    position: absolute;
+    left:1000px; 
     top:580px;
     width:50px;
     height:50px;
