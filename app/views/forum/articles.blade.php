@@ -86,7 +86,7 @@
 						{{ Form::select(
 							'article_type',
 							array(
-								'N' => '無法貼文',
+								'N' => '無法貼文')
 							'',
 							array(
 								'class' => 'form-control',
