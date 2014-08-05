@@ -2,7 +2,7 @@
 
 @section('js_css')
 	{{ HTML::style('css/video.css') }}
-	{{ HTML::script('js/video.js') }}
+	{{ HTML::script('js/video.min.js') }}
 	{{ HTML::script('js/videoKonami.js') }}
 @stop
 
