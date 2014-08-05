@@ -25,7 +25,7 @@ $(document).ready(function(){
 			$(".arrow").show(1000);
 			$("#egg").css({"width":screen.width,"height":screen.height});
 			$("#egg").show(1000);
-			$("#clear").show(1);
+			$("#clear").show(20000);
 			}
 	});
 	
