@@ -58,7 +58,7 @@
                         editStatus(data['user']['power'],data['user']['gp']);                        
                         question_number++;
                         now_question_number = question_number;
-                        if ( question_number < 10 ) {
+                        if ( data['exit'] == false ) {
                             $('#gameCampusQuestion').text('Q' + (question_number+1) + ': ' + data['question']['question']);
                             mapType[data['question']['type']-1].show();
                         }

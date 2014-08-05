@@ -35,7 +35,7 @@ class GamedestinyController extends BaseController {
 	private function getGift($user)
 	{
 		$rand = rand(0, 100);
-		$probaility = [10, 10, 10, 10, 12.5, 12.5, 5, 2, 2, 2, 2, 5, 5, 2, 5, 5];
+		$probaility = [12.5, 12.5, 12.5, 12.5, 12.5, 12.5, 5, 1, 0.5, 0.5, 1, 1, 5, 1, 5, 5];
 		$giftsType = [13, 14, 15, 16, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 		$probCount = $probaility[0];
 		$index = 0;
