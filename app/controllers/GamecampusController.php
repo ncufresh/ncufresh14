@@ -63,6 +63,8 @@ class GamecampusController extends BaseController {
 		else {
 			$question = '';
 			$exit = true;
+			$gameUser->gp += $score;
+			$gameUser->save();
 		}
 		if ( Input::get('index') == $questions[$questionID]['answer_id']) {
 			if ( $life > 0 ) {
@@ -83,13 +85,15 @@ class GamecampusController extends BaseController {
 			$life--;
 			if ( $life <=  0 ) {
 				$exit = true;
+				$gameUser->gp += $score;
+				$gameUser->save();
 			}
 			Session::forget('life');
 			Session::put('life', $life);
 			Session::forget('index');
 			Session::put('index', $questionID + 1);
 			Session::forget('nextscore');
-				Session::put('nextscore', 20);
+			Session::put('nextscore', 20);
 			return Response::json(array('user' => $gameUser->toArray(), 'isRight' => false, 'score' => $score, 'question' => $question, 'exit' => $exit));
 		}
 	}
