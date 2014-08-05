@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	{{ HTML::style('css/user.css') }}
+	{{ HTML::style('css/user.min.css') }}
 	{{-- HTML::script('js/index.js') --}}
 @stop
 

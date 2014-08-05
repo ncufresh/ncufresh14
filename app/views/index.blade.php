@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	{{ HTML::style('css/index.css') }}
-	{{ HTML::script('js/index.js') }}
+	{{ HTML::style('css/index.min.css') }}
+	{{ HTML::script('js/index.min.js') }}
 @stop
 
 @section('content')

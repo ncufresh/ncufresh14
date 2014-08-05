@@ -26,7 +26,7 @@
 		{{ HTML::style('css/jquery-ui.min.css') }}
 		{{ HTML::style('css/pace.css') }}
 
-		{{ HTML::style('css/layout.css') }}
+		{{ HTML::style('css/layout.min.css') }}
 		
 		{{ HTML::script('js/layout/robot.js') }}
 

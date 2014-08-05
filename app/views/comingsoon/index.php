@@ -1,7 +1,7 @@
 <?php
 	$now = \Carbon\Carbon::now();
 	$target = \Carbon\Carbon::create(2014, 8, 6, 8, 0, 0);
-	$diff = $target->diffInDays($now);
+	$diff = $target->diffInDays($now)+1;
 
 ?>
 
