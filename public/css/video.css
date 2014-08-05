@@ -26,10 +26,10 @@
 }
 
 #videoFrame {
-	position: absolute;
 	left: 2.5%;
 	width:972px;
-	height:585px;	
+	height:585px;
+	margin: 0 auto;
 	background-image:url(../images/videoImages/merge.png);
 	background-position: 0px 0px;
 }
@@ -39,6 +39,18 @@
 	height: 100px;
 	background: yellow;
 	position: absolute;
+	z-index: 100;
+}
+
+.video-button{
+	width: 230px;
+	height: 70px;
+	cursor: pointer;
+	background-image: url(../images/videoImages/button.png);
+}
+
+.video-button:hover{
+	background-image: url('../images/videoImages/button_h.png');
 }
 
 #introTop {

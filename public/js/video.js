@@ -158,4 +158,52 @@ $(function(){
   }
 */
 
+
+
+	var data = [
+		['ANQBlZCff_c', 2, 1, '就排一場吧 反正第一堂課又不會考試', 'ebi-c8HczkM', '上課是本分 我要當個乖學生', '3wua8ZuE4-M'],
+		['ebi-c8HczkM', 0, 0],
+		['3wua8ZuE4-M', 3, 1, '走前面那條看妹子囉', 'F9B9tsFQvs8', '還是走右邊吧 下坡騎比較快', '5hjfxOiiMQM', '右邊比較快 不過我還是用牽的吧', '9E8VajOLwOM']
+	];
+
+	var stage = 'ANQBlZCff_c';
+
+	function showOption(){
+		var smallData = data[0];
+		for(var key in data){
+			if(stage == data[key][0]){
+				smallData = data[key];
+				break;
+			}
+		}
+
+		console.log('id:' + smallData[0]);
+		var target = $('#videoChoose').empty().data('correct', smallData[2]);
+		for(var i=0; i<smallData[1]; i++){
+			var button = $('<div class="video-button"></div>').text(smallData[3+i*2]).data('video-id', smallData[4+i*2]).hide();
+				button.click(function(){
+
+					changeVideo($(this).data('video-id'));
+
+					stage = $(this).data('video-id');
+					showOption();
+				});
+			button.appendTo(target).fadeIn();
+			console.log(smallData[3+i*2] + ' : ' + smallData[4+i*2]);
+		}
+		var button = $('<div class="video-button"></div>').text('Try again!').click(function(){
+			stage = 0;
+			showOption();
+		});
+		button.appendTo(target).fadeIn();
+
+	}
+
+	function changeVideo(id){
+		$("#main").empty();
+		$('<iframe id="i_attached2" width="750" height="500" src="//www.youtube.com/embed/'+ id +'" frameborder="0" allowfullscreen></iframe>').appendTo($('#main'));
+	}
+	showOption();
+
+
 });
