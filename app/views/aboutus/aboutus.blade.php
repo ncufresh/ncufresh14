@@ -50,16 +50,36 @@
 		<div id="photos-back" class="contents">
 			<div class="content-close"></div>
 			<div class="each-content">
-				<div id="display-photo"><img src="SSASAS"></div>
+				<div id="display-photo"><img id="display-photo-img" src="{{ asset( 'images/aboutus/photo/10555134_10203012672293586_811617165_n.jpg') }}"></div>
 				<div id="prelook">
 					<div id="left-button"></div>
 					<div id="prelook-box">
 						<div id="prelook-inbox">
 							<!--photos-->
-							<img class="prelook-photos" src="1"/>
-							<img class="prelook-photos" src="2"/>
-							<img class="prelook-photos" src="3"/>
-							<img class="prelook-photos" src="4"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10555134_10203012672293586_811617165_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10565925_10203012672173583_1273624557_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10574743_10203012672093581_949492594_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10581147_10203012672213584_354706518_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10583116_10203012669613519_1889995466_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10588635_10203012167080956_1143309023_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10589744_10203012161760823_420058060_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10589801_10203012669373513_39160036_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10590082_10203012165680921_1672890430_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10592102_10203012162240835_421779702_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10592209_10203012161520817_159434669_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10592283_10203012165400914_1586460589_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10595842_10203012669413514_941585090_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10595989_10203012166200934_1444732859_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/10596127_10203012669453515_479418446_n.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/C360_2014-07-29-14-52-37-713.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/C360_2014-07-29-15-20-23-947.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/C360_2014-07-29-15-22-00-536.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/C360_2014-07-29-15-22-53-160.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/C360_2014-07-29-15-23-21-210.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/C360_2014-07-29-15-24-31-900.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/C360_2014-07-30-13-49-49-746.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/C360_2014-07-30-13-50-01-858.jpg') }}"/>
+							<img class="prelook-photos" src="{{ asset( 'images/aboutus/photo/C360_2014-07-30-18-43-39-139.jpg') }}"/>
 						</div>
 					</div>
 					<div id="right-button"></div>
