@@ -43,7 +43,7 @@
 					<img id="1" class="img" src="{{ asset( 'img/uploadImage/' .  $pictures[0]->pictureAdmin->file_name) }}">
 				</div>
 			</div>
-			@if($nculifes[0]->local_id != NULL)
+			@if($nculifes[0]->local_id != 0)
 				<div id="select">
 					<div id="buttom" data-num="{{$nculifes[0]->id}}">
 					</div>
