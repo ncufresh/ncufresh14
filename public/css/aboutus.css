@@ -27,9 +27,11 @@
 
 #page1-photo {
 	width: 640px;
-	height: 360px;
+	height: 425px;
 	background: yellow;
 	margin: 0px auto;
+	background: url("../images/aboutus/team/DSC05558.jpg") no-repeat;
+	background-size: 100%;
 }
 
 #page1-text {
@@ -244,20 +246,25 @@
 }
 
 .each-photo {
-	width: 640px;
+	width: 540px;
 	height: 360px;
 	margin: 0px auto;
 }
 
+.team-photo {
+	width: 540px;
+	height: 360px;
+}
+
 .each-words {
-	width: 520px;
+	width: 475px;
 	height: 110px;
 	margin: 10px;
 	font-family: "微軟正黑體", "Microsoft JhengHei";
 	font-size: 18px;
 	/*color: white;*/
 	font-weight: bold;
-	margin-left: 54px;
+	margin-left: 103px;
 }
 
 #display-photo {

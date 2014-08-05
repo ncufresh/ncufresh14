@@ -9,7 +9,7 @@
 <div id="about-content">
 	<div id="page1">
 		<div id="page1-content">
-			<div id="page1-photo">photo</div>
+			<div id="page1-photo"></div>
 			<div id="page1-text"><p>　　嗨！各位中央新生你們好！不管是研究新生或是大一新生，都是經過許多的努力才能
 				來到這裡。想必你們也對未來的學校──中央大學，抱持著有點複雜的心情，像是初戀般既期待又怕受傷害。
 				不過別擔心，因為曾經的我們也是如此，徬徨茫然的我們，也曾受過大一生活知訊網的幫助。而如今，該是
@@ -89,35 +89,35 @@
 		<div id="execute-back" class="contents">
 			<div class="content-close"></div>
 			<div class="each-content">
-				<div class="each-photo"></div>
+				<div class="each-photo"><img class="team-photo" src="{{ asset( 'images/aboutus/team/DSC05560.jpg') }}"/></div>
 				<div class="each-words">統籌整個知訊網的相關事宜，與學校各單位、各系學會、社團、學生組織協調；招募知訊網工人、規劃進度、預算、指引整個網站的年度大方向，擔任各組之間溝通橋梁，協同身邊這群一起努力的夥伴，為新生製作最好的知訊網。</div>
 			</div>
 		</div>
 		<div id="Design-back" class="contents">
 			<div class="content-close"></div>
 			<div class="each-content">
-				<div class="each-photo"></div>
+				<div class="each-photo"><img class="team-photo" src="{{ asset( 'images/aboutus/team/DSC05560.jpg') }}"/></div>
 				<div class="each-words">知訊網上可見之處皆是出自於他們筆下，與企劃組合作設計網站頁面，美工組繪製網站的各個頁面、和許多精美的圖片，努力為新生繪出最有活力的知訊網。</div>
 			</div>
 		</div>
 		<div id="Media-back" class="contents">
 			<div class="content-close"></div>
 			<div class="each-content">
-				<div class="each-photo"></div>
+				<div class="each-photo"><img class="team-photo" src="{{ asset( 'images/aboutus/team/DSC05556.jpg') }}"/></div>
 				<div class="each-words">剪輯影片、編寫劇本、拍攝相片；影音組主要負責知訊網的影片製作，自己擔當導演拍攝影片，讓新生搶先體驗大學生活的樂趣。</div>
 			</div>
 		</div>
 		<div id="Program-back" class="contents">
 			<div class="content-close"></div>
 			<div class="each-content">
-				<div class="each-photo"></div>
+				<div class="each-photo"><img class="team-photo" src="{{ asset( 'images/aboutus/team/DSC05561.jpg') }}"/></div>
 				<div class="each-words">負責架構網站、撰寫程式，將整個知訊網推動的幕後功臣；程設組運用程式碼編織而成的知訊網，將帶給新生最好的知訊網體驗。</div>
 			</div>
 		</div>
 		<div id="Project-back" class="contents">
 			<div class="content-close"></div>
 			<div class="each-content">
-				<div class="each-photo"></div>
+				<div class="each-photo"><img class="team-photo" src="{{ asset( 'images/aboutus/team/DSC05571.jpg') }}"/></div>
 				<div class="each-words">決定知訊網的風格、配置網頁版面、美工樣式、還有網站內容，與各組協調知訊網的設計企劃，再監督美工與程設組實作，並呈現出理想中的知訊網。</div>
 			</div>
 		</div>
