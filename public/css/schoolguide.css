@@ -11,6 +11,14 @@ canvas{
     top:600px;
     left: 1250px;
 }
+.word{
+    color:white;
+    font-weight: 900;
+    font-size: 20;
+    position: absolute;
+    left:560px;
+    top:590px;
+}
 .good{
     position: absolute;
     left:500px; 

@@ -57,5 +57,5 @@
 @if($errors -> any())
 	<script>{{"alert('".$errors -> first()."');"}}</script>
 @endif
-<iframe id="konami" style="display: none;"width="540" height="360" src="//www.youtube.com/embed/mzX0rhF8buo" frameborder="0" allowfullscreen></iframe>
+<iframe id="konami" style="display: none;"width="540" height="360" src="//www.youtube.com/embed/{{ $video->video_address }}" frameborder="0" allowfullscreen></iframe>
 @stop

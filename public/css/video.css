@@ -89,6 +89,12 @@
 	bottom: -480px;	
 }
 
+#pinewave{
+	position: absolute;
+	right: 0px;
+	bottom: 30px;
+}
+
 #messageBG {
 	position:absolute;
 	top: 20px;

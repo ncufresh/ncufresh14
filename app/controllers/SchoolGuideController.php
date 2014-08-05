@@ -120,7 +120,6 @@ class SchoolGuideController extends BaseController {
 	// 	$data -> save();
 
 	// 	$user = good::find($id);
-
 	// 	return View::make('schoolguide.item',array('users'=>$user));
 
 	// }
@@ -194,7 +193,6 @@ class SchoolGuideController extends BaseController {
 		App::make('SiteMap')->pushLocation($name, route('schoolguide.item', array('item' => $item)));
 		$results = Schoolguide::where('categories', '=', $categories)->get();
 
-		
 		return View::make('schoolguide.schoolguide',array('Schoolguides'=>$results));
 	}
 
