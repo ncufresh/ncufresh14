@@ -16,7 +16,7 @@
 <div id="introTop2"></div>
 
 <div id="main">
-	<iframe width="750" height="500" src="//www.youtube.com/embed/{{ $video->video_address }}" frameborder="0" allowfullscreen></iframe>
+	<iframe id="frame-target" width="750" height="500" src="//www.youtube.com/embed/{{ $video->video_address }}" frameborder="0" allowfullscreen></iframe>
 </div>
 
 <div id="video_name" style ="width:900px;height:100px;font-size:32px;"><font color="gray">{{$video ->video_name}}</font></div>
