@@ -63,7 +63,7 @@ $(function(){
 	function changeIntroductionAndImage(data){
 		$('#introductionbox2').html(data['result']['introduction']);
 		$('#introductionbox').jScrollPane();
-		$('#introductionbox').scrollTop();
+		$('#introductionbox .jspPane').css("top", "0");
 		$('#buttom').data("num", data['result']['id']);
 		if(LorP == 'Picture')
 		{
