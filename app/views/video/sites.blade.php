@@ -10,6 +10,7 @@
 
 <div id="frame">
 <div id="videoFrame"></div>
+<div id="videoChoose"></div>
 <div id="introMid"></div>
 <div id="introTop"></div>
 <div id="introTop2"></div>

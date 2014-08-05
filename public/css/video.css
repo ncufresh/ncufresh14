@@ -34,6 +34,13 @@
 	background-position: 0px 0px;
 }
 
+#videoChoose {
+	width: 100%;
+	height: 100px;
+	background: yellow;
+	position: absolute;
+}
+
 #introTop {
 	position: absolute;
 	top: 740px;
