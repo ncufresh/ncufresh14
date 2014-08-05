@@ -58,7 +58,7 @@
 
 #introTop {
 	position: absolute;
-	top: 920px;
+	top: 830px;
 	left:2.5%;
 	width: 972px;
 	height: 16px;
@@ -88,7 +88,7 @@
 
 #intro {
 	position:absolute;
-	top:740px;
+	top:830px;
 	left:40px;
 	width:1024px;
 	height: 115px;
@@ -234,18 +234,12 @@
 }
 
 #like_img:hover {
-	position:absolute;
-	top:650px;
-	left:40px;	
-	width: 73px;
-	height: 73px;
-	background-image:url(../images/videoImages/merge.png);
 	background-position: -96px -640px;
 }
 
 #c_huan {
 	position: absolute;
-	top:682px;
+	top:772px;
 	left:120px;
 }
 
@@ -260,18 +254,12 @@
 }
 
 #love_img:hover {
-	position:absolute;
-	top:650px;
-	left:170px;
-	width: 73px;
-	height: 73px;
-	background-image:url(../images/videoImages/merge.png);
 	background-position: -96px -736px;
 }
 
 #chau_c_huan {
 	position: absolute;
-	top: 682px;
+	top: 772px;
 	left: 250px;
 }
 
