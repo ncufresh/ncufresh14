@@ -11,7 +11,7 @@
     	$('#destinyStart').click(function() {
     		if ( !running ) {
 				ajaxPost($(this).attr("action"), '', function(data) {
-					console.log(data);
+//					console.log(data);
 					if ( data['user']['play'] == true) {
 						$('#destinyStart').hide();
 			    		var rotation = rotateStart[data['gift']] + (rotateEnd[data['gift']] - rotateStart[data['gift']])/2 -207;
