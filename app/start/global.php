@@ -53,15 +53,17 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 	App::make('SiteMap')->pushLocation('錯誤頁面', route('error'));
 
-	Mail::queue('emails.error', array('now' => \Carbon\Carbon::now()->toDateTimeString(), 'exception' => $exception->getMessage()), function($message){
-		$message->from('system@ncufresh.ncu.edu.tw', '系統自動發信')->subject('大一生活知訊網-爆炸拉');;
+	if(Request::server('SERVER_NAME') == 'ncufresh.ncu.edu.tw' || Request::server('SERVER_NAME') == 'ncufresh14.weigreen.com'){
+		Mail::queue('emails.error', array('now' => \Carbon\Carbon::now()->toDateTimeString(), 'exception' => $exception->getMessage()), function($message){
+			$message->from('system@ncufresh.ncu.edu.tw', '系統自動發信')->subject('大一生活知訊網-爆炸拉');;
 
-		$message->to('andy199310@gmail.com');
-		$message->to('inin610719@hotmail.com');
-//		$message->to('abc50604@yahoo.com.tw');
-//		$message->to('andy199310@gmail.com');  //++
+			$message->to('andy199310@gmail.com');
+			$message->to('inin610719@hotmail.com');
+	//		$message->to('abc50604@yahoo.com.tw');
+	//		$message->to('andy199310@gmail.com');  //++
 
-	});
+		});
+	}
 
 	if(Config::get('app.debug') == false){
 		return Response::view('errors.index', array('message' => '有事情發生了'), 404);
