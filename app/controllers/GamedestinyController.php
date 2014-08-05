@@ -193,6 +193,6 @@ class GamedestinyController extends BaseController {
 				$user->save();
 				break;
 		}
-		return $giftsType[$index];
+		return $giftsType[$index + 1];
 	}
 }
