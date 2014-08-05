@@ -16,9 +16,9 @@
 	<div id="close" title="click to close">X</div>
 	
 		<div id="part1" >
-			<!-- <h1 id="title1">最佳夫妻同心協力組合</h1>
+			<h1 id="title1">最佳夫妻同心協力組合</h1>
 			<span id="pineapple"></span>
-			<span id="vicky"></span> -->
+			<span id="vicky"></span>
 			<img class="good" src="{{asset('images/SchoolGuide/good.png')}}" 
 			data-id="{{$good->count}}" data-placed_id="1">
 			<span class="word">無限期支持數{{$good->count}}</span>
@@ -26,9 +26,9 @@
 		<div id="part2">
 
 			<div id="vs"></div>
-			<!-- <h1 id="title2">最佳永久性福組合</h1>
+			<h1 id="title2">最佳永久性福組合</h1>
 			<span id="wan"></span>
-			<span id="hand"></span> -->
+			<span id="hand"></span>
 			<img class="good2" src="{{asset('images/SchoolGuide/good.png')}}" data-id="{{$good2->count}}" data-placed_id="2">
 			<span class="word2">支持數{{$good2->count}}</span>
 		</div>
