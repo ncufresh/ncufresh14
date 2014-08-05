@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	{{ HTML::style('css/video.css') }}
+	{{ HTML::style('css/video.min.css') }}
 	{{ HTML::script('js/video.min.js') }}
 	{{ HTML::script('js/videoKonami.js') }}
 @stop
