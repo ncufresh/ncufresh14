@@ -7,7 +7,10 @@ $(function(){
 	var bURL = getTransferData('burl');
 	DragLocal();
 
-	$('#place').jScrollPane();
+	$('#place').jScrollPane(
+		{
+			mouseWheelSpeed: 140
+		});
 
 	$('#introductionbox').jScrollPane();
 
