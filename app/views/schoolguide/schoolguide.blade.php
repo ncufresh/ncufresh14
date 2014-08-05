@@ -1,21 +1,21 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	{{ HTML::style('css/schoolguide.min.css') }}
-	{{HTML::script('js/schoolguide.min.js')}}
-	{{ HTML::script('js/crash.min.js') }}
+	{{ HTML::style('css/schoolguide.css') }}
+	{{HTML::script('js/schoolguide.js')}}
+	{{ HTML::script('js/crash.js') }}
 @stop
 
 @section('content')
 <canvas id="canvas" width="1px" height="1px">
 </canvas>
-<div class="arrow" id="pointer1" style="display:none">↓ here start</div>
-<button id="clear" style="display:none">clear all</button>
+<div class="arrow" id="pointer1" style="display:none;">↓ here start</div>
+<button id="clear" style="display:none;">clear all</button>
 
-<div id="egg">
-	<div id="close" title="click to close" style="display:none">X</div>
+<div id="egg" style="display:none;">
+	<div id="close" title="click to close">X</div>
 	
-		<div id="part1" style="display:none">
+		<div id="part1" >
 			<h1 id="title1">最佳夫妻同心協力組合</h1>
 			<span id="pineapple"></span>
 			<span id="vicky"></span>
@@ -23,7 +23,7 @@
 			<img class="good" src="{{asset('images/SchoolGuide/good.png')}}">
 			<span class="word">無限期支持<!-- {{$users->count}} --></span>
 		</div>
-		<div id="part2" style="display:none">
+		<div id="part2">
 
 			<div id="vs"></div>
 			<h1 id="title2">最佳永久性福組合</h1>

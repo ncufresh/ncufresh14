@@ -23,9 +23,6 @@ $(document).ready(function(){
 			$("body").css({"overflow-y":"hidden"});
 			$("#canvas").css({"z-index":"30"});
 			$("#egg").show(1000);
-			$("#part1").show(1000);
-			$("#part2").show(1000);
-			$("#close").show(1000);
 			$(".arrow").show(1000);
 			$("#egg").css({"width":screen.width,"height":screen.height});
 			$("#clear").show(1);
