@@ -41,7 +41,9 @@ $(document).ready(function(){
 			left: '1004px'
 		});
 	});
-	$('#page1-content').jScrollPane();
+	$('#page1-content').jScrollPane({
+		mouseWheelSpeed: 20
+	});
 	var contents = $('.contents');
 	$('.items').each(function(index) {
 		$(this).click(function() {
