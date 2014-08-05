@@ -300,6 +300,8 @@ class ArticlesController extends BaseController{
 
 		$article = Forum::find($id);
 
+		$siteMap->pushLocation($article->title, route('perArticle',array('id'=>$id,'type'=>$type,'page'=>$page)));
+
 		$comments = $article->comment;
 
 		$articleAuthor = $article->user->name;
