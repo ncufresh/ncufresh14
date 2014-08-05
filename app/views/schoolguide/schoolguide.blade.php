@@ -14,15 +14,14 @@
 
 <div id="egg">
 	<div id="close" title="click to close">X</div>
+	
 		<div id="part1">
-			<!-- {{Form::open(array('route'=>'About_us.delete','method'=>'post'))}} -->
 			<h1 id="title1">最佳夫妻同心協力組合</h1>
 			<span id="pineapple"></span>
 			<span id="vicky"></span>
-			<!-- {{Form::hidden('id','1')}}
+			{{Form::hidden('id','1')}}
 			<img class="good" src="{{asset('images/SchoolGuide/good.png')}}">
-			<h1>支持{{$users->count}}</h1>
-			{{Form::close()}} -->
+			<span class="word">無限期支持<!-- {{$users->count}} --></span>
 		</div>
 		<div id="part2">
 
