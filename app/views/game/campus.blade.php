@@ -1,9 +1,9 @@
 @extends('game.layout')
 
 @section('js_css')
-	{{ HTML::style('css/game.css') }}
-	{{ HTML::script('js/game/game.js') }}
-	{{ HTML::script('js/game/campus.js') }}
+	{{ HTML::style('css/game.min.css') }}
+	{{ HTML::script('js/game/game.min.js') }}
+	{{ HTML::script('js/game/campus.min.js') }}
 @stop
 
 @section('game_content')
