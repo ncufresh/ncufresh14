@@ -58,8 +58,11 @@ $(document).ready(function(){
 		});
 	});
 	$('#left-button').click(function() {
-		if ( left > -4325 ) {
+		if ( left > -1883 ) {
 			left = left - 160;
+			if ( left < -1883 ) {
+				left = -1883;
+			}
 			photoMoveBox.animate({
 				left: left + 'px'
 			});
@@ -68,6 +71,9 @@ $(document).ready(function(){
 	$('#right-button').click(function() {
 		if ( left < 0 ) {
 			left = left + 160;
+			if ( left > 0 ) {
+				left = 0;
+			}
 			photoMoveBox.animate({
 				left: left + 'px'
 			});

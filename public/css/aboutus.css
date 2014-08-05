@@ -246,7 +246,6 @@
 }
 
 .each-photo {
-	background: yellow;
 	width: 640px;
 	height: 360px;
 	margin: 0px auto;
@@ -264,12 +263,17 @@
 }
 
 #display-photo {
-	background: yellow;
 	width: 640px;
 	height: 360px;
 	margin: 10px auto;
 }
 
+#display-photo-img {
+	margin: 0px auto;
+	height: 360px;
+	position: relative;
+	display: block;
+}
 #prelook {
 	width: 100%;
 	height: 108px;
@@ -301,7 +305,7 @@
 #prelook-inbox {
 	position: absolute;
 	background: white;
-	width: 5000px;
+	width: 2558px;//-675
 	height: 108px;
 	padding: 9px;
 }
@@ -319,7 +323,7 @@
 }
 
 .prelook-photos {
-	width: 160px;
+	
 	height: 90px;
 	background: blue;
 }
