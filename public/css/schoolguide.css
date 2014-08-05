@@ -341,8 +341,13 @@ html, body {
     width: 49px;
     height: 49px;
 }
-#Zhidao:hover{
+
+#Zhidao:hover .Zhidao-hover{
     background-position: -64px -640px;
+}
+
+.Zhidao-hover{
+    background-position: -64px -640px !important;
 }
 
 #G14{
@@ -355,9 +360,14 @@ html, body {
     height: 38px;
 }
 
-#G14:hover{
+#G14:hover {
     z-index: 2;
     background-position:-192px -640px;
+}
+
+.G14-hover{
+    z-index: 2 !important;
+    background-position:-192px -640px !important;
 }
 
 #G14-ground{
@@ -370,9 +380,14 @@ html, body {
     height: 21px;
 }
 
-#G14-ground:hover{
+#G14-ground:hover {
     z-index: 2;
     background-position:-320px -640px;
+}
+
+.G14-ground-hover {
+    z-index: 2 !important;
+    background-position:-320px -640px !important;
 }
 
 #B11{
@@ -385,9 +400,14 @@ html, body {
     height: 33px;
 }
 
-#B11:hover{
+#B11:hover {
     z-index: 2;
     background-position:-448px -640px;
+}
+
+.B11-hover{
+    z-index: 2 !important;
+    background-position:-448px -640px !important;
 }
 
 #B7{
@@ -400,10 +420,16 @@ html, body {
     height: 50px;
 }
 
-#B7:hover{
+#B7:hover {
     z-index: 2;
     background-position:-576px -640px;
 }
+
+.B7-hover{
+    z-index: 2 !important;
+    background-position:-576px -640px !important;
+}
+
 #B7-food{
     position: absolute;
     top:395px;
@@ -414,11 +440,15 @@ html, body {
     height: 50px;
 }
 
-#B7-food:hover{
+#B7-food:hover {
     z-index: 2;
     background-position:-576px -640px;
 }
 
+.7-food-hover {
+    z-index: 2 !important;
+    background-position:-576px -640px !important;
+}
 
 #B6{
     position: absolute;
@@ -429,9 +459,15 @@ html, body {
     width: 44px;
     height: 36px;
 }
-#B6:hover{
+
+#B6:hover {
     z-index: 2;
     background-position:-704px -640px;
+}
+
+.B6-hover{
+    z-index: 2 !important;
+    background-position:-704px -640px !important;
 }
 
 #art{
@@ -444,9 +480,14 @@ html, body {
     height: 52px;
 }
 
-#art:hover{
+#art:hover {
     z-index: 2;
     background-position:-864px -640px;
+}
+
+.art-hover{
+    z-index: 2 !important;
+    background-position:-864px -640px !important;
 }
 
 #building{
@@ -459,9 +500,14 @@ html, body {
     height: 38px;
 }
 
-#building:hover{
+#building:hover {
     z-index: 2;
     background-position:-1056px -640px;
+}
+
+.building-hover{
+    z-index: 2 !important;
+    background-position:-1056px -640px !important;
 }
 
 #B13{
@@ -474,9 +520,14 @@ html, body {
     height: 56px;
 }
 
-#B13:hover{
+#B13:hover {
     z-index: 3;
     background-position:-1216px -640px;
+}
+
+.B13-hover{
+    z-index: 3 !important;
+    background-position:-1216px -640px !important;
 }
 
 #schoolh{
@@ -489,9 +540,14 @@ html, body {
     height: 35px;
 }
 
-#schoolh:hover{
+#schoolh:hover {
     z-index: 2;
     background-position:-1376px -640px;
+}
+
+.schoolh-hover{
+    z-index: 2 !important;
+    background-position:-1376px -640px !important;
 }
 
 #door{
@@ -503,11 +559,16 @@ html, body {
     width: 44px;
     height: 24px;
 }
-#door:hover{
+
+#door:hover {
     z-index: 2;
     background-position:-1536px -640px;
 }
 
+.door-hover{
+    z-index: 2 !important;
+    background-position:-1536px -640px !important;
+}
 
 #monument{
     position: absolute;
@@ -519,9 +580,14 @@ html, body {
     height: 54px;
 }
 
-#monument:hover{
+#monument:hover {
     z-index: 2;
     background-position:-1664px -640px;
+}
+
+.monument-hover{
+    z-index: 2 !important;
+    background-position:-1664px -640px !important;
 }
 
 #B5{
@@ -534,9 +600,14 @@ html, body {
     height: 51px;
 }
 
-#B5:hover{
+#B5:hover {
     z-index: 3;
     background-position:-96px -768px;
+}
+
+.B5-hover{
+    z-index: 3 !important;
+    background-position:-96px -768px !important;
 }
 
 #International{
@@ -549,9 +620,14 @@ html, body {
     height: 63px;
 }
 
-#International:hover{
+#International:hover {
     z-index:6;
     background-position:-288px -768px;
+}
+
+.International-hover{
+    z-index:6 !important;
+    background-position:-288px -768px !important;
 }
 
 #B3{
@@ -564,9 +640,14 @@ html, body {
     height: 41px;
 }
 
-#B3:hover{
+#B3:hover {
     z-index: 2;
     background-position:-480px -768px;
+}
+
+.B3-hover{
+    z-index: 2 !important;
+    background-position:-480px -768px !important;
 }
 
 #science-1{
@@ -579,9 +660,14 @@ html, body {
     height: 76px;
 }
 
-#science-1:hover{
+#science-1:hover {
     z-index: 3;
     background-position:-672px -768px;
+}
+
+.science-1-hover{
+    z-index: 3 !important;
+    background-position:-672px -768px !important;
 }
 
 #administration{
@@ -594,9 +680,14 @@ html, body {
     height: 45px;
 }
 
-#administration:hover{
+#administration:hover {
     z-index: 3;
     background-position:-864px -768px;
+}
+
+.administration-hover{
+    z-index: 3 !important;
+    background-position:-864px -768px !important;
 }
 
 #library{
@@ -609,9 +700,14 @@ html, body {
     height: 65px;
 }
 
-#library:hover{
+#library:hover {
     z-index: 3;
     background-position:-1056px -768px;
+}
+
+.library-hover{
+    z-index: 3 !important;
+    background-position:-1056px -768px !important;
 }
 
 #tree{
@@ -624,9 +720,14 @@ html, body {
     height: 28px;
 }
 
-#tree:hover{
+#tree:hover {
     z-index: 2;
     background-position:-1248px -768px;
+}
+
+.tree-hover{
+    z-index: 2 !important;
+    background-position:-1248px -768px !important;
 }
 
 #oldlibrary{
@@ -639,9 +740,14 @@ html, body {
     height: 53px;
 }
 
-#oldlibrary:hover{
+#oldlibrary:hover {
     z-index: 2;
     background-position:-1440px -768px;
+}
+
+.oldlibrary-hover{
+    z-index: 2 !important;
+    background-position:-1440px -768px !important;
 }
 
 #tai{
@@ -654,9 +760,14 @@ html, body {
     height: 27px;
 }
 
-#tai:hover{
+#tai:hover {
     z-index: 2;
     background-position:-1632px -768px;
+}
+
+.tai-hover{
+    z-index: 2 !important;
+    background-position:-1632px -768px !important;
 }
 
 #blackbox{
@@ -669,9 +780,14 @@ html, body {
     height: 56px;
 }
 
-#blackbox:hover{
+#blackbox:hover {
     z-index: 3;
     background-position:-96px -896px;
+}
+
+.blackbox-hover{
+    z-index: 3 !important;
+    background-position:-96px -896px !important;
 }
 
 #literary{
@@ -689,6 +805,11 @@ html, body {
     background-position:-288px -896px;
 }
 
+.literary-hover{
+    z-index: 2  !important;
+    background-position:-288px -896px !important;
+}
+
 #engineer-1{
     position: absolute;
     top:304px;
@@ -699,9 +820,14 @@ html, body {
     height: 65px;
 }
 
-#engineer-1:hover{
+#engineer-1:hover {
     z-index: 2;
     background-position:-576px -896px;
+}
+
+.engineer-1-hover{
+    z-index: 2 !important;
+    background-position:-576px -896px !important;
 }
 
 #engineer-2{
@@ -714,9 +840,14 @@ html, body {
     height: 67px;
 }
 
-#engineer-2:hover{
+#engineer-2:hover {
     z-index: 2;
     background-position:-864px -896px;
+}
+
+.engineer-2-hover{
+    z-index: 2 !important;
+    background-position:-864px -896px !important;
 }
 
 #G-1-4{
@@ -729,9 +860,14 @@ html, body {
     height: 65px;
 }
 
-#G-1-4:hover{
+#G-1-4:hover {
     z-index: 2;
     background-position:-1056px -896px;
+}
+
+.G-1-4-hover{
+    z-index: 2 !important;
+    background-position:-1056px -896px !important;
 }
 
 #G5{ 
@@ -744,9 +880,14 @@ html, body {
     height: 31px;
 }
 
-#G5:hover{
+#G5:hover {
     z-index: 2;
     background-position:-1248px -896px;
+}
+
+.G5-hover{
+    z-index: 2 !important;
+    background-position:-1248px -896px !important;
 }
 
 #engineer-3{
@@ -759,9 +900,14 @@ html, body {
     height: 40px;
 }
 
-#engineer-3:hover{
+#engineer-3:hover {
     z-index: 2;
     background-position:-1440px -896px;
+}
+
+.engineer-3-hover{
+    z-index: 2 !important;
+    background-position:-1440px -896px !important;
 }
 
 #engineer-4{
@@ -774,9 +920,14 @@ html, body {
     height: 50px;
 }
 
-#engineer-4:hover{
+#engineer-4:hover {
     z-index: 5;
     background-position:-1632px -896px;
+}
+
+.engineer-4-hover{
+    z-index: 5 !important;
+    background-position:-1632px -896px !important;
 }
 
 #engineer-5{
@@ -789,9 +940,14 @@ html, body {
     height: 46px;
 }
 
-#engineer-5:hover{
+#engineer-5:hover {
     z-index: 3;
     background-position:-192px -1024px;
+}
+
+.engineer-5-hover{
+    z-index: 3 !important;
+    background-position:-192px -1024px !important;
 }
 
 #park{
@@ -804,10 +960,16 @@ html, body {
     height: 24px;
 }
 
-#park:hover{
+#park:hover {
     z-index: 2;
     background-position:-480px -1024px;
 }
+
+.park-hover{
+    z-index: 2 !important;
+    background-position:-480px -1024px !important;
+}
+
 #park-food{
     position: absolute;
     top:249px;
@@ -818,9 +980,14 @@ html, body {
     height: 24px;
 }
 
-#park-food:hover{
+#park-food:hover {
     z-index: 2;
     background-position:-480px -1024px;
+}
+
+.park-food-hover{
+    z-index: 2 !important;
+    background-position:-480px -1024px !important;
 }
 
 #gym{
@@ -833,11 +1000,15 @@ html, body {
     height: 51px;
 }
 
-#gym:hover{
+#gym:hover {
     z-index: 2;
     background-position:-672px -1024px;
     width: 79px;
     height: 51px;
+}
+
+.gym-hover{
+    background-position:-672px -1024px !important;
 }
 
 #basketball{
@@ -850,9 +1021,13 @@ html, body {
     height: 23px;
 }
 
-#basketball:hover{
+#basketball:hover {
     z-index: 3;
     background-position:-864px -1024px;
+}
+
+.basketball-hover{
+    background-position:-864px -1024px !important;
 }
 
 #playground{
@@ -865,9 +1040,14 @@ html, body {
     height: 40px;
 }
 
-#playground:hover{
+#playground:hover {
     z-index: 2;
     background-position:-1152px -1024px;
+}
+
+.playground-hover{
+    z-index: 2 !important;
+    background-position:-1152px -1024px !important;
 }
 
 #rock{
@@ -880,9 +1060,14 @@ html, body {
     height: 23px;
 }
 
-#rock:hover{
+#rock:hover {
     z-index: 3;
     background-position:-1440px -1024px;
+}
+
+.rock-hover{
+    z-index: 3 !important;
+    background-position:-1440px -1024px !important;
 }
 
 #swimpool{
@@ -895,9 +1080,14 @@ html, body {
     height: 48px;
 }
 
-#swimpool:hover{
+#swimpool:hover {
     z-index: 3;
     background-position:-1632px -1024px;
+}
+
+.swimpool-hover{
+    z-index: 3 !important;
+    background-position:-1632px -1024px !important;
 }
 
 #skate{
@@ -910,9 +1100,14 @@ html, body {
     height: 27px;
 }
 
-#skate:hover{
+#skate:hover {
     z-index: 3;
     background-position:-96px -1152px;
+}
+
+.skate-hover{
+    z-index: 3 !important;
+    background-position:-96px -1152px !important;
 }
 
 #valley{
@@ -925,9 +1120,14 @@ html, body {
     height: 19px;
 }
 
-#valley:hover{
+#valley:hover {
     z-index: 3;
     background-position:-288px -1152px;
+}
+
+.valley-hover{
+    z-index: 3 !important;
+    background-position:-288px -1152px !important;
 }
 
 #badminton{
@@ -940,9 +1140,14 @@ html, body {
     height: 27px;
 }
 
-#badminton:hover{
+#badminton:hover {
     z-index: 3;
     background-position:-480px -1152px;
+}
+
+.badminton-hover{
+    z-index: 3 !important;
+    background-position:-480px -1152px !important;
 }
 
 #wood{
@@ -955,9 +1160,13 @@ html, body {
     height: 22px;
 }
 
-#wood:hover{
+#wood:hover {
     z-index: 3;
     background-position:-672px -1152px;
+}
+
+.wood-hover{
+    background-position:-672px -1152px !important;
 }
 
 #science-2{
@@ -970,9 +1179,13 @@ html, body {
     height: 85px;
 }
 
-#science-2:hover{
+#science-2:hover {
     z-index: 3;
     background-position:-864px -1152px;
+}
+
+.science-2-hover{
+    background-position:-864px -1152px !important;
 }
 
 #science-3{
@@ -985,9 +1198,13 @@ html, body {
     height: 61px;
 }
 
-#science-3:hover{
+#science-3:hover {
     z-index: 3;
     background-position:-1056px -1152px;
+}
+
+.science-3-hover{
+    background-position:-1056px -1152px !important;
 }
 
 #mbuilding{
@@ -1000,9 +1217,14 @@ html, body {
     height: 56px;
 }
 
-#mbuilding:hover{
+#mbuilding:hover {
     z-index: 3;
     background-position:-1248px -1152px;
+}
+
+.mbuilding-hover{
+    z-index: 3;
+    background-position:-1248px -1152px !important;
 }
 
 #math{
@@ -1015,9 +1237,14 @@ html, body {
     height: 49px;
 }
 
-#math:hover{
+#math:hover {
     z-index: 3;
     background-position:-1440px -1152px;
+}
+
+.math-hover{
+    z-index: 3 !important;
+    background-position:-1440px -1152px !important;
 }
 
 #management-1{
@@ -1030,9 +1257,14 @@ html, body {
     height: 75px;
 }
 
-#management-1:hover{
+#management-1:hover {
     z-index: 3;
     background-position:-1632px -1152px;
+}
+
+.management-1-hover{
+    z-index: 3 !important;
+    background-position:-1632px -1152px !important;
 }
 
 #management-2{
@@ -1045,12 +1277,13 @@ html, body {
     height: 54px;
 }
 
-#management-2:hover{
-    position: absolute;
-    top:440px;
-    left: 765px;
+#management-2:hover {
     z-index: 3;
     background-position:-96px -1280px;
+}
+
+.management-2-hover{
+    background-position:-96px -1280px !important;
 }
 
 #clibrary{
@@ -1063,9 +1296,14 @@ html, body {
     height: 48px;
 }
 
-#clibrary:hover{
+#clibrary:hover {
     z-index: 3;
     background-position:-288px -1280px;
+}
+
+.clibrary-hover{
+    z-index: 3;
+    background-position:-288px -1280px !important;
 }
 
 #Graduate{
@@ -1078,10 +1316,16 @@ html, body {
     height: 75px;
 }
 
-#Graduate:hover{
+#Graduate:hover {
     z-index: 3;
     background-position:-480px -1280px;
 }
+
+.Graduate-hover{
+    z-index: 3;
+    background-position:-480px -1280px !important;
+}
+
 #Graduate-food{
     position: absolute;
     top:464px;
@@ -1092,9 +1336,14 @@ html, body {
     height: 75px;
 }
 
-#Graduate-food:hover{
+#Graduate-food:hover {
     z-index: 3;
     background-position:-480px -1280px;
+}
+
+.Graduate-food-hover{
+    z-index: 3;
+    background-position:-480px -1280px !important;
 }
 
 #Hakkas{
@@ -1107,9 +1356,14 @@ html, body {
     height: 54px;
 }
 
-#Hakkas:hover{
+#Hakkas:hover {
     z-index: 2;
     background-position:-672px -1280px;
+}
+
+.Hakkas-hover{
+    z-index: 2;
+    background-position:-672px -1280px !important;
 }
 
 #electric{
@@ -1122,9 +1376,14 @@ html, body {
     height: 60px;
 }
 
-#electric:hover{
+#electric:hover {
     z-index: 3;
     background-position:-864px -1280px;
+}
+
+.electric-hover{
+    z-index: 3;
+    background-position:-864px -1280px !important;
 }
 
 #outerspace{
@@ -1137,9 +1396,14 @@ html, body {
     height: 67px;
 }
 
-#outerspace:hover{
+#outerspace:hover {
     z-index: 2;
     background-position:-1056px -1280px;
+}
+
+.outerspace-hover{
+    z-index: 2;
+    background-position:-1056px -1280px !important;
 }
 
 #flower{
@@ -1152,9 +1416,14 @@ html, body {
     height: 21px;
 }
 
-#flower:hover{
+#flower:hover {
     z-index: 3;
     background-position:-1248px -1280px;
+}
+
+.flower-hover{
+    z-index: 3;
+    background-position:-1248px -1280px !important;
 }
 
 #ncu{
@@ -1167,9 +1436,14 @@ html, body {
     height: 51px;
 }
 
-#ncu:hover{
+#ncu:hover {
     z-index: 3;
     background-position:-1440px -1280px;
+}
+
+.ncu-hover{
+    z-index: 3;
+    background-position:-1440px -1280px !important;
 }
 
 #B9{
@@ -1182,10 +1456,16 @@ html, body {
     height: 43px;
 }
 
-#B9:hover{
+#B9:hover {
     z-index: 3;
     background-position:-192px -1408px;
 }
+
+.B9-hover{
+    z-index: 3;
+    background-position:-192px -1408px !important;
+}
+
 #B9-food{
     position: absolute;
     top:553px;
@@ -1196,9 +1476,14 @@ html, body {
     height: 43px;
 }
 
-#B9-food:hover{
+#B9-food:hover {
     z-index: 3;
     background-position:-192px -1408px;
+}
+
+.B9-food-hover{
+    z-index: 3;
+    background-position:-192px -1408px !important;
 }
 
 #science-4{
@@ -1211,9 +1496,14 @@ html, body {
     height: 75px;
 }
 
-#science-4:hover{
+#science-4:hover {
     z-index: 3;
     background-position:-1632px -1280px;
+}
+
+.science-4-hover{
+    z-index: 3;
+    background-position:-1632px -1280px !important;
 }
 
 #science-5{
@@ -1231,6 +1521,11 @@ html, body {
     background-position:-480px -1408px;
 }
 
+.science-5-hover{
+    z-index: 3;
+    background-position:-480px -1408px !important;
+}
+
 #lake{
     position: absolute;
     top:349px;
@@ -1241,9 +1536,14 @@ html, body {
     height: 20px;
 }
 
-#lake:hover{
+#lake:hover {
     z-index: 3;
     background-position:-672px -1408px;
+}
+
+.lake-hover{
+    z-index: 3;
+    background-position:-672px -1408px !important;
 }
 
 #B12{
@@ -1256,9 +1556,14 @@ html, body {
     height: 65px;
 }
 
-#B12:hover{
+#B12:hover {
     z-index: 3;
     background-position:-864px -1408px;
+}
+
+.B12-hover{
+    z-index: 3;
+    background-position:-864px -1408px !important;
 }
 
 #tennis{
@@ -1271,9 +1576,14 @@ html, body {
     height: 16px;
 }
 
-#tennis:hover{
+#tennis:hover {
     z-index: 3;
     background-position:-1056px -1408px;
+}
+
+.tennis-hover{
+    z-index: 3;
+    background-position:-1056px -1408px !important;
 }
 
 #pool{
@@ -1286,7 +1596,12 @@ html, body {
     height: 22px;
 }
 
-#pool:hover{
+#pool:hover {
     z-index: 3;
     background-position:-1248 -1408px;  
+}
+
+.pool-hover{
+    z-index: 3;
+    background-position:-1248 -1408px !important;
 }
