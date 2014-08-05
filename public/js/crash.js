@@ -22,9 +22,9 @@ $(document).ready(function(){
 			draw();
 			$("body").css({"overflow-y":"hidden"});
 			$("#canvas").css({"z-index":"30"});
-			$("#egg").show(1000);
 			$(".arrow").show(1000);
 			$("#egg").css({"width":screen.width,"height":screen.height});
+			$("#egg").show(1000);
 			$("#clear").show(1);
 			}
 	});
