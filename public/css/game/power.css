@@ -27,16 +27,16 @@
 .pictureClick {
 	border: 3px black solid;
 }
-#p0 { background-image: url("../../images/gamePower/allPic.png"); background-position: 0px 0px; }
-#p1 { background-image: url("../../images/gamePower/allPic.png"); background-position: -150px 0px; }
-#p2 { background-image: url("../../images/gamePower/allPic.png"); background-position: -300px 0px; }
-#p3 { background-image: url("../../images/gamePower/allPic.png"); background-position: -450px 0px; }
-#p4 { background-image: url("../../images/gamePower/allPic.png"); background-position: -600px 0px; }
-#p5 { background-image: url("../../images/gamePower/allPic.png"); background-position: 0px -150px; }
-#p6 { background-image: url("../../images/gamePower/allPic.png"); background-position: -150px -150px; }
-#p7 { background-image: url("../../images/gamePower/allPic.png"); background-position: -300px -150px; }
-#p8 { background-image: url("../../images/gamePower/allPic.png"); background-position: -450px -150px; }
-#p9 { background-image: url("../../images/gamePower/allPic.png"); background-position: -600px -150px; }
+#p0 { background-image: url("../../images/gamePower/allPic.png"); background-position: 0px 0px; cursor: pointer; }
+#p1 { background-image: url("../../images/gamePower/allPic.png"); background-position: -150px 0px; cursor: pointer; }
+#p2 { background-image: url("../../images/gamePower/allPic.png"); background-position: -300px 0px; cursor: pointer; }
+#p3 { background-image: url("../../images/gamePower/allPic.png"); background-position: -450px 0px; cursor: pointer; }
+#p4 { background-image: url("../../images/gamePower/allPic.png"); background-position: -600px 0px; cursor: pointer; }
+#p5 { background-image: url("../../images/gamePower/allPic.png"); background-position: 0px -150px; cursor: pointer; }
+#p6 { background-image: url("../../images/gamePower/allPic.png"); background-position: -150px -150px; cursor: pointer; }
+#p7 { background-image: url("../../images/gamePower/allPic.png"); background-position: -300px -150px; cursor: pointer; }
+#p8 { background-image: url("../../images/gamePower/allPic.png"); background-position: -450px -150px; cursor: pointer; }
+#p9 { background-image: url("../../images/gamePower/allPic.png"); background-position: -600px -150px; cursor: pointer; }
 #hstart {
 	cursor: pointer;
 	width: 221px;
@@ -83,11 +83,19 @@
 	font-size: 45px;
 	position: absolute;
 }
+#original {
+	width: 150px;
+	height: 150px;
+	left: 755px;
+	top: 180px;
+	font-size: 45px;
+	position: absolute;
+}
 #hagain {
 	cursor: pointer;
 	width: 221px;
 	height: 68px;
-	top: 280px;
+	top: 370px;
 	left: 725px;
 	background: url("../../images/gamePower/allPic.png") no-repeat;
 	background-position: -560px -450px;
