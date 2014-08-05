@@ -75,9 +75,20 @@ class ResetDatabase extends Command {
 				$buy->item_id = 19;
 				$buy->save();
 			}
+
 			//video
 			VideoMessage::truncate();
 			VideoLike::truncate();
+
+			//user pic
+			$directory = File::files(public_path() . '/img/person/');
+			foreach($directory as $file){
+				if($file != '0.png'){
+					File::delete($file);
+				}
+			}
+//			$file = File::get(public_path() . '/images/person/0.png');
+			File::copy(public_path() . '/images/person/0.png', public_path() . '/img/person/0.png');
 		}
 	}
 
