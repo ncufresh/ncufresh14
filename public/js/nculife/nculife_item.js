@@ -7,7 +7,10 @@ $(function(){
 	var bURL = getTransferData('burl');
 	DragLocal();
 
-	$('#place').jScrollPane();
+	$('#place').jScrollPane(
+		{
+			mouseWheelSpeed: 140
+		});
 
 	$('#introductionbox').jScrollPane();
 
@@ -60,8 +63,7 @@ $(function(){
 	function changeIntroductionAndImage(data){
 		$('#introductionbox2').html(data['result']['introduction']);
 		$('#introductionbox').jScrollPane();
-		$('#introductionbox .jspPane').css("top", "0px");
-		$('#introductionbox .jspDrag').css("top", "0px");
+		$('#introductionbox').scrollTop();
 		$('#buttom').data("num", data['result']['id']);
 		if(LorP == 'Picture')
 		{
