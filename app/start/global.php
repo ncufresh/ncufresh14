@@ -84,8 +84,9 @@ App::error(function(Exception $exception, $code)
 
 App::down(function()
 {
-	if (App::environment('local') || Request::server('SERVER_NAME') == 'ncufresh14.weigreen.com' || Request::get('testing') == 'naenfadwoeidweof') {
+	if (App::environment('local') || Request::server('SERVER_NAME') == 'ncufresh14.weigreen.com' || Request::get('testing') == 'naenfadwoeidweof' || Session::get('testing-session') == true) {
 		//local mode
+		Session::set('testing-session', true);
 		return NULL;
 	}
 	return Response::view("comingsoon.index", array(), 200);
