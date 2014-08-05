@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	{{ HTML::style('css/nculife_data.css') }}
+	{{ HTML::style('css/nculife/nculife_data.min.css') }}
 @stop
 
 @section('content')
