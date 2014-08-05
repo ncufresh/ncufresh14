@@ -1,7 +1,7 @@
 @extends('../layouts/layout')
 @section('js_css')
-	{{ HTML::style('css/forum.css') }}
-	{{ HTML::script('js/forum/forum.js') }}
+	{{ HTML::style('css/forum.min.css') }}
+	{{ HTML::script('js/forum/forum.min.js') }}
 	{{ HTML::script('js/forum/jquery-ui.js') }}
 	{{ HTML::style('css/jquery-ui.css') }}
 @stop
