@@ -177,7 +177,6 @@ Route::group(array('before' => 'auth'), function(){
 
 //==========================================================================================
 //Forum articles
-Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@init'));
 
 Route::get('articles/{type?}/{page?}',array('as' => 'forum' , 'uses' => 'ArticlesController@init'));
 

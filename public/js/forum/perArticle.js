@@ -13,14 +13,6 @@ $(function(){
 
 	previousPage = $("#previousPage").attr("direct");
 
-	window.onpopstate=function()
-	{
-		if(previousType != "N" && previousPage != "N"){
-
-			window.location.href = articleListUrl+"/"+previousType+"/"+previousPage;
-		}
-	}
-
 	burl = getTransferData('burl');
 
 	var articleId = $(".articleContainer").attr("id");
@@ -38,8 +30,6 @@ $(function(){
 	uploadURL = $("#imageURL").attr("direct");
 
 	var articleTitle = $("#articleTitle").attr("articleTitle");
-
-	$.pushLocation(articleTitle, '/perArticle/'+articleId, {full: false});
 
 	$(".commentForm").submit(function(e){
 
