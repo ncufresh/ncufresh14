@@ -36,8 +36,7 @@
 
 #videoChoose {
 	width: 100%;
-	height: 90px;
-	background: yellow;
+	height: 90px;g
 	position: absolute;
 	z-index: 100;
 	overflow: hidden;
