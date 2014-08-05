@@ -47,7 +47,7 @@
 			{{ HTML::style('css/ie9.css') }}
 		@endif
 
-		@if(Request::server('SERVER_NAME') == 'ncufresh.ncu.edu.t')
+		@if(Request::server('SERVER_NAME') == 'ncufresh.ncu.edu.tw')
 			{{ HTML::script('js/ga.js') }}
 		@endif
 
