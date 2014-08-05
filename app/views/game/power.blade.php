@@ -68,6 +68,7 @@
 			</div>
 		</div>
 		<div id="timing"></div>
+		<div id="original"></div>
 		<div id="hagain"></div>
 		<div id="finish"></div>
 	</div>
