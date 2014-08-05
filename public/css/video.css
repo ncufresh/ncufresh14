@@ -35,12 +35,13 @@
 }
 
 #videoChoose {
-	width: 100%;
+	width: 972px;
 	height: 90px;
-	background: yellow;
+	background: white;
 	position: absolute;
 	z-index: 100;
 	overflow: hidden;
+	margin-left: 25;
 }
 
 .video-button{
@@ -50,6 +51,9 @@
 	margin: 10px;
 	background-image: url(../images/videoImages/button.png);
 	float: left;
+	padding-top: 25px;
+	text-align: center;
+	font-family: "微軟正黑體", "Microsoft JhengHei";
 }
 
 .video-button:hover{
@@ -88,7 +92,7 @@
 
 #intro {
 	position:absolute;
-	top:830px;
+	top:837px;
 	left:40px;
 	width:1024px;
 	height: 115px;
