@@ -96,7 +96,7 @@
 		<div id="Design-back" class="contents">
 			<div class="content-close"></div>
 			<div class="each-content">
-				<div class="each-photo"><img class="team-photo" src="{{ asset( 'images/aboutus/team/DSC05560.jpg') }}"/></div>
+				<div class="each-photo"><img class="team-photo" src="{{ asset( 'images/aboutus/team/DSC05581.jpg') }}"/></div>
 				<div class="each-words">知訊網上可見之處皆是出自於他們筆下，與企劃組合作設計網站頁面，美工組繪製網站的各個頁面、和許多精美的圖片，努力為新生繪出最有活力的知訊網。</div>
 			</div>
 		</div>
