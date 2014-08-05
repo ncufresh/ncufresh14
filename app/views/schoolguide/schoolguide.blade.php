@@ -1,9 +1,9 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	{{ HTML::style('css/schoolguide.css') }}
-	{{HTML::script('js/schoolguide.js')}}
-	{{ HTML::script('js/crash.js') }}
+	{{ HTML::style('css/schoolguide.min.css') }}
+	{{HTML::script('js/schoolguide.min.js')}}
+	{{ HTML::script('js/crash.min.js') }}
 @stop
 
 @section('content')

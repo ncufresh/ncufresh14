@@ -39,6 +39,16 @@ $(function()
                 {
                     $('#hcover').hide();
                     $('#hstartGame').show();
+                    if(hclick<5)
+                        $('#original').css({
+                            background: 'url("'+burl+'/images/gamePower/allPic.png")',
+                            backgroundPosition: '-'+(hclick*150)+'px 0px'
+                        });
+                    else
+                        $('#original').css({
+                            background: 'url("'+burl+'/images/gamePower/allPic.png")',
+                            backgroundPosition: '-'+((hclick-5)*150)+'px -150px'
+                        });
                     init();
                 }
             });
@@ -48,6 +58,7 @@ $(function()
                 $('#hagain').hide();
                 $('#finish').hide();
                 $('#hstartGame').hide();
+                $('#original').empty();
                 $('#hcover').show();
             });
 

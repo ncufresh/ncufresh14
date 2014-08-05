@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	{{ HTML::script('js/nculife/nculife_imageUpload.js') }}
+	{{ HTML::script('js/nculife/nculife_imageUpload.min.js') }}
 @stop
 
 @section('content')
