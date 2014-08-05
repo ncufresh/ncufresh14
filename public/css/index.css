@@ -68,7 +68,16 @@
 .calender-row{
 	width: 140px;
 	cursor: pointer;
+	color: white;
 	text-overflow: ellipsis;
+}
+
+#calender-no{
+	color: #ffffff;
+	margin-left: 68px;
+	padding-top: 44px;
+	font-size: 16px;
+	position: absolute;
 }
 
 .calender-row:hover{

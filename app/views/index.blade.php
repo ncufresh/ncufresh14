@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	{{ HTML::style('css/index.min.css') }}
+	{{ HTML::style('css/index.css') }}
 	{{ HTML::script('js/index.min.js') }}
 @stop
 
@@ -24,15 +24,17 @@
 			</div>
 			<div id="calenderContent">
 				<div id="calender-action">
-					<ol>
+
 						@if($calenders->count() == 0)
-							<span>今日沒事</span>
+							<span id="calender-no">今日沒事</span>
 						@else
+					<ol>
 							@foreach($calenders as $calender)
 							<li class="calender-row" data-id="{{ $calender->id }}">{{{ $calender->title }}}</li>
 							@endforeach
-						@endif
 					</ol>
+						@endif
+
 				</div>
 			</div>
 			<div id="calenderBottom">
