@@ -81,13 +81,13 @@
 
     	$('#gameCampusInfoButton').click(function() {
     		$('#gameCampusInfo').fadeIn();
-    		//$('#gameCampusMain').hide();
+    		$('#gameCampusMain').hide();
     		
     	});
 
     	$('#gameCampusInfoExit').click(function() {
     		$('#gameCampusInfo').hide();
-    		//$('#gameCampusMain').show();
+    		$('#gameCampusMain').show();
     		
     	});
     });
