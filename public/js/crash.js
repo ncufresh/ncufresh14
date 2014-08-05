@@ -27,17 +27,11 @@ $(document).ready(function(){
 			$("#part2").show(1000);
 			$("#close").show(1000);
 			$(".arrow").show(1000);
-			$(".arrow").show(1000);
 			$("#egg").css({"width":screen.width,"height":screen.height});
 			$("#clear").show(1);
 			}
 	});
-	$(".arrow").hide();
-	$(".arrow").hide();
-	$("#close").hide();
-	$("#part1").hide();
-	$("#part2").hide();
-	$("#clear").hide();
+	
 	$("#close").click(function(){
 		$("#egg").hide();
 		$("#part1").hide();
