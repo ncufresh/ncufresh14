@@ -114,7 +114,7 @@
 				<div id="video-pic"><a href="{{route('video')}}"><img src="http://img.youtube.com/vi/{{ $video->video_address }}/0.jpg"></a></div>
 				<div id="video-name"><span class="video-word">影片名稱：</span>{{ $video->video_name }}</div>
 				<div id="video-viewer"><span class="video-word">瀏覽人次：</span>{{ $video->video_population }}</div>
-				<div id="video-intro"><span class="video-word">內容簡介：</span>{{ nl2br($video->video_introduction) }}</div>
+				<div id="video-intro"><span class="video-word">內容簡介：</span>{{ $video->video_introduction }}</div>
 			</div>
 			<div id="vedioBottom">
 			</div>
