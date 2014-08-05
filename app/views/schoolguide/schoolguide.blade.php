@@ -15,15 +15,24 @@
 <div id="egg">
 	<div id="close" title="click to close">X</div>
 		<div id="part1">
+			<!-- {{Form::open(array('route'=>'About_us.delete','method'=>'post'))}} -->
 			<h1 id="title1">最佳夫妻同心協力組合</h1>
 			<span id="pineapple"></span>
 			<span id="vicky"></span>
+			<!-- {{Form::hidden('id','1')}}
+			<img class="good" src="{{asset('images/SchoolGuide/good.png')}}">
+			<h1>支持{{$users->count}}</h1>
+			{{Form::close()}} -->
 		</div>
 		<div id="part2">
+
 			<div id="vs"></div>
 			<h1 id="title2">最佳永久性福組合</h1>
 			<span id="wan"></span>
 			<span id="hand"></span>
+			<!-- {{Form::hidden('id','2')}}
+			<img class="good" src="{{asset('images/SchoolGuide/good.png')}}"> -->
+			<h1>支持</h1>
 		</div>
 </div>
 <div id="bigcontent">

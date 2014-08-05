@@ -13,7 +13,7 @@ $(document).ready(function(){
 	
 
 	$.konami({
-		code:  			[83,69,86,69,78],
+		code:  			[83],
 		interval:		100,
 	    complete:	function(){
 		  	var canvas = document.getElementsByTagName('canvas')[0];
@@ -47,6 +47,7 @@ $(document).ready(function(){
 		ctx.clearRect(0,0,canvas.width,canvas.height);
 		$("#canvas").css({"z-index":"0"});
 		$(this).hide();
+		$(".arrow").hide();
 	});
 	$('#canvas').mousedown(function (e) {
         mousePressed = true;
@@ -83,5 +84,9 @@ $(document).ready(function(){
 		  }
 		   img.src = burl+'/images/SchoolGuide/fog.jpeg';
 	}
+
+	// $(".good").click(function(){
+	// 	ajaxPost(getTransferData('guide_good'),{good:good},'');
+	// });
 	
 });

@@ -18,6 +18,8 @@ $(function()
             $('#cover').hide();
             $('#startGame').hide();
             $('#endScreen').hide();
+            $('#hcover').hide();
+            $('#hstartGame').hide();
             $('#hcover').show();
 
             $('.picture').each(function(index) 
