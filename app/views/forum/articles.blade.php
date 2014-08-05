@@ -85,9 +85,8 @@
 					@elseif(Entrust::can('forum_unit'))
 						{{ Form::select(
 							'article_type',
-							array( 
-								'C' => '社團' , 
-								'D' => '系所'),
+							array(
+								'N' => '無法貼文'
 							'',
 							array(
 								'class' => 'form-control',
