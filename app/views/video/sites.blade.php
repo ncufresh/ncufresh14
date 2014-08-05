@@ -39,6 +39,8 @@
 
 <div id = "intro">{{nl2br($video->video_introduction)}}</div> <!--video introduction-->
 <button id="pinewave" type="button"  style = "background-color: transparent; border: 0;"></button>
+
+
 </div> <!--frame div-->
 <font id = "shh" color="white">shh...</font>
 @foreach( $messages as $message)
@@ -50,10 +52,12 @@
 	<a href="{{ route('user.id', array('id' => $message ->user->id)) }}"><img src="{{ route('personface',array('id' => $message->user_id )) }}" id="portrait"></a>
 	<div id= "div_message" style="width:720px; height:170px;">{{nl2br($message["video_text"])}}</div>
 	<div id ="div_name"><font color = "#7DB7A1">{{ $message->user->name }}</font></div>
-	</div> 
+	</div>
 </div>
+
 @endforeach
 {{$messages->links();}} 
+<div id ="frame3"></div>
 @if($errors -> any())
 	<script>{{"alert('".$errors -> first()."');"}}</script>
 @endif
