@@ -80,7 +80,7 @@
 							<div class="gameShopItem">
 						@endif
 								<img class="gameShopItemImage" src="{{asset("images/gameShop/" . $item["picture"] )}}" itemId="{{$item["id"]}}"/>
-								<div class="gameShopItemText">{{ $item["costgp"] }}</div>
+								<div class="gameShopItemText">gp {{ $item["costgp"] }}</div>
 								@foreach( $hadBuyItems as $buyItem )
 									<?php $isBuy = false; ?>
 									@if ( $buyItem["item_id"] == $item["id"])
