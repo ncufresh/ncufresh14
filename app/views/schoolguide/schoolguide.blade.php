@@ -9,13 +9,13 @@
 @section('content')
 <canvas id="canvas" width="1px" height="1px">
 </canvas>
-<div class="arrow" id="pointer1">↓ here start</div>
-<button id="clear">clear all</button>
+<div class="arrow" id="pointer1" style="display:none">↓ here start</div>
+<button id="clear" style="display:none">clear all</button>
 
 <div id="egg">
-	<div id="close" title="click to close">X</div>
+	<div id="close" title="click to close" style="display:none">X</div>
 	
-		<div id="part1">
+		<div id="part1" style="display:none">
 			<h1 id="title1">最佳夫妻同心協力組合</h1>
 			<span id="pineapple"></span>
 			<span id="vicky"></span>
@@ -23,7 +23,7 @@
 			<img class="good" src="{{asset('images/SchoolGuide/good.png')}}">
 			<span class="word">無限期支持<!-- {{$users->count}} --></span>
 		</div>
-		<div id="part2">
+		<div id="part2" style="display:none">
 
 			<div id="vs"></div>
 			<h1 id="title2">最佳永久性福組合</h1>
