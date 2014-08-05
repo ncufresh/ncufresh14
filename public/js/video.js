@@ -213,7 +213,7 @@ $(function(){
 			console.log(smallData[3+i*2] + ' : ' + smallData[4+i*2]);
 		}
 		var button = $('<div class="video-button"></div>').text('Try again!').click(function(){
-			stage = 0;
+			stage = 'ANQBlZCff_c';
 			showOption();
 		});
 		button.appendTo(target).fadeIn();
