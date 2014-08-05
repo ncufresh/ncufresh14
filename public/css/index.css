@@ -160,7 +160,7 @@
 	height: 402px;
 	top: 100px;
 	left: 45px;
-	font-size: medium;
+	font-size: 14px;
 }
 
 .announcement-row{
@@ -183,7 +183,7 @@
 	text-overflow: ellipsis;
 }
 .announcement-time{
-	font-size: small;
+	font-size: 14px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
