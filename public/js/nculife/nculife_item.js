@@ -60,8 +60,8 @@ $(function(){
 	function changeIntroductionAndImage(data){
 		$('#introductionbox2').html(data['result']['introduction']);
 		$('#introductionbox').jScrollPane();
-		$('#introductionbox>.jspPane').css("top", "0px");
-		$('#introductionbox>.jspDrag').css("top", "0px");
+		$('#introductionbox .jspPane').css("top", "0px");
+		$('#introductionbox .jspDrag').css("top", "0px");
 		$('#buttom').data("num", data['result']['id']);
 		if(LorP == 'Picture')
 		{
