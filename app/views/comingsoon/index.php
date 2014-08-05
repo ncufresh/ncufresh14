@@ -64,7 +64,7 @@
 			<div id="count-down">
 				<div id="count-number">
 					<?php
-						if($diff != 0){
+						if($diff != 0 && false){
 							if($diff > 10){
 								$count = $diff/10%10;
 								echo "<img src='./images/coming_soon/$count.png' class='count-item'>";
