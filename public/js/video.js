@@ -214,6 +214,7 @@ $(function(){
 		}
 		var button = $('<div class="video-button"></div>').text('Try again!').click(function(){
 			stage = 'ANQBlZCff_c';
+			changeVideo('ANQBlZCff_c');
 			showOption();
 		});
 		button.appendTo(target).fadeIn();
