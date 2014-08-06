@@ -49,9 +49,10 @@ class SchoolGuideController extends BaseController {
 		
 		App::make('SiteMap')->pushLocation($user->categoryName, route('schoolguide.item', array('id' => $id)));
 		App::make('SiteMap')->pushLocation($user->name, route('schoolguide.item', array('id' => $id)));
-
+		$good =good::find('1');
+		$good2 =good::find('2');
 		//return Redirect::route('schoolguide.photo', array('id'=>$id,'item' =>$item,'users'=>$user, 'Schoolguides'=>Schoolguide::where('categories', '=', $user->categories)->orderBy('id','DESC')->get()));
-		return View::make('schoolguide.schoolguide',array('users'=>$user, 'Schoolguides'=>Schoolguide::where('categories', '=', $user->categories)->orderBy('id','DESC')->get(), 'old' => true));
+		return View::make('schoolguide.schoolguide',array('users'=>$user, 'Schoolguides'=>Schoolguide::where('categories', '=', $user->categories)->orderBy('id','DESC')->get(),'good'=>$good,'good2'=>$good2));
 	}
 	
 
