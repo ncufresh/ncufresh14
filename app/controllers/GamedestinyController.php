@@ -73,7 +73,7 @@ class GamedestinyController extends BaseController {
 			    $buy->item_id = $shop[$getIndex]->id;
 				$buy->save();*/
 				$shop = Gameitem::where('type', '=', rand(0, 4))->get();
-				$getIndex = rand(0, $shop->count());
+				$getIndex = rand(0, $shop->count()-1);
 				if ( GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, $shop[$getIndex]->id) )->count() == 0 ) {
 					$buy = new GameBuy;
 					$buy->user_id = $user->id;
@@ -88,7 +88,7 @@ class GamedestinyController extends BaseController {
 			case 6:
 				//equip
 				$shop = Gameitem::where('type', '=', rand(0, 4))->get();
-				$getIndex = rand(0, $shop->count());
+				$getIndex = rand(0, $shop->count()-1);
 				if ( GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, $shop[$getIndex]->id) )->count() == 0 ) {
 					$buy = new GameBuy;
 					$buy->user_id = $user->id;
@@ -103,7 +103,7 @@ class GamedestinyController extends BaseController {
 			case 7:
 				//equip
 				$shop = Gameitem::where('type', '=', rand(0, 4))->get();
-				$getIndex = rand(0, $shop->count());
+				$getIndex = rand(0, $shop->count()-1);
 				if ( GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, $shop[$getIndex]->id) )->count() == 0 ) {
 					$buy = new GameBuy;
 					$buy->user_id = $user->id;
@@ -126,7 +126,7 @@ class GamedestinyController extends BaseController {
 			    $buy->item_id = $shop[$getIndex]->id;
 				$buy->save();*/
 				$shop = Gameitem::where('type', '=', 5)->get();
-				$getIndex = rand(0, $shop->count());
+				$getIndex = rand(0, $shop->count()-1);
 				if ( GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, $shop[$getIndex]->id) )->count() == 0 ) {
 					$buy = new GameBuy;
 					$buy->user_id = $user->id;
@@ -154,7 +154,7 @@ class GamedestinyController extends BaseController {
 			    $buy->item_id = $shop[$getIndex]->id;
 				$buy->save();*/
 				$shop = Gameitem::where('type', '=', 4)->get();
-				$getIndex = rand(0, $shop->count());
+				$getIndex = rand(0, $shop->count()-1);
 				if ( GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, $shop[$getIndex]->id) )->count() == 0 ) {
 					$buy = new GameBuy;
 					$buy->user_id = $user->id;
