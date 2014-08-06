@@ -20,6 +20,8 @@ var initType = '';
 var initPage ='';
 var initTab ='#Test1';
 
+var first = true;
+
 $(function(){
 
 	burl = getTransferData('burl');
@@ -45,6 +47,8 @@ $(function(){
 		initTab = "#Test1";
 	}else if(initType =="pop"){
 		$("#articleTab").parent().addClass("active");
+		var popRadio = document.getElementById("pop");
+		popRadio.checked = true;
 		initTab = "#Test1";
 	}else if(initType =="department"){
 		$("#departmentTab").parent().addClass("active");
@@ -67,8 +71,9 @@ $(function(){
 
 		$("#Test1 .articleContainer").remove();
 
+		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
+
 		getArticles(tabLocation,pageLocation,"#Test1");
-		
 		
 		$("#Test2 .articleContainer").each(function(){
 			$(this).remove();
@@ -87,6 +92,7 @@ $(function(){
 		tabLocation = "new";
 		pageLocation = 1;
 		$("#Test1 .articleContainer").remove();
+		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 		getArticles(tabLocation,pageLocation,"#Test1");
 	});
 
@@ -94,6 +100,7 @@ $(function(){
 		tabLocation = "pop";
 		pageLocation = 1;
 		$("#Test1 .articleContainer").remove();
+		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 		getArticles(tabLocation,pageLocation,"#Test1");
 	});
 	//Nav-Tab : show type of Club articles
@@ -117,6 +124,7 @@ $(function(){
 			$("#Test1").css('display','none');
 
 			$("#Test2").css('display','none');
+			$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 			getArticles(tabLocation,pageLocation,"#Test3");
 		}
 	});
@@ -136,6 +144,7 @@ $(function(){
 			});
 			$("#Test1").css('display','none');
 			$("#Test3").css('display','none');
+			$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 			getArticles(tabLocation,pageLocation,"#Test2");
 		}
 	});
@@ -168,6 +177,7 @@ $(function(){
 					getArticles(tabLocation,pageLocation,"#Test3");
 					break;
 			}
+			$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 		}
 	});
 	//Pagination: Go To Next Page
@@ -196,6 +206,7 @@ $(function(){
 				getArticles(tabLocation,pageLocation,"#Test3");
 				break;
 		}
+		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 	});
 
 	//Btn for clicking to show New-Article-Form
@@ -296,7 +307,9 @@ $(function(){
 		$("body").animate({ scrollTop: 0 }, 'slow');
 	});
 
-	//bonusStart();
+	$("#start").click(function(){
+		bonusStart();
+	});
 });
 
 function splitContent(articleContent){
@@ -365,7 +378,7 @@ function showArticles(authorName,authorId,createdAt,articleId,title,content,targ
 		$(this).remove();
 	});
 }
-
+//<div class='panel-body content'>"+multiContent+"</div>\
 function insertArticle(authorName,authorId,currentTime,articleId,title,content,target){
 
 	var multiContent = "";
@@ -402,6 +415,7 @@ function insertArticle(authorName,authorId,currentTime,articleId,title,content,t
 				</div>\
 			</div>"
 		);
+		//$(".articleContainer #"+articleId).find(".content").html(multiContent+"Test");
 	}else{
 		$(target).append("\
 			<div class='articleContainer' id='"+articleId+"' >\
@@ -431,7 +445,15 @@ function insertArticle(authorName,authorId,currentTime,articleId,title,content,t
 		$(this).remove();
 	});
 }
+/*
+function hyperLinkSwitch(str){
 
+	str = str.replace("&lt;a","<a");
+	str = str.replace("&gt;",">");
+	str = str.replace("&lt;/a&gt;","</a>");
+	return str;
+}
+*/
 function getArticles(type,page,target){
     $.ajax({
 		type:"POST",
@@ -469,11 +491,8 @@ function getArticles(type,page,target){
 					$(this).addClass("clubTitleBox");
 				});
 			}
-			
 		},
-		error:function(){
-			$.alertMessage('Getting Articles failed');
-		}
+
 	},"json");
 }
 
@@ -482,34 +501,34 @@ function pageGenerate(current,last){
 	if(last<=9){
 		for(i = 0; i < last; i++ ){
 			if((i+1) == current){
-				pager = pager + "<li class='active'><a class='page'>"+(i+1)+"</a></li>";
+				pager = pager + "<li class='active p' id='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
 			}else{
-				pager = pager + "<li class='disable'><a class='page'>"+(i+1)+"</a></li>";
+				pager = pager + "<li class='disable p' id='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
 			}
 		}
 	}else{
 		if(current <= 5){
 			for(i = 0; i < 9; i++ ){
 				if((i+1) == current){
-					pager = pager + "<li class='active'><a class='page'>"+(i+1)+"</a></li>";
+					pager = pager + "<li class='active p' id='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
 				}else{
-					pager = pager + "<li class='disable'><a class='page'>"+(i+1)+"</a></li>";
+					pager = pager + "<li class='disable p' id='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
 				}
 			}
 		}else if(current >= (last-4)){
 			for(i = 0; i < 9; i++){
 				if((last-8+i) == current){
-					pager = pager + "<li class='active'><a class='page'>"+(last-8+i)+"</a></li>";
+					pager = pager + "<li class='active p' id='"+(last-8+i)+"'><a class='page'>"+(last-8+i)+"</a></li>";
 				}else{
-					pager = pager + "<li class='disable'><a class='page'>"+(last-8+i)+"</a></li>";
+					pager = pager + "<li class='disable p' id='"+(last-8+i)+"'><a class='page'>"+(last-8+i)+"</a></li>";
 				}
 			}
 		}else{
 			for(i = 0; i < 9; i++){
 				if((current-4+i) == current){
-					pager = pager + "<li class='active'><a class='page'>"+(current-4+i)+"</a></li>";
+					pager = pager + "<li class='active p' id='"+(current-4+i)+"'><a class='page'>"+(current-4+i)+"</a></li>";
 				}else{
-					pager = pager + "<li class='disable'><a class='page'>"+(current-4+i)+"</a></li>";
+					pager = pager + "<li class='disable p' id='"+(current-4+i)+"'><a class='page'>"+(current-4+i)+"</a></li>";
 				}
 			}
 		}
@@ -522,6 +541,12 @@ function pageGenerate(current,last){
 			+ "<li><a id='nextPage'>&raquo;</a></li>";
 	}
 	$(".pagination").html(pager);
+
+	if(first){
+		$("li.active.p").removeClass("active");
+		$("li[id = "+initPage+"]").addClass("active");
+		first = false;
+	}
 
 	$(".page").click(function(e){
 		e.preventDefault();
@@ -548,6 +573,7 @@ function pageGenerate(current,last){
 				getArticles(tabLocation,pageLocation,"#Test3");
 				break;
 		}
+		
 	});
 }
 
@@ -565,9 +591,15 @@ function bonusStart(){
 
 	var timeInterval = 10;
 
-	var vectorX = -100;
+	var vectorX = -200;
 
-	var vectorY = -100;
+	var vectorY = -200;
+
+	origin = bonusTarget.getBoundingClientRect();
+
+	originLeft = origin.left;
+
+	originTop = origin.top;
 
 	function scrollTopMove(){
 
@@ -580,11 +612,16 @@ function bonusStart(){
 		if((positionLeft <= 0 )||((positionLeft+targetWidth) >= boundaryWidth)){
 
 			vectorX = vectorX * (-1);
+
+			$("#myTab , #freshButton, #createBtn , .articleContainer , #orderBox , #chat-room-button , #topContent").effect("shake",{times:0.5,direction:"left",distance:20},100);
+
 		}
 
 		if((positionTop <= 0 )||((positionTop+targetHeight) >= boundaryHeight)){
 
 			vectorY = vectorY * (-1);
+
+			$("#myTab , #freshButton, #createBtn , .articleContainer, #orderBox , #chat-room-button , #topContent").effect("shake",{times:0.5,direction:"up",distance:20},100);
 		}
 		
 		positionLeft += vectorX/timeInterval;
@@ -596,7 +633,21 @@ function bonusStart(){
 		bonusTarget.style.top = positionTop + "px";
 	}
 
+	$("#globalContainer").append("<button type='button' class='btn btn-primary' id='stop'>Stop</button>");
+
 	var move = setInterval(scrollTopMove, timeInterval);
+
+	$("#stop").click(function(){
+
+		$(this).remove();
+
+		clearInterval(move);
+
+		bonusTarget.style.left = originLeft + "px";
+
+		bonusTarget.style.top = originTop + "px";
+
+	});
 }
 
 

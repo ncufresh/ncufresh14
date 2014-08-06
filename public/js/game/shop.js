@@ -34,7 +34,7 @@
                             }
         					$('<div class="gameShopItem ' + equipClass + '">' + 
     							'<img class="gameShopItemImage" src="' + bURL + 'images/gameShop/' + data["shop"][i]["picture"] + '" itemId="' + data["shop"][i]["id"] + '" />' +
-    							'<div class="gameShopItemText">' + data["shop"][i]["costgp"] + '</div>' + 
+    							'<div class="gameShopItemText">gp ' + data["shop"][i]["costgp"] + '</div>' + 
     							'<div class="gameShopItemBuyButton ' + buyClass + '" item="' + data["shop"][i]["id"] + '"></div>' +
     						'</div>').appendTo($('#gameShopItems .jspPane'));
                         }

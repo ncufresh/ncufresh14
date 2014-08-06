@@ -7,16 +7,15 @@ $(function(){
 	var bURL = getTransferData('burl');
 	DragLocal();
 
-	$('#place').jScrollPane();
+	$('#place').jScrollPane(
+		{
+			mouseWheelSpeed: 140
+		});
 
 	$('#introductionbox').jScrollPane();
 
 	$('.place1').addClass("placeClick");
-
-	// $(window).load(function(){
- //  		$(".jspVerticalBar").css("opacity", "0");
-	// });
-
+	
 	$('.place').click(function(){
 		var num = $(this).data("num");
 		var id = $(this).data("id");
@@ -64,8 +63,7 @@ $(function(){
 	function changeIntroductionAndImage(data){
 		$('#introductionbox2').html(data['result']['introduction']);
 		$('#introductionbox').jScrollPane();
-		$('.jspPane').css("top", "0px");
-		$('.jspDrag').css("top", "0px");
+		$('#introductionbox .jspPane').css("top", "0");
 		$('#buttom').data("num", data['result']['id']);
 		if(LorP == 'Picture')
 		{

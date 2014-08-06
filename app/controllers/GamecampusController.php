@@ -18,6 +18,7 @@ class GamecampusController extends BaseController {
 		Session::forget('index');
 		Session::forget('questions');
 		Session::put('score', 0);
+		Session::put('nextscore', 20);
 		Session::put('life', 3);
 		Session::put('index', 0);
 		$user = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
@@ -31,6 +32,9 @@ class GamecampusController extends BaseController {
 					$isrepeat = false;
 					$number = rand(1, $question_number);
 					$question = GameCampus::find($number);
+					if ( $question == NULL ) {
+						$isrepeat = true;
+					}
 					for ( $j = 0; $j < $i; $j++ ) {
 						if ( $number == $data[$j]->id && ( $question->type == $data[$j]->type && $question->answer_id == $data[$j]->answer_id) ) {
 							$isrepeat = true;
@@ -52,41 +56,48 @@ class GamecampusController extends BaseController {
 		$questions = Session::get('questions');
 		$questionID = Session::get('index');
 		$score = Session::get('score');
+		$nextScore = Session::get('nextscore');
 		$life = Session::get('life');
+		$exit = false;
 		$gameUser = Game::where('user_id', '=', Auth::user()['id'])->firstOrFail();
-		if ( $questionID <= 8 ) {
+		if ( $questionID <= 8 && $life > 0) {
 			$question = $questions[$questionID+1];
 		}
 		else {
 			$question = '';
+			$exit = true;
+			$gameUser->gp += $score;
+			$gameUser->save();
 		}
 		if ( Input::get('index') == $questions[$questionID]['answer_id']) {
 			if ( $life > 0 ) {
-				$score++;
+				$score += $nextScore;
 				Session::forget('score');
 				Session::put('score', $score);
+				Session::forget('nextscore');
+				Session::put('nextscore', $nextScore+20);
 			}
 			else {
-				$score = 0;
-				Session::forget('score');
-				Session::put('score', $score);
+				
 			}
 			Session::forget('index');
 			Session::put('index', $questionID + 1);
-			return Response::json(array('user' => $gameUser->toArray(), 'isRight' => true, 'score' => $score, 'question' => $question));
+			return Response::json(array('user' => $gameUser->toArray(), 'isRight' => true, 'score' => $score, 'question' => $question, 'exit' => $exit));
 		}
 		else {
 			$life--;
 			if ( $life <=  0 ) {
-				$score = 0;
-				Session::forget('score');
-				Session::put('score', $score);
+				$exit = true;
+				$gameUser->gp += $score;
+				$gameUser->save();
 			}
 			Session::forget('life');
 			Session::put('life', $life);
 			Session::forget('index');
 			Session::put('index', $questionID + 1);
-			return Response::json(array('user' => $gameUser->toArray(), 'isRight' => false, 'score' => $score, 'question' => $question));
+			Session::forget('nextscore');
+			Session::put('nextscore', 20);
+			return Response::json(array('user' => $gameUser->toArray(), 'isRight' => false, 'score' => $score, 'question' => $question, 'exit' => $exit));
 		}
 	}
 

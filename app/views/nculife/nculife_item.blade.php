@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	{{ HTML::style('css/nculife_item.css') }}
-	{{ HTML::script('js/nculife/nculife_item.js') }}
+	{{ HTML::style('css/nculife/nculife_item.min.css') }}
+	{{ HTML::script('js/nculife/nculife_item.min.js') }}
 @stop
 
 @section('content')
@@ -43,10 +43,12 @@
 					<img id="1" class="img" src="{{ asset( 'img/uploadImage/' .  $pictures[0]->pictureAdmin->file_name) }}">
 				</div>
 			</div>
-			<div id="select">
-				<div id="buttom" data-num="{{$nculifes[0]->id}}">
+			@if($nculifes[0]->local_id != 0)
+				<div id="select">
+					<div id="buttom" data-num="{{$nculifes[0]->id}}">
+					</div>
 				</div>
-			</div>
+			@endif
 		</div>
 	</div>
 @stop

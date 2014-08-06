@@ -3,8 +3,8 @@
 		<title>2014大一生活知訊網</title>
 		<meta property="og:title" content="2014大一生活知訊網">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="http://ncufresh14.weigreen.com/">
-		<meta property="og:image" content="http://ncufresh14.weigreen.com/images/banner-s.png" />
+		<meta property="og:url" content="http://ncufresh.ncu.edu.tw/">
+		<meta property="og:image" content="http://ncufresh.ncu.edu.tw/images/banner-s.png" />
 		<meta property="og:image:type" content="image/png" />
 		<meta property="og:site_name" content="2014大一生活知訊網" />
 		<meta property="og:description" content="對未來的大學生活充滿期待嗎? 或是對中大有著什麼疑問呢? 那就別再考慮了 快來新鮮人專屬的 大一生活知訊網看看吧!" />
@@ -19,14 +19,14 @@
 		{{ HTML::script('js/jquery/jquery.timer.js') }}
 		{{ HTML::script('ckeditor/ckeditor.js') }}
 		{{ HTML::script('js/main.js') }}
-		{{ HTML::script('js/layout/chatroom.js') }}
+		{{ HTML::script('js/layout/chatroom.min.js') }}
 		{{ HTML::script('js/jquery/pace.min.js') }}
 		{{ HTML::style('css/bootstrap.min.css') }}
 		{{ HTML::style('css/jquery.jscrollpane.css') }}
 		{{ HTML::style('css/jquery-ui.min.css') }}
 		{{ HTML::style('css/pace.css') }}
 
-		{{ HTML::style('css/layout.css') }}
+		{{ HTML::style('css/layout.min.css') }}
 		
 		{{ HTML::script('js/layout/robot.js') }}
 
@@ -47,7 +47,7 @@
 			{{ HTML::style('css/ie9.css') }}
 		@endif
 
-		@if(Request::server('SERVER_IP') == '140.115.184.136' && Config::get('app.debug') == false)
+		@if(Request::server('SERVER_NAME') == 'ncufresh.ncu.edu.tw')
 			{{ HTML::script('js/ga.js') }}
 		@endif
 
@@ -109,7 +109,7 @@
 				<p>主辦單位：國立中央大學學務處　承辦單位：諮商中心　執行單位：2014大一生活知訊網工作團隊</p>
 				<p>地址：32001桃園縣中壢市五權里2鄰中大路300號 | 電話：(03)422-7151#57261 | 版權所有：2014大一生活知訊網工作團隊</p>
 			</div>
-			@if(Entrust::can('manage_editor'))
+			@if(Entrust::can('manage_editor') || Entrust::can('manage_announcement'))
 				<a style="color:green; font-size: 2em" href="{{ route('dashboard') }}">點我進入後台喔~~~~</a>
 			@endif
 		</div>

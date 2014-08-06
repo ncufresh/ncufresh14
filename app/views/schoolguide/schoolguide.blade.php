@@ -7,17 +7,30 @@
 @stop
 
 @section('content')
-<canvas id="canvas" width="1px" height="1px"></canvas>
-<button id="clear">clear all</button>
-<div id="egg">
+<canvas id="canvas" width="1px" height="1px">
+</canvas>
+<div class="arrow" id="pointer1" style="display:none;">↓ here start</div>
+<button id="clear" style="display:none;">clear all</button>
+
+<div id="egg" style="display:none;">
 	<div id="close" title="click to close">X</div>
-	<div class="part1 arrow">↓</div>
-		<div id="part1">
+	
+		<div id="part1" >
 			<h1 id="title1">最佳夫妻同心協力組合</h1>
+			<span id="pineapple"></span>
+			<span id="vicky"></span>
+			<img class="good" src="{{asset('images/SchoolGuide/good.png')}}" 
+			data-id="{{$good->count}}" data-placed_id="1">
+			<span class="word">無限期支持數{{$good->count}}</span>
 		</div>
-	<div class="part2 arrow">↓</div>
 		<div id="part2">
+
+			<div id="vs"></div>
 			<h1 id="title2">最佳永久性福組合</h1>
+			<span id="wan"></span>
+			<span id="hand"></span>
+			<img class="good2" src="{{asset('images/SchoolGuide/good.png')}}" data-id="{{$good2->count}}" data-placed_id="2">
+			<span class="word2">支持數{{$good2->count}}</span>
 		</div>
 </div>
 <div id="bigcontent">
@@ -69,7 +82,7 @@
 					<div data-id = "22" id="science-5" title="科五館" class="item departments"></div>
 					<div data-id = "70" id="administration" title="行政大樓" class="item school"></div>
 					<div data-id = "69" id="library" title="總圖書館" class="item school"></div>
-					<div data-id = "3" id="tree" title="國泰樹" class="item scence"></div>
+					<div data-id = "5" id="tree" title="國泰樹" class="item scence"></div>
 					<div data-id = "71" id="oldlibrary" title="中正圖書館" class="item school"></div>
 					<div data-id = "6" id="tai" title="太極銅雕" class="item scence"></div>
 					<div data-id = "63" id="blackbox" title="黑盒子" class="item school"></div>

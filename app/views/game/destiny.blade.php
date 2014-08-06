@@ -1,10 +1,10 @@
 @extends('game.layout')
 
 @section('js_css')
-	{{ HTML::style('css/game.css') }}
+	{{ HTML::style('css/game.min.css') }}
 	{{ HTML::script('js/game/jQueryRotateCompressed.js') }}
-	{{ HTML::script('js/game/game.js') }}
-	{{ HTML::script('js/game/destiny.js') }}
+	{{ HTML::script('js/game/game.min.js') }}
+	{{ HTML::script('js/game/destiny.min.js') }}
 @stop
 
 @section('game_content')

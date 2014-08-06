@@ -1,7 +1,8 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	{{ HTML::style('css/nculife_index.css') }}
+	{{ HTML::style('css/nculife/nculife_index.min.css') }}
+	{{ HTML::script('js/nculife/nculife_Konami.min.js') }}
 @stop
 
 @section('content')

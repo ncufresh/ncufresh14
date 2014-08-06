@@ -13,29 +13,22 @@ $(document).ready(function(){
 	
 
 	$.konami({
-		code:  			[83],
+		code:  			[83,69,86,69,78],
 		interval:		100,
 	    complete:	function(){
 		  	var canvas = document.getElementsByTagName('canvas')[0];
 			canvas.width  = screen.width;
 			canvas.height = screen.height;
+			draw();
 			$("body").css({"overflow-y":"hidden"});
 			$("#canvas").css({"z-index":"30"});
-			$("#egg").show();
-			$("#part1").show();
-			$("#part2").show();
-			$("#close").show();
-			$(".arrow").show();
+			$(".arrow").show(1000);
 			$("#egg").css({"width":screen.width,"height":screen.height});
-			draw();
+			$("#egg").show(1000);
 			$("#clear").show(20000);
 			}
 	});
-	$(".arrow").hide();
-	$("#close").hide();
-	$("#part1").hide();
-	$("#part2").hide();
-	$("#clear").hide();
+	
 	$("#close").click(function(){
 		$("#egg").hide();
 		$("#part1").hide();
@@ -45,6 +38,7 @@ $(document).ready(function(){
 		ctx.clearRect(0,0,canvas.width,canvas.height);
 		$("#canvas").css({"z-index":"0"});
 		$(this).hide();
+		$(".arrow").hide();
 	});
 	$('#canvas').mousedown(function (e) {
         mousePressed = true;
@@ -72,13 +66,33 @@ $(document).ready(function(){
 	}
 
 		function draw() {
-		  var ctx = document.getElementById('canvas').getContext('2d');
 		  var img = new Image();
-		  img.src = burl+'/images/SchoolGuide/fog.jpeg'; 
 		  img.onload = function(){
 		   ctx.drawImage(img, 0, 0,canvas.width,canvas.height);
-		   ctx.stroke();
-		  };
+		   ctx.strokeStyle = "black"
+		   ctx.font = "bold 50px Arial";
+		   ctx.fillText("click left mouse to clear the screen",300,100);
+		  }
+		   img.src = burl+'/images/SchoolGuide/fog.jpeg';
 	}
+
+	$(".good").click(function(){
+		var good = $(this).data('id');
+		var id = $(this).data('placed_id');
+		console.log(good + ':'+ id);
+		ajaxPost(getTransferData('guide_good'),{id:id,good:good},function(data) {
+			console.log(data);
+			$('.word').text('無限期支持數' + data['count']);
+		});
+	});
+	$(".good2").click(function(){
+		var good = $(this).data('id');
+		var id = $(this).data('placed_id');
+		console.log(good + ':'+ id);
+		ajaxPost(getTransferData('guide_good'),{id:id,good:good},function(data) {
+			console.log(data);
+			$('.word2').text('支持數' + data['count']);
+		});
+	});
 	
 });

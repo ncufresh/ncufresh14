@@ -120,6 +120,8 @@ Route::get('SchoolGuide/clickImg', array('as' => 'Guide.map', 'uses' => 'SchoolG
 
 Route::get('SchoolGuide/select', array('as' => 'Guide.select', 'uses' => 'SchoolGuideController@getselect') );
 
+Route::post('SchoolGuide/good', array('as' => 'Guide.good', 'uses' => 'SchoolGuideController@goodadd') );
+
 Route::get('SchoolGuide/{item}', array('as' => 'schoolguide.item', 'uses' => 'SchoolGuideController@item'))->where('item', '(department|administration|scence|food|dorm|exercise)');
 
 Route::get('SchoolGuide/{item}/{id}', array('as' => 'schoolguide.item', 'uses' => 'SchoolGuideController@tophoto'))->where('item', '(department|administration|scence|food|dorm|exercise)');
@@ -175,7 +177,6 @@ Route::group(array('before' => 'auth'), function(){
 
 //==========================================================================================
 //Forum articles
-Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@init'));
 
 Route::get('articles/{type?}/{page?}',array('as' => 'forum' , 'uses' => 'ArticlesController@init'));
 
@@ -298,7 +299,7 @@ Route::get('About_us',array('as'=>'about','uses'=>'AboutUsController@index'));
 
 Route::get('About_us/modal',array('as'=>'About.modal','uses'=>'AboutUsController@getModalId'));
 
-//Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){
+Route::group(array('prefix' => 'admin', 'before' => 'admin_editor'), function(){
 
 	Route::post('About_us/sure', array('as' => 'About_us.sure', 'uses' => 'AboutUsController@sure') );
 
@@ -313,4 +314,4 @@ Route::get('About_us/modal',array('as'=>'About.modal','uses'=>'AboutUsController
 	Route::get('About_us/add',array('as'=>'About_us.add','uses'=>'AboutUsController@toadd'));
 
 	Route::get('About_us/toadd',array('as'=>'About_us.toadd','uses'=>'AboutUsController@toadd'));
-//});
+});

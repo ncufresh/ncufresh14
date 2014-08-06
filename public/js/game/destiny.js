@@ -11,10 +11,10 @@
     	$('#destinyStart').click(function() {
     		if ( !running ) {
 				ajaxPost($(this).attr("action"), '', function(data) {
-					console.log(data);
+//					console.log(data);
 					if ( data['user']['play'] == true) {
 						$('#destinyStart').hide();
-			    		var rotation = rotateStart[data['gift']-1] + (rotateEnd[data['gift']-1] - rotateStart[data['gift']-1])/2 -207;
+			    		var rotation = rotateStart[data['gift']] + (rotateEnd[data['gift']] - rotateStart[data['gift']])/2 -207;
 			    		var decrease = 20;
 			    		var timer = $.timer(function() {
 					        rotation += decrease;
@@ -26,11 +26,11 @@
 						    	editStatus(data['user']['power'],data['user']['gp']);
 					    		$('#destinyStart').show();
 					    		$('#startPage').hide();
-					    		if ( data['gift'] == 8 ) {
+					    		if ( data['gift'] == 11 ) {
 					    			$('#bonusText').text('獲得' + data['randomGp'] + ' GP');
 					    		}
 					    		else {
-					    			$('#bonusText').text(giftTexts[data['gift']-1]);
+					    			$('#bonusText').text(giftTexts[data['gift']]);
 					    		}
 					    		$('#bounsPage').fadeIn();
 						    }

@@ -1,15 +1,15 @@
 @extends('layouts.layout')
 
 @section('js_css')
-	{{ HTML::style('css/aboutus.css') }}
-	{{ HTML::script('js/aboutus.js') }}
+	{{ HTML::style('css/aboutus.min.css') }}
+	{{ HTML::script('js/aboutus.min.js') }}
 @stop
 
 @section('content')
 <div id="about-content">
 	<div id="page1">
 		<div id="page1-content">
-			<div id="page1-photo">photo</div>
+			<div id="page1-photo"></div>
 			<div id="page1-text"><p>　　嗨！各位中央新生你們好！不管是研究新生或是大一新生，都是經過許多的努力才能
 				來到這裡。想必你們也對未來的學校──中央大學，抱持著有點複雜的心情，像是初戀般既期待又怕受傷害。
 				不過別擔心，因為曾經的我們也是如此，徬徨茫然的我們，也曾受過大一生活知訊網的幫助。而如今，該是
@@ -17,7 +17,7 @@
 				<br>
 				　　大一生活知訊網，一代傳一代，年年創新，力求精進，已走過無數的年頭，也幫助過許許多多期待著未來學
 				校生活的新生們。我們最主要的目的，便是帶領大家認識未來的生活環境，事先調適進入學校的心態，甚至
-				提早認識新的同學們。不管多少，那怕只是解開一個小疑惑，只要能幫到大家，就是對我們最大的鼓勵。
+				提早認識新的同學們。不管多少，哪怕只是解開一個小疑惑，只要能幫到大家，就是對我們最大的鼓勵。
 				為此，我們蒐集了許許多多的資料，協助大家了解中央大學。<a href="{{route('necessity.necessity_index')}}">新生必讀</a>裡整理了各位新生必須知道的基本資
 				訊，不管是註冊、兵役、修課規定、相關附件下載……等，都包含在這裡供各位參考。<a href="{{route('nculife.index')}}">中大生活</a>則蒐羅了許多
 				大家在生活上可能遇到的問題，餐廳、宿舍、日常必需品購買……都可在這裡找到你需要的答案。<a href="{{route('SchoolGuide')}}">校園導覽</a>為
@@ -89,35 +89,35 @@
 		<div id="execute-back" class="contents">
 			<div class="content-close"></div>
 			<div class="each-content">
-				<div class="each-photo"></div>
+				<div class="each-photo"><img class="team-photo" src="{{ asset( 'images/aboutus/team/DSC05560.JPG') }}"/></div>
 				<div class="each-words">統籌整個知訊網的相關事宜，與學校各單位、各系學會、社團、學生組織協調；招募知訊網工人、規劃進度、預算、指引整個網站的年度大方向，擔任各組之間溝通橋梁，協同身邊這群一起努力的夥伴，為新生製作最好的知訊網。</div>
 			</div>
 		</div>
 		<div id="Design-back" class="contents">
 			<div class="content-close"></div>
 			<div class="each-content">
-				<div class="each-photo"></div>
+				<div class="each-photo"><img class="team-photo" src="{{ asset( 'images/aboutus/team/DSC05581.jpg') }}"/></div>
 				<div class="each-words">知訊網上可見之處皆是出自於他們筆下，與企劃組合作設計網站頁面，美工組繪製網站的各個頁面、和許多精美的圖片，努力為新生繪出最有活力的知訊網。</div>
 			</div>
 		</div>
 		<div id="Media-back" class="contents">
 			<div class="content-close"></div>
 			<div class="each-content">
-				<div class="each-photo"></div>
+				<div class="each-photo"><img class="team-photo" src="{{ asset( 'images/aboutus/team/DSC05556.JPG') }}"/></div>
 				<div class="each-words">剪輯影片、編寫劇本、拍攝相片；影音組主要負責知訊網的影片製作，自己擔當導演拍攝影片，讓新生搶先體驗大學生活的樂趣。</div>
 			</div>
 		</div>
 		<div id="Program-back" class="contents">
 			<div class="content-close"></div>
 			<div class="each-content">
-				<div class="each-photo"></div>
+				<div class="each-photo"><img class="team-photo" src="{{ asset( 'images/aboutus/team/DSC05561.JPG') }}"/></div>
 				<div class="each-words">負責架構網站、撰寫程式，將整個知訊網推動的幕後功臣；程設組運用程式碼編織而成的知訊網，將帶給新生最好的知訊網體驗。</div>
 			</div>
 		</div>
 		<div id="Project-back" class="contents">
 			<div class="content-close"></div>
 			<div class="each-content">
-				<div class="each-photo"></div>
+				<div class="each-photo"><img class="team-photo" src="{{ asset( 'images/aboutus/team/DSC05571.JPG') }}"/></div>
 				<div class="each-words">決定知訊網的風格、配置網頁版面、美工樣式、還有網站內容，與各組協調知訊網的設計企劃，再監督美工與程設組實作，並呈現出理想中的知訊網。</div>
 			</div>
 		</div>

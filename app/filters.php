@@ -83,7 +83,7 @@ Route::filter('csrf', function()
 //Route::filter('')
 
 Route::filter('admin_basic', function(){
-	if(! Entrust::can('manage_editor')){
+	if(! (Entrust::can('manage_editor') || Entrust::can('manage_announcement'))){
 		return Redirect::to('/');
 	}
 });

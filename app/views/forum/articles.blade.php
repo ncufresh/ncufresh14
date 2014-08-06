@@ -1,7 +1,9 @@
 @extends('../layouts/layout')
 @section('js_css')
-	{{ HTML::style('css/forum.css') }}
-	{{ HTML::script('js/forum/forum.js') }}
+	{{ HTML::style('css/forum.min.css') }}
+	{{ HTML::script('js/forum/forum.min.js') }}
+	{{ HTML::script('js/forum/jquery-ui.js') }}
+	{{ HTML::style('css/jquery-ui.css') }}
 @stop
 @section('content')
 	<div>
@@ -83,9 +85,8 @@
 					@elseif(Entrust::can('forum_unit'))
 						{{ Form::select(
 							'article_type',
-							array( 
-								'C' => '社團' , 
-								'D' => '系所'),
+							array(
+								'N' => '無法貼文' ),
 							'',
 							array(
 								'class' => 'form-control',
@@ -133,15 +134,11 @@
 	<div class="modal fade" id="bonusMsgDialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					<h4 class="modal-title">目前位置：頁碼 1</h4>
-				</div>
 				<div class="modal-body" id="bonusMsgContent">&nbsp;你確定這樣的行為是對的嗎？
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">我錯了</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal">是啊</button>
+					<button type="button" class="btn btn-primary" id="start" data-dismiss="modal">是啊</button>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->

@@ -13,14 +13,6 @@ $(function(){
 
 	previousPage = $("#previousPage").attr("direct");
 
-	window.onpopstate=function()
-	{
-		if(previousType != "N" && previousPage != "N"){
-
-			window.location.href = articleListUrl+"/"+previousType+"/"+previousPage;
-		}
-	}
-
 	burl = getTransferData('burl');
 
 	var articleId = $(".articleContainer").attr("id");
@@ -38,8 +30,6 @@ $(function(){
 	uploadURL = $("#imageURL").attr("direct");
 
 	var articleTitle = $("#articleTitle").attr("articleTitle");
-
-	$.pushLocation(articleTitle, '/perArticle/'+articleId, {full: false});
 
 	$(".commentForm").submit(function(e){
 
@@ -250,7 +240,7 @@ function displayComments(authorName,authorId,content,createdAt,target){
 				<img class='personalImageComment' src='"+burl+"/person/"+authorId+"'>\
 			</div>\
 			<div class='commentContentBox'>\
-				<span class='commentContent'>"+content+"</span>\
+				<span class='commentContent'>"+hyperLinkSwitch(content)+"</span>\
 			</div>\
 			<div class='commentTimeBox'>\
 				<span class='commentTime'>"+createdAt+"</span>\
@@ -258,3 +248,11 @@ function displayComments(authorName,authorId,content,createdAt,target){
 		</div>";
 	target.before(comment);
 } 
+
+function hyperLinkSwitch(str){
+
+	str = str.replace("lt;a ","<a");
+	str = str.replace("gt;",">");
+	str = str.replace("lt;/a","</a");
+	return str;
+}

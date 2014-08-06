@@ -1,7 +1,7 @@
 <?php
 	$now = \Carbon\Carbon::now();
 	$target = \Carbon\Carbon::create(2014, 8, 6, 8, 0, 0);
-	$diff = $target->diffInDays($now);
+	$diff = $target->diffInDays($now)+1;
 
 ?>
 
@@ -64,12 +64,16 @@
 			<div id="count-down">
 				<div id="count-number">
 					<?php
-						if($diff > 10){
-							$count = $diff/10%10;
+						if($diff != 1){
+							if($diff > 10){
+								$count = $diff/10%10;
+								echo "<img src='./images/coming_soon/$count.png' class='count-item'>";
+							}
+							$count = $diff%10;
 							echo "<img src='./images/coming_soon/$count.png' class='count-item'>";
+						}else{
+							echo "早上八點準時上線";
 						}
-						$count = $diff%10;
-						echo "<img src='./images/coming_soon/$count.png' class='count-item'>";
 					?>
 				</div>
 			</div>

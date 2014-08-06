@@ -13,6 +13,7 @@ body {
 	position: fixed;
 	top: 100px;
 	right: 0px;
+	z-index: 10;
 }
 
 #chat-room {
@@ -280,8 +281,8 @@ body {
 }
 
 #logoutButton {
-	width: 79px;
-	height: 22px;
+	width: 94px;
+	height: 26px;
 	background: url("../images/layout/images.png") no-repeat;
 	background-position: 0px -448px;
 	position: absolute;
