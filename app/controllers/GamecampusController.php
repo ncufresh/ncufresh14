@@ -32,6 +32,9 @@ class GamecampusController extends BaseController {
 					$isrepeat = false;
 					$number = rand(1, $question_number);
 					$question = GameCampus::find($number);
+					if ( $question == NULL ) {
+						$isrepeat = true;
+					}
 					for ( $j = 0; $j < $i; $j++ ) {
 						if ( $number == $data[$j]->id && ( $question->type == $data[$j]->type && $question->answer_id == $data[$j]->answer_id) ) {
 							$isrepeat = true;
