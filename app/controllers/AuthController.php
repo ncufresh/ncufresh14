@@ -215,6 +215,7 @@ class AuthController extends BaseController {
 				$user->grade = Input::get('grade');
 				$user->high_school_id = HighSchool::firstOrCreate(array('high_school_name' => Input::get('high_school')))->id;
 				$user->gender = Input::get('gender');
+				$user->save();g
 				return Redirect::to('/');
 			}else{
 				$newUser = new User;
