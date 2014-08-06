@@ -64,6 +64,7 @@ $(function(){
 		$('#introductionbox2').html(data['result']['introduction']);
 		$('#introductionbox').jScrollPane();
 		$('#introductionbox .jspPane').css("top", "0");
+		$('#introductionbox .jspDrag').css("top", "0");
 		$('#buttom').data("num", data['result']['id']);
 		if(LorP == 'Picture')
 		{
