@@ -19,13 +19,14 @@ class GamedestinyController extends BaseController {
 			$user->power = $user->power - 1;
 			$user->save();
 			$giftType = $this->getGift($user);
-			$user["play"] = true;
 			$randomGp = 0;	//?
 			if ( $giftType == 11 ) {
 				$randomGp = rand(250, 2500);
 				$user->gp += $randomGp;
 				$user->save();
 			}
+
+			$user["play"] = true;
 			return Response::json(array('user' => $user->toArray(), 'gift' => $giftType, 'randomGp' => $randomGp));
 		}
 		$user["play"] = false;
