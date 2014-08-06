@@ -11,8 +11,8 @@ class SchoolGuideController extends BaseController {
 		App::make('TransferData')->addData('guide_select',route('Guide.select'));
 		App::make('TransferData')->addData('guide_good',route('Guide.good'));
 		App::make('SiteMap')->pushLocation('校園導覽', route('SchoolGuide'));
-
-		return Redirect::route('schoolguide.item', array('item' => 'department'));
+		$data = good::where('id', '=', 0)->first();
+		return Redirect::route('schoolguide.item', array('item' => 'department','good' => $data));
 
 	}
 
