@@ -4,7 +4,7 @@ class AdminAnnouncementController extends AdminBaseController {
 
 	//resource
 	public function index(){
-		App::make('SiteMap')->pushLocation('公告管理', route('announcement.index'));
+		App::make('SiteMap')->pushLocation('公告管理', route('admin.announcement.index'));
 		$announcements = Announcement::orderBy('pinned', 'DESC')->orderBy('created_at', 'DESC')->get();
 		return View::make('announcement.index_admin', array('announcements' => $announcements, 'admin' => true));
 	}
