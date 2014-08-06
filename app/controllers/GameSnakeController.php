@@ -43,7 +43,7 @@ class GameSnakeController extends BaseController
 			$user->save();
 
 			$snake = new GameSnake;
-			$snake->user_id = $user->id;
+			$snake->user_id = Auth::user()['id'];
 			$snake->mode = $mode;
 			$snake->highscore = $score;
 			$snake->save();

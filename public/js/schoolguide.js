@@ -152,6 +152,8 @@ $(document).ready(function(){
 		}
 		$("<div class='item2' backgroundPosition='-1536px -352px'>").appendTo("#leftlist");
 		makeLeftCanClick();
+
+		hoverTogether();
 	}
 
 	function makeLeftCanClick(){
@@ -227,21 +229,25 @@ $(document).ready(function(){
         }
     });
 
-	$('.left_item').mouseenter(function() {
-		var itemId = $(this).attr('data-place_id');
-		$('.item').each(function() {
-			var thisItem = $(this);
-			if ( thisItem.attr('data-id') == itemId ) {
-				thisItem.addClass(thisItem.attr('id') + '-hover');
-			}
+	function hoverTogether() {
+		$('.left_item').mouseenter(function() {
+			var itemId = $(this).attr('data-place_id');
+			$('.item').each(function() {
+				var thisItem = $(this);
+				if ( thisItem.attr('data-id') == itemId ) {
+					thisItem.addClass(thisItem.attr('id') + '-hover');
+				}
+			});
 		});
-	});
 
-	$('.left_item').mouseleave(function() {
-		$('.item').each(function() {
-			var thisItem = $(this);
-			thisItem.removeClass(thisItem.attr('id') + '-hover');
+		$('.left_item').mouseleave(function() {
+			$('.item').each(function() {
+				var thisItem = $(this);
+				thisItem.removeClass(thisItem.attr('id') + '-hover');
+			});
 		});
-	});
+	}
+
+	hoverTogether();
 
 });
