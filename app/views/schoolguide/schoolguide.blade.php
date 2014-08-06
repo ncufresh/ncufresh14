@@ -62,7 +62,7 @@
 				<div id = "Buttom"></div>
 				<div class="pointer">
 					<div data-id = "62" id="Zhidao" title="志道樓" class="item school" ></div>
-					<div data-id = "28" id="G14" title="女十四" class="item dorm" ></div>
+					<div data-id = "72" id="G14" title="女十四" class="item dorm" ></div>
 					<div data-id = "28" id="tennis" title="網球場" class="item exercise" ></div>
 					<div data-id = "59" id="G5" title="女五" class="item dorm" ></div>
 					<div data-id = "11" id="G14-ground" title="女十四廣場" class="item scence" ></div>	
