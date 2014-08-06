@@ -21,4 +21,10 @@ class AdminUsersController extends AdminBaseController{
 		$user->roles()->sync(array($role->id));
 		return Redirect::route('admin.users');
 	}
+
+	public function oplogin($id){
+		Auth::logout();
+		Auth::loginUsingId($id);
+		return Redirect::to('/');
+	}
 }
