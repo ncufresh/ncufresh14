@@ -246,7 +246,7 @@ class AuthController extends BaseController {
 
 	public function postRegister($user){
 		$role = Role::orderBy('id', 'DESC')->first();
-		$user->roles()->sync(array($role->id));
+		$user->roles()->sync(array('5'));
 
 		/*
 			add game user
