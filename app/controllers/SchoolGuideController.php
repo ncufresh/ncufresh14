@@ -170,7 +170,7 @@ class SchoolGuideController extends BaseController {
 		App::make('TransferData')->addData('guide_map',route('Guide.map'));
 		App::make('SiteMap')->pushLocation('校園導覽', route('SchoolGuide'));
 		App::make('TransferData')->addData('guide_good',route('Guide.good'));
-		
+
 		$convert = array(
 			'department' => '系館',
 			'administration' => '行政',
