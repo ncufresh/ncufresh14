@@ -296,9 +296,11 @@ class ArticlesController extends BaseController{
 		
 		$siteMap = App::make('SiteMap');
 
+		$article = Forum::find($id);
+
 		$siteMap->pushLocation('論壇',route('forum'));
 
-		$article = Forum::find($id);
+		$siteMap->pushLocation($article->title, route('perArticle',array('id'=>$id,'type'=>$type,'page'=>$page)));
 
 		$comments = $article->comment;
 

@@ -20,6 +20,8 @@ var initType = '';
 var initPage ='';
 var initTab ='#Test1';
 
+var first = true;
+
 $(function(){
 
 	burl = getTransferData('burl');
@@ -66,9 +68,10 @@ $(function(){
 		pageLocation = 1;
 
 		$("#Test1 .articleContainer").remove();
-
+		
 		getArticles(tabLocation,pageLocation,"#Test1");
 		
+		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 		
 		$("#Test2 .articleContainer").each(function(){
 			$(this).remove();
@@ -87,7 +90,10 @@ $(function(){
 		tabLocation = "new";
 		pageLocation = 1;
 		$("#Test1 .articleContainer").remove();
+		
 		getArticles(tabLocation,pageLocation,"#Test1");
+
+		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 	});
 
 	$("#pop").change(function(){
@@ -95,6 +101,8 @@ $(function(){
 		pageLocation = 1;
 		$("#Test1 .articleContainer").remove();
 		getArticles(tabLocation,pageLocation,"#Test1");
+
+		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 	});
 	//Nav-Tab : show type of Club articles
 	$("#clubTab").click(function(e){
@@ -118,6 +126,8 @@ $(function(){
 
 			$("#Test2").css('display','none');
 			getArticles(tabLocation,pageLocation,"#Test3");
+
+			$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 		}
 	});
 	//Nav-Tab : show type of Drpartment articles
@@ -137,6 +147,8 @@ $(function(){
 			$("#Test1").css('display','none');
 			$("#Test3").css('display','none');
 			getArticles(tabLocation,pageLocation,"#Test2");
+
+			$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 		}
 	});
 	//Pagination: Go To Previous Page
@@ -168,6 +180,7 @@ $(function(){
 					getArticles(tabLocation,pageLocation,"#Test3");
 					break;
 			}
+			$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 		}
 	});
 	//Pagination: Go To Next Page
@@ -196,6 +209,7 @@ $(function(){
 				getArticles(tabLocation,pageLocation,"#Test3");
 				break;
 		}
+		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 	});
 
 	//Btn for clicking to show New-Article-Form
@@ -482,9 +496,6 @@ function getArticles(type,page,target){
 			}
 			
 		},
-		error:function(){
-			$.alertMessage('Getting Articles failed');
-		}
 	},"json");
 }
 
@@ -493,34 +504,34 @@ function pageGenerate(current,last){
 	if(last<=9){
 		for(i = 0; i < last; i++ ){
 			if((i+1) == current){
-				pager = pager + "<li class='active'><a class='page'>"+(i+1)+"</a></li>";
+				pager = pager + "<li class='active p' num='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
 			}else{
-				pager = pager + "<li class='disable'><a class='page'>"+(i+1)+"</a></li>";
+				pager = pager + "<li class='disable p' num='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
 			}
 		}
 	}else{
 		if(current <= 5){
 			for(i = 0; i < 9; i++ ){
 				if((i+1) == current){
-					pager = pager + "<li class='active'><a class='page'>"+(i+1)+"</a></li>";
+					pager = pager + "<li class='active p' num='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
 				}else{
-					pager = pager + "<li class='disable'><a class='page'>"+(i+1)+"</a></li>";
+					pager = pager + "<li class='disable p' num='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
 				}
 			}
 		}else if(current >= (last-4)){
 			for(i = 0; i < 9; i++){
 				if((last-8+i) == current){
-					pager = pager + "<li class='active'><a class='page'>"+(last-8+i)+"</a></li>";
+					pager = pager + "<li class='active p' num='"+(last-8+i)+"'><a class='page'>"+(last-8+i)+"</a></li>";
 				}else{
-					pager = pager + "<li class='disable'><a class='page'>"+(last-8+i)+"</a></li>";
+					pager = pager + "<li class='disable p' num='"+(last-8+i)+"'><a class='page'>"+(last-8+i)+"</a></li>";
 				}
 			}
 		}else{
 			for(i = 0; i < 9; i++){
 				if((current-4+i) == current){
-					pager = pager + "<li class='active'><a class='page'>"+(current-4+i)+"</a></li>";
+					pager = pager + "<li class='active p' num='"+(current-4+i)+"'><a class='page'>"+(current-4+i)+"</a></li>";
 				}else{
-					pager = pager + "<li class='disable'><a class='page'>"+(current-4+i)+"</a></li>";
+					pager = pager + "<li class='disable p' num='"+(current-4+i)+"'><a class='page'>"+(current-4+i)+"</a></li>";
 				}
 			}
 		}
@@ -533,6 +544,12 @@ function pageGenerate(current,last){
 			+ "<li><a id='nextPage'>&raquo;</a></li>";
 	}
 	$(".pagination").html(pager);
+
+	if(first){
+		$("li.active.p").removeClass("active");
+		$("li[num = "+initPage+"]").addClass("active");
+		first = false;
+	}
 
 	$(".page").click(function(e){
 		e.preventDefault();
@@ -559,6 +576,7 @@ function pageGenerate(current,last){
 				getArticles(tabLocation,pageLocation,"#Test3");
 				break;
 		}
+		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 	});
 }
 
