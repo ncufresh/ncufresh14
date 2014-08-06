@@ -1,10 +1,10 @@
 @extends('game.layout')
 
 @section('js_css')
-	{{ HTML::style('css/game.css') }}
+	{{ HTML::style('css/game.min.css') }}
 	{{ HTML::style('css/game/spin.css') }}
 	{{ HTML::style('css/game/snake.css') }}
-	{{ HTML::script('js/game/game.js') }}
+	{{ HTML::script('js/game/game.min.js') }}
 	{{ HTML::script('js/game/spin.js') }}
 	{{ HTML::script('js/game/snake.js') }}
 @stop

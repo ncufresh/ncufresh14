@@ -47,6 +47,8 @@ $(function(){
 		initTab = "#Test1";
 	}else if(initType =="pop"){
 		$("#articleTab").parent().addClass("active");
+		var popRadio = document.getElementById("pop");
+		popRadio.checked = true;
 		initTab = "#Test1";
 	}else if(initType =="department"){
 		$("#departmentTab").parent().addClass("active");
@@ -68,10 +70,10 @@ $(function(){
 		pageLocation = 1;
 
 		$("#Test1 .articleContainer").remove();
-		
-		getArticles(tabLocation,pageLocation,"#Test1");
-		
+
 		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
+
+		getArticles(tabLocation,pageLocation,"#Test1");
 		
 		$("#Test2 .articleContainer").each(function(){
 			$(this).remove();
@@ -90,19 +92,16 @@ $(function(){
 		tabLocation = "new";
 		pageLocation = 1;
 		$("#Test1 .articleContainer").remove();
-		
-		getArticles(tabLocation,pageLocation,"#Test1");
-
 		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
+		getArticles(tabLocation,pageLocation,"#Test1");
 	});
 
 	$("#pop").change(function(){
 		tabLocation = "pop";
 		pageLocation = 1;
 		$("#Test1 .articleContainer").remove();
-		getArticles(tabLocation,pageLocation,"#Test1");
-
 		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
+		getArticles(tabLocation,pageLocation,"#Test1");
 	});
 	//Nav-Tab : show type of Club articles
 	$("#clubTab").click(function(e){
@@ -125,9 +124,8 @@ $(function(){
 			$("#Test1").css('display','none');
 
 			$("#Test2").css('display','none');
-			getArticles(tabLocation,pageLocation,"#Test3");
-
 			$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
+			getArticles(tabLocation,pageLocation,"#Test3");
 		}
 	});
 	//Nav-Tab : show type of Drpartment articles
@@ -146,9 +144,8 @@ $(function(){
 			});
 			$("#Test1").css('display','none');
 			$("#Test3").css('display','none');
-			getArticles(tabLocation,pageLocation,"#Test2");
-
 			$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
+			getArticles(tabLocation,pageLocation,"#Test2");
 		}
 	});
 	//Pagination: Go To Previous Page
@@ -494,8 +491,8 @@ function getArticles(type,page,target){
 					$(this).addClass("clubTitleBox");
 				});
 			}
-			
 		},
+
 	},"json");
 }
 
@@ -504,34 +501,34 @@ function pageGenerate(current,last){
 	if(last<=9){
 		for(i = 0; i < last; i++ ){
 			if((i+1) == current){
-				pager = pager + "<li class='active p' num='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
+				pager = pager + "<li class='active p' id='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
 			}else{
-				pager = pager + "<li class='disable p' num='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
+				pager = pager + "<li class='disable p' id='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
 			}
 		}
 	}else{
 		if(current <= 5){
 			for(i = 0; i < 9; i++ ){
 				if((i+1) == current){
-					pager = pager + "<li class='active p' num='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
+					pager = pager + "<li class='active p' id='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
 				}else{
-					pager = pager + "<li class='disable p' num='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
+					pager = pager + "<li class='disable p' id='"+(i+1)+"'><a class='page'>"+(i+1)+"</a></li>";
 				}
 			}
 		}else if(current >= (last-4)){
 			for(i = 0; i < 9; i++){
 				if((last-8+i) == current){
-					pager = pager + "<li class='active p' num='"+(last-8+i)+"'><a class='page'>"+(last-8+i)+"</a></li>";
+					pager = pager + "<li class='active p' id='"+(last-8+i)+"'><a class='page'>"+(last-8+i)+"</a></li>";
 				}else{
-					pager = pager + "<li class='disable p' num='"+(last-8+i)+"'><a class='page'>"+(last-8+i)+"</a></li>";
+					pager = pager + "<li class='disable p' id='"+(last-8+i)+"'><a class='page'>"+(last-8+i)+"</a></li>";
 				}
 			}
 		}else{
 			for(i = 0; i < 9; i++){
 				if((current-4+i) == current){
-					pager = pager + "<li class='active p' num='"+(current-4+i)+"'><a class='page'>"+(current-4+i)+"</a></li>";
+					pager = pager + "<li class='active p' id='"+(current-4+i)+"'><a class='page'>"+(current-4+i)+"</a></li>";
 				}else{
-					pager = pager + "<li class='disable p' num='"+(current-4+i)+"'><a class='page'>"+(current-4+i)+"</a></li>";
+					pager = pager + "<li class='disable p' id='"+(current-4+i)+"'><a class='page'>"+(current-4+i)+"</a></li>";
 				}
 			}
 		}
@@ -547,7 +544,7 @@ function pageGenerate(current,last){
 
 	if(first){
 		$("li.active.p").removeClass("active");
-		$("li[num = "+initPage+"]").addClass("active");
+		$("li[id = "+initPage+"]").addClass("active");
 		first = false;
 	}
 
@@ -576,7 +573,7 @@ function pageGenerate(current,last){
 				getArticles(tabLocation,pageLocation,"#Test3");
 				break;
 		}
-		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
+		
 	});
 }
 

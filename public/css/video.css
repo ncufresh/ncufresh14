@@ -3,7 +3,7 @@
 	top:20px;
 	right:0px;
 	width:1024px;
-	height:870px
+	height:960px
 }
 
 #frame2{
@@ -26,24 +26,43 @@
 }
 
 #videoFrame {
-	position: absolute;
 	left: 2.5%;
 	width:972px;
-	height:585px;	
+	height:585px;
+	margin: 0 auto;
 	background-image:url(../images/videoImages/merge.png);
 	background-position: 0px 0px;
 }
 
 #videoChoose {
-	width: 100%;
-	height: 100px;
-	background: yellow;
+	width: 972px;
+	height: 90px;
+	background: white;
 	position: absolute;
+	z-index: 100;
+	overflow: hidden;
+	margin-left: 25;
+}
+
+.video-button{
+	width: 230px;
+	height: 70px;
+	cursor: pointer;
+	margin: 10px;
+	background-image: url(../images/videoImages/button.png);
+	float: left;
+	padding-top: 25px;
+	text-align: center;
+	font-family: "微軟正黑體", "Microsoft JhengHei";
+}
+
+.video-button:hover{
+	background-image: url('../images/videoImages/button-p.png');
 }
 
 #introTop {
 	position: absolute;
-	top: 740px;
+	top: 830px;
 	left:2.5%;
 	width: 972px;
 	height: 16px;
@@ -53,7 +72,7 @@
 
 #introTop2 {
 	position: absolute;
-	top:855px;
+	top:945px;
 	left: 2.5%;
 	width:972px;
 	height: 16px;
@@ -63,7 +82,7 @@
 	
 #introMid { 
 	position: absolute;
-	top:580px;
+	top:670px;
 	left:2.5%;
 	width: 972px;
 	height:300px ;
@@ -73,7 +92,7 @@
 
 #intro {
 	position:absolute;
-	top:740px;
+	top:837px;
 	left:40px;
 	width:1024px;
 	height: 115px;
@@ -210,7 +229,7 @@
 
 #like_img {
 	position:absolute;
-	top:650px;
+	top:740px;
 	left:40px;	
 	width: 73px;
 	height: 73px;
@@ -219,24 +238,18 @@
 }
 
 #like_img:hover {
-	position:absolute;
-	top:650px;
-	left:40px;	
-	width: 73px;
-	height: 73px;
-	background-image:url(../images/videoImages/merge.png);
 	background-position: -96px -640px;
 }
 
 #c_huan {
 	position: absolute;
-	top:682px;
+	top:772px;
 	left:120px;
 }
 
 #love_img {
 	position:absolute;
-	top:650px;
+	top:740px;
 	left:170px;
 	width: 73px;
 	height: 73px;
@@ -245,18 +258,12 @@
 }
 
 #love_img:hover {
-	position:absolute;
-	top:650px;
-	left:170px;
-	width: 73px;
-	height: 73px;
-	background-image:url(../images/videoImages/merge.png);
 	background-position: -96px -736px;
 }
 
 #chau_c_huan {
 	position: absolute;
-	top: 682px;
+	top: 772px;
 	left: 250px;
 }
 
@@ -278,7 +285,7 @@
 
 #message {  
 	position:absolute;
-	top:677px;
+	top:767px;
 	left:320px;
 }
 #div1 {      /*浮動視窗的位子*/
@@ -288,7 +295,7 @@
 }
 #rating {
 	position: absolute;
-	top:680px;
+	top:770px;
 	left:530px;
 	width: 23px;
 	height: 19px;
@@ -298,7 +305,7 @@
 
 #rating2 {
 	position: absolute;
-	top:680px;
+	top:770px;
 	left:670px;
 	width: 50px;
 	height: 19px;
@@ -308,7 +315,7 @@
 
 #rating_number1 {
 	position: absolute;
-	top: 670px;
+	top: 760px;
 	left:550px;
 	height:30px;
 	width:100px;
@@ -316,7 +323,7 @@
 
 #rating_number2 {
 	position: absolute;
-	top: 670px;
+	top: 760px;
 	left:720px;
 	height:30px;
 	width:100px;
@@ -351,7 +358,7 @@
 
 #video_name {
 	position:absolute;
-	top:580px;
+	top:670px;
 	left:40px;
 	
 }

@@ -118,7 +118,7 @@ class AuthController extends BaseController {
 							$user->nick_name = $userProfile->getName();
 							$user->email = $userProfile->getProperty('email');
 							$user->high_school_id = HighSchool::first()->id;
-							$user->department_id = Department::first()->id;
+							$user->department_id = Department::first()->system_id;
 							$user->grade = 1;
 							$user->password = 'facebook';
 							$user->save();
@@ -246,7 +246,7 @@ class AuthController extends BaseController {
 
 	public function postRegister($user){
 		$role = Role::orderBy('id', 'DESC')->first();
-		$user->roles()->sync(array($role->id));
+		$user->roles()->sync(array('5'));
 
 		/*
 			add game user

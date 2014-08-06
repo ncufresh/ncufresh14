@@ -130,7 +130,7 @@
                           		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           		歡迎您加入本校的行列，為便利您到本校辦理各項事務，特印製本通知，希望您能詳細閱讀，並依規定準備所須資料，按時辦理各項新生事務。<br> 
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								此外，「103 學年度教務章則」(預定 8 月中旬上網)裡的各類法規關係著您在中大求學的點點滴滴，未來若有相關疑問，只要點選查詢馬上就能找到解答喔！順手把它加入我的最愛吧!<br> 
+								此外，「<font color="green">103 學年度教務章則</font>」(預定 8 月中旬上網)裡的各類法規關係著您在中大求學的點點滴滴，未來若有相關疑問，只要點選查詢馬上就能找到解答喔！順手把它加入我的最愛吧!<br> 
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								凡本校新生均須在規定時間內繳交各項新生資料，並依本通知之規定辦理各項事務，方為完成註冊手續。<br><br>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -183,12 +183,12 @@
                           		歡迎您加入本校的行列，為便利您到本校辦理各項事務，特印製本通知，希望您能詳細閱讀，並依規定準備所須資料，按時辦理各項新生事務。<br> 
 								
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								此外，「<a target="_blank" href="https://www.google.com.tw/?gfe_rd=cr&ei=FrbMU7iTO8jE4ALL24CgDw"><font color="green">103 學年度教務章則</font></a>」
+								此外，「<font color="green">103 學年度教務章則</font>」
 								(預定 8 月中旬上網)裡的各類法規關係著您在中大求學的點點滴滴，未來若有相關疑問，只要鍵入
-								 <a target="_blank" href="https://www.google.com.tw/?gfe_rd=cr&ei=FrbMU7iTO8jE4ALL24CgDw"><font color="green">http://pdc.adm.ncu.edu.tw/rule/rule103/rul103_index.html</font></a> 或至大一生活知訊網(
+								 <font color="green">http://pdc.adm.ncu.edu.tw/rule/rule103/rul103_index.html</font>或至大一生活知訊網(
 								 <a target="_blank" href="http://ncufresh.ncu.edu.tw"><font color="green">http://ncufresh.ncu.edu.tw</font></a>)，馬上就能找到解答喔！順手把它加入我的最愛吧!有關各學士班應修科目及畢業條件，轉入大二及大一休學復學生請參考「
-								 <a target="_blank" href="https://www.google.com.tw/?gfe_rd=cr&ei=FrbMU7iTO8jE4ALL24CgDw"><font color="blue"><b>102 學年度教務章則</b></font></a>」、轉入大三者請參考「
-								 <a target="_blank" href="https://www.google.com.tw/?gfe_rd=cr&ei=FrbMU7iTO8jE4ALL24CgDw"><font color="blue"><b>101 學年度教務章則</b></font></a>」。<br> 
+								 <a target="_blank" href="http://pdc.adm.ncu.edu.tw/rule/rule102/rul102_index.html"><font color="blue"><b>102 學年度教務章則</b></font></a>」、轉入大三者請參考「
+								 <a target="_blank" href="http://pdc.adm.ncu.edu.tw/rule/rule101/rul101_index.html"><font color="blue"><b>101 學年度教務章則</b></font></a>」。<br> 
 								
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								凡本校新生(含復學生、轉學生)均須在規定時間內繳交各項新生資料，並依本通知之規定辦理各項事務，方為完成註冊手續。<br>

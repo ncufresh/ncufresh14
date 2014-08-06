@@ -22,10 +22,10 @@ $(document).ready(function(){
 			draw();
 			$("body").css({"overflow-y":"hidden"});
 			$("#canvas").css({"z-index":"30"});
-			$("#egg").show(1000);
 			$(".arrow").show(1000);
 			$("#egg").css({"width":screen.width,"height":screen.height});
-			$("#clear").show(1);
+			$("#egg").show(1000);
+			$("#clear").show(20000);
 			}
 	});
 	
@@ -76,8 +76,23 @@ $(document).ready(function(){
 		   img.src = burl+'/images/SchoolGuide/fog.jpeg';
 	}
 
-	// $(".good").click(function(){
-	// 	ajaxPost(getTransferData('guide_good'),{good:good},'');
-	// });
+	$(".good").click(function(){
+		var good = $(this).data('id');
+		var id = $(this).data('placed_id');
+		console.log(good + ':'+ id);
+		ajaxPost(getTransferData('guide_good'),{id:id,good:good},function(data) {
+			console.log(data);
+			$('.word').text('無限期支持數' + data['count']);
+		});
+	});
+	$(".good2").click(function(){
+		var good = $(this).data('id');
+		var id = $(this).data('placed_id');
+		console.log(good + ':'+ id);
+		ajaxPost(getTransferData('guide_good'),{id:id,good:good},function(data) {
+			console.log(data);
+			$('.word2').text('支持數' + data['count']);
+		});
+	});
 	
 });
