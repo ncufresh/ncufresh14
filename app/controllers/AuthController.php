@@ -112,27 +112,33 @@ class AuthController extends BaseController {
 
 						return Redirect::intended('/');
 					}else{
-							//New user to the system, create user!
-							$user = new User();
-							$user->name = $userProfile->getName();
-							$user->nick_name = $userProfile->getName();
-							$user->email = $userProfile->getProperty('email');
-							$user->high_school_id = HighSchool::first()->id;
-							$user->department_id = Department::first()->system_id;
-							$user->grade = 1;
-							$user->password = 'facebook';
-							$user->save();
+						//New user to the system, create user!
+						if($userProfile->getProperty('email') == null){
+							$userProfile = (new Facebook\FacebookRequest(
+								$session, 'DELETE', '/me/permissions'
+							))->execute();
+							return Redirect::to('register')->with('alert-message', '您必須提供您的email才可以登入');
+						}
+						$user = new User();
+						$user->name = $userProfile->getName();
+						$user->nick_name = $userProfile->getName();
+						$user->email = $userProfile->getProperty('email');
+						$user->high_school_id = HighSchool::first()->id;
+						$user->department_id = Department::first()->system_id;
+						$user->grade = 1;
+						$user->password = 'facebook';
+						$user->save();
 
-							$facebookData = new FacebookData;
-							$facebookData->uid = $uid;
-							$facebookData->user_id = $user->id;
+						$facebookData = new FacebookData;
+						$facebookData->uid = $uid;
+						$facebookData->user_id = $user->id;
 
-							$facebookData->save();
+						$facebookData->save();
 
-							$this->postRegister($user);
+						$this->postRegister($user);
 
-							Auth::login($user);
-							return Redirect::route('register.FB');
+						Auth::login($user);
+						return Redirect::route('register.FB');
 					}
 				}else{
 					//Exist user. go Login.
