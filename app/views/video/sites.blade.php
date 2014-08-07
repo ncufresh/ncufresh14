@@ -51,8 +51,8 @@
 	<div id="messageBG"></div>
 	<div id="messageBG2"></div>
 	<a href="{{ route('user.id', array('id' => $message ->user->id)) }}"><img src="{{ route('personface',array('id' => $message->user_id )) }}" id="portrait"></a>
-	<div id= "div_message" style="width:720px; height:170px;">{{nl2br($message["video_text"])}}</div>
-	<div id ="div_name"><font color = "#7DB7A1">{{ $message->user->name }}</font></div>
+	<div id= "div_message" style="width:720px; height:170px;">{{{ nl2br($message["video_text"]) }}}</div>
+	<div id ="div_name"><font color = "#7DB7A1">{{{ $message->user->name }}}</font></div>
 	</div>
 </div>
 
