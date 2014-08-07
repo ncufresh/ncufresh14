@@ -719,7 +719,7 @@ $(document).ready(function(){
 				$('<div class="col-sm-3"><img src="'+burl+'/images/gameSnake/'+(parseInt(index)+1)+'.png" width="30px" height="30px"></div>').appendTo(row);
 			else
 				$('<div class="col-sm-3"><img src="'+burl+'/images/gameSnake/'+(parseInt(index)+1)+'.png" width="40px" height="30px"></div>').appendTo(row);
-			$('<div class="col-sm-5">'+data[index]['user']['name']+'</div>').appendTo(row);
+			$('<div class="col-sm-5"></div>').text(data[index]['user']['name']).appendTo(row);
 			$('<div class="col-sm-4">'+ data[index]['highscore'] +'</div>').appendTo(row);
 			if(index < 15)
 			{
