@@ -59,8 +59,8 @@
 @endforeach
 {{$messages->links();}} 
 <div id ="frame3"></div>
-<!--@if($errors -> any())
+@if($errors -> any())
 	<script>{{"alert('".$errors -> first()."');"}}</script>
-@endif-->
+@endif
 <iframe id="konami" style="display: none;"width="540" height="360" src="//www.youtube.com/embed/r7Kf6W4LBBk" frameborder="0" allowfullscreen></iframe>
 @stop
