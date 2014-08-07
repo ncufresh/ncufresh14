@@ -21,6 +21,9 @@ class VideoController extends BaseController {
 		$videoRating2 = Video::find(1)->getRating()->where('video_rate', '=', '1')->count();
 		$video = Video::find(1);
 
+		$video->video_population += 1;
+		$video->save();
+
 		return View::make('video.sites', array('messages' => $data,'getLike' => $videoRating1 , 'getLove' =>$videoRating2 ,'video' =>$video
 			));
 	}
