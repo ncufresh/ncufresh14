@@ -300,6 +300,16 @@ class ArticlesController extends BaseController{
 
 		$article = Forum::find($id);
 
+		if(is_null($article)){
+
+			return View::make('forum/articles',array(
+
+				'isLogin' => Auth::check(),
+				'type' => 'new' ,
+				'page' => 1
+			));
+		}
+
 		$siteMap->pushLocation($article->title, route('perArticle',array('id'=>$id,'type'=>$type,'page'=>$page)));
 
 		$comments = $article->comment;
