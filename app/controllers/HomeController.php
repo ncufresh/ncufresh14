@@ -31,7 +31,7 @@ class HomeController extends BaseController {
 
 	public function errorPage(){
 		$message = Session::get('message', 'Unknown error');
-		return View::make('error.index', array('message' => $message));
+		return View::make('errors.index', array('message' => $message));
 	}
 
 	public function imageUpload(){
