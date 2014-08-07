@@ -706,10 +706,9 @@ $(document).ready(function(){
 		var top = $('<div class="top row"></div>');
 		var left = $('<div class="left col-sm-5"></div>').appendTo(top);
 		var right = $('<div class="right col-sm-5 col-sm-offset-1"></div>').appendTo(top);
-
-		var title = $('<div class="title row"><div class="col-sm-3">排名</div><div class="col-sm-4">玩家</div><div class="col-sm-5">分數</div></div>');
+		var title = $('<div class="title row"><div class="col-sm-3">排名</div><div class="col-sm-5">玩家</div><div class="col-sm-4">分數</div></div>');
 		title.appendTo(left);
-		title = $('<div class="title row"><div class="col-sm-3">排名</div><div class="col-sm-4">玩家</div><div class="col-sm-5">分數</div></div>');
+		title = $('<div class="title row"><div class="col-sm-3">排名</div><div class="col-sm-5">玩家</div><div class="col-sm-4">分數</div></div>');
 		title.appendTo(right);
 
 		for(index in data)
@@ -720,8 +719,8 @@ $(document).ready(function(){
 				$('<div class="col-sm-3"><img src="'+burl+'/images/gameSnake/'+(parseInt(index)+1)+'.png" width="30px" height="30px"></div>').appendTo(row);
 			else
 				$('<div class="col-sm-3"><img src="'+burl+'/images/gameSnake/'+(parseInt(index)+1)+'.png" width="40px" height="30px"></div>').appendTo(row);
-			$('<div class="col-sm-4">'+data[index]['user']['name']+'</div>').appendTo(row);
-			$('<div class="col-sm-5">'+ data[index]['highscore'] +'</div>').appendTo(row);
+			$('<div class="col-sm-5">'+data[index]['user']['name']+'</div>').appendTo(row);
+			$('<div class="col-sm-4">'+ data[index]['highscore'] +'</div>').appendTo(row);
 			if(index < 15)
 			{
 				row.appendTo(left);
