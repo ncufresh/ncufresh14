@@ -31,4 +31,18 @@ class AdminController extends BaseController {
 
 		//return Redirect::route('dashboard')->with('alert-message', 'Done run git pull on '.base_path());
 	}
+
+	public function secretReplace(){
+		$forums = Forum::all();
+		foreach($forums as $forum){
+			$forum->content = str_replace('http://ncufreshlocal.weigreen.com/', 'http://ncufresh.ncu.edu.tw/', $forum->content);
+			$forum->save();
+		}
+		$schoolGuides = Schoolguide::all();
+
+		foreach($schoolGuides as $schoolGuide){
+			$schoolGuide->introduction = str_replace('http://ncufresh14.weigreen.com/', 'http://ncufresh.ncu.edu.tw/', $schoolGuide->introduction);
+			$schoolGuide->save();
+		}
+	}
 }

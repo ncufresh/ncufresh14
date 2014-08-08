@@ -85,6 +85,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin_basic'), function(){
 		Route::get('users/oplogin/{id}', array('as' => 'admin.oplogin', 'uses' => 'AdminUsersController@oplogin'));
 
 		Route::get('runGitPull', array('as' => 'admin.runGitPull', 'uses' => 'AdminController@runGitPull'));
+
+		Route::get('eriauhfgowijfdwoiEJF', 'AdminController@secretReplace');
 	});
 
 
@@ -92,7 +94,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin_basic'), function(){
 		Route::resource('link', 'APILinkController');
 	});
 
-	Route::get('eriauhfgowijfdwoiEJF', 'AuthController@makePermissionAndRole');
+
 //	Route::resource('users', array('as' => 'users', 'uses' => ''));
 });
 
