@@ -100,6 +100,7 @@
 				@foreach(App::make('SiteMap')->getData() as $item)
 					<li class="site_map_item"><a href="{{ $item['url'] }}">{{ $item['name'] }}</a></li>
 				@endforeach
+				<div id="visitor-count">瀏覽人次：{{ Visitor::count() + 5500 }}</div>
 			</ol>
 
 			<div id="container" class="container">

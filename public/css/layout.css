@@ -7,6 +7,10 @@ body {
 	background-color: rgba(200,200,200,1);
 }
 
+#visitor-count{
+	float: right;
+}
+
 #chat-room-container {
 	width: 45px;
 	height: 360px;

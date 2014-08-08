@@ -123,6 +123,7 @@ return array(
 		'BrainSocket\BrainSocketServiceProvider',
 		'Fitztrev\LaravelHtmlMinify\LaravelHtmlMinifyServiceProvider',
 		'hisorange\BrowserDetect\Provider\BrowserDetectService',
+		'Weboap\Visitor\VisitorServiceProvider',
 
 
 	),

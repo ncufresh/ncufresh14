@@ -127,6 +127,7 @@ App::missing(function($exception)
 
 App::before(function($request)
 {
+	Visitor::log();
 	if(BrowserDetect::isIEVersion(7, true)){
 		return View::make('ie.index');
 
