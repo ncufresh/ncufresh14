@@ -221,4 +221,11 @@ textarea.commentTextArea{
 	top: 1%;
 	left: 1%;
 }
+.comment_number{
+	position: relative;
+	left: 95%;
+	top: 4px;
+	display: table;
+	color: #FFFFFF;
+}
 
