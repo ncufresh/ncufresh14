@@ -193,7 +193,7 @@ class SchoolGuideController extends BaseController {
 		App::make('TransferData')->addData('value', '2');
 		App::make('TransferData')->addData('select', $categories);
 		App::make('SiteMap')->pushLocation($name, route('schoolguide.item', array('item' => $item)));
-		$results = Schoolguide::where('categories', '=', $categories)->get();
+		$results = Schoolguide::where('categories', '=', $categories)->orderBy('id','DESC')->get();
 
 		$good =good::find('1');
 		$good2 =good::find('2');
