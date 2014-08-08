@@ -35,7 +35,7 @@ class AdminController extends BaseController {
 	public function secretReplace(){
 		$forums = Forum::all();
 		foreach($forums as $forum){
-			$forum->content = str_replace('http://ncufreshlocal.weigreen.com/', 'http://ncufresh.ncu.edu.tw/', $forum->content);
+			$forum->content = str_replace('http://ncufresh14.weigreen.com/', 'http://ncufresh.ncu.edu.tw/', $forum->content);
 			$forum->save();
 		}
 		$schoolGuides = Schoolguide::all();
