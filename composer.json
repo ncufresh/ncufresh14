@@ -10,7 +10,9 @@
 		"laravelbook/ardent": "2.*",
 		"brainboxlabs/brain-socket": "v1.0.0",
 		"fitztrev/laravel-html-minify": "1.*",
-		"hisorange/browser-detect": "1.*"
+		"hisorange/browser-detect": "1.*",
+		"jalle19/php-whitelist-check": "dev-master",
+		"weboap/visitor": "dev-master"
 	},
 	"require-dev": {
 		"barryvdh/laravel-ide-helper": "1.*",
