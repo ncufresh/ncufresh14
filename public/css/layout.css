@@ -7,18 +7,33 @@ body {
 	background-color: rgba(200,200,200,1);
 }
 
+#visitor-count{
+	float: right;
+}
+
 #chat-room-container {
 	width: 45px;
 	height: 360px;
 	position: fixed;
 	top: 100px;
 	right: 0px;
+	z-index: 10;
 }
 
 #chat-room {
 	width: 275px;
 	position: absolute;
 	right: -230px;
+}
+
+#chat-room-notification{
+	width: 50px;
+	color: red;
+	display: none;
+	font-size: 24px;
+	position: absolute;
+	margin-top: -27px;
+	margin-left: 11px;
 }
 
 #chat-room .container {

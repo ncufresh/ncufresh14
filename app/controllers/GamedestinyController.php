@@ -19,13 +19,14 @@ class GamedestinyController extends BaseController {
 			$user->power = $user->power - 1;
 			$user->save();
 			$giftType = $this->getGift($user);
-			$user["play"] = true;
 			$randomGp = 0;	//?
 			if ( $giftType == 11 ) {
 				$randomGp = rand(250, 2500);
 				$user->gp += $randomGp;
 				$user->save();
 			}
+
+			$user["play"] = true;
 			return Response::json(array('user' => $user->toArray(), 'gift' => $giftType, 'randomGp' => $randomGp));
 		}
 		$user["play"] = false;
@@ -35,7 +36,7 @@ class GamedestinyController extends BaseController {
 	private function getGift($user)
 	{
 		$rand = rand(0, 100);
-		$probaility = [12.5, 12.5, 12.5, 12.5, 12.5, 12.5, 5, 1, 0.5, 0.5, 1, 1, 5, 1, 5, 5];
+		$probaility = [12.5, 12.5, 12.5, 12.5, 12.5, 12.5, 5, 1, 0.5, 0.5, 1, 1, 5, 1, 5, 5, 0];
 		$giftsType = [13, 14, 15, 16, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 		$probCount = $probaility[0];
 		$index = 0;
@@ -72,7 +73,7 @@ class GamedestinyController extends BaseController {
 			    $buy->item_id = $shop[$getIndex]->id;
 				$buy->save();*/
 				$shop = Gameitem::where('type', '=', rand(0, 4))->get();
-				$getIndex = rand(0, $shop->count());
+				$getIndex = rand(0, $shop->count()-1);
 				if ( GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, $shop[$getIndex]->id) )->count() == 0 ) {
 					$buy = new GameBuy;
 					$buy->user_id = $user->id;
@@ -87,7 +88,7 @@ class GamedestinyController extends BaseController {
 			case 6:
 				//equip
 				$shop = Gameitem::where('type', '=', rand(0, 4))->get();
-				$getIndex = rand(0, $shop->count());
+				$getIndex = rand(0, $shop->count()-1);
 				if ( GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, $shop[$getIndex]->id) )->count() == 0 ) {
 					$buy = new GameBuy;
 					$buy->user_id = $user->id;
@@ -102,7 +103,7 @@ class GamedestinyController extends BaseController {
 			case 7:
 				//equip
 				$shop = Gameitem::where('type', '=', rand(0, 4))->get();
-				$getIndex = rand(0, $shop->count());
+				$getIndex = rand(0, $shop->count()-1);
 				if ( GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, $shop[$getIndex]->id) )->count() == 0 ) {
 					$buy = new GameBuy;
 					$buy->user_id = $user->id;
@@ -125,7 +126,7 @@ class GamedestinyController extends BaseController {
 			    $buy->item_id = $shop[$getIndex]->id;
 				$buy->save();*/
 				$shop = Gameitem::where('type', '=', 5)->get();
-				$getIndex = rand(0, $shop->count());
+				$getIndex = rand(0, $shop->count()-1);
 				if ( GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, $shop[$getIndex]->id) )->count() == 0 ) {
 					$buy = new GameBuy;
 					$buy->user_id = $user->id;
@@ -153,7 +154,7 @@ class GamedestinyController extends BaseController {
 			    $buy->item_id = $shop[$getIndex]->id;
 				$buy->save();*/
 				$shop = Gameitem::where('type', '=', 4)->get();
-				$getIndex = rand(0, $shop->count());
+				$getIndex = rand(0, $shop->count()-1);
 				if ( GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, $shop[$getIndex]->id) )->count() == 0 ) {
 					$buy = new GameBuy;
 					$buy->user_id = $user->id;

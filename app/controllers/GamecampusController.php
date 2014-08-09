@@ -32,6 +32,9 @@ class GamecampusController extends BaseController {
 					$isrepeat = false;
 					$number = rand(1, $question_number);
 					$question = GameCampus::find($number);
+					if ( $question == NULL ) {
+						$isrepeat = true;
+					}
 					for ( $j = 0; $j < $i; $j++ ) {
 						if ( $number == $data[$j]->id && ( $question->type == $data[$j]->type && $question->answer_id == $data[$j]->answer_id) ) {
 							$isrepeat = true;
@@ -63,6 +66,8 @@ class GamecampusController extends BaseController {
 		else {
 			$question = '';
 			$exit = true;
+			$gameUser->gp += $score;
+			$gameUser->save();
 		}
 		if ( Input::get('index') == $questions[$questionID]['answer_id']) {
 			if ( $life > 0 ) {
@@ -83,13 +88,15 @@ class GamecampusController extends BaseController {
 			$life--;
 			if ( $life <=  0 ) {
 				$exit = true;
+				$gameUser->gp += $score;
+				$gameUser->save();
 			}
 			Session::forget('life');
 			Session::put('life', $life);
 			Session::forget('index');
 			Session::put('index', $questionID + 1);
 			Session::forget('nextscore');
-				Session::put('nextscore', 20);
+			Session::put('nextscore', 20);
 			return Response::json(array('user' => $gameUser->toArray(), 'isRight' => false, 'score' => $score, 'question' => $question, 'exit' => $exit));
 		}
 	}

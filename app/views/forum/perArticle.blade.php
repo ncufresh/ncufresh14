@@ -1,8 +1,8 @@
 @extends('../layouts/layout')
 
 @section('js_css')
-	{{ HTML::style('css/perArticle.css') }}
-	{{ HTML::script('js/forum/perArticle.js') }}
+	{{ HTML::style('css/perArticle.min.css') }}
+	{{ HTML::script('js/forum/perArticle.min.js') }}
 @stop
 
 @section('content')

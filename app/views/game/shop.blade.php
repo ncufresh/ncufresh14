@@ -1,9 +1,9 @@
 @extends('game.layout')
 
 @section('js_css')
-	{{ HTML::style('css/game.css') }}
-	{{ HTML::script('js/game/game.js') }}
-	{{ HTML::script('js/game/shop.js') }}
+	{{ HTML::style('css/game.min.css') }}
+	{{ HTML::script('js/game/game.min.js') }}
+	{{ HTML::script('js/game/shop.min.js') }}
 	<script>
 		var bURL = {{ json_encode(asset('')) }};
 		var disply_item_data = {{ json_encode($shop->toArray()) }};
@@ -55,7 +55,7 @@
 				<!--special-->
 				<div class="gameShopItemSpecial">
 					<img id="gameShopItemImageSpecial" src="{{asset("images/gameShop/special/half.png" )}}" itemId="{{$special["id"]}}"/>
-					<div class="gameShopItemText">{{$special["costgp"]}}</div>
+					<div class="gameShopItemText">gp {{$special["costgp"]}}</div>
 					@foreach( $hadBuyItems as $buyItem )
 						<?php $isBuy = false; ?>
 						@if ( $buyItem["item_id"] == $special["id"])
@@ -80,7 +80,7 @@
 							<div class="gameShopItem">
 						@endif
 								<img class="gameShopItemImage" src="{{asset("images/gameShop/" . $item["picture"] )}}" itemId="{{$item["id"]}}"/>
-								<div class="gameShopItemText">{{ $item["costgp"] }}</div>
+								<div class="gameShopItemText">gp {{ $item["costgp"] }}</div>
 								@foreach( $hadBuyItems as $buyItem )
 									<?php $isBuy = false; ?>
 									@if ( $buyItem["item_id"] == $item["id"])

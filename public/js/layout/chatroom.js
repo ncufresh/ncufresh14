@@ -69,13 +69,21 @@ $(function(){
 		}
 		isChatroomOpen = !isChatroomOpen;
 	});
+
+		$('#chat-room-container').mouseover(function(){
+			if(isChatroomOpen){
+				$('#chat-room-notification').fadeOut();
+			}
+		});
+
 	function displayMessage(name, message, type){
 		//0 default 1 success 2 error
 		var spanName = $('<span class="chat-name"></span>').text(name + '：');
 		var spanMessage = $('<span class="chat-message"></span>').text(message);
 		var divRow = $('<div class="chat-row"></div>').append(spanName).append(spanMessage);
 		$('#chat-log').append(divRow);
-		$('#chat-log').scrollTop($('#chat-log').height()*2)
+		$('#chat-log').scrollTop($('#chat-log').height()*2);
+		$('#chat-room-notification').fadeIn();
 
 	}
 	}else{

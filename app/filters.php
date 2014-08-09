@@ -96,7 +96,7 @@ Route::filter('admin_editor', function(){
 });
 
 Route::filter('admin_advance', function(){
-	if(! (Entrust::can('manage_calender') && Entrust::can('manage_announcement') && Entrust::can('manage_link'))){
+	if(! (/*Entrust::can('manage_calender') && */Entrust::can('manage_announcement') && Entrust::can('manage_link'))){
 		return Redirect::to('/');
 	}
 });

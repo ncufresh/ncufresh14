@@ -6,7 +6,7 @@
 			<a id="gameShop" href="{{ route('game.shop') }}"></a>
 			<a id="gameRoom" href="{{ route('game') }}"></a>
 			<div id="userNameImage"></div>
-			<div class="gameInfoText" id="userName">{{ $name }}</div>
+			<div class="gameInfoText" id="userName">{{{ $name }}}</div>
 			<div id="userPowerImage"></div>
 			<div class="gameInfoText" id="userPower" > 
 				<div id="powerBox" style="background: url('{{asset("images/gameIndex/power/" . $user["power"] . ".png")}}') no-repeat;">

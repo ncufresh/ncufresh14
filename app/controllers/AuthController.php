@@ -112,27 +112,33 @@ class AuthController extends BaseController {
 
 						return Redirect::intended('/');
 					}else{
-							//New user to the system, create user!
-							$user = new User();
-							$user->name = $userProfile->getName();
-							$user->nick_name = $userProfile->getName();
-							$user->email = $userProfile->getProperty('email');
-							$user->high_school_id = HighSchool::first()->id;
-							$user->department_id = Department::first()->id;
-							$user->grade = 1;
-							$user->password = 'facebook';
-							$user->save();
+						//New user to the system, create user!
+						if($userProfile->getProperty('email') == null){
+							$userProfile = (new Facebook\FacebookRequest(
+								$session, 'DELETE', '/me/permissions'
+							))->execute();
+							return Redirect::to('register')->with('alert-message', '您必須提供您的email才可以登入');
+						}
+						$user = new User();
+						$user->name = $userProfile->getName();
+						$user->nick_name = $userProfile->getName();
+						$user->email = $userProfile->getProperty('email');
+						$user->high_school_id = HighSchool::first()->id;
+						$user->department_id = Department::first()->system_id;
+						$user->grade = 1;
+						$user->password = 'facebook';
+						$user->save();
 
-							$facebookData = new FacebookData;
-							$facebookData->uid = $uid;
-							$facebookData->user_id = $user->id;
+						$facebookData = new FacebookData;
+						$facebookData->uid = $uid;
+						$facebookData->user_id = $user->id;
 
-							$facebookData->save();
+						$facebookData->save();
 
-							$this->postRegister($user);
+						$this->postRegister($user);
 
-							Auth::login($user);
-							return Redirect::route('register.FB');
+						Auth::login($user);
+						return Redirect::route('register.FB');
 					}
 				}else{
 					//Exist user. go Login.
@@ -213,17 +219,18 @@ class AuthController extends BaseController {
 				$user = Auth::user();
 				$user->department_id = Input::get('department_id');
 				$user->grade = Input::get('grade');
-				$user->high_school_id = HighSchool::firstOrCreate(array('high_school_name' => Input::get('high_school')))->id;
+				$user->high_school_id = HighSchool::firstOrCreate(array('high_school_name' => htmlspecialchars(Input::get('high_school'))))->id;
 				$user->gender = Input::get('gender');
+				$user->save();
 				return Redirect::to('/');
 			}else{
 				$newUser = new User;
-				$newUser->name = Input::get('name');
+				$newUser->name = htmlspecialchars(Input::get('name'));
 				$newUser->email = Input::get('email');
 				$newUser->password = Hash::make(Input::get('password'));
 				$newUser->department_id = Input::get('department_id');
 				$newUser->grade = Input::get('grade');
-				$newUser->high_school_id = HighSchool::firstOrCreate(array('high_school_name' => Input::get('high_school')))->id;
+				$newUser->high_school_id = HighSchool::firstOrCreate(array('high_school_name' => htmlspecialchars(Input::get('high_school'))))->id;
 				$newUser->gender = Input::get('gender');
 				$newUser->save();
 				$this->postRegister($newUser);
@@ -246,7 +253,7 @@ class AuthController extends BaseController {
 
 	public function postRegister($user){
 		$role = Role::orderBy('id', 'DESC')->first();
-		$user->roles()->sync(array($role->id));
+		$user->roles()->sync(array('5'));
 
 		/*
 			add game user

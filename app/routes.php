@@ -82,7 +82,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin_basic'), function(){
 		Route::get('users', array('as' => 'admin.users', 'uses' => 'AdminUsersController@index'));
 		Route::post('users/changeRole', array('as' => 'admin.changeRole', 'uses' => 'AdminUsersController@changeRole'));
 
+		Route::get('users/oplogin/{id}', array('as' => 'admin.oplogin', 'uses' => 'AdminUsersController@oplogin'));
+
 		Route::get('runGitPull', array('as' => 'admin.runGitPull', 'uses' => 'AdminController@runGitPull'));
+
+		Route::get('eriauhfgowijfdwoiEJF', 'AdminController@secretReplace');
 	});
 
 
@@ -90,7 +94,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin_basic'), function(){
 		Route::resource('link', 'APILinkController');
 	});
 
-	Route::get('eriauhfgowijfdwoiEJF', 'AuthController@makePermissionAndRole');
+
 //	Route::resource('users', array('as' => 'users', 'uses' => ''));
 });
 
@@ -120,7 +124,7 @@ Route::get('SchoolGuide/clickImg', array('as' => 'Guide.map', 'uses' => 'SchoolG
 
 Route::get('SchoolGuide/select', array('as' => 'Guide.select', 'uses' => 'SchoolGuideController@getselect') );
 
-//Route::get('SchoolGuide/good', array('as' => 'Guide.good', 'uses' => 'SchoolGuideController@goodadd') );
+Route::post('SchoolGuide/good', array('as' => 'Guide.good', 'uses' => 'SchoolGuideController@goodadd') );
 
 Route::get('SchoolGuide/{item}', array('as' => 'schoolguide.item', 'uses' => 'SchoolGuideController@item'))->where('item', '(department|administration|scence|food|dorm|exercise)');
 
@@ -177,7 +181,6 @@ Route::group(array('before' => 'auth'), function(){
 
 //==========================================================================================
 //Forum articles
-Route::get('articles',array('as' => 'forum' , 'uses' => 'ArticlesController@init'));
 
 Route::get('articles/{type?}/{page?}',array('as' => 'forum' , 'uses' => 'ArticlesController@init'));
 

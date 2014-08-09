@@ -19,9 +19,9 @@
 			<h1 id="title1">最佳夫妻同心協力組合</h1>
 			<span id="pineapple"></span>
 			<span id="vicky"></span>
-			{{Form::hidden('id','1')}}
-			<img class="good" src="{{asset('images/SchoolGuide/good.png')}}">
-			<span class="word">無限期支持<!-- {{$users->count}} --></span>
+			<img class="good" src="{{asset('images/SchoolGuide/good.png')}}" 
+			data-id="{{$good->count}}" data-placed_id="1">
+			<span class="word">無限期支持數{{$good->count}}</span>
 		</div>
 		<div id="part2">
 
@@ -29,9 +29,8 @@
 			<h1 id="title2">最佳永久性福組合</h1>
 			<span id="wan"></span>
 			<span id="hand"></span>
-			<!-- {{Form::hidden('id','2')}}
-			<img class="good" src="{{asset('images/SchoolGuide/good.png')}}"> -->
-			<h1>支持</h1>
+			<img class="good2" src="{{asset('images/SchoolGuide/good.png')}}" data-id="{{$good2->count}}" data-placed_id="2">
+			<span class="word2">支持數{{$good2->count}}</span>
 		</div>
 </div>
 <div id="bigcontent">
@@ -63,7 +62,7 @@
 				<div id = "Buttom"></div>
 				<div class="pointer">
 					<div data-id = "62" id="Zhidao" title="志道樓" class="item school" ></div>
-					<div data-id = "28" id="G14" title="女十四" class="item dorm" ></div>
+					<div data-id = "72" id="G14" title="女十四" class="item dorm" ></div>
 					<div data-id = "28" id="tennis" title="網球場" class="item exercise" ></div>
 					<div data-id = "59" id="G5" title="女五" class="item dorm" ></div>
 					<div data-id = "11" id="G14-ground" title="女十四廣場" class="item scence" ></div>	

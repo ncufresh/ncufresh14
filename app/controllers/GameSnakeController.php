@@ -30,11 +30,11 @@ class GameSnakeController extends BaseController
 			
 			$muti = 1;
 			$hadbuy = GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, 29) )->count();
-			if ( $hadbuy != 0 ) {	//had buy ATM
+			if ( $hadbuy != 0 ) {
 				$muti = 1.25;
 			}
 			$hadbuy = GameBuy::whereRaw('user_id = ? and item_id = ?', array($user->id, 29) )->count();
-			if ( $hadbuy != 0 ) {	//had buy ATM
+			if ( $hadbuy != 0 ) {
 				$muti = 1.5;
 			}
 
@@ -43,19 +43,17 @@ class GameSnakeController extends BaseController
 			$user->save();
 
 			$snake = new GameSnake;
-			$snake->user_id = $user->id;
+			$snake->user_id = Auth::user()['id'];
 			$snake->mode = $mode;
 			$snake->highscore = $score;
 			$snake->save();
 		}
-		// $highscore = GameSnake::modes($mode)->orderBy('highscore', 'DESC')->with('user')->take(10)->get();
 	}
 
 	public function getHighScore()
 	{
 		$mode = Input::get('mode');
 		$highscore = GameSnake::modes($mode)->orderBy('highscore', 'DESC')->with('user')->take(30)->get();
-		// return Response::json('highscore' => $highscore->toArray());
 		return Response::json( $highscore );
 	}
 

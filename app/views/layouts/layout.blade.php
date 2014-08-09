@@ -3,8 +3,8 @@
 		<title>2014大一生活知訊網</title>
 		<meta property="og:title" content="2014大一生活知訊網">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="http://ncufresh14.weigreen.com/">
-		<meta property="og:image" content="http://ncufresh14.weigreen.com/images/banner-s.png" />
+		<meta property="og:url" content="http://ncufresh.ncu.edu.tw/">
+		<meta property="og:image" content="http://ncufresh.ncu.edu.tw/images/banner-s.png" />
 		<meta property="og:image:type" content="image/png" />
 		<meta property="og:site_name" content="2014大一生活知訊網" />
 		<meta property="og:description" content="對未來的大學生活充滿期待嗎? 或是對中大有著什麼疑問呢? 那就別再考慮了 快來新鮮人專屬的 大一生活知訊網看看吧!" />
@@ -47,7 +47,7 @@
 			{{ HTML::style('css/ie9.css') }}
 		@endif
 
-		@if(Request::server('SERVER_IP') == '140.115.184.136' && Config::get('app.debug') == false)
+		@if(Request::server('SERVER_NAME') == 'ncufresh.ncu.edu.tw')
 			{{ HTML::script('js/ga.js') }}
 		@endif
 
@@ -100,6 +100,7 @@
 				@foreach(App::make('SiteMap')->getData() as $item)
 					<li class="site_map_item"><a href="{{ $item['url'] }}">{{ $item['name'] }}</a></li>
 				@endforeach
+				<div id="visitor-count">瀏覽人次：{{ Visitor::count() + 5500 }}</div>
 			</ol>
 
 			<div id="container" class="container">
