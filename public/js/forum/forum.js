@@ -41,7 +41,7 @@ $(function(){
 	initType = $("#initType").attr("direct");
 	initPage = $("#initPage").attr("direct");
 
-
+	$.pushLocation("", "/articles/"+initType+"/"+initPage, {full: false});
 	if(initType =="new"){
 		$("#articleTab").parent().addClass("active");
 		initTab = "#Test1";
@@ -334,7 +334,7 @@ function countLines(str){
 	return str.split("<br>").length;
 }
 
-function showArticles(authorName,authorId,createdAt,articleId,title,content,target,type,page){
+function showArticles(authorName,authorId,createdAt,articleId,title,content,comment_number,target,type,page){
 
 	var multiContent = "";
 
@@ -361,6 +361,7 @@ function showArticles(authorName,authorId,createdAt,articleId,title,content,targ
 			<div class='panel panel-default articleBody'>\
 				<div class='panel-heading'>\
 					<a href='"+perArticleUrl+"/"+articleId+"/"+type+"/"+page+"'><h3 class='panel-title'>"+title+"</h3></a>\
+					<a href='"+perArticleUrl+"/"+articleId+"/"+type+"/"+page+"' class='comment_number'>"+comment_number+"則回覆</a>\
 				</div>\
 				<div class='personalImageBox' >\
 					<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
@@ -406,6 +407,7 @@ function insertArticle(authorName,authorId,currentTime,articleId,title,content,t
 				<div class='panel panel-default articleBody'>\
 					<div class='panel-heading forumTitleBox'>\
 						<a href='"+perArticleUrl+"/"+articleId+"'><h3 class='panel-title'>"+title+"</h3></a>\
+						<a href='"+perArticleUrl+"/"+articleId+"' class='comment_number'>0則回覆</a>\
 					</div>\
 					<div class='personalImageBox' >\
 						<img class='personalImage' src='"+burl+"/person/"+authorId+"'>\
@@ -471,10 +473,12 @@ function getArticles(type,page,target){
 					data['data'][i]['id'],
 					data['data'][i]['title'],
 					data['data'][i]['content'].replace(/\n/g,"<br>"),
+					data['data'][i]['comment_number'],
 					target,
 					type,
 					page
 				);
+				console.log(data['data'][i]);
 			}
 			pageGenerate(pageLocation,data.last_page);
 
@@ -551,6 +555,7 @@ function pageGenerate(current,last){
 	$(".page").click(function(e){
 		e.preventDefault();
 		pageLocation = $(this).html();
+		$.pushLocation("", '/articles/'+tabLocation+"/"+pageLocation, {full: false});
 		switch(tabLocation){
 			case "new":
 				$("#Test1 .articleContainer").remove();	
