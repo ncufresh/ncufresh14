@@ -48,7 +48,7 @@
 						<a href="#a4"><div class="ResearchButtonD"></div></a>
 					</div>
 					<div>
-						<a href="#a5"><div class="ResearchButtonE"></div></a>
+						<a href="http://140.115.185.138/ncuosafresh/military.php" target="_blank"><div class="ResearchButtonE"></div></a>
 					</div>
 					<div>
 						<a href="#a6"><div class="ResearchButtonF"></div></a>
@@ -82,7 +82,7 @@
 						<a href="#b4"><div class="FreshmanButtonD"></div></a>
 					</div>
 					<div>	
-						<a href="#b5"><div class="FreshmanButtonE"></div></a>
+						<a href="http://140.115.185.138/ncuosafresh/military.php" target="_blank"><div class="FreshmanButtonE"></div></a>
 					</div>
 					<div>	
 						<a href="#b6"><div class="FreshmanButtonF"></div></a>
